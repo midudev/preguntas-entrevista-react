@@ -728,7 +728,26 @@ class ErrorBoundary extends React.Component {
 
 De esta forma podemos capturar los errores que se producen en el árbol de componentes y mostrar un mensaje de error personalizado mientras evitamos que nuestra aplicación se rompa completamente.
 
+Ahora podemos envolver el árbol de componentes con el componente `ErrorBoundary`:
+
+```jsx
+<ErrorBoundary>
+  <App />
+</ErrorBoundary>
+```
+
 Podemos crear un Error Boundary en cualquier nivel del árbol de componentes, de esta forma podemos tener un control más granular de los errores.
+
+```jsx
+<ErrorBoundary>
+  <App />
+  <ErrorBoundary>
+    <SpecificComponent />
+  </ErrorBoundary>
+</ErrorBoundary>
+```
+
+Por ahora no existe una forma nativa de crear un Error Boundary en una función de React. Para crear un Error Boundary en una función, puedes usar la librería [react-error-boundary](https://github.com/bvaughn/react-error-boundary).
 
 ---
 
