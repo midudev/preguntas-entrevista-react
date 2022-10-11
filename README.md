@@ -26,9 +26,9 @@ Fue creada en 2011 por Jordan Walke, un ingeniero de software que trabajaba en F
 Es una biblioteca muy popular y es usada por muchas empresas como Facebook, Netflix, Airbnb, Twitter, Instagram, etc.
 
 Enlaces de interés:
-- [Introduction to React.js](https://www.youtube.com/watch?v=XxVg_s8xAms)
 - [Curso de React.js](https://midu.link/react)
-- [Documentación oficial de React]([https://react](https://es.reactjs.org/))
+- [Documentación oficial de React en Español](https://es.reactjs.org/)
+- [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
 
 #### ¿Cuáles son las características principales de React?
 
