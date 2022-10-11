@@ -150,6 +150,60 @@ Para usarlo, indicamos el nombre del componente y le pasamos las props que quere
 <Button text="Seguir a @midudev" />
 ```
 
+Las props son una forma de parametrizar nuestros componentes igual que hacemos con las funciones. Podemos pasarle cualquier tipo de dato a un componente, incluso otros componentes.
+
+##### ¿Qué es el renderizado condicional en React?
+
+El renderizado condicional es la forma de mostrar un componente u otro dependiendo de una condición.
+
+Para hacer renderizado condicional en React usamos el operador ternario:
+
+```jsx
+function Button({ text }) {
+  return text
+    ? <button>{text}</button>
+    : null
+}
+```
+
+En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
+
+##### ¿Qué es el renderizado de listas en React?
+
+El renderizado de listas es la forma de mostrar una lista de elementos usando un componente.
+
+Para hacer renderizado de listas en React usamos el método `map` de los arrays:
+
+```jsx
+function List({ items }) {
+  return (
+    <ul>
+      {items.map(item => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de strings. El componente `List` renderiza un elemento `li` por cada elemento del array.
+
+##### ¿Cómo añadir un evento a un componente en React?
+
+Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en *camelCase*:
+
+```jsx
+function Button({ text, onClick }) {
+  return (
+    <button onClick={onClick}>
+      {text}
+    </button>
+  )
+}
+```
+
+En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+
 ##### ¿Qué es el estado en React?
 
 El estado es un objeto que contiene datos que pueden cambiar en el tiempo. En React, el estado se usa para controlar los cambios en la interfaz.
@@ -203,15 +257,15 @@ class Counter extends Component {
 }
 ```
 
-##### ¿Qué son los hooks?
+##### ¿Qué son los hooks?
 
-Los Hooks son una API de la librería de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
+Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
 
 Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
 
-##### ¿Qué es el ciclo de vida de un componente en React?
+##### ¿Qué es el ciclo de vida de un componente en React?
 
 El ciclo de vida de un componente es el conjunto de métodos que se ejecutan en un componente a lo largo de su vida.
 
@@ -227,5 +281,69 @@ En cada uno de estos métodos podemos ejecutar código que nos permita controlar
 
 ### Intermedio
 
-### Experto
+##### ¿Qué es el contexto en React?
 
+El contexto es una forma de pasar datos a través de la jerarquía de componentes sin tener que pasar props manualmente en cada nivel.
+
+Para crear un contexto en React usamos el hook `createContext`:
+
+```jsx
+import { createContext } from 'react'
+
+const ThemeContext = createContext()
+```
+
+Para usar el contexto, debemos envolver el árbol de componentes con el componente `Provider`:
+
+```jsx
+<ThemeContext.Provider value="dark">
+  <App />
+</ThemeContext.Provider>
+```
+
+Para consumir el contexto, debemos usar el hook `useContext`:
+
+```jsx
+import { useContext } from 'react'
+
+function Button() {
+  const theme = useContext(ThemeContext)
+  return <button className={theme}>Haz clic aquí</button>
+}
+```
+
+##### ¿Qué es el `SyntheticEvent` en React?
+
+El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
+
+```jsx
+function App() {
+  function handleClick(event) {
+    console.log(event)
+  }
+
+  return <button onClick={handleClick}>Haz clic aquí</button>
+}
+```
+
+### Experto
+
+##### ¿Cómo puedes acceder al evento nativo del navegador en React?
+
+React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
+
+```jsx
+function Button({ onClick }) {
+  return <button onClick={e => onClick(e.nativeEvent)}>Haz clic aquí</button>
+}
+```
+
+#### ¿Cómo puedes registrar un evento en la fase de captura en React?
+
+En React, los eventos se registran en la fase de burbuja por defecto. Para registrar un evento en la fase de captura, debemos añadir `Capture` al nombre del evento:
+
+```jsx
+function Button({ onClick }) {
+  return <button onClickCapture={onClick}>Haz clic aquí</button>
+}
+```
