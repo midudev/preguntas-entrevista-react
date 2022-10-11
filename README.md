@@ -104,8 +104,30 @@ Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **
 #### Cuál es la diferencia entre componente y elemento en React?
 
 Un componente es una función o clase que recibe props y devuelve un elemento.
+Un elemento es un objeto que representa un nodo del DOM o una instancia de un componente de React.
 
-Un elemento es un objeto 
+```js
+{
+  type: 'button',
+  props: {
+    className: 'button button-blue',
+    children: {
+      type: 'b',
+      props: {
+        children: 'OK!'
+      }
+    }
+  }
+}
+
+{
+  type: Button,
+  props: {
+    color: 'blue',
+    children: 'OK!'
+  }
+}
+```
 
 #### ¿Cómo crear un componente en React?
 
@@ -755,7 +777,7 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 #### ¿Para qué sirve el hook `useImperativeHandle`?
 
-El hook `useImperativeHandle` es un hook que nos permite definir qué propiedades y métodos queremos que sean accesibles desde el componente padre.
+Nos permite definir qué propiedades y métodos queremos que sean accesibles desde el componente padre.
 
 En el siguiente ejemplo vamos a crear un componente `TextInput` que tiene un método `focus` que cambia el foco al elemento `<input>`.
 
@@ -830,7 +852,13 @@ function App() {
 }
 ```
 
-#### ¿Qué es el `Suspense` en React?
+El componente `Profiler` recibe dos parámetros:
+* `id`: es un identificador único para el componente
+* `onRender`: es una función que se ejecuta cada vez que el componente se renderiza
+
+Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
+
+#### ¿Qué es `Suspense` en React?
 
 El `Suspense` es un componente que nos permite mostrar un fallback mientras se está cargando un componente.
 
