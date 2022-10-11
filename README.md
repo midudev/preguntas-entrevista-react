@@ -279,6 +279,8 @@ En un componente de clase, estos métodos se definen en la clase y se ejecutan e
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
 
+---
+
 ### Intermedio
 
 #### ¿Qué es el contexto en React?
@@ -325,6 +327,8 @@ function App() {
   return <button onClick={handleClick}>Haz clic aquí</button>
 }
 ```
+
+---
 
 ### Experto
 
