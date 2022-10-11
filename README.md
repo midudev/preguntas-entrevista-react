@@ -168,7 +168,7 @@ function Button({ text }) {
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
 
-#### ¿Cómo puedes aplicar clases CSS a un componente en React?
+#### ¿Cómo puedes aplicar clases CSS a un componente en React?
 
 Para aplicar clases CSS a un componente en React usamos la prop `className`:
 
@@ -523,7 +523,7 @@ Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>`
 
 Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
 
-#### ¿Qué son los componentes *stateless*?
+#### ¿Qué son los componentes *stateless*?
 
 Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que son más fáciles de testear, ya que siempre deberían devolver la misma UI para los mismos *props*.
 
@@ -636,7 +636,7 @@ function App() {
 }
 ```
 
-#### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
+#### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
 
 Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
 
@@ -731,7 +731,7 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 Para que el componente padre pueda acceder al método `focus`, usamos el hook `useImperativeHandle`. Este hook recibe dos parámetros: una referencia y una función que devuelve un objeto con las propiedades y métodos que queremos que sean accesibles desde el componente padre.
 
-#### ¿Qué son los portales en React?
+#### ¿Qué son los portales en React?
 
 Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
 
