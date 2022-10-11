@@ -756,9 +756,9 @@ function Modal() {
 
 En este caso el modal se renderiza en el nodo `#modal` del DOM. 
 
-#### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
+#### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
-El `StrictMode` renderiza dos veces la aplicación en modo desarrollo de forma intención para detectar posibles efectos colaterales en la fase de renderizado.
+Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
 
 #### ¿Qué es el `Profiler` en React?
 
@@ -814,7 +814,7 @@ function Button({ onClick }) {
 }
 ```
 
-#### ¿Qué es Flux?
+#### ¿Qué es Flux?
 
 *Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
 
