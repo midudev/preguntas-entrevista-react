@@ -357,7 +357,175 @@ En cada uno de estos métodos podemos ejecutar código que nos permita controlar
 
 ---
 
-### Intermedio
+### Intermedio
+
+#### ¿Qué son los High Order Components (HOC)?
+
+Los High Order Components son funciones que reciben un componente como parámetro y devuelven un componente.
+
+```jsx
+function withLayout(Component) {
+  return function(props) {
+    return <main>
+      <section>
+        <Component {...props} />
+      </section>
+    </main>
+  }
+}
+```
+
+En este caso, la función `withLayout` recibe un componente como parámetro y devuelve un componente. El componente devuelto renderiza el componente que se le pasa como parámetro dentro de un layout.
+
+Es un patrón que nos permite reutilizar código y así podemos inyectar funcionalidad, estilos o cualquier otra cosa a un componente de forma sencilla.
+
+Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todavía se usan en algunos casos.
+
+#### ¿Para qué sirve el hook `useMemo`?
+
+El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.
+
+```jsx
+import { useMemo } from 'react'
+
+function Counter({ count }) {
+  const double = useMemo(() => count * 2, [count])
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <p>Doble: {double}</p>
+    </div>
+  )
+}
+```
+
+En este caso, el componente `Counter` recibe una prop `count` que es un número. El componente calcula el doble de ese número y lo muestra en pantalla.
+
+El hook `useMemo` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia.
+
+La función se ejecuta cuando el componente se renderiza por primera vez y cuando la prop `count` cambia.
+
+La ventaja es que si la prop `count` no cambia, se evita el cálculo del doble y se devuelve el valor que ya se había calculado previamente.
+
+#### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
+
+No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces el cálculo de un valor es tan rápido que no merece la pena memorizarlo. Incluso, en algunos casos, puede ser más lento memorizarlo que calcularlo de nuevo.
+
+#### ¿Qué son los componentes *stateless*?
+
+Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que son más fáciles de testear, ya que siempre deberían devolver la misma UI para los mismos *props*.
+
+```jsx
+// Este es un ejemplo de componente stateless
+function Button({ text }) {
+  return (
+    <button>
+      {text}
+    </button>
+  )
+}
+```
+
+#### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
+
+Para prevenir el comportamiento por defecto de un evento en React, debemos usar el método `preventDefault`:
+
+```jsx
+function Form({ onSubmit }) {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    onSubmit()
+  }
+
+  return <form onSubmit={handleSubmit}>
+    <input type="text" />
+    <button type="submit">Enviar</button>
+  </form>
+}
+```
+
+#### ¿Qué son las refs en React?
+
+
+
+#### ¿Por qué es recomendable usar exportar los componentes de React de forma nombrada?
+
+Los componentes de React se pueden exportar de dos formas:
+
+  * Exportación por defecto
+  * Exportación nombrada
+
+Para exportar un componente por defecto, usamos la palabra reservada `default`:
+
+```jsx
+// button.jsx
+export default function Button() {
+  return <button>Click</button>
+}
+
+// App.jsx
+import Button from './button.jsx'
+
+function App() {
+  return <Button />
+}
+```
+
+La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar cualquier nombre que quieras. Y esto trae problemas ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
+
+```jsx
+// button.jsx
+export default function Button() {
+  return <button>Click</button>
+}
+
+// App.jsx
+import MiBoton from './button.jsx'
+
+function App() {
+  return <MiBoton />
+}
+
+// Otro.jsx
+import Buton from './button.jsx'
+
+function Otro() {
+  return <Buton />
+}
+```
+
+Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y, por tanto, nos aseguramos que siempre estamos usando el nombre correcto.
+
+```jsx
+// button.jsx
+export function Button() {
+  return <button>Click</button>
+}
+
+// App.jsx
+import { Button } from './button.jsx'
+
+function App() {
+  return <Button />
+}
+```
+
+#### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
+
+Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
+
+```jsx
+// button.jsx
+export function Button({children}) {
+  return <button>{children}</button>
+}
+
+export function ButtonSecondary() {
+  return <button class="btn-secondary">{children}</button>
+}
+```
+
 
 #### ¿Qué es el contexto en React?
 
