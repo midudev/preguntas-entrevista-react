@@ -168,6 +168,82 @@ function Button({ text }) {
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
 
+#### ¿Cómo puedes aplicar clases CSS a un componente en React?
+
+Para aplicar clases CSS a un componente en React usamos la prop `className`:
+
+```jsx
+function Button({ text }) {
+  return (
+    <button className="button">
+      {text}
+    </button>
+  )
+}
+```
+
+La razón por la que se llama `className` es porque `class` es una palabra reservada en JavaScript. Por eso, en JSX, tenemos que usar `className` para aplicar clases CSS.
+
+#### ¿Cómo puedes aplicar estilos en línea a un componente en React?
+
+Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto:
+
+```jsx
+function Button({ text }) {
+  return (
+    <button style={{ color: 'red', borderRadius: '2px' }}>
+      {text}
+    </button>
+  )
+}
+```
+
+Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
+
+#### ¿Cómo puedo aplicar estilos de forma condicional a un componente en React?
+
+Puedes aplicar estilos de forma condicional a un componente en React usando la prop `style` y un operador ternario:
+
+```jsx
+function Button({ text, primary }) {
+  return (
+    <button style={{ color: primary ? 'red' : 'blue' }}>
+      {text}
+    </button>
+  )
+}
+```
+
+En el caso anterior, si la prop `primary` es `true`, el botón tendrá el color rojo. Si no, tendrá el color azul.
+
+También puedes seguir la misma mecánica usando clases. En este caso, usamos el operador ternario para decidir si añadir o no la clase:
+
+```jsx
+function Button({ text, primary }) {
+  return (
+    <button className={primary ? 'button-primary' : ''}>
+      {text}
+    </button>
+  )
+}
+```
+
+También podemos usar bibliotecas como `classnames`:
+
+```jsx
+import cx from 'classnames'
+
+function Button({ text, primary }) {
+  return (
+    <button className={classnames('button', { primary })}>
+      {text}
+    </button>
+  )
+}
+```
+
+En este caso, si la prop `primary` es `true`, se añadirá la clase `primary` al botón. Si no, no se añadirá. En cambio la clase `button` siempre se añadirá.
+
 #### ¿Qué es el renderizado de listas en React?
 
 El renderizado de listas es la forma de mostrar una lista de elementos usando un componente.
