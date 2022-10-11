@@ -697,6 +697,39 @@ function App() {
 }
 ```
 
+#### ¿Qué son los Error Boundaries en React?
+
+Los Error Boundaries son componentes que nos permiten manejar los errores que se producen en el árbol de componentes. Para crear un Error Boundary, debemos crear un componente que implemente el método `componentDidCatch`:
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Algo ha ido mal</h1>
+    }
+
+    return this.props.children
+  }
+}
+```
+
+De esta forma podemos capturar los errores que se producen en el árbol de componentes y mostrar un mensaje de error personalizado mientras evitamos que nuestra aplicación se rompa completamente.
+
+Podemos crear un Error Boundary en cualquier nivel del árbol de componentes, de esta forma podemos tener un control más granular de los errores.
+
 ---
 
 ### Experto
