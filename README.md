@@ -490,7 +490,21 @@ function Form({ onSubmit }) {
 
 #### ¿Qué son las refs en React?
 
+#### ¿Qué es el `StrictMode` en React?
 
+El `StrictMode` es un componente que nos permite activar algunas comprobaciones de desarrollo en React. Por ejemplo, detecta componentes que se renderizan de forma innecesaria o funcionalidades obsoletas que se están usando.
+
+```jsx
+import { StrictMode } from 'react'
+
+function App() {
+  return (
+    <StrictMode>
+      <Component />
+    </StrictMode>
+  )
+}
+```
 
 #### ¿Por qué es recomendable usar exportar los componentes de React de forma nombrada?
 
@@ -619,6 +633,69 @@ function App() {
 
 ### Experto
 
+#### ¿Qué son los portales en React?
+
+Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
+
+Es perfecto para ciertos casos de uso como, por ejemplo, modales:
+
+```jsx
+import { createPortal } from 'react-dom'
+
+function Modal() {
+  return createPortal(
+    <div className="modal">
+      <h1>Modal</h1>
+    </div>,
+    document.getElementById('modal')
+  )
+}
+```
+
+`createPortal` acepta dos parámetros:
+    * El primer parámetro es el componente que queremos renderizar
+    * El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
+
+En este caso el modal se renderiza en el nodo `#modal` del DOM. 
+
+#### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
+
+El `StrictMode` renderiza dos veces la aplicación para detectar componentes que se renderizan de forma innecesaria.
+
+#### ¿Qué es el `Profiler` en React?
+
+El `Profiler` es un componente que nos permite medir el tiempo que tarda en renderizarse un componente y sus hijos.
+
+```jsx
+import { Profiler } from 'react'
+
+function App() {
+  return (
+    <Profiler id="App" onRender={(id, phase, actualDuration) => {
+      console.log({id, phase, actualDuration})
+    }}>
+      <Component />
+    </Profiler>
+  )
+}
+```
+
+#### ¿Qué es el `Suspense` en React?
+
+El `Suspense` es un componente que nos permite mostrar un fallback mientras se está cargando un componente.
+
+```jsx
+import { Suspense } from 'react'
+
+function App() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Component />
+    </Suspense>
+  )
+}
+```
+
 #### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
 React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
@@ -638,3 +715,11 @@ function Button({ onClick }) {
   return <button onClickCapture={onClick}>Haz clic aquí</button>
 }
 ```
+
+#### ¿Qué es Flux?
+
+*Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
+
+No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
+
+Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. *Redux* se basó en este patrón para crear una biblioteca de gestión de estado global.
