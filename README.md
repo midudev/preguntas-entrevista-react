@@ -15,7 +15,7 @@
 
 ### Principiante
 
-##### ¿Qué es React?
+#### ¿Qué es React?
 
 **React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario.** Está basada en la componetización de la UI: la interfaz se divide en componentes independientes, que contienen su propio estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
 
@@ -30,7 +30,7 @@ Enlaces de interés:
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React]([https://react](https://es.reactjs.org/))
 
-##### ¿Cuáles son las características principales de React?
+#### ¿Cuáles son las características principales de React?
 
 Las características principales de React son:
 
@@ -44,7 +44,7 @@ Las características principales de React son:
 
 - **Universal**: React se puede ejecutar tanto en el cliente como en el servidor. Además, puedes usar React Native para crear aplicaciones nativas para Android e iOS.
 
-##### ¿Qué significa exactamente que sea declarativo?
+#### ¿Qué significa exactamente que sea declarativo?
 
 No le decimos cómo debe renderizar la interfaz a base de instrucciones. Le decimos qué debe renderizar y React se encarga de renderizarlo.
 
@@ -59,13 +59,13 @@ const element = document.createElement('h1')
 element.innerHTML = 'Hello, world'
 ```
 
-##### ¿Qué es un componente?
+#### ¿Qué es un componente?
 
 Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.
 
 En React los componentes se crean usando funciones o clases.
 
-##### ¿Qué es JSX?
+#### ¿Qué es JSX?
 
 React usa JSX para declarar qué debe renderizar. JSX es una extensión de JavaScript que permite escribir un código más cercano visualmente a HTML, que mejora la legibilidad del código y hace que sea más fácil de entender.
 
@@ -93,7 +93,7 @@ function Hello () {
 
 Ambos códigos son equivalentes.
 
-##### ¿Cómo se transforma el JSX?
+#### ¿Cómo se transforma el JSX?
 
 **El JSX se transforma en código JavaScript compatible en el navegador usando un *transpilador* o *compilador***. El más famoso es a día de hoy Babel, que utiliza una serie de plugins para ser compatible con la transformación, pero existen otros como SWC.
 
@@ -101,13 +101,13 @@ Puedes ver cómo se transforma el JSX en el [playground de código de Babel](htt
 
 Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **Deno tiene soporte nativo para la sintaxis JSX** y no es necesario transformar el código para hacerlo compatible.
 
-##### Cuál es la diferencia entre componente y elemento en React?
+#### Cuál es la diferencia entre componente y elemento en React?
 
 Un componente es una función o clase que recibe props y devuelve un elemento.
 
 Un elemento es un objeto 
 
-##### ¿Cómo crear un componente en React?
+#### ¿Cómo crear un componente en React?
 
 Los componentes en React son funciones o clases que devuelven un elemento de React. Hoy en día lo más recomendado es usar funciones:
 
@@ -131,7 +131,7 @@ class HelloWorld extends Component {
 
 Lo importante es que el nombre de la función o clase empiece con una letra mayúscula. Esto es necesario para que React pueda distinguir entre componentes y elementos HTML.
 
-##### ¿Qué son las props en React?
+#### ¿Qué son las props en React?
 
 Las props son las propiedades de un componente. Son datos que se pasan de un componente a otro. Por ejemplo, si tienes un componente `Button` que muestra un botón, puedes pasarle una prop `text` para que el botón muestre ese texto:
 
@@ -152,7 +152,7 @@ Para usarlo, indicamos el nombre del componente y le pasamos las props que quere
 
 Las props son una forma de parametrizar nuestros componentes igual que hacemos con las funciones. Podemos pasarle cualquier tipo de dato a un componente, incluso otros componentes.
 
-##### ¿Qué es el renderizado condicional en React?
+#### ¿Qué es el renderizado condicional en React?
 
 El renderizado condicional es la forma de mostrar un componente u otro dependiendo de una condición.
 
@@ -168,7 +168,7 @@ function Button({ text }) {
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
 
-##### ¿Qué es el renderizado de listas en React?
+#### ¿Qué es el renderizado de listas en React?
 
 El renderizado de listas es la forma de mostrar una lista de elementos usando un componente.
 
@@ -188,7 +188,7 @@ function List({ items }) {
 
 En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de strings. El componente `List` renderiza un elemento `li` por cada elemento del array.
 
-##### ¿Cómo añadir un evento a un componente en React?
+#### ¿Cómo añadir un evento a un componente en React?
 
 Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en *camelCase*:
 
@@ -204,7 +204,7 @@ function Button({ text, onClick }) {
 
 En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
 
-##### ¿Qué es el estado en React?
+#### ¿Qué es el estado en React?
 
 El estado es un objeto que contiene datos que pueden cambiar en el tiempo. En React, el estado se usa para controlar los cambios en la interfaz.
 
@@ -257,7 +257,7 @@ class Counter extends Component {
 }
 ```
 
-##### ¿Qué son los hooks?
+#### ¿Qué son los hooks?
 
 Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
 
@@ -265,7 +265,7 @@ Esto, antes, no era posible y nos obligaba a crear un componente con `class` par
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
 
-##### ¿Qué es el ciclo de vida de un componente en React?
+#### ¿Qué es el ciclo de vida de un componente en React?
 
 El ciclo de vida de un componente es el conjunto de métodos que se ejecutan en un componente a lo largo de su vida.
 
@@ -281,7 +281,7 @@ En cada uno de estos métodos podemos ejecutar código que nos permita controlar
 
 ### Intermedio
 
-##### ¿Qué es el contexto en React?
+#### ¿Qué es el contexto en React?
 
 El contexto es una forma de pasar datos a través de la jerarquía de componentes sin tener que pasar props manualmente en cada nivel.
 
@@ -312,7 +312,7 @@ function Button() {
 }
 ```
 
-##### ¿Qué es el `SyntheticEvent` en React?
+#### ¿Qué es el `SyntheticEvent` en React?
 
 El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
 
@@ -328,7 +328,7 @@ function App() {
 
 ### Experto
 
-##### ¿Cómo puedes acceder al evento nativo del navegador en React?
+#### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
 React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
 
