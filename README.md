@@ -381,7 +381,50 @@ Es un patrón que nos permite reutilizar código y así podemos inyectar funcion
 
 Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todavía se usan en algunos casos.
 
-#### ¿Para qué sirve el hook `useMemo`?
+#### ¿Qué son las render props?
+
+Son un patrón de diseño de React que nos permite reutilizar código entre componentes e inyectar información en el renderizado de los componentes.
+
+```jsx
+<DataProvider render={data => (
+  <h1>Hello {data.target}</h1>
+)}/>
+```
+
+En este caso, el componente `DataProvider` recibe una función `render` como prop. Ahí le indicamos qué es lo que debe renderizar usando la información que recibe como parámetro.
+
+La implementación del `DataProvider` con funciones podría ser la siguiente:
+
+```jsx
+function DataProvider({ render }) {
+  const data = { target: 'world' }
+  return render(data)
+}
+```
+
+También se puede encontrar este patrón usando la prop `children` en los componentes.
+
+```jsx
+<DataProvider>
+  {data => (
+    <h1>Hello {data.target}</h1>
+  )}
+</DataProvider>
+```
+
+Y la implementación sería similar:
+
+```jsx
+function DataProvider({ children }) {
+  const data = { target: 'world' }
+  return children(data)
+}
+```
+
+Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
+
+
+#### ¿Para qué sirve el hook `useMemo`?
 
 El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.
 
