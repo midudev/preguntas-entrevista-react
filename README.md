@@ -340,21 +340,6 @@ Los Hooks son una API de React que nos permite tener estado, y otras caracterís
 Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
-
-#### ¿Qué es el ciclo de vida de un componente en React?
-
-El ciclo de vida de un componente es el conjunto de métodos que se ejecutan en un componente a lo largo de su vida.
-
-En un componente de clase, estos métodos se definen en la clase y se ejecutan en el orden que se muestran a continuación:
-
-  * constructor
-  * render
-  * componentDidMount
-  * componentDidUpdate
-  * componentWillUnmount
-
-En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
-
 ---
 
 ### Intermedio
@@ -423,6 +408,26 @@ function DataProvider({ children }) {
 
 Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
 
+#### ¿Qué es el ciclo de vida de un componente en React?
+
+En los componentes de clase, el ciclo de vida de un componente se divide en tres fases:
+
+  * Montaje: cuando el componente se añade al DOM.
+  * Actualización: cuando el componente se actualiza.
+  * Desmontaje: cuando el componente se elimina del DOM.
+
+Dentro de este ciclo de vida, existe un conjunto de métodos que se ejecutan en el componente.
+
+Estos métodos se definen en la clase y se ejecutan en el orden que se muestran a continuación:
+
+  * constructor
+  * render
+  * componentDidMount
+  * componentDidUpdate
+  * componentWillUnmount
+
+En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
+
 
 #### ¿Para qué sirve el hook `useMemo`?
 
@@ -454,6 +459,69 @@ La ventaja es que si la prop `count` no cambia, se evita el cálculo del doble y
 #### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
 
 No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces el cálculo de un valor es tan rápido que no merece la pena memorizarlo. Incluso, en algunos casos, puede ser más lento memorizarlo que calcularlo de nuevo.
+
+#### ¿Para qué sirve el hook `useCallback`?
+
+El hook `useCallback` es un hook que nos permite memorizar una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve la función que ya se había calculado.
+
+```jsx
+import { useCallback } from 'react'
+
+function Counter({ count, onIncrement }) {
+  const handleIncrement = useCallback(() => {
+    onIncrement(count)
+  }, [count, onIncrement])
+
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <button onClick={handleIncrement}>Incrementar</button>
+    </div>
+  )
+}
+```
+
+En este caso, el componente `Counter` recibe una prop `count` que es un número y una prop `onIncrement` que es una función que se ejecuta cuando se pulsa el botón.
+
+El hook `useCallback` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia.
+
+La función se ejecuta cuando el componente se renderiza por primera vez y cuando la prop `count` o la prop `onIncrement` cambia.
+
+La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evita la creación de una nueva función y se devuelve la función que ya se había calculado previamente.
+
+#### ¿Es buena idea usar siempre `useCallback` para optimizar nuestros componentes?
+
+No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
+
+#### ¿Qué es el hook `useRef`?
+
+El hook `useRef` es un hook que nos permite crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados.
+
+En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando el componente se monta.
+
+```jsx
+import { useRef } from 'react'
+
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null)
+
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus();
+  }
+
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  )
+}
+```
+
+Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>` como prop `ref`. Cuando el componente se monta, la referencia `inputEl` apunta al elemento `<input>` del DOM.
+
+Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
 
 #### ¿Qué son los componentes *stateless*?
 
@@ -510,8 +578,8 @@ function App() {
 
 Los componentes de React se pueden exportar de dos formas:
 
-  * Exportación por defecto
-  * Exportación nombrada
+* Exportación por defecto
+* Exportación nombrada
 
 Para exportar un componente por defecto, usamos la palabra reservada `default`:
 
@@ -633,6 +701,36 @@ function App() {
 
 ### Experto
 
+#### ¿Para qué sirve el hook `useImperativeHandle`?
+
+El hook `useImperativeHandle` es un hook que nos permite definir qué propiedades y métodos queremos que sean accesibles desde el componente padre.
+
+En el siguiente ejemplo vamos a crear un componente `TextInput` que tiene un método `focus` que cambia el foco al elemento `<input>`.
+
+```jsx
+import { useRef, useImperativeHandle } from 'react'
+
+function TextInput(props, ref) {
+  const inputEl = useRef(null)
+
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputEl.current.focus()
+    }
+  }))
+
+  return (
+    <input ref={inputEl} type="text" />
+  )
+}
+```
+
+Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>` como prop `ref`. Cuando el componente se monta, la referencia `inputEl` apunta al elemento `<input>` del DOM.
+
+Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
+
+Para que el componente padre pueda acceder al método `focus`, usamos el hook `useImperativeHandle`. Este hook recibe dos parámetros: una referencia y una función que devuelve un objeto con las propiedades y métodos que queremos que sean accesibles desde el componente padre.
+
 #### ¿Qué son los portales en React?
 
 Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
@@ -660,7 +758,7 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
-El `StrictMode` renderiza dos veces la aplicación para detectar componentes que se renderizan de forma innecesaria.
+El `StrictMode` renderiza dos veces la aplicación en modo desarrollo de forma intención para detectar posibles efectos colaterales en la fase de renderizado.
 
 #### ¿Qué es el `Profiler` en React?
 
