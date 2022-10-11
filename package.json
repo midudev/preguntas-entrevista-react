@@ -1,0 +1,17 @@
+{
+  "name": "preguntas-entrevista-react",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midudev/preguntas-entrevista-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/midudev/preguntas-entrevista-react/issues"
+  },
+  "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme"
+}
