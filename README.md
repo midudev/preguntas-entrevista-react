@@ -570,6 +570,12 @@ useEffect(() => {
 }, [])
 ```
 
+#### ¿Cuáles son las reglas de los hooks en React?
+
+Los hooks en React tienen dos reglas fundamentales:
+- Los hooks sólo se pueden usar en componentes funcionales o *custom hooks*.
+- Los hooks sólo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
+
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
 Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
