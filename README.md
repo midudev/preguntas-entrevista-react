@@ -570,7 +570,6 @@ useEffect(() => {
 }, [])
 ```
 
-
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
 Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
@@ -926,7 +925,7 @@ function TextInputWithFocusButton() {
 
   const onButtonClick = () => {
     // `current` points to the mounted text input element
-    inputEl.current.focus();
+    inputEl.current.focus()
   }
 
   return (
@@ -1273,22 +1272,6 @@ El componente `Profiler` recibe dos parámetros:
 
 Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
 
-#### ¿Qué es `Suspense` en React?
-
-El `Suspense` es un componente que nos permite mostrar un fallback mientras se está cargando un componente.
-
-```jsx
-import { Suspense } from 'react'
-
-function App() {
-  return (
-    <Suspense fallback={<div>Cargando...</div>}>
-      <Component />
-    </Suspense>
-  )
-}
-```
-
 #### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
 React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
@@ -1306,6 +1289,98 @@ En React, los eventos se registran en la fase de burbuja por defecto. Para regis
 ```jsx
 function Button({ onClick }) {
   return <button onClickCapture={onClick}>Haz clic aquí</button>
+}
+```
+
+#### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
+
+Aunque puedes usar el método `renderToString` para renderizar el HTML en el servidor, este método es síncrono y bloquea el hilo principal. Para evitar que bloquee el hilo principal, debemos usar el método `renderToPipeableStream`:
+
+```jsx
+let didError = false
+const stream = renderToPipeableStream(
+  <App />,
+  {
+    onShellReady() {
+      // El contenido por encima de los límites de Suspense ya están listos
+      // Si hay un error antes de empezar a hacer stream, mostramos el error adecuado
+      res.statusCode = didError ? 500 : 200
+      res.setHeader('Content-type', 'text/html')
+      stream.pipe(res)
+    },
+    onShellError(error) {
+      // Si algo ha ido mal al renderizar el contenido anterior a los límites de Suspense, lo indicamos.
+      res.statusCode = 500
+      res.send(
+        '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>'
+      )
+    },
+    onAllReady() {
+      // Si no quieres hacer streaming de los datos, puedes usar
+      // esto en lugar de onShellReady. Esto se ejecuta cuando
+      // todo el HTML está listo para ser enviado.
+      // Perfecto para crawlers o generación de sitios estáticos
+
+      // res.statusCode = didError ? 500 : 200
+      // res.setHeader('Content-type', 'text/html')
+      // stream.pipe(res)
+    },
+    onError(err) {
+      didError = true
+      console.error(err)
+    },
+  }
+)
+```
+
+#### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
+
+`renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente pero puede ser útil para páginas totalmente estáticas.
+
+`renderToPipeableStream()` devuelve un stream de nodos que contienen atributos del DOM extra para que React pueda hidratar el HTML en el cliente. Esto significa que podrás hacer el HTML interactivo en el cliente pero puede ser más lento que `renderToStaticNodeStream()`.
+
+#### ¿Para qué sirve el método `renderToReadableStream()`?
+
+Este método es similar a `renderToNodeStream` pero está pensado para entornos que soporten Web Streams como Deno.
+
+Un ejemplo de uso sería el siguiente:
+
+```jsx
+const controller = new AbortController()
+const { signal } = controller
+
+let didError = false
+
+try {
+  const stream = await renderToReadableStream(
+    <html>
+      <body>Success</body>
+    </html>,
+    {
+      signal,
+      onError(error) {
+        didError = true
+        console.error(error)
+      }
+    }
+  )
+  
+  // Si quieres enviar todo el HTML en vez de hacer streaming, puedes usar esta línea
+  // Es útil para crawlers o generación estática:
+  // await stream.allReady
+
+  return new Response(stream, {
+    status: didError ? 500 : 200,
+    headers: {'Content-Type': 'text/html'},
+  })
+} catch (error) {
+  return new Response(
+    '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>',
+    {
+      status: 500,
+      headers: {'Content-Type': 'text/html'},
+    }
+  )
 }
 ```
 
