@@ -490,9 +490,11 @@ function App() {
 
 ---
 
-#### 
-
 ### Intermedio
+
+#### ¿Cuántos `useEffect` puede tener un componente?
+
+Aunque normalmente los componentes de React sólo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
@@ -513,6 +515,37 @@ function Button({ text }) {
 ```
 
 En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
+
+#### ¿Qué es el Server Side Rendering y qué ventajas tiene?
+
+El *Server Side Rendering* es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
+
+Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.
+
+#### ¿Cómo puedes crear un Server Side Rendering con React desde cero?
+
+Para crear un Server Side Rendering con React desde cero podemos usar el paquete `react-dom/server` que nos permite renderizar componentes de React en el servidor.
+
+Veamos un ejemplo de cómo crear un Server Side Rendering con React desde cero con Express:
+
+```jsx
+import express from 'express'
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+
+const app = express()
+
+app.get('/', (req, res) => {
+  const html = renderToString(<h1>Hola mundo</h1>)
+  res.send(html)
+})
+```
+
+Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
+
+```html
+<h1 data-reactroot="">Hola mundo</h1>
+```
 
 #### ¿Puedes poner un ejemplo de efectos colaterales en React?
 
@@ -1122,6 +1155,24 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
+
+#### ¿Qué es el hook `useDebugValue`?
+
+Nos permite mostrar un valor personalizado en la pestaña de *React DevTools* que nos permitirá depurar nuestro código.
+
+```jsx
+import { useDebugValue } from 'react'
+
+function useCustomHook() {
+  const value = 'custom value'
+  useDebugValue(value)
+  return value
+}
+```
+
+En este ejemplo, el valor personalizado que se muestra en la pestaña de *React DevTools* es `custom value`.
+
+Aunque es útil para depurar, no se recomienda usar este hook en producción.
 
 #### ¿Qué es el `Profiler` en React?
 
