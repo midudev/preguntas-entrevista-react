@@ -518,7 +518,7 @@ function Component() {
 
 Esto es muy útil para limpiar recursos que se hayan creado en el componente, como por ejemplo, eventos del navegador o para cancelar peticiones a APIs.
 
-#### Cómo puedes cancelar una petición a una API en `useEffect` correctamente
+#### Cómo puedes cancelar una petición a una API en `useEffect` correctamente
 
 Cuando hacemos una petición a una API, podemos cancelarla para evitar que se ejecute cuando el componente se desmonte usando `AbortController` como hacemos en este ejemplo:
 
@@ -589,7 +589,7 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 **Referencias:**
 - [Tweet de midudev donde muestra que los componentes funcionales se transpilan mejor que los de clases.](https://twitter.com/midudev/status/1065516163856310272)
 
-#### ¿Cómo mantener los componentes puros y qué ventajas tiene?
+#### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
 Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
 
@@ -640,7 +640,7 @@ Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
 <h1 data-reactroot="">Hola mundo</h1>
 ```
 
-#### ¿Puedes poner un ejemplo de efectos colaterales en React?
+#### ¿Puedes poner un ejemplo de efectos colaterales en React?
 
 Igual que las funciones en JavaScript, los componentes de React también pueden tener *side effects* (efectos colaterales). Un efecto colateral significa que el componente manipula o lee información que no está dentro de su ámbito.
 
@@ -667,7 +667,7 @@ export default function Counters() {
   )
 ```
 
-#### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
+#### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
 
 A la hora de trabajar con formularios en React, tenemos dos tipos de componentes: los componentes controlados y los componentes no controlados.
 
@@ -755,7 +755,7 @@ function DataProvider({ children }) {
 
 Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
 
-#### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
+#### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
 
 En React, no podemos usar un `if` en el renderizado de un componente porque no es una expresión válida de JavaScript, es una declaración. Las expresiones son aquellas que devuelven un valor y las declaraciones no devuelven ningún valor.
 
@@ -774,7 +774,7 @@ function Button({ text }) {
 
 De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del renderizado de un componente.
 
-#### ¿Por qué debemos utilizar una función para actualizar el estado de React?
+#### ¿Por qué debemos utilizar una función para actualizar el estado de React?
 
 A la hora de actualizar el estado de React, debemos utilizar la función que nos facilita el hook `useState` para actualizar el estado. Esto es porque React puede ejecutar el renderizado de un componente varias veces antes de que se actualice el DOM. Si usamos la función `setState` de React, podemos estar seguros de que el estado que se va a actualizar es el último estado.
 
@@ -916,7 +916,7 @@ La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evit
 
 No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
 
-#### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
+#### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
 
 La diferencia entre `useCallback` y `useMemo` es que `useCallback` memoriza una función y `useMemo` memoriza el resultado de una función.
 
@@ -1202,6 +1202,8 @@ Otra diferencia es que React no está opinionado sobre qué empaquetador de apli
 
 Aún así, existe gente que considera a React como un framework. Aunque no hay una definición oficial de qué es un framework, la mayoría de la gente considera que un framework es una biblioteca que incluye otras bibliotecas para crear una aplicación completa de forma opinionada y casi sin configuración.
 
+Por ejemplo, **Next.js se podría considerar un framework de React** porque incluye React, un sistema de enrutado, un sistema de renderizado del lado del servidor, etc.
+
 #### ¿Para qué sirve el hook `useImperativeHandle`?
 
 Nos permite definir qué propiedades y métodos queremos que sean accesibles desde el componente padre.
@@ -1261,7 +1263,7 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
 
-#### ¿Qué es el hook `useDebugValue`?
+#### ¿Qué es el hook `useDebugValue`?
 
 Nos permite mostrar un valor personalizado en la pestaña de *React DevTools* que nos permitirá depurar nuestro código.
 
@@ -1323,7 +1325,7 @@ function Button({ onClick }) {
 }
 ```
 
-#### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
+#### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
 
 Aunque puedes usar el método `renderToString` para renderizar el HTML en el servidor, este método es síncrono y bloquea el hilo principal. Para evitar que bloquee el hilo principal, debemos usar el método `renderToPipeableStream`:
 
