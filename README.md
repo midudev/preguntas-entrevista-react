@@ -7,7 +7,7 @@
   <sup>Deja tu :star: si te gusta el proyecto.</sup>
   
   | Streamings de programación en Twitch:<br />[https://twitch.tv/midudev](twitch.tv/midudev) |
-  |---|
+  | ----------------------------------------------------------------------------------------- |
 
 </div>
 
@@ -495,6 +495,81 @@ function App() {
 #### ¿Cuántos `useEffect` puede tener un componente?
 
 Aunque normalmente los componentes de React sólo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
+
+#### ¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?
+
+Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se desmonte.
+
+```jsx
+import { useEffect } from 'react'
+
+function Component() {
+  useEffect(() => {
+    console.log('El componente se ha montado')
+
+    return () => {
+      console.log('El componente se ha desmontado')
+    }
+  }, [])
+
+  return <h1>Ejemplo</h1>
+}
+```
+
+Esto es muy útil para limpiar recursos que se hayan creado en el componente, como por ejemplo, eventos del navegador o para cancelar peticiones a APIs.
+
+#### Cómo puedes cancelar una petición a una API en `useEffect` correctamente
+
+Cuando hacemos una petición a una API, podemos cancelarla para evitar que se ejecute cuando el componente se desmonte usando `AbortController` como hacemos en este ejemplo:
+
+```jsx
+useEffect(() => {
+  // Creamos el controlador para abortar la petición
+  const controller = new AbortController()
+  // Recuperamos la señal del controlador
+  const { signal } = controller
+  // Hacemos la petición a la API y le pasamos como options la señal
+  fetch('https://jsonplaceholder.typicode.com/posts/1', { signal })
+    .then(res => res.json())
+    .then(json => setMessage(json.title))
+    .catch(error => {
+      // Si hemos cancelado la petición, la promesa se rechaza
+      // con un error de tipo AbortError
+      if (error.name !== 'AbortError') {
+        console.error(error.message)
+      }
+    })
+
+  // Si se desmonta el componente, abortamos la petición
+  return () => controller.abort()
+}, [])
+```
+
+Esto también funciona con `axios`:
+
+```jsx
+useEffect(() => {
+  // Creamos el controlador para abortar la petición
+  const controller = new AbortController()
+  // Recuperamos la señal del controlador
+  const { signal } = controller
+  // Hacemos la petición a la API y le pasamos como options la señal
+  axios
+    .get('https://jsonplaceholder.typicode.com/posts/1', { signal })
+    .then(res => setMessage(res.data.title))
+    .catch(error => {
+      // Si hemos cancelado la petición, la promesa se rechaza
+      // con un error de tipo AbortError
+      if (error.name !== 'AbortError') {
+        console.error(error.message)
+      }
+    })
+
+  // Si se desmonta el componente, abortamos la petición
+  return () => controller.abort()
+}, [])
+```
+
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
