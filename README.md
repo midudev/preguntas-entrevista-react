@@ -366,7 +366,131 @@ Los Hooks son una API de React que nos permite tener estado, y otras caracterís
 Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
+
+#### ¿Qué hace el hook `useEffect`? 
+
+El hook `useEffect` se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
+
+Recibe dos parámetros:
+- La función que se ejecutará al cambiar las dependencias o al renderizar el componente.
+- Un array de dependencias. Si cambia el valor de alguna dependencia, ejecutará la función.
+
+En este ejemplo mostramos un mensaje en consola cada vez que cambia el valor de `count`:
+
+```jsx
+import { useEffect, useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    console.log('El contador se ha actualizado')
+  }, [count])
+
+  return (
+    <>
+      <p>Contador: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Aumentar</button>
+    </>
+  )
+}
+```
+
+#### Explica casos de uso del hook `useEffect`
+
+Podemos usar el hook `useEffect` para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
+
+Por eso puede ser útil para hacer llamadas a APIs, ya que sea nada más montar el componente o cuando cambian las dependencias.
+
+También podemos utilizar tracking de eventos, como Google Analytics, para saber qué páginas visitan los usuarios.
+
+Podemos validar un formulario para que cada vez que cambie el estado, podamos actualizar la UI y mostrar dónde están los errores.
+
+Además podemos suscribirnos a eventos del navegador, como el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana.
+
+#### Cómo suscribirse a un evento en `useEffect`
+
+Dentro de `useEffect` nos podemos suscribir a eventos del navegador, como el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana. Es importante que nos desuscribamos cuando el componente se desmonte para evitar fugas de memoria. Para ello, tenemos que devolver una función dentro del `useEffect` que se ejecutará cuando el componente se desmonte.
+
+```jsx
+import { useEffect } from 'react'
+
+function Window() {
+  useEffect(() => {
+    const handleResize = () => {
+      console.log('La ventana se ha redimensionado')
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  return (
+    <>
+      <p>Abre la consola y redimensiona la ventana</p>
+    </>
+  )
+}
+```
+
+#### ¿Cómo podemos ejecutar código cuando el componente se monta?
+
+Podemos ejecutar código cuando el componente se monta usando el hook `useEffect` sin pasarle ninguna dependencia. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se monte.
+
+```jsx
+import { useEffect } from 'react'
+
+function Component() {
+  useEffect(() => {
+    console.log('El componente se ha montado')
+  }, [])
+
+  return (
+    <>
+      <p>Abre la consola y redimensiona la ventana</p>
+    </>
+  )
+}
+```
+
+#### ¿Qué son los Fragments en React?
+
+Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM ya que React no permite devolver varios elementos en un componente, sólo un elemento raíz.
+
+Para crear un Fragment en React usamos el componente `Fragment`:
+
+```jsx
+import { Fragment } from 'react'
+
+function App() {
+  return (
+    <Fragment>
+      <h1>Titulo</h1>
+      <p>Parrafo</p>
+    </Fragment>
+  )
+}
+```
+
+También podemos usar la sintaxis de abreviatura:
+
+```jsx
+function App() {
+  return (
+    <>
+      <h1>Titulo</h1>
+      <p>Parrafo</p>
+    </>
+  )
+}
+```
+
 ---
+
+#### 
 
 ### Intermedio
 
