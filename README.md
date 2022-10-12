@@ -107,6 +107,7 @@ Un componente es una función o clase que recibe props y devuelve un elemento.
 Un elemento es un objeto que representa un nodo del DOM o una instancia de un componente de React.
 
 ```js
+// Elemento que representa un nodo del DOM
 {
   type: 'button',
   props: {
@@ -120,6 +121,7 @@ Un elemento es un objeto que representa un nodo del DOM o una instancia de un co
   }
 }
 
+// Elemento que representa una instancia de un componente
 {
   type: Button,
   props: {
@@ -277,7 +279,7 @@ function List({ items }) {
   return (
     <ul>
       {items.map(item => (
-        <li>{item}</li>
+        <li key={item.id}>{item}</li>
       ))}
     </ul>
   )
@@ -285,6 +287,8 @@ function List({ items }) {
 ```
 
 En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de strings. El componente `List` renderiza un elemento `li` por cada elemento del array.
+
+El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
 
 #### ¿Cómo añadir un evento a un componente en React?
 
@@ -366,6 +370,53 @@ Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus 
 
 ### Intermedio
 
+#### ¿Cómo mantener los componentes puros y qué ventajas tiene?
+
+Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
+
+Son más fáciles de testear y de mantener. Además, son más fáciles de entender porque no tienen lógica compleja.
+
+Para crear un componente puro en React usamos una function:
+
+```jsx
+function Button({ text }) {
+  return (
+    <button>
+      {text}
+    </button>
+  )
+}
+```
+
+En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
+
+#### ¿Puedes poner un ejemplo de efectos colaterales en React?
+
+Igual que las funciones en JavaScript, los componentes de React también pueden tener *side effects* (efectos colaterales). Un efecto colateral significa que el componente manipula o lee información que no está dentro de su ámbito.
+
+Aquí puedes ver un ejemplo simple de un componente que tiene un efecto colateral. Un componente que lee y modifica una variable que está fuera del componente. Esto hace que sea imposible saber qué renderizará el componente cada vez que se use, ya que no sabemos el valor que tendrá `count`:
+
+```jsx
+let count = 0
+
+function Counter() {
+  count = count + 1
+
+  return (
+    <p>Contador: {count}</p>
+  )
+}
+
+export default function Counters() {
+  return (
+    <>
+      <Counter />
+      <Counter />
+      <Counter />
+    </>
+  )
+```
+
 #### ¿Qué son los High Order Components (HOC)?
 
 Los High Order Components son funciones que reciben un componente como parámetro y devuelven un componente.
@@ -430,26 +481,90 @@ function DataProvider({ children }) {
 
 Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
 
+#### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
+
+En React, no podemos usar un `if` en el renderizado de un componente porque no es una expresión válida de JavaScript, es una declaración. Las expresiones son aquellas que devuelven un valor y las declaraciones no devuelven ningún valor.
+
+En JSX sólo podemos usar expresiones, por eso usamos ternarias, que sí son expresiones.
+
+```jsx
+// ❌ Esto no funciona
+function Button({ text }) {
+  return (
+    <button>
+      {if (text) { return text } else { return 'Click' }}
+    </button>
+  )
+}
+```
+
 #### ¿Qué es el ciclo de vida de un componente en React?
 
 En los componentes de clase, el ciclo de vida de un componente se divide en tres fases:
 
-  * Montaje: cuando el componente se añade al DOM.
-  * Actualización: cuando el componente se actualiza.
-  * Desmontaje: cuando el componente se elimina del DOM.
+* Montaje: cuando el componente se añade al DOM.
+* Actualización: cuando el componente se actualiza.
+* Desmontaje: cuando el componente se elimina del DOM.
 
 Dentro de este ciclo de vida, existe un conjunto de métodos que se ejecutan en el componente.
 
 Estos métodos se definen en la clase y se ejecutan en el orden que se muestran a continuación:
 
-  * constructor
-  * render
-  * componentDidMount
-  * componentDidUpdate
-  * componentWillUnmount
+* constructor
+* render
+* componentDidMount
+* componentDidUpdate
+* componentWillUnmount
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
 
+#### ¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?
+
+Cuando renderizamos una lista de elementos, React necesita saber qué elementos han cambiado, han sido añadidos o eliminados.
+
+Para ello, React necesita una key única para cada elemento de la lista. Si no le pasamos una key, React usa el índice del elemento como key.
+
+```jsx
+const List = () => {
+  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+En este caso, React usa el índice del elemento como key. Esto puede ser un problema si la lista se reordena o se eliminan elementos del array, ya que el índice de los elementos cambia.
+
+En este caso, React no sabe qué elementos han cambiado y puede que se produzcan errores.
+
+Un ejemplo donde se ve el problema:
+```jsx
+const List = () => {
+  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
+
+  const handleRemove = (index) => {
+    const newItems = [...items]
+    newItems.splice(index, 1)
+    setItems(newItems)
+  }
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>
+          {item}
+          <button onClick={() => handleRemove(index)}>Eliminar</button>
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
 
 #### ¿Para qué sirve el hook `useMemo`?
 
@@ -515,6 +630,20 @@ La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evit
 
 No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
 
+#### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
+
+La diferencia entre `useCallback` y `useMemo` es que `useCallback` memoriza una función y `useMemo` memoriza el resultado de una función.
+
+En cualquier caso, en realidad, `useCallback` es una versión especializada de `useMemo`. De hecho se puede simular la funcionalidad de `useCallback` con `useMemo`:
+
+```js
+const memoizedCallback = useMemo(() => {
+  return () => {
+    doSomething(a, b)
+  }
+}, [a, b])
+```
+
 #### ¿Qué es el hook `useRef`?
 
 El hook `useRef` es un hook que nos permite crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados.
@@ -547,7 +676,7 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 #### ¿Qué son los componentes *stateless*?
 
-Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que son más fáciles de testear, ya que siempre deberían devolver la misma UI para los mismos *props*.
+Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
 
 ```jsx
 // Este es un ejemplo de componente stateless
