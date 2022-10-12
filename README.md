@@ -367,7 +367,7 @@ Esto, antes, no era posible y nos obligaba a crear un componente con `class` par
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
 
-#### ¿Qué hace el hook `useEffect`? 
+#### ¿Qué hace el hook `useEffect`? 
 
 El hook `useEffect` se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
 
@@ -396,7 +396,7 @@ function Counter() {
 }
 ```
 
-#### Explica casos de uso del hook `useEffect`
+#### Explica casos de uso del hook `useEffect`
 
 Podemos usar el hook `useEffect` para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
 
@@ -436,7 +436,7 @@ function Window() {
 }
 ```
 
-#### ¿Cómo podemos ejecutar código cuando el componente se monta?
+#### ¿Cómo podemos ejecutar código cuando el componente se monta?
 
 Podemos ejecutar código cuando el componente se monta usando el hook `useEffect` sin pasarle ninguna dependencia. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se monte.
 
