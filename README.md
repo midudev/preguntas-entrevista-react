@@ -417,6 +417,30 @@ export default function Counters() {
   )
 ```
 
+#### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
+
+A la hora de trabajar con formularios en React, tenemos dos tipos de componentes: los componentes controlados y los componentes no controlados.
+
+Los componentes controlados son aquellos que tienen un estado que controla el valor del componente. Por lo tanto, el valor del componente se actualiza cuando el estado cambia.
+
+La ventaja de este tipo de componentes es que son más fáciles de testear porque no dependen de la interfaz. También nos permiten crear validaciones muy fácilmente. La desventaja es que son más complejos de crear y mantener. Además, pueden tener un peor rendimiento ya que provocan un re-renderizado cada vez que cambia el valor del input.
+
+Los componentes no controlados son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
+
+La ventaja de este tipo de componentes es que se cream de forma muy fácil y no tienes que mantener un estado. Además, el rendimiento es mejor, ya que no tiene que re-renderizarse al cambiar el valor del input. Lo malo es que hay que tratar más con el DOM directamente y crear código imperativo.
+
+```js
+// Controlado:
+const [value, setValue] = useState('')
+const handleChange = () => setValue(event.target.value)
+
+<input type="text" value={value} onChange={handleChange} />
+
+// No controlado:
+<input type="text" defaultValue="foo" ref={inputRef} />
+// Usamos `inputRef.current.value` para leer el valor del input
+```
+
 #### ¿Qué son los High Order Components (HOC)?
 
 Los High Order Components son funciones que reciben un componente como parámetro y devuelven un componente.
@@ -496,6 +520,18 @@ function Button({ text }) {
     </button>
   )
 }
+```
+
+De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del renderizado de un componente.
+
+#### ¿Por qué debemos utilizar una función para actualizar el estado de React?
+
+A la hora de actualizar el estado de React, debemos utilizar la función que nos facilita el hook `useState` para actualizar el estado. Esto es porque React puede ejecutar el renderizado de un componente varias veces antes de que se actualice el DOM. Si usamos la función `setState` de React, podemos estar seguros de que el estado que se va a actualizar es el último estado.
+
+```jsx
+const [count, setCount] = useState(0)
+
+setCount(count + 1)
 ```
 
 #### ¿Qué es el ciclo de vida de un componente en React?
