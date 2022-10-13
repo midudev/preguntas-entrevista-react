@@ -344,7 +344,7 @@ Para que entiendas el concepto, piensa en el interruptor de una habitación. Est
 
 Este mismo concepto se puede aplicar a la interfaz de usuario. Por ejemplo, el botón Me Gusta de Facebook tendría el estado de `meGusta` a `true` cuando el usuario le ha dado a Me Gusta y a `false` cuando no lo ha hecho.
 
-No sólo podemos tener en el estado valores booleanos, también podemos tener objetos, arrays, números, etc.
+No solo podemos tener en el estado valores booleanos, también podemos tener objetos, arrays, números, etc.
 
 Por ejemplo, si tienes un componente `Counter` que muestra un contador, puedes usar el estado para controlar el valor del contador.
 
