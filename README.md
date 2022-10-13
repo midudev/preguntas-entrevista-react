@@ -1,11 +1,11 @@
 <div align='center'>
   <img height="60" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png">
   <h1>Preguntas de entrevista para React</h1>
-  
+
   <i>De cero a experto. Con respuestas detalladas en Español 🇪🇸</i>
-  
+
   <sup>Deja tu :star: si te gusta el proyecto.</sup>
-  
+
   | Streamings de programación en Twitch:<br />[twitch.tv/midudev](https://twitch.tv/midudev) |
   | ----------------------------------------------------------------------------------------- |
 
@@ -401,11 +401,12 @@ Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus 
 
 ---
 
-#### ¿Qué hace el hook `useEffect`? 
+#### ¿Qué hace el hook `useEffect`?
 
 El hook `useEffect` se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
 
 Recibe dos parámetros:
+
 - La función que se ejecutará al cambiar las dependencias o al renderizar el componente.
 - Un array de dependencias. Si cambia el valor de alguna dependencia, ejecutará la función.
 
@@ -656,7 +657,7 @@ Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en 
 
 Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento ya que no bloquea el renderizado.
 
---- 
+---
 
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
@@ -1541,7 +1542,7 @@ try {
       }
     }
   )
-  
+
   // Si quieres enviar todo el HTML en vez de hacer streaming, puedes usar esta línea
   // Es útil para crawlers o generación estática:
   // await stream.allReady
