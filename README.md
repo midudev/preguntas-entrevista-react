@@ -12,37 +12,10 @@
 </div>
 
 ---
-## Índice
-Principiantes
-1) [¿Qué es React?](#qué-es-react)
-2) [¿Cuáles son las características principales de React?](#cuáles-son-las-características-principales-de-react)
-3) [¿Qué significa exactamente que sea declarativo?](#qu%C3%A9-significa-exactamente-que-sea-declarativo)
-4) [¿Qué es un componente?](#qu%C3%A9-es-un-componente)
-5) [¿Qué es JSX?](#qu%C3%A9-es-jsx)
-6) [¿Cómo se transforma el JSX?](#c%C3%B3mo-se-transforma-el-jsx)
-7) [Cuál es la diferencia entre componente y elemento en React?](#cu%C3%A1l-es-la-diferencia-entre-componente-y-elemento-en-react)
-8) [¿Cómo crear un componente en React?](#c%C3%B3mo-crear-un-componente-en-react)
-9) [¿Qué son las props en React?](#qu%C3%A9-son-las-props-en-react)
-10) [¿Qué es el renderizado condicional en React?](#qu%C3%A9-es-el-renderizado-condicional-en-react)
-11) [¿Cómo puedes aplicar clases CSS a un componente en React?](#c%C3%B3mo-puedes-aplicar-clases-css-a-un-componente-en-react)
-12) [¿Cómo puedes aplicar estilos en línea a un componente en React?](#c%C3%B3mo-puedes-aplicar-estilos-en-l%C3%ADnea-a-un-componente-en-react)
-13) [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#c%C3%B3mo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
-14) [¿Qué es el renderizado de listas en React?](#qu%C3%A9-es-el-renderizado-de-listas-en-react)
-15) [¿Cómo añadir un evento a un componente en React?](#c%C3%B3mo-a%C3%B1adir-un-evento-a-un-componente-en-react)
-16) [¿Qué es el estado en React?](#qu%C3%A9-es-el-estado-en-react)
-17) [¿Qué son los hooks?](#qu%C3%A9-son-los-hooks)
-18) [¿Qué hace el hook useEffect?](#qu%C3%A9-hace-el-hook-useeffect)
-19) [Explica casos de uso del hook useEffect](#explica-casos-de-uso-del-hook-useeffect)
-20) [Cómo suscribirse a un evento en useEffect](#c%C3%B3mo-suscribirse-a-un-evento-en-useeffect)
-21) [¿Cómo podemos ejecutar código cuando el componente se monta?](#c%C3%B3mo-podemos-ejecutar-c%C3%B3digo-cuando-el-componente-se-monta)
-22) [¿Qué son los Fragments en React?](#qu%C3%A9-son-los-fragments-en-react)
-23) [¿Cómo puedes inicializar un proyecto de React desde cero?](#c%C3%B3mo-puedes-inicializar-un-proyecto-de-react-desde-cero)
-24) [¿Qué es React DOM?](#qu%C3%A9-es-react-dom)
 
-Intermedio
+## Índice
 
 - [Índice](#índice)
-- [70) ¿Qué es Flux?](#70-qué-es-flux)
   - [Principiante](#principiante)
     - [¿Qué es React?](#qué-es-react)
     - [¿Cuáles son las características principales de React?](#cuáles-son-las-características-principales-de-react)
@@ -117,26 +90,6 @@ Intermedio
     - [¿Para qué sirve el hook `useDeferredValue`?](#para-qué-sirve-el-hook-usedeferredvalue)
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
     - [¿Qué es Flux?](#qué-es-flux)
-
-Experto
-
-56) [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
-57) [¿Para qué sirve el hook useImperativeHandle?](#para-qué-sirve-el-hook-useimperativehandle)
-58) [¿Qué son los portales en React?](#qué-son-los-portales-en-react)
-59) [¿Por qué StrictMode renderiza dos veces la aplicación?](#por-qué-strictmode-renderiza-dos-veces-la-aplicación)
-60) [¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?](#qué-problemas-crees-que-pueden-aparecer-en-una-aplicación-al-querer-visualizar-listas-de-milesmillones-de-datos)
-61) [¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?](#qué-soluciónes-implementarías-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-milesmillones-de-datos)
-62) [¿Qué es el hook useDebugValue?](#qué-es-el-hook-usedebugvalue)
-63) [¿Qué es el Profiler en React?](#qué-es-el-profiler-en-react)
-64) [¿Cómo puedes acceder al evento nativo del navegador en React?](#cómo-puedes-acceder-al-evento-nativo-del-navegador-en-react)
-65) [¿Cómo puedes registrar un evento en la fase de captura en React?](#cómo-puedes-registrar-un-evento-en-la-fase-de-captura-en-react)
-66) [¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?](#cómo-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal)
-67) [¿Qué diferencia hay entre renderToStaticNodeStream() y renderToPipeableStream()?](#qué-diferencia-hay-entre-rendertostaticnodestream-y-rendertopipeablestream)
-68) [¿Para qué sirve el hook useDeferredValue?](#para-qué-sirve-el-hook-usedeferredvalue)
-69) [¿Para qué sirve el método renderToReadableStream()?](#para-qué-sirve-el-método-rendertoreadablestream)
-70) [¿Qué es Flux?](#qué-es-flux)
----
-
 
 ---
 
@@ -629,7 +582,6 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-
 Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
@@ -667,7 +619,7 @@ function App() {
 Existen diversas formas de inicializar un proyecto de React desde cero. Una de las formas más sencillas es usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
 ```bash
-$ npm create vite@latest your-react-app-name -- --template react
+npm create vite@latest your-react-app-name -- --template react
 ```
 
 > Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
@@ -1528,7 +1480,6 @@ Puedes consultar esta librería para aplicar Virtualización con React: [React V
 Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perjuicios en ambos métodos, dependiendo de factores como capacidad de respuesta de la API, cantidad de datos, necesidad de filtros complejos, etc. Por ello es importante analizar cada caso con criterio.
 
 ---
-
 
 #### ¿Qué es el hook `useDebugValue`?
 
