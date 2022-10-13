@@ -1,15 +1,49 @@
 <div align='center'>
   <img height="60" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png">
   <h1>Preguntas de entrevista para React</h1>
-  
+
   <i>De cero a experto. Con respuestas detalladas en Español 🇪🇸</i>
-  
+
   <sup>Deja tu :star: si te gusta el proyecto.</sup>
-  
+
   | Streamings de programación en Twitch:<br />[twitch.tv/midudev](https://twitch.tv/midudev) |
   | ----------------------------------------------------------------------------------------- |
 
 </div>
+
+---
+## Contenido
+
+- [Principiante](#principiante)
+  - [¿Qué es React?](#qué-es-react)
+  - [¿Cuáles son las características principales de React?](#cuáles-son-las-características-principales-de-react)
+  - [¿Qué significa exactamente que sea declarativo?](#qué-significa-exactamente-que-sea-declarativo)
+  - [¿Qué es un componente?](#qué-es-un-componente)
+  - [¿Qué es JSX?](#qué-es-jsx)
+  - [¿Cómo se transforma el JSX?](#cómo-se-transforma-el-jsx)
+  - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
+  - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
+  - [¿Qué son las props en React?](#qué-son-las-props-en-react)
+  - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
+  - [¿Cómo puedes aplicar clases CSS a un componente en React?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react)
+  - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
+  - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
+  - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
+  - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
+  - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
+  - [¿Qué son los hooks?](#qué-son-los-hooks)
+  - [¿Qué hace el hook useEffect?](#qué-hace-el-hook-useeffect)
+  - [Explica casos de uso del hook useEffect](#explica-casos-de-uso-del-hook-useeffect)
+  - [Cómo suscribirse a un evento en useEffect](#cómo-suscribirse-a-un-evento-en-useeffect)
+  - [¿Cómo podemos ejecutar código cuando el componente se monta?](cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
+  - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
+  - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
+  - [¿Qué es React DOM?](#qué-es-react-dom)
+- [Intermedio](#intermedio)
+  - [¿Cuántos useEffect puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
+- [Experto](#experto)
+  - [¿Es React una biblioteca o un framework? ¿Por qué?¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
+
 
 ---
 
@@ -26,6 +60,7 @@ Fue creada en 2011 por Jordan Walke, un ingeniero de software que trabajaba en F
 Es una biblioteca muy popular y es usada por muchas empresas como Facebook, Netflix, Airbnb, Twitter, Instagram, etc.
 
 Enlaces de interés:
+
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
@@ -401,11 +436,12 @@ Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus 
 
 ---
 
-#### ¿Qué hace el hook `useEffect`? 
+#### ¿Qué hace el hook `useEffect`?
 
 El hook `useEffect` se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
 
 Recibe dos parámetros:
+
 - La función que se ejecutará al cambiar las dependencias o al renderizar el componente.
 - Un array de dependencias. Si cambia el valor de alguna dependencia, ejecutará la función.
 
@@ -490,7 +526,7 @@ function Component() {
 
   return (
     <>
-      <p>Abre la consola y redimensiona la ventana</p>
+      <p>Abre la consola y re-dimensiona la ventana</p>
     </>
   )
 }
@@ -511,7 +547,7 @@ function App() {
   return (
     <Fragment>
       <h1>Titulo</h1>
-      <p>Parrafo</p>
+      <p>Párrafo</p>
     </Fragment>
   )
 }
@@ -524,7 +560,7 @@ function App() {
   return (
     <>
       <h1>Titulo</h1>
-      <p>Parrafo</p>
+      <p>Párrafo</p>
     </>
   )
 }
@@ -641,6 +677,7 @@ useEffect(() => {
 #### ¿Cuáles son las reglas de los hooks en React?
 
 Los hooks en React tienen dos reglas fundamentales:
+
 - Los hooks solo se pueden usar en componentes funcionales o *custom hooks*.
 - Los hooks solo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
 
@@ -656,7 +693,7 @@ Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en 
 
 Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento ya que no bloquea el renderizado.
 
---- 
+---
 
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
@@ -669,6 +706,7 @@ Además, **los hooks solo se pueden usar en los componentes funcionales**. Esto 
 Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de los componentes, algo que no podemos hacer con los componentes funcionales donde solo podemos usar `useEffect`.
 
 **Referencias:**
+
 - [Tweet de midudev donde muestra que los componentes funcionales se transpilan mejor que los de clases.](https://twitter.com/midudev/status/1065516163856310272)
 
 ---
@@ -896,19 +934,19 @@ Por otro lado, llamar a una función le permite a React saber que el estado ha c
 
 En los componentes de clase, el ciclo de vida de un componente se divide en tres fases:
 
-* Montaje: cuando el componente se añade al DOM.
-* Actualización: cuando el componente se actualiza.
-* Desmontaje: cuando el componente se elimina del DOM.
+- Montaje: cuando el componente se añade al DOM.
+- Actualización: cuando el componente se actualiza.
+- Desmontaje: cuando el componente se elimina del DOM.
 
 Dentro de este ciclo de vida, existe un conjunto de métodos que se ejecutan en el componente.
 
 Estos métodos se definen en la clase y se ejecutan en el orden que se muestran a continuación:
 
-* constructor
-* render
-* componentDidMount
-* componentDidUpdate
-* componentWillUnmount
+- constructor
+- render
+- componentDidMount
+- componentDidUpdate
+- componentWillUnmount
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
 
@@ -937,6 +975,7 @@ En este caso, React usa el índice del elemento como `key`. Esto puede ser un pr
 En este caso, React no sabe qué elementos han cambiado y puede que se produzcan errores.
 
 Un ejemplo donde se ve el problema:
+
 ```jsx
 const List = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
@@ -1123,8 +1162,8 @@ function App() {
 
 Los componentes de React se pueden exportar de dos formas:
 
-* Exportación por defecto
-* Exportación nombrada
+- Exportación por defecto
+- Exportación nombrada
 
 Para exportar un componente por defecto, usamos la palabra reservada `default`:
 
@@ -1158,10 +1197,10 @@ function App() {
 }
 
 // Otro.jsx
-import Buton from './button.jsx'
+import Button from './button.jsx'
 
 function Otro() {
-  return <Buton />
+  return <Button />
 }
 ```
 
@@ -1195,7 +1234,6 @@ export function ButtonSecondary() {
   return <button class="btn-secondary">{children}</button>
 }
 ```
-
 
 #### ¿Qué es el contexto en React?
 
@@ -1363,23 +1401,22 @@ function Modal() {
 
 `createPortal` acepta dos parámetros:
 
-* El primer parámetro es el componente que queremos renderizar
-* El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
+- El primer parámetro es el componente que queremos renderizar
+- El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
 
-En este caso el modal se renderiza en el nodo `#modal` del DOM. 
+En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
 
-
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
- * **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategía. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
- * **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza* no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
+- **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategía. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
+- **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza* no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
 
- Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos. 
- 
+ Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos.
+
  **El espacio de visualización es limitado (*viewport*), al igual que deberían serlo los datos que añadimos al DOM.**
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
@@ -1436,8 +1473,9 @@ function App() {
 ```
 
 El componente `Profiler` recibe dos parámetros:
-* `id`: es un identificador único para el componente
-* `onRender`: es una función que se ejecuta cada vez que el componente se renderiza
+
+- `id`: es un identificador único para el componente
+- `onRender`: es una función que se ejecuta cada vez que el componente se renderiza
 
 Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
 
@@ -1541,7 +1579,7 @@ try {
       }
     }
   )
-  
+
   // Si quieres enviar todo el HTML en vez de hacer streaming, puedes usar esta línea
   // Es útil para crawlers o generación estática:
   // await stream.allReady
