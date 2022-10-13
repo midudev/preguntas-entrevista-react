@@ -1362,8 +1362,9 @@ function Modal() {
 ```
 
 `createPortal` acepta dos parámetros:
-    * El primer parámetro es el componente que queremos renderizar
-    * El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
+
+* El primer parámetro es el componente que queremos renderizar
+* El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
 
 En este caso el modal se renderiza en el nodo `#modal` del DOM. 
 
