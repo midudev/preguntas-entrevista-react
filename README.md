@@ -32,6 +32,12 @@ Enlaces de interés:
 
 ---
 
+#### Esta es otra pregunta
+
+....
+
+---
+
 #### ¿Cuáles son las características principales de React?
 
 Las características principales de React son:
