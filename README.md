@@ -6,7 +6,7 @@
   
   <sup>Deja tu :star: si te gusta el proyecto.</sup>
   
-  | Streamings de programación en Twitch:<br />[https://twitch.tv/midudev](twitch.tv/midudev) |
+  | Streamings de programación en Twitch:<br />[twitch.tv/midudev](https://twitch.tv/midudev) |
   | ----------------------------------------------------------------------------------------- |
 
 </div>
@@ -296,7 +296,7 @@ En este caso, si la prop `primary` es `true`, se añadirá la clase `primary` al
 
 #### ¿Qué es el renderizado de listas en React?
 
-El renderizado de listas es la forma de mostrar una lista de elementos usando un componente.
+El renderizado de listas es la forma de iterar un array de elementos y renderizar elementos de React para cada uno de ellos.
 
 Para hacer renderizado de listas en React usamos el método `map` de los arrays:
 
@@ -646,6 +646,18 @@ Los hooks en React tienen dos reglas fundamentales:
 
 ---
 
+#### ¿Qué diferencia hay entre `useEffect` y `useLayoutEffect`?
+
+Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en el que se ejecutan.
+
+`useLayoutEffect` se ejecuta de forma síncrona inmediatamente después que React haya actualizado completamente el DOM tras el renderizado. Puede ser útil si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla.
+
+`useEffect` se ejecuta de forma asíncrona tras el renderizado pero no asegura que el DOM se haya actualizado. Es decir, si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla, no podrás hacerlo con `useEffect` porque no tienes la garantía de que el DOM se haya actualizado.
+
+Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento ya que no bloquea el renderizado.
+
+--- 
+
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
 Desde que en *React 16.8.0* se incluyeron los hooks, los componentes de funciones pueden hacer casi todo lo que los componentes de clase.
@@ -920,7 +932,7 @@ const List = () => {
 }
 ```
 
-En este caso, React usa el índice del elemento como key. Esto puede ser un problema si la lista se reordena o se eliminan elementos del array, ya que el índice de los elementos cambia.
+En este caso, React usa el índice del elemento como `key`. Esto puede ser un problema si la lista se reordena o se eliminan elementos del array, ya que el índice de los elementos cambia.
 
 En este caso, React no sabe qué elementos han cambiado y puede que se produzcan errores.
 
@@ -1467,6 +1479,14 @@ const stream = renderToPipeableStream(
 `renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente pero puede ser útil para páginas totalmente estáticas.
 
 `renderToPipeableStream()` devuelve un stream de nodos que contienen atributos del DOM extra para que React pueda hidratar el HTML en el cliente. Esto significa que podrás hacer el HTML interactivo en el cliente pero puede ser más lento que `renderToStaticNodeStream()`.
+
+---
+
+#### ¿Para qué sirve el hook `useDeferredValue`?
+
+El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baja. Esto es útil para renderizar un valor que no es crítico para la interacción del usuario.
+
+---
 
 #### ¿Para qué sirve el método `renderToReadableStream()`?
 
