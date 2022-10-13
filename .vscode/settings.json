@@ -5,5 +5,10 @@
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.markdownlint": true
+  },
+  "markdownlint.config": {
+      "default": true,
+      "line-length": false,
+      "no-inline-html": false
   }
 }

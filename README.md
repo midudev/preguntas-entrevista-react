@@ -81,6 +81,8 @@
     - [¿Por qué `StrictMode` renderiza dos veces la aplicación?](#por-qué-strictmode-renderiza-dos-veces-la-aplicación)
     - [¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?](#qué-problemas-crees-que-pueden-aparecer-en-una-aplicación-al-querer-visualizar-listas-de-milesmillones-de-datos)
     - [¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?](#qué-soluciónes-implementarías-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-milesmillones-de-datos)
+      - [Pagination](#pagination)
+      - [Virtualization](#virtualization)
     - [¿Qué es el hook `useDebugValue`?](#qué-es-el-hook-usedebugvalue)
     - [¿Qué es el `Profiler` en React?](#qué-es-el-profiler-en-react)
     - [¿Cómo puedes acceder al evento nativo del navegador en React?](#cómo-puedes-acceder-al-evento-nativo-del-navegador-en-react)
@@ -1467,11 +1469,11 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
-**Pagination**
+##### Pagination
 
 En lugar de recibir la lista en una sola llamada a la API (lo cual sería negativo tanto para el rendimiento como para el propio servidor y tiempo de respuesta de la API), podríamos implementar un sistema de paginación en el cual la API recibirá un *offset* o *rango* de datos deseados. En el FE nuestra responsabilidad es mostrar unos controles adecuados (interfaz de paginación) y gestionar las llamadas a petición de cambio de página para siempre limitar la cantidad de DOM renderizado evitando así una sobrecarga del *DOM* y, por lo tanto, problemas de rendimiento.
 
-**Virtualization**
+##### Virtualization
 
 Existe una técnica llamada *Virtualización* que gestiona cuantos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
 
