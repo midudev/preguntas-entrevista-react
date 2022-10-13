@@ -62,10 +62,10 @@ Intermedio
 43) [¿Es buena idea usar siempre useMemo para optimizar nuestros componentes?](#es-buena-idea-usar-siempre-usememo-para-optimizar-nuestros-componentes)
 44) [¿Para qué sirve el hook useCallback?](#para-qué-sirve-el-hook-usecallback)
 45) [¿Cuál es la diferencia entre useCallback y useMemo?](#cuál-es-la-diferencia-entre-usecallback-y-usememo)
-46) [¿Qué es el hook useRef?](#qué-es-el-hook-useref)
-47) [¿Qué son los componentes stateless?](#qué-son-los-componentes-stateless)
-48) [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
-49) [¿Qué son las refs en React?](#qué-son-las-refs-en-react)
+46) [¿Qué son las refs en React?](#qué-son-las-refs-en-react)
+47) [¿Cómo funciona el hook `useRef`?](#cómo-funciona-el-hook-useref)
+48) [¿Qué son los componentes stateless?](#qué-son-los-componentes-stateless)
+49) [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
 50) [¿Qué es el StrictMode en React?](#qué-es-el-strictmode-en-react)
 51) [¿Por qué es recomendable usar exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-usar-exportar-los-componentes-de-react-de-forma-nombrada)
 52) [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
@@ -1126,9 +1126,11 @@ const memoizedCallback = useMemo(() => {
 }, [a, b])
 ```
 
-#### ¿Qué es el hook `useRef`?
+#### ¿Qué son las refs en React?
 
-El hook `useRef` es un hook que nos permite crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados.
+Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando `createRef` o con el hook `useRef`.
+
+#### ¿Cómo funciona el hook `useRef`?
 
 En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando el componente se monta.
 
@@ -1188,8 +1190,6 @@ function Form({ onSubmit }) {
   </form>
 }
 ```
-
-#### ¿Qué son las refs en React?
 
 #### ¿Qué es el `StrictMode` en React?
 
