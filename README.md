@@ -266,6 +266,8 @@ function Button(props) {
 
 Podríamos entender que el componente `Button` es un botón genérico, y que la prop `text` es el texto que se muestra en el botón. Así estamos creando un componente reutilizable.
 
+Debe considerarse además que al usar cualquier expresión JavaScript dentro de JSX debe envolverlos con `{}`, en este caso el objeto `props`, de otra forma JSX lo considerará como texto plano.
+
 Para usarlo, indicamos el nombre del componente y le pasamos las props que queremos:
 
 ```jsx
@@ -315,7 +317,7 @@ La razón por la que se llama `className` es porque `class` es una palabra reser
 
 #### ¿Cómo puedes aplicar estilos en línea a un componente en React?
 
-Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto:
+Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
 
 ```jsx
 function Button({ text }) {
@@ -362,7 +364,7 @@ function Button({ text, primary }) {
 También podemos usar bibliotecas como `classnames`:
 
 ```jsx
-import cx from 'classnames'
+import classnames from 'classnames'
 
 function Button({ text, primary }) {
   return (
@@ -447,6 +449,13 @@ function Counter() {
   )
 }
 ```
+
+Al usar el hook `useState` este devolverá un `array` de dos posiciones:
+
+0. El valor del estado.
+1. La función para cambiar el estado.
+
+Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas lineas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicamos su estado inicial.
 
 Con un componente de clase, la creación del estado sería así:
 
