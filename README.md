@@ -542,7 +542,7 @@ $ npm create vite@latest your-react-app-name -- --template react
 
 > Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
 
-#### ¿Qué es React DOM?
+#### ¿Qué es React DOM?
 
 React DOM es la librería que se encarga de renderizar los componentes de React para el navegador. Hay que tener en cuenta que React es una biblioteca que se puede usar en diferentes entornos (dispositivos móviles, apps de escritorio, terminal...).
 
