@@ -266,6 +266,8 @@ function Button(props) {
 
 Podríamos entender que el componente `Button` es un botón genérico, y que la prop `text` es el texto que se muestra en el botón. Así estamos creando un componente reutilizable.
 
+Debe considerarse además que al usar cualquier expresión JavaScript dentro de JSX debe envolverlos con `{}`, en este caso el objeto `props`, de otra forma JSX lo considerará como texto plano.
+
 Para usarlo, indicamos el nombre del componente y le pasamos las props que queremos:
 
 ```jsx
