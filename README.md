@@ -315,7 +315,7 @@ La razón por la que se llama `className` es porque `class` es una palabra reser
 
 #### ¿Cómo puedes aplicar estilos en línea a un componente en React?
 
-Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto:
+Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
 
 ```jsx
 function Button({ text }) {
@@ -362,7 +362,7 @@ function Button({ text, primary }) {
 También podemos usar bibliotecas como `classnames`:
 
 ```jsx
-import cx from 'classnames'
+import classnames from 'classnames'
 
 function Button({ text, primary }) {
   return (
