@@ -30,6 +30,8 @@ Enlaces de interés:
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
 
+---
+
 #### ¿Cuáles son las características principales de React?
 
 Las características principales de React son:
@@ -43,6 +45,8 @@ Las características principales de React son:
 - **Unidireccional**: React es unidireccional, lo que significa que los datos fluyen en una sola dirección. Los datos fluyen de los componentes padres a los componentes hijos.
 
 - **Universal**: React se puede ejecutar tanto en el cliente como en el servidor. Además, puedes usar React Native para crear aplicaciones nativas para Android e iOS.
+
+---
 
 #### ¿Qué significa exactamente que sea declarativo?
 
@@ -59,11 +63,15 @@ const element = document.createElement('h1')
 element.innerHTML = 'Hello, world'
 ```
 
+---
+
 #### ¿Qué es un componente?
 
 Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.
 
 En React los componentes se crean usando funciones o clases.
+
+---
 
 #### ¿Qué es JSX?
 
@@ -93,6 +101,8 @@ function Hello () {
 
 Ambos códigos son equivalentes.
 
+---
+
 #### ¿Cómo se transforma el JSX?
 
 **El JSX se transforma en código JavaScript compatible en el navegador usando un *transpilador* o *compilador***. El más famoso es a día de hoy Babel, que utiliza una serie de plugins para ser compatible con la transformación, pero existen otros como SWC.
@@ -100,6 +110,8 @@ Ambos códigos son equivalentes.
 Puedes ver cómo se transforma el JSX en el [playground de código de Babel](https://babeljs.io/repl/#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABACQKYBt10QCgJSIDeAUIogE6pQjlIA8AFgIwB8yc6AhogLLgAm2QLwbgaR3APBuBYfYCEdAPTMWxAL5A&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.19.5&externalPlugins=&assumptions=%7B%7D).
 
 Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **Deno tiene soporte nativo para la sintaxis JSX** y no es necesario transformar el código para hacerlo compatible.
+
+---
 
 #### Cuál es la diferencia entre componente y elemento en React?
 
@@ -131,6 +143,8 @@ Un elemento es un objeto que representa un nodo del DOM o una instancia de un co
 }
 ```
 
+---
+
 #### ¿Cómo crear un componente en React?
 
 Los componentes en React son funciones o clases que devuelven un elemento de React. Hoy en día lo más recomendado es usar funciones:
@@ -155,6 +169,8 @@ class HelloWorld extends Component {
 
 Lo importante es que el nombre de la función o clase empiece con una letra mayúscula. Esto es necesario para que React pueda distinguir entre componentes y elementos HTML.
 
+---
+
 #### ¿Qué son las props en React?
 
 Las props son las propiedades de un componente. Son datos que se pasan de un componente a otro. Por ejemplo, si tienes un componente `Button` que muestra un botón, puedes pasarle una prop `text` para que el botón muestre ese texto:
@@ -176,6 +192,8 @@ Para usarlo, indicamos el nombre del componente y le pasamos las props que quere
 
 Las props son una forma de parametrizar nuestros componentes igual que hacemos con las funciones. Podemos pasarle cualquier tipo de dato a un componente, incluso otros componentes.
 
+---
+
 #### ¿Qué es el renderizado condicional en React?
 
 El renderizado condicional es la forma de mostrar un componente u otro dependiendo de una condición.
@@ -191,6 +209,8 @@ function Button({ text }) {
 ```
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
+
+---
 
 #### ¿Cómo puedes aplicar clases CSS a un componente en React?
 
@@ -208,6 +228,8 @@ function Button({ text }) {
 
 La razón por la que se llama `className` es porque `class` es una palabra reservada en JavaScript. Por eso, en JSX, tenemos que usar `className` para aplicar clases CSS.
 
+---
+
 #### ¿Cómo puedes aplicar estilos en línea a un componente en React?
 
 Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto:
@@ -223,6 +245,8 @@ function Button({ text }) {
 ```
 
 Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
+
+---
 
 #### ¿Cómo puedo aplicar estilos de forma condicional a un componente en React?
 
@@ -268,6 +292,8 @@ function Button({ text, primary }) {
 
 En este caso, si la prop `primary` es `true`, se añadirá la clase `primary` al botón. Si no, no se añadirá. En cambio la clase `button` siempre se añadirá.
 
+---
+
 #### ¿Qué es el renderizado de listas en React?
 
 El renderizado de listas es la forma de mostrar una lista de elementos usando un componente.
@@ -290,6 +316,8 @@ En este caso, se renderiza una lista de elementos usando el componente `List`. E
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
 
+---
+
 #### ¿Cómo añadir un evento a un componente en React?
 
 Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en *camelCase*:
@@ -305,6 +333,8 @@ function Button({ text, onClick }) {
 ```
 
 En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+
+---
 
 #### ¿Qué es el estado en React?
 
@@ -359,6 +389,8 @@ class Counter extends Component {
 }
 ```
 
+---
+
 #### ¿Qué son los hooks?
 
 Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
@@ -366,6 +398,8 @@ Los Hooks son una API de React que nos permite tener estado, y otras caracterís
 Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
+
+---
 
 #### ¿Qué hace el hook `useEffect`? 
 
@@ -396,6 +430,8 @@ function Counter() {
 }
 ```
 
+---
+
 #### Explica casos de uso del hook `useEffect`
 
 Podemos usar el hook `useEffect` para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
@@ -407,6 +443,8 @@ También podemos utilizar tracking de eventos, como Google Analytics, para saber
 Podemos validar un formulario para que cada vez que cambie el estado, podamos actualizar la UI y mostrar dónde están los errores.
 
 Además podemos suscribirnos a eventos del navegador, como el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana.
+
+---
 
 #### Cómo suscribirse a un evento en `useEffect`
 
@@ -436,6 +474,8 @@ function Window() {
 }
 ```
 
+---
+
 #### ¿Cómo podemos ejecutar código cuando el componente se monta?
 
 Podemos ejecutar código cuando el componente se monta usando el hook `useEffect` sin pasarle ninguna dependencia. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se monte.
@@ -455,6 +495,8 @@ function Component() {
   )
 }
 ```
+
+---
 
 #### ¿Qué son los Fragments en React?
 
@@ -490,11 +532,33 @@ function App() {
 
 ---
 
+#### ¿Cómo puedes inicializar un proyecto de React desde cero?
+
+Existen diversas formas de inicializar un proyecto de React desde cero. Una de las formas más sencillas es usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+
+```bash
+$ npm create vite@latest your-react-app-name -- --template react
+```
+
+> Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
+
+#### ¿Qué es React DOM?
+
+React DOM es la librería que se encarga de renderizar los componentes de React para el navegador. Hay que tener en cuenta que React es una biblioteca que se puede usar en diferentes entornos (dispositivos móviles, apps de escritorio, terminal...).
+
+Mientras que la biblioteca de *React*, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... *React DOM* es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
+
+*React Native*, por ejemplo, haría lo mismo pero para dispositivos móviles.
+
+---
+
 ### Intermedio
 
 #### ¿Cuántos `useEffect` puede tener un componente?
 
 Aunque normalmente los componentes de React sólo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
+
+---
 
 #### ¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?
 
@@ -517,6 +581,8 @@ function Component() {
 ```
 
 Esto es muy útil para limpiar recursos que se hayan creado en el componente, como por ejemplo, eventos del navegador o para cancelar peticiones a APIs.
+
+---
 
 #### Cómo puedes cancelar una petición a una API en `useEffect` correctamente
 
@@ -570,11 +636,15 @@ useEffect(() => {
 }, [])
 ```
 
+---
+
 #### ¿Cuáles son las reglas de los hooks en React?
 
 Los hooks en React tienen dos reglas fundamentales:
 - Los hooks sólo se pueden usar en componentes funcionales o *custom hooks*.
 - Los hooks sólo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
+
+---
 
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
@@ -588,6 +658,8 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 
 **Referencias:**
 - [Tweet de midudev donde muestra que los componentes funcionales se transpilan mejor que los de clases.](https://twitter.com/midudev/status/1065516163856310272)
+
+---
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
@@ -609,11 +681,15 @@ function Button({ text }) {
 
 En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
 
+---
+
 #### ¿Qué es el Server Side Rendering y qué ventajas tiene?
 
 El *Server Side Rendering* es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
 
 Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.
+
+---
 
 #### ¿Cómo puedes crear un Server Side Rendering con React desde cero?
 
@@ -639,6 +715,8 @@ Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
 ```html
 <h1 data-reactroot="">Hola mundo</h1>
 ```
+
+---
 
 #### ¿Puedes poner un ejemplo de efectos colaterales en React?
 
@@ -667,6 +745,8 @@ export default function Counters() {
   )
 ```
 
+---
+
 #### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
 
 A la hora de trabajar con formularios en React, tenemos dos tipos de componentes: los componentes controlados y los componentes no controlados.
@@ -691,6 +771,8 @@ const handleChange = () => setValue(event.target.value)
 // Usamos `inputRef.current.value` para leer el valor del input
 ```
 
+---
+
 #### ¿Qué son los High Order Components (HOC)?
 
 Los High Order Components son funciones que reciben un componente como parámetro y devuelven un componente.
@@ -712,6 +794,8 @@ En este caso, la función `withLayout` recibe un componente como parámetro y de
 Es un patrón que nos permite reutilizar código y así podemos inyectar funcionalidad, estilos o cualquier otra cosa a un componente de forma sencilla.
 
 Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todavía se usan en algunos casos.
+
+---
 
 #### ¿Qué son las render props?
 
@@ -755,6 +839,8 @@ function DataProvider({ children }) {
 
 Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
 
+---
+
 #### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
 
 En React, no podemos usar un `if` en el renderizado de un componente porque no es una expresión válida de JavaScript, es una declaración. Las expresiones son aquellas que devuelven un valor y las declaraciones no devuelven ningún valor.
@@ -774,15 +860,25 @@ function Button({ text }) {
 
 De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del renderizado de un componente.
 
+---
+
 #### ¿Por qué debemos utilizar una función para actualizar el estado de React?
 
-A la hora de actualizar el estado de React, debemos utilizar la función que nos facilita el hook `useState` para actualizar el estado. Esto es porque React puede ejecutar el renderizado de un componente varias veces antes de que se actualice el DOM. Si usamos la función `setState` de React, podemos estar seguros de que el estado que se va a actualizar es el último estado.
+A la hora de actualizar el estado de React, debemos utilizar la función que nos facilita el hook `useState` para actualizar el estado.
 
 ```jsx
 const [count, setCount] = useState(0)
 
 setCount(count + 1)
 ```
+
+¿Por qué es esto necesario? En primer lugar, el estado en React debe ser inmutable. Es decir, no podemos modificar el estado directamente, sino que debemos siempre crear un nuevo valor para el nuevo estado.
+
+Esto nos permite que la integridad de la UI respecto a los datos que renderiza siempre es correcta.
+
+Por otro lado, llamar a una función le permite a React saber que el estado ha cambiado y que debe re-renderizar el componente si es necesario. Además esto lo hace de forma asíncrona, por lo que podemos llamar a `setCount` tantas veces como queramos y React se encargará de actualizar el estado cuando lo considere oportuno.
+
+---
 
 #### ¿Qué es el ciclo de vida de un componente en React?
 
