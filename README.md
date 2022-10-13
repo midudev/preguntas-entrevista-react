@@ -536,7 +536,8 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, sólo un elemento raíz.
+
+Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -592,7 +593,7 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 #### ¿Cuántos `useEffect` puede tener un componente?
 
-Aunque normalmente los componentes de React sólo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
+Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
 
 ---
 
@@ -678,8 +679,8 @@ useEffect(() => {
 
 Los hooks en React tienen dos reglas fundamentales:
 
-- Los hooks sólo se pueden usar en componentes funcionales o *custom hooks*.
-- Los hooks sólo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
+- Los hooks solo se pueden usar en componentes funcionales o *custom hooks*.
+- Los hooks solo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
 
 ---
 
@@ -701,9 +702,9 @@ Desde que en *React 16.8.0* se incluyeron los hooks, los componentes de funcione
 
 Aunque no hay una respuesta clara a esta pregunta, normalmente los componentes funcionales son más sencillos de leer y escribir y pueden tener un mejor rendimiento en general.
 
-Además, **los hooks sólo se pueden usar en los componentes funcionales**. Esto es importante, ya que con la creación de custom hooks podemos reutilizar la lógica y podría simplificar nuestros componentes.
+Además, **los hooks solo se pueden usar en los componentes funcionales**. Esto es importante, ya que con la creación de custom hooks podemos reutilizar la lógica y podría simplificar nuestros componentes.
 
-Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de los componentes, algo que no podemos hacer con los componentes funcionales donde sólo podemos usar `useEffect`.
+Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de los componentes, algo que no podemos hacer con los componentes funcionales donde solo podemos usar `useEffect`.
 
 **Referencias:**
 
@@ -895,7 +896,7 @@ Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `r
 
 En React, no podemos usar un `if` en el renderizado de un componente porque no es una expresión válida de JavaScript, es una declaración. Las expresiones son aquellas que devuelven un valor y las declaraciones no devuelven ningún valor.
 
-En JSX sólo podemos usar expresiones, por eso usamos ternarias, que sí son expresiones.
+En JSX solo podemos usar expresiones, por eso usamos ternarias, que sí son expresiones.
 
 ```jsx
 // ❌ Esto no funciona
