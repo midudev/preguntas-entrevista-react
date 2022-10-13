@@ -41,6 +41,8 @@
   - [¿Qué es React DOM?](#qué-es-react-dom)
 - [Intermedio](#intermedio)
   - [¿Cuántos useEffect puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
+- [Experto](#experto)
+  - [¿Es React una biblioteca o un framework? ¿Por qué?¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
 
 
 ---
