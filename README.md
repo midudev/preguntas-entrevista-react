@@ -548,7 +548,7 @@ React DOM es la librería que se encarga de renderizar los componentes de React 
 
 Mientras que la biblioteca de *React*, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... *React DOM* es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
 
-*React Native*, por ejemplo, haría lo mismo pero para dispositivos móviles.
+*React Native*, por ejemplo, haría lo mismo, pero para dispositivos móviles.
 
 ---
 
@@ -652,7 +652,7 @@ Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en 
 
 `useLayoutEffect` se ejecuta de forma síncrona inmediatamente después que React haya actualizado completamente el DOM tras el renderizado. Puede ser útil si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla.
 
-`useEffect` se ejecuta de forma asíncrona tras el renderizado pero no asegura que el DOM se haya actualizado. Es decir, si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla, no podrás hacerlo con `useEffect` porque no tienes la garantía de que el DOM se haya actualizado.
+`useEffect` se ejecuta de forma asíncrona tras el renderizado, pero no asegura que el DOM se haya actualizado. Es decir, si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla, no podrás hacerlo con `useEffect` porque no tienes la garantía de que el DOM se haya actualizado.
 
 Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento ya que no bloquea el renderizado.
 
@@ -1504,7 +1504,7 @@ const stream = renderToPipeableStream(
 
 #### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
 
-`renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente pero puede ser útil para páginas totalmente estáticas.
+`renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente, pero puede ser útil para páginas totalmente estáticas.
 
 `renderToPipeableStream()` devuelve un stream de nodos que contienen atributos del DOM extra para que React pueda hidratar el HTML en el cliente. Esto significa que podrás hacer el HTML interactivo en el cliente pero puede ser más lento que `renderToStaticNodeStream()`.
 
@@ -1518,7 +1518,7 @@ El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baj
 
 #### ¿Para qué sirve el método `renderToReadableStream()`?
 
-Este método es similar a `renderToNodeStream` pero está pensado para entornos que soporten Web Streams como Deno.
+Este método es similar a `renderToNodeStream`, pero está pensado para entornos que soporten Web Streams como Deno.
 
 Un ejemplo de uso sería el siguiente:
 
