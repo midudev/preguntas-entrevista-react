@@ -12,6 +12,38 @@
 </div>
 
 ---
+## Contenido
+
+- [Principiante](#principiante)
+  - [¿Qué es React?](#qué-es-react)
+  - [¿Cuáles son las características principales de React?](#cuáles-son-las-características-principales-de-react)
+  - [¿Qué significa exactamente que sea declarativo?](#qué-significa-exactamente-que-sea-declarativo)
+  - [¿Qué es un componente?](#qué-es-un-componente)
+  - [¿Qué es JSX?](#qué-es-jsx)
+  - [¿Cómo se transforma el JSX?](#cómo-se-transforma-el-jsx)
+  - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
+  - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
+  - [¿Qué son las props en React?](#qué-son-las-props-en-react)
+  - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
+  - [¿Cómo puedes aplicar clases CSS a un componente en React?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react)
+  - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
+  - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
+  - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
+  - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
+  - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
+  - [¿Qué son los hooks?](#qué-son-los-hooks)
+  - [¿Qué hace el hook useEffect?](#qué-hace-el-hook-useeffect)
+  - [Explica casos de uso del hook useEffect](#explica-casos-de-uso-del-hook-useeffect)
+  - [Cómo suscribirse a un evento en useEffect](#cómo-suscribirse-a-un-evento-en-useeffect)
+  - [¿Cómo podemos ejecutar código cuando el componente se monta?](cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
+  - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
+  - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
+  - [¿Qué es React DOM?](#qué-es-react-dom)
+- [Intermedio](#intermedio)
+  - [¿Cuántos useEffect puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
+
+
+---
 
 ### Principiante
 
