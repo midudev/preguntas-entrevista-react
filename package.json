@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "lint": "node scripts/lint.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/midudev/preguntas-entrevista-react/issues"
   },
-  "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme"
+  "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme",
+  "devDependencies": {
+    "markdownlint": "0.26.2"
+  }
 }

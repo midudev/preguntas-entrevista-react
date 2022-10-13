@@ -896,19 +896,19 @@ Por otro lado, llamar a una función le permite a React saber que el estado ha c
 
 En los componentes de clase, el ciclo de vida de un componente se divide en tres fases:
 
-* Montaje: cuando el componente se añade al DOM.
-* Actualización: cuando el componente se actualiza.
-* Desmontaje: cuando el componente se elimina del DOM.
+- Montaje: cuando el componente se añade al DOM.
+- Actualización: cuando el componente se actualiza.
+- Desmontaje: cuando el componente se elimina del DOM.
 
 Dentro de este ciclo de vida, existe un conjunto de métodos que se ejecutan en el componente.
 
 Estos métodos se definen en la clase y se ejecutan en el orden que se muestran a continuación:
 
-* constructor
-* render
-* componentDidMount
-* componentDidUpdate
-* componentWillUnmount
+- constructor
+- render
+- componentDidMount
+- componentDidUpdate
+- componentWillUnmount
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
 
@@ -1123,8 +1123,8 @@ function App() {
 
 Los componentes de React se pueden exportar de dos formas:
 
-* Exportación por defecto
-* Exportación nombrada
+- Exportación por defecto
+- Exportación nombrada
 
 Para exportar un componente por defecto, usamos la palabra reservada `default`:
 
@@ -1363,8 +1363,8 @@ function Modal() {
 
 `createPortal` acepta dos parámetros:
 
-* El primer parámetro es el componente que queremos renderizar
-* El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
+- El primer parámetro es el componente que queremos renderizar
+- El segundo parámetro es el nodo del DOM donde queremos renderizar el componente
 
 En este caso el modal se renderiza en el nodo `#modal` del DOM. 
 
@@ -1375,12 +1375,13 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
- * **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategía. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
- * **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza* no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
+* **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategía. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
+  
+* **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza* no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
 
- Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos. 
- 
- **El espacio de visualización es limitado (*viewport*), al igual que deberían serlo los datos que añadimos al DOM.**
+Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos. 
+
+**El espacio de visualización es limitado (*viewport*), al igual que deberían serlo los datos que añadimos al DOM.**
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
