@@ -26,6 +26,7 @@ Fue creada en 2011 por Jordan Walke, un ingeniero de software que trabajaba en F
 Es una biblioteca muy popular y es usada por muchas empresas como Facebook, Netflix, Airbnb, Twitter, Instagram, etc.
 
 Enlaces de interés:
+
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
@@ -491,7 +492,7 @@ function Component() {
 
   return (
     <>
-      <p>Abre la consola y redimensiona la ventana</p>
+      <p>Abre la consola y re-dimensiona la ventana</p>
     </>
   )
 }
@@ -512,7 +513,7 @@ function App() {
   return (
     <Fragment>
       <h1>Titulo</h1>
-      <p>Parrafo</p>
+      <p>Párrafo</p>
     </Fragment>
   )
 }
@@ -525,7 +526,7 @@ function App() {
   return (
     <>
       <h1>Titulo</h1>
-      <p>Parrafo</p>
+      <p>Párrafo</p>
     </>
   )
 }
@@ -642,6 +643,7 @@ useEffect(() => {
 #### ¿Cuáles son las reglas de los hooks en React?
 
 Los hooks en React tienen dos reglas fundamentales:
+
 - Los hooks sólo se pueden usar en componentes funcionales o *custom hooks*.
 - Los hooks sólo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
 
@@ -670,6 +672,7 @@ Además, **los hooks sólo se pueden usar en los componentes funcionales**. Esto
 Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de los componentes, algo que no podemos hacer con los componentes funcionales donde sólo podemos usar `useEffect`.
 
 **Referencias:**
+
 - [Tweet de midudev donde muestra que los componentes funcionales se transpilan mejor que los de clases.](https://twitter.com/midudev/status/1065516163856310272)
 
 ---
@@ -938,6 +941,7 @@ En este caso, React usa el índice del elemento como `key`. Esto puede ser un pr
 En este caso, React no sabe qué elementos han cambiado y puede que se produzcan errores.
 
 Un ejemplo donde se ve el problema:
+
 ```jsx
 const List = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
@@ -1159,10 +1163,10 @@ function App() {
 }
 
 // Otro.jsx
-import Buton from './button.jsx'
+import Button from './button.jsx'
 
 function Otro() {
-  return <Buton />
+  return <Button />
 }
 ```
 
@@ -1196,7 +1200,6 @@ export function ButtonSecondary() {
   return <button class="btn-secondary">{children}</button>
 }
 ```
-
 
 #### ¿Qué es el contexto en React?
 
