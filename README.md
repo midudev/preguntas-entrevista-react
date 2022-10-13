@@ -190,7 +190,7 @@ function HelloWorld() {
 }
 ```
 
-Pero también puedes puedes usar una clase para crear un componente React:
+Pero también puedes usar una clase para crear un componente React:
 
 ```jsx
 import { Component } from 'react'
@@ -536,7 +536,8 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
+
+Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -691,7 +692,7 @@ Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en 
 
 `useEffect` se ejecuta de forma asíncrona tras el renderizado, pero no asegura que el DOM se haya actualizado. Es decir, si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla, no podrás hacerlo con `useEffect` porque no tienes la garantía de que el DOM se haya actualizado.
 
-Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento ya que no bloquea el renderizado.
+Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento, ya que no bloquea el renderizado.
 
 ---
 
@@ -803,7 +804,7 @@ A la hora de trabajar con formularios en React, tenemos dos tipos de componentes
 
 Los componentes controlados son aquellos que tienen un estado que controla el valor del componente. Por lo tanto, el valor del componente se actualiza cuando el estado cambia.
 
-La ventaja de este tipo de componentes es que son más fáciles de testear porque no dependen de la interfaz. También nos permiten crear validaciones muy fácilmente. La desventaja es que son más complejos de crear y mantener. Además, pueden tener un peor rendimiento ya que provocan un re-renderizado cada vez que cambia el valor del input.
+La ventaja de este tipo de componentes es que son más fáciles de testear porque no dependen de la interfaz. También nos permiten crear validaciones muy fácilmente. La desventaja es que son más complejos de crear y mantener. Además, pueden tener un peor rendimiento, ya que provocan un re-renderizado cada vez que cambia el valor del input.
 
 Los componentes no controlados son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
 
@@ -1181,7 +1182,7 @@ function App() {
 }
 ```
 
-La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar cualquier nombre que quieras. Y esto trae problemas ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
+La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar cualquier nombre que quieras. Y esto trae problemas, ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
 
 ```jsx
 // button.jsx
@@ -1427,7 +1428,7 @@ En lugar de recibir la lista en una sola llamada a la API (lo cual sería negati
 
 **Virtualization**
 
-Existe una técnica llamada *Virtualización* que gestiona cuantos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posible errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
+Existe una técnica llamada *Virtualización* que gestiona cuantos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
 
 Puedes consultar esta librería para aplicar Virtualización con React: [React Virtualized](https://github.com/bvaughn/react-virtualized).
 
