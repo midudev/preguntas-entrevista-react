@@ -295,6 +295,14 @@ function Button({ text }) {
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
 
+Es común encontrar implementaciones del renderizado condicional con el operador &&, del tipo:
+```jsx
+function List({ listArray }) {
+  return listArray?.length && listArray.map(item=>item)
+}
+```
+Tiene sentido, si el length es positivo (mayor a cero) renderizamos el map. !Pues no! ❌ Cuidado, si tiene length de cero, el resultado en el navegador sera un 0. Es preferible utilizar el operador ternario, Kent C. Dodds tiene un articulo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
+
 ---
 
 #### ¿Cómo puedes aplicar clases CSS a un componente en React?
