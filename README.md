@@ -560,9 +560,7 @@ function Window() {
   }, [])
 
   return (
-    <>
-      <p>Abre la consola y redimensiona la ventana</p>
-    </>
+    <p>Abre la consola y redimensiona la ventana</p>
   )
 }
 ```
@@ -582,9 +580,7 @@ function Component() {
   }, [])
 
   return (
-    <>
-      <p>Abre la consola y re-dimensiona la ventana</p>
-    </>
+    <p>Abre la consola y re-dimensiona la ventana</p>
   )
 }
 ```
