@@ -627,13 +627,14 @@ function App() {
 
 #### ¿Cómo puedes inicializar un proyecto de React desde cero?
 
-Existen diversas formas de inicializar un proyecto de React desde cero. Una de las formas más sencillas es usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares estan: 
 
-```bash
-npm create vite@latest your-react-app-name -- --template react
-```
+- Usando [Nextjs](https://nextjs.org/docs/getting-started): `npx create-next-app@latest your-react-app-name`.
+- Usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project): `npm create vite@latest your-react-app-name -- --template react`.
+- Usando [Gatsby](https://www.gatsbyjs.com/docs/quick-start/): `npm init gatsby`.
+- Usando [Create React App](https://create-react-app.dev/docs/getting-started): `npx create-react-app your-react-app-name`.
 
-> Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
+> Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios y mucho más.
 
 #### ¿Qué es React DOM?
 
