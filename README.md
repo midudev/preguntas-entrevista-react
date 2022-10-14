@@ -1739,6 +1739,10 @@ try {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es Flux?
 
 *Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
@@ -1746,3 +1750,7 @@ try {
 No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
 
 Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. *Redux* se basó en este patrón para crear una biblioteca de gestión de estado global.
+
+**[⬆ Volver a índice](#índice)**
+
+---
