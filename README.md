@@ -502,7 +502,7 @@ Recibe dos parámetros:
 - La función que se ejecutará al cambiar las dependencias o al renderizar el componente.
 - Un array de dependencias. Si cambia el valor de alguna dependencia, ejecutará la función.
 
-En este ejemplo mostramos un mensaje en consola cada vez que cambia el valor de `count`:
+En este ejemplo mostramos un mensaje en consola cuando carga el componente y cada vez que cambia el valor de `count`:
 
 ```jsx
 import { useEffect, useState } from 'react'
