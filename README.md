@@ -34,6 +34,7 @@
     - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
+    - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
     - [Cómo suscribirse a un evento en `useEffect`](#cómo-suscribirse-a-un-evento-en-useeffect)
@@ -533,6 +534,39 @@ Esto, antes, no era posible y nos obligaba a crear un componente con `class` par
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
 
 **[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué hace el hook `useState`?
+
+El hook `useState` es utilizado para crear variables de estado, quiere decir que su valor es dinámico, que este puede cambiar en el tiempo y eso requiere una re-renderización del componente donde se utiliza
+
+Recibe un parámetro:
+
+- El valor inicial de nuestra variable de estado.
+
+Devuelve un array con dos variables:
+
+- En primer lugar tenemos la variable que contiene el valor
+- La siguiente variable es una función set, requiere el nuevo valor del estado, y este modifica el valor de la variable que anteriormente mencionamos
+- Cabe destacar que la función proporciona cómo parametro el valor actual del propio estado. Ex: `setIsOpen(isOpen => !isOpen)`
+
+En este ejemplo mostramos como el valor de `count` se inicializa en 0, y también se renderiza cada vez que el valor es modificado con la función `setCount` en el evento `onClick` del button:
+
+```jsx
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <p>Contador: {count}</p>
+      <button onClick={() => setCount(count => count + 1)}>Aumentar</button>
+    </>
+  )
+}
+```
 
 ---
 
