@@ -529,7 +529,7 @@ function Counter() {
 
 Podemos usar el hook `useEffect` para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
 
-Por eso puede ser útil para hacer llamadas a APIs, ya que sea nada más montar el componente o cuando cambian las dependencias.
+Por eso puede ser útil para hacer llamadas a APIs, ya que se llama nada más montar el componente o cuando cambian las dependencias.
 
 También podemos utilizar tracking de eventos, como Google Analytics, para saber qué páginas visitan los usuarios.
 
@@ -655,7 +655,7 @@ Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo c
 
 #### ¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?
 
-Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se desmonte.
+Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro del `useEffect` se ejecutará cuando el componente se monte, y la función que es retornada dentro de esta se ejecutará cuando se desmonte.
 
 ```jsx
 import { useEffect } from 'react'
