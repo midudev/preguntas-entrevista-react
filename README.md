@@ -518,7 +518,7 @@ function Counter() {
   return (
     <>
       <p>Contador: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Aumentar</button>
+      <button onClick={() => setCount(count => count + 1)}>Aumentar</button>
     </>
   )
 }
