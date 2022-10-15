@@ -967,7 +967,7 @@ La ventaja de este tipo de componentes es que son más fáciles de testear porqu
 
 Los componentes no controlados son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
 
-La ventaja de este tipo de componentes es que se cream de forma muy fácil y no tienes que mantener un estado. Además, el rendimiento es mejor, ya que no tiene que re-renderizarse al cambiar el valor del input. Lo malo es que hay que tratar más con el DOM directamente y crear código imperativo.
+La ventaja de este tipo de componentes es que se crean de forma muy fácil y no tienes que mantener un estado. Además, el rendimiento es mejor, ya que no tiene que re-renderizarse al cambiar el valor del input. Lo malo es que hay que tratar más con el DOM directamente y crear código imperativo.
 
 ```js
 // Controlado:
@@ -1328,7 +1328,7 @@ function App() {
 }
 ```
 
-#### ¿Por qué es recomendable usar exportar los componentes de React de forma nombrada?
+#### ¿Por qué es recomendable exportar los componentes de React de forma nombrada?
 
 Los componentes de React se pueden exportar de dos formas:
 
@@ -1439,6 +1439,8 @@ function Button() {
 #### ¿Qué es el `SyntheticEvent` en React?
 
 El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
+
+Dentro del `SyntheticEvent` puede encontrarse una referencia al evento nativo en su atributo `nativeEvent`
 
 ```jsx
 function App() {
