@@ -23,7 +23,7 @@
     - [¿Qué es un componente?](#qué-es-un-componente)
     - [¿Qué es JSX?](#qué-es-jsx)
     - [¿Cómo se transforma el JSX?](#cómo-se-transforma-el-jsx)
-    - [Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
+    - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
@@ -209,7 +209,7 @@ Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **
 
 ---
 
-#### Cuál es la diferencia entre componente y elemento en React?
+#### ¿Cuál es la diferencia entre componente y elemento en React?
 
 Un componente es una función o clase que recibe props y devuelve un elemento.
 Un elemento es un objeto que representa un nodo del DOM o una instancia de un componente de React.
