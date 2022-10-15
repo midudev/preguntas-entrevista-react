@@ -70,7 +70,7 @@
     - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
-    - [¿Por qué es recomendable usar exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-usar-exportar-los-componentes-de-react-de-forma-nombrada)
+    - [¿Por qué es recomendable exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada)
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
     - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
@@ -314,14 +314,17 @@ function Button({ text }) {
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
 
-Es común encontrar implementaciones del renderizado condicional con el operador &&, del tipo:
+Es común encontrar implementaciones del renderizado condicional con el operador `&&`, del tipo:
+
 ```jsx
 function List({ listArray }) {
   return listArray?.length && listArray.map(item=>item)
 }
 ```
 
-Tiene sentido, si el length es positivo (mayor a cero) renderizamos el map. !Pues no! ❌ Cuidado, si tiene length de cero, el resultado en el navegador sera un 0. Es preferible utilizar el operador ternario, Kent C. Dodds tiene un articulo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
+Parece que tiene sentido... si el `length` es positivo (mayor a cero) pintamos el map. !Pues no! ❌ Cuidado, si tiene `length` de cero ya que se pintará en el navegador un 0.
+
+Es preferible utilizar el operador ternario. *Kent C. Dodds* tiene un artículo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
 
 **[⬆ Volver a índice](#índice)**
 
