@@ -1400,7 +1400,7 @@ export function Button({children}) {
   return <button>{children}</button>
 }
 
-export function ButtonSecondary() {
+export function ButtonSecondary({children}) {
   return <button class="btn-secondary">{children}</button>
 }
 ```
