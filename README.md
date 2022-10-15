@@ -6,9 +6,9 @@
 
   <sup>Deja tu :star: si te gusta el proyecto.</sup>
 
-  | Streamings de programación en Twitch:<br />[twitch.tv/midudev](https://twitch.tv/midudev) |
-  | ----------------------------------------------------------------------------------------- |
-
+  <strong>Streams</strong> de programación en Twitch: [twitch.tv/midudev](https://twitch.tv/midudev)<br />
+  <strong>Comunidad</strong> de desarrollo en Discord: [discord.gg/midudev](https://discord.gg/midudev)
+  
 </div>
 
 ---
@@ -23,7 +23,7 @@
     - [¿Qué es un componente?](#qué-es-un-componente)
     - [¿Qué es JSX?](#qué-es-jsx)
     - [¿Cómo se transforma el JSX?](#cómo-se-transforma-el-jsx)
-    - [Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
+    - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
@@ -34,6 +34,7 @@
     - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
+    - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
     - [Cómo suscribirse a un evento en `useEffect`](#cómo-suscribirse-a-un-evento-en-useeffect)
@@ -113,6 +114,8 @@ Enlaces de interés:
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cuáles son las características principales de React?
@@ -128,6 +131,8 @@ Las características principales de React son:
 - **Unidireccional**: React es unidireccional, lo que significa que los datos fluyen en una sola dirección. Los datos fluyen de los componentes padres a los componentes hijos.
 
 - **Universal**: React se puede ejecutar tanto en el cliente como en el servidor. Además, puedes usar React Native para crear aplicaciones nativas para Android e iOS.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -146,6 +151,8 @@ const element = document.createElement('h1')
 element.innerHTML = 'Hello, world'
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué es un componente?
@@ -153,6 +160,8 @@ element.innerHTML = 'Hello, world'
 Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.
 
 En React los componentes se crean usando funciones o clases.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -184,6 +193,8 @@ function Hello () {
 
 Ambos códigos son equivalentes.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cómo se transforma el JSX?
@@ -194,9 +205,11 @@ Puedes ver cómo se transforma el JSX en el [playground de código de Babel](htt
 
 Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **Deno tiene soporte nativo para la sintaxis JSX** y no es necesario transformar el código para hacerlo compatible.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
-#### Cuál es la diferencia entre componente y elemento en React?
+#### ¿Cuál es la diferencia entre componente y elemento en React?
 
 Un componente es una función o clase que recibe props y devuelve un elemento.
 Un elemento es un objeto que representa un nodo del DOM o una instancia de un componente de React.
@@ -226,6 +239,8 @@ Un elemento es un objeto que representa un nodo del DOM o una instancia de un co
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cómo crear un componente en React?
@@ -252,6 +267,8 @@ class HelloWorld extends Component {
 
 Lo importante es que el nombre de la función o clase empiece con una letra mayúscula. Esto es necesario para que React pueda distinguir entre componentes y elementos HTML.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué son las props en React?
@@ -277,6 +294,8 @@ Para usarlo, indicamos el nombre del componente y le pasamos las props que quere
 
 Las props son una forma de parametrizar nuestros componentes igual que hacemos con las funciones. Podemos pasarle cualquier tipo de dato a un componente, incluso otros componentes.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué es el renderizado condicional en React?
@@ -294,6 +313,17 @@ function Button({ text }) {
 ```
 
 En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no se renderiza nada.
+
+Es común encontrar implementaciones del renderizado condicional con el operador &&, del tipo:
+```jsx
+function List({ listArray }) {
+  return listArray?.length && listArray.map(item=>item)
+}
+```
+
+Tiene sentido, si el length es positivo (mayor a cero) renderizamos el map. !Pues no! ❌ Cuidado, si tiene length de cero, el resultado en el navegador sera un 0. Es preferible utilizar el operador ternario, Kent C. Dodds tiene un articulo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -313,6 +343,8 @@ function Button({ text }) {
 
 La razón por la que se llama `className` es porque `class` es una palabra reservada en JavaScript. Por eso, en JSX, tenemos que usar `className` para aplicar clases CSS.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cómo puedes aplicar estilos en línea a un componente en React?
@@ -330,6 +362,8 @@ function Button({ text }) {
 ```
 
 Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -377,6 +411,8 @@ function Button({ text, primary }) {
 
 En este caso, si la prop `primary` es `true`, se añadirá la clase `primary` al botón. Si no, no se añadirá. En cambio la clase `button` siempre se añadirá.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué es el renderizado de listas en React?
@@ -401,6 +437,8 @@ En este caso, se renderiza una lista de elementos usando el componente `List`. E
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cómo añadir un evento a un componente en React?
@@ -418,6 +456,8 @@ function Button({ text, onClick }) {
 ```
 
 En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -481,6 +521,8 @@ class Counter extends Component {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué son los hooks?
@@ -490,6 +532,41 @@ Los Hooks son una API de React que nos permite tener estado, y otras caracterís
 Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
 
 Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué hace el hook `useState`?
+
+El hook `useState` es utilizado para crear variables de estado, quiere decir que su valor es dinámico, que este puede cambiar en el tiempo y eso requiere una re-renderización del componente donde se utiliza
+
+Recibe un parámetro:
+
+- El valor inicial de nuestra variable de estado.
+
+Devuelve un array con dos variables:
+
+- En primer lugar tenemos la variable que contiene el valor
+- La siguiente variable es una función set, requiere el nuevo valor del estado, y este modifica el valor de la variable que anteriormente mencionamos
+- Cabe destacar que la función proporciona cómo parametro el valor actual del propio estado. Ex: `setIsOpen(isOpen => !isOpen)`
+
+En este ejemplo mostramos como el valor de `count` se inicializa en 0, y también se renderiza cada vez que el valor es modificado con la función `setCount` en el evento `onClick` del button:
+
+```jsx
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <p>Contador: {count}</p>
+      <button onClick={() => setCount(count => count + 1)}>Aumentar</button>
+    </>
+  )
+}
+```
 
 ---
 
@@ -502,7 +579,7 @@ Recibe dos parámetros:
 - La función que se ejecutará al cambiar las dependencias o al renderizar el componente.
 - Un array de dependencias. Si cambia el valor de alguna dependencia, ejecutará la función.
 
-En este ejemplo mostramos un mensaje en consola cada vez que cambia el valor de `count`:
+En este ejemplo mostramos un mensaje en consola cuando carga el componente y cada vez que cambia el valor de `count`:
 
 ```jsx
 import { useEffect, useState } from 'react'
@@ -523,19 +600,21 @@ function Counter() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### Explica casos de uso del hook `useEffect`
 
-Podemos usar el hook `useEffect` para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
+Podemos usar el hook `useEffect` de diferentes formas, tales como:
 
-Por eso puede ser útil para hacer llamadas a APIs, ya que sea nada más montar el componente o cuando cambian las dependencias.
+- Ejecutar código cuando se renderiza el componente, cuando cambian las dependencias del efecto o cuando se desmonta el componente.
+- Por eso puede ser útil para hacer llamadas a APIs, ya que sea nada más montar el componente o cuando cambian las dependencias.
+- Realizar tracking de eventos, como Google Analytics, para saber qué páginas visitan los usuarios.
+- Podemos validar un formulario para que cada vez que cambie el estado, podamos actualizar la UI y mostrar dónde están los errores.
+- Podemos suscribirnos a eventos del navegador, como por ejemplo el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana.
 
-También podemos utilizar tracking de eventos, como Google Analytics, para saber qué páginas visitan los usuarios.
-
-Podemos validar un formulario para que cada vez que cambie el estado, podamos actualizar la UI y mostrar dónde están los errores.
-
-Además podemos suscribirnos a eventos del navegador, como el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana.
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -560,12 +639,12 @@ function Window() {
   }, [])
 
   return (
-    <>
-      <p>Abre la consola y redimensiona la ventana</p>
-    </>
+    <p>Abre la consola y redimensiona la ventana</p>
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -582,12 +661,12 @@ function Component() {
   }, [])
 
   return (
-    <>
-      <p>Abre la consola y re-dimensiona la ventana</p>
-    </>
+    <p>Abre la consola y re-dimensiona la ventana</p>
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -623,6 +702,8 @@ function App() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cómo puedes inicializar un proyecto de React desde cero?
@@ -643,6 +724,8 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 *React Native*, por ejemplo, haría lo mismo, pero para dispositivos móviles.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 ### Intermedio
@@ -651,11 +734,13 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?
 
-Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se desmonte.
+Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro del `useEffect` se ejecutará cuando el componente se monte, y la función que es retornada se ejecutará cuando se desmonte.
 
 ```jsx
 import { useEffect } from 'react'
@@ -674,6 +759,8 @@ function Component() {
 ```
 
 Esto es muy útil para limpiar recursos que se hayan creado en el componente, como por ejemplo, eventos del navegador o para cancelar peticiones a APIs.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -729,6 +816,8 @@ useEffect(() => {
 }, [])
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Cuáles son las reglas de los hooks en React?
@@ -737,6 +826,8 @@ Los hooks en React tienen dos reglas fundamentales:
 
 - Los hooks solo se pueden usar en componentes funcionales o *custom hooks*.
 - Los hooks solo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -749,6 +840,8 @@ Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en 
 `useEffect` se ejecuta de forma asíncrona tras el renderizado, pero no asegura que el DOM se haya actualizado. Es decir, si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla, no podrás hacerlo con `useEffect` porque no tienes la garantía de que el DOM se haya actualizado.
 
 Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento, ya que no bloquea el renderizado.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -765,6 +858,8 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 **Referencias:**
 
 - [Tweet de midudev donde muestra que los componentes funcionales se transpilan mejor que los de clases.](https://twitter.com/midudev/status/1065516163856310272)
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -788,6 +883,8 @@ function Button({ text }) {
 
 En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué es el Server Side Rendering y qué ventajas tiene?
@@ -795,6 +892,8 @@ En este caso, el componente `Button` recibe una prop `text` que es un string. El
 El *Server Side Rendering* es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
 
 Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -822,6 +921,8 @@ Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
 ```html
 <h1 data-reactroot="">Hola mundo</h1>
 ```
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -852,6 +953,8 @@ export default function Counters() {
   )
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
@@ -878,6 +981,8 @@ const handleChange = () => setValue(event.target.value)
 // Usamos `inputRef.current.value` para leer el valor del input
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué son los High Order Components (HOC)?
@@ -901,6 +1006,8 @@ En este caso, la función `withLayout` recibe un componente como parámetro y de
 Es un patrón que nos permite reutilizar código y así podemos inyectar funcionalidad, estilos o cualquier otra cosa a un componente de forma sencilla.
 
 Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todavía se usan en algunos casos.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -946,6 +1053,8 @@ function DataProvider({ children }) {
 
 Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
@@ -967,6 +1076,8 @@ function Button({ text }) {
 
 De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del renderizado de un componente.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Por qué debemos utilizar una función para actualizar el estado de React?
@@ -984,6 +1095,8 @@ setCount(count + 1)
 Esto nos permite que la integridad de la UI respecto a los datos que renderiza siempre es correcta.
 
 Por otro lado, llamar a una función le permite a React saber que el estado ha cambiado y que debe re-renderizar el componente si es necesario. Además esto lo hace de forma asíncrona, por lo que podemos llamar a `setCount` tantas veces como queramos y React se encargará de actualizar el estado cuando lo considere oportuno.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -1287,7 +1400,7 @@ export function Button({children}) {
   return <button>{children}</button>
 }
 
-export function ButtonSecondary() {
+export function ButtonSecondary({children}) {
   return <button class="btn-secondary">{children}</button>
 }
 ```
@@ -1389,6 +1502,8 @@ Podemos crear un Error Boundary en cualquier nivel del árbol de componentes, de
 
 Por ahora no existe una forma nativa de crear un Error Boundary en una función de React. Para crear un Error Boundary en una función, puedes usar la librería [react-error-boundary](https://github.com/bvaughn/react-error-boundary).
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 ### Experto
@@ -1489,6 +1604,8 @@ Existe una técnica llamada *Virtualización* que gestiona cuantos elementos de 
 Puedes consultar esta librería para aplicar Virtualización con React: [React Virtualized](https://github.com/bvaughn/react-virtualized).
 
 Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perjuicios en ambos métodos, dependiendo de factores como capacidad de respuesta de la API, cantidad de datos, necesidad de filtros complejos, etc. Por ello es importante analizar cada caso con criterio.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -1602,11 +1719,15 @@ const stream = renderToPipeableStream(
 
 `renderToPipeableStream()` devuelve un stream de nodos que contienen atributos del DOM extra para que React pueda hidratar el HTML en el cliente. Esto significa que podrás hacer el HTML interactivo en el cliente pero puede ser más lento que `renderToStaticNodeStream()`.
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Para qué sirve el hook `useDeferredValue`?
 
 El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baja. Esto es útil para renderizar un valor que no es crítico para la interacción del usuario.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -1655,6 +1776,10 @@ try {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es Flux?
 
 *Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
@@ -1662,3 +1787,7 @@ try {
 No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
 
 Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. *Redux* se basó en este patrón para crear una biblioteca de gestión de estado global.
+
+**[⬆ Volver a índice](#índice)**
+
+---
