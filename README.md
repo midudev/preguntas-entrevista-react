@@ -70,7 +70,7 @@
     - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
-    - [¿Por qué es recomendable usar exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-usar-exportar-los-componentes-de-react-de-forma-nombrada)
+    - [¿Por qué es recomendable exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada)
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
     - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
