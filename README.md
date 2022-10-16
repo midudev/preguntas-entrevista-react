@@ -93,7 +93,8 @@
     - [¿Para qué sirve el hook `useDeferredValue`?](#para-qué-sirve-el-hook-usedeferredvalue)
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
     - [¿Qué es Flux?](#qué-es-flux)
-
+  - [Errores Típicos en React](#errores-típicos-en-react)
+    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#(#¿qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop))
 ---
 
 ### Principiante
@@ -1792,6 +1793,26 @@ try {
 No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
 
 Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. *Redux* se basó en este patrón para crear una biblioteca de gestión de estado global.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+### Errores Típicos en React
+
+#### ¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?
+
+Es un error bastante común en React y que puede parecernos un poco extraño si estamos empezando a aprender esta tecnología. Por suerte, es bastante sencillo de solucionar.
+
+Básicamente, este mensaje aparece en la consola cuando estamos renderizando un listado dentro de nuestro componente, pero no le estamos indicando la propiedad "key". React usa esta propiedad para **determinar qué elemento hijo dentro de un listado ha sufrido cambios,** por lo que funciona como una especie de identificativo.
+
+De esta manera, React utiliza esta información para **identificar las diferencias existentes con respecto al DOM** y optimizar la renderización del listado, determinando qué elementos necesitan volverse a calcular. Esto habitualmente pasa cuando agregamos, eliminamos o cambiamos el orden de los items en una lista.
+
+Recomendamos revisar las siguientes secciones: 
+
+- [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
+
+- [¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
 
 **[⬆ Volver a índice](#índice)**
 
