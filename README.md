@@ -571,6 +571,8 @@ function Counter() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 #### ¿Qué hace el hook `useEffect`?
@@ -718,6 +720,10 @@ npm create vite@latest your-react-app-name -- --template react
 ```
 
 > Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué es React DOM?
 
@@ -1123,6 +1129,10 @@ Estos métodos se definen en la clase y se ejecutan en el orden que se muestran 
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?
 
 Cuando renderizamos una lista de elementos, React necesita saber qué elementos han cambiado, han sido añadidos o eliminados.
@@ -1172,6 +1182,10 @@ const List = () => {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Para qué sirve el hook `useMemo`?
 
 El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.
@@ -1193,15 +1207,21 @@ function Counter({ count }) {
 
 En este caso, el componente `Counter` recibe una prop `count` que es un número. El componente calcula el doble de ese número y lo muestra en pantalla.
 
-El hook `useMemo` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia.
-
-La función se ejecuta cuando el componente se renderiza por primera vez y cuando la prop `count` cambia.
+El hook `useMemo` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia, en este ejemplo la prop `count`.
 
 La ventaja es que si la prop `count` no cambia, se evita el cálculo del doble y se devuelve el valor que ya se había calculado previamente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
 
 No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces el cálculo de un valor es tan rápido que no merece la pena memorizarlo. Incluso, en algunos casos, puede ser más lento memorizarlo que calcularlo de nuevo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Para qué sirve el hook `useCallback`?
 
@@ -1226,15 +1246,21 @@ function Counter({ count, onIncrement }) {
 
 En este caso, el componente `Counter` recibe una prop `count` que es un número y una prop `onIncrement` que es una función que se ejecuta cuando se pulsa el botón.
 
-El hook `useCallback` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia.
-
-La función se ejecuta cuando el componente se renderiza por primera vez y cuando la prop `count` o la prop `onIncrement` cambia.
+El hook `useCallback` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia, en este ejemplo la prop `count` o la prop `onIncrement`.
 
 La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evita la creación de una nueva función y se devuelve la función que ya se había calculado previamente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Es buena idea usar siempre `useCallback` para optimizar nuestros componentes?
 
 No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
 
@@ -1250,13 +1276,21 @@ const memoizedCallback = useMemo(() => {
 }, [a, b])
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son las refs en React?
 
 Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando `createRef` o con el hook `useRef`.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo funciona el hook `useRef`?
 
-En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando el componente se monta.
+En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando hacemos clic en el botón.
 
 ```jsx
 import { useRef } from 'react'
@@ -1265,7 +1299,7 @@ function TextInputWithFocusButton() {
   const inputEl = useRef(null)
 
   const onButtonClick = () => {
-    // `current` points to the mounted text input element
+    // `current` apunta al elemento inputEl montado
     inputEl.current.focus()
   }
 
@@ -1282,6 +1316,10 @@ Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>`
 
 Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son los componentes *stateless*?
 
 Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
@@ -1296,6 +1334,10 @@ function Button({ text }) {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
 
@@ -1315,6 +1357,10 @@ function Form({ onSubmit }) {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es el `StrictMode` en React?
 
 El `StrictMode` es un componente que nos permite activar algunas comprobaciones de desarrollo en React. Por ejemplo, detecta componentes que se renderizan de forma innecesaria o funcionalidades obsoletas que se están usando.
@@ -1330,6 +1376,10 @@ function App() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Por qué es recomendable exportar los componentes de React de forma nombrada?
 
@@ -1354,7 +1404,7 @@ function App() {
 }
 ```
 
-La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar cualquier nombre que quieras. Y esto trae problemas, ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
+La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar el nombre que quieras. Y esto trae problemas, ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
 
 ```jsx
 // button.jsx
@@ -1377,7 +1427,7 @@ function Otro() {
 }
 ```
 
-Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y, por tanto, nos aseguramos que siempre estamos usando el nombre correcto.
+Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y, por tanto, nos aseguramos de que siempre estamos usando el nombre correcto.
 
 ```jsx
 // button.jsx
@@ -1393,6 +1443,10 @@ function App() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
 
 Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
@@ -1407,6 +1461,10 @@ export function ButtonSecondary({children}) {
   return <button class="btn-secondary">{children}</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué es el contexto en React?
 
@@ -1439,6 +1497,10 @@ function Button() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es el `SyntheticEvent` en React?
 
 El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
@@ -1454,6 +1516,10 @@ function App() {
   return <button onClick={handleClick}>Haz clic aquí</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué son los Error Boundaries en React?
 
@@ -1519,13 +1585,17 @@ Existe una fina línea hoy en día entre qué es una biblioteca o un framework. 
 
 Por ejemplo, *React* no ofrece un sistema de enrutado de aplicaciones oficial. Por ello, hay que usar una biblioteca como [React Router](https://reactrouter.com/) o usar un *framework* como [Next.js](https://nextjs.org/) que ya incluye un sistema de enrutado.
 
-Tampoco puedes usar React para añadir las cabeceras que van en el `<head>` en tu aplicación, y también necesitarás otra biblioteca u framework para solucionar esto.
+Tampoco puedes usar React para añadir las cabeceras que van en el `<head>` en tu aplicación, y también necesitarás otra biblioteca o framework para solucionar esto.
 
 Otra diferencia es que React no está opinionado sobre qué empaquetador de aplicaciones usar. En cambio `Angular` en su propio tutorial ya te indica que debes usar `@angular/cli` para crear una aplicación, en cambio React siempre te deja la libertad de elegir qué empaquetador usar y ofrece diferentes opciones.
 
 Aún así, existe gente que considera a React como un framework. Aunque no hay una definición oficial de qué es un framework, la mayoría de la gente considera que un framework es una biblioteca que incluye otras bibliotecas para crear una aplicación completa de forma opinionada y casi sin configuración.
 
 Por ejemplo, **Next.js se podría considerar un framework de React** porque incluye React, un sistema de enrutado, un sistema de renderizado del lado del servidor, etc.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Para qué sirve el hook `useImperativeHandle`?
 
@@ -1557,6 +1627,10 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 Para que el componente padre pueda acceder al método `focus`, usamos el hook `useImperativeHandle`. Este hook recibe dos parámetros: una referencia y una función que devuelve un objeto con las propiedades y métodos que queremos que sean accesibles desde el componente padre.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son los portales en React?
 
 Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
@@ -1583,6 +1657,10 @@ function Modal() {
 
 En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
@@ -1595,6 +1673,10 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
  Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos.
 
  **El espacio de visualización es limitado (*viewport*), al igual que deberían serlo los datos que añadimos al DOM.**
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
@@ -1632,6 +1714,10 @@ En este ejemplo, el valor personalizado que se muestra en la pestaña de *React 
 
 Aunque es útil para depurar, no se recomienda usar este hook en producción.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es el `Profiler` en React?
 
 El `Profiler` es un componente que nos permite medir el tiempo que tarda en renderizarse un componente y sus hijos.
@@ -1657,6 +1743,10 @@ El componente `Profiler` recibe dos parámetros:
 
 Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
 React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
@@ -1667,6 +1757,10 @@ function Button({ onClick }) {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo puedes registrar un evento en la fase de captura en React?
 
 En React, los eventos se registran en la fase de burbuja por defecto. Para registrar un evento en la fase de captura, debemos añadir `Capture` al nombre del evento:
@@ -1676,6 +1770,10 @@ function Button({ onClick }) {
   return <button onClickCapture={onClick}>Haz clic aquí</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
 
@@ -1718,6 +1816,10 @@ const stream = renderToPipeableStream(
 )
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
 
 `renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente, pero puede ser útil para páginas totalmente estáticas.
@@ -1731,6 +1833,23 @@ const stream = renderToPipeableStream(
 #### ¿Para qué sirve el hook `useDeferredValue`?
 
 El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baja. Esto es útil para renderizar un valor que no es crítico para la interacción del usuario.
+
+```jsx
+function App() {
+  const [text, setText] = useState('¡Hola mundo!');
+  const deferredText = useDeferredValue(text, { timeoutMs: 2000 });
+
+  return (
+    <div className='App'>
+      {/* Seguimos pasando el texto actual como valor del input */}
+      <input value={text} onChange={handleChange} />
+      ...
+      {/* Pero la lista de resultados se podría renderizar más tarde si fuera necesario */}
+      <MySlowList text={deferredText} />
+    </div>
+  );
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
