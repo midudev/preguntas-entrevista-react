@@ -1928,7 +1928,7 @@ Básicamente, este mensaje aparece en la consola cuando estamos renderizando un 
 
 De esta manera, React utiliza esta información para **identificar las diferencias existentes con respecto al DOM** y optimizar la renderización del listado, determinando qué elementos necesitan volverse a calcular. Esto habitualmente pasa cuando agregamos, eliminamos o cambiamos el orden de los items en una lista.
 
-Recomendamos revisar las siguientes secciones:
+Recomendamos revisar las siguientes secciones: 
 
 - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
 
