@@ -94,7 +94,8 @@
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
     - [¿Qué es Flux?](#qué-es-flux)
   - [Errores Típicos en React](#errores-típicos-en-react)
-    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#(#¿qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop))
+    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
+
 ---
 
 ### Principiante
@@ -1927,7 +1928,7 @@ Básicamente, este mensaje aparece en la consola cuando estamos renderizando un 
 
 De esta manera, React utiliza esta información para **identificar las diferencias existentes con respecto al DOM** y optimizar la renderización del listado, determinando qué elementos necesitan volverse a calcular. Esto habitualmente pasa cuando agregamos, eliminamos o cambiamos el orden de los items en una lista.
 
-Recomendamos revisar las siguientes secciones: 
+Recomendamos revisar las siguientes secciones:
 
 - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
 
