@@ -94,7 +94,9 @@
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
     - [¿Qué es Flux?](#qué-es-flux)
   - [Errores Típicos en React](#errores-típicos-en-react)
-    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#(#¿qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop))
+    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
+    - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
+
 ---
 
 ### Principiante
@@ -1837,8 +1839,8 @@ El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baj
 
 ```jsx
 function App() {
-  const [text, setText] = useState('¡Hola mundo!');
-  const deferredText = useDeferredValue(text, { timeoutMs: 2000 });
+  const [text, setText] = useState('¡Hola mundo!')
+  const deferredText = useDeferredValue(text, { timeoutMs: 2000 })
 
   return (
     <div className='App'>
@@ -1848,7 +1850,7 @@ function App() {
       {/* Pero la lista de resultados se podría renderizar más tarde si fuera necesario */}
       <MySlowList text={deferredText} />
     </div>
-  );
+  )
 }
 ```
 
@@ -1927,11 +1929,59 @@ Básicamente, este mensaje aparece en la consola cuando estamos renderizando un 
 
 De esta manera, React utiliza esta información para **identificar las diferencias existentes con respecto al DOM** y optimizar la renderización del listado, determinando qué elementos necesitan volverse a calcular. Esto habitualmente pasa cuando agregamos, eliminamos o cambiamos el orden de los items en una lista.
 
-Recomendamos revisar las siguientes secciones: 
+Recomendamos revisar las siguientes secciones:
 
 - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
 
 - [¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render
+
+Una de las reglas de los hooks de React es que deben llamarse en el mismo orden en cada renderizado. React lo necesita para saber en qué orden se llaman los hooks y así mantener el estado de los mismos internamente. Por ello, los hooks no pueden usarse dentro de una condición `if`, ni un loop, ni tampoco dentro de una función anónima. Siempre deben estar en el nivel superior de la función.
+
+Por eso el siguiente código es incorrecto:
+
+```jsx
+// ❌ código incorrecto por saltar las reglas de los hooks
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  // de forma condicional, creamos un estado con el hook useState
+  // lo que rompe la regla de los hooks
+  if (count > 0) {
+    const [name, setName] = useState('midu')
+  }
+
+  return <div>{count} {name}</div>
+}
+```
+
+También el siguiente código sería incorrecto, aunque no lo parezca, ya que estamos usando el segundo `useState` de forma condicional (pese a no estar dentro de un `if`) ya que se ejecutará sólo cuando `count` sea diferente a `0`:
+
+```jsx
+// ❌ código incorrecto por saltar las reglas de los hooks
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  // si count es 0, no se ejecuta el siguiente hook useState
+  // ya que salimos de la ejecución aquí
+  if (count === 0) return null
+
+  const [name, setName] = useState('midu')
+
+  return <div>{count} {name}</div>
+}
+```
+
+Ten en cuenta que si ignoras este error, es posible que tus componentes no se comporten de forma correcta y tengas comportamientos no esperados en el funcionamiento de tus componentes.
+
+Recomendamos revisar las siguientes secciones:
+
+- [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
 
 **[⬆ Volver a índice](#índice)**
 
