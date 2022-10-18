@@ -26,6 +26,7 @@
     - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
+    - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
     - [¿Cómo puedes aplicar clases CSS a un componente en React?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react)
     - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
@@ -293,6 +294,18 @@ Para usarlo, indicamos el nombre del componente y le pasamos las props que quere
 ```
 
 Las props son una forma de parametrizar nuestros componentes igual que hacemos con las funciones. Podemos pasarle cualquier tipo de dato a un componente, incluso otros componentes.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+####  ¿Qué diferencia hay entre props y state?
+
+Las *props* son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
+
+El *state* es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
+
+Así que mientras que tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
 
 **[⬆ Volver a índice](#índice)**
 
