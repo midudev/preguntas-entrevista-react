@@ -81,6 +81,7 @@
     - [¿Qué son los portales en React?](#qué-son-los-portales-en-react)
     - [¿Por qué `StrictMode` renderiza dos veces la aplicación?](#por-qué-strictmode-renderiza-dos-veces-la-aplicación)
     - [¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?](#qué-problemas-crees-que-pueden-aparecer-en-una-aplicación-al-querer-visualizar-listas-de-milesmillones-de-datos)
+    - [¿Cómo puedes abortar una petición fetch con `useEffect` en React?](#cómo-puedes-abortar-una-petición-fetch-con-useeffect-en-react)
     - [¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?](#qué-soluciónes-implementarías-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-milesmillones-de-datos)
       - [Pagination](#pagination)
       - [Virtualization](#virtualization)
@@ -96,6 +97,7 @@
   - [Errores Típicos en React](#errores-típicos-en-react)
     - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
     - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
+    - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
 
 ---
 
@@ -1681,6 +1683,53 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 ---
 
+#### ¿Cómo puedes abortar una petición fetch con `useEffect` en React?
+
+Si quieres evitar que exista una *race condition* entre una petición asíncrona y que el componente se desmonte, puedes usar la API de `AbortController` para abortar la petición cuando lo necesites:
+
+```jsx
+import { useEffect, useState } from 'react'
+
+function Movies () {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    // creamos un controlador para abortar la petición
+    const abortController = new AbortController()
+
+    // pasamos el signal al fetch para que sepa que debe abortar
+    fetchMovies({ signal: controller.signal })
+      .then(() => {
+        setMovies(data.results)
+      }).catch(error => {
+        if (error.name === 'AbortError') {
+          console.log('fetch aborted')
+        }
+      })
+
+    return () => {
+      // al desmontar el componente, abortamos la petición
+      // sólo funcionará si la petición sigue en curso
+      controller.abort()
+    }
+  })
+
+  // ...
+}
+
+// Debemos pasarle el parámetro signal al `fetch`
+// para que enlace la petición con el controlador
+const fetchMovies = ({ signal }) => {
+  return fetch('https://api.themoviedb.org/3/movie/popular', {
+    signal // <--- pasamos el signal
+  }).then(response => response.json())
+}
+```
+
+De esta forma evitamos que se produzca un error por parte de React de intentar actualizar el estado de un componente que ya no existe, además de evitar que se produzcan llamadas innecesarias al servidor.
+
+---
+
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
 ##### Pagination
@@ -1979,6 +2028,20 @@ function Counter() {
 
 Ten en cuenta que si ignoras este error, es posible que tus componentes no se comporten de forma correcta y tengas comportamientos no esperados en el funcionamiento de tus componentes.
 
+Para arreglar este error, como hemos comentado antes, debes asegurarte de que los hooks se llaman en el mismo orden en cada renderizado. El último ejemplo quedaría así:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+  // movemos el hook useState antes del if
+  const [name, setName] = useState('midu')
+
+  if (count === 0) return null
+
+  return <div>{count} {name}</div>
+}
+```
+
 Recomendamos revisar las siguientes secciones:
 
 - [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
@@ -1986,3 +2049,98 @@ Recomendamos revisar las siguientes secciones:
 **[⬆ Volver a índice](#índice)**
 
 ---
+
+#### Can’t perform a React state update on an unmounted component
+
+Este error se produce cuando intentamos actualizar el estado de un componente que ya no está montado. Esto puede ocurrir cuando el componente se desmonta antes de que se complete una petición asíncrona, por ejemplo:
+
+```jsx
+function Movies () {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    fetchMovies().then(() => {
+      setMovies(data.results)
+    })
+  })
+
+  if (!movies.length) return null
+
+  return (
+    <section>
+      {movies.map(movie => (
+        <article key={movie.id}>
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+        </article>
+      ))}
+    </section>
+  )
+}
+```
+
+Parece un código inofensivo, pero imagina que usamos este componente en una página. Si el usuario navega a otra página antes de que se complete la petición, el componente se desmontará y React lanzará el error, ya que intentará ejecutar el `setMovies` en un componente (Movies) que ya no está montado.
+
+Para evitar este error, podemos usar una variable booleana con `useRef` que nos indique si el componente está montado o no. De esta manera, podemos evitar que se ejecute el `setMovies` si el componente no está montado:
+
+```jsx
+function Movies () {
+  const [movies, setMovies] = useState([])
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+
+    fetchMovies().then(() => {
+      if (mounted.current) {
+        setMovies(data.results)
+      }
+    })
+
+    return () => mounted.current = false
+  })
+
+  // ...
+}
+```
+
+Esto soluciona el problema pero **no evita que se haga la petición aunque el componente ya no esté montado**. Para cancelar la petición y así ahorrar transferencia de datos, podemos abortar la petición usando la API `AbortController`:
+
+```jsx
+function Movies () {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    // creamos un controlador para abortar la petición
+    const abortController = new AbortController()
+
+    // pasamos el signal al fetch para que sepa que debe abortar
+    fetchMovies({ signal: controller.signal })
+      .then(() => {
+        setMovies(data.results)
+      }).catch(error => {
+        if (error.name === 'AbortError') {
+          console.log('fetch aborted')
+        }
+      })
+
+    return () => {
+      // al desmontar el componente, abortamos la petición
+      // sólo funcionará si la petición sigue en curso
+      controller.abort()
+    }
+  })
+
+  // ...
+}
+
+// Debemos pasarle el parámetro signal al `fetch`
+// para que enlace la petición con el controlador
+const fetchMovies = ({ signal }) => {
+  return fetch('https://api.themoviedb.org/3/movie/popular', {
+    signal // <--- pasamos el signal
+  }).then(response => response.json())
+}
+```
+
+Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. En [caniuse](https://caniuse.com/#feat=abortcontroller) puedes ver que no está soportado en Internet Explorer y versiones anteriores de Chrome 66, Safari 12.1 y Edge 16.
