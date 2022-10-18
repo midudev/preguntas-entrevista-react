@@ -94,7 +94,8 @@
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
     - [¿Qué es Flux?](#qué-es-flux)
   - [Errores Típicos en React](#errores-típicos-en-react)
-    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#(#¿qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop))
+    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
+
 ---
 
 ### Principiante
