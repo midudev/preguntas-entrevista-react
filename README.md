@@ -627,31 +627,39 @@ function App() {
 
 #### ¿Cómo puedes inicializar un proyecto de React desde cero?
 
-Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares estan:
+Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares están:
 
-- Usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project):
+- [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```bash
 npm create vite@latest my-app -- --template react
 ```
 
-- Usando [Create React App](https://create-react-app.dev/docs/getting-started):
+- [Create React App](https://create-react-app.dev/docs/getting-started)
 
 ```bash
 npx create-react-app my-app
 ```
 
-> El más popular hoy en día es Vite. Fuente [npm trends](https://npmtrends.com/@vitejs/plugin-react-vs-create-react-app).
+> La opción más popular y recomendada hoy en día es Vite. <small>Fuente [npm trends](https://npmtrends.com/@vitejs/plugin-react-vs-create-react-app).</small>
 
+Usando un Framework, entre las más populares están:
 
-##### Framework
+- [Nextjs](https://nextjs.org/docs/getting-started)
 
-- Usando [Nextjs](https://nextjs.org/docs/getting-started): `npx create-next-app@latest your-react-app-name`.
-- Usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project): `npm create vite@latest your-react-app-name -- --template react`.
-- Usando [Gatsby](https://www.gatsbyjs.com/docs/quick-start/): `npm init gatsby`.
-- Usando [Create React App](https://create-react-app.dev/docs/getting-started): `npx create-react-app your-react-app-name`.
+```bash
+npx create-next-app@latest my-app
+```
 
-> Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios y mucho más.
+- [Gatsby](https://www.gatsbyjs.com/docs/quick-start/)
+
+```bash
+npm init gatsby
+``` 
+
+> La opción más popular y recomendada hoy en día es Nextjs. <small>Fuente [npm trends](https://npmtrends.com/gatsby-vs-next)</small>
+
+Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios y mucho más.
 
 #### ¿Qué es React DOM?
 
