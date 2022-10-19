@@ -627,7 +627,24 @@ function App() {
 
 #### ¿Cómo puedes inicializar un proyecto de React desde cero?
 
-Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares estan: 
+Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares estan:
+
+- Usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project):
+
+```bash
+npm create vite@latest my-app -- --template react
+```
+
+- Usando [Create React App](https://create-react-app.dev/docs/getting-started):
+
+```bash
+npx create-react-app my-app
+```
+
+> El más popular hoy en día es Vite. Fuente [npm trends](https://npmtrends.com/@vitejs/plugin-react-vs-create-react-app).
+
+
+##### Framework
 
 - Usando [Nextjs](https://nextjs.org/docs/getting-started): `npx create-next-app@latest your-react-app-name`.
 - Usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project): `npm create vite@latest your-react-app-name -- --template react`.
