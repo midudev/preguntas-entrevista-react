@@ -74,6 +74,7 @@
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
     - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
+    - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
     - [¿Qué son los Error Boundaries en React?](#qué-son-los-error-boundaries-en-react)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
@@ -1521,6 +1522,41 @@ function App() {
   return <button onClick={handleClick}>Haz clic aquí</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es `flushSync` en React?
+
+`flushSync(callback)` Obliga a React a ejecutar síncronamente todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
+
+
+```jsx
+import { flushSync } from "react-dom";
+
+function App() {
+  const handleClick = () => {
+    setId(1);
+    // component no hace re-render 🚫  
+    flushSync(() => {
+      setId(2);
+      // component re-renderiza aqui 🔄
+    });  
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+    flushSync(() => {
+      setName("John");
+      // component no hace re-render 🚫  
+      setEmail("john@doe.com");
+      // component re-renderiza aqui 🔄
+    });  
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+  }
+
+  return <button onClick={handleClick}>Haz clic aquí</button>
+}
+```
+NOTA: `flushSync` puede afectar significativamente el rendimiento. Úsalo con moderación.
 
 **[⬆ Volver a índice](#índice)**
 
