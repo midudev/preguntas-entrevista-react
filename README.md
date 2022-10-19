@@ -1728,9 +1728,9 @@ const fetchMovies = ({ signal }) => {
 
 De esta forma evitamos que se produzca un error por parte de React de intentar actualizar el estado de un componente que ya no existe, además de evitar que se produzcan llamadas innecesarias al servidor.
 
----
-
 **[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
