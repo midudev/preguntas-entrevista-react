@@ -75,6 +75,7 @@
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
     - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
+    - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
     - [¿Qué son los Error Boundaries en React?](#qué-son-los-error-boundaries-en-react)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
@@ -82,6 +83,7 @@
     - [¿Qué son los portales en React?](#qué-son-los-portales-en-react)
     - [¿Por qué `StrictMode` renderiza dos veces la aplicación?](#por-qué-strictmode-renderiza-dos-veces-la-aplicación)
     - [¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?](#qué-problemas-crees-que-pueden-aparecer-en-una-aplicación-al-querer-visualizar-listas-de-milesmillones-de-datos)
+    - [¿Cómo puedes abortar una petición fetch con `useEffect` en React?](#cómo-puedes-abortar-una-petición-fetch-con-useeffect-en-react)
     - [¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?](#qué-soluciónes-implementarías-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-milesmillones-de-datos)
       - [Pagination](#pagination)
       - [Virtualization](#virtualization)
@@ -94,6 +96,10 @@
     - [¿Para qué sirve el hook `useDeferredValue`?](#para-qué-sirve-el-hook-usedeferredvalue)
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
     - [¿Qué es Flux?](#qué-es-flux)
+  - [Errores Típicos en React](#errores-típicos-en-react)
+    - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
+    - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
+    - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
 
 ---
 
@@ -511,7 +517,7 @@ Al usar el hook `useState` este devolverá un `array` de dos posiciones:
 0. El valor del estado.
 1. La función para cambiar el estado.
 
-Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas lineas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicamos su estado inicial.
+Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas lineas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicando su estado inicial.
 
 Con un componente de clase, la creación del estado sería así:
 
@@ -583,6 +589,8 @@ function Counter() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -731,6 +739,10 @@ npm create vite@latest your-react-app-name -- --template react
 ```
 
 > Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué es React DOM?
 
@@ -1136,6 +1148,10 @@ Estos métodos se definen en la clase y se ejecutan en el orden que se muestran 
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?
 
 Cuando renderizamos una lista de elementos, React necesita saber qué elementos han cambiado, han sido añadidos o eliminados.
@@ -1185,6 +1201,10 @@ const List = () => {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Para qué sirve el hook `useMemo`?
 
 El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.
@@ -1206,15 +1226,21 @@ function Counter({ count }) {
 
 En este caso, el componente `Counter` recibe una prop `count` que es un número. El componente calcula el doble de ese número y lo muestra en pantalla.
 
-El hook `useMemo` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia.
-
-La función se ejecuta cuando el componente se renderiza por primera vez y cuando la prop `count` cambia.
+El hook `useMemo` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia, en este ejemplo la prop `count`.
 
 La ventaja es que si la prop `count` no cambia, se evita el cálculo del doble y se devuelve el valor que ya se había calculado previamente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
 
 No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces el cálculo de un valor es tan rápido que no merece la pena memorizarlo. Incluso, en algunos casos, puede ser más lento memorizarlo que calcularlo de nuevo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Para qué sirve el hook `useCallback`?
 
@@ -1239,15 +1265,21 @@ function Counter({ count, onIncrement }) {
 
 En este caso, el componente `Counter` recibe una prop `count` que es un número y una prop `onIncrement` que es una función que se ejecuta cuando se pulsa el botón.
 
-El hook `useCallback` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia.
-
-La función se ejecuta cuando el componente se renderiza por primera vez y cuando la prop `count` o la prop `onIncrement` cambia.
+El hook `useCallback` recibe dos parámetros: una función y un array de dependencias. La función se ejecuta cuando el componente se renderiza por primera vez y cuando alguna de las dependencias cambia, en este ejemplo la prop `count` o la prop `onIncrement`.
 
 La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evita la creación de una nueva función y se devuelve la función que ya se había calculado previamente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Es buena idea usar siempre `useCallback` para optimizar nuestros componentes?
 
 No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
 
@@ -1263,13 +1295,21 @@ const memoizedCallback = useMemo(() => {
 }, [a, b])
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son las refs en React?
 
 Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando `createRef` o con el hook `useRef`.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo funciona el hook `useRef`?
 
-En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando el componente se monta.
+En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando hacemos clic en el botón.
 
 ```jsx
 import { useRef } from 'react'
@@ -1278,7 +1318,7 @@ function TextInputWithFocusButton() {
   const inputEl = useRef(null)
 
   const onButtonClick = () => {
-    // `current` points to the mounted text input element
+    // `current` apunta al elemento inputEl montado
     inputEl.current.focus()
   }
 
@@ -1295,6 +1335,10 @@ Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>`
 
 Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son los componentes *stateless*?
 
 Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
@@ -1309,6 +1353,10 @@ function Button({ text }) {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
 
@@ -1328,6 +1376,10 @@ function Form({ onSubmit }) {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es el `StrictMode` en React?
 
 El `StrictMode` es un componente que nos permite activar algunas comprobaciones de desarrollo en React. Por ejemplo, detecta componentes que se renderizan de forma innecesaria o funcionalidades obsoletas que se están usando.
@@ -1343,6 +1395,10 @@ function App() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Por qué es recomendable exportar los componentes de React de forma nombrada?
 
@@ -1367,7 +1423,7 @@ function App() {
 }
 ```
 
-La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar cualquier nombre que quieras. Y esto trae problemas, ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
+La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar el nombre que quieras. Y esto trae problemas, ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
 
 ```jsx
 // button.jsx
@@ -1390,7 +1446,7 @@ function Otro() {
 }
 ```
 
-Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y, por tanto, nos aseguramos que siempre estamos usando el nombre correcto.
+Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y, por tanto, nos aseguramos de que siempre estamos usando el nombre correcto.
 
 ```jsx
 // button.jsx
@@ -1406,6 +1462,10 @@ function App() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
 
 Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
@@ -1420,6 +1480,10 @@ export function ButtonSecondary({children}) {
   return <button class="btn-secondary">{children}</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué es el contexto en React?
 
@@ -1452,6 +1516,10 @@ function Button() {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es el `SyntheticEvent` en React?
 
 El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
@@ -1467,6 +1535,45 @@ function App() {
   return <button onClick={handleClick}>Haz clic aquí</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es `flushSync` en React?
+
+`flushSync(callback)` Obliga a React a ejecutar síncronamente todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
+
+
+```jsx
+import { flushSync } from "react-dom";
+
+function App() {
+  const handleClick = () => {
+    setId(1);
+    // component no hace re-render 🚫  
+    flushSync(() => {
+      setId(2);
+      // component re-renderiza aqui 🔄
+    });  
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+    flushSync(() => {
+      setName("John");
+      // component no hace re-render 🚫  
+      setEmail("john@doe.com");
+      // component re-renderiza aqui 🔄
+    });  
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+  }
+
+  return <button onClick={handleClick}>Haz clic aquí</button>
+}
+```
+NOTA: `flushSync` puede afectar significativamente el rendimiento. Úsalo con moderación.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué son los Error Boundaries en React?
 
@@ -1532,13 +1639,17 @@ Existe una fina línea hoy en día entre qué es una biblioteca o un framework. 
 
 Por ejemplo, *React* no ofrece un sistema de enrutado de aplicaciones oficial. Por ello, hay que usar una biblioteca como [React Router](https://reactrouter.com/) o usar un *framework* como [Next.js](https://nextjs.org/) que ya incluye un sistema de enrutado.
 
-Tampoco puedes usar React para añadir las cabeceras que van en el `<head>` en tu aplicación, y también necesitarás otra biblioteca u framework para solucionar esto.
+Tampoco puedes usar React para añadir las cabeceras que van en el `<head>` en tu aplicación, y también necesitarás otra biblioteca o framework para solucionar esto.
 
 Otra diferencia es que React no está opinionado sobre qué empaquetador de aplicaciones usar. En cambio `Angular` en su propio tutorial ya te indica que debes usar `@angular/cli` para crear una aplicación, en cambio React siempre te deja la libertad de elegir qué empaquetador usar y ofrece diferentes opciones.
 
 Aún así, existe gente que considera a React como un framework. Aunque no hay una definición oficial de qué es un framework, la mayoría de la gente considera que un framework es una biblioteca que incluye otras bibliotecas para crear una aplicación completa de forma opinionada y casi sin configuración.
 
 Por ejemplo, **Next.js se podría considerar un framework de React** porque incluye React, un sistema de enrutado, un sistema de renderizado del lado del servidor, etc.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Para qué sirve el hook `useImperativeHandle`?
 
@@ -1570,6 +1681,10 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 Para que el componente padre pueda acceder al método `focus`, usamos el hook `useImperativeHandle`. Este hook recibe dos parámetros: una referencia y una función que devuelve un objeto con las propiedades y métodos que queremos que sean accesibles desde el componente padre.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son los portales en React?
 
 Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
@@ -1596,18 +1711,73 @@ function Modal() {
 
 En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
 
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
-- **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategía. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
-- **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza* no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
+- **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategia. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
+- **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza*, no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
 
  Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos.
 
  **El espacio de visualización es limitado (*viewport*), al igual que deberían serlo los datos que añadimos al DOM.**
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedes abortar una petición fetch con `useEffect` en React?
+
+Si quieres evitar que exista una *race condition* entre una petición asíncrona y que el componente se desmonte, puedes usar la API de `AbortController` para abortar la petición cuando lo necesites:
+
+```jsx
+import { useEffect, useState } from 'react'
+
+function Movies () {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    // creamos un controlador para abortar la petición
+    const abortController = new AbortController()
+
+    // pasamos el signal al fetch para que sepa que debe abortar
+    fetchMovies({ signal: controller.signal })
+      .then(() => {
+        setMovies(data.results)
+      }).catch(error => {
+        if (error.name === 'AbortError') {
+          console.log('fetch aborted')
+        }
+      })
+
+    return () => {
+      // al desmontar el componente, abortamos la petición
+      // sólo funcionará si la petición sigue en curso
+      controller.abort()
+    }
+  })
+
+  // ...
+}
+
+// Debemos pasarle el parámetro signal al `fetch`
+// para que enlace la petición con el controlador
+const fetchMovies = ({ signal }) => {
+  return fetch('https://api.themoviedb.org/3/movie/popular', {
+    signal // <--- pasamos el signal
+  }).then(response => response.json())
+}
+```
+
+De esta forma evitamos que se produzca un error por parte de React de intentar actualizar el estado de un componente que ya no existe, además de evitar que se produzcan llamadas innecesarias al servidor.
+
+---
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
@@ -1617,7 +1787,7 @@ En lugar de recibir la lista en una sola llamada a la API (lo cual sería negati
 
 ##### Virtualization
 
-Existe una técnica llamada *Virtualización* que gestiona cuantos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
+Existe una técnica llamada *Virtualización* que gestiona cuántos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
 
 Puedes consultar esta librería para aplicar Virtualización con React: [React Virtualized](https://github.com/bvaughn/react-virtualized).
 
@@ -1645,6 +1815,10 @@ En este ejemplo, el valor personalizado que se muestra en la pestaña de *React 
 
 Aunque es útil para depurar, no se recomienda usar este hook en producción.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es el `Profiler` en React?
 
 El `Profiler` es un componente que nos permite medir el tiempo que tarda en renderizarse un componente y sus hijos.
@@ -1670,6 +1844,10 @@ El componente `Profiler` recibe dos parámetros:
 
 Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
 React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
@@ -1680,6 +1858,10 @@ function Button({ onClick }) {
 }
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cómo puedes registrar un evento en la fase de captura en React?
 
 En React, los eventos se registran en la fase de burbuja por defecto. Para registrar un evento en la fase de captura, debemos añadir `Capture` al nombre del evento:
@@ -1689,6 +1871,10 @@ function Button({ onClick }) {
   return <button onClickCapture={onClick}>Haz clic aquí</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
 
@@ -1731,6 +1917,10 @@ const stream = renderToPipeableStream(
 )
 ```
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
 
 `renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente, pero puede ser útil para páginas totalmente estáticas.
@@ -1744,6 +1934,23 @@ const stream = renderToPipeableStream(
 #### ¿Para qué sirve el hook `useDeferredValue`?
 
 El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baja. Esto es útil para renderizar un valor que no es crítico para la interacción del usuario.
+
+```jsx
+function App() {
+  const [text, setText] = useState('¡Hola mundo!')
+  const deferredText = useDeferredValue(text, { timeoutMs: 2000 })
+
+  return (
+    <div className='App'>
+      {/* Seguimos pasando el texto actual como valor del input */}
+      <input value={text} onChange={handleChange} />
+      ...
+      {/* Pero la lista de resultados se podría renderizar más tarde si fuera necesario */}
+      <MySlowList text={deferredText} />
+    </div>
+  )
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1809,3 +2016,180 @@ Esta arquitectura fue creada por Facebook para manejar la complejidad de sus apl
 **[⬆ Volver a índice](#índice)**
 
 ---
+
+### Errores Típicos en React
+
+#### ¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?
+
+Es un error bastante común en React y que puede parecernos un poco extraño si estamos empezando a aprender esta tecnología. Por suerte, es bastante sencillo de solucionar.
+
+Básicamente, este mensaje aparece en la consola cuando estamos renderizando un listado dentro de nuestro componente, pero no le estamos indicando la propiedad "key". React usa esta propiedad para **determinar qué elemento hijo dentro de un listado ha sufrido cambios,** por lo que funciona como una especie de identificativo.
+
+De esta manera, React utiliza esta información para **identificar las diferencias existentes con respecto al DOM** y optimizar la renderización del listado, determinando qué elementos necesitan volverse a calcular. Esto habitualmente pasa cuando agregamos, eliminamos o cambiamos el orden de los items en una lista.
+
+Recomendamos revisar las siguientes secciones:
+
+- [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
+
+- [¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render
+
+Una de las reglas de los hooks de React es que deben llamarse en el mismo orden en cada renderizado. React lo necesita para saber en qué orden se llaman los hooks y así mantener el estado de los mismos internamente. Por ello, los hooks no pueden usarse dentro de una condición `if`, ni un loop, ni tampoco dentro de una función anónima. Siempre deben estar en el nivel superior de la función.
+
+Por eso el siguiente código es incorrecto:
+
+```jsx
+// ❌ código incorrecto por saltar las reglas de los hooks
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  // de forma condicional, creamos un estado con el hook useState
+  // lo que rompe la regla de los hooks
+  if (count > 0) {
+    const [name, setName] = useState('midu')
+  }
+
+  return <div>{count} {name}</div>
+}
+```
+
+También el siguiente código sería incorrecto, aunque no lo parezca, ya que estamos usando el segundo `useState` de forma condicional (pese a no estar dentro de un `if`) ya que se ejecutará sólo cuando `count` sea diferente a `0`:
+
+```jsx
+// ❌ código incorrecto por saltar las reglas de los hooks
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  // si count es 0, no se ejecuta el siguiente hook useState
+  // ya que salimos de la ejecución aquí
+  if (count === 0) return null
+
+  const [name, setName] = useState('midu')
+
+  return <div>{count} {name}</div>
+}
+```
+
+Ten en cuenta que si ignoras este error, es posible que tus componentes no se comporten de forma correcta y tengas comportamientos no esperados en el funcionamiento de tus componentes.
+
+Para arreglar este error, como hemos comentado antes, debes asegurarte de que los hooks se llaman en el mismo orden en cada renderizado. El último ejemplo quedaría así:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+  // movemos el hook useState antes del if
+  const [name, setName] = useState('midu')
+
+  if (count === 0) return null
+
+  return <div>{count} {name}</div>
+}
+```
+
+Recomendamos revisar las siguientes secciones:
+
+- [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### Can’t perform a React state update on an unmounted component
+
+Este error se produce cuando intentamos actualizar el estado de un componente que ya no está montado. Esto puede ocurrir cuando el componente se desmonta antes de que se complete una petición asíncrona, por ejemplo:
+
+```jsx
+function Movies () {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    fetchMovies().then(() => {
+      setMovies(data.results)
+    })
+  })
+
+  if (!movies.length) return null
+
+  return (
+    <section>
+      {movies.map(movie => (
+        <article key={movie.id}>
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+        </article>
+      ))}
+    </section>
+  )
+}
+```
+
+Parece un código inofensivo, pero imagina que usamos este componente en una página. Si el usuario navega a otra página antes de que se complete la petición, el componente se desmontará y React lanzará el error, ya que intentará ejecutar el `setMovies` en un componente (Movies) que ya no está montado.
+
+Para evitar este error, podemos usar una variable booleana con `useRef` que nos indique si el componente está montado o no. De esta manera, podemos evitar que se ejecute el `setMovies` si el componente no está montado:
+
+```jsx
+function Movies () {
+  const [movies, setMovies] = useState([])
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+
+    fetchMovies().then(() => {
+      if (mounted.current) {
+        setMovies(data.results)
+      }
+    })
+
+    return () => mounted.current = false
+  })
+
+  // ...
+}
+```
+
+Esto soluciona el problema pero **no evita que se haga la petición aunque el componente ya no esté montado**. Para cancelar la petición y así ahorrar transferencia de datos, podemos abortar la petición usando la API `AbortController`:
+
+```jsx
+function Movies () {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    // creamos un controlador para abortar la petición
+    const abortController = new AbortController()
+
+    // pasamos el signal al fetch para que sepa que debe abortar
+    fetchMovies({ signal: controller.signal })
+      .then(() => {
+        setMovies(data.results)
+      }).catch(error => {
+        if (error.name === 'AbortError') {
+          console.log('fetch aborted')
+        }
+      })
+
+    return () => {
+      // al desmontar el componente, abortamos la petición
+      // sólo funcionará si la petición sigue en curso
+      controller.abort()
+    }
+  })
+
+  // ...
+}
+
+// Debemos pasarle el parámetro signal al `fetch`
+// para que enlace la petición con el controlador
+const fetchMovies = ({ signal }) => {
+  return fetch('https://api.themoviedb.org/3/movie/popular', {
+    signal // <--- pasamos el signal
+  }).then(response => response.json())
+}
+```
+
+Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. En [caniuse](https://caniuse.com/#feat=abortcontroller) puedes ver que no está soportado en Internet Explorer y versiones anteriores de Chrome 66, Safari 12.1 y Edge 16.
