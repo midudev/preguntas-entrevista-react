@@ -1730,6 +1730,8 @@ De esta forma evitamos que se produzca un error por parte de React de intentar a
 
 ---
 
+**[⬆ Volver a índice](#índice)**
+
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
 ##### Pagination
@@ -2144,3 +2146,5 @@ const fetchMovies = ({ signal }) => {
 ```
 
 Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. En [caniuse](https://caniuse.com/#feat=abortcontroller) puedes ver que no está soportado en Internet Explorer y versiones anteriores de Chrome 66, Safari 12.1 y Edge 16.
+
+**[⬆ Volver a índice](#índice)**
