@@ -39,7 +39,7 @@
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
     - [Cómo suscribirse a un evento en `useEffect`](#cómo-suscribirse-a-un-evento-en-useeffect)
-    - [¿Qué hace el hook useId?](#qué-hace-el-hook-useid)
+    - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
