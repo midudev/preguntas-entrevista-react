@@ -730,7 +730,7 @@ export default function App() {
   );
 }
 ```
-como aria-describedbyle permiten especificar que dos etiquetas están relacionadas entre sí,puede generar una identificación única con useId donde incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
+como aria-describedbyle permiten especificar que dos etiquetas están relacionadas entre sí, puede generar una identificación única con useId donde incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
 
 
 
