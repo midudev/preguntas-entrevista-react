@@ -39,6 +39,7 @@
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
     - [Cómo suscribirse a un evento en `useEffect`](#cómo-suscribirse-a-un-evento-en-useeffect)
+    - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
@@ -667,6 +668,71 @@ function Window() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué hace el hook `useId`?
+
+`useId` es un React Hook para generar ID únicos que se pueden pasar a los atributos de accesibilidad.
+
+```jsx
+const  id  =  useId ()
+```
+
+Llame `useId` al nivel superior de su componente para generar una ID única:
+
+```jsx 
+import { useId } from 'react';
+function PasswordField() {
+  const passwordHintId = useId();
+  // ...
+```
+
+A continuación, puede pasar el ID generado a diferentes atributos:
+
+```jsx 
+<>
+  <input type="password" aria-describedby={passwordHintId} />
+  <p id={passwordHintId}>
+</>
+```
+**Veamos un ejemplo para ver cuándo es útil.**
+
+```jsx
+import { useId } from 'react';
+function PasswordField() {
+  const passwordHintId = useId();
+  return (
+    <>
+      <label>
+        Password:
+        <input
+          type="password"
+          aria-describedby={passwordHintId}
+        />
+      </label>
+      <p id={passwordHintId}>
+        The password should contain at least 18 characters
+      </p>
+    </>
+  );
+}
+export default function App() {
+  return (
+    <>
+      <h2>Choose password</h2>
+      <PasswordField />
+      <h2>Confirm password</h2>
+      <PasswordField />
+    </>
+  );
+}
+```
+como aria-describedbyle permiten especificar que dos etiquetas están relacionadas entre sí, puede generar una identificación única con useId donde incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
+
+
 
 **[⬆ Volver a índice](#índice)**
 
