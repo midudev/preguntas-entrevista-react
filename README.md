@@ -800,13 +800,39 @@ function App() {
 
 #### ¿Cómo puedes inicializar un proyecto de React desde cero?
 
-Existen diversas formas de inicializar un proyecto de React desde cero. Una de las formas más sencillas es usando [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares están:
+
+- [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```bash
-npm create vite@latest your-react-app-name -- --template react
+npm create vite@latest my-app -- --template react
 ```
 
-> Vite es un empaquetador de aplicaciones web. Se encarga de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios.
+- [Create React App](https://create-react-app.dev/docs/getting-started)
+
+```bash
+npx create-react-app my-app
+```
+
+> La opción más popular y recomendada hoy en día es Vite. <small>Fuente [npm trends](https://npmtrends.com/@vitejs/plugin-react-vs-create-react-app).</small>
+
+Usando un Framework, entre las más populares están:
+
+- [Nextjs](https://nextjs.org/docs/getting-started)
+
+```bash
+npx create-next-app@latest my-app
+```
+
+- [Gatsby](https://www.gatsbyjs.com/docs/quick-start/)
+
+```bash
+npm init gatsby
+``` 
+
+> La opción más popular y recomendada hoy en día es Nextjs. <small>Fuente [npm trends](https://npmtrends.com/gatsby-vs-next)</small>
+
+Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios y mucho más.
 
 **[⬆ Volver a índice](#índice)**
 
