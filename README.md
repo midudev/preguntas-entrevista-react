@@ -684,27 +684,28 @@ const  id  =  useId ()
 
 Llame `useId` al nivel superior de su componente para generar una ID única:
 
-```jsx 
-import { useId } from 'react';
+```jsx
+import { useId } from 'react'
 function PasswordField() {
-  const passwordHintId = useId();
+  const passwordHintId = useId()
   // ...
 ```
 
 A continuación, puede pasar el ID generado a diferentes atributos:
 
-```jsx 
+```jsx
 <>
   <input type="password" aria-describedby={passwordHintId} />
   <p id={passwordHintId}>
 </>
 ```
+
 **Veamos un ejemplo para ver cuándo es útil.**
 
 ```jsx
-import { useId } from 'react';
+import { useId } from 'react'
 function PasswordField() {
-  const passwordHintId = useId();
+  const passwordHintId = useId()
   return (
     <>
       <label>
@@ -718,7 +719,7 @@ function PasswordField() {
         The password should contain at least 18 characters
       </p>
     </>
-  );
+  )
 }
 export default function App() {
   return (
@@ -728,12 +729,11 @@ export default function App() {
       <h2>Confirm password</h2>
       <PasswordField />
     </>
-  );
+  )
 }
 ```
+
 como aria-describedbyle permiten especificar que dos etiquetas están relacionadas entre sí, puede generar una identificación única con useId donde incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
-
-
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1611,31 +1611,31 @@ function App() {
 
 `flushSync(callback)` Obliga a React a ejecutar síncronamente todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
 
-
 ```jsx
-import { flushSync } from "react-dom";
+import { flushSync } from "react-dom"
 
 function App() {
   const handleClick = () => {
-    setId(1);
+    setId(1)
     // component no hace re-render 🚫  
     flushSync(() => {
-      setId(2);
+      setId(2)
       // component re-renderiza aqui 🔄
-    });  
+    })  
     // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
     flushSync(() => {
-      setName("John");
+      setName("John")
       // component no hace re-render 🚫  
-      setEmail("john@doe.com");
+      setEmail("john@doe.com")
       // component re-renderiza aqui 🔄
-    });  
+    })  
     // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
 }
 ```
+
 NOTA: `flushSync` puede afectar significativamente el rendimiento. Úsalo con moderación.
 
 **[⬆ Volver a índice](#índice)**
@@ -2269,9 +2269,9 @@ Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. E
 
 #### Too many re-renders. React limits the number of renders to prevent an infinite loop
 
-Básicamente, lo que este error nos indica, es que algo dentro de nuestro componente está generando muchas renderizaciones que pueden desembocar en un loop (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
+Este error nos indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
 
-1.  **Llamar a una función que setea el estado en el renderizado del componente.**
+1. **Llamar a una función que actualiza el estado en el renderizado del componente.**
 
 ```jsx
 function Counter() {
@@ -2284,14 +2284,15 @@ function Counter() {
   return <div>{count}</div>
 }
 ```
-Lo que sucede en este ejemplo, es que al renderizarse el componente, se llama a la función `setCount` para actualizar el estado. Una vez el estado es actualizado, se genera nuevamente una renderización del componente y se repite todo el proceso infinitas veces.
+
+Lo que sucede en este ejemplo, es que al *renderizarse* el componente, se llama a la función `setCount` para actualizar el estado. Una vez el estado es actualizado, se genera nuevamente un *render* del componente y se repite todo el proceso infinitas veces.
 
 Una posible solución sería:
 
 ```jsx
 function Counter() {
   // ✅ código correcto
-  //se pasa el valor inicial deseado en el `useState`
+  // se pasa el valor inicial deseado en el `useState`
   const [count, setCount] = useState(1)
 
   return <div>{count}</div>
@@ -2330,6 +2331,7 @@ function Counter() {
   </div>
 }
 ```
+
 3. **Usar incorrectamente el Hook de `useEffect`.**
 
 Al ver este ejemplo:
@@ -2340,8 +2342,8 @@ function Counter() {
 
   // ❌ código incorrecto
   useEffect(() => {
-    setCounter(counter + 1);
-  }); // 👈️ no colocar el array de dependencias
+    setCounter(counter + 1)
+  }) // 👈️ no colocar el array de dependencias
 
   return <div>{count}</div>
 }
@@ -2358,20 +2360,20 @@ function Counter() {
   // ✅ código correcto
   // estamos indicando que sólo queremos que el código se ejecute una vez
   useEffect(() => {
-    setCounter(counter + 1);
-  }, []); //colocamos un array de dependencias vacío.
+    setCounter(counter + 1)
+  }, []) //colocamos un array de dependencias vacío.
 
   return <div>{count}</div>
 }
 ```
 
-Estas son solo algunas de las posibles causas que podemos encontrar cuando nos topamos con este mensaje de error en el código. Si quieres complementar esta información, te recomendamos chequear las siguientes secciones:
+Estas son solo algunas de las posibles causas que podemos encontrar cuando nos topamos con este mensaje de error en el código. Si quieres complementar esta información, te recomendamos revisar las siguientes secciones:
 
-* [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
-* [¿Qué son los hooks?](#qué-son-los-hooks)
-* [¿Qué hace el hook useState?](#¿qué-hace-el-hook-usestate)
-* [¿Qué hace el hook useEffect?](#¿qué-hace-el-hook-useeffect)
-* [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
+- [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
+- [¿Qué son los hooks?](#qué-son-los-hooks)
+- [¿Qué hace el hook useState?](#¿qué-hace-el-hook-usestate)
+- [¿Qué hace el hook useEffect?](#¿qué-hace-el-hook-useeffect)
+- [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
 
 **[⬆ Volver a índice](#índice)**
 
