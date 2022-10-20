@@ -100,6 +100,7 @@
     - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
     - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
+    - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
 
 ---
 
@@ -2197,3 +2198,115 @@ const fetchMovies = ({ signal }) => {
 Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. En [caniuse](https://caniuse.com/#feat=abortcontroller) puedes ver que no está soportado en Internet Explorer y versiones anteriores de Chrome 66, Safari 12.1 y Edge 16.
 
 **[⬆ Volver a índice](#índice)**
+
+---
+
+#### Too many re-renders. React limits the number of renders to prevent an infinite loop
+
+Básicamente, lo que este error nos indica, es que algo dentro de nuestro componente está generando muchas renderizaciones que pueden desembocar en un loop (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
+
+1.  **Llamar a una función que setea el estado en el renderizado del componente.**
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+
+// ❌ código incorrecto
+// no debemos actualizar el estado de manera directa
+  setCount(count + 1)
+
+  return <div>{count}</div>
+}
+```
+Lo que sucede en este ejemplo, es que al renderizarse el componente, se llama a la función `setCount` para actualizar el estado. Una vez el estado es actualizado, se genera nuevamente una renderización del componente y se repite todo el proceso infinitas veces.
+
+Una posible solución sería:
+
+```jsx
+function Counter() {
+  // ✅ código correcto
+  //se pasa el valor inicial deseado en el `useState`
+  const [count, setCount] = useState(1)
+
+  return <div>{count}</div>
+}
+```
+
+2. **Llamar directamente a una función en un controlador de eventos.**
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+  
+  // ❌ código incorrecto
+  //se ejecuta directamente la función `setCount` y provoca un renderizado infinito
+  return <div>
+    <p>Contador: {count}</p>
+    <button onClick={setCount(count + 1)}>Incrementar</button>
+  </div>
+}
+```
+
+En este código, se está ejecutando la función `setCount` que actualiza el estado en cada renderizado del componente, lo que provoca renderizaciones infinitas.
+
+La manera correcta sería la siguiente:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+  
+  // ✅ código correcto
+  // se pasa un callback al evento `onClick`
+  // esto evita que la función se ejecute en el renderizado
+  return <div>
+    <p>Contador: {count}</p>
+    <button onClick={() => setCount(count + 1)}>Incrementar</button>
+  </div>
+}
+```
+3. **Usar incorrectamente el Hook de `useEffect`.**
+
+Al ver este ejemplo:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  // ❌ código incorrecto
+  useEffect(() => {
+    setCounter(counter + 1);
+  }); // 👈️ no colocar el array de dependencias
+
+  return <div>{count}</div>
+}
+```
+
+Lo que ocurre, es que al no colocar un array de dependencias en el hook de `useEffect`, estamos provocando que el código que se encuentre dentro se ejecute en cada renderizado del componente. Al llamar al `setCounter` y actualizar el estado, obtenemos nuevamente renderizaciones infinitas.
+
+Para solucionarlo, podemos hacer lo siguiente:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  // ✅ código correcto
+  // estamos indicando que sólo queremos que el código se ejecute una vez
+  useEffect(() => {
+    setCounter(counter + 1);
+  }, []); //colocamos un array de dependencias vacío.
+
+  return <div>{count}</div>
+}
+```
+
+Estas son solo algunas de las posibles causas que podemos encontrar cuando nos topamos con este mensaje de error en el código. Si quieres complementar esta información, te recomendamos chequear las siguientes secciones:
+
+* [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
+* [¿Qué son los hooks?](#qué-son-los-hooks)
+* [¿Qué hace el hook useState?](#¿qué-hace-el-hook-usestate)
+* [¿Qué hace el hook useEffect?](#¿qué-hace-el-hook-useeffect)
+* [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
+
+**[⬆ Volver a índice](#índice)**
+
+---
