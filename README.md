@@ -676,13 +676,9 @@ function Window() {
 
 #### ¿Qué hace el hook `useId`?
 
-`useId` es un React Hook para generar ID únicos que se pueden pasar a los atributos de accesibilidad.
+`useId` es un hook para generar identificadores únicos que se pueden pasar a los atributos de las etiquetas HTML y es especialmente útil para accesibilidad.
 
-```jsx
-const  id  =  useId ()
-```
-
-Llame `useId` al nivel superior de su componente para generar una ID única:
+Llama `useId` en el nivel superior del componente para generar una ID única:
 
 ```jsx
 import { useId } from 'react'
@@ -691,7 +687,7 @@ function PasswordField() {
   // ...
 ```
 
-A continuación, puede pasar el ID generado a diferentes atributos:
+A continuación, pasa el ID generado a diferentes atributos:
 
 ```jsx
 <>
@@ -700,12 +696,16 @@ A continuación, puede pasar el ID generado a diferentes atributos:
 </>
 ```
 
-**Veamos un ejemplo para ver cuándo es útil.**
+La etiqueta `aria-describedby` te permite especificar que dos etiquetas están relacionadas entre sí, puede generar una identificación única con useId donde incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
+
+El ejemplo completo sería así:
 
 ```jsx
 import { useId } from 'react'
+
 function PasswordField() {
   const passwordHintId = useId()
+
   return (
     <>
       <label>
@@ -716,11 +716,12 @@ function PasswordField() {
         />
       </label>
       <p id={passwordHintId}>
-        The password should contain at least 18 characters
+        El password debe ser de 18 letras y contener caracteres especiales
       </p>
     </>
   )
 }
+
 export default function App() {
   return (
     <>
@@ -733,7 +734,7 @@ export default function App() {
 }
 ```
 
-como aria-describedbyle permiten especificar que dos etiquetas están relacionadas entre sí, puede generar una identificación única con useId donde incluso si `PasswordField` aparece varias veces en la pantalla, las identificaciones generadas no chocarán.
+Como ves en `App` estamos usando el componente dos veces. Si pusieramos una id a mano, por ejemplo `password`, entonces la ID no sería única y quedaría duplicada. Por eso es importante que generes la ID automáticamente con `useId`.
 
 **[⬆ Volver a índice](#índice)**
 
