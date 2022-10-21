@@ -1194,6 +1194,14 @@ function Button({ text }) {
     </button>
   )
 }
+// ✅ Esto funciona
+function Button({ text }) {
+  return (
+    <button>
+      {text ? text : 'Click'}
+    </button>
+  )
+}
 ```
 
 De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del renderizado de un componente.
