@@ -8,7 +8,6 @@
 
   <strong>Streams</strong> de programación en Twitch: [twitch.tv/midudev](https://twitch.tv/midudev)<br />
   <strong>Comunidad</strong> de desarrollo en Discord: [discord.gg/midudev](https://discord.gg/midudev)
-  
 </div>
 
 ---
@@ -828,7 +827,7 @@ npx create-next-app@latest my-app
 
 ```bash
 npm init gatsby
-``` 
+```
 
 > La opción más popular y recomendada hoy en día es Nextjs. <small>Fuente [npm trends](https://npmtrends.com/gatsby-vs-next)</small>
 
@@ -1644,19 +1643,19 @@ import { flushSync } from "react-dom"
 function App() {
   const handleClick = () => {
     setId(1)
-    // component no hace re-render 🚫  
+    // component no hace re-render 🚫
     flushSync(() => {
       setId(2)
       // component re-renderiza aqui 🔄
-    })  
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+    })
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
     flushSync(() => {
       setName("John")
-      // component no hace re-render 🚫  
+      // component no hace re-render 🚫
       setEmail("john@doe.com")
       // component re-renderiza aqui 🔄
-    })  
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+    })
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
@@ -2348,7 +2347,7 @@ La manera correcta sería la siguiente:
 ```jsx
 function Counter() {
   const [count, setCount] = useState(0)
-  
+
   // ✅ código correcto
   // se pasa un callback al evento `onClick`
   // esto evita que la función se ejecute en el renderizado
