@@ -572,7 +572,7 @@ Devuelve un array con dos variables:
 
 - En primer lugar tenemos la variable que contiene el valor
 - La siguiente variable es una función set, requiere el nuevo valor del estado, y este modifica el valor de la variable que anteriormente mencionamos
-- Cabe destacar que la función proporciona cómo parametro el valor actual del propio estado. Ex: `setIsOpen(isOpen => !isOpen)`
+- Cabe destacar que la función proporciona cómo parámetro el valor actual del propio estado. Ex: `setIsOpen(isOpen => !isOpen)`
 
 En este ejemplo mostramos como el valor de `count` se inicializa en 0, y también se renderiza cada vez que el valor es modificado con la función `setCount` en el evento `onClick` del button:
 
@@ -1082,11 +1082,12 @@ export default function Counters() {
 
 A la hora de trabajar con formularios en React, tenemos dos tipos de componentes: los componentes controlados y los componentes no controlados.
 
-Los componentes controlados son aquellos que tienen un estado que controla el valor del componente. Por lo tanto, el valor del componente se actualiza cuando el estado cambia.
+**Componentes controlados:**
+son aquellos que tienen un estado que controla el valor del componente. Por lo tanto, el valor del componente se actualiza cuando el estado cambia.
 
 La ventaja de este tipo de componentes es que son más fáciles de testear porque no dependen de la interfaz. También nos permiten crear validaciones muy fácilmente. La desventaja es que son más complejos de crear y mantener. Además, pueden tener un peor rendimiento, ya que provocan un re-renderizado cada vez que cambia el valor del input.
 
-Los componentes no controlados son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
+**Componentes no controlados:** son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
 
 La ventaja de este tipo de componentes es que se crean de forma muy fácil y no tienes que mantener un estado. Además, el rendimiento es mejor, ya que no tiene que re-renderizarse al cambiar el valor del input. Lo malo es que hay que tratar más con el DOM directamente y crear código imperativo.
 
@@ -1635,7 +1636,7 @@ function App() {
 
 #### ¿Qué es `flushSync` en React?
 
-`flushSync(callback)` Obliga a React a ejecutar síncronamente todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
+`flushSync(callback)` Obliga a React a ejecutar de manera síncrona todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
 
 ```jsx
 import { flushSync } from "react-dom"
@@ -2053,7 +2054,7 @@ function App() {
 
 #### ¿Para qué sirve el método `renderToReadableStream()`?
 
-Este método es similar a `renderToNodeStream`, pero está pensado para entornos que soporten Web Streams como Deno.
+Este método es similar a `renderToNodeStream`, pero está pensado para entornos que soporten Web Streams como `Deno`.
 
 Un ejemplo de uso sería el siguiente:
 
@@ -2325,12 +2326,12 @@ function Counter() {
 }
 ```
 
-2. **Llamar directamente a una función en un controlador de eventos.**
+**Llamar directamente a una función en un controlador de eventos.**
 
 ```jsx
 function Counter() {
   const [count, setCount] = useState(0)
-  
+
   // ❌ código incorrecto
   //se ejecuta directamente la función `setCount` y provoca un renderizado infinito
   return <div>
@@ -2358,7 +2359,7 @@ function Counter() {
 }
 ```
 
-3. **Usar incorrectamente el Hook de `useEffect`.**
+**Usar incorrectamente el Hook de `useEffect`.**
 
 Al ver este ejemplo:
 
