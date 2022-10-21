@@ -2406,8 +2406,8 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 
 - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
 - [¿Qué son los hooks?](#qué-son-los-hooks)
-- [¿Qué hace el hook useState?](#¿qué-hace-el-hook-usestate)
-- [¿Qué hace el hook useEffect?](#¿qué-hace-el-hook-useeffect)
+- [¿Qué hace el hook useState?](#qué-hace-el-hook-usestate)
+- [¿Qué hace el hook useEffect?](#qué-hace-el-hook-useeffect)
 - [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
 
 **[⬆ Volver a índice](#índice)**
