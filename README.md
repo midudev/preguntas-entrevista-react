@@ -1534,10 +1534,10 @@ export default function Button() {
 }
 
 // App.jsx
-import MiBoton from './button.jsx'
+import MyButton from './button.jsx'
 
 function App() {
-  return <MiBoton />
+  return <MyButton />
 }
 
 // Otro.jsx
