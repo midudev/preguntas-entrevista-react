@@ -68,6 +68,7 @@
     - [¿Cuál es la diferencia entre `useCallback` y `useMemo`?](#cuál-es-la-diferencia-entre-usecallback-y-usememo)
     - [¿Qué son las refs en React?](#qué-son-las-refs-en-react)
     - [¿Cómo funciona el hook `useRef`?](#cómo-funciona-el-hook-useref)
+    - [¿Qué hace el hook `useLayoutEffect`](#qué-hace-el-hook-useLayoutEffect)
     - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
@@ -1436,6 +1437,39 @@ function TextInputWithFocusButton() {
 Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>` como prop `ref`. Cuando el componente se monta, la referencia `inputEl` apunta al elemento `<input>` del DOM.
 
 Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué hace el hook useLayoutEffect?
+
+`useLayoutEffect` funciona igual que el hook `useEffect`, con la excepción de que este se dispara sincrónicamente después de leer todas las mutaciones del DOM.
+
+Llama `useLayoutEffect` en el nivel superior del componente.
+
+```jsx
+import { useLayoutEffect } from 'react';
+
+useLayoutEffect(() => {
+  return () => {
+  }
+}, []);
+```
+`useLayoutEffect` recibe dos argumentos: 
+- Una función callback que define el efecto.
+- Una lista de dependencias.
+
+Aunque el `useEffect` es el hook de renderizado más usado, si se necesita que los efectos del DOM muten cambiando la apariencia entre el efecto y el renderizado, entonces es conveniente que uses el `useLayoutEffect`.
+
+##### Orden de ejecución del `useLayoutEffect`
+
+El orden de ejecución del `useLayoutEffect`, ya que se ejecuta de forma síncrona, al momento en que React termina de ejecutar todas las mutaciones, pero antes de renderizarlo en pantalla, es el siguiente:
+
+- El componente se actualiza por algún cambio de estado, props o el padre se re-renderiza
+- React renderiza el componente
+- Tu efecto es ejecutado
+- La pantalla se actualiza “visualmente”
 
 **[⬆ Volver a índice](#índice)**
 
