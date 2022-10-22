@@ -8,7 +8,6 @@
 
   <strong>Streams</strong> de programación en Twitch: [twitch.tv/midudev](https://twitch.tv/midudev)<br />
   <strong>Comunidad</strong> de desarrollo en Discord: [discord.gg/midudev](https://discord.gg/midudev)
-  
 </div>
 
 ---
@@ -573,7 +572,7 @@ Devuelve un array con dos variables:
 
 - En primer lugar tenemos la variable que contiene el valor
 - La siguiente variable es una función set, requiere el nuevo valor del estado, y este modifica el valor de la variable que anteriormente mencionamos
-- Cabe destacar que la función proporciona cómo parametro el valor actual del propio estado. Ex: `setIsOpen(isOpen => !isOpen)`
+- Cabe destacar que la función proporciona cómo parámetro el valor actual del propio estado. Ex: `setIsOpen(isOpen => !isOpen)`
 
 En este ejemplo mostramos como el valor de `count` se inicializa en 0, y también se renderiza cada vez que el valor es modificado con la función `setCount` en el evento `onClick` del button:
 
@@ -828,7 +827,7 @@ npx create-next-app@latest my-app
 
 ```bash
 npm init gatsby
-``` 
+```
 
 > La opción más popular y recomendada hoy en día es Nextjs. <small>Fuente [npm trends](https://npmtrends.com/gatsby-vs-next)</small>
 
@@ -1083,11 +1082,12 @@ export default function Counters() {
 
 A la hora de trabajar con formularios en React, tenemos dos tipos de componentes: los componentes controlados y los componentes no controlados.
 
-Los componentes controlados son aquellos que tienen un estado que controla el valor del componente. Por lo tanto, el valor del componente se actualiza cuando el estado cambia.
+**Componentes controlados:**
+son aquellos que tienen un estado que controla el valor del componente. Por lo tanto, el valor del componente se actualiza cuando el estado cambia.
 
 La ventaja de este tipo de componentes es que son más fáciles de testear porque no dependen de la interfaz. También nos permiten crear validaciones muy fácilmente. La desventaja es que son más complejos de crear y mantener. Además, pueden tener un peor rendimiento, ya que provocan un re-renderizado cada vez que cambia el valor del input.
 
-Los componentes no controlados son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
+**Componentes no controlados:** son aquellos que no tienen un estado que controle el valor del componente. El estado del componente lo controla el navegador de forma interna. Para conocer el valor del componente, tenemos que leer el valor del DOM.
 
 La ventaja de este tipo de componentes es que se crean de forma muy fácil y no tienes que mantener un estado. Además, el rendimiento es mejor, ya que no tiene que re-renderizarse al cambiar el valor del input. Lo malo es que hay que tratar más con el DOM directamente y crear código imperativo.
 
@@ -1191,6 +1191,14 @@ function Button({ text }) {
   return (
     <button>
       {if (text) { return text } else { return 'Click' }}
+    </button>
+  )
+}
+// ✅ Esto funciona
+function Button({ text }) {
+  return (
+    <button>
+      {text ? text : 'Click'}
     </button>
   )
 }
@@ -1526,10 +1534,10 @@ export default function Button() {
 }
 
 // App.jsx
-import MiBoton from './button.jsx'
+import MyButton from './button.jsx'
 
 function App() {
-  return <MiBoton />
+  return <MyButton />
 }
 
 // Otro.jsx
@@ -1636,7 +1644,7 @@ function App() {
 
 #### ¿Qué es `flushSync` en React?
 
-`flushSync(callback)` Obliga a React a ejecutar síncronamente todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
+`flushSync(callback)` Obliga a React a ejecutar de manera síncrona todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
 
 ```jsx
 import { flushSync } from "react-dom"
@@ -1644,19 +1652,19 @@ import { flushSync } from "react-dom"
 function App() {
   const handleClick = () => {
     setId(1)
-    // component no hace re-render 🚫  
+    // component no hace re-render 🚫
     flushSync(() => {
       setId(2)
       // component re-renderiza aqui 🔄
-    })  
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+    })
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
     flushSync(() => {
       setName("John")
-      // component no hace re-render 🚫  
+      // component no hace re-render 🚫
       setEmail("john@doe.com")
       // component re-renderiza aqui 🔄
-    })  
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅  
+    })
+    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
@@ -2054,7 +2062,7 @@ function App() {
 
 #### ¿Para qué sirve el método `renderToReadableStream()`?
 
-Este método es similar a `renderToNodeStream`, pero está pensado para entornos que soporten Web Streams como Deno.
+Este método es similar a `renderToNodeStream`, pero está pensado para entornos que soporten Web Streams como `Deno`.
 
 Un ejemplo de uso sería el siguiente:
 
@@ -2260,7 +2268,7 @@ function Movies () {
     const abortController = new AbortController()
 
     // pasamos el signal al fetch para que sepa que debe abortar
-    fetchMovies({ signal: controller.signal })
+    fetchMovies({ signal: abortController.signal })
       .then(() => {
         setMovies(data.results)
       }).catch(error => {
@@ -2272,7 +2280,7 @@ function Movies () {
     return () => {
       // al desmontar el componente, abortamos la petición
       // sólo funcionará si la petición sigue en curso
-      controller.abort()
+      abortController.abort()
     }
   })
 
@@ -2326,12 +2334,12 @@ function Counter() {
 }
 ```
 
-2. **Llamar directamente a una función en un controlador de eventos.**
+**Llamar directamente a una función en un controlador de eventos.**
 
 ```jsx
 function Counter() {
   const [count, setCount] = useState(0)
-  
+
   // ❌ código incorrecto
   //se ejecuta directamente la función `setCount` y provoca un renderizado infinito
   return <div>
@@ -2348,7 +2356,7 @@ La manera correcta sería la siguiente:
 ```jsx
 function Counter() {
   const [count, setCount] = useState(0)
-  
+
   // ✅ código correcto
   // se pasa un callback al evento `onClick`
   // esto evita que la función se ejecute en el renderizado
@@ -2359,7 +2367,7 @@ function Counter() {
 }
 ```
 
-3. **Usar incorrectamente el Hook de `useEffect`.**
+**Usar incorrectamente el Hook de `useEffect`.**
 
 Al ver este ejemplo:
 
@@ -2398,8 +2406,8 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 
 - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
 - [¿Qué son los hooks?](#qué-son-los-hooks)
-- [¿Qué hace el hook useState?](#¿qué-hace-el-hook-usestate)
-- [¿Qué hace el hook useEffect?](#¿qué-hace-el-hook-useeffect)
+- [¿Qué hace el hook useState?](#qué-hace-el-hook-usestate)
+- [¿Qué hace el hook useEffect?](#qué-hace-el-hook-useeffect)
 - [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
 
 **[⬆ Volver a índice](#índice)**
