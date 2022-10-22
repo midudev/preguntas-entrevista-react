@@ -897,6 +897,26 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 ---
 
+#### ¿Qué es ```react-dom/server```?
+
+ReactDOMServer es el paquete que contiene todos los métodos necesarios para hacer un [server side rendering](#¿qué-es-el-server-side-rendering-y-qué-ventajas-tiene) utilizando React.
+
+Entre sus métodos más básicos están:
+
+- ```renderToString()```: retorna un HTML en formato string y se usa para generar el HTML desde en el servidor.
+
+- ```renderToStaticMarkup()```: similar al método anterior con la diferencia de que no crea la propiedad ```data-reactroot``` en el HTML generado.
+
+<strong><i>Para profundizar más sobre este tema se tiene la pregunta [¿Cómo puedes crear un Server Side Rendering con React desde cero?](https://github.com/midudev/preguntas-entrevista-react#c%C3%B3mo-puedes-crear-un-server-side-rendering-con-react-desde-cero)</i></strong>
+
+Enlaces de interés:
+
+- [Documentacion Oficial de React sobre ReactDOMServer](https://reactjs.org/docs/react-dom-server.html#rendertostring)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ### Intermedio
 
 #### ¿Cuántos `useEffect` puede tener un componente?
