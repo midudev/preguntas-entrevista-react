@@ -908,7 +908,9 @@ Entre sus métodos más básicos están:
 
 - ```renderToStaticMarkup()```: similar al método anterior con la diferencia de que no crea la propiedad ```data-reactroot``` en el HTML generado.
 
-<strong><i>Para profundizar más sobre este tema se tiene la pregunta [¿Cómo puedes crear un Server Side Rendering con React desde cero?](https://github.com/midudev/preguntas-entrevista-react#c%C3%B3mo-puedes-crear-un-server-side-rendering-con-react-desde-cero)</i></strong>
+<strong><i>Para profundizar más sobre este tema se tiene la pregunta: 
+
+- [¿Cómo puedes crear un Server Side Rendering con React desde cero?](https://github.com/midudev/preguntas-entrevista-react#c%C3%B3mo-puedes-crear-un-server-side-rendering-con-react-desde-cero)</i></strong>
 
 Enlaces de interés:
 
