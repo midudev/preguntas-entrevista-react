@@ -41,9 +41,10 @@
     - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
-    - [¿Qué es el Compound Components Pattern?](#¿qué-es-el-compound-components-pattern?)
+    - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
+    - [¿Qué es ```react-dom/server```?](#qué-es-react-domserver)
   - [Intermedio](#intermedio)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
     - [¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-desmonta-del-árbol)
@@ -899,7 +900,7 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 #### ¿Qué es ```react-dom/server```?
 
-ReactDOMServer es el paquete que contiene todos los métodos necesarios para hacer un [server side rendering](#¿qué-es-el-server-side-rendering-y-qué-ventajas-tiene) utilizando React.
+ReactDOMServer es el paquete que contiene todos los métodos necesarios para hacer un [server side rendering](#qué-es-el-server-side-rendering-y-qué-ventajas-tiene) utilizando React.
 
 Entre sus métodos más básicos están:
 
