@@ -41,7 +41,7 @@
     - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
-    - [¿Qué es el Compound Components Pattern?](#que-es-el-compount-components-pattern)
+      - [¿Qué es el Compound Components Pattern?](#¿qué-es-el-compound-components-pattern?)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
   - [Intermedio](#intermedio)
@@ -798,21 +798,22 @@ function App() {
 
 ---
 
-### ¿Qué es el Compound Components Pattern?  
+#### ¿Qué es el Compound Components Pattern?  
 
-Es un patron de diseño de componentes que se basa en crear un componente padre con un solo objetivo, proporcionarle a sus hijos las propiedades necesarias para que se rendericen sin problemas. 
+Es un patron de diseño de componentes que se basa en crear un componente padre con un solo objetivo, proporcionarle a sus hijos las propiedades necesarias para que se rendericen sin problemas.
 
-Permite una estructura declarativa a la hora de construir nuevos componentes, además ayuda a la lectura del código por su simplicidad y limpieza. 
+Permite una estructura declarativa a la hora de construir nuevos componentes, además ayuda a la lectura del código por su simplicidad y limpieza.
 
-Un ejemplo de este diseño sería una lista que renderiza los elementos hijos: 
+Un ejemplo de este diseño sería una lista que renderiza los elementos hijos:
 
-```js 
+```jsx
 <List>
   <ListItem>Cat</ListItem>
   <ListItem>Dog</ListItem>
 </List>
 ```
-```js 
+
+```jsx
 const List = ({ children, ...props }) => (
   <ul {...props} >
     {children}
@@ -831,9 +832,10 @@ const ListItem = ({ children, ...props }) => {
 export { List, ListItem };
 ```
 
-Este es un ejemplo sencillo, pero los componentes pueden ser tan complejos como quieras y tanto el padre como los hijos pueden tener sus propios estados. 
+Este es un ejemplo sencillo, pero los componentes pueden ser tan complejos como quieras y tanto el padre como los hijos pueden tener sus propios estados.
 
-Enlaces de interés: 
+Enlaces de interés:
+
 - [Lleva tu React al siguiente nivel con Compound Pattern by dezkareid en el blog de Platzi](https://platzi.com/blog/lleva-tu-react-al-siguiente-nivel-con-compound-pattern/?utm_source=twitter&utm_medium=organic&utm_campaign=PLA_TW_BLOG_202205_react_compound_pattern)
 
 - [Compound Components by Jenna Smith](https://jjenzz.com/compound-components) <strong>en inglés</strong>
