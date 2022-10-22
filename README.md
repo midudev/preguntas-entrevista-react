@@ -17,6 +17,7 @@
 - [Índice](#índice)
   - [Principiante](#principiante)
     - [¿Qué es React?](#qué-es-react)
+    - [¿Cómo crear una aplicación con React?](#cómo-crear-una-aplicación-con-react)
     - [¿Cuáles son las características principales de React?](#cuáles-son-las-características-principales-de-react)
     - [¿Qué significa exactamente que sea declarativo?](#qué-significa-exactamente-que-sea-declarativo)
     - [¿Qué es un componente?](#qué-es-un-componente)
@@ -121,6 +122,27 @@ Enlaces de interés:
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo crear una aplicación con React?
+
+Hay muchas formas de crear una aplicación con React, pero **Create React App** es la mejor manera de comenzar a construir una nueva aplicación de página única ([SPA](<https://developer.mozilla.org/en-US/docs/Glossary/SPA>)).
+
+**Create React App** configura el ambiente de desarrollo de forma que se puedan usar las últimas características de JavaScript, brindando una buena experiencia de desarrollo, y optimizando la aplicación para producción. Se necesitará tener Node >= 14.0.0 y npm >= 5.6 instalados en tu ordenador. Para crear un proyecto ejecuta:
+
+``` bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+Enlaces de interés:
+
+- [Documentación oficial de React en Español](https://es.reactjs.org/docs/create-a-new-react-app.html)
+- [Repositorio create-react-app](https://github.com/facebook/create-react-app#create-react-app--)
 
 **[⬆ Volver a índice](#índice)**
 
