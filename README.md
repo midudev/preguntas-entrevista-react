@@ -41,7 +41,7 @@
     - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
-      - [¿Qué es el Compound Components Pattern?](#¿qué-es-el-compound-components-pattern?)
+    - [¿Qué es el Compound Components Pattern?](#¿qué-es-el-compound-components-pattern?)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
   - [Intermedio](#intermedio)
