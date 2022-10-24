@@ -41,9 +41,10 @@
     - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
-    - [¿Qué es el Compound Components Pattern?](#¿qué-es-el-compound-components-pattern?)
+    - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
+    - [¿Qué es ```react-dom/server```?](#qué-es-react-domserver)
   - [Intermedio](#intermedio)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
     - [¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-desmonta-del-árbol)
@@ -893,6 +894,28 @@ React DOM es la librería que se encarga de renderizar los componentes de React 
 Mientras que la biblioteca de *React*, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... *React DOM* es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
 
 *React Native*, por ejemplo, haría lo mismo, pero para dispositivos móviles.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es ```react-dom/server```?
+
+ReactDOMServer es el paquete que contiene todos los métodos necesarios para hacer un [server side rendering](#qué-es-el-server-side-rendering-y-qué-ventajas-tiene) utilizando React.
+
+Entre sus métodos más básicos están:
+
+- ```renderToString()```: retorna un HTML en formato string y se usa para generar el HTML desde en el servidor.
+
+- ```renderToStaticMarkup()```: similar al método anterior con la diferencia de que no crea la propiedad ```data-reactroot``` en el HTML generado.
+
+<strong><i>Para profundizar más sobre este tema se tiene la pregunta: 
+
+- [¿Cómo puedes crear un Server Side Rendering con React desde cero?](https://github.com/midudev/preguntas-entrevista-react#c%C3%B3mo-puedes-crear-un-server-side-rendering-con-react-desde-cero)</i></strong>
+
+Enlaces de interés:
+
+- [Documentacion Oficial de React sobre ReactDOMServer](https://reactjs.org/docs/react-dom-server.html#rendertostring)
 
 **[⬆ Volver a índice](#índice)**
 
