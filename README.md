@@ -801,7 +801,7 @@ function App() {
 
 #### ¿Qué es el Compound Components Pattern?  
 
-Es un patron de diseño de componentes que se basa en crear un componente padre con un solo objetivo, proporcionarle a sus hijos las propiedades necesarias para que se rendericen sin problemas.
+Es un patrón de diseño de componentes que se basa en crear un componente padre con un solo objetivo, proporcionarle a sus hijos las propiedades necesarias para que se rendericen sin problemas.
 
 Permite una estructura declarativa a la hora de construir nuevos componentes, además ayuda a la lectura del código por su simplicidad y limpieza.
 
@@ -1737,14 +1737,14 @@ function App() {
     // component no hace re-render 🚫
     flushSync(() => {
       setId(2)
-      // component re-renderiza aqui 🔄
+      // component re-renderiza aquí 🔄
     })
     // component ha sido re-renderizado y el DOM ha sido actualizada ✅
     flushSync(() => {
       setName("John")
       // component no hace re-render 🚫
       setEmail("john@doe.com")
-      // component re-renderiza aqui 🔄
+      // component re-renderiza aquí 🔄
     })
     // component ha sido re-renderizado y el DOM ha sido actualizada ✅
   }
