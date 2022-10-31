@@ -69,7 +69,8 @@
     - [¿Cuál es la diferencia entre `useCallback` y `useMemo`?](#cuál-es-la-diferencia-entre-usecallback-y-usememo)
     - [¿Qué son las refs en React?](#qué-son-las-refs-en-react)
     - [¿Cómo funciona el hook `useRef`?](#cómo-funciona-el-hook-useref)
-    - [¿Qué hace el hook `useLayoutEffect`](#qué-hace-el-hook-useLayoutEffect)
+    - [¿Qué hace el hook useLayoutEffect?](#qué-hace-el-hook-uselayouteffect)
+      - [Orden de ejecución del `useLayoutEffect`](#orden-de-ejecución-del-uselayouteffect)
     - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
@@ -1504,7 +1505,9 @@ useLayoutEffect(() => {
   }
 }, []);
 ```
-`useLayoutEffect` recibe dos argumentos: 
+
+`useLayoutEffect` recibe dos argumentos:
+
 - Una función callback que define el efecto.
 - Una lista de dependencias.
 
