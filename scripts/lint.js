@@ -1,7 +1,9 @@
-const markdownlint = require("markdownlint")
+import markdownlint from "markdownlint"
+
+const { readConfigSync } = markdownlint
 
 const options = {
-  "config": markdownlint.readConfigSync(".markdownlint.json"),
+  "config": readConfigSync(".markdownlint.json"),
   "files": [ "README.md" ]
 }
 
