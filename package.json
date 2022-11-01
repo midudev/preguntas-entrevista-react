@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "type": "module",
   "scripts": {
-    "lint": "node scripts/lint.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "markdown:lint": "node scripts/lint.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -17,11 +19,27 @@
   },
   "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme",
   "devDependencies": {
-    "markdownlint": "0.26.2"
+    "autoprefixer": "10.4.13",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.0",
+    "markdownlint": "0.26.2",
+    "postcss": "8.4.18",
+    "standard": "17.0.0",
+    "tailwindcss": "3.2.1"
   },
   "dependencies": {
+    "@headlessui/react": "1.7.3",
+    "@next/font": "13.0.0",
     "@sindresorhus/slugify": "2.1.1",
+    "@vercel/og": "0.0.20",
+    "framer-motion": "7.6.2",
     "fs-extra": "10.1.0",
-    "marked": "4.1.1"
+    "fuse.js": "6.6.2",
+    "marked": "4.1.1",
+    "next": "13.0.0",
+    "prismjs": "^1.29.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-github-btn": "1.4.0"
   }
 }
