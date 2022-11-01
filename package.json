@@ -4,9 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "markdown:lint": "node scripts/lint.js",
+    "markdown:lint": "node scripts/lint.mjs",
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
     "lint": "next lint"
   },
