@@ -19,9 +19,9 @@ export default function Page () {
           level={LEVELS.MEDIUM}
         />
         <Card
-          title='¿Hay que usar siempre useMemo?'
-          excerpt='No. useMemo es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos.'
-          slug='/es-buena-idea-usar-siempre-usememo-para-optimizar-nuestros-componentes/#content'
+          title='¿Qué es la hidratación?'
+          excerpt='La hidratación convierte el HTML estático que devuelve el servidor en HTML interactivo que puede responder a eventos del usuario en el cliente.'
+          slug='/que-es-la-hidratacion-hydration-en-react/#content'
           level={LEVELS.MEDIUM}
         />
         <Card
