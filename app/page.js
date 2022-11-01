@@ -15,7 +15,7 @@ export default function Page () {
         <Card
           title='Cómo cancelar una petición fetch'
           excerpt='Cuando hacemos una petición a una API, podemos cancelarla para evitar que se ejecute cuando el componente se desmonte usando AbortController como hacemos en este ejemplo'
-          slug='/como-puedes-cancelar-una-petición-a-una-api-en-useeffect-correctamente/#content'
+          slug='/como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente/#content'
           level={LEVELS.MEDIUM}
         />
         <Card
@@ -25,10 +25,10 @@ export default function Page () {
           level={LEVELS.MEDIUM}
         />
         <Card
-          title='¿Para qué sirve useEffect?'
-          excerpt='El hook useEffect se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.'
-          slug='/que-hace-hook-use-effect/#content'
-          level={LEVELS.HARD}
+          title='¿Qué hace el hook useId?'
+          excerpt='El hook useId nos permite crear identificadores únicos, muy útiles para formularios y otros casos.'
+          slug='/que-hace-el-hook-use-id/#content'
+          level={LEVELS.EASY}
         />
         <Card
           title='Es React una biblioteca o framework'
@@ -37,9 +37,9 @@ export default function Page () {
           level={LEVELS.HARD}
         />
         <Card
-          title='¿Para qué sirve useEffect?'
-          excerpt='El hook useEffect se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.'
-          slug='/que-hace-hook-use-effect/#content'
+          title='¿Qué son las Render Props?'
+          excerpt='Las render props son un patrón de diseño de React que nos permite inyectar información en los elementos que renderizamos.'
+          slug='/que-son-las-render-props/#content'
           level={LEVELS.HARD}
         />
       </section>
