@@ -52,6 +52,7 @@
     - [¿Qué diferencia hay entre `useEffect` y `useLayoutEffect`?](#qué-diferencia-hay-entre-useeffect-y-uselayouteffect)
     - [¿Qué son mejores los componentes de clase o los componentes funcionales?](#qué-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales)
     - [¿Cómo mantener los componentes puros y qué ventajas tiene?](#cómo-mantener-los-componentes-puros-y-qué-ventajas-tiene)
+    - [¿Qué es la hidratación (hydration) en React?](#qué-es-la-hidratación-hydration-en-react)
     - [¿Qué es el Server Side Rendering y qué ventajas tiene?](#qué-es-el-server-side-rendering-y-qué-ventajas-tiene)
     - [¿Cómo puedes crear un Server Side Rendering con React desde cero?](#cómo-puedes-crear-un-server-side-rendering-con-react-desde-cero)
     - [¿Puedes poner un ejemplo de efectos colaterales en React?](#puedes-poner-un-ejemplo-de-efectos-colaterales-en-react)
@@ -1053,6 +1054,20 @@ function Button({ text }) {
 ```
 
 En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es la hidratación (hydration) en React?
+
+Cuando renderizamos nuestra aplicación en el servidor, React genera un HTML estático. Este HTML estático es simplemente un string que contiene el HTML que se va a mostrar en la página.
+
+Cuando el navegador recibe el HTML estático, lo renderiza en la página. Sin embargo, este HTML estático no tiene interactividad. No tiene eventos, no tiene lógica, no tiene estado, etc. Podríamos decir que *no tiene vida*.
+
+Para hacer que este HTML estático pueda ser interactivo, React necesita que el HTML estático se convierta en un árbol de componentes de React. Esto se llama **hidratación**.
+
+De esta forma, en el cliente, React reutiliza este HTML estático y se dedica a adjuntar los eventos a los elementos, ejecutar los efectos que tengamos en los componentes y conciliar el estado de los componentes.
 
 **[⬆ Volver a índice](#índice)**
 
