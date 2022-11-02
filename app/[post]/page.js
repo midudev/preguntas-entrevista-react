@@ -1,5 +1,6 @@
 import { readJSON } from 'fs-extra'
 import path from 'node:path'
+
 import { Pill } from '../components/Pill.jsx'
 
 const jsonDirectory = path.join(process.cwd(), 'dist')
