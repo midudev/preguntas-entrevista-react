@@ -105,6 +105,7 @@
     - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
+    - [React Hook "useHistory" cannot be called in a class component](#react-hook-useHistory-cannot-be-called-in-a-class-component)
 
 ---
 
@@ -2512,4 +2513,37 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 
 **[⬆ Volver a índice](#índice)**
 
+---
+
+#### React Hook "useHistory" cannot be called in a class component
+
+A partir de la versión 16.8.0, React introdujo Hooks(ganchos). Te permiten escribir mejor código de React y hacer uso de estados y métodos de ciclo de vida de componentes dentro de componentes funcionales."useHistory" es uno de los hooks que React proporciona.
+
+Si tienes un componente basado en clases, no puedes usar estos hooks. Necesitas refactorizar el código para convertirlo a componentes funcionales. Si no lo haces, es posible que obtengas este error.
+
+No llame a Hooks dentro de bucles, condiciones o funciones anidadas. En su lugar, use siempre Hooks en el nivel superior de su función React, antes de cualquier retorno anticipado.
+
+Ejemplo:
+
+```jsx
+import { useHistory } from 'react-router-dom';
+
+const App = () => {
+  const history = useHistory();
+
+  const redirect = () => {
+    history.push('/login');
+  }
+
+  return (
+    <div>
+      <h1>Hi there!</h1>
+      <button onClick={redirect}>Log in</button>
+    </div>
+  );
+};
+```
+
+
+**[⬆ Volver a índice](#índice)**
 ---
