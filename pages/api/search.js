@@ -19,5 +19,5 @@ export default async function handler (req, res) {
   })
 
   // Return the content of the data file in json format
-  res.status(200).json(fuse.search(q))
+  res.status(200).json(fuse.search(q).slice(0, 5))
 }

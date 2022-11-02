@@ -29,6 +29,7 @@ fs.outputFile('./dist/README.md', cleaned, { encoding: 'utf-8' })
 const tree = marked.lexer(cleaned)
 
 let previousId = null
+let previousTitle = ''
 const index = []
 let levelLiteral = 'principiante'
 let stack = []
@@ -46,19 +47,24 @@ const promises = tree.map((item) => {
 
   if (isHeading) {
     const id = slugify(text)
-    index.push({ id, text })
+    const level = MAP_LEVELS[levelLiteral]
 
-    if (previousId === null) previousId = id
+    index.push({ id, text, level })
+
+    if (previousId === null) {
+      previousId = id
+      previousTitle = text
+    }
 
     if (previousId !== id) {
-      const level = MAP_LEVELS[levelLiteral]
       const promise = fs.outputJSON(
         `./dist/${previousId}.json`,
-        { id: previousId, level, title: text, content: marked.parser(stack) }
+        { id: previousId, level, title: previousTitle, content: marked.parser(stack) }
       )
 
       stack = []
       previousId = id
+      previousTitle = text
 
       return promise
     }
