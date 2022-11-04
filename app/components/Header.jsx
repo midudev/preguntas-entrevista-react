@@ -30,7 +30,7 @@ export function Header () {
   )
 
   const handleSelect = (result) => {
-    router.push(`/${result}/#content`)
+    if (result) router.push(`/${result}/#content`)
   }
 
   return (
