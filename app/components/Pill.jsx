@@ -19,7 +19,7 @@ export function Pill ({ level }) {
   const literal = LITERALS[level] ?? LITERALS[LEVELS.EASY]
 
   return (
-    <div className='absolute top-3 right-3'>
+    <div>
       <span className={`${color} border uppercase mix rounded-[4px] font-bold font-grotesk inline-block p-[3px] text-[10px]`}>
         {literal}
       </span>

@@ -1,10 +1,11 @@
 'use client'
 
-import { useId, useCallback, useState } from 'react'
+import { useId, useCallback, useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import debounce from 'just-debounce-it'
 import Link from 'next/link'
 import { Combobox } from '@headlessui/react'
+import counter from '../../dist/counter.json'
 
 import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
@@ -13,6 +14,7 @@ import { Title } from './Title.jsx'
 export function Header () {
   const searchId = useId('search-id')
   const pathname = usePathname()
+  const [read, setRead] = useState(0)
   const [results, setResults] = useState([])
   const router = useRouter()
 
@@ -29,13 +31,28 @@ export function Header () {
     []
   )
 
+  useEffect(() => {
+    const readStorage = JSON.parse(localStorage.getItem('read')) || []
+    setRead(readStorage.length)
+  }, [])
+
   const handleSelect = (result) => {
     if (result) router.push(`/${result}/#content`)
   }
 
   return (
-    <header className='pt-20 pb-20'>
+    <header className='relative pt-20 pb-20'>
+
+      <div className='absolute top-1 right-0'>
+        <button
+          className='border uppercase mix rounded-[4px] font-bold font-grotesk inline-block p-[3px] text-[10px]'
+        >
+          Leidas {read}/{counter.total}
+        </button>
+      </div>
+
       <div className='relative'>
+
         <a className='hover:underline' href='/'>{literal}</a>
         <Title />
 
