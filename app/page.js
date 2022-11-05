@@ -4,7 +4,7 @@ import { LEVELS } from './constants.js'
 export default function Page () {
   return (
     <>
-      <h2 className='pb-4 text-2xl font-bold text-blue-900 font-grotesk'>Las preguntas más buscadas...</h2>
+      <h2 className='pb-4 text-2xl font-bold text-blue-900'>Las preguntas más buscadas...</h2>
       <section className='grid grid-cols-3 gap-8'>
         <Card
           title='¿Para qué sirve useEffect?'

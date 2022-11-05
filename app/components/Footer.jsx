@@ -10,7 +10,7 @@ export async function Footer () {
   const stars = await fetchGitHubStars()
 
   return (
-    <footer className='fixed bottom-0 left-0 right-0 w-full py-2 border-t border-t-gray-300 bg-gray-50 font-grotesk'>
+    <footer className='fixed bottom-0 left-0 right-0 w-full py-2 border-t border-t-gray-300 bg-gray-50'>
       <section className='flex items-center justify-between w-full max-w-5xl m-auto mx-auto'>
         <p className='flex items-center opacity-75 gap-x-2'>Construido con <a href='https://nextjs.org/' target='_blank' rel='noreferrer'><NextLogo /></a></p>
 

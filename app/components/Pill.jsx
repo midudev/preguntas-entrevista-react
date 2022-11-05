@@ -8,10 +8,10 @@ const LITERALS = {
 }
 
 const COLORS = {
-  [LEVELS.EASY]: 'bg-green-100 text-green-800',
-  [LEVELS.MEDIUM]: 'bg-yellow-100 text-yellow-800',
-  [LEVELS.HARD]: 'bg-blue-100 text-blue-800',
-  [LEVELS.ERRORS]: 'bg-red-100 text-red-800'
+  [LEVELS.EASY]: 'text-green-600',
+  [LEVELS.MEDIUM]: 'text-yellow-600',
+  [LEVELS.HARD]: 'text-blue-600',
+  [LEVELS.ERRORS]: 'text-red-600'
 }
 
 export function Pill ({ level }) {
@@ -20,7 +20,7 @@ export function Pill ({ level }) {
 
   return (
     <div>
-      <span className={`${color} border uppercase mix rounded-[4px] font-bold font-grotesk inline-block p-[3px] text-[10px]`}>
+      <span className={`${color} tracking-widest uppercase mix rounded-[4px] font-bold inline-block text-xs`}>
         {literal}
       </span>
     </div>

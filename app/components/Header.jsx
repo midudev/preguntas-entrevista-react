@@ -18,7 +18,8 @@ export function Header () {
   const [results, setResults] = useState([])
   const router = useRouter()
 
-  const literal = pathname === '/' ? ' ' : '← Volver atrás'
+  const isHome = pathname === '/'
+  const literal = isHome ? ' ' : '← Volver al inicio'
 
   const debouncedHandleChange = useCallback(
     debounce((event) => {
@@ -41,24 +42,33 @@ export function Header () {
   }
 
   return (
-    <header className='relative pt-20 pb-20'>
+    <header className='relative pt-20 pb-10'>
 
-      <div className='absolute top-1 right-0'>
-        <button
-          className='border uppercase mix rounded-[4px] font-bold font-grotesk inline-block p-[3px] text-[10px]'
-        >
-          Leidas {read}/{counter.total}
-        </button>
-      </div>
+      {
+        isHome && (
+          <div className='absolute right-0 top-1'>
+            <button
+              className='border uppercase mix rounded-[4px] font-bold inline-block p-[3px] text-[10px]'
+            >
+              Leidas {read}/{counter.total}
+            </button>
+          </div>
+        )
+      }
 
-      <div className='relative'>
+      <div className={`relative ${isHome ? 'block' : 'flex justify-between items-center'}`}>
 
-        <a className='hover:underline' href='/'>{literal}</a>
-        <Title />
+        <Link className='hover:underline' href='/'>{literal}</Link>
 
-        <span className='absolute right-0 p-2 overflow-hidden top-6'>
-          <ReactLogo />
-        </span>
+        <Title isHome={isHome} />
+
+        {
+          isHome && (
+            <span className='absolute right-0 p-2 overflow-hidden top-6'>
+              <ReactLogo />
+            </span>
+          )
+        }
 
       </div>
 
@@ -69,7 +79,7 @@ export function Header () {
 
         <Combobox.Input
           autoFocus
-          className='z-10 block w-full p-6 pl-20 text-xl font-bold transition-shadow bg-white border border-gray-300 rounded-full outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300'
+          className={`z-10 block w-full p-6 pl-20 text-xl font-bold bg-white border border-gray-300 rounded-3xl outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300 ${results.length && 'border-b-0 rounded-b-none'}`}
           id={searchId}
           onChange={debouncedHandleChange}
           placeholder='Introduce aquí tu pregunta sobre React'
@@ -78,7 +88,7 @@ export function Header () {
 
         {
           results.length > 0 && (
-            <Combobox.Options className='absolute z-10 w-full mt-2 overflow-hidden bg-white border border-gray-300 rounded-lg shadow-lg'>
+            <Combobox.Options className='absolute z-10 w-full overflow-hidden bg-white border border-gray-300 rounded-t-none shadow-lg rounded-3xl'>
               {results.map(result => {
                 const { item, matches } = result
                 const { id, text } = item

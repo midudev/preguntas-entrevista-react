@@ -31,7 +31,7 @@ export function ButtonRead ({ title }) {
     <div>
       <button
         onClick={() => handleSetRead(title)}
-        className={`${color} border uppercase mix rounded-[4px] font-bold font-grotesk inline-block p-[3px] text-[10px]`}
+        className={`${color} border uppercase mix rounded-[4px] font-bold inline-block p-[3px] text-[10px]`}
       >
         {!isFavorite ? 'Marcar leído' : 'Marcar no leído'}
       </button>
