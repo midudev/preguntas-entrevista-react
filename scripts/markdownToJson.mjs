@@ -33,8 +33,11 @@ let previousTitle = ''
 const index = []
 let levelLiteral = 'principiante'
 let stack = []
+const counter = {
+  total: 0
+}
 
-const promises = tree.map((item) => {
+const promises = tree.map((item, i) => {
   const { depth, type, text } = item
 
   const isHeading = type === 'heading'
@@ -48,6 +51,8 @@ const promises = tree.map((item) => {
   if (isHeading) {
     const id = slugify(text)
     const level = MAP_LEVELS[levelLiteral]
+
+    counter.total++
 
     index.push({ id, text, level })
 
@@ -75,6 +80,7 @@ const promises = tree.map((item) => {
 }).filter(Boolean)
 
 Promise.all(promises).then(() => {
+  fs.outputJSON('./dist/counter.json', counter)
   fs.outputJSON('./dist/index.json', index)
   console.log('All files generated')
 })
