@@ -1,6 +1,6 @@
 'use client'
 
-import { useId, useCallback, useState, useEffect } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import debounce from 'just-debounce-it'
 import Link from 'next/link'
@@ -12,11 +12,11 @@ import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
 
 export function Header () {
-  const searchId = useId('search-id')
   const pathname = usePathname()
   const [read, setRead] = useState(0)
   const [results, setResults] = useState([])
   const router = useRouter()
+  const [open, setOpen] = useState(false)
 
   const isHome = pathname === '/'
   const literal = isHome ? ' ' : '← Volver al inicio'
@@ -31,6 +31,11 @@ export function Header () {
     }, 200),
     []
   )
+
+  useEffect(() => {
+    setOpen(false)
+    setResults([])
+  }, [pathname])
 
   useEffect(() => {
     const readStorage = JSON.parse(localStorage.getItem('read')) || []
@@ -79,18 +84,18 @@ export function Header () {
       </div>
 
       <Combobox as='form' className='relative' onChange={handleSelect} onSubmit={e => e.preventDefault()} nullable>
-        <label className='absolute px-4 py-3 text-gray-300' htmlFor={searchId}>
-          <SearchIcon />
+        <label className='relative w-full'>
+          <div className='absolute px-4 py-3 text-gray-300'>
+            <SearchIcon />
+          </div>
+          <Combobox.Input
+            autoFocus
+            className={`search-input z-10 block w-full p-6 pl-20 text-xl font-bold bg-white border border-gray-300 rounded-3xl outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300 ${results.length && 'border-b-0 rounded-b-none'}`}
+            onChange={debouncedHandleChange}
+            placeholder='Introduce aquí tu pregunta sobre React'
+            type='search'
+          />
         </label>
-
-        <Combobox.Input
-          autoFocus
-          className={`z-10 block w-full p-6 pl-20 text-xl font-bold bg-white border border-gray-300 rounded-3xl outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300 ${results.length && 'border-b-0 rounded-b-none'}`}
-          id={searchId}
-          onChange={debouncedHandleChange}
-          placeholder='Introduce aquí tu pregunta sobre React'
-          type='search'
-        />
 
         {
           results.length > 0 && (
