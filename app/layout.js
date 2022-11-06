@@ -9,7 +9,8 @@ export default function RootLayout ({ children }) {
   return (
     <html>
       <head>
-        <title>React.js - Preguntas típicas</title>
+        <title>React.js - Preguntas típicas con respuesta y solución</title>
+        <meta name='description' content='Preguntas típicas sobre React.js con respuesta y solución' />
       </head>
       <body className={`${spaceGrotesk.className} overscroll-none`}>
         <div aria-hidden='true' className='absolute scale-150 rounded-full bg-blue-gradient-radial w-96 h-96 t-0 left-14 opacity-20' />

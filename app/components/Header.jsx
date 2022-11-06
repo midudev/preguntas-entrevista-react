@@ -60,15 +60,21 @@ export function Header () {
 
         <Link className='hover:underline' href='/'>{literal}</Link>
 
-        <Title isHome={isHome} />
+        <div className='flex gap-x-2'>
+          <Title isHome={isHome} />
 
-        {
-          isHome && (
-            <span className='absolute right-0 p-2 overflow-hidden top-6'>
-              <ReactLogo />
-            </span>
-          )
-        }
+          {
+            !isHome && <ReactLogo animated={false} size='small' />
+          }
+
+          {
+            isHome && (
+              <span className='absolute right-0 p-2 overflow-hidden top-6'>
+                <ReactLogo />
+              </span>
+            )
+          }
+        </div>
 
       </div>
 

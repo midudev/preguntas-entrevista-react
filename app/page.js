@@ -1,4 +1,6 @@
+
 import { Card } from './components/Card.jsx'
+import { ListOfQuestions } from './components/ListOfQuestions.jsx'
 import { LEVELS } from './constants.js'
 
 export default function Page () {
@@ -43,6 +45,8 @@ export default function Page () {
           level={LEVELS.HARD}
         />
       </section>
+      <h2 className='pb-4 mt-16 text-2xl font-bold text-blue-900'>Todas las preguntas sobre React disponibles</h2>
+      <ListOfQuestions />
     </>
   )
 }
