@@ -14,6 +14,8 @@
 
 ## Índice
 
+<details open><summary>Click para Contraer/Expandir el contenido</summary>
+
 - [Índice](#índice)
   - [Principiante](#principiante)
     - [¿Qué es React?](#qué-es-react)
@@ -106,9 +108,13 @@
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
 
+</details>
+
 ---
 
 ### Principiante
+
+<details open><summary>Click para Contraer/Expandir el contenido</summary>
 
 #### ¿Qué es React?
 
@@ -898,9 +904,13 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 **[⬆ Volver a índice](#índice)**
 
+</details>
+
 ---
 
 ### Intermedio
+
+<details open><summary>Click para Contraer/Expandir el contenido</summary>
 
 #### ¿Cuántos `useEffect` puede tener un componente?
 
@@ -1831,9 +1841,13 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 **[⬆ Volver a índice](#índice)**
 
+</details>
+
 ---
 
 ### Experto
+
+<details open><summary>Click para Contraer/Expandir el contenido</summary>
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
 
@@ -2511,5 +2525,7 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 - [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
 
 **[⬆ Volver a índice](#índice)**
+
+</details>
 
 ---
