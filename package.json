@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "engines": {
+    "node:": "16.x"
+  },
   "scripts": {
     "markdown:lint": "node scripts/lint.mjs",
     "dev": "next dev",
