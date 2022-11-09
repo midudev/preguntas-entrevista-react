@@ -61,7 +61,7 @@ export function Header () {
         )
       }
 
-      <div className={`relative ${isHome ? 'block' : 'flex justify-between items-center'}`}>
+      <div className={`relative ${isHome ? 'block' : 'flex flex-col md:flex-row justify-between md:items-center'}`}>
 
         <Link className='hover:underline' href='/'>{literal}</Link>
 
@@ -74,9 +74,11 @@ export function Header () {
 
           {
             isHome && (
-              <span className='absolute right-0 p-2 overflow-hidden top-6'>
-                <ReactLogo />
-              </span>
+              <div className='absolute p-2 overflow-hidden -right-4 md:right-0 top-6'>
+                <div className='translate-x-1/3 sm:translate-x-0'>
+                  <ReactLogo />
+                </div>
+              </div>
             )
           }
         </div>
@@ -86,11 +88,11 @@ export function Header () {
       <Combobox as='form' className='relative' onChange={handleSelect} onSubmit={e => e.preventDefault()} nullable>
         <label className='relative w-full'>
           <div className='absolute px-4 py-3 text-gray-300'>
-            <SearchIcon />
+            <SearchIcon className='w-8 h-8 md:w-12 md:h-12' />
           </div>
           <Combobox.Input
             autoFocus
-            className={`search-input z-10 block w-full p-6 pl-20 text-xl font-bold bg-white border border-gray-300 rounded-3xl outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300 ${results.length && 'border-b-0 rounded-b-none'}`}
+            className={`search-input z-10 block w-full p-4 md:p-6 pl-14 md:pl-20 text-base md:text-xl font-bold bg-white border border-gray-300 rounded-3xl outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300 ${results.length && 'border-b-0 rounded-b-none'}`}
             onChange={debouncedHandleChange}
             placeholder='Introduce aquí tu pregunta sobre React'
             type='search'
