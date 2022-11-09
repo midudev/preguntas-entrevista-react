@@ -11,9 +11,12 @@ export default function RootLayout ({ children }) {
       <head>
         <title>React.js - Preguntas típicas con respuesta y solución</title>
         <meta name='description' content='Preguntas típicas sobre React.js con respuesta y solución' />
+        <meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1' />
       </head>
       <body className={`${spaceGrotesk.className} overscroll-none`}>
-        <div aria-hidden='true' className='absolute scale-150 rounded-full bg-blue-gradient-radial w-96 h-96 t-0 left-14 opacity-20' />
+        <div aria-hidden='true' className='absolute inset-0 z-0 overflow-hidden pointer-events-none'>
+          <div className='absolute top-0 scale-150 rounded-full bg-blue-gradient-radial w-96 h-96 left-14 opacity-20' />
+        </div>
         <main className='block w-full max-w-6xl p-4 pb-32 m-auto'>
           <Header />
           {children}

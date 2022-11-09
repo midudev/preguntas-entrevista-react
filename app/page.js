@@ -7,7 +7,7 @@ export default function Page () {
   return (
     <>
       <h2 className='pb-4 text-2xl font-bold text-blue-900'>Las preguntas más buscadas...</h2>
-      <section className='grid grid-cols-3 gap-8'>
+      <section className='grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3'>
         <Card
           title='¿Para qué sirve useEffect?'
           excerpt='El hook useEffect se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.'

@@ -14,10 +14,10 @@ export async function ListOfQuestions () {
   const questions = await getListOfQuestions()
 
   return (
-    <ul>
+    <ul className='space-y-3'>
       {questions.map(({ id, text }) => (
         <li key={id}>
-          <Link className='hover:underline' href={`/${id}/#content`}>
+          <Link className='leading-snug hover:underline' href={`/${id}/#content`}>
             {text}
           </Link>
         </li>
