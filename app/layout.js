@@ -20,6 +20,16 @@ export default async function RootLayout ({ children }) {
         <title>React.js Wiki - Preguntas típicas con respuesta y solución</title>
         <meta name='description' content='Preguntas típicas sobre React.js con respuesta y solución' />
         <meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1' />
+        <meta property='og:title' content='React.js Wiki - Preguntas típicas con respuesta y solución' />
+        <meta property='og:description' content='Preguntas típicas sobre React.js con respuesta y solución' />
+        <meta property='og:image' content='https://reactjs.wiki/og.png' />
+        <meta property='og:url' content='https://reactjs.wiki' />
+        <meta property='og:site_name' content='React.js Wiki' />
+        <meta property='og:type' content='website' />
+        <meta property='og:locale' content='es_ES' />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:creator' content='@midudev' />
+        <meta name='twitter:title' content='React.js Wiki - Preguntas típicas con respuesta y solución' />
       </head>
       <body className={`${spaceGrotesk.className} overscroll-none`}>
         <div aria-hidden='true' className='absolute inset-0 z-0 overflow-hidden pointer-events-none'>
