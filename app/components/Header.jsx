@@ -10,8 +10,9 @@ import counter from '../../dist/counter.json'
 import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
+import { Stars } from './Stars.jsx'
 
-export function Header () {
+export function Header ({ stars }) {
   const pathname = usePathname()
   const [read, setRead] = useState(0)
   const [results, setResults] = useState([])
@@ -51,9 +52,10 @@ export function Header () {
 
       {
         isHome && (
-          <div className='absolute right-0 top-1'>
+          <div className='absolute right-0 flex gap-x-2 top-1'>
+            <Stars stars={stars} />
             <button
-              className='border uppercase mix rounded-[4px] font-bold inline-block p-[3px] text-[10px]'
+              className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'
             >
               Leidas {read}/{counter.total}
             </button>
