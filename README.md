@@ -2404,7 +2404,7 @@ Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. E
 
 #### Too many re-renders. React limits the number of renders to prevent an infinite loop
 
-Este error nos indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
+Este error indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
 
 1. **Llamar a una función que actualiza el estado en el renderizado del componente.**
 
