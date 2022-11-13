@@ -9,7 +9,7 @@ export default function RootLayout ({ children }) {
   return (
     <html>
       <head>
-        <title>React.js - Preguntas típicas con respuesta y solución</title>
+        <title>React.js Wiki - Preguntas típicas con respuesta y solución</title>
         <meta name='description' content='Preguntas típicas sobre React.js con respuesta y solución' />
         <meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1' />
       </head>
