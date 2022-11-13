@@ -4,6 +4,7 @@ import path from 'node:path'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 import { Title } from './Title.jsx'
+import { HighlightCode } from './HighlightCode.jsx'
 
 const jsonDirectory = path.join(process.cwd(), 'dist')
 
@@ -25,6 +26,7 @@ export default async function Post ({ params }) {
 
   return (
     <>
+      <HighlightCode />
       <Title>{title}</Title>
       <header className='relative pt-10'>
         <div className='flex flex-row gap-2 pb-4'>
