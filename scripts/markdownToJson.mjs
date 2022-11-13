@@ -33,6 +33,7 @@ let previousTitle = ''
 const index = []
 let levelLiteral = 'principiante'
 let stack = []
+
 const counter = {
   total: 0
 }
@@ -42,29 +43,42 @@ const promises = tree.map((item, i) => {
 
   const isHeading = type === 'heading'
   const isLevel = depth === 3
+  const isLast = i === tree.length - 1
 
   if (isLevel) {
     levelLiteral = text.toLowerCase()
     return null
   }
 
-  if (isHeading) {
-    const id = slugify(text)
-    const level = MAP_LEVELS[levelLiteral]
+  if (isHeading || isLast) {
+    let id
+    let level
+
+    if (!isLast) {
+      id = slugify(text)
+      level = MAP_LEVELS[levelLiteral]
+      index.push({ id, text, level })
+    }
 
     counter.total++
 
-    index.push({ id, text, level })
-
+    // only for the first one
     if (previousId === null) {
       previousId = id
       previousTitle = text
     }
 
-    if (previousId !== id) {
+    if (previousId !== id || isLast) {
+      const content = marked.parser(stack)
+
+      content
+        .replace('<h4 ', '<h1 ')
+        .replace('</h4', '</h1')
+        .replace('<hr>', '')
+
       const promise = fs.outputJSON(
         `./dist/${previousId}.json`,
-        { id: previousId, level, title: previousTitle, content: marked.parser(stack) }
+        { id: previousId, level, title: previousTitle, content }
       )
 
       stack = []
