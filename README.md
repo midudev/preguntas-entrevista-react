@@ -36,6 +36,7 @@
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
     - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
+    - [¿Qué significa la expresión "subir el estado"?](#qué-significa-la-expresión-subir-el-estado)
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
     - [Cómo suscribirse a un evento en `useEffect`](#cómo-suscribirse-a-un-evento-en-useeffect)
@@ -634,6 +635,116 @@ function Counter() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué significa la expresión "subir el estado"?
+
+Cuando varios componentes necesitan compartir los mismos datos de un estado, entonces se recomienda elevar ese estado compartido hasta su ancestro común más cercano.
+
+Dicho de otra forma. Si dos componentes hijos comparten los mismos datos de su padre, entonces mueve el estado al padre en lugar de mantener un estado local en sus hijos.
+
+Para entenderlo, lo mejor es que lo veamos con un ejemplo. Imagina que tenemos una lista de regalos deseados y queremos poder añadir regalos y mostrar el total de regalos que hay en la lista.
+
+```jsx
+import { useState } from 'react'
+
+export default function App () {
+  return (
+    <>
+      <h1>Lista de regalos</h1>
+      <GiftList />
+      <TotalGifts />
+    </>
+  )
+}
+
+function GiftList () {
+  const [gifts, setGifts] = useState([])
+
+  const addGift = () => {
+    const newGift = prompt('¿Qué regalo quieres añadir?')
+    setGifts([...gifts, newGift])
+  }
+
+  return (
+    <>
+      <h2>Regalos</h2>
+      <ul>
+        {gifts.map(gift => (
+          <li key={gift}>{gift}</li>
+        ))}
+      </ul>
+      <button onClick={addGift}>Añadir regalo</button>
+    </>
+  )
+}
+
+function TotalGifts () {
+  const [totalGifts, setTotalGifts] = useState(0)
+
+  return (
+    <>
+      <h2>Total de regalos</h2>
+      <p>{totalGifts}</p>
+    </>
+  )
+}
+```
+
+¿Qué pasa si queremos que el total de regalos se actualice cada vez que añadimos un regalo? Como podemos ver, no es posible porque el estado de `totalGifts` está en el componente `TotalGifts` y no en el componente `GiftList`. Y como no podemos acceder al estado de `GiftList` desde `TotalGifts`, no podemos actualizar el estado de `totalGifts` cuando añadimos un regalo.
+
+Tenemos que subir el estado de `gifts` al componente padre `App` y le pasaremos el número de regalos como prop al componente `TotalGifts`.
+
+```jsx
+import { useState } from 'react'
+
+export default function App () {
+  const [gifts, setGifts] = useState([])
+
+  const addGift = () => {
+    const newGift = prompt('¿Qué regalo quieres añadir?')
+    setGifts([...gifts, newGift])
+  }
+
+  return (
+    <>
+      <h1>Lista de regalos</h1>
+      <GiftList gifts={gifts} addGift={addGift} />
+      <TotalGifts totalGifts={gifts.length} />
+    </>
+  )
+}
+
+function GiftList ({ gifts, addGift }) {
+  return (
+    <>
+      <h2>Regalos</h2>
+      <ul>
+        {gifts.map(gift => (
+          <li key={gift}>{gift}</li>
+        ))}
+      </ul>
+      <button onClick={addGift}>Añadir regalo</button>
+    </>
+  )
+}
+
+function TotalGifts ({ totalGifts }) {
+  return (
+    <>
+      <h2>Total de regalos</h2>
+      <p>{totalGifts}</p>
+    </>
+  )
+}
+```
+
+Con esto, lo que hemos hecho es *elevar el estado*. Lo hemos movido desde el componente `GiftList` al componente `App`. Ahora pasamos como prop los regalos al componente `GiftList` y una forma de actualizar el estado, y también hemos pasado como prop al componente `TotalGifts` el número de regalos.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-qitkys?file=App.tsx)
 
 **[⬆ Volver a índice](#índice)**
 
