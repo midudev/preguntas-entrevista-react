@@ -25,12 +25,14 @@
     - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
+    - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
     - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
     - [¿Cómo puedes aplicar clases CSS a un componente en React?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react)
     - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
     - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
     - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
+    - [¿Cómo puedes escribir comentarios en React?](#cómo-puedes-escribir-comentarios-en-react)
     - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
     - [¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?](#cómo-puedo-pasar-un-parámetro-a-una-función-que-maneja-un-evento-en-react)
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
@@ -79,6 +81,8 @@
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
     - [¿Por qué es recomendable exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada)
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
+    - [¿Cómo puedo importar de forma dinámica un componente en React?](#cómo-puedo-importar-de-forma-dinámica-un-componente-en-react)
+    - [¿Cuando y por qué es recomendable importar componentes de forma dinámica?](#cuando-y-por-qué-es-recomendable-importar-componentes-de-forma-dinámica)
     - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
     - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
@@ -315,6 +319,39 @@ Las props son una forma de parametrizar nuestros componentes igual que hacemos c
 
 ---
 
+#### ¿Qué es y para qué sirve la prop `children` en React?
+
+La prop `children` es una prop especial que se pasa a los componentes. Es un objeto que contiene los elementos que envuelve un componente.
+
+Por ejemplo, si tenemos un componente `Card` que muestra una tarjeta con un título y un contenido, podemos usar la prop `children` para mostrar el contenido:
+
+```jsx
+function Card(props) {
+  return (
+    <div className="card">
+      <h2>{props.title}</h2>
+      <div>{props.children}</div>
+    </div>
+  )
+}
+```
+
+Y luego podemos usarlo de la siguiente forma:
+
+```jsx
+<Card title="Título de la tarjeta">
+  <p>Contenido de la tarjeta</p>
+</Card>
+```
+
+En este caso, la prop `children` contiene el elemento `<p>Contenido de la tarjeta</p>`.
+
+Conocer y saber usar la prop `children` es muy importante para crear componentes reutilizables en React.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ####  ¿Qué diferencia hay entre props y state?
 
 Las *props* son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
@@ -468,6 +505,41 @@ function List({ items }) {
 En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{id:1, name: "John", id:1, name: "Doe"}]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedes escribir comentarios en React?
+
+Si vas a escribir un comentario fuera del renderizado de un componente, puedes usar la sintaxis de comentarios de JavaScript sin problemas:
+
+```jsx
+function Button({ text }) {
+  // Esto es un comentario
+  /* Esto es un comentario
+  de varias líneas */
+
+  return (
+    <button>
+      {text}
+    </button>
+  )
+}
+```
+
+Si vas a escribir un comentario dentro del renderizado de un componente, debes envolver el comentario en llaves y usar siempre la sintaxis de comentarios de bloque:
+
+```jsx
+function Button({ text }) {
+  return (
+    <button>
+      {/* Esto es un comentario en el render */}
+      {text}
+    </button>
+  )
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1833,6 +1905,96 @@ export function ButtonSecondary({children}) {
   return <button class="btn-secondary">{children}</button>
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo importar de forma dinámica un componente en React?
+
+Para importar de forma dinámica un componente en React debemos usar la función `import()`, el método `lazy()` de React y el componente `Suspense`.
+
+```jsx
+import { lazy, Suspense } from 'react'
+
+const Button = lazy(() => import('./button.jsx'))
+
+function App() {
+  return (
+    <Suspense fallback={<div>Cargando botón...</div>}>
+      <Button />
+    </Suspense>
+  )
+}
+```
+
+Vamos a ver en detalle cada uno de los elementos que hemos usado:
+
+La función `import()` es parte del estándar de ECMAScript y nos permite importar de forma dinámica un módulo. Esta función devuelve una promesa que se resuelve con el módulo importado.
+
+El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`.
+
+El componente `Suspense` nos permite mostrar un mensaje mientras se está cargando el componente. Este componente recibe una prop `fallback` que es el mensaje que se muestra mientras se está cargando el componente.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-n6zal2?file=App.tsx)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cuando y por qué es recomendable importar componentes de forma dinámica?
+
+En React, nuestras aplicaciones están creadas a partir de componentes. Estos componentes se pueden importar de forma **estática o dinámica**.
+
+La importación de componentes de forma estática es la forma más común de importar componentes en React. En este caso, los componentes se importan en la parte superior del fichero y se renderizan en el código. El problema es que, si siempre lo hacemos así, es bastante probable que estemos cargando componentes que no se van a usar desde el principio.
+
+```jsx
+import { useState } from 'react'
+// importamos de forma estática el componente de la Modal
+import { SuperBigModal } from './super-big-modal.jsx'
+
+// mostrar modal si el usuario da click en un botón
+export default function App () {
+  const [showModal, setShowModal] = useState(false)
+
+  return (
+    <div>
+      <button onClick={() => setShowModal(true)}>Mostrar modal</button>
+      {showModal && <SuperBigModal />}
+    </div>
+  )
+}
+```
+
+Este componente `SuperBigModal` se importa de forma estática, por lo que se carga desde el principio. Pero, ¿qué pasa si el usuario no da click en el botón para mostrar la modal? En este caso, está cargando el componente pese a que no lo está usando.
+
+Si queremos ofrecer la mejor experiencia a nuestros usuarios, debemos intentar que la aplicación cargue lo más rápido posible. Por eso, es recomendable importar de forma dinámica los componentes que no se van a usar desde el principio.
+
+```jsx
+import { useState } from 'react'
+// importamos de forma dinámica el componente de la Modal
+const SuperBigModal = lazy(() => import('./super-big-modal.jsx'))
+
+// mostrar modal si el usuario da click en un botón
+export default function App () {
+  const [showModal, setShowModal] = useState(false)
+
+  return (
+    <div>
+      <button onClick={() => setShowModal(true)}>Mostrar modal</button>
+      <Suspense fallback={<div>Cargando modal...</div>}>
+        {showModal && <SuperBigModal />}
+      </Suspense>
+    </div>
+  )
+}
+```
+
+De esta forma, la parte de código que importa el componente `SuperBigModal` se carga de forma dinámica, es decir, cuando el usuario da click en el botón para mostrar la modal.
+
+Dependiendo del empaquetador de aplicaciones web que uses y su configuración, es posible que el resultado de la carga sea diferente (algunos creará un archivo a parte del *bundle* principal, otros podrían hacer un streaming del HTML...) pero la intención del código es la misma.
+
+Así que siempre debemos intentar cargar los componentes de forma dinámica cuando no se vayan a usar desde el principio, sobretodo cuando están detrás de la interacción de un usuario. Lo mismo podría ocurrir con rutas completas de nuestra aplicación. ¿Por qué cargar la página de *About* si el usuario está visitando la página principal?
 
 **[⬆ Volver a índice](#índice)**
 
