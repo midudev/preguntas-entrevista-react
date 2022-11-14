@@ -1,6 +1,7 @@
 import fs from 'fs-extra'
 import slugify from '@sindresorhus/slugify'
 import { marked } from 'marked'
+import Prism from 'prismjs'
 
 const LEVELS = {
   EASY: 0,
@@ -16,10 +17,35 @@ const MAP_LEVELS = {
   'errores típicos en react': LEVELS.ERRORS
 }
 
+const addCodeHighlight = async (markdown) => {
+  const codeBlockRegex = /^```(\w+)\n([a-z]*[\s\S]*?)\n```/gm
+  for (const match of markdown.matchAll(codeBlockRegex)) {
+    let lang = match[1]
+    const isPrismLanguageLoaded = Object.keys(Prism.languages).filter(id => typeof Prism.languages[id] === 'object').includes(lang)
+    if (!isPrismLanguageLoaded) {
+      try {
+        // dynamically import the required component for languague
+        const component = `prismjs/components/prism-${lang}.js`
+        await import(component)
+      } catch (error) {
+        if (error instanceof Error && error.code === 'ERR_MODULE_NOT_FOUND') {
+          lang = 'txt' // fallback to plain text if the language component is not found
+        } else {
+          throw error
+        }
+      }
+    }
+    const code = Prism.highlight(match[2], Prism.languages[lang], lang)
+    const block = `<pre><code class="language-${lang}">${code}</code></pre>`
+    markdown = markdown.replace(match[0], block)
+  }
+  return markdown;
+}
+
 const readme = await fs.readFile('./README.md', 'utf-8')
 const start = readme.indexOf('###')
 
-const cleaned = readme
+const cleaned = (await addCodeHighlight(readme))
   .replaceAll('**[⬆ Volver a índice](#índice)**', '')
   .replaceAll('](#', '](/')
   .slice(start)

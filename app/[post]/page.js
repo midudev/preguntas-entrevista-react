@@ -2,6 +2,7 @@ import { readJSON } from 'fs-extra'
 import path from 'node:path'
 import Link from 'next/link.js';
 
+import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 import { Title } from './Title.jsx'
