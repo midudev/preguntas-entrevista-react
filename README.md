@@ -93,6 +93,7 @@
     - [¿Cómo puedo validar el tipo de mis props?](#cómo-puedo-validar-el-tipo-de-mis-props)
     - [¿Cómo puedo validar las propiedades de un objeto con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-objeto-con-proptypes)
     - [¿Cómo puedo validar las propiedades de un array con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-array-con-proptypes)
+    - [¿Cómo puedo inyectar HTML directamente en un componente de React?](#cómo-puedo-inyectar-html-directamente-en-un-componente-de-react)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
@@ -2369,6 +2370,50 @@ App.propTypes = {
 ```
 
 En este caso estamos validando que `items` sea un array y que cada uno de sus elementos sea un objeto con la propiedad `text` de tipo `string`. Además, la prop es obligatoria.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo inyectar HTML directamente en un componente de React?
+
+Una de las razones por las que se creó React es para evitar los ataques XSS (*Cross-Site Scripting*), impidiendo que un usuario pueda inyectar código HTML en la página.
+
+Por ello, React al intentar evaluar un string que contiene HTML lo escapa automáticamente. Por ejemplo, si intentamos renderizar el siguiente string:
+
+```jsx
+const html = "<h1>My title</h1>"
+
+function App() {
+  return <div>{html}</div>
+}
+```
+
+Veremos que en lugar de renderizar el HTML, lo escapa:
+
+```html
+<div>&lt;h1&gt;My title&lt;/h1&gt;</div>
+```
+
+Sin embargo, hay ocasiones en las que es necesario inyectar HTML directamente en un componente. Ya sea por traducciones que tenemos, porque viene el HTML desde el servidor y ya viene saneado, o por un componente de terceros.
+
+Para ello, podemos usar la propiedad `dangerouslySetInnerHTML`:
+
+```jsx
+const html = "<h1>My title</h1>"
+
+function App() {
+  return <div dangerouslySetInnerHTML={{ __html: html }} />
+}
+```
+
+Ahora sí veremos el HTML renderizado:
+
+```html
+<div><h1>My title</h1></div>
+```
+
+Como ves, **el nombre ya nos indica que es una propiedad peligrosa y que debemos usarla con cuidado.** Intenta evitarla siempre que puedas y sólo recurre a ella cuando realmente no tengas otra opción.
 
 **[⬆ Volver a índice](#índice)**
 
