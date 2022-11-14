@@ -83,6 +83,7 @@
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
     - [¿Cómo puedo importar de forma dinámica un componente en React?](#cómo-puedo-importar-de-forma-dinámica-un-componente-en-react)
     - [¿Cuando y por qué es recomendable importar componentes de forma dinámica?](#cuando-y-por-qué-es-recomendable-importar-componentes-de-forma-dinámica)
+    - [¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?](#sólo-se-pueden-cargar-componentes-de-forma-dinámica-si-se-exportan-por-defecto)
     - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
     - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
@@ -1915,16 +1916,22 @@ export function ButtonSecondary({children}) {
 Para importar de forma dinámica un componente en React debemos usar la función `import()`, el método `lazy()` de React y el componente `Suspense`.
 
 ```jsx
+// App.jsx
 import { lazy, Suspense } from 'react'
 
 const Button = lazy(() => import('./button.jsx'))
 
-function App() {
+export default function App() {
   return (
     <Suspense fallback={<div>Cargando botón...</div>}>
       <Button />
     </Suspense>
   )
+}
+
+// button.jsx
+export default function Button() {
+  return <button>Botón cargado dinámicamente</button>
 }
 ```
 
@@ -1932,7 +1939,7 @@ Vamos a ver en detalle cada uno de los elementos que hemos usado:
 
 La función `import()` es parte del estándar de ECMAScript y nos permite importar de forma dinámica un módulo. Esta función devuelve una promesa que se resuelve con el módulo importado.
 
-El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`.
+El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`. Ten en cuenta que el componente que devuelve `lazy()` **debe ser un componente de React y ser exportado por defecto** (`export default`).
 
 El componente `Suspense` nos permite mostrar un mensaje mientras se está cargando el componente. Este componente recibe una prop `fallback` que es el mensaje que se muestra mientras se está cargando el componente.
 
@@ -1995,6 +2002,70 @@ De esta forma, la parte de código que importa el componente `SuperBigModal` se 
 Dependiendo del empaquetador de aplicaciones web que uses y su configuración, es posible que el resultado de la carga sea diferente (algunos creará un archivo a parte del *bundle* principal, otros podrían hacer un streaming del HTML...) pero la intención del código es la misma.
 
 Así que siempre debemos intentar cargar los componentes de forma dinámica cuando no se vayan a usar desde el principio, sobretodo cuando están detrás de la interacción de un usuario. Lo mismo podría ocurrir con rutas completas de nuestra aplicación. ¿Por qué cargar la página de *About* si el usuario está visitando la página principal?
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?
+
+No, no es necesario que los componentes se exporten por defecto para poder cargarlos de forma dinámica. Podemos exportarlos de forma nombrada y cargarlos de forma dinámica... pero no es lo más recomendable ya que el código necesario es mucho más lioso.
+
+```jsx
+// button.jsx
+// exportamos el componente Button de forma nombrada
+export function Button() {
+  return <button>Botón cargado dinámicamente</button>
+}
+
+// app.jsx
+import { lazy, Suspense } from 'react'
+
+// Al hacer el import dinámico, debemos especificar el nombre del componente que queremos importar
+// y hacer que devuelva un objeto donde la key default pasar a ser el componente nombrado
+const Button = lazy(
+  () => import('./button.jsx')
+  .then(({Button}) => ({ default: Button }))
+)
+
+export default function App () {
+  return (
+    <div>
+      <Suspense fallback={<div>Cargando botón...</div>}>
+        <Button />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+Otra opción es tener un fichero intermedio que exporte el componente de forma por defecto y que sea el que importemos de forma dinámica.
+
+```jsx
+// button-component.jsx
+// exportamos el componente Button de forma nombrada
+export function Button() {
+  return <button>Botón cargado dinámicamente</button>
+}
+
+// button.jsx
+export { Button as default } from './button-component.jsx'
+
+// app.jsx
+import { lazy, Suspense } from 'react'
+
+const Button = lazy(() => import('./button.jsx'))
+
+export default function App () {
+  return (
+    <div>
+      <Suspense fallback={<div>Cargando botón...</div>}>
+        <Button />
+      </Suspense>
+    </div>
+  )
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
