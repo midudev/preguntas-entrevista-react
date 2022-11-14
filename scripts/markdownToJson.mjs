@@ -18,7 +18,7 @@ const MAP_LEVELS = {
 }
 
 const addCodeHighlight = async (markdown) => {
-  const codeBlockRegex = /^```(\w+)([a-z]*\n[\s\S]*?)\n```/gm
+  const codeBlockRegex = /^```(\w+)\n([a-z]*[\s\S]*?)\n```/gm
   for (const match of markdown.matchAll(codeBlockRegex)) {
     let lang = match[1]
     const isPrismLanguageLoaded = Object.keys(Prism.languages).filter(id => typeof Prism.languages[id] === 'object').includes(lang)
