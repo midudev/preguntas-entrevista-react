@@ -27,6 +27,7 @@
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
     - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
     - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
+    - [¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?](#se-puede-inicializar-un-estado-con-el-valor-de-una-prop-qué-pasa-si-lo-haces-y-qué-hay-que-tener-en-cuenta)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
     - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
     - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
@@ -91,7 +92,7 @@
     - [¿Por qué no podemos usar un `if` en el renderizado de un componente?](#por-qué-no-podemos-usar-un-if-en-el-renderizado-de-un-componente)
     - [¿Por qué debemos utilizar una función para actualizar el estado de React?](#por-qué-debemos-utilizar-una-función-para-actualizar-el-estado-de-react)
     - [¿Qué es el ciclo de vida de un componente en React?](#qué-es-el-ciclo-de-vida-de-un-componente-en-react)
-    - [¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
+    - [¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
     - [¿Para qué sirve el hook `useMemo`?](#para-qué-sirve-el-hook-usememo)
     - [¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?](#es-buena-idea-usar-siempre-usememo-para-optimizar-nuestros-componentes)
     - [¿Para qué sirve el hook `useCallback`?](#para-qué-sirve-el-hook-usecallback)
@@ -389,6 +390,60 @@ Las *props* son un objeto que **se pasan como argumentos de un componente padre 
 El *state* es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
 
 Así que mientras que tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?
+
+Sí, se puede inicializar el estado con el valor de una prop. Pero hay que tener en cuenta que, si la prop cambia, el estado no se actualizará automáticamente. Esto es porque el estado se inicializa una vez, cuando el componente se monta por primera vez.
+
+Por ejemplo, con componentes funcionales:
+
+```jsx
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <Count count={count} />
+      <button onClick={() => setCount(count + 1)}>Aumentar</button>
+    </div>
+  )
+}
+
+const Count = ({ count }) => {
+  const [number, setNumber] = useState(count)
+
+  return <p>{number}</p>
+}
+```
+
+En este caso, el componente `Count` inicializa su estado con el valor de la prop `count`. Pero si cambia el valor de la prop `count`, el estado no se actualizará automáticamente. Por lo que al hacer click, siempre veremos el número 0 en pantalla.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-cdf8n9?file=App.tsx)
+
+En este ejemplo, lo mejor sería simplemente usar la prop `count` en el componente `Count` y así siempre se volvería a renderizar.
+
+**Es una buena práctica evitar al máximo los estados de nuestros componentes y, siempre que se pueda, simplemente calcular el valor a mostrar a partir de las props.**
+
+En el caso que necesites inicializar un estado con una prop, es una buena práctica es añadir el prefijo de `initial` a la prop para indicar que es el valor inicial del estado y que luego no lo usaremos más:
+
+```jsx
+const Input = ({ initialValue }) => {
+  const [value, setValue] = useState(initialValue)
+
+  return (
+    <input
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  )
+}
+```
+
+Es un error muy común pensar que la prop actualizará el estado, así que tenlo en cuenta.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2032,7 +2087,7 @@ En cada uno de estos métodos podemos ejecutar código que nos permita controlar
 
 ---
 
-#### ¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?
+#### ¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?
 
 Cuando renderizamos una lista de elementos, React necesita saber qué elementos han cambiado, han sido añadidos o eliminados.
 
