@@ -49,6 +49,30 @@
     - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
+    - [¿Qué JavaScript necesito para aprender React?](#qué-javascript-necesito-para-aprender-react)
+      - [JavaScript que necesitas para aprender React](#javascript-que-necesitas-para-aprender-react)
+      - [EcmaScript Modules o ESModules](#ecmascript-modules-o-esmodules)
+        - [¿Por qué es importante?](#por-qué-es-importante)
+      - [Operador condicional (ternario)](#operador-condicional-ternario)
+        - [¿Por qué es importante?](#por-qué-es-importante-1)
+      - [Funciones flecha o Arrow Functions](#funciones-flecha-o-arrow-functions)
+        - [¿Por qué es importante?](#por-qué-es-importante-2)
+      - [Parámetros predeterminados (default values)](#parámetros-predeterminados-default-values)
+        - [¿Por qué es importante?](#por-qué-es-importante-3)
+      - [Template Literals](#template-literals)
+        - [¿Por qué es importante?](#por-qué-es-importante-4)
+      - [Propiedades abreviadas](#propiedades-abreviadas)
+        - [¿Por qué es importante?](#por-qué-es-importante-5)
+      - [La desestructuración](#la-desestructuración)
+        - [¿Por qué es importante?](#por-qué-es-importante-6)
+      - [Métodos de Array](#métodos-de-array)
+        - [¿Por qué es importante?](#por-qué-es-importante-7)
+      - [Sintaxis Spread](#sintaxis-spread)
+        - [¿Por qué es importante?](#por-qué-es-importante-8)
+      - [Operador Rest](#operador-rest)
+        - [¿Por qué es importante?](#por-qué-es-importante-9)
+      - [Encadenamiento opcional (Optional Chaining)](#encadenamiento-opcional-optional-chaining)
+      - [¿Por qué es importante?](#por-qué-es-importante-10)
   - [Intermedio](#intermedio)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
     - [¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-desmonta-del-árbol)
@@ -1139,6 +1163,453 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 *React Native*, por ejemplo, haría lo mismo, pero para dispositivos móviles.
 
 **[⬆ Volver a índice](#índice)**
+
+#### ¿Qué JavaScript necesito para aprender React?
+
+##### JavaScript que necesitas para aprender React
+
+**Para aprender y dominar React necesitas saber JavaScript.** A diferencia de otros frameworks y bibliotecas, como *Angular* y *Vue*, que se basan en su propio *DSL* (Domain-Specific Language), React usa una extensión de la sintaxis de JavaScript llamada *JSX*. Más adelante lo veremos en detalle pero, al final, no deja de ser azúcar sintáctico para escribir menos JavaScript.
+
+**En React todo es JavaScript.** Para bien y para mal. Este libro da por sentados unos conocimientos previos del lenguaje de programación pero antes de empezar vamos a hacer un pequeño repaso por algunas de las características más importantes que necesitarás conocer.
+
+**Si ya dominas JavaScript puedes saltarte este capítulo** y continuar con el libro, pero recuerda que siempre podrás revisar este capítulo como referencia.
+
+##### EcmaScript Modules o ESModules
+
+Los **EcmaScript Modules** es la forma nativa que tiene JavaScript para importar y exportar variables, funciones y clases entre diferentes ficheros. Hoy en día, especialmente si trabajamos con un empaquetador de aplicaciones como Webpack, vamos a estar trabajando constantemente con esta sintaxis.
+
+Por un lado podemos crear módulos exportándolos por defecto:
+
+```js
+// sayHi.js
+// exportamos por defecto el módulo sayHi
+export default sayHi (message) {
+    console.log(message)
+}
+
+// index.js
+// este módulo lo podremos importar con el nombre que queramos
+import sayHi from './sayHi.js'
+
+// al ser el módulo exportado por defecto podríamos usar otro nombre
+import miduHi from './sayHi.js'
+```
+
+También podemos hacer exportaciones nombradas de módulos, de forma que un módulo tiene un nombre asignado y para importarlo necesitamos usar exactamente el nombre usado al exportarlo:
+
+```js
+// sayHi.js
+// podemos usar exportaciones nombradas para mejorar esto
+export const sayHi = (message) => console.log(message)
+
+// y se pueden hacer tantas exportaciones de módulos nombrados como queramos
+export const anotherHi = msg => alert(msg)
+
+// index.js
+// ahora para importar estos módulos en otro archivo podríamos hacerlo así
+import {sayHi, anotherHi} from './sayHi.js'
+```
+
+Los *imports* que hemos visto hasta aquí se conocen como *imports estáticos*. Esto significa que ese módulo será cargado en el momento de la carga del archivo que lo importa.
+
+También existen los *imports dinámicos*, de forma que podamos importar módulos que se carguen en el momento de la ejecución del programa o cuando nosotros decidamos (por ejemplo, como respuesta a un click).
+
+```js
+document.querySelector('button').addEventListener('click', () => {
+  // los imports dinámicos devuelven una Promesa
+  import('./sayHi.js').then(module => {
+    // ahora podemos ejecutar el módulo que hemos cargado
+    module.default('Hola')
+  })
+})
+```
+
+A> Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
+
+Existen más sintaxis para trabajar con módulos, pero con saber las que hemos visto ya sería suficiente para seguir el libro.
+
+###### ¿Por qué es importante?
+
+Para empezar React te ofrece diferentes partes de su biblioteca a través de módulos que podrás importar. Además nuestros componentes los tendremos separados en ficheros y, cada uno de ellos, se podrá importar utilizando *ESModules*.
+
+Además, por temas de optimización de rendimiento, podremos importar de forma dinámica componentes y así mejorar la experiencia de nuestros usuarios al necesitar cargar menos información para poder utilizar la página.
+
+##### Operador condicional (ternario)
+
+Las ternarias son una forma de realizar condiciones sin la necesidad de usar la sintaxis con `if`. Se podría decir que es una forma de atajo para evitar escribir tanto código.
+
+```js
+if (number % 2 === 0) {
+  console.log('Es par')
+} else {
+  console.log('Es impar')
+}
+
+// usando ternaria
+number % 2 === 0 ? console.log('Es par') : console.log('Es impar')
+```
+
+###### ¿Por qué es importante?
+
+En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del *JSX*.
+
+##### Funciones flecha o Arrow Functions
+
+Las *funciones flecha* o *arrow function* fueron añadidas a JavaScript en el estándar ECMAScript 6 (o ES2015). En principio parece que simplemente se trata de una sintaxis alternativa más simple a la hora de crear expresiones de funciones:
+
+```js
+const nombreDeLaFuncion = function (param1, param2) {
+  // instrucciones de la función
+}
+
+const nombreDeLaFuncion = (param1, param2) => { // con arrow function
+  // instrucciones de la función
+}
+```
+
+Pero además del cambio de sintaxis existen otras características de las funciones flechas que se usan constantemente en React.
+
+```js
+// return implícito al escribir una sola línea
+const getName = () => 'midudev'
+
+// ahorro de parentésis para función de un parámetro
+const duplicateNumber = num => num * 2
+
+// se usan mucho como callback en funciones de arrays
+const numbers = [2, 4, 6]
+const newNumbers = numbers.map(n => n / 2)
+console.log(newNumbers) // [1, 2, 3]
+```
+
+También tiene algunos cambios respecto al valor de `this` pero, aunque es aconsejable dominarlo, no es realmente necesario para poder seguir con garantías el libro.
+
+###### ¿Por qué es importante?
+
+Aunque hace unos años con React se trabajaba principalmente con clases, desde la irrupción de los hooks en la versión 16.8 ya no se usan mucho. Esto hace que se usen mucho más funciones.
+
+Las funciones flecha, además, puedes verlas fácilmente conviviendo dentro de tus componentes. Por ejemplo, a la hora de renderizar una lista de elementos ejecutarás el método `.map` del array y, como callback, seguramente usarás una función flecha anónima.
+
+##### Parámetros predeterminados (default values)
+
+En JavaScript puedes proporcionar valores por defecto a los parámetros de una función en caso que no se le pase ningún argumento.
+
+```js
+// al parámetro b le damos un valor por defecto de 1
+function multiply(a, b = 1) {
+  return a * b;
+}
+
+// si le pasamos un argumento con valor, se ignora el valor por defecto
+console.log(multiply(5, 2)) // 10
+
+// si no le pasamos un argumento, se usa el valor por defecto
+console.log(multiply(5)) // 5
+
+// las funciones flecha también pueden usarlos
+const sayHi = (msg = 'Hola React!') => console.log(msg)
+sayHi() // 'Hola React!'
+```
+
+###### ¿Por qué es importante?
+
+En React existen dos conceptos muy importantes: **componentes y hooks**. No vamos a entrar en detalle ahora en ellos pero lo importante es que ambos son construidos con funciones.
+
+Poder añadir valores por defecto a los parámetros de esas funciones en el caso que no venga ningún argumento **es clave** para poder controlar React con éxito.
+
+Los componentes, por ejemplo, pueden no recibir parámetros y, pese a ello, seguramente vas a querer que tengan algún comportamiento por defecto. Lo podrás conseguir de esta forma.
+
+##### Template Literals
+
+Los template literals o plantillas de cadenas llevan las cadenas de texto al siguiente nivel permitiendo expresiones incrustadas en ellas.
+
+```js
+const inicio = 'Hola'
+const final = 'React'
+
+// usando una concatenación normal sería
+const mensaje = inicio + " " + final
+
+// con los template literals podemos evaluar expresiones
+const mensaje = `${inicio} ${final}`
+```
+
+Como ves, para poder usar los template literals, necesitas usar el símbolo ```
+
+Además, también nos permiten utilizar cadenas de texto de más de una línea.
+
+###### ¿Por qué es importante?
+
+En React esto se puede utilizar para diferentes cosas. No sólo es normal crear cadenas de texto para mostrar en la interfaz... también puede ser útil para crear clases para tus elementos HTML de forma dinámica. Verás que los template literales están en todas partes.
+
+##### Propiedades abreviadas
+
+Desde *ECMAScript 2015* se puede iniciar un objeto utilizado nombre de propiedades abreviadas. Esto es que si quieres utilizar como valor una variable que tiene el mismo nombre que la key, entonces puedes indicar la inicialización una vez:
+
+```js
+const name = 'Miguel'
+const age = 36
+const book = 'React'
+
+// antes haríamos esto
+const persona = { name: name, age: age, book: book }
+
+// ahora podemos hacer esto, sin repetir
+const persona = { name, age, book }
+```
+
+###### ¿Por qué es importante?
+
+En React se trata muchas veces con objetos y siempre vamos a querer escribir el menor número de líneas posible para mantener nuestro código fácil de mantener y entender.
+
+##### La desestructuración
+
+La sintaxis de *desestructuración* es una expresión de JavaScript que permite extraer valores de Arrays o propiedades de objetos en distintas variables.
+
+```js
+// antes
+const array = [1, 2, 3]
+const primerNumero = array[0]
+const segundoNumero = array[1]
+
+// ahora
+const [primerNumero, segundoNumero] = array
+
+// antes con objetos
+const persona = { name: 'Miguel', age: 36, book: 'React' }
+const name = persona.name
+const age = persona.age
+
+// ahora con objetos
+const {age, name} = persona
+
+// también podemos añadir valores por defecto
+const {books = 2} = persona
+console.log(persona.books) // -> 2
+
+// también funciona en funciones
+const getName = ({name}) => `El nombre es ${name}`
+getName(persona)
+```
+
+###### ¿Por qué es importante?
+
+En React hay mucho código básico que da por sentado que conoces y dominas esta sintaxis. Piensa que los objetos y los arreglos son tipos de datos que son perfectos para guardar datos a representar en una interfaz. Así que poder tratarlos fácilmente te va a hacer la vida mucho más fácil.
+
+##### Métodos de Array
+
+Saber manipular arreglos en JavaScript es básico para considerar que se domina. Cada método realiza una operación en concreto y devuelve diferentes tipos de datos. Todos los métodos que veremos reciben un callback (función) que se ejecutará para cada uno de los elementos del array.
+
+Vamos a revisar algunos de los métodos más usados:
+
+```js
+// tenemos este array con diferentes elementos
+const networks = [
+  {
+    id: 'youtube',
+    url: 'https://midu.tube',
+    needsUpdate: true
+  },
+  {
+    id: 'twitter',
+    url: 'https://twitter.com/midudev',
+    needsUpdate: true
+  },
+  {
+    id: 'instagram',
+    url: 'https://instagram.com/midu.dev',
+    needsUpdate: false
+  }
+]
+
+// con .map podemos transformar cada elemento
+// y devolver un nuevo array
+networks.map(singleNetwork => singleNetwork.url)
+// Resultado:
+  [
+    'https://midu.tube',
+    'https://twitter.com/midudev',
+    'https://instagram.com/midu.dev'
+  ]
+
+// con .filter podemos filtrar elementos de un array que no
+// pasen una condición determinada por la función que se le pasa.
+// Devuelve un nuevo array.
+networks.filter(singleNetwork => singleNetwork.needsUpdate === true)
+// Resultado:
+[
+  { id: 'youtube', url: 'https://midu.tube', needsUpdate: true },
+  { id: 'twitter', url: 'https://twitter.com/midudev', needsUpdate: true }
+]
+
+// con .find podemos buscar un elemento de un array que
+// cumpla la condición definida en el callback
+networks.find(singleNetwork => singleNetwork.id === 'youtube')
+// Resultado:
+{ id: 'youtube', url: 'https://midu.tube', needsUpdate: true }
+
+// con .some podemos revisar si algún elemento del array cumple una condición
+networks.some(singleNetwork => singleNetwork.id === 'tiktok') // false
+networks.some(singleNetwork => singleNetwork.id === 'instagram') // true
+```
+
+###### ¿Por qué es importante?
+
+En React es muy normal almacenar los datos que tenemos que representar en la UI como array. Esto hace que muchas veces necesitemos tratarlos, filtrarlos o extraer información de ellos. Es primordial entender, conocer y dominar al menos estos métodos, ya que son los más usados.
+
+##### Sintaxis Spread
+
+La sintaxis de spread nos permite expandir un iterable o un objeto en otro lugar dónde se espere esa información. Para poder utilizarlo, necesitamos utilizar los tres puntos suspensivos `...` justo antes.
+
+```js
+const networks = ['Twitter', 'Twitch', 'Instagram']
+const newNetwork = 'Tik Tok'
+// creamos un nuevo array expandiendo el array networks y
+// colocando al final el elemento newNetwork
+// utilizando la sintaxis de spread
+const allNetworks = [...networks, newNetwork]
+console.log(allNetworks)
+// -> [ 'Twitter', 'Twitch', 'Instagram', 'Tik Tok' ]
+```
+
+Esto mismo lo podemos conseguir con un objeto, de forma que podemos expander todas sus propiedades en otro objeto de forma muy sencilla.
+
+```js
+const midu = { name: 'Miguel', twitter: '@midudev' }
+const miduWithNewInfo = {
+  ...midu,
+  youtube: 'https://youtube.com/midudev',
+  books: ['Aprende React']
+}
+console.log(miduWithNewInfo)
+// {
+//   name: 'Miguel',
+//   twitter: '@midudev',
+//   youtube: 'https://youtube.com/midudev',
+//   books: [ 'Aprende React' ]
+// }
+```
+
+Es importante notar que esto hace una copia, sí, pero superficial. Si tuviéramos objetos anidados dentro del objeto entonces deberíamos tener en cuenta que podríamos mutar la referencia. Veamos un ejemplo.
+
+```js
+const midu = {
+  name: 'Miguel',
+  twitter: '@midudev',
+  experience: {
+    years: 18,
+    focus: 'javascript'
+  }
+}
+
+const miduWithNewInfo = {
+  ...midu,
+  youtube: 'https://youtube.com/midudev',
+  books: ['Aprende React']
+}
+
+// cambiamos un par de propiedades de la "copia" del objeto
+miduWithNewInfo.name = 'Miguel Ángel'
+miduWithNewInfo.experience.years = 19
+
+// hacemos un console.log del objeto inicial
+console.log(midu)
+
+// en la consola veremos que el nombre no se ha modificado
+// en el objeto original pero los años de experiencia sí
+// ya que hemos mutado la referencia original
+// {
+//   name: 'Miguel',
+//   twitter: '@midudev',
+//   experience: { years: 19, focus: 'javascript' }
+// }
+```
+
+###### ¿Por qué es importante?
+
+En React es muy normal tener que añadir nuevos elementos a un array o crear nuevos objetos sin necesidad de mutarlos. El operador Rest nos puede ayudar a conseguir esto. Si no conoces bien el concepto de valor y referencia en JavaScript, sería conveniente que lo repases.
+
+##### Operador Rest
+
+La sintaxis `...` hace tiempo que funciona en JavaScript en los parámetros de una función. A esta técnica se le llamaba *parámetros rest* y nos permitía tener un número indefinido de argumentos en una función y poder acceder a ellos después como un array.
+
+```js
+function suma(...allArguments) {
+  return allArguments.reduce((previous, current) => {
+    return previous + current
+  })
+}
+```
+
+Ahora el operador rest también se puede utilizar para agrupar el resto de propiedades un objeto o iterable. Esto puede ser útil para extraer un elemento en concreto del objeto o el iterable y crear una copia superficial del resto en una nueva variable.
+
+```js
+const midu = {
+  name: 'Miguel',
+  twitter: '@midudev',
+  experience: {
+    years: 18,
+    focus: 'javascript'
+  }
+}
+
+const {name, ...restOfMidu} = midu
+
+console.log(restOfMidu)
+// -> {
+//   twitter: '@midudev',
+//   experience: {
+//     years: 18,
+//     focus: 'javascript'
+//   }
+// }
+```
+
+También podría funcionar con arrays:
+
+```js
+const [firstNumber, ...restOfNumbers] = [1, 2, 3]
+console.log(firstNumber) // -> 1
+console.log(restOfNumbers) // -> [2, 3]
+```
+
+###### ¿Por qué es importante?
+
+Es una forma interesante de *eliminar* (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
+
+##### Encadenamiento opcional (Optional Chaining)
+
+El operador de encadenamiento opcional `?.` te permite leer con seguridad el valor de una propiedad que está anidada dentro de diferentes niveles de un objeto.
+
+De esta forma, en lugar de revisar si las propiedades existen para poder acceder a ellas, lo que hacemos es usar el encadenamiento opcional.
+
+```js
+const author = {
+  name: 'Miguel',
+  libro: {
+    name: 'Aprendiendo React'
+  },
+  writeBook() {
+    return 'Writing!'
+  }
+};
+
+// sin optional chaining
+(author === null || author === undefined)
+    ? undefined
+    : (author.libro === null || author.libro === undefined)
+    ? undefined
+    : author.libro.name 
+
+// con optional chaining
+author?.libro?.name
+```
+
+##### ¿Por qué es importante?
+
+Un objeto es una estructura de datos que es perfecta a la hora de representar muchos elementos de la UI. ¿Tienes un artículo? Toda la información de un artículo seguramente la tendrás representada en un objeto.
+
+Conforme tu UI sea más grande y compleja, estos objetos tendrán más información y necesitarás dominar el encadenamiento opcional `?.` para poder acceder a su información con garantías.
 
 ---
 
