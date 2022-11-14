@@ -39,11 +39,11 @@ const addCodeHighlight = async (markdown) => {
     const block = `<pre><code class="language-${lang}">${code}</code></pre>`
     markdown = markdown.replace(match[0], block)
   }
-  return markdown;
+  return markdown
 }
 
 const readme = await fs.readFile('./README.md', 'utf-8')
-const start = readme.indexOf('###')
+const start = readme.indexOf('### ')
 
 const cleaned = (await addCodeHighlight(readme))
   .replaceAll('**[⬆ Volver a índice](#índice)**', '')
@@ -67,7 +67,7 @@ const counter = {
 const promises = tree.map((item, i) => {
   const { depth, type, text } = item
 
-  const isHeading = type === 'heading'
+  const isHeading = type === 'heading' && depth === 4
   const isLevel = depth === 3
   const isLast = i === tree.length - 1
 
