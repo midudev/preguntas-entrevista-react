@@ -32,6 +32,7 @@
     - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
     - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
     - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
+    - [¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?](#cómo-puedo-pasar-un-parámetro-a-una-función-que-maneja-un-evento-en-react)
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
     - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
@@ -81,9 +82,11 @@
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
     - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
     - [¿Qué son los Error Boundaries en React?](#qué-son-los-error-boundaries-en-react)
+  - [¿Qué son las Forward Refs?](#qué-son-las-forward-refs)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
+    - [¿Para qué sirve el método `cloneElement` de React?](#para-qué-sirve-el-método-cloneelement-de-react)
     - [¿Qué son los portales en React?](#qué-son-los-portales-en-react)
     - [¿Por qué `StrictMode` renderiza dos veces la aplicación?](#por-qué-strictmode-renderiza-dos-veces-la-aplicación)
     - [¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?](#qué-problemas-crees-que-pueden-aparecer-en-una-aplicación-al-querer-visualizar-listas-de-milesmillones-de-datos)
@@ -105,6 +108,7 @@
     - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
+    - [¿Qué diferencia existe entre Shadow DOM y Virtual DOM?](#qué-diferencia-existe-entre-shadow-dom-y-virtual-dom)
 
 ---
 
@@ -483,6 +487,42 @@ function Button({ text, onClick }) {
 ```
 
 En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?
+
+Para pasar un parámetro a una función que maneja un evento en React podemos usar una función anónima:
+
+```jsx
+function Button({ id, text, onClick }) {
+  return (
+    <button onClick={() => onClick(id)}>
+      {text}
+    </button>
+  )
+}
+```
+
+Cuando el usuario hace clic en el botón, se ejecuta la función `onClick` pasándole como parámetro el valor de la prop `id`.
+
+También puedes crear una función que ejecuta la función `onClick` pasándole el valor de la prop `id`:
+
+```jsx
+function Button({ id, text, onClick }) {
+  const handleClick = (event) => { // handleClick recibe el evento original
+    onClick(id)
+  }
+
+  return (
+    <button onClick={handleClick}>
+      {text}
+    </button>
+  )
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1833,6 +1873,47 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 ---
 
+### ¿Qué son las Forward Refs?
+
+El reenvío de referencia o *Forward Refs* es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
+
+```jsx
+// Button.jsx
+import { forwardRef } from 'react'
+
+export const Button = forwardRef((props, ref) => (
+  <button ref={ref} className="rounded border border-sky-500 bg-white">
+    {props.children}
+  </button>
+));
+
+// Parent.jsx
+import { Button } from './Button'
+import { useRef } from 'react'
+
+const Parent = () => {
+  const ref = useRef()
+
+  useEffect(() => {
+    // Desde el padre podemos hacer focus
+    // al botón que tenemos en el hijo
+    ref.current?.focus?.()
+  }, [ref.current])
+
+  return (
+    <Button ref={ref}>My button</Button>
+  )
+}
+```
+
+En este ejemplo, recuperamos la referencia del botón (elemento HTML `<button>`) y la recupera el componente padre (`Parent`), para poder hacer focus en él gracias al uso de `forwardRef` en el componente hijo (`Button`).
+
+Para la gran mayoría de componentes esto no es necesario pero puede ser útil para sistemas de diseño o componentes de terceros reutilizables.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -1882,6 +1963,38 @@ Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>`
 Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
 
 Para que el componente padre pueda acceder al método `focus`, usamos el hook `useImperativeHandle`. Este hook recibe dos parámetros: una referencia y una función que devuelve un objeto con las propiedades y métodos que queremos que sean accesibles desde el componente padre.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Para qué sirve el método `cloneElement` de React?
+
+Te permite clonar un elemento React y añadirle o modificar las props que recibe.
+
+```jsx
+import { cloneElement } from 'react'
+
+const Hello = ({ name }) => <h1>Hello {name}</h1>
+
+const App = () => {
+  const element = <Hello name="midudev" />
+
+  return (
+    <div>
+      {cloneElement(element, { name: 'TMChein' })}
+      {cloneElement(element, { name: 'Madeval' })}
+      {cloneElement(element, { name: 'Gorusuke' })}
+    </div>
+  )
+}
+```
+
+En este ejemplo, clonamos `element` que tenía la prop `midudev` y le pasamos una prop `name` diferente cada vez. Esto renderizará tres veces el componente `Hello` con los nombres `TMChein`, `Madeval` y `Gorusuke`. Sin rastro de la prop original.
+
+Puede ser útil para modificar un elemento que ya nos viene de un componente padre y del que no tenemos posibilidad de re-crear con el componente.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-tc39vr?file=App.tsx)
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2509,6 +2622,16 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 - [¿Qué hace el hook useState?](#qué-hace-el-hook-usestate)
 - [¿Qué hace el hook useEffect?](#qué-hace-el-hook-useeffect)
 - [¿Cuáles son las reglas de los hooks en React?](#cuáles-son-las-reglas-de-los-hooks-en-react)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué diferencia existe entre Shadow DOM y Virtual DOM?
+
+El **Shadow DOM** es una API del navegador que nos permite crear un árbol de nodos DOM independiente dentro de un elemento del DOM. Esto nos permite crear componentes que no interfieran con el resto de la aplicación. Se usa especialmente con Web Components.
+
+El **Virtual DOM** es una representación del DOM en memoria. Esta representación se crea cada vez que se produce un cambio en el DOM. Esto nos permite comparar el DOM actual con el DOM anterior y así determinar qué cambios se deben realizar en el DOM real. Lo usa React y otras bibliotecas para hacer el mínimo número de cambios en el DOM real.
 
 **[⬆ Volver a índice](#índice)**
 
