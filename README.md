@@ -28,7 +28,7 @@
     - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
     - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
-    - [¿Cómo puedes aplicar clases CSS a un componente en React?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react)
+    - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
     - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
     - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
     - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
@@ -45,6 +45,7 @@
     - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
+    - [¿Por qué es recomendable usar Fragment en vez de un div?](#por-qué-es-recomendable-usar-fragment-en-vez-de-un-div)
     - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
@@ -88,7 +89,10 @@
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
     - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
     - [¿Qué son los Error Boundaries en React?](#qué-son-los-error-boundaries-en-react)
-  - [¿Qué son las Forward Refs?](#qué-son-las-forward-refs)
+    - [¿Qué son las Forward Refs?](#qué-son-las-forward-refs)
+    - [¿Cómo puedo validar el tipo de mis props?](#cómo-puedo-validar-el-tipo-de-mis-props)
+    - [¿Cómo puedo validar las propiedades de un objeto con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-objeto-con-proptypes)
+    - [¿Cómo puedo validar las propiedades de un array con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-array-con-proptypes)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
@@ -397,7 +401,7 @@ Es preferible utilizar el operador ternario. *Kent C. Dodds* tiene un artículo 
 
 ---
 
-#### ¿Cómo puedes aplicar clases CSS a un componente en React?
+#### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
 
 Para aplicar clases CSS a un componente en React usamos la prop `className`:
 
@@ -991,7 +995,7 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
+Los *Fragments* son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -1020,6 +1024,19 @@ function App() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Por qué es recomendable usar Fragment en vez de un div?
+
+Las razones por las que es recomendable usar Fragment en vez de un `div` a la hora de envolver varios elementos son:
+
+- Los `div` añaden un elemento extra al DOM, mientras que los Fragments no. Esto hace que el número de elementos HTML y la profundidad del DOM sea menor.
+- Los elementos envueltos con Fragment son afectados directamente por las propiedades *flex* o *grid* de CSS de su elemento padre. Si usas un `div` es posible que tengas problemas con el alineamiento de los elementos.
+- Los Fragments son más rápidos que los `div` ya que no tienen que ser renderizados.
+- Los `div` aplican CSS por defecto (hace que lo que envuelve el `div` se comporte como un bloque al aplicar un `display: block`) mientras que los Fragment no aplican ningún estilo por defecto.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2217,7 +2234,7 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 ---
 
-### ¿Qué son las Forward Refs?
+#### ¿Qué son las Forward Refs?
 
 El reenvío de referencia o *Forward Refs* es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
 
@@ -2253,6 +2270,105 @@ const Parent = () => {
 En este ejemplo, recuperamos la referencia del botón (elemento HTML `<button>`) y la recupera el componente padre (`Parent`), para poder hacer focus en él gracias al uso de `forwardRef` en el componente hijo (`Button`).
 
 Para la gran mayoría de componentes esto no es necesario pero puede ser útil para sistemas de diseño o componentes de terceros reutilizables.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo validar el tipo de mis props?
+
+React proporciona una forma de validar el tipo de las props de un componente en tiempo de ejecución y en modo desarrollo. Esto es útil para asegurarnos de que los componentes se están utilizando correctamente.
+
+El paquete se llama `prop-types` y se puede instalar con `npm install prop-types`.
+
+```jsx
+import PropTypes from "prop-types"
+
+function App(props) {
+  return <h1>{props.title}</h1>
+}
+
+App.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+```
+
+En este ejemplo, estamos validando que la prop `title` sea de tipo `string` y que sea obligatoria.
+
+Existen una colección de *PropTypes* ya definidas para ayudarte a comprobar los tipos de las props más comunes:
+
+```js
+PropTypes.number // número
+PropTypes.string // string
+PropTypes.array // array
+PropTypes.object // objeto
+PropTypes.bool // un booleano
+PropTypes.func // función
+PropTypes.node // cualquier cosa renderizable en React, como un número, string, elemento, array, etc.
+PropTypes.element // un elemento React
+PropTypes.symbol // un Symbol de JavaScript
+PropTypes.any // cualquier tipo de dato
+```
+
+A todas estas se le puede añadir la propiedad `isRequired` para indicar que es obligatoria.
+
+> Otra opción es usar TypeScript, un lenguaje de programación que compila a JavaScript y que ofrece validación de tipos de forma estática. Ten en cuenta que mientras que TypeScript comprueba los tipos en tiempo de compilación, las PropTypes lo hacen en tiempo de ejecución.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo validar las propiedades de un objeto con PropTypes?
+
+Para validar las propiedades de un objeto que se pasa como prop, podemos usar la propiedad `shape` de `PropTypes`:
+
+```jsx
+import PropTypes from "prop-types"
+
+function App({ title }) {
+  const { text, color } = title
+  return <h1 style={{ color }}>{text}</h1>
+}
+
+App.propTypes = {
+  title: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }),
+}
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo validar las propiedades de un array con PropTypes?
+
+Para validar las propiedades de un array que se pasa como prop, podemos usar la propiedad `arrayOf` de `PropTypes`:
+
+```jsx
+import PropTypes from "prop-types"
+
+function App({ items }) {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.text}>{item.text}</li>
+      ))}
+    </ul>
+  )
+}
+
+App.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+}
+```
+
+En este caso estamos validando que `items` sea un array y que cada uno de sus elementos sea un objeto con la propiedad `text` de tipo `string`. Además, la prop es obligatoria.
 
 **[⬆ Volver a índice](#índice)**
 
