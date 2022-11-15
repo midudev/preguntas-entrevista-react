@@ -24,7 +24,6 @@ export function Header ({ stars }) {
 
   const debouncedHandleChange = useCallback(
     debounce((event) => {
-      event.preventDefault()
       fetch(`/api/search?q=${event.target.value}`)
         .then(res => res.json())
         .then(resultsFromApi => {
@@ -44,7 +43,7 @@ export function Header ({ stars }) {
     setRead(readStorage.length)
   }, [])
 
-  const handleSelect = (result,) => {
+  const handleSelect = (result) => {
     if (result) router.push(`/${result.id}/#content`)
   }
 
