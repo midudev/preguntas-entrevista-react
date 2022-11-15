@@ -44,7 +44,7 @@ export function Header ({ stars }) {
   }, [])
 
   const handleSelect = (result) => {
-    if (result) router.push(`/${result}/#content`)
+    if (result) router.push(`/${result.id}/#content`)
   }
 
   return (
@@ -98,6 +98,7 @@ export function Header ({ stars }) {
             onChange={debouncedHandleChange}
             placeholder='Introduce aquí tu pregunta sobre React'
             type='search'
+            displayValue={(element) => element?.text}
           />
         </label>
 
@@ -113,7 +114,7 @@ export function Header ({ stars }) {
                 const html = text.slice(0, bestMatch[0]) + '<span class="bg-yellow-200">' + text.slice(bestMatch[0], bestMatch[1] + 1) + '</span>' + text.slice(bestMatch[1] + 1)
 
                 return (
-                  <Combobox.Option key={id} value={id}>
+                  <Combobox.Option key={id} value={{ id, text }}>
                     {({ active, selected }) => (
                       <Link className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100' : 'bg-white'}`} href={`/${id}/#content`}>
                         {selected && <span className='sr-only'>Seleccionado</span>}
