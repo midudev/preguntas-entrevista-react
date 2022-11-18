@@ -118,10 +118,10 @@ export function Header ({ stars }) {
                 return (
                   <Combobox.Option key={id} value={{ id, text }}>
                     {({ active, selected }) => (
-                      <Link className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100' : 'bg-white'}`} href={`/${id}/#content`}>
+                      <span className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100' : 'bg-white'}`} href={`/${id}/#content`}>
                         {selected && <span className='sr-only'>Seleccionado</span>}
                         <strong dangerouslySetInnerHTML={{ __html: html }} />
-                      </Link>
+                      </span>
                     )}
 
                   </Combobox.Option>
