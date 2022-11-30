@@ -1,6 +1,8 @@
-### Principiante
+# Preguntas típicas de React
 
-#### ¿Qué es React?
+## Principiante
+
+### ¿Qué es React?
 
 **React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario.** Está basada en la componetización de la UI: la interfaz se divide en componentes independientes, que contienen su propio estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
 
@@ -20,7 +22,7 @@ Enlaces de interés:
 
 ---
 
-#### ¿Cuáles son las características principales de React?
+### ¿Cuáles son las características principales de React?
 
 Las características principales de React son:
 
@@ -38,7 +40,7 @@ Las características principales de React son:
 
 ---
 
-#### ¿Qué significa exactamente que sea declarativo?
+### ¿Qué significa exactamente que sea declarativo?
 
 No le decimos cómo debe renderizar la interfaz a base de instrucciones. Le decimos qué debe renderizar y React se encarga de renderizarlo.
 
@@ -57,7 +59,7 @@ element.innerHTML = 'Hello, world'
 
 ---
 
-#### ¿Qué es un componente?
+### ¿Qué es un componente?
 
 Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.
 
@@ -67,7 +69,7 @@ En React los componentes se crean usando funciones o clases.
 
 ---
 
-#### ¿Qué es JSX?
+### ¿Qué es JSX?
 
 React usa JSX para declarar qué debe renderizar. JSX es una extensión de JavaScript que permite escribir un código más cercano visualmente a HTML, que mejora la legibilidad del código y hace que sea más fácil de entender.
 
@@ -99,7 +101,7 @@ Ambos códigos son equivalentes.
 
 ---
 
-#### ¿Cómo se transforma el JSX?
+### ¿Cómo se transforma el JSX?
 
 **El JSX se transforma en código JavaScript compatible en el navegador usando un *transpilador* o *compilador***. El más famoso es a día de hoy Babel, que utiliza una serie de plugins para ser compatible con la transformación, pero existen otros como SWC.
 
@@ -111,7 +113,7 @@ Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **
 
 ---
 
-#### ¿Cuál es la diferencia entre componente y elemento en React?
+### ¿Cuál es la diferencia entre componente y elemento en React?
 
 Un componente es una función o clase que recibe props y devuelve un elemento.
 Un elemento es un objeto que representa un nodo del DOM o una instancia de un componente de React.
@@ -145,7 +147,7 @@ Un elemento es un objeto que representa un nodo del DOM o una instancia de un co
 
 ---
 
-#### ¿Cómo crear un componente en React?
+### ¿Cómo crear un componente en React?
 
 Los componentes en React son funciones o clases que devuelven un elemento de React. Hoy en día lo más recomendado es usar funciones:
 
@@ -173,7 +175,7 @@ Lo importante es que el nombre de la función o clase empiece con una letra may�
 
 ---
 
-#### ¿Qué son las props en React?
+### ¿Qué son las props en React?
 
 Las props son las propiedades de un componente. Son datos que se pasan de un componente a otro. Por ejemplo, si tienes un componente `Button` que muestra un botón, puedes pasarle una prop `text` para que el botón muestre ese texto:
 
@@ -200,7 +202,7 @@ Las props son una forma de parametrizar nuestros componentes igual que hacemos c
 
 ---
 
-#### ¿Qué es y para qué sirve la prop `children` en React?
+### ¿Qué es y para qué sirve la prop `children` en React?
 
 La prop `children` es una prop especial que se pasa a los componentes. Es un objeto que contiene los elementos que envuelve un componente.
 
@@ -233,7 +235,7 @@ Conocer y saber usar la prop `children` es muy importante para crear componentes
 
 ---
 
-####  ¿Qué diferencia hay entre props y state?
+###  ¿Qué diferencia hay entre props y state?
 
 Las *props* son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
 
@@ -245,7 +247,7 @@ Así que mientras que tanto *props* como *state* afectan al renderizado del comp
 
 ---
 
-#### ¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?
+### ¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?
 
 Sí, se puede inicializar el estado con el valor de una prop. Pero hay que tener en cuenta que, si la prop cambia, el estado no se actualizará automáticamente. Esto es porque el estado se inicializa una vez, cuando el componente se monta por primera vez.
 
@@ -299,7 +301,7 @@ Es un error muy común pensar que la prop actualizará el estado, así que tenlo
 
 ---
 
-#### ¿Qué es el renderizado condicional en React?
+### ¿Qué es el renderizado condicional en React?
 
 El renderizado condicional es la forma de mostrar un componente u otro dependiendo de una condición.
 
@@ -331,7 +333,7 @@ Es preferible utilizar el operador ternario. *Kent C. Dodds* tiene un artículo 
 
 ---
 
-#### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
+### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
 
 Para aplicar clases CSS a un componente en React usamos la prop `className`:
 
@@ -351,7 +353,7 @@ La razón por la que se llama `className` es porque `class` es una palabra reser
 
 ---
 
-#### ¿Cómo puedes aplicar estilos en línea a un componente en React?
+### ¿Cómo puedes aplicar estilos en línea a un componente en React?
 
 Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
 
@@ -371,7 +373,7 @@ Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
 
 ---
 
-#### ¿Cómo puedo aplicar estilos de forma condicional a un componente en React?
+### ¿Cómo puedo aplicar estilos de forma condicional a un componente en React?
 
 Puedes aplicar estilos de forma condicional a un componente en React usando la prop `style` y un operador ternario:
 
@@ -419,7 +421,7 @@ En este caso, si la prop `primary` es `true`, se añadirá la clase `primary` al
 
 ---
 
-#### ¿Qué es el renderizado de listas en React?
+### ¿Qué es el renderizado de listas en React?
 
 El renderizado de listas es la forma de iterar un array de elementos y renderizar elementos de React para cada uno de ellos.
 
@@ -445,7 +447,7 @@ El elemento `li` tiene una prop `key` que es un identificador único para cada e
 
 ---
 
-#### ¿Cómo puedes escribir comentarios en React?
+### ¿Cómo puedes escribir comentarios en React?
 
 Si vas a escribir un comentario fuera del renderizado de un componente, puedes usar la sintaxis de comentarios de JavaScript sin problemas:
 
@@ -480,7 +482,7 @@ function Button({ text }) {
 
 ---
 
-#### ¿Cómo añadir un evento a un componente en React?
+### ¿Cómo añadir un evento a un componente en React?
 
 Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en *camelCase*:
 
@@ -500,7 +502,7 @@ En este caso, el componente `Button` recibe una prop `onClick` que es una funci�
 
 ---
 
-#### ¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?
+### ¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?
 
 Para pasar un parámetro a una función que maneja un evento en React podemos usar una función anónima:
 
@@ -536,7 +538,7 @@ function Button({ id, text, onClick }) {
 
 ---
 
-#### ¿Qué es el estado en React?
+### ¿Qué es el estado en React?
 
 El estado es un objeto que contiene datos que pueden cambiar en el tiempo. En React, el estado se usa para controlar los cambios en la interfaz.
 
@@ -600,7 +602,7 @@ class Counter extends Component {
 
 ---
 
-#### ¿Qué son los hooks?
+### ¿Qué son los hooks?
 
 Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
 
@@ -612,7 +614,7 @@ Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus 
 
 ---
 
-#### ¿Qué hace el hook `useState`?
+### ¿Qué hace el hook `useState`?
 
 El hook `useState` es utilizado para crear variables de estado, quiere decir que su valor es dinámico, que este puede cambiar en el tiempo y eso requiere una re-renderización del componente donde se utiliza
 
@@ -647,7 +649,7 @@ function Counter() {
 
 ---
 
-#### ¿Qué significa la expresión "subir el estado"?
+### ¿Qué significa la expresión "subir el estado"?
 
 Cuando varios componentes necesitan compartir los mismos datos de un estado, entonces se recomienda elevar ese estado compartido hasta su ancestro común más cercano.
 
@@ -757,7 +759,7 @@ Con esto, lo que hemos hecho es *elevar el estado*. Lo hemos movido desde el com
 
 ---
 
-#### ¿Qué hace el hook `useEffect`?
+### ¿Qué hace el hook `useEffect`?
 
 El hook `useEffect` se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.
 
@@ -791,7 +793,7 @@ function Counter() {
 
 ---
 
-#### Explica casos de uso del hook `useEffect`
+### Explica casos de uso del hook `useEffect`
 
 Podemos usar el hook `useEffect` de diferentes formas, tales como:
 
@@ -805,7 +807,7 @@ Podemos usar el hook `useEffect` de diferentes formas, tales como:
 
 ---
 
-#### Cómo suscribirse a un evento en `useEffect`
+### Cómo suscribirse a un evento en `useEffect`
 
 Dentro de `useEffect` nos podemos suscribir a eventos del navegador, como el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana. Es importante que nos desuscribamos cuando el componente se desmonte para evitar fugas de memoria. Para ello, tenemos que devolver una función dentro del `useEffect` que se ejecutará cuando el componente se desmonte.
 
@@ -835,7 +837,7 @@ function Window() {
 
 ---
 
-#### ¿Qué hace el hook `useId`?
+### ¿Qué hace el hook `useId`?
 
 `useId` es un hook para generar identificadores únicos que se pueden pasar a los atributos de las etiquetas HTML y es especialmente útil para accesibilidad.
 
@@ -901,7 +903,7 @@ Como ves en `App` estamos usando el componente dos veces. Si pusieramos una id a
 
 ---
 
-#### ¿Cómo podemos ejecutar código cuando el componente se monta?
+### ¿Cómo podemos ejecutar código cuando el componente se monta?
 
 Podemos ejecutar código cuando el componente se monta usando el hook `useEffect` sin pasarle ninguna dependencia. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se monte.
 
@@ -923,7 +925,7 @@ function Component() {
 
 ---
 
-#### ¿Qué son los Fragments en React?
+### ¿Qué son los Fragments en React?
 
 Los *Fragments* son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
@@ -959,7 +961,7 @@ function App() {
 
 ---
 
-#### ¿Por qué es recomendable usar Fragment en vez de un div?
+### ¿Por qué es recomendable usar Fragment en vez de un div?
 
 Las razones por las que es recomendable usar Fragment en vez de un `div` a la hora de envolver varios elementos son:
 
@@ -972,7 +974,7 @@ Las razones por las que es recomendable usar Fragment en vez de un `div` a la ho
 
 ---
 
-#### ¿Qué es el Compound Components Pattern?  
+### ¿Qué es el Compound Components Pattern?  
 
 Es un patrón de diseño de componentes que se basa en crear un componente padre con un solo objetivo, proporcionarle a sus hijos las propiedades necesarias para que se rendericen sin problemas.
 
@@ -1019,7 +1021,7 @@ Enlaces de interés:
 
 ---
 
-#### ¿Cómo puedes inicializar un proyecto de React desde cero?
+### ¿Cómo puedes inicializar un proyecto de React desde cero?
 
 Existen diversas formas de inicializar un proyecto de React desde cero. Entre las más populares están:
 
@@ -1059,7 +1061,7 @@ Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolve
 
 ---
 
-#### ¿Qué es React DOM?
+### ¿Qué es React DOM?
 
 React DOM es la librería que se encarga de renderizar los componentes de React para el navegador. Hay que tener en cuenta que React es una biblioteca que se puede usar en diferentes entornos (dispositivos móviles, apps de escritorio, terminal...).
 
@@ -1069,9 +1071,9 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 
 
-#### ¿Qué JavaScript necesito para aprender React?
+### ¿Qué JavaScript necesito para aprender React?
 
-##### JavaScript que necesitas para aprender React
+### JavaScript que necesitas para aprender React
 
 **Para aprender y dominar React necesitas saber JavaScript.** A diferencia de otros frameworks y bibliotecas, como *Angular* y *Vue*, que se basan en su propio *DSL* (Domain-Specific Language), React usa una extensión de la sintaxis de JavaScript llamada *JSX*. Más adelante lo veremos en detalle pero, al final, no deja de ser azúcar sintáctico para escribir menos JavaScript.
 
@@ -1079,7 +1081,7 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 **Si ya dominas JavaScript puedes saltarte este capítulo** y continuar con el libro, pero recuerda que siempre podrás revisar este capítulo como referencia.
 
-##### EcmaScript Modules o ESModules
+### EcmaScript Modules o ESModules
 
 Los **EcmaScript Modules** es la forma nativa que tiene JavaScript para importar y exportar variables, funciones y clases entre diferentes ficheros. Hoy en día, especialmente si trabajamos con un empaquetador de aplicaciones como Webpack, vamos a estar trabajando constantemente con esta sintaxis.
 
@@ -1139,7 +1141,7 @@ Para empezar React te ofrece diferentes partes de su biblioteca a través de mó
 
 Además, por temas de optimización de rendimiento, podremos importar de forma dinámica componentes y así mejorar la experiencia de nuestros usuarios al necesitar cargar menos información para poder utilizar la página.
 
-##### Operador condicional (ternario)
+### Operador condicional (ternario)
 
 Las ternarias son una forma de realizar condiciones sin la necesidad de usar la sintaxis con `if`. Se podría decir que es una forma de atajo para evitar escribir tanto código.
 
@@ -1158,7 +1160,7 @@ number % 2 === 0 ? console.log('Es par') : console.log('Es impar')
 
 En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del *JSX*.
 
-##### Funciones flecha o Arrow Functions
+### Funciones flecha o Arrow Functions
 
 Las *funciones flecha* o *arrow function* fueron añadidas a JavaScript en el estándar ECMAScript 6 (o ES2015). En principio parece que simplemente se trata de una sintaxis alternativa más simple a la hora de crear expresiones de funciones:
 
@@ -1195,7 +1197,7 @@ Aunque hace unos años con React se trabajaba principalmente con clases, desde l
 
 Las funciones flecha, además, puedes verlas fácilmente conviviendo dentro de tus componentes. Por ejemplo, a la hora de renderizar una lista de elementos ejecutarás el método `.map` del array y, como callback, seguramente usarás una función flecha anónima.
 
-##### Parámetros predeterminados (default values)
+### Parámetros predeterminados (default values)
 
 En JavaScript puedes proporcionar valores por defecto a los parámetros de una función en caso que no se le pase ningún argumento.
 
@@ -1224,7 +1226,7 @@ Poder añadir valores por defecto a los parámetros de esas funciones en el caso
 
 Los componentes, por ejemplo, pueden no recibir parámetros y, pese a ello, seguramente vas a querer que tengan algún comportamiento por defecto. Lo podrás conseguir de esta forma.
 
-##### Template Literals
+### Template Literals
 
 Los template literals o plantillas de cadenas llevan las cadenas de texto al siguiente nivel permitiendo expresiones incrustadas en ellas.
 
@@ -1247,7 +1249,7 @@ Además, también nos permiten utilizar cadenas de texto de más de una línea.
 
 En React esto se puede utilizar para diferentes cosas. No sólo es normal crear cadenas de texto para mostrar en la interfaz... también puede ser útil para crear clases para tus elementos HTML de forma dinámica. Verás que los template literales están en todas partes.
 
-##### Propiedades abreviadas
+### Propiedades abreviadas
 
 Desde *ECMAScript 2015* se puede iniciar un objeto utilizado nombre de propiedades abreviadas. Esto es que si quieres utilizar como valor una variable que tiene el mismo nombre que la key, entonces puedes indicar la inicialización una vez:
 
@@ -1267,7 +1269,7 @@ const persona = { name, age, book }
 
 En React se trata muchas veces con objetos y siempre vamos a querer escribir el menor número de líneas posible para mantener nuestro código fácil de mantener y entender.
 
-##### La desestructuración
+### La desestructuración
 
 La sintaxis de *desestructuración* es una expresión de JavaScript que permite extraer valores de Arrays o propiedades de objetos en distintas variables.
 
@@ -1301,7 +1303,7 @@ getName(persona)
 
 En React hay mucho código básico que da por sentado que conoces y dominas esta sintaxis. Piensa que los objetos y los arreglos son tipos de datos que son perfectos para guardar datos a representar en una interfaz. Así que poder tratarlos fácilmente te va a hacer la vida mucho más fácil.
 
-##### Métodos de Array
+### Métodos de Array
 
 Saber manipular arreglos en JavaScript es básico para considerar que se domina. Cada método realiza una operación en concreto y devuelve diferentes tipos de datos. Todos los métodos que veremos reciben un callback (función) que se ejecutará para cada uno de los elementos del array.
 
@@ -1362,7 +1364,7 @@ networks.some(singleNetwork => singleNetwork.id === 'instagram') // true
 
 En React es muy normal almacenar los datos que tenemos que representar en la UI como array. Esto hace que muchas veces necesitemos tratarlos, filtrarlos o extraer información de ellos. Es primordial entender, conocer y dominar al menos estos métodos, ya que son los más usados.
 
-##### Sintaxis Spread
+### Sintaxis Spread
 
 La sintaxis de spread nos permite expandir un iterable o un objeto en otro lugar dónde se espere esa información. Para poder utilizarlo, necesitamos utilizar los tres puntos suspensivos `...` justo antes.
 
@@ -1434,7 +1436,7 @@ console.log(midu)
 
 En React es muy normal tener que añadir nuevos elementos a un array o crear nuevos objetos sin necesidad de mutarlos. El operador Rest nos puede ayudar a conseguir esto. Si no conoces bien el concepto de valor y referencia en JavaScript, sería conveniente que lo repases.
 
-##### Operador Rest
+### Operador Rest
 
 La sintaxis `...` hace tiempo que funciona en JavaScript en los parámetros de una función. A esta técnica se le llamaba *parámetros rest* y nos permitía tener un número indefinido de argumentos en una función y poder acceder a ellos después como un array.
 
@@ -1482,7 +1484,7 @@ console.log(restOfNumbers) // -> [2, 3]
 
 Es una forma interesante de *eliminar* (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
 
-##### Encadenamiento opcional (Optional Chaining)
+### Encadenamiento opcional (Optional Chaining)
 
 El operador de encadenamiento opcional `?.` te permite leer con seguridad el valor de una propiedad que está anidada dentro de diferentes niveles de un objeto.
 
@@ -1518,9 +1520,9 @@ Conforme tu UI sea más grande y compleja, estos objetos tendrán más informaci
 
 ---
 
-### Intermedio
+## Intermedio
 
-#### ¿Cuántos `useEffect` puede tener un componente?
+### ¿Cuántos `useEffect` puede tener un componente?
 
 Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
 
@@ -1528,7 +1530,7 @@ Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo c
 
 ---
 
-#### ¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?
+### ¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?
 
 Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro del `useEffect` se ejecutará cuando el componente se monte, y la función que es retornada se ejecutará cuando se desmonte.
 
@@ -1554,7 +1556,7 @@ Esto es muy útil para limpiar recursos que se hayan creado en el componente, co
 
 ---
 
-#### Cómo puedes cancelar una petición a una API en `useEffect` correctamente
+### Cómo puedes cancelar una petición a una API en `useEffect` correctamente
 
 Cuando hacemos una petición a una API, podemos cancelarla para evitar que se ejecute cuando el componente se desmonte usando `AbortController` como hacemos en este ejemplo:
 
@@ -1610,7 +1612,7 @@ useEffect(() => {
 
 ---
 
-#### ¿Cuáles son las reglas de los hooks en React?
+### ¿Cuáles son las reglas de los hooks en React?
 
 Los hooks en React tienen dos reglas fundamentales:
 
@@ -1621,7 +1623,7 @@ Los hooks en React tienen dos reglas fundamentales:
 
 ---
 
-#### ¿Qué diferencia hay entre `useEffect` y `useLayoutEffect`?
+### ¿Qué diferencia hay entre `useEffect` y `useLayoutEffect`?
 
 Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en el que se ejecutan.
 
@@ -1635,7 +1637,7 @@ Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, 
 
 ---
 
-#### ¿Qué son mejores los componentes de clase o los componentes funcionales?
+### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
 Desde que en *React 16.8.0* se incluyeron los hooks, los componentes de funciones pueden hacer casi todo lo que los componentes de clase.
 
@@ -1653,7 +1655,7 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 
 ---
 
-#### ¿Cómo mantener los componentes puros y qué ventajas tiene?
+### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
 Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
 
@@ -1677,7 +1679,7 @@ En este caso, el componente `Button` recibe una prop `text` que es un string. El
 
 ---
 
-#### ¿Qué es la hidratación (hydration) en React?
+### ¿Qué es la hidratación (hydration) en React?
 
 Cuando renderizamos nuestra aplicación en el servidor, React genera un HTML estático. Este HTML estático es simplemente un string que contiene el HTML que se va a mostrar en la página.
 
@@ -1691,7 +1693,7 @@ De esta forma, en el cliente, React reutiliza este HTML estático y se dedica a 
 
 ---
 
-#### ¿Qué es el Server Side Rendering y qué ventajas tiene?
+### ¿Qué es el Server Side Rendering y qué ventajas tiene?
 
 El *Server Side Rendering* es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
 
@@ -1701,7 +1703,7 @@ Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de 
 
 ---
 
-#### ¿Cómo puedes crear un Server Side Rendering con React desde cero?
+### ¿Cómo puedes crear un Server Side Rendering con React desde cero?
 
 Para crear un Server Side Rendering con React desde cero podemos usar el paquete `react-dom/server` que nos permite renderizar componentes de React en el servidor.
 
@@ -1730,7 +1732,7 @@ Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
 
 ---
 
-#### ¿Puedes poner un ejemplo de efectos colaterales en React?
+### ¿Puedes poner un ejemplo de efectos colaterales en React?
 
 Igual que las funciones en JavaScript, los componentes de React también pueden tener *side effects* (efectos colaterales). Un efecto colateral significa que el componente manipula o lee información que no está dentro de su ámbito.
 
@@ -1761,7 +1763,7 @@ export default function Counters() {
 
 ---
 
-#### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
+### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
 
 A la hora de trabajar con formularios en React, tenemos dos tipos de componentes: los componentes controlados y los componentes no controlados.
 
@@ -1790,7 +1792,7 @@ const handleChange = () => setValue(event.target.value)
 
 ---
 
-#### ¿Qué son los High Order Components (HOC)?
+### ¿Qué son los High Order Components (HOC)?
 
 Los High Order Components son funciones que reciben un componente como parámetro y devuelven un componente.
 
@@ -1816,7 +1818,7 @@ Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todav�
 
 ---
 
-#### ¿Qué son las render props?
+### ¿Qué son las render props?
 
 Son un patrón de diseño de React que nos permite reutilizar código entre componentes e inyectar información en el renderizado de los componentes.
 
@@ -1862,7 +1864,7 @@ Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `r
 
 ---
 
-#### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
+### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
 
 En React, no podemos usar un `if` en el renderizado de un componente porque no es una expresión válida de JavaScript, es una declaración. Las expresiones son aquellas que devuelven un valor y las declaraciones no devuelven ningún valor.
 
@@ -1893,7 +1895,7 @@ De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del ren
 
 ---
 
-#### ¿Por qué debemos utilizar una función para actualizar el estado de React?
+### ¿Por qué debemos utilizar una función para actualizar el estado de React?
 
 A la hora de actualizar el estado de React, debemos utilizar la función que nos facilita el hook `useState` para actualizar el estado.
 
@@ -1913,7 +1915,7 @@ Por otro lado, llamar a una función le permite a React saber que el estado ha c
 
 ---
 
-#### ¿Qué es el ciclo de vida de un componente en React?
+### ¿Qué es el ciclo de vida de un componente en React?
 
 En los componentes de clase, el ciclo de vida de un componente se divide en tres fases:
 
@@ -1937,7 +1939,7 @@ En cada uno de estos métodos podemos ejecutar código que nos permita controlar
 
 ---
 
-#### ¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?
+### ¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?
 
 Cuando renderizamos una lista de elementos, React necesita saber qué elementos han cambiado, han sido añadidos o eliminados.
 
@@ -1990,7 +1992,7 @@ const List = () => {
 
 ---
 
-#### ¿Para qué sirve el hook `useMemo`?
+### ¿Para qué sirve el hook `useMemo`?
 
 El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.
 
@@ -2019,7 +2021,7 @@ La ventaja es que si la prop `count` no cambia, se evita el cálculo del doble y
 
 ---
 
-#### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
+### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
 
 No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces el cálculo de un valor es tan rápido que no merece la pena memorizarlo. Incluso, en algunos casos, puede ser más lento memorizarlo que calcularlo de nuevo.
 
@@ -2027,7 +2029,7 @@ No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes,
 
 ---
 
-#### ¿Para qué sirve el hook `useCallback`?
+### ¿Para qué sirve el hook `useCallback`?
 
 El hook `useCallback` es un hook que nos permite memorizar una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve la función que ya se había calculado.
 
@@ -2058,7 +2060,7 @@ La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evit
 
 ---
 
-#### ¿Es buena idea usar siempre `useCallback` para optimizar nuestros componentes?
+### ¿Es buena idea usar siempre `useCallback` para optimizar nuestros componentes?
 
 No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
 
@@ -2066,7 +2068,7 @@ No. `useCallback` es una herramienta que nos permite optimizar nuestros componen
 
 ---
 
-#### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
+### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
 
 La diferencia entre `useCallback` y `useMemo` es que `useCallback` memoriza una función y `useMemo` memoriza el resultado de una función.
 
@@ -2084,7 +2086,7 @@ const memoizedCallback = useMemo(() => {
 
 ---
 
-#### ¿Qué son las refs en React?
+### ¿Qué son las refs en React?
 
 Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando `createRef` o con el hook `useRef`.
 
@@ -2092,7 +2094,7 @@ Las refs nos permiten crear una referencia a un elemento del DOM o a un valor qu
 
 ---
 
-#### ¿Cómo funciona el hook `useRef`?
+### ¿Cómo funciona el hook `useRef`?
 
 En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando hacemos clic en el botón.
 
@@ -2124,7 +2126,7 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 ---
 
-#### ¿Qué hace el hook useLayoutEffect?
+### ¿Qué hace el hook useLayoutEffect?
 
 `useLayoutEffect` funciona igual que el hook `useEffect`, con la excepción de que este se dispara sincrónicamente después de leer todas las mutaciones del DOM.
 
@@ -2146,7 +2148,7 @@ useLayoutEffect(() => {
 
 Aunque el `useEffect` es el hook de renderizado más usado, si se necesita que los efectos del DOM muten cambiando la apariencia entre el efecto y el renderizado, entonces es conveniente que uses el `useLayoutEffect`.
 
-##### Orden de ejecución del `useLayoutEffect`
+### Orden de ejecución del `useLayoutEffect`
 
 El orden de ejecución del `useLayoutEffect`, ya que se ejecuta de forma síncrona, al momento en que React termina de ejecutar todas las mutaciones, pero antes de renderizarlo en pantalla, es el siguiente:
 
@@ -2159,7 +2161,7 @@ El orden de ejecución del `useLayoutEffect`, ya que se ejecuta de forma síncro
 
 ---
 
-#### ¿Qué son los componentes *stateless*?
+### ¿Qué son los componentes *stateless*?
 
 Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
 
@@ -2178,7 +2180,7 @@ function Button({ text }) {
 
 ---
 
-#### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
+### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
 
 Para prevenir el comportamiento por defecto de un evento en React, debemos usar el método `preventDefault`:
 
@@ -2200,7 +2202,7 @@ function Form({ onSubmit }) {
 
 ---
 
-#### ¿Qué es el `StrictMode` en React?
+### ¿Qué es el `StrictMode` en React?
 
 El `StrictMode` es un componente que nos permite activar algunas comprobaciones de desarrollo en React. Por ejemplo, detecta componentes que se renderizan de forma innecesaria o funcionalidades obsoletas que se están usando.
 
@@ -2220,7 +2222,7 @@ function App() {
 
 ---
 
-#### ¿Por qué es recomendable exportar los componentes de React de forma nombrada?
+### ¿Por qué es recomendable exportar los componentes de React de forma nombrada?
 
 Los componentes de React se pueden exportar de dos formas:
 
@@ -2286,7 +2288,7 @@ function App() {
 
 ---
 
-#### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
+### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
 
 Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
 
@@ -2305,7 +2307,7 @@ export function ButtonSecondary({children}) {
 
 ---
 
-#### ¿Cómo puedo importar de forma dinámica un componente en React?
+### ¿Cómo puedo importar de forma dinámica un componente en React?
 
 Para importar de forma dinámica un componente en React debemos usar la función `import()`, el método `lazy()` de React y el componente `Suspense`.
 
@@ -2343,7 +2345,7 @@ El componente `Suspense` nos permite mostrar un mensaje mientras se está cargan
 
 ---
 
-#### ¿Cuando y por qué es recomendable importar componentes de forma dinámica?
+### ¿Cuando y por qué es recomendable importar componentes de forma dinámica?
 
 En React, nuestras aplicaciones están creadas a partir de componentes. Estos componentes se pueden importar de forma **estática o dinámica**.
 
@@ -2401,7 +2403,7 @@ Así que siempre debemos intentar cargar los componentes de forma dinámica cuan
 
 ---
 
-#### ¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?
+### ¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?
 
 No, no es necesario que los componentes se exporten por defecto para poder cargarlos de forma dinámica. Podemos exportarlos de forma nombrada y cargarlos de forma dinámica... pero no es lo más recomendable ya que el código necesario es mucho más lioso.
 
@@ -2465,7 +2467,7 @@ export default function App () {
 
 ---
 
-#### ¿Qué es el contexto en React?
+### ¿Qué es el contexto en React?
 
 El contexto es una forma de pasar datos a través de la jerarquía de componentes sin tener que pasar props manualmente en cada nivel.
 
@@ -2500,7 +2502,7 @@ function Button() {
 
 ---
 
-#### ¿Qué es el `SyntheticEvent` en React?
+### ¿Qué es el `SyntheticEvent` en React?
 
 El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
 
@@ -2520,7 +2522,7 @@ function App() {
 
 ---
 
-#### ¿Qué es `flushSync` en React?
+### ¿Qué es `flushSync` en React?
 
 `flushSync(callback)` Obliga a React a ejecutar de manera síncrona todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
 
@@ -2555,7 +2557,7 @@ NOTA: `flushSync` puede afectar significativamente el rendimiento. Úsalo con mo
 
 ---
 
-#### ¿Qué son los Error Boundaries en React?
+### ¿Qué son los Error Boundaries en React?
 
 Los Error Boundaries son componentes que nos permiten manejar los errores que se producen en el árbol de componentes. Para crear un Error Boundary, debemos crear un componente que implemente el método `componentDidCatch`:
 
@@ -2611,7 +2613,7 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 ---
 
-#### ¿Qué son las Forward Refs?
+### ¿Qué son las Forward Refs?
 
 El reenvío de referencia o *Forward Refs* es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
 
@@ -2652,7 +2654,7 @@ Para la gran mayoría de componentes esto no es necesario pero puede ser útil p
 
 ---
 
-#### ¿Cómo puedo validar el tipo de mis props?
+### ¿Cómo puedo validar el tipo de mis props?
 
 React proporciona una forma de validar el tipo de las props de un componente en tiempo de ejecución y en modo desarrollo. Esto es útil para asegurarnos de que los componentes se están utilizando correctamente.
 
@@ -2695,7 +2697,7 @@ A todas estas se le puede añadir la propiedad `isRequired` para indicar que es 
 
 ---
 
-#### ¿Cómo puedo validar las propiedades de un objeto con PropTypes?
+### ¿Cómo puedo validar las propiedades de un objeto con PropTypes?
 
 Para validar las propiedades de un objeto que se pasa como prop, podemos usar la propiedad `shape` de `PropTypes`:
 
@@ -2719,7 +2721,7 @@ App.propTypes = {
 
 ---
 
-#### ¿Cómo puedo validar las propiedades de un array con PropTypes?
+### ¿Cómo puedo validar las propiedades de un array con PropTypes?
 
 Para validar las propiedades de un array que se pasa como prop, podemos usar la propiedad `arrayOf` de `PropTypes`:
 
@@ -2751,7 +2753,7 @@ En este caso estamos validando que `items` sea un array y que cada uno de sus el
 
 ---
 
-#### ¿Cómo puedo inyectar HTML directamente en un componente de React?
+### ¿Cómo puedo inyectar HTML directamente en un componente de React?
 
 Una de las razones por las que se creó React es para evitar los ataques XSS (*Cross-Site Scripting*), impidiendo que un usuario pueda inyectar código HTML en la página.
 
@@ -2795,7 +2797,7 @@ Como ves, **el nombre ya nos indica que es una propiedad peligrosa y que debemos
 
 ---
 
-#### ¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?
+### ¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?
 
 Digamos que tenemos un componente `App` que recibe un objeto `props` con todas las props que necesita:
 
@@ -2821,9 +2823,9 @@ En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto pu
 
 - Si `Layout` recibe una prop que no necesita, la pasará a `App` y éste puede que no la use. Esto puede ser confuso para el que lea el código.
 
-### Experto
+## Experto
 
-#### ¿Es React una biblioteca o un framework? ¿Por qué?
+### ¿Es React una biblioteca o un framework? ¿Por qué?
 
 Existe una fina línea hoy en día entre qué es una biblioteca o un framework. Oficialmente, React se autodenomina como biblioteca. Esto es porque para poder crear una aplicación completa, necesitas usar otras bibliotecas.
 
@@ -2841,7 +2843,7 @@ Por ejemplo, **Next.js se podría considerar un framework de React** porque incl
 
 ---
 
-#### ¿Para qué sirve el hook `useImperativeHandle`?
+### ¿Para qué sirve el hook `useImperativeHandle`?
 
 Nos permite definir qué propiedades y métodos queremos que sean accesibles desde el componente padre.
 
@@ -2875,7 +2877,7 @@ Para que el componente padre pueda acceder al método `focus`, usamos el hook `u
 
 ---
 
-#### ¿Para qué sirve el método `cloneElement` de React?
+### ¿Para qué sirve el método `cloneElement` de React?
 
 Te permite clonar un elemento React y añadirle o modificar las props que recibe.
 
@@ -2907,7 +2909,7 @@ Puede ser útil para modificar un elemento que ya nos viene de un componente pad
 
 ---
 
-#### ¿Qué son los portales en React?
+### ¿Qué son los portales en React?
 
 Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
 
@@ -2937,11 +2939,11 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 ---
 
-#### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
+### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
 
-#### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
+### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
 - **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategia. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
 - **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza*, no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
@@ -2954,7 +2956,7 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 ---
 
-#### ¿Cómo puedes abortar una petición fetch con `useEffect` en React?
+### ¿Cómo puedes abortar una petición fetch con `useEffect` en React?
 
 Si quieres evitar que exista una *race condition* entre una petición asíncrona y que el componente se desmonte, puedes usar la API de `AbortController` para abortar la petición cuando lo necesites:
 
@@ -3003,13 +3005,13 @@ De esta forma evitamos que se produzca un error por parte de React de intentar a
 
 ---
 
-#### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
+### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
 
-##### Pagination
+### Pagination
 
 En lugar de recibir la lista en una sola llamada a la API (lo cual sería negativo tanto para el rendimiento como para el propio servidor y tiempo de respuesta de la API), podríamos implementar un sistema de paginación en el cual la API recibirá un *offset* o *rango* de datos deseados. En el FE nuestra responsabilidad es mostrar unos controles adecuados (interfaz de paginación) y gestionar las llamadas a petición de cambio de página para siempre limitar la cantidad de DOM renderizado evitando así una sobrecarga del *DOM* y, por lo tanto, problemas de rendimiento.
 
-##### Virtualization
+### Virtualization
 
 Existe una técnica llamada *Virtualización* que gestiona cuántos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
 
@@ -3021,7 +3023,7 @@ Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perj
 
 ---
 
-#### ¿Qué es el hook `useDebugValue`?
+### ¿Qué es el hook `useDebugValue`?
 
 Nos permite mostrar un valor personalizado en la pestaña de *React DevTools* que nos permitirá depurar nuestro código.
 
@@ -3043,7 +3045,7 @@ Aunque es útil para depurar, no se recomienda usar este hook en producción.
 
 ---
 
-#### ¿Qué es el `Profiler` en React?
+### ¿Qué es el `Profiler` en React?
 
 El `Profiler` es un componente que nos permite medir el tiempo que tarda en renderizarse un componente y sus hijos.
 
@@ -3072,7 +3074,7 @@ Esta información es muy útil para detectar componentes que toman mucho tiempo 
 
 ---
 
-#### ¿Cómo puedes acceder al evento nativo del navegador en React?
+### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
 React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
 
@@ -3086,7 +3088,7 @@ function Button({ onClick }) {
 
 ---
 
-#### ¿Cómo puedes registrar un evento en la fase de captura en React?
+### ¿Cómo puedes registrar un evento en la fase de captura en React?
 
 En React, los eventos se registran en la fase de burbuja por defecto. Para registrar un evento en la fase de captura, debemos añadir `Capture` al nombre del evento:
 
@@ -3100,7 +3102,7 @@ function Button({ onClick }) {
 
 ---
 
-#### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
+### ¿Cómo puedes mejorar el rendimiento del Server Side Rendering en React para evitar que bloquee el hilo principal?
 
 Aunque puedes usar el método `renderToString` para renderizar el HTML en el servidor, este método es síncrono y bloquea el hilo principal. Para evitar que bloquee el hilo principal, debemos usar el método `renderToPipeableStream`:
 
@@ -3145,7 +3147,7 @@ const stream = renderToPipeableStream(
 
 ---
 
-#### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
+### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
 
 `renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente, pero puede ser útil para páginas totalmente estáticas.
 
@@ -3155,7 +3157,7 @@ const stream = renderToPipeableStream(
 
 ---
 
-#### ¿Para qué sirve el hook `useDeferredValue`?
+### ¿Para qué sirve el hook `useDeferredValue`?
 
 El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baja. Esto es útil para renderizar un valor que no es crítico para la interacción del usuario.
 
@@ -3180,7 +3182,7 @@ function App() {
 
 ---
 
-#### ¿Para qué sirve el método `renderToReadableStream()`?
+### ¿Para qué sirve el método `renderToReadableStream()`?
 
 Este método es similar a `renderToNodeStream`, pero está pensado para entornos que soporten Web Streams como `Deno`.
 
@@ -3229,7 +3231,7 @@ try {
 
 ---
 
-#### ¿Qué es Flux?
+### ¿Qué es Flux?
 
 *Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
 
@@ -3241,9 +3243,9 @@ Esta arquitectura fue creada por Facebook para manejar la complejidad de sus apl
 
 ---
 
-### Errores Típicos en React
+## Errores Típicos en React
 
-#### ¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?
+### ¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?
 
 Es un error bastante común en React y que puede parecernos un poco extraño si estamos empezando a aprender esta tecnología. Por suerte, es bastante sencillo de solucionar.
 
@@ -3261,7 +3263,7 @@ Recomendamos revisar las siguientes secciones:
 
 ---
 
-#### React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render
+### React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render
 
 Una de las reglas de los hooks de React es que deben llamarse en el mismo orden en cada renderizado. React lo necesita para saber en qué orden se llaman los hooks y así mantener el estado de los mismos internamente. Por ello, los hooks no pueden usarse dentro de una condición `if`, ni un loop, ni tampoco dentro de una función anónima. Siempre deben estar en el nivel superior de la función.
 
@@ -3323,7 +3325,7 @@ Recomendamos revisar las siguientes secciones:
 
 ---
 
-#### Can’t perform a React state update on an unmounted component
+### Can’t perform a React state update on an unmounted component
 
 Este error se produce cuando intentamos actualizar el estado de un componente que ya no está montado. Esto puede ocurrir cuando el componente se desmonta antes de que se complete una petición asíncrona, por ejemplo:
 
@@ -3422,7 +3424,7 @@ Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. E
 
 ---
 
-#### Too many re-renders. React limits the number of renders to prevent an infinite loop
+### Too many re-renders. React limits the number of renders to prevent an infinite loop
 
 Este error indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
 
@@ -3534,7 +3536,7 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 
 ---
 
-#### ¿Qué diferencia existe entre Shadow DOM y Virtual DOM?
+### ¿Qué diferencia existe entre Shadow DOM y Virtual DOM?
 
 El **Shadow DOM** es una API del navegador que nos permite crear un árbol de nodos DOM independiente dentro de un elemento del DOM. Esto nos permite crear componentes que no interfieran con el resto de la aplicación. Se usa especialmente con Web Components.
 

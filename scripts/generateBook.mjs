@@ -5,7 +5,14 @@ const start = readme.indexOf('### ')
 
 const cleaned = readme
   .slice(start)
+  .replaceAll('### ', '## ')
+  .replaceAll('#### ', '### ')
+  .replaceAll('##### ', '#### ')
   .replaceAll('**[⬆ Volver a índice](#índice)**', '')
   .replaceAll('](#', '](/')
 
-fs.outputFile('./manuscript/book.md', cleaned, { encoding: 'utf-8' })
+const book = `# Preguntas típicas de React
+
+${cleaned}`
+
+fs.outputFile('./manuscript/book.md', book, { encoding: 'utf-8' })
