@@ -3109,7 +3109,7 @@ function Movies () {
     const abortController = new AbortController()
 
     // pasamos el signal al fetch para que sepa que debe abortar
-    fetchMovies({ signal: controller.signal })
+    fetchMovies({ signal: abortController.signal })
       .then(() => {
         setMovies(data.results)
       }).catch(error => {
@@ -3121,7 +3121,7 @@ function Movies () {
     return () => {
       // al desmontar el componente, abortamos la petición
       // sólo funcionará si la petición sigue en curso
-      controller.abort()
+      abortController.abort()
     }
   })
 
