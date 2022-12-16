@@ -710,7 +710,7 @@ Al usar el hook `useState` este devolverá un `array` de dos posiciones:
 0. El valor del estado.
 1. La función para cambiar el estado.
 
-Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas lineas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicando su estado inicial.
+Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas líneas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicando su estado inicial.
 
 Con un componente de clase, la creación del estado sería así:
 
