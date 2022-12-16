@@ -64,6 +64,7 @@
       - [Operador Rest](#operador-rest)
       - [Encadenamiento opcional (Optional Chaining)](#encadenamiento-opcional-optional-chaining)
   - [Intermedio](#intermedio)
+    - [¿Cómo crear un hook personalizado (*custom hook*)?](#cómo-crear-un-hook-personalizado-custom-hook)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
     - [¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-desmonta-del-árbol)
     - [Cómo puedes cancelar una petición a una API en `useEffect` correctamente](#cómo-puedes-cancelar-una-petición-a-una-api-en-useeffect-correctamente)
@@ -89,7 +90,7 @@
     - [¿Cuál es la diferencia entre `useCallback` y `useMemo`?](#cuál-es-la-diferencia-entre-usecallback-y-usememo)
     - [¿Qué son las refs en React?](#qué-son-las-refs-en-react)
     - [¿Cómo funciona el hook `useRef`?](#cómo-funciona-el-hook-useref)
-    - [¿Qué hace el hook useLayoutEffect?](#qué-hace-el-hook-uselayouteffect)
+    - [¿Qué hace el hook `useLayoutEffect`?](#qué-hace-el-hook-uselayouteffect)
       - [Orden de ejecución del `useLayoutEffect`](#orden-de-ejecución-del-uselayouteffect)
     - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
@@ -99,7 +100,7 @@
     - [¿Cómo puedo importar de forma dinámica un componente en React?](#cómo-puedo-importar-de-forma-dinámica-un-componente-en-react)
     - [¿Cuando y por qué es recomendable importar componentes de forma dinámica?](#cuando-y-por-qué-es-recomendable-importar-componentes-de-forma-dinámica)
     - [¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?](#sólo-se-pueden-cargar-componentes-de-forma-dinámica-si-se-exportan-por-defecto)
-    - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
+    - [¿Qué es el contexto en React? ¿Cómo puedo crearlo y consumirlo?](#qué-es-el-contexto-en-react-cómo-puedo-crearlo-y-consumirlo)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
     - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
     - [¿Qué son los Error Boundaries en React?](#qué-son-los-error-boundaries-en-react)
@@ -128,6 +129,8 @@
     - [¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?](#qué-diferencia-hay-entre-rendertostaticnodestream-y-rendertopipeablestream)
     - [¿Para qué sirve el hook `useDeferredValue`?](#para-qué-sirve-el-hook-usedeferredvalue)
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
+  - [¿Cómo puedo hacer testing de un componente?](#cómo-puedo-hacer-testing-de-un-componente)
+  - [¿Cómo puedo hacer testing de un hook?](#cómo-puedo-hacer-testing-de-un-hook)
     - [¿Qué es Flux?](#qué-es-flux)
   - [Errores Típicos en React](#errores-típicos-en-react)
     - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
@@ -1660,6 +1663,45 @@ Conforme tu UI sea más grande y compleja, estos objetos tendrán más informaci
 
 ### Intermedio
 
+#### ¿Cómo crear un hook personalizado (*custom hook*)?
+
+Un hook personalizado es una función que empieza con la palabra `use` y que puede utilizar otros hooks. Son ideales para reutilizar lógica en diferentes componentes. Por ejemplo, podemos crear un hook personalizado para extraer la gestión del estado de un contador:
+
+```js
+// ./hooks/useCounter.js
+
+export function useCounter() {
+  const [count, setCount] = useState(0)
+
+  const increment = () => setCount(count + 1)
+  const decrement = () => setCount(count - 1)
+
+  return { count, increment, decrement }
+}
+```
+
+Para usarlo en un componente:
+
+```js
+import { useCounter } from './hooks/useCounter.js'
+
+function Counter() {
+  const { count, increment, decrement } = useCounter()
+
+  return (
+    <>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </>
+  )
+}
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Cuántos `useEffect` puede tener un componente?
 
 Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
@@ -2264,7 +2306,7 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 ---
 
-#### ¿Qué hace el hook useLayoutEffect?
+#### ¿Qué hace el hook `useLayoutEffect`?
 
 `useLayoutEffect` funciona igual que el hook `useEffect`, con la excepción de que este se dispara sincrónicamente después de leer todas las mutaciones del DOM.
 
@@ -2605,7 +2647,7 @@ export default function App () {
 
 ---
 
-#### ¿Qué es el contexto en React?
+#### ¿Qué es el contexto en React? ¿Cómo puedo crearlo y consumirlo?
 
 El contexto es una forma de pasar datos a través de la jerarquía de componentes sin tener que pasar props manualmente en cada nivel.
 
@@ -3363,6 +3405,65 @@ try {
     }
   )
 }
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+### ¿Cómo puedo hacer testing de un componente?
+
+Para hacer testing de un componente, puedes usar la función `render` de la librería `@testing-library/react`. Esta función nos permite renderizar un componente y obtener el resultado.
+
+```jsx
+import { render } from '@testing-library/react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  const increment = () => setCount(count + 1)
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  )
+}
+
+test('Counter', () => {
+  const { getByText } = render(<Counter />)
+
+  expect(getByText('Count: 0')).toBeInTheDocument()
+  fireEvent.click(getByText('Increment'))
+  expect(getByText('Count: 1')).toBeInTheDocument()
+})
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+### ¿Cómo puedo hacer testing de un hook?
+
+Para hacer testing de un hook, puedes usar la función `renderHook` de la librería `@testing-library/react-hooks`. Esta función nos permite renderizar un hook y obtener el resultado.
+
+```jsx
+import { renderHook } from '@testing-library/react-hooks'
+
+function useCounter() {
+  const [count, setCount] = useState(0)
+  const increment = () => setCount(count + 1)
+  return { count, increment }
+}
+
+test('useCounter', () => {
+  const { result } = renderHook(() => useCounter())
+
+  expect(result.current.count).toBe(0)
+  act(() => {
+    result.current.increment()
+  })
+  expect(result.current.count).toBe(1)
+})
 ```
 
 **[⬆ Volver a índice](#índice)**
