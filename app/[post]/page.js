@@ -1,6 +1,6 @@
 import { readJSON } from 'fs-extra'
 import path from 'node:path'
-import Link from 'next/link.js';
+import Link from 'next/link.js'
 
 import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
@@ -16,7 +16,7 @@ export async function generateStaticParams () {
   return posts.map(post => ({ post: post.id }))
 }
 
-const fetchPost = async (slug) => {
+export const fetchPost = async (slug) => {
   const index = path.join(jsonDirectory, 'index.json')
   const posts = await readJSON(index)
   const { content, level, title, id } = await readJSON(`${jsonDirectory}/${slug}.json`)
@@ -32,6 +32,7 @@ export default async function Post ({ params }) {
 
   return (
     <>
+      <head />
       <Title>{title}</Title>
       <header className='relative pt-10'>
         <div className='flex flex-row gap-2 pb-4'>
@@ -42,8 +43,8 @@ export default async function Post ({ params }) {
       </header>
       <article className='prose max-w-none pb-4 [&>hr]:hidden [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-blue-900 [&>h1]:pb-8 [&>p]:pb-6 [&>p]:text-lg md:[&>p]:text-xl [&>p>strong]:bg-yellow-50 [&_a]:text-blue-700 [&_a:hover]:underline [&>ul>li]:list-disc [&>ul]:text-lg md:[&>ul]:text-xl [&>ul]:text-blue-900 [&>ul]:pb-4 [&>ul>li]:ml-5 [&>ul]:space-y-3 [&>pre]:overflow-x-auto  [&>pre]:rounded-xl [&>pre]:text-white [&>pre]:mb-8 [&>pre]:p-8 [&>pre]:bg-slate-800' dangerouslySetInnerHTML={{ __html: content }} />
       <footer className='py-12 clear-both text-center [&>a]:leading-snug hover:[&>a]:underline [&>a]:block [&>a]:my-2'>
-        {prev && <Link className="lg:float-left" href={`/${prev.id}/#content`}>← {prev.text}</Link>}
-        {next && <Link className="lg:float-right" href={`/${next.id}/#content`}>{next.text} →</Link>}
+        {prev && <Link className='lg:float-left' href={`/${prev.id}/#content`}>← {prev.text}</Link>}
+        {next && <Link className='lg:float-right' href={`/${next.id}/#content`}>{next.text} →</Link>}
       </footer>
     </>
   )
