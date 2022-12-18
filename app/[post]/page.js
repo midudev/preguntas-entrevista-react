@@ -5,7 +5,6 @@ import Link from 'next/link.js'
 import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
-import { Title } from './Title.jsx'
 
 const jsonDirectory = path.join(process.cwd(), 'dist')
 
@@ -32,8 +31,6 @@ export default async function Post ({ params }) {
 
   return (
     <>
-      <head />
-      <Title>{title}</Title>
       <header className='relative pt-10'>
         <div className='flex flex-row gap-2 pb-4'>
           <Pill level={level} />
