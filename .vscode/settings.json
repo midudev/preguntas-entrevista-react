@@ -7,8 +7,10 @@
     "source.fixAll.markdownlint": true
   },
   "markdownlint.config": {
-      "default": true,
-      "line-length": false,
-      "no-inline-html": false
-  }
+    "default": true,
+    "line-length": false,
+    "no-inline-html": false
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
