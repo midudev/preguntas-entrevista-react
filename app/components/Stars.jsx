@@ -1,4 +1,4 @@
-export function Stars ({ stars = '2.1K' }) {
+export function Stars ({ stars = '2.9K' }) {
   return (
     <a className='flex items-center justify-center h-full transition-colors bg-gray-200 border border-gray-200 rounded hover:bg-gray-200' href='https://github.com/midudev/preguntas-entrevista-react' target='_blank' rel='noreferrer'>
       <span className='flex items-center justify-center px-3 py-2 overflow-hidden text-xs font-semibold text-gray-700 border-r border-r-gray-300 gap-x-1'>
