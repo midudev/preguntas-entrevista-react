@@ -1,28 +1,11 @@
-import { readJSON } from 'fs-extra'
-import path from 'node:path'
 import Link from 'next/link.js'
-
+import { fetchPost, listPosts } from '../../utils/posts.js'
 import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 
-const jsonDirectory = path.join(process.cwd(), 'dist')
-
 export async function generateStaticParams () {
-  const index = path.join(jsonDirectory, 'index.json')
-  const posts = await readJSON(index)
-
-  return posts.map(post => ({ post: post.id }))
-}
-
-export const fetchPost = async (slug) => {
-  const index = path.join(jsonDirectory, 'index.json')
-  const posts = await readJSON(index)
-  const { content, level, title, id } = await readJSON(`${jsonDirectory}/${slug}.json`)
-  const currentIndex = posts.findIndex(post => post.id === id)
-  const prev = currentIndex > 0 ? posts[currentIndex - 1] : null
-  const next = currentIndex < posts.length ? posts[currentIndex + 1] : null
-  return { content, level, title, prev, next }
+  return listPosts()
 }
 
 export default async function Post ({ params }) {
