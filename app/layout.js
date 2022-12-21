@@ -2,6 +2,7 @@ import './globals.css'
 import { Space_Grotesk as SpaceGrotesk } from '@next/font/google'
 import { Header } from './components/Header.jsx'
 import { Footer } from './components/Footer.jsx'
+import { BuyBook } from './components/BuyBook.jsx'
 
 const spaceGrotesk = SpaceGrotesk({ weight: ['400', '700'], subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default async function RootLayout ({ children }) {
           {children}
         </main>
         <Footer />
+        <BuyBook />
       </body>
     </html>
   )
