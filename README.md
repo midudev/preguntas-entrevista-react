@@ -382,7 +382,7 @@ Las *props* son un objeto que **se pasan como argumentos de un componente padre 
 
 El *state* es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
 
-Así que mientras que tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
+Así que mientras tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1272,7 +1272,7 @@ document.querySelector('button').addEventListener('click', () => {
 })
 ```
 
-A> Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
+Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
 
 Existen más sintaxis para trabajar con módulos, pero con saber las que hemos visto ya sería suficiente para seguir el libro.
 
@@ -1384,7 +1384,7 @@ const mensaje = `${inicio} ${final}`
 
 Como ves, para poder usar los template literals, necesitas usar el símbolo ```
 
-Además, también nos permiten utilizar cadenas de texto de más de una línea.
+Además, nos permiten utilizar cadenas de texto de más de una línea.
 
 **¿Por qué es importante**
 
@@ -1520,7 +1520,7 @@ console.log(allNetworks)
 // -> [ 'Twitter', 'Twitch', 'Instagram', 'Tik Tok' ]
 ```
 
-Esto mismo lo podemos conseguir con un objeto, de forma que podemos expander todas sus propiedades en otro objeto de forma muy sencilla.
+Esto mismo lo podemos conseguir con un objeto, de forma que podemos expandir todas sus propiedades en otro objeto de forma muy sencilla.
 
 ```js
 const midu = { name: 'Miguel', twitter: '@midudev' }
@@ -1658,6 +1658,8 @@ author?.libro?.name
 Un objeto es una estructura de datos que es perfecta a la hora de representar muchos elementos de la UI. ¿Tienes un artículo? Toda la información de un artículo seguramente la tendrás representada en un objeto.
 
 Conforme tu UI sea más grande y compleja, estos objetos tendrán más información y necesitarás dominar el encadenamiento opcional `?.` para poder acceder a su información con garantías.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -3003,6 +3005,10 @@ En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto pu
 
 - Si `Layout` recibe una prop que no necesita, la pasará a `App` y éste puede que no la use. Esto puede ser confuso para el que lea el código.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -3122,6 +3128,10 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
