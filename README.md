@@ -26,7 +26,7 @@
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
     - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
-    - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
+    - [ ¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?](#se-puede-inicializar-un-estado-con-el-valor-de-una-prop-qué-pasa-si-lo-haces-y-qué-hay-que-tener-en-cuenta)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
     - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
@@ -158,6 +158,7 @@ Enlaces de interés:
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
+- [Documentación oficial de React actualizada](https://beta.reactjs.org/) en inglés
 
 **[⬆ Volver a índice](#índice)**
 
