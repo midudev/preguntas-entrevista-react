@@ -3794,3 +3794,81 @@ El **Virtual DOM** es una representación del DOM en memoria. Esta representaci�
 **[⬆ Volver a índice](#índice)**
 
 ---
+
+#### ¿Qué es el Binding?
+
+En React, el **Binding** se refiere a la forma en que se relaciona y sincroniza el **estado** *(state)* de un componente con su **vista** *(render)*. El estado de un componente es un objeto que contiene información que puede ser utilizada para determinar cómo se debe mostrar el componente. Existen **dos** tipos de binding en React: **One-Way Binding** y **Two-Way Binding**.
+
+**One-Way Binding** *(Enlace unidireccional)*:
+
+En React se refiere a la capacidad de un componente para actualizar su **estado** *(state)* y su **vista** *(render)* de manera automática cuando cambia el estado, pero no permitiendo que la vista actualice el estado. En otras palabras, el **one-way binding** significa que el flujo de datos es unidireccional, desde el estado hacia la vista, y no al revés.
+
+Por ejemplo:
+
+```jsx
+import React, { useState } from 'react';
+
+function OneWayBindingExample() {
+  const [name, setName] = useState('midu');
+
+  return (
+    <div>
+      <p>Hello, {name}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default OneWayBindingExample;
+```
+
+*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input. Sin embargo, la **vista** (la linea que muestra **Hello, {name}**) no tiene la capacidad de actualizar el estado **name**.*
+
+**Two-Way Binding** *(Enlace bidireccional)*:
+
+Se refiere a la capacidad de un componente para actualizar su estado y su vista de manera automática tanto cuando cambia el estado como cuando se produce un evento en la vista. En otras palabras, el **Two-Way Binding** significa que el flujo de datos es bidireccional, desde el estado hacia la vista y desde la vista hacia el estado. Para lograr esto se utilizan en conjunto con los eventos, como **onChange**, para capturar la información de los inputs y actualizar el estado, *React no proporciona un mecanismo nativo para two-way binding, pero se puede lograr utilizando librerías como react-forms o formik.*
+
+Por ejemplo:
+
+```jsx
+import React, { useState } from 'react';
+
+function TwoWayBindingExample() {
+  const [name, setName] = useState('midu');
+
+  return (
+    <div>
+      <p>Hello, {name}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default TwoWayBindingExample;
+```
+
+*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input, y se puede ver reflejado en el valor del input. Sin embargo, en este caso se está utilizando el atributo **value** para que el valor del input sea actualizado con el valor del estado, es decir, se está actualizando tanto el estado como el input.*
+
+**Por si no quedó claro:**
+
+En términos sencillos, el **Binding** en React puede compararse con una cafetera y una taza de café. **El estado** del componente sería la *cafetera*, y **la vista** del componente sería *la taza de café*.
+
+En el caso del **One-Way Binding**, la cafetera solo puede verter café en una dirección, hacia la taza de café. Esto significa que la cafetera puede llenar automáticamente la taza de café con café fresco, pero la taza de café no puede devolver automáticamente el café a la cafetera. De esta manera, **el estado** del componente *(la cafetera)* puede actualizar automáticamente **la vista** *(la taza de café)* cuando cambia, pero la **vista** no puede actualizar automáticamente el **estado**.
+
+En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en ambas direcciones, hacia y desde la taza de café (no se porque alguien necesitaria hacer algo asi). Esto significa que la cafetera puede llenar y vaciar automáticamente la taza de café con café fresco. De esta manera, tanto **el estado** del componente como **la vista** pueden actualizarse automáticamente entre sí.
+
+Sí quieres saber más comparto el siguiente enlace:  
+[How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)  
+
+**[⬆ Volver a índice](#índice)**
+
+---
