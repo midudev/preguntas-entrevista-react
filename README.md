@@ -3864,7 +3864,7 @@ En términos sencillos, el **Binding** en React puede compararse con una cafeter
 
 En el caso del **One-Way Binding**, la cafetera solo puede verter café en una dirección, hacia la taza de café. Esto significa que la cafetera puede llenar automáticamente la taza de café con café fresco, pero la taza de café no puede devolver automáticamente el café a la cafetera. De esta manera, **el estado** del componente *(la cafetera)* puede actualizar automáticamente **la vista** *(la taza de café)* cuando cambia, pero la **vista** no puede actualizar automáticamente el **estado**.
 
-En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en ambas direcciones, hacia y desde la taza de café (no se porque alguien necesitaria hacer algo asi). Esto significa que la cafetera puede llenar y vaciar automáticamente la taza de café con café fresco. De esta manera, tanto **el estado** del componente como **la vista** pueden actualizarse automáticamente entre sí.
+En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en ambas direcciones, hacia y desde la taza de café (no sé por qué alguien necesitaría hacer algo así). Esto significa que la cafetera puede llenar y vaciar automáticamente la taza de café con café fresco. De esta manera, tanto **el estado** del componente como **la vista** pueden actualizarse automáticamente entre sí.
 
 Sí quieres saber más comparto el siguiente enlace:  
 [How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)  
