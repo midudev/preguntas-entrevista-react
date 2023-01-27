@@ -3,6 +3,7 @@ import { Space_Grotesk as SpaceGrotesk } from '@next/font/google'
 import { Header } from './components/Header.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BuyBook } from './components/BuyBook.jsx'
+import { Head } from './components/Head'
 
 const spaceGrotesk = SpaceGrotesk({ weight: ['400', '700'], subsets: ['latin'] })
 
@@ -17,7 +18,9 @@ export default async function RootLayout ({ children }) {
 
   return (
     <html>
-      <head />
+      <head>
+        <Head />
+      </head>
       <body className={`${spaceGrotesk.className} overscroll-none`}>
         <div aria-hidden='true' className='absolute inset-0 z-0 overflow-hidden pointer-events-none'>
           <div className='absolute top-0 scale-150 rounded-full bg-blue-gradient-radial w-96 h-96 left-14 opacity-20' />

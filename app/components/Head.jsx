@@ -1,6 +1,6 @@
 export const Head = ({ title, description, ogImage }) => {
   return (
-    <head>
+    <>
       <title>{title}</title>
       <meta name='description' content={description} />
       <meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1' />
@@ -17,6 +17,6 @@ export const Head = ({ title, description, ogImage }) => {
       <meta name='twitter:description' content={description} />
       <link href='favicon.ico' rel='icon' media='(prefers-color-scheme: light)' />
       <link href='favicon.dark.ico' rel='icon' media='(prefers-color-scheme: dark)' />
-    </head>
+    </>
   )
 }
