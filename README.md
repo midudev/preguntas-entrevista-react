@@ -1277,7 +1277,7 @@ Los imports dinámicos son útiles también cuando trabajamos con empaquetadores
 
 Existen más sintaxis para trabajar con módulos, pero con saber las que hemos visto ya sería suficiente para seguir el libro.
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Para empezar React te ofrece diferentes partes de su biblioteca a través de módulos que podrás importar. Además nuestros componentes los tendremos separados en ficheros y, cada uno de ellos, se podrá importar utilizando *ESModules*.
 
@@ -1298,7 +1298,7 @@ if (number % 2 === 0) {
 number % 2 === 0 ? console.log('Es par') : console.log('Es impar')
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del *JSX*.
 
@@ -1333,7 +1333,7 @@ console.log(newNumbers) // [1, 2, 3]
 
 También tiene algunos cambios respecto al valor de `this` pero, aunque es aconsejable dominarlo, no es realmente necesario para poder seguir con garantías el libro.
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Aunque hace unos años con React se trabajaba principalmente con clases, desde la irrupción de los hooks en la versión 16.8 ya no se usan mucho. Esto hace que se usen mucho más funciones.
 
@@ -1360,7 +1360,7 @@ const sayHi = (msg = 'Hola React!') => console.log(msg)
 sayHi() // 'Hola React!'
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React existen dos conceptos muy importantes: **componentes y hooks**. No vamos a entrar en detalle ahora en ellos pero lo importante es que ambos son construidos con funciones.
 
@@ -1387,7 +1387,7 @@ Como ves, para poder usar los template literals, necesitas usar el símbolo ```
 
 Además, nos permiten utilizar cadenas de texto de más de una línea.
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React esto se puede utilizar para diferentes cosas. No sólo es normal crear cadenas de texto para mostrar en la interfaz... también puede ser útil para crear clases para tus elementos HTML de forma dinámica. Verás que los template literales están en todas partes.
 
@@ -1407,7 +1407,7 @@ const persona = { name: name, age: age, book: book }
 const persona = { name, age, book }
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React se trata muchas veces con objetos y siempre vamos a querer escribir el menor número de líneas posible para mantener nuestro código fácil de mantener y entender.
 
@@ -1441,7 +1441,7 @@ const getName = ({name}) => `El nombre es ${name}`
 getName(persona)
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React hay mucho código básico que da por sentado que conoces y dominas esta sintaxis. Piensa que los objetos y los arreglos son tipos de datos que son perfectos para guardar datos a representar en una interfaz. Así que poder tratarlos fácilmente te va a hacer la vida mucho más fácil.
 
@@ -1502,7 +1502,7 @@ networks.some(singleNetwork => singleNetwork.id === 'tiktok') // false
 networks.some(singleNetwork => singleNetwork.id === 'instagram') // true
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React es muy normal almacenar los datos que tenemos que representar en la UI como array. Esto hace que muchas veces necesitemos tratarlos, filtrarlos o extraer información de ellos. Es primordial entender, conocer y dominar al menos estos métodos, ya que son los más usados.
 
@@ -1574,7 +1574,7 @@ console.log(midu)
 // }
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React es muy normal tener que añadir nuevos elementos a un array o crear nuevos objetos sin necesidad de mutarlos. El operador Rest nos puede ayudar a conseguir esto. Si no conoces bien el concepto de valor y referencia en JavaScript, sería conveniente que lo repases.
 
@@ -1622,7 +1622,7 @@ console.log(firstNumber) // -> 1
 console.log(restOfNumbers) // -> [2, 3]
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Es una forma interesante de *eliminar* (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
 
@@ -1654,7 +1654,7 @@ const author = {
 author?.libro?.name
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Un objeto es una estructura de datos que es perfecta a la hora de representar muchos elementos de la UI. ¿Tienes un artículo? Toda la información de un artículo seguramente la tendrás representada en un objeto.
 
