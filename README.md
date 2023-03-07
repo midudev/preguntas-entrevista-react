@@ -2720,14 +2720,14 @@ function App() {
       setId(2)
       // component re-renderiza aquí 🔄
     })
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
+    // component ha sido re-renderizado y el DOM ha sido actualizado ✅
     flushSync(() => {
       setName("John")
       // component no hace re-render 🚫
       setEmail("john@doe.com")
       // component re-renderiza aquí 🔄
     })
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
+    // component ha sido re-renderizado y el DOM ha sido actualizado ✅
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
