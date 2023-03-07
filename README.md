@@ -581,7 +581,7 @@ function List({ items }) {
 }
 ```
 
-En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{id:1, name: "John", id:1, name: "Doe"}]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
+En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{ id: 1, name: "John Doe" }]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
 
