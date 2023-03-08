@@ -41,7 +41,7 @@ export function Header ({ stars }) {
   useEffect(() => {
     const readStorage = JSON.parse(localStorage.getItem('read')) || []
     setRead(readStorage.length)
-  }, [])
+  })
 
   const handleSelect = (result) => {
     if (result) router.push(`/${result.id}/#content`)
