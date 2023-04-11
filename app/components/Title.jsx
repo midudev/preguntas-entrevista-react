@@ -1,12 +1,8 @@
-'use client'
-
-import { motion } from 'framer-motion'
-
-export function Title () {
+export function Title ({ isHome }) {
   return (
-    <motion.h1
-      className='py-5 text-6xl font-bold leading-tight tracking-tight'
-    >Preguntas típicas de<br /> React.js
-    </motion.h1>
+    <h1
+      className={`transition max-w-lg py-5 font-bold leading-tight tracking-tight ${isHome ? 'text-6xl' : 'text-xl'}`}
+    >Preguntas típicas de React.js
+    </h1>
   )
 }

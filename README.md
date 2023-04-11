@@ -25,26 +25,46 @@
     - [¿Cuál es la diferencia entre componente y elemento en React?](#cuál-es-la-diferencia-entre-componente-y-elemento-en-react)
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
-    - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
+    - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
+    - [ ¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
+    - [¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?](#se-puede-inicializar-un-estado-con-el-valor-de-una-prop-qué-pasa-si-lo-haces-y-qué-hay-que-tener-en-cuenta)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
-    - [¿Cómo puedes aplicar clases CSS a un componente en React?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react)
+    - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
     - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
     - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
     - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
+    - [¿Cómo puedes escribir comentarios en React?](#cómo-puedes-escribir-comentarios-en-react)
     - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
+    - [¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?](#cómo-puedo-pasar-un-parámetro-a-una-función-que-maneja-un-evento-en-react)
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
     - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
+    - [¿Qué significa la expresión "subir el estado"?](#qué-significa-la-expresión-subir-el-estado)
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
     - [Cómo suscribirse a un evento en `useEffect`](#cómo-suscribirse-a-un-evento-en-useeffect)
     - [¿Qué hace el hook `useId`?](#qué-hace-el-hook-useid)
     - [¿Cómo podemos ejecutar código cuando el componente se monta?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-monta)
     - [¿Qué son los Fragments en React?](#qué-son-los-fragments-en-react)
+    - [¿Por qué es recomendable usar Fragment en vez de un div?](#por-qué-es-recomendable-usar-fragment-en-vez-de-un-div)
     - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
+    - [¿Qué JavaScript necesito para aprender React?](#qué-javascript-necesito-para-aprender-react)
+      - [JavaScript que necesitas para aprender React](#javascript-que-necesitas-para-aprender-react)
+      - [EcmaScript Modules o ESModules](#ecmascript-modules-o-esmodules)
+      - [Operador condicional (ternario)](#operador-condicional-ternario)
+      - [Funciones flecha o Arrow Functions](#funciones-flecha-o-arrow-functions)
+      - [Parámetros predeterminados (default values)](#parámetros-predeterminados-default-values)
+      - [Template Literals](#template-literals)
+      - [Propiedades abreviadas](#propiedades-abreviadas)
+      - [La desestructuración](#la-desestructuración)
+      - [Métodos de Array](#métodos-de-array)
+      - [Sintaxis Spread](#sintaxis-spread)
+      - [Operador Rest](#operador-rest)
+      - [Encadenamiento opcional (Optional Chaining)](#encadenamiento-opcional-optional-chaining)
   - [Intermedio](#intermedio)
+    - [¿Cómo crear un hook personalizado (*custom hook*)?](#cómo-crear-un-hook-personalizado-custom-hook)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
     - [¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-desmonta-del-árbol)
     - [Cómo puedes cancelar una petición a una API en `useEffect` correctamente](#cómo-puedes-cancelar-una-petición-a-una-api-en-useeffect-correctamente)
@@ -62,7 +82,7 @@
     - [¿Por qué no podemos usar un `if` en el renderizado de un componente?](#por-qué-no-podemos-usar-un-if-en-el-renderizado-de-un-componente)
     - [¿Por qué debemos utilizar una función para actualizar el estado de React?](#por-qué-debemos-utilizar-una-función-para-actualizar-el-estado-de-react)
     - [¿Qué es el ciclo de vida de un componente en React?](#qué-es-el-ciclo-de-vida-de-un-componente-en-react)
-    - [¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
+    - [¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
     - [¿Para qué sirve el hook `useMemo`?](#para-qué-sirve-el-hook-usememo)
     - [¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?](#es-buena-idea-usar-siempre-usememo-para-optimizar-nuestros-componentes)
     - [¿Para qué sirve el hook `useCallback`?](#para-qué-sirve-el-hook-usecallback)
@@ -70,20 +90,30 @@
     - [¿Cuál es la diferencia entre `useCallback` y `useMemo`?](#cuál-es-la-diferencia-entre-usecallback-y-usememo)
     - [¿Qué son las refs en React?](#qué-son-las-refs-en-react)
     - [¿Cómo funciona el hook `useRef`?](#cómo-funciona-el-hook-useref)
-    - [¿Qué hace el hook useLayoutEffect?](#qué-hace-el-hook-uselayouteffect)
+    - [¿Qué hace el hook `useLayoutEffect`?](#qué-hace-el-hook-uselayouteffect)
       - [Orden de ejecución del `useLayoutEffect`](#orden-de-ejecución-del-uselayouteffect)
     - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
     - [¿Por qué es recomendable exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada)
     - [¿Cómo puedes exportar múltiples componentes de un mismo archivo?](#cómo-puedes-exportar-múltiples-componentes-de-un-mismo-archivo)
-    - [¿Qué es el contexto en React?](#qué-es-el-contexto-en-react)
+    - [¿Cómo puedo importar de forma dinámica un componente en React?](#cómo-puedo-importar-de-forma-dinámica-un-componente-en-react)
+    - [¿Cuando y por qué es recomendable importar componentes de forma dinámica?](#cuando-y-por-qué-es-recomendable-importar-componentes-de-forma-dinámica)
+    - [¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?](#sólo-se-pueden-cargar-componentes-de-forma-dinámica-si-se-exportan-por-defecto)
+    - [¿Qué es el contexto en React? ¿Cómo puedo crearlo y consumirlo?](#qué-es-el-contexto-en-react-cómo-puedo-crearlo-y-consumirlo)
     - [¿Qué es el `SyntheticEvent` en React?](#qué-es-el-syntheticevent-en-react)
     - [¿Qué es `flushSync` en React?](#qué-es-flushsync-en-react)
     - [¿Qué son los Error Boundaries en React?](#qué-son-los-error-boundaries-en-react)
+    - [¿Qué son las Forward Refs?](#qué-son-las-forward-refs)
+    - [¿Cómo puedo validar el tipo de mis props?](#cómo-puedo-validar-el-tipo-de-mis-props)
+    - [¿Cómo puedo validar las propiedades de un objeto con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-objeto-con-proptypes)
+    - [¿Cómo puedo validar las propiedades de un array con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-array-con-proptypes)
+    - [¿Cómo puedo inyectar HTML directamente en un componente de React?](#cómo-puedo-inyectar-html-directamente-en-un-componente-de-react)
+    - [¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?](#por-qué-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
+    - [¿Para qué sirve el método `cloneElement` de React?](#para-qué-sirve-el-método-cloneelement-de-react)
     - [¿Qué son los portales en React?](#qué-son-los-portales-en-react)
     - [¿Por qué `StrictMode` renderiza dos veces la aplicación?](#por-qué-strictmode-renderiza-dos-veces-la-aplicación)
     - [¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?](#qué-problemas-crees-que-pueden-aparecer-en-una-aplicación-al-querer-visualizar-listas-de-milesmillones-de-datos)
@@ -99,13 +129,17 @@
     - [¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?](#qué-diferencia-hay-entre-rendertostaticnodestream-y-rendertopipeablestream)
     - [¿Para qué sirve el hook `useDeferredValue`?](#para-qué-sirve-el-hook-usedeferredvalue)
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
+  - [¿Cómo puedo hacer testing de un componente?](#cómo-puedo-hacer-testing-de-un-componente)
+  - [¿Cómo puedo hacer testing de un hook?](#cómo-puedo-hacer-testing-de-un-hook)
     - [¿Qué es Flux?](#qué-es-flux)
   - [Errores Típicos en React](#errores-típicos-en-react)
     - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
     - [React Hook useXXX is called conditionally. React Hooks must be called in the exact same order in every component render](#react-hook-usexxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render)
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
+    - [¿Qué diferencia existe entre Shadow DOM y Virtual DOM?](#qué-diferencia-existe-entre-shadow-dom-y-virtual-dom)
     - [React Hook "useHistory" cannot be called in a class component](#react-hook-useHistory-cannot-be-called-in-a-class-component)
+
 
 ---
 
@@ -126,6 +160,7 @@ Enlaces de interés:
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
+- [Documentación oficial de React actualizada](https://beta.reactjs.org/) en inglés
 
 **[⬆ Volver a índice](#índice)**
 
@@ -311,13 +346,100 @@ Las props son una forma de parametrizar nuestros componentes igual que hacemos c
 
 ---
 
+#### ¿Qué es y para qué sirve la prop `children` en React?
+
+La prop `children` es una prop especial que se pasa a los componentes. Es un objeto que contiene los elementos que envuelve un componente.
+
+Por ejemplo, si tenemos un componente `Card` que muestra una tarjeta con un título y un contenido, podemos usar la prop `children` para mostrar el contenido:
+
+```jsx
+function Card(props) {
+  return (
+    <div className="card">
+      <h2>{props.title}</h2>
+      <div>{props.children}</div>
+    </div>
+  )
+}
+```
+
+Y luego podemos usarlo de la siguiente forma:
+
+```jsx
+<Card title="Título de la tarjeta">
+  <p>Contenido de la tarjeta</p>
+</Card>
+```
+
+En este caso, la prop `children` contiene el elemento `<p>Contenido de la tarjeta</p>`.
+
+Conocer y saber usar la prop `children` es muy importante para crear componentes reutilizables en React.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ####  ¿Qué diferencia hay entre props y state?
 
 Las *props* son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
 
 El *state* es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
 
-Así que mientras que tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
+Así que mientras tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?
+
+Sí, se puede inicializar el estado con el valor de una prop. Pero hay que tener en cuenta que, si la prop cambia, el estado no se actualizará automáticamente. Esto es porque el estado se inicializa una vez, cuando el componente se monta por primera vez.
+
+Por ejemplo, con componentes funcionales:
+
+```jsx
+const Counter = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <Count count={count} />
+      <button onClick={() => setCount(count + 1)}>Aumentar</button>
+    </div>
+  )
+}
+
+const Count = ({ count }) => {
+  const [number, setNumber] = useState(count)
+
+  return <p>{number}</p>
+}
+```
+
+En este caso, el componente `Count` inicializa su estado con el valor de la prop `count`. Pero si cambia el valor de la prop `count`, el estado no se actualizará automáticamente. Por lo que al hacer click, siempre veremos el número 0 en pantalla.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-cdf8n9?file=App.tsx)
+
+En este ejemplo, lo mejor sería simplemente usar la prop `count` en el componente `Count` y así siempre se volvería a renderizar.
+
+**Es una buena práctica evitar al máximo los estados de nuestros componentes y, siempre que se pueda, simplemente calcular el valor a mostrar a partir de las props.**
+
+En el caso que necesites inicializar un estado con una prop, es una buena práctica es añadir el prefijo de `initial` a la prop para indicar que es el valor inicial del estado y que luego no lo usaremos más:
+
+```jsx
+const Input = ({ initialValue }) => {
+  const [value, setValue] = useState(initialValue)
+
+  return (
+    <input
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  )
+}
+```
+
+Es un error muy común pensar que la prop actualizará el estado, así que tenlo en cuenta.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -355,7 +477,7 @@ Es preferible utilizar el operador ternario. *Kent C. Dodds* tiene un artículo 
 
 ---
 
-#### ¿Cómo puedes aplicar clases CSS a un componente en React?
+#### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
 
 Para aplicar clases CSS a un componente en React usamos la prop `className`:
 
@@ -454,16 +576,51 @@ function List({ items }) {
   return (
     <ul>
       {items.map(item => (
-        <li key={item.id}>{item}</li>
+        <li key={item.id}>{item.name}</li>
       ))}
     </ul>
   )
 }
 ```
 
-En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de strings. El componente `List` renderiza un elemento `li` por cada elemento del array.
+En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{ id: 1, name: "John Doe" }]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedes escribir comentarios en React?
+
+Si vas a escribir un comentario fuera del renderizado de un componente, puedes usar la sintaxis de comentarios de JavaScript sin problemas:
+
+```jsx
+function Button({ text }) {
+  // Esto es un comentario
+  /* Esto es un comentario
+  de varias líneas */
+
+  return (
+    <button>
+      {text}
+    </button>
+  )
+}
+```
+
+Si vas a escribir un comentario dentro del renderizado de un componente, debes envolver el comentario en llaves y usar siempre la sintaxis de comentarios de bloque:
+
+```jsx
+function Button({ text }) {
+  return (
+    <button>
+      {/* Esto es un comentario en el render */}
+      {text}
+    </button>
+  )
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
@@ -484,6 +641,42 @@ function Button({ text, onClick }) {
 ```
 
 En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?
+
+Para pasar un parámetro a una función que maneja un evento en React podemos usar una función anónima:
+
+```jsx
+function Button({ id, text, onClick }) {
+  return (
+    <button onClick={() => onClick(id)}>
+      {text}
+    </button>
+  )
+}
+```
+
+Cuando el usuario hace clic en el botón, se ejecuta la función `onClick` pasándole como parámetro el valor de la prop `id`.
+
+También puedes crear una función que ejecuta la función `onClick` pasándole el valor de la prop `id`:
+
+```jsx
+function Button({ id, text, onClick }) {
+  const handleClick = (event) => { // handleClick recibe el evento original
+    onClick(id)
+  }
+
+  return (
+    <button onClick={handleClick}>
+      {text}
+    </button>
+  )
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
@@ -523,7 +716,7 @@ Al usar el hook `useState` este devolverá un `array` de dos posiciones:
 0. El valor del estado.
 1. La función para cambiar el estado.
 
-Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas lineas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicando su estado inicial.
+Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas líneas de código. Por otro lado, al pasarle un dato como parámetro al `useState` le estamos indicando su estado inicial.
 
 Con un componente de clase, la creación del estado sería así:
 
@@ -595,6 +788,116 @@ function Counter() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué significa la expresión "subir el estado"?
+
+Cuando varios componentes necesitan compartir los mismos datos de un estado, entonces se recomienda elevar ese estado compartido hasta su ancestro común más cercano.
+
+Dicho de otra forma. Si dos componentes hijos comparten los mismos datos de su padre, entonces mueve el estado al padre en lugar de mantener un estado local en sus hijos.
+
+Para entenderlo, lo mejor es que lo veamos con un ejemplo. Imagina que tenemos una lista de regalos deseados y queremos poder añadir regalos y mostrar el total de regalos que hay en la lista.
+
+```jsx
+import { useState } from 'react'
+
+export default function App () {
+  return (
+    <>
+      <h1>Lista de regalos</h1>
+      <GiftList />
+      <TotalGifts />
+    </>
+  )
+}
+
+function GiftList () {
+  const [gifts, setGifts] = useState([])
+
+  const addGift = () => {
+    const newGift = prompt('¿Qué regalo quieres añadir?')
+    setGifts([...gifts, newGift])
+  }
+
+  return (
+    <>
+      <h2>Regalos</h2>
+      <ul>
+        {gifts.map(gift => (
+          <li key={gift}>{gift}</li>
+        ))}
+      </ul>
+      <button onClick={addGift}>Añadir regalo</button>
+    </>
+  )
+}
+
+function TotalGifts () {
+  const [totalGifts, setTotalGifts] = useState(0)
+
+  return (
+    <>
+      <h2>Total de regalos</h2>
+      <p>{totalGifts}</p>
+    </>
+  )
+}
+```
+
+¿Qué pasa si queremos que el total de regalos se actualice cada vez que añadimos un regalo? Como podemos ver, no es posible porque el estado de `totalGifts` está en el componente `TotalGifts` y no en el componente `GiftList`. Y como no podemos acceder al estado de `GiftList` desde `TotalGifts`, no podemos actualizar el estado de `totalGifts` cuando añadimos un regalo.
+
+Tenemos que subir el estado de `gifts` al componente padre `App` y le pasaremos el número de regalos como prop al componente `TotalGifts`.
+
+```jsx
+import { useState } from 'react'
+
+export default function App () {
+  const [gifts, setGifts] = useState([])
+
+  const addGift = () => {
+    const newGift = prompt('¿Qué regalo quieres añadir?')
+    setGifts([...gifts, newGift])
+  }
+
+  return (
+    <>
+      <h1>Lista de regalos</h1>
+      <GiftList gifts={gifts} addGift={addGift} />
+      <TotalGifts totalGifts={gifts.length} />
+    </>
+  )
+}
+
+function GiftList ({ gifts, addGift }) {
+  return (
+    <>
+      <h2>Regalos</h2>
+      <ul>
+        {gifts.map(gift => (
+          <li key={gift}>{gift}</li>
+        ))}
+      </ul>
+      <button onClick={addGift}>Añadir regalo</button>
+    </>
+  )
+}
+
+function TotalGifts ({ totalGifts }) {
+  return (
+    <>
+      <h2>Total de regalos</h2>
+      <p>{totalGifts}</p>
+    </>
+  )
+}
+```
+
+Con esto, lo que hemos hecho es *elevar el estado*. Lo hemos movido desde el componente `GiftList` al componente `App`. Ahora pasamos como prop los regalos al componente `GiftList` y una forma de actualizar el estado, y también hemos pasado como prop al componente `TotalGifts` el número de regalos.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-qitkys?file=App.tsx)
 
 **[⬆ Volver a índice](#índice)**
 
@@ -768,7 +1071,7 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-Los Fragments son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
+Los *Fragments* son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -797,6 +1100,19 @@ function App() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Por qué es recomendable usar Fragment en vez de un div?
+
+Las razones por las que es recomendable usar Fragment en vez de un `div` a la hora de envolver varios elementos son:
+
+- Los `div` añaden un elemento extra al DOM, mientras que los Fragments no. Esto hace que el número de elementos HTML y la profundidad del DOM sea menor.
+- Los elementos envueltos con Fragment son afectados directamente por las propiedades *flex* o *grid* de CSS de su elemento padre. Si usas un `div` es posible que tengas problemas con el alineamiento de los elementos.
+- Los Fragments son más rápidos que los `div` ya que no tienen que ser renderizados.
+- Los `div` aplican CSS por defecto (hace que lo que envuelve el `div` se comporte como un bloque al aplicar un `display: block`) mientras que los Fragment no aplican ningún estilo por defecto.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -899,9 +1215,497 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 **[⬆ Volver a índice](#índice)**
 
+#### ¿Qué JavaScript necesito para aprender React?
+
+##### JavaScript que necesitas para aprender React
+
+**Para aprender y dominar React necesitas saber JavaScript.** A diferencia de otros frameworks y bibliotecas, como *Angular* y *Vue*, que se basan en su propio *DSL* (Domain-Specific Language), React usa una extensión de la sintaxis de JavaScript llamada *JSX*. Más adelante lo veremos en detalle pero, al final, no deja de ser azúcar sintáctico para escribir menos JavaScript.
+
+**En React todo es JavaScript.** Para bien y para mal. Este libro da por sentados unos conocimientos previos del lenguaje de programación pero antes de empezar vamos a hacer un pequeño repaso por algunas de las características más importantes que necesitarás conocer.
+
+**Si ya dominas JavaScript puedes saltarte este capítulo** y continuar con el libro, pero recuerda que siempre podrás revisar este capítulo como referencia.
+
+##### EcmaScript Modules o ESModules
+
+Los **EcmaScript Modules** es la forma nativa que tiene JavaScript para importar y exportar variables, funciones y clases entre diferentes ficheros. Hoy en día, especialmente si trabajamos con un empaquetador de aplicaciones como Webpack, vamos a estar trabajando constantemente con esta sintaxis.
+
+Por un lado podemos crear módulos exportándolos por defecto:
+
+```js
+// sayHi.js
+// exportamos por defecto el módulo sayHi
+export default sayHi (message) {
+    console.log(message)
+}
+
+// index.js
+// este módulo lo podremos importar con el nombre que queramos
+import sayHi from './sayHi.js'
+
+// al ser el módulo exportado por defecto podríamos usar otro nombre
+import miduHi from './sayHi.js'
+```
+
+También podemos hacer exportaciones nombradas de módulos, de forma que un módulo tiene un nombre asignado y para importarlo necesitamos usar exactamente el nombre usado al exportarlo:
+
+```js
+// sayHi.js
+// podemos usar exportaciones nombradas para mejorar esto
+export const sayHi = (message) => console.log(message)
+
+// y se pueden hacer tantas exportaciones de módulos nombrados como queramos
+export const anotherHi = msg => alert(msg)
+
+// index.js
+// ahora para importar estos módulos en otro archivo podríamos hacerlo así
+import {sayHi, anotherHi} from './sayHi.js'
+```
+
+Los *imports* que hemos visto hasta aquí se conocen como *imports estáticos*. Esto significa que ese módulo será cargado en el momento de la carga del archivo que lo importa.
+
+También existen los *imports dinámicos*, de forma que podamos importar módulos que se carguen en el momento de la ejecución del programa o cuando nosotros decidamos (por ejemplo, como respuesta a un click).
+
+```js
+document.querySelector('button').addEventListener('click', () => {
+  // los imports dinámicos devuelven una Promesa
+  import('./sayHi.js').then(module => {
+    // ahora podemos ejecutar el módulo que hemos cargado
+    module.default('Hola')
+  })
+})
+```
+
+Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
+
+Existen más sintaxis para trabajar con módulos, pero con saber las que hemos visto ya sería suficiente para seguir el libro.
+
+**¿Por qué es importante?**
+
+Para empezar React te ofrece diferentes partes de su biblioteca a través de módulos que podrás importar. Además nuestros componentes los tendremos separados en ficheros y, cada uno de ellos, se podrá importar utilizando *ESModules*.
+
+Además, por temas de optimización de rendimiento, podremos importar de forma dinámica componentes y así mejorar la experiencia de nuestros usuarios al necesitar cargar menos información para poder utilizar la página.
+
+##### Operador condicional (ternario)
+
+Las ternarias son una forma de realizar condiciones sin la necesidad de usar la sintaxis con `if`. Se podría decir que es una forma de atajo para evitar escribir tanto código.
+
+```js
+if (number % 2 === 0) {
+  console.log('Es par')
+} else {
+  console.log('Es impar')
+}
+
+// usando ternaria
+number % 2 === 0 ? console.log('Es par') : console.log('Es impar')
+```
+
+**¿Por qué es importante?**
+
+En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del *JSX*.
+
+##### Funciones flecha o Arrow Functions
+
+Las *funciones flecha* o *arrow function* fueron añadidas a JavaScript en el estándar ECMAScript 6 (o ES2015). En principio parece que simplemente se trata de una sintaxis alternativa más simple a la hora de crear expresiones de funciones:
+
+```js
+const nombreDeLaFuncion = function (param1, param2) {
+  // instrucciones de la función
+}
+
+const nombreDeLaFuncion = (param1, param2) => { // con arrow function
+  // instrucciones de la función
+}
+```
+
+Pero además del cambio de sintaxis existen otras características de las funciones flechas que se usan constantemente en React.
+
+```js
+// return implícito al escribir una sola línea
+const getName = () => 'midudev'
+
+// ahorro de parentésis para función de un parámetro
+const duplicateNumber = num => num * 2
+
+// se usan mucho como callback en funciones de arrays
+const numbers = [2, 4, 6]
+const newNumbers = numbers.map(n => n / 2)
+console.log(newNumbers) // [1, 2, 3]
+```
+
+También tiene algunos cambios respecto al valor de `this` pero, aunque es aconsejable dominarlo, no es realmente necesario para poder seguir con garantías el libro.
+
+**¿Por qué es importante?**
+
+Aunque hace unos años con React se trabajaba principalmente con clases, desde la irrupción de los hooks en la versión 16.8 ya no se usan mucho. Esto hace que se usen mucho más funciones.
+
+Las funciones flecha, además, puedes verlas fácilmente conviviendo dentro de tus componentes. Por ejemplo, a la hora de renderizar una lista de elementos ejecutarás el método `.map` del array y, como callback, seguramente usarás una función flecha anónima.
+
+##### Parámetros predeterminados (default values)
+
+En JavaScript puedes proporcionar valores por defecto a los parámetros de una función en caso que no se le pase ningún argumento.
+
+```js
+// al parámetro b le damos un valor por defecto de 1
+function multiply(a, b = 1) {
+  return a * b;
+}
+
+// si le pasamos un argumento con valor, se ignora el valor por defecto
+console.log(multiply(5, 2)) // 10
+
+// si no le pasamos un argumento, se usa el valor por defecto
+console.log(multiply(5)) // 5
+
+// las funciones flecha también pueden usarlos
+const sayHi = (msg = 'Hola React!') => console.log(msg)
+sayHi() // 'Hola React!'
+```
+
+**¿Por qué es importante?**
+
+En React existen dos conceptos muy importantes: **componentes y hooks**. No vamos a entrar en detalle ahora en ellos pero lo importante es que ambos son construidos con funciones.
+
+Poder añadir valores por defecto a los parámetros de esas funciones en el caso que no venga ningún argumento **es clave** para poder controlar React con éxito.
+
+Los componentes, por ejemplo, pueden no recibir parámetros y, pese a ello, seguramente vas a querer que tengan algún comportamiento por defecto. Lo podrás conseguir de esta forma.
+
+##### Template Literals
+
+Los template literals o plantillas de cadenas llevan las cadenas de texto al siguiente nivel permitiendo expresiones incrustadas en ellas.
+
+```js
+const inicio = 'Hola'
+const final = 'React'
+
+// usando una concatenación normal sería
+const mensaje = inicio + " " + final
+
+// con los template literals podemos evaluar expresiones
+const mensaje = `${inicio} ${final}`
+```
+
+Como ves, para poder usar los template literals, necesitas usar el símbolo ```
+
+Además, nos permiten utilizar cadenas de texto de más de una línea.
+
+**¿Por qué es importante?**
+
+En React esto se puede utilizar para diferentes cosas. No sólo es normal crear cadenas de texto para mostrar en la interfaz... también puede ser útil para crear clases para tus elementos HTML de forma dinámica. Verás que los template literales están en todas partes.
+
+##### Propiedades abreviadas
+
+Desde *ECMAScript 2015* se puede iniciar un objeto utilizado nombre de propiedades abreviadas. Esto es que si quieres utilizar como valor una variable que tiene el mismo nombre que la key, entonces puedes indicar la inicialización una vez:
+
+```js
+const name = 'Miguel'
+const age = 36
+const book = 'React'
+
+// antes haríamos esto
+const persona = { name: name, age: age, book: book }
+
+// ahora podemos hacer esto, sin repetir
+const persona = { name, age, book }
+```
+
+**¿Por qué es importante?**
+
+En React se trata muchas veces con objetos y siempre vamos a querer escribir el menor número de líneas posible para mantener nuestro código fácil de mantener y entender.
+
+##### La desestructuración
+
+La sintaxis de *desestructuración* es una expresión de JavaScript que permite extraer valores de Arrays o propiedades de objetos en distintas variables.
+
+```js
+// antes
+const array = [1, 2, 3]
+const primerNumero = array[0]
+const segundoNumero = array[1]
+
+// ahora
+const [primerNumero, segundoNumero] = array
+
+// antes con objetos
+const persona = { name: 'Miguel', age: 36, book: 'React' }
+const name = persona.name
+const age = persona.age
+
+// ahora con objetos
+const {age, name} = persona
+
+// también podemos añadir valores por defecto
+const {books = 2} = persona
+console.log(persona.books) // -> 2
+
+// también funciona en funciones
+const getName = ({name}) => `El nombre es ${name}`
+getName(persona)
+```
+
+**¿Por qué es importante?**
+
+En React hay mucho código básico que da por sentado que conoces y dominas esta sintaxis. Piensa que los objetos y los arreglos son tipos de datos que son perfectos para guardar datos a representar en una interfaz. Así que poder tratarlos fácilmente te va a hacer la vida mucho más fácil.
+
+##### Métodos de Array
+
+Saber manipular arreglos en JavaScript es básico para considerar que se domina. Cada método realiza una operación en concreto y devuelve diferentes tipos de datos. Todos los métodos que veremos reciben un callback (función) que se ejecutará para cada uno de los elementos del array.
+
+Vamos a revisar algunos de los métodos más usados:
+
+```js
+// tenemos este array con diferentes elementos
+const networks = [
+  {
+    id: 'youtube',
+    url: 'https://midu.tube',
+    needsUpdate: true
+  },
+  {
+    id: 'twitter',
+    url: 'https://twitter.com/midudev',
+    needsUpdate: true
+  },
+  {
+    id: 'instagram',
+    url: 'https://instagram.com/midu.dev',
+    needsUpdate: false
+  }
+]
+
+// con .map podemos transformar cada elemento
+// y devolver un nuevo array
+networks.map(singleNetwork => singleNetwork.url)
+// Resultado:
+  [
+    'https://midu.tube',
+    'https://twitter.com/midudev',
+    'https://instagram.com/midu.dev'
+  ]
+
+// con .filter podemos filtrar elementos de un array que no
+// pasen una condición determinada por la función que se le pasa.
+// Devuelve un nuevo array.
+networks.filter(singleNetwork => singleNetwork.needsUpdate === true)
+// Resultado:
+[
+  { id: 'youtube', url: 'https://midu.tube', needsUpdate: true },
+  { id: 'twitter', url: 'https://twitter.com/midudev', needsUpdate: true }
+]
+
+// con .find podemos buscar un elemento de un array que
+// cumpla la condición definida en el callback
+networks.find(singleNetwork => singleNetwork.id === 'youtube')
+// Resultado:
+{ id: 'youtube', url: 'https://midu.tube', needsUpdate: true }
+
+// con .some podemos revisar si algún elemento del array cumple una condición
+networks.some(singleNetwork => singleNetwork.id === 'tiktok') // false
+networks.some(singleNetwork => singleNetwork.id === 'instagram') // true
+```
+
+**¿Por qué es importante?**
+
+En React es muy normal almacenar los datos que tenemos que representar en la UI como array. Esto hace que muchas veces necesitemos tratarlos, filtrarlos o extraer información de ellos. Es primordial entender, conocer y dominar al menos estos métodos, ya que son los más usados.
+
+##### Sintaxis Spread
+
+La sintaxis de spread nos permite expandir un iterable o un objeto en otro lugar dónde se espere esa información. Para poder utilizarlo, necesitamos utilizar los tres puntos suspensivos `...` justo antes.
+
+```js
+const networks = ['Twitter', 'Twitch', 'Instagram']
+const newNetwork = 'Tik Tok'
+// creamos un nuevo array expandiendo el array networks y
+// colocando al final el elemento newNetwork
+// utilizando la sintaxis de spread
+const allNetworks = [...networks, newNetwork]
+console.log(allNetworks)
+// -> [ 'Twitter', 'Twitch', 'Instagram', 'Tik Tok' ]
+```
+
+Esto mismo lo podemos conseguir con un objeto, de forma que podemos expandir todas sus propiedades en otro objeto de forma muy sencilla.
+
+```js
+const midu = { name: 'Miguel', twitter: '@midudev' }
+const miduWithNewInfo = {
+  ...midu,
+  youtube: 'https://youtube.com/midudev',
+  books: ['Aprende React']
+}
+console.log(miduWithNewInfo)
+// {
+//   name: 'Miguel',
+//   twitter: '@midudev',
+//   youtube: 'https://youtube.com/midudev',
+//   books: [ 'Aprende React' ]
+// }
+```
+
+Es importante notar que esto hace una copia, sí, pero superficial. Si tuviéramos objetos anidados dentro del objeto entonces deberíamos tener en cuenta que podríamos mutar la referencia. Veamos un ejemplo.
+
+```js
+const midu = {
+  name: 'Miguel',
+  twitter: '@midudev',
+  experience: {
+    years: 18,
+    focus: 'javascript'
+  }
+}
+
+const miduWithNewInfo = {
+  ...midu,
+  youtube: 'https://youtube.com/midudev',
+  books: ['Aprende React']
+}
+
+// cambiamos un par de propiedades de la "copia" del objeto
+miduWithNewInfo.name = 'Miguel Ángel'
+miduWithNewInfo.experience.years = 19
+
+// hacemos un console.log del objeto inicial
+console.log(midu)
+
+// en la consola veremos que el nombre no se ha modificado
+// en el objeto original pero los años de experiencia sí
+// ya que hemos mutado la referencia original
+// {
+//   name: 'Miguel',
+//   twitter: '@midudev',
+//   experience: { years: 19, focus: 'javascript' }
+// }
+```
+
+**¿Por qué es importante?**
+
+En React es muy normal tener que añadir nuevos elementos a un array o crear nuevos objetos sin necesidad de mutarlos. El operador Rest nos puede ayudar a conseguir esto. Si no conoces bien el concepto de valor y referencia en JavaScript, sería conveniente que lo repases.
+
+##### Operador Rest
+
+La sintaxis `...` hace tiempo que funciona en JavaScript en los parámetros de una función. A esta técnica se le llamaba *parámetros rest* y nos permitía tener un número indefinido de argumentos en una función y poder acceder a ellos después como un array.
+
+```js
+function suma(...allArguments) {
+  return allArguments.reduce((previous, current) => {
+    return previous + current
+  })
+}
+```
+
+Ahora el operador rest también se puede utilizar para agrupar el resto de propiedades un objeto o iterable. Esto puede ser útil para extraer un elemento en concreto del objeto o el iterable y crear una copia superficial del resto en una nueva variable.
+
+```js
+const midu = {
+  name: 'Miguel',
+  twitter: '@midudev',
+  experience: {
+    years: 18,
+    focus: 'javascript'
+  }
+}
+
+const {name, ...restOfMidu} = midu
+
+console.log(restOfMidu)
+// -> {
+//   twitter: '@midudev',
+//   experience: {
+//     years: 18,
+//     focus: 'javascript'
+//   }
+// }
+```
+
+También podría funcionar con arrays:
+
+```js
+const [firstNumber, ...restOfNumbers] = [1, 2, 3]
+console.log(firstNumber) // -> 1
+console.log(restOfNumbers) // -> [2, 3]
+```
+
+**¿Por qué es importante?**
+
+Es una forma interesante de *eliminar* (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
+
+##### Encadenamiento opcional (Optional Chaining)
+
+El operador de encadenamiento opcional `?.` te permite leer con seguridad el valor de una propiedad que está anidada dentro de diferentes niveles de un objeto.
+
+De esta forma, en lugar de revisar si las propiedades existen para poder acceder a ellas, lo que hacemos es usar el encadenamiento opcional.
+
+```js
+const author = {
+  name: 'Miguel',
+  libro: {
+    name: 'Aprendiendo React'
+  },
+  writeBook() {
+    return 'Writing!'
+  }
+};
+
+// sin optional chaining
+(author === null || author === undefined)
+    ? undefined
+    : (author.libro === null || author.libro === undefined)
+    ? undefined
+    : author.libro.name 
+
+// con optional chaining
+author?.libro?.name
+```
+
+**¿Por qué es importante?**
+
+Un objeto es una estructura de datos que es perfecta a la hora de representar muchos elementos de la UI. ¿Tienes un artículo? Toda la información de un artículo seguramente la tendrás representada en un objeto.
+
+Conforme tu UI sea más grande y compleja, estos objetos tendrán más información y necesitarás dominar el encadenamiento opcional `?.` para poder acceder a su información con garantías.
+
+**[⬆ Volver a índice](#índice)**
+
 ---
 
 ### Intermedio
+
+#### ¿Cómo crear un hook personalizado (*custom hook*)?
+
+Un hook personalizado es una función que empieza con la palabra `use` y que puede utilizar otros hooks. Son ideales para reutilizar lógica en diferentes componentes. Por ejemplo, podemos crear un hook personalizado para extraer la gestión del estado de un contador:
+
+```js
+// ./hooks/useCounter.js
+
+export function useCounter() {
+  const [count, setCount] = useState(0)
+
+  const increment = () => setCount(count + 1)
+  const decrement = () => setCount(count - 1)
+
+  return { count, increment, decrement }
+}
+```
+
+Para usarlo en un componente:
+
+```js
+import { useCounter } from './hooks/useCounter.js'
+
+function Counter() {
+  const { count, increment, decrement } = useCounter()
+
+  return (
+    <>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </>
+  )
+}
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Cuántos `useEffect` puede tener un componente?
 
@@ -1320,7 +2124,7 @@ En cada uno de estos métodos podemos ejecutar código que nos permita controlar
 
 ---
 
-#### ¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?
+#### ¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?
 
 Cuando renderizamos una lista de elementos, React necesita saber qué elementos han cambiado, han sido añadidos o eliminados.
 
@@ -1507,7 +2311,7 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 ---
 
-#### ¿Qué hace el hook useLayoutEffect?
+#### ¿Qué hace el hook `useLayoutEffect`?
 
 `useLayoutEffect` funciona igual que el hook `useEffect`, con la excepción de que este se dispara sincrónicamente después de leer todas las mutaciones del DOM.
 
@@ -1688,7 +2492,167 @@ export function ButtonSecondary({children}) {
 
 ---
 
-#### ¿Qué es el contexto en React?
+#### ¿Cómo puedo importar de forma dinámica un componente en React?
+
+Para importar de forma dinámica un componente en React debemos usar la función `import()`, el método `lazy()` de React y el componente `Suspense`.
+
+```jsx
+// App.jsx
+import { lazy, Suspense } from 'react'
+
+const Button = lazy(() => import('./button.jsx'))
+
+export default function App() {
+  return (
+    <Suspense fallback={<div>Cargando botón...</div>}>
+      <Button />
+    </Suspense>
+  )
+}
+
+// button.jsx
+export default function Button() {
+  return <button>Botón cargado dinámicamente</button>
+}
+```
+
+Vamos a ver en detalle cada uno de los elementos que hemos usado:
+
+La función `import()` es parte del estándar de ECMAScript y nos permite importar de forma dinámica un módulo. Esta función devuelve una promesa que se resuelve con el módulo importado.
+
+El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`. Ten en cuenta que el componente que devuelve `lazy()` **debe ser un componente de React y ser exportado por defecto** (`export default`).
+
+El componente `Suspense` nos permite mostrar un mensaje mientras se está cargando el componente. Este componente recibe una prop `fallback` que es el mensaje que se muestra mientras se está cargando el componente.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-n6zal2?file=App.tsx)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cuando y por qué es recomendable importar componentes de forma dinámica?
+
+En React, nuestras aplicaciones están creadas a partir de componentes. Estos componentes se pueden importar de forma **estática o dinámica**.
+
+La importación de componentes de forma estática es la forma más común de importar componentes en React. En este caso, los componentes se importan en la parte superior del fichero y se renderizan en el código. El problema es que, si siempre lo hacemos así, es bastante probable que estemos cargando componentes que no se van a usar desde el principio.
+
+```jsx
+import { useState } from 'react'
+// importamos de forma estática el componente de la Modal
+import { SuperBigModal } from './super-big-modal.jsx'
+
+// mostrar modal si el usuario da click en un botón
+export default function App () {
+  const [showModal, setShowModal] = useState(false)
+
+  return (
+    <div>
+      <button onClick={() => setShowModal(true)}>Mostrar modal</button>
+      {showModal && <SuperBigModal />}
+    </div>
+  )
+}
+```
+
+Este componente `SuperBigModal` se importa de forma estática, por lo que se carga desde el principio. Pero, ¿qué pasa si el usuario no da click en el botón para mostrar la modal? En este caso, está cargando el componente pese a que no lo está usando.
+
+Si queremos ofrecer la mejor experiencia a nuestros usuarios, debemos intentar que la aplicación cargue lo más rápido posible. Por eso, es recomendable importar de forma dinámica los componentes que no se van a usar desde el principio.
+
+```jsx
+import { useState } from 'react'
+// importamos de forma dinámica el componente de la Modal
+const SuperBigModal = lazy(() => import('./super-big-modal.jsx'))
+
+// mostrar modal si el usuario da click en un botón
+export default function App () {
+  const [showModal, setShowModal] = useState(false)
+
+  return (
+    <div>
+      <button onClick={() => setShowModal(true)}>Mostrar modal</button>
+      <Suspense fallback={<div>Cargando modal...</div>}>
+        {showModal && <SuperBigModal />}
+      </Suspense>
+    </div>
+  )
+}
+```
+
+De esta forma, la parte de código que importa el componente `SuperBigModal` se carga de forma dinámica, es decir, cuando el usuario da click en el botón para mostrar la modal.
+
+Dependiendo del empaquetador de aplicaciones web que uses y su configuración, es posible que el resultado de la carga sea diferente (algunos creará un archivo a parte del *bundle* principal, otros podrían hacer un streaming del HTML...) pero la intención del código es la misma.
+
+Así que siempre debemos intentar cargar los componentes de forma dinámica cuando no se vayan a usar desde el principio, sobretodo cuando están detrás de la interacción de un usuario. Lo mismo podría ocurrir con rutas completas de nuestra aplicación. ¿Por qué cargar la página de *About* si el usuario está visitando la página principal?
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Sólo se pueden cargar componentes de forma dinámica si se exportan por defecto?
+
+No, no es necesario que los componentes se exporten por defecto para poder cargarlos de forma dinámica. Podemos exportarlos de forma nombrada y cargarlos de forma dinámica... pero no es lo más recomendable ya que el código necesario es mucho más lioso.
+
+```jsx
+// button.jsx
+// exportamos el componente Button de forma nombrada
+export function Button() {
+  return <button>Botón cargado dinámicamente</button>
+}
+
+// app.jsx
+import { lazy, Suspense } from 'react'
+
+// Al hacer el import dinámico, debemos especificar el nombre del componente que queremos importar
+// y hacer que devuelva un objeto donde la key default pasar a ser el componente nombrado
+const Button = lazy(
+  () => import('./button.jsx')
+  .then(({Button}) => ({ default: Button }))
+)
+
+export default function App () {
+  return (
+    <div>
+      <Suspense fallback={<div>Cargando botón...</div>}>
+        <Button />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+Otra opción es tener un fichero intermedio que exporte el componente de forma por defecto y que sea el que importemos de forma dinámica.
+
+```jsx
+// button-component.jsx
+// exportamos el componente Button de forma nombrada
+export function Button() {
+  return <button>Botón cargado dinámicamente</button>
+}
+
+// button.jsx
+export { Button as default } from './button-component.jsx'
+
+// app.jsx
+import { lazy, Suspense } from 'react'
+
+const Button = lazy(() => import('./button.jsx'))
+
+export default function App () {
+  return (
+    <div>
+      <Suspense fallback={<div>Cargando botón...</div>}>
+        <Button />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el contexto en React? ¿Cómo puedo crearlo y consumirlo?
 
 El contexto es una forma de pasar datos a través de la jerarquía de componentes sin tener que pasar props manualmente en cada nivel.
 
@@ -1758,14 +2722,14 @@ function App() {
       setId(2)
       // component re-renderiza aquí 🔄
     })
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
+    // component ha sido re-renderizado y el DOM ha sido actualizado ✅
     flushSync(() => {
       setName("John")
       // component no hace re-render 🚫
       setEmail("john@doe.com")
       // component re-renderiza aquí 🔄
     })
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
+    // component ha sido re-renderizado y el DOM ha sido actualizado ✅
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
@@ -1834,6 +2798,220 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 ---
 
+#### ¿Qué son las Forward Refs?
+
+El reenvío de referencia o *Forward Refs* es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
+
+```jsx
+// Button.jsx
+import { forwardRef } from 'react'
+
+export const Button = forwardRef((props, ref) => (
+  <button ref={ref} className="rounded border border-sky-500 bg-white">
+    {props.children}
+  </button>
+));
+
+// Parent.jsx
+import { Button } from './Button'
+import { useRef } from 'react'
+
+const Parent = () => {
+  const ref = useRef()
+
+  useEffect(() => {
+    // Desde el padre podemos hacer focus
+    // al botón que tenemos en el hijo
+    ref.current?.focus?.()
+  }, [ref.current])
+
+  return (
+    <Button ref={ref}>My button</Button>
+  )
+}
+```
+
+En este ejemplo, recuperamos la referencia del botón (elemento HTML `<button>`) y la recupera el componente padre (`Parent`), para poder hacer focus en él gracias al uso de `forwardRef` en el componente hijo (`Button`).
+
+Para la gran mayoría de componentes esto no es necesario pero puede ser útil para sistemas de diseño o componentes de terceros reutilizables.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo validar el tipo de mis props?
+
+React proporciona una forma de validar el tipo de las props de un componente en tiempo de ejecución y en modo desarrollo. Esto es útil para asegurarnos de que los componentes se están utilizando correctamente.
+
+El paquete se llama `prop-types` y se puede instalar con `npm install prop-types`.
+
+```jsx
+import PropTypes from "prop-types"
+
+function App(props) {
+  return <h1>{props.title}</h1>
+}
+
+App.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+```
+
+En este ejemplo, estamos validando que la prop `title` sea de tipo `string` y que sea obligatoria.
+
+Existen una colección de *PropTypes* ya definidas para ayudarte a comprobar los tipos de las props más comunes:
+
+```js
+PropTypes.number // número
+PropTypes.string // string
+PropTypes.array // array
+PropTypes.object // objeto
+PropTypes.bool // un booleano
+PropTypes.func // función
+PropTypes.node // cualquier cosa renderizable en React, como un número, string, elemento, array, etc.
+PropTypes.element // un elemento React
+PropTypes.symbol // un Symbol de JavaScript
+PropTypes.any // cualquier tipo de dato
+```
+
+A todas estas se le puede añadir la propiedad `isRequired` para indicar que es obligatoria.
+
+> Otra opción es usar TypeScript, un lenguaje de programación que compila a JavaScript y que ofrece validación de tipos de forma estática. Ten en cuenta que mientras que TypeScript comprueba los tipos en tiempo de compilación, las PropTypes lo hacen en tiempo de ejecución.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo validar las propiedades de un objeto con PropTypes?
+
+Para validar las propiedades de un objeto que se pasa como prop, podemos usar la propiedad `shape` de `PropTypes`:
+
+```jsx
+import PropTypes from "prop-types"
+
+function App({ title }) {
+  const { text, color } = title
+  return <h1 style={{ color }}>{text}</h1>
+}
+
+App.propTypes = {
+  title: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }),
+}
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo validar las propiedades de un array con PropTypes?
+
+Para validar las propiedades de un array que se pasa como prop, podemos usar la propiedad `arrayOf` de `PropTypes`:
+
+```jsx
+import PropTypes from "prop-types"
+
+function App({ items }) {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.text}>{item.text}</li>
+      ))}
+    </ul>
+  )
+}
+
+App.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+}
+```
+
+En este caso estamos validando que `items` sea un array y que cada uno de sus elementos sea un objeto con la propiedad `text` de tipo `string`. Además, la prop es obligatoria.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo inyectar HTML directamente en un componente de React?
+
+Una de las razones por las que se creó React es para evitar los ataques XSS (*Cross-Site Scripting*), impidiendo que un usuario pueda inyectar código HTML en la página.
+
+Por ello, React al intentar evaluar un string que contiene HTML lo escapa automáticamente. Por ejemplo, si intentamos renderizar el siguiente string:
+
+```jsx
+const html = "<h1>My title</h1>"
+
+function App() {
+  return <div>{html}</div>
+}
+```
+
+Veremos que en lugar de renderizar el HTML, lo escapa:
+
+```html
+<div>&lt;h1&gt;My title&lt;/h1&gt;</div>
+```
+
+Sin embargo, hay ocasiones en las que es necesario inyectar HTML directamente en un componente. Ya sea por traducciones que tenemos, porque viene el HTML desde el servidor y ya viene saneado, o por un componente de terceros.
+
+Para ello, podemos usar la propiedad `dangerouslySetInnerHTML`:
+
+```jsx
+const html = "<h1>My title</h1>"
+
+function App() {
+  return <div dangerouslySetInnerHTML={{ __html: html }} />
+}
+```
+
+Ahora sí veremos el HTML renderizado:
+
+```html
+<div><h1>My title</h1></div>
+```
+
+Como ves, **el nombre ya nos indica que es una propiedad peligrosa y que debemos usarla con cuidado.** Intenta evitarla siempre que puedas y sólo recurre a ella cuando realmente no tengas otra opción.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?
+
+Digamos que tenemos un componente `App` que recibe un objeto `props` con todas las props que necesita:
+
+```jsx
+function App(props) {
+  return <h1>{props.title}</h1>
+}
+```
+
+Y que tenemos otro componente `Layout` que recibe un objeto `props` con todas las props que necesita:
+
+```jsx
+function Layout(props) {
+  return (
+    <div>
+      <App {...props} />
+    </div>
+  )
+}
+```
+
+En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto puede ser una mala idea por varias razones:
+
+- Si `Layout` recibe una prop que no necesita, la pasará a `App` y éste puede que no la use. Esto puede ser confuso para el que lea el código.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -1888,6 +3066,38 @@ Para que el componente padre pueda acceder al método `focus`, usamos el hook `u
 
 ---
 
+#### ¿Para qué sirve el método `cloneElement` de React?
+
+Te permite clonar un elemento React y añadirle o modificar las props que recibe.
+
+```jsx
+import { cloneElement } from 'react'
+
+const Hello = ({ name }) => <h1>Hello {name}</h1>
+
+const App = () => {
+  const element = <Hello name="midudev" />
+
+  return (
+    <div>
+      {cloneElement(element, { name: 'TMChein' })}
+      {cloneElement(element, { name: 'Madeval' })}
+      {cloneElement(element, { name: 'Gorusuke' })}
+    </div>
+  )
+}
+```
+
+En este ejemplo, clonamos `element` que tenía la prop `midudev` y le pasamos una prop `name` diferente cada vez. Esto renderizará tres veces el componente `Hello` con los nombres `TMChein`, `Madeval` y `Gorusuke`. Sin rastro de la prop original.
+
+Puede ser útil para modificar un elemento que ya nos viene de un componente padre y del que no tenemos posibilidad de re-crear con el componente.
+
+- [Código de ejemplo](https://stackblitz.com/edit/react-ts-tc39vr?file=App.tsx)
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué son los portales en React?
 
 Los portales nos permiten renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.
@@ -1922,6 +3132,10 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
 - **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategia. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
@@ -1950,7 +3164,7 @@ function Movies () {
     const abortController = new AbortController()
 
     // pasamos el signal al fetch para que sepa que debe abortar
-    fetchMovies({ signal: controller.signal })
+    fetchMovies({ signal: abortController.signal })
       .then(() => {
         setMovies(data.results)
       }).catch(error => {
@@ -1962,7 +3176,7 @@ function Movies () {
     return () => {
       // al desmontar el componente, abortamos la petición
       // sólo funcionará si la petición sigue en curso
-      controller.abort()
+      abortController.abort()
     }
   })
 
@@ -2210,6 +3424,65 @@ try {
 
 ---
 
+### ¿Cómo puedo hacer testing de un componente?
+
+Para hacer testing de un componente, puedes usar la función `render` de la librería `@testing-library/react`. Esta función nos permite renderizar un componente y obtener el resultado.
+
+```jsx
+import { render } from '@testing-library/react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  const increment = () => setCount(count + 1)
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  )
+}
+
+test('Counter', () => {
+  const { getByText } = render(<Counter />)
+
+  expect(getByText('Count: 0')).toBeInTheDocument()
+  fireEvent.click(getByText('Increment'))
+  expect(getByText('Count: 1')).toBeInTheDocument()
+})
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+### ¿Cómo puedo hacer testing de un hook?
+
+Para hacer testing de un hook, puedes usar la función `renderHook` de la librería `@testing-library/react-hooks`. Esta función nos permite renderizar un hook y obtener el resultado.
+
+```jsx
+import { renderHook } from '@testing-library/react-hooks'
+
+function useCounter() {
+  const [count, setCount] = useState(0)
+  const increment = () => setCount(count + 1)
+  return { count, increment }
+}
+
+test('useCounter', () => {
+  const { result } = renderHook(() => useCounter())
+
+  expect(result.current.count).toBe(0)
+  act(() => {
+    result.current.increment()
+  })
+  expect(result.current.count).toBe(1)
+})
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 #### ¿Qué es Flux?
 
 *Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
@@ -2405,7 +3678,7 @@ Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. E
 
 #### Too many re-renders. React limits the number of renders to prevent an infinite loop
 
-Este error nos indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
+Este error indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
 
 1. **Llamar a una función que actualiza el estado en el renderizado del componente.**
 
@@ -2515,6 +3788,94 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 
 ---
 
+
+#### ¿Qué diferencia existe entre Shadow DOM y Virtual DOM?
+
+El **Shadow DOM** es una API del navegador que nos permite crear un árbol de nodos DOM independiente dentro de un elemento del DOM. Esto nos permite crear componentes que no interfieran con el resto de la aplicación. Se usa especialmente con Web Components.
+
+El **Virtual DOM** es una representación del DOM en memoria. Esta representación se crea cada vez que se produce un cambio en el DOM. Esto nos permite comparar el DOM actual con el DOM anterior y así determinar qué cambios se deben realizar en el DOM real. Lo usa React y otras bibliotecas para hacer el mínimo número de cambios en el DOM real.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el Binding?
+
+En React, el **Binding** se refiere a la forma en que se relaciona y sincroniza el **estado** *(state)* de un componente con su **vista** *(render)*. El estado de un componente es un objeto que contiene información que puede ser utilizada para determinar cómo se debe mostrar el componente. Existen **dos** tipos de binding en React: **One-Way Binding** y **Two-Way Binding**.
+
+**One-Way Binding** *(Enlace unidireccional)*:
+
+En React se refiere a la capacidad de un componente para actualizar su **estado** *(state)* y su **vista** *(render)* de manera automática cuando cambia el estado, pero no permitiendo que la vista actualice el estado. En otras palabras, el **one-way binding** significa que el flujo de datos es unidireccional, desde el estado hacia la vista, y no al revés.
+
+Por ejemplo:
+
+```jsx
+import React, { useState } from 'react';
+
+function OneWayBindingExample() {
+  const [name, setName] = useState('midu');
+
+  return (
+    <div>
+      <p>Hello, {name}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default OneWayBindingExample;
+```
+
+*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input. Sin embargo, la **vista** (la linea que muestra **Hello, {name}**) no tiene la capacidad de actualizar el estado **name**.*
+
+**Two-Way Binding** *(Enlace bidireccional)*:
+
+Se refiere a la capacidad de un componente para actualizar su estado y su vista de manera automática tanto cuando cambia el estado como cuando se produce un evento en la vista. En otras palabras, el **Two-Way Binding** significa que el flujo de datos es bidireccional, desde el estado hacia la vista y desde la vista hacia el estado. Para lograr esto se utilizan en conjunto con los eventos, como **onChange**, para capturar la información de los inputs y actualizar el estado, *React no proporciona un mecanismo nativo para two-way binding, pero se puede lograr utilizando librerías como react-forms o formik.*
+
+Por ejemplo:
+
+```jsx
+import React, { useState } from 'react';
+
+function TwoWayBindingExample() {
+  const [name, setName] = useState('midu');
+
+  return (
+    <div>
+      <p>Hello, {name}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default TwoWayBindingExample;
+```
+
+*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input, y se puede ver reflejado en el valor del input. Sin embargo, en este caso se está utilizando el atributo **value** para que el valor del input sea actualizado con el valor del estado, es decir, se está actualizando tanto el estado como el input.*
+
+**Por si no quedó claro:**
+
+En términos sencillos, el **Binding** en React puede compararse con una cafetera y una taza de café. **El estado** del componente sería la *cafetera*, y **la vista** del componente sería *la taza de café*.
+
+En el caso del **One-Way Binding**, la cafetera solo puede verter café en una dirección, hacia la taza de café. Esto significa que la cafetera puede llenar automáticamente la taza de café con café fresco, pero la taza de café no puede devolver automáticamente el café a la cafetera. De esta manera, **el estado** del componente *(la cafetera)* puede actualizar automáticamente **la vista** *(la taza de café)* cuando cambia, pero la **vista** no puede actualizar automáticamente el **estado**.
+
+En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en ambas direcciones, hacia y desde la taza de café (no sé por qué alguien necesitaría hacer algo así). Esto significa que la cafetera puede llenar y vaciar automáticamente la taza de café con café fresco. De esta manera, tanto **el estado** del componente como **la vista** pueden actualizarse automáticamente entre sí.
+
+Sí quieres saber más comparto el siguiente enlace:  
+[How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)  
+
+**[⬆ Volver a índice](#índice)**
+
+---
 #### React Hook "useHistory" cannot be called in a class component
 
 A partir de la versión 16.8.0, React introdujo Hooks(ganchos). Te permiten escribir mejor código de React y hacer uso de estados y métodos de ciclo de vida de componentes dentro de componentes funcionales."useHistory" es uno de los hooks que React proporciona.
