@@ -8,7 +8,7 @@ export const BuyBook = () => {
     <div className='fixed m-4 bottom-4 right-4'>
       <div className='relative'>
         <a href='https://leanpub.com/react-preguntas-tipicas' target='_blank' rel='noreferrer'>
-          <strong className='block p-2 text-xs bg-white rounded-full'>Compra el libro</strong>
+          <strong className='block p-2 text-xs dark:bg-secondry dark:text-white bg-white rounded-full'>Compra el libro</strong>
           <BookCover>
             <Image
               alt='Portada del libro de Preguntas de React'

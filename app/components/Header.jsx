@@ -11,6 +11,7 @@ import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
 import { Stars } from './Stars.jsx'
+import ThemeToggle from "./ThemeToggle";
 
 export function Header ({ stars }) {
   const pathname = usePathname()
@@ -52,7 +53,8 @@ export function Header ({ stars }) {
 
       {
         isHome && (
-          <div className='absolute right-0 flex gap-x-2 top-1'>
+          <div className='absolute right-0 flex items-center gap-x-2 top-1'>
+            <ThemeToggle/>
             <Stars stars={stars} />
             <button
               className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'
@@ -94,7 +96,7 @@ export function Header ({ stars }) {
           </div>
           <Combobox.Input
             autoFocus
-            className={`search-input z-10 block w-full p-4 md:p-6 pl-14 md:pl-20 text-base md:text-xl font-bold bg-white border border-gray-300 rounded-3xl outline-none appearance-none hover:shadow-lg focus:shadow-blue-100 focus:border-blue-300 ${
+            className={`search-input z-10 block w-full p-4 md:p-6 pl-14 md:pl-20 text-base md:text-xl font-bold dark:bg-secondry bg-white border dark:border-[#a9a9a9] border-gray-300 rounded-3xl outline-none appearance-none dark:hover:shadow-darkbox hover:shadow-lg dark:focus:shadow-darkbox focus:shadow-blue-100 focus:border-blue-300 ${
               results.length && 'focus:border-b-0 focus:rounded-b-none'
             }`}
             onChange={debouncedHandleChange}

@@ -7,7 +7,7 @@ export async function Footer () {
         </p>
       </section>
 
-      <div className='mt-4 border-t md:py-4 bg-slate-100 border-t-slate-100'>
+      <div className='mt-4 border-t md:py-4 dark:bg-primary dark:text-white bg-slate-100 dark:border-t-secondry border-t-slate-100'>
         <section className='flex flex-col items-center justify-between w-full max-w-6xl gap-3 px-4 m-auto mx-auto md:flex-row'>
           <p className='flex items-center text-sm opacity-75 gap-x-2'>Desarrollado con ❤️ por <a className='underline' href='https://midu.dev/' target='_blank' rel='noreferrer'>midudev</a></p>
           <div className='flex gap-x-2'>
