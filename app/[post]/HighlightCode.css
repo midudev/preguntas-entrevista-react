@@ -194,3 +194,7 @@ code.language-css .token.selector > .token.pseudo-element {
 .line-highlight.line-highlight[data-end]:after {
 	content: '';
 }
+
+.dark strong{
+	color:black;
+}

@@ -26,12 +26,12 @@ export function ButtonRead ({ title }) {
     }
   }
 
-  const color = !isFavorite ? 'bg-white' : 'bg-green-200'
+  const color = !isFavorite ? 'dark:bg-secondry bg-white' : 'dark:text-primary bg-green-200'
   return (
     <div>
       <button
         onClick={() => handleSetRead(title)}
-        className={`${color} border uppercase mix rounded-[4px] font-bold inline-block p-[3px] text-[10px]`}
+        className={`${color} border dark:border-white uppercase mix rounded-[4px] font-bold inline-block p-[3px] text-[10px]`}
       >
         {!isFavorite ? 'Marcar leído' : 'Marcar no leído'}
       </button>
