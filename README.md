@@ -2258,7 +2258,7 @@ La diferencia entre `useCallback` y `useMemo` es que `useCallback` memoriza una 
 En cualquier caso, en realidad, `useCallback` es una versión especializada de `useMemo`. De hecho se puede simular la funcionalidad de `useCallback` con `useMemo`:
 
 ```js
-const memoizedCallback = useMemo(() => {
+const memorizedCallback = useMemo(() => {
   return () => {
     doSomething(a, b)
   }
