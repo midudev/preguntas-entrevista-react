@@ -115,12 +115,12 @@ export function Header ({ stars }) {
                 const [{ indices }] = matches
 
                 const [bestMatch] = indices.sort((a, b) => (b[1] - b[0]) - (a[1] - a[0]))
-                const html = text.slice(0, bestMatch[0]) + '<span class="bg-yellow-200">' + text.slice(bestMatch[0], bestMatch[1] + 1) + '</span>' + text.slice(bestMatch[1] + 1)
+                const html = text.slice(0, bestMatch[0]) + '<span class="bg-yellow-300 dark:text-black">' + text.slice(bestMatch[0], bestMatch[1] + 1) + '</span>' + text.slice(bestMatch[1] + 1)
 
                 return (
                   <Combobox.Option key={id} value={{ id, text }}>
                     {({ active, selected }) => (
-                      <span className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100' : 'bg-white'}`} href={`/${id}/#content`}>
+                      <span className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100 dark:bg-slate-800' : 'bg-white dark:bg-secondry'}`} href={`/${id}/#content`}>
                         {selected && <span className='sr-only'>Seleccionado</span>}
                         <strong dangerouslySetInnerHTML={{ __html: html }} />
                       </span>
