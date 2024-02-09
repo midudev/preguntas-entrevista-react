@@ -3037,6 +3037,8 @@ const ListaItems = ({ items }) => {
 export default ListaItems;
 ```
 
+---
+
 **[⬆ Volver a índice](#índice)**
 
 ### Experto
