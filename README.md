@@ -110,6 +110,7 @@
     - [¿Cómo puedo validar las propiedades de un array con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-array-con-proptypes)
     - [¿Cómo puedo inyectar HTML directamente en un componente de React?](#cómo-puedo-inyectar-html-directamente-en-un-componente-de-react)
     - [¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?](#por-qué-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente)
+    - [¿Cuál es el propósito del atributo "key" en React y por qué es importante usarlo correctamente al renderizar listas de elementos?](#cuál-es-el-propósito-del-atributo-key-en-react-y-por-qué-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
@@ -3009,6 +3010,34 @@ En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto pu
 **[⬆ Volver a índice](#índice)**
 
 ---
+
+#### ¿Cuál es el propósito del atributo "key" en React y por qué es importante usarlo correctamente al renderizar listas de elementos?
+
+El propósito del atributo "key" en React es proporcionar una identificación única a cada elemento en una lista renderizada dinámicamente. Esto permite a React identificar qué elementos han cambiado, añadido o eliminado de la lista cuando se realiza una actualización. 
+
+Cuando se renderiza una lista en React sin el atributo "key", React puede tener dificultades para identificar correctamente los cambios en la lista, lo que puede resultar en un comportamiento inesperado, como la re-renderización innecesaria de elementos o la pérdida de estado de los componentes.
+
+Por lo tanto, es importante utilizar el atributo "key" de manera correcta y única para cada elemento de la lista, preferiblemente utilizando identificadores únicos de cada elemento en lugar de índices de array, para garantizar un rendimiento óptimo y un comportamiento predecible en la aplicación.
+
+Ejemplo de cómo utilizar el atributo "key" en React:
+
+```jsx
+import React from 'react';
+
+const ListaItems = ({ items }) => {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.id}>{item.nombre}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default ListaItems;
+```
+
+**[⬆ Volver a índice](#índice)**
 
 ### Experto
 
