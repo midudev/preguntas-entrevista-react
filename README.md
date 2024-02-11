@@ -139,6 +139,8 @@
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
     - [¿Qué diferencia existe entre Shadow DOM y Virtual DOM?](#qué-diferencia-existe-entre-shadow-dom-y-virtual-dom)
+    - [React Hook "useHistory" cannot be called in a class component](#react-hook-useHistory-cannot-be-called-in-a-class-component)
+
 
 ---
 
@@ -3817,6 +3819,7 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 
 ---
 
+
 #### ¿Qué diferencia existe entre Shadow DOM y Virtual DOM?
 
 El **Shadow DOM** es una API del navegador que nos permite crear un árbol de nodos DOM independiente dentro de un elemento del DOM. Esto nos permite crear componentes que no interfieran con el resto de la aplicación. Se usa especialmente con Web Components.
@@ -3900,6 +3903,38 @@ En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en 
 
 Sí quieres saber más comparto el siguiente enlace:  
 [How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)  
+
+**[⬆ Volver a índice](#índice)**
+
+---
+#### React Hook "useHistory" cannot be called in a class component
+
+A partir de la versión 16.8.0, React introdujo Hooks(ganchos). Te permiten escribir mejor código de React y hacer uso de estados y métodos de ciclo de vida de componentes dentro de componentes funcionales."useHistory" es uno de los hooks que React proporciona.
+
+Si tienes un componente basado en clases, no puedes usar estos hooks. Necesitas refactorizar el código para convertirlo a componentes funcionales. Si no lo haces, es posible que obtengas este error.
+
+No llame a Hooks dentro de bucles, condiciones o funciones anidadas. En su lugar, use siempre Hooks en el nivel superior de su función React, antes de cualquier retorno anticipado.
+
+Ejemplo:
+
+```jsx
+import { useHistory } from 'react-router-dom';
+
+const App = () => {
+  const history = useHistory();
+
+  const redirect = () => {
+    history.push('/login');
+  }
+
+  return (
+    <div>
+      <h1>Hi there!</h1>
+      <button onClick={redirect}>Log in</button>
+    </div>
+  );
+};
+```
 
 **[⬆ Volver a índice](#índice)**
 
