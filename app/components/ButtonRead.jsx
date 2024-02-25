@@ -10,6 +10,18 @@ export function ButtonRead ({ title }) {
     setIsRead(readStorage.includes(title))
   }, [title])
 
+  useEffect(() => {
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'read') {
+        setIsRead(JSON.parse(event.newValue).includes(title))
+      }
+    })
+
+    return () => {
+      window.removeEventListener('storage', () => {})
+    }
+  }, [title])
+
   const handleSetRead = (title) => {
     if (title) {
       const read = JSON.parse(localStorage.getItem('read') || [])
