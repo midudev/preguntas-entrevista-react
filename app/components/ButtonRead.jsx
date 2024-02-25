@@ -7,7 +7,7 @@ export function ButtonRead ({ title }) {
   const [isFavorite, setIsRead] = useState(false)
 
   useEffect(() => {
-    const readStorage = JSON.parse(localStorage.getItem('read') || [])
+    const readStorage = JSON.parse(localStorage.getItem('read')) || []
     setIsRead(readStorage.includes(title))
   }, [title])
 
@@ -24,7 +24,7 @@ export function ButtonRead ({ title }) {
 
   const handleSetRead = (title) => {
     if (title) {
-      const read = JSON.parse(localStorage.getItem('read') || [])
+      const read = JSON.parse(localStorage.getItem('read')) || []
       const isFavorite = read.includes(title)
       if (isFavorite) {
         read.splice(read.indexOf(title), 1)
