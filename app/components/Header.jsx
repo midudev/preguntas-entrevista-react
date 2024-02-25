@@ -12,6 +12,7 @@ import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
 import { Stars } from './Stars.jsx'
 import ThemeToggle from './ThemeToggle'
+import { useEventListener } from '../../hooks/useEventListener'
 
 export function Header ({ stars }) {
   const pathname = usePathname()
@@ -34,6 +35,17 @@ export function Header ({ stars }) {
     []
   )
 
+  const handlerStorageListener = useCallback((event) => {
+    if (event.key === 'read') {
+      setRead(JSON.parse(event.newValue).length)
+    }
+  }, [])
+
+  useEventListener({
+    eventName: 'storage',
+    handler: handlerStorageListener
+  })
+
   useEffect(() => {
     setOpen(false)
     setResults([])
@@ -42,18 +54,6 @@ export function Header ({ stars }) {
   useEffect(() => {
     const readStorage = JSON.parse(localStorage.getItem('read')) || []
     setRead(readStorage.length)
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'read') {
-        setRead(JSON.parse(event.newValue).length)
-      }
-    })
-
-    return () => {
-      window.removeEventListener('storage', () => {})
-    }
   }, [])
 
   const handleSelect = (result) => {

@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { useEventListener } from '../../hooks/useEventListener'
 
 export function ButtonRead ({ title }) {
   const [isFavorite, setIsRead] = useState(false)
@@ -10,17 +11,16 @@ export function ButtonRead ({ title }) {
     setIsRead(readStorage.includes(title))
   }, [title])
 
-  useEffect(() => {
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'read') {
-        setIsRead(JSON.parse(event.newValue).includes(title))
-      }
-    })
-
-    return () => {
-      window.removeEventListener('storage', () => {})
+  const handlerStorageListener = useCallback((event) => {
+    if (event.key === 'read') {
+      setIsRead(JSON.parse(event.newValue).includes(title))
     }
   }, [title])
+
+  useEventListener({
+    eventName: 'storage',
+    handler: handlerStorageListener
+  })
 
   const handleSetRead = (title) => {
     if (title) {
