@@ -3,30 +3,31 @@
 import { useState, useEffect } from 'react'
 
 export function ButtonRead ({ title }) {
-  const [read, setRead] = useState([])
   const [isFavorite, setIsRead] = useState(false)
 
   useEffect(() => {
-    const readStorage = JSON.parse(localStorage.getItem('read')) || []
-    setRead(readStorage)
+    const readStorage = JSON.parse(localStorage.getItem('read') || [])
     setIsRead(readStorage.includes(title))
   }, [title])
 
   const handleSetRead = (title) => {
     if (title) {
+      const read = JSON.parse(localStorage.getItem('read') || [])
       const isFavorite = read.includes(title)
-      if (!isFavorite) {
-        read.push(title)
-        setIsRead(true)
-      } else {
+      if (isFavorite) {
         read.splice(read.indexOf(title), 1)
         setIsRead(false)
+      } else {
+        read.push(title)
+        setIsRead(true)
       }
       localStorage.setItem('read', JSON.stringify(read))
     }
   }
 
-  const color = !isFavorite ? 'dark:bg-secondry bg-white' : 'dark:text-primary bg-green-200'
+  const color = !isFavorite
+    ? 'dark:bg-secondry bg-white'
+    : 'dark:text-primary bg-green-200'
   return (
     <div>
       <button
