@@ -11,14 +11,13 @@ import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
 import { Stars } from './Stars.jsx'
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from './ThemeToggle'
 
 export function Header ({ stars }) {
   const pathname = usePathname()
   const [read, setRead] = useState(0)
   const [results, setResults] = useState([])
   const router = useRouter()
-  const [open, setOpen] = useState(false)
 
   const isHome = pathname === '/'
   const literal = isHome ? ' ' : '← Volver al inicio'
@@ -35,7 +34,6 @@ export function Header ({ stars }) {
   )
 
   useEffect(() => {
-    setOpen(false)
     setResults([])
   }, [pathname])
 
@@ -54,7 +52,7 @@ export function Header ({ stars }) {
       {
         isHome && (
           <div className='absolute right-0 flex items-center gap-x-2 top-1'>
-            <ThemeToggle/>
+            <ThemeToggle />
             <Stars stars={stars} />
             <button
               className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'
@@ -122,7 +120,7 @@ export function Header ({ stars }) {
                     {({ active, selected }) => (
                       <span className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100 dark:bg-slate-800' : 'bg-white dark:bg-secondry'}`} href={`/${id}/#content`}>
                         {selected && <span className='sr-only'>Seleccionado</span>}
-                        <strong dangerouslySetInnerHTML={{ __html: html }} />
+                        <strong className='text-black dark:text-white' dangerouslySetInnerHTML={{ __html: html }} />
                       </span>
                     )}
 
