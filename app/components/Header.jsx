@@ -11,7 +11,8 @@ import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
 import { Stars } from './Stars.jsx'
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from './ThemeToggle'
+import { useEventListener } from '../../hooks/useEventListener'
 
 export function Header ({ stars }) {
   const pathname = usePathname()
@@ -34,6 +35,17 @@ export function Header ({ stars }) {
     []
   )
 
+  const handlerStorageListener = useCallback((event) => {
+    if (event.key === 'read') {
+      setRead(JSON.parse(event.newValue).length)
+    }
+  }, [])
+
+  useEventListener({
+    eventName: 'storage',
+    handler: handlerStorageListener
+  })
+
   useEffect(() => {
     setOpen(false)
     setResults([])
@@ -42,7 +54,7 @@ export function Header ({ stars }) {
   useEffect(() => {
     const readStorage = JSON.parse(localStorage.getItem('read')) || []
     setRead(readStorage.length)
-  })
+  }, [])
 
   const handleSelect = (result) => {
     if (result) router.push(`/${result.id}/#content`)
@@ -54,7 +66,7 @@ export function Header ({ stars }) {
       {
         isHome && (
           <div className='absolute right-0 flex items-center gap-x-2 top-1'>
-            <ThemeToggle/>
+            <ThemeToggle />
             <Stars stars={stars} />
             <button
               className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'
