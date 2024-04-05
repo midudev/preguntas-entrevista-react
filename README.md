@@ -2558,7 +2558,7 @@ Este componente `SuperBigModal` se importa de forma estática, por lo que se car
 Si queremos ofrecer la mejor experiencia a nuestros usuarios, debemos intentar que la aplicación cargue lo más rápido posible. Por eso, es recomendable importar de forma dinámica los componentes que no se van a usar desde el principio.
 
 ```jsx
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 // importamos de forma dinámica el componente de la Modal
 const SuperBigModal = lazy(() => import('./super-big-modal.jsx'))
 
