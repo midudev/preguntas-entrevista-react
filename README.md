@@ -26,7 +26,7 @@
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
     - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
-    - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
+    - [ ¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?](#se-puede-inicializar-un-estado-con-el-valor-de-una-prop-qué-pasa-si-lo-haces-y-qué-hay-que-tener-en-cuenta)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
     - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
@@ -110,6 +110,7 @@
     - [¿Cómo puedo validar las propiedades de un array con PropTypes?](#cómo-puedo-validar-las-propiedades-de-un-array-con-proptypes)
     - [¿Cómo puedo inyectar HTML directamente en un componente de React?](#cómo-puedo-inyectar-html-directamente-en-un-componente-de-react)
     - [¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?](#por-qué-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente)
+    - [¿Cuál es el propósito del atributo "key" en React y por qué es importante usarlo correctamente al renderizar listas de elementos?](#cuál-es-el-propósito-del-atributo-key-en-react-y-por-qué-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
@@ -158,6 +159,7 @@ Enlaces de interés:
 - [Curso de React.js](https://midu.link/react)
 - [Documentación oficial de React en Español](https://es.reactjs.org/)
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
+- [Documentación oficial de React actualizada](https://beta.reactjs.org/) en inglés
 
 **[⬆ Volver a índice](#índice)**
 
@@ -382,7 +384,7 @@ Las *props* son un objeto que **se pasan como argumentos de un componente padre 
 
 El *state* es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
 
-Así que mientras que tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
+Así que mientras tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -580,7 +582,7 @@ function List({ items }) {
 }
 ```
 
-En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{id:1, name: "John", id:1, name: "Doe"}]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
+En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{ id: 1, name: "John Doe" }]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
 
@@ -1272,11 +1274,11 @@ document.querySelector('button').addEventListener('click', () => {
 })
 ```
 
-A> Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
+Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
 
 Existen más sintaxis para trabajar con módulos, pero con saber las que hemos visto ya sería suficiente para seguir el libro.
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Para empezar React te ofrece diferentes partes de su biblioteca a través de módulos que podrás importar. Además nuestros componentes los tendremos separados en ficheros y, cada uno de ellos, se podrá importar utilizando *ESModules*.
 
@@ -1297,7 +1299,7 @@ if (number % 2 === 0) {
 number % 2 === 0 ? console.log('Es par') : console.log('Es impar')
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del *JSX*.
 
@@ -1332,7 +1334,7 @@ console.log(newNumbers) // [1, 2, 3]
 
 También tiene algunos cambios respecto al valor de `this` pero, aunque es aconsejable dominarlo, no es realmente necesario para poder seguir con garantías el libro.
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Aunque hace unos años con React se trabajaba principalmente con clases, desde la irrupción de los hooks en la versión 16.8 ya no se usan mucho. Esto hace que se usen mucho más funciones.
 
@@ -1359,7 +1361,7 @@ const sayHi = (msg = 'Hola React!') => console.log(msg)
 sayHi() // 'Hola React!'
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React existen dos conceptos muy importantes: **componentes y hooks**. No vamos a entrar en detalle ahora en ellos pero lo importante es que ambos son construidos con funciones.
 
@@ -1384,9 +1386,9 @@ const mensaje = `${inicio} ${final}`
 
 Como ves, para poder usar los template literals, necesitas usar el símbolo ```
 
-Además, también nos permiten utilizar cadenas de texto de más de una línea.
+Además, nos permiten utilizar cadenas de texto de más de una línea.
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React esto se puede utilizar para diferentes cosas. No sólo es normal crear cadenas de texto para mostrar en la interfaz... también puede ser útil para crear clases para tus elementos HTML de forma dinámica. Verás que los template literales están en todas partes.
 
@@ -1406,7 +1408,7 @@ const persona = { name: name, age: age, book: book }
 const persona = { name, age, book }
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React se trata muchas veces con objetos y siempre vamos a querer escribir el menor número de líneas posible para mantener nuestro código fácil de mantener y entender.
 
@@ -1440,7 +1442,7 @@ const getName = ({name}) => `El nombre es ${name}`
 getName(persona)
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React hay mucho código básico que da por sentado que conoces y dominas esta sintaxis. Piensa que los objetos y los arreglos son tipos de datos que son perfectos para guardar datos a representar en una interfaz. Así que poder tratarlos fácilmente te va a hacer la vida mucho más fácil.
 
@@ -1501,7 +1503,7 @@ networks.some(singleNetwork => singleNetwork.id === 'tiktok') // false
 networks.some(singleNetwork => singleNetwork.id === 'instagram') // true
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React es muy normal almacenar los datos que tenemos que representar en la UI como array. Esto hace que muchas veces necesitemos tratarlos, filtrarlos o extraer información de ellos. Es primordial entender, conocer y dominar al menos estos métodos, ya que son los más usados.
 
@@ -1520,7 +1522,7 @@ console.log(allNetworks)
 // -> [ 'Twitter', 'Twitch', 'Instagram', 'Tik Tok' ]
 ```
 
-Esto mismo lo podemos conseguir con un objeto, de forma que podemos expander todas sus propiedades en otro objeto de forma muy sencilla.
+Esto mismo lo podemos conseguir con un objeto, de forma que podemos expandir todas sus propiedades en otro objeto de forma muy sencilla.
 
 ```js
 const midu = { name: 'Miguel', twitter: '@midudev' }
@@ -1573,7 +1575,7 @@ console.log(midu)
 // }
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 En React es muy normal tener que añadir nuevos elementos a un array o crear nuevos objetos sin necesidad de mutarlos. El operador Rest nos puede ayudar a conseguir esto. Si no conoces bien el concepto de valor y referencia en JavaScript, sería conveniente que lo repases.
 
@@ -1621,7 +1623,7 @@ console.log(firstNumber) // -> 1
 console.log(restOfNumbers) // -> [2, 3]
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Es una forma interesante de *eliminar* (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
 
@@ -1653,11 +1655,13 @@ const author = {
 author?.libro?.name
 ```
 
-**¿Por qué es importante**
+**¿Por qué es importante?**
 
 Un objeto es una estructura de datos que es perfecta a la hora de representar muchos elementos de la UI. ¿Tienes un artículo? Toda la información de un artículo seguramente la tendrás representada en un objeto.
 
 Conforme tu UI sea más grande y compleja, estos objetos tendrán más información y necesitarás dominar el encadenamiento opcional `?.` para poder acceder a su información con garantías.
+
+**[⬆ Volver a índice](#índice)**
 
 ---
 
@@ -2554,7 +2558,7 @@ Este componente `SuperBigModal` se importa de forma estática, por lo que se car
 Si queremos ofrecer la mejor experiencia a nuestros usuarios, debemos intentar que la aplicación cargue lo más rápido posible. Por eso, es recomendable importar de forma dinámica los componentes que no se van a usar desde el principio.
 
 ```jsx
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 // importamos de forma dinámica el componente de la Modal
 const SuperBigModal = lazy(() => import('./super-big-modal.jsx'))
 
@@ -2717,14 +2721,14 @@ function App() {
       setId(2)
       // component re-renderiza aquí 🔄
     })
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
+    // component ha sido re-renderizado y el DOM ha sido actualizado ✅
     flushSync(() => {
       setName("John")
       // component no hace re-render 🚫
       setEmail("john@doe.com")
       // component re-renderiza aquí 🔄
     })
-    // component ha sido re-renderizado y el DOM ha sido actualizada ✅
+    // component ha sido re-renderizado y el DOM ha sido actualizado ✅
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
@@ -3003,6 +3007,40 @@ En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto pu
 
 - Si `Layout` recibe una prop que no necesita, la pasará a `App` y éste puede que no la use. Esto puede ser confuso para el que lea el código.
 
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cuál es el propósito del atributo "key" en React y por qué es importante usarlo correctamente al renderizar listas de elementos?
+
+El propósito del atributo "key" en React es proporcionar una identificación única a cada elemento en una lista renderizada dinámicamente. Esto permite a React identificar qué elementos han cambiado, añadido o eliminado de la lista cuando se realiza una actualización. 
+
+Cuando se renderiza una lista en React sin el atributo "key", React puede tener dificultades para identificar correctamente los cambios en la lista, lo que puede resultar en un comportamiento inesperado, como la re-renderización innecesaria de elementos o la pérdida de estado de los componentes.
+
+Por lo tanto, es importante utilizar el atributo "key" de manera correcta y única para cada elemento de la lista, preferiblemente utilizando identificadores únicos de cada elemento en lugar de índices de array, para garantizar un rendimiento óptimo y un comportamiento predecible en la aplicación.
+
+Ejemplo de cómo utilizar el atributo "key" en React:
+
+```jsx
+import React from 'react';
+
+const ListaItems = ({ items }) => {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.id}>{item.nombre}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default ListaItems;
+```
+
+---
+
+**[⬆ Volver a índice](#índice)**
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -3122,6 +3160,10 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
 Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
+
+**[⬆ Volver a índice](#índice)**
+
+---
 
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
@@ -3780,6 +3822,84 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 El **Shadow DOM** es una API del navegador que nos permite crear un árbol de nodos DOM independiente dentro de un elemento del DOM. Esto nos permite crear componentes que no interfieran con el resto de la aplicación. Se usa especialmente con Web Components.
 
 El **Virtual DOM** es una representación del DOM en memoria. Esta representación se crea cada vez que se produce un cambio en el DOM. Esto nos permite comparar el DOM actual con el DOM anterior y así determinar qué cambios se deben realizar en el DOM real. Lo usa React y otras bibliotecas para hacer el mínimo número de cambios en el DOM real.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el Binding?
+
+En React, el **Binding** se refiere a la forma en que se relaciona y sincroniza el **estado** *(state)* de un componente con su **vista** *(render)*. El estado de un componente es un objeto que contiene información que puede ser utilizada para determinar cómo se debe mostrar el componente. Existen **dos** tipos de binding en React: **One-Way Binding** y **Two-Way Binding**.
+
+**One-Way Binding** *(Enlace unidireccional)*:
+
+En React se refiere a la capacidad de un componente para actualizar su **estado** *(state)* y su **vista** *(render)* de manera automática cuando cambia el estado, pero no permitiendo que la vista actualice el estado. En otras palabras, el **one-way binding** significa que el flujo de datos es unidireccional, desde el estado hacia la vista, y no al revés.
+
+Por ejemplo:
+
+```jsx
+import React, { useState } from 'react';
+
+function OneWayBindingExample() {
+  const [name, setName] = useState('midu');
+
+  return (
+    <div>
+      <p>Hello, {name}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default OneWayBindingExample;
+```
+
+*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input. Sin embargo, la **vista** (la linea que muestra **Hello, {name}**) no tiene la capacidad de actualizar el estado **name**.*
+
+**Two-Way Binding** *(Enlace bidireccional)*:
+
+Se refiere a la capacidad de un componente para actualizar su estado y su vista de manera automática tanto cuando cambia el estado como cuando se produce un evento en la vista. En otras palabras, el **Two-Way Binding** significa que el flujo de datos es bidireccional, desde el estado hacia la vista y desde la vista hacia el estado. Para lograr esto se utilizan en conjunto con los eventos, como **onChange**, para capturar la información de los inputs y actualizar el estado, *React no proporciona un mecanismo nativo para two-way binding, pero se puede lograr utilizando librerías como react-forms o formik.*
+
+Por ejemplo:
+
+```jsx
+import React, { useState } from 'react';
+
+function TwoWayBindingExample() {
+  const [name, setName] = useState('midu');
+
+  return (
+    <div>
+      <p>Hello, {name}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default TwoWayBindingExample;
+```
+
+*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input, y se puede ver reflejado en el valor del input. Sin embargo, en este caso se está utilizando el atributo **value** para que el valor del input sea actualizado con el valor del estado, es decir, se está actualizando tanto el estado como el input.*
+
+**Por si no quedó claro:**
+
+En términos sencillos, el **Binding** en React puede compararse con una cafetera y una taza de café. **El estado** del componente sería la *cafetera*, y **la vista** del componente sería *la taza de café*.
+
+En el caso del **One-Way Binding**, la cafetera solo puede verter café en una dirección, hacia la taza de café. Esto significa que la cafetera puede llenar automáticamente la taza de café con café fresco, pero la taza de café no puede devolver automáticamente el café a la cafetera. De esta manera, **el estado** del componente *(la cafetera)* puede actualizar automáticamente **la vista** *(la taza de café)* cuando cambia, pero la **vista** no puede actualizar automáticamente el **estado**.
+
+En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en ambas direcciones, hacia y desde la taza de café (no sé por qué alguien necesitaría hacer algo así). Esto significa que la cafetera puede llenar y vaciar automáticamente la taza de café con café fresco. De esta manera, tanto **el estado** del componente como **la vista** pueden actualizarse automáticamente entre sí.
+
+Sí quieres saber más comparto el siguiente enlace:  
+[How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)  
 
 **[⬆ Volver a índice](#índice)**
 
