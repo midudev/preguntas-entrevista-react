@@ -2,11 +2,11 @@ import path from 'path'
 import { readJSON } from 'fs-extra'
 import Fuse from 'fuse.js'
 
+export const config = { runtime: 'edge' }
+
 export default async function handler (req, res) {
   const { query = {} } = req
   const { q = '' } = query
-
-  console.log({ q })
 
   const jsonDirectory = path.join(process.cwd(), 'dist')
   const index = await readJSON(jsonDirectory + '/index.json', 'utf8')
