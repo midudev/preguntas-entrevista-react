@@ -3,7 +3,7 @@ export async function Footer () {
     <footer className='w-full'>
       <section className='max-w-6xl px-4 m-auto text-center md:text-right'>
         <p>
-          <a className='text-blue-900 hover:underline' href='https://github.com/midudev/preguntas-entrevista-react/issues/new' target='_blank' rel='noreferrer'>¿Echas en falta una pregunta? ¡Avísanos!</a>
+          <a className='text-blue-900 hover:underline dark:text-blue-100' href='https://github.com/midudev/preguntas-entrevista-react/issues/new' target='_blank' rel='noreferrer'>¿Echas en falta una pregunta? ¡Avísanos!</a>
         </p>
       </section>
 
