@@ -2,7 +2,7 @@ import path from 'path'
 import { readJSON } from 'fs-extra'
 import Fuse from 'fuse.js'
 
-export const config = { runtime: 'edge' }
+export const runtime = 'nodejs'
 
 export default async function handler (req, res) {
   const { query = {} } = req
