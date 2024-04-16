@@ -1,0 +1,1 @@
+{"id":"que-es-un-componente","level":0,"title":"¿Qué es un componente?","content":"<p>Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.</p>\n<p>En React los componentes se crean usando funciones o clases.</p>\n<hr>\n"}

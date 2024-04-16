@@ -1,0 +1,1 @@
+{"id":"que-son-las-refs-en-react","level":1,"title":"¿Qué son las refs en React?","content":"<p>Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando <code>createRef</code> o con el hook <code>useRef</code>.</p>\n<hr>\n"}
