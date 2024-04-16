@@ -1,12 +1,9 @@
-import path from 'node:path'
-import { readJSON } from 'fs-extra'
-
-export const jsonDirectory = path.join(process.cwd(), 'dist')
+const res = await fetch('http://localhost:3000/content/index.json')
+const posts = await res.json()
 
 export const fetchPost = async (slug) => {
-  const index = path.join(jsonDirectory, 'index.json')
-  const posts = await readJSON(index)
-  const { content, level, title, id } = await readJSON(`${jsonDirectory}/${slug}.json`)
+  const res = await fetch(`http://localhost:3000/content/${slug}.json`)
+  const { content, level, title, id } = await res.json()
   const currentIndex = posts.findIndex(post => post.id === id)
   const prev = currentIndex > 0 ? posts[currentIndex - 1] : null
   const next = currentIndex < posts.length ? posts[currentIndex + 1] : null
@@ -14,8 +11,5 @@ export const fetchPost = async (slug) => {
 }
 
 export const listPosts = async () => {
-  const index = path.join(jsonDirectory, 'index.json')
-  const posts = await readJSON(index)
-
   return posts.map(post => ({ post: post.id }))
 }

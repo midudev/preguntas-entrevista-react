@@ -12,7 +12,7 @@ export async function Footer () {
           <p className='flex items-center text-sm opacity-75 gap-x-2'>Desarrollado con ❤️ por <a className='underline' href='https://midu.dev/' target='_blank' rel='noreferrer'>midudev</a></p>
           <div className='flex gap-x-2'>
             <p className='flex items-center justify-center gap-x-2'>
-              <a className='text-blue-900 hover:underline' href='https://github.com/midudev/preguntas-entrevista-react/blob/main/CONTRIBUTING.md' target='_blank' rel='noreferrer'>
+              <a className='text-blue-900 dark:text-blue-300 hover:underline' href='https://github.com/midudev/preguntas-entrevista-react/blob/main/CONTRIBUTING.md' target='_blank' rel='noreferrer'>
                 ¡Contribuye!
               </a>
             </p>
