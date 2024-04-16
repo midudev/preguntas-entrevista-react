@@ -4,7 +4,7 @@ import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 
 export async function generateStaticParams () {
   return listPosts()
