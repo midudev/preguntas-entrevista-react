@@ -1,4 +1,11 @@
-export function Stars ({ stars = '2.9K' }) {
+export function Stars ({ stars = 6379 }) {
+  const formatNumber = (number) => {
+    if (number >= 1000) {
+      return `${(number / 1000).toFixed(1)}K`
+    }
+    return number
+  }
+
   return (
     <a className='flex items-center justify-center h-full transition-colors dark:bg-[#a9a9a9] dark:text-white bg-gray-200 border border-gray-200 rounded hover:bg-gray-200' href='https://github.com/midudev/preguntas-entrevista-react' target='_blank' rel='noreferrer'>
       <span className='flex items-center justify-center px-3 py-2 overflow-hidden text-xs font-semibold text-gray-700 border-r border-r-gray-300 gap-x-1'>
@@ -7,7 +14,7 @@ export function Stars ({ stars = '2.9K' }) {
       </span>
 
       <span className='flex px-2 py-2 text-xs font-semibold bg-white dark:bg-secondry dark:text-white'>
-        {stars}
+        {formatNumber(stars)}
       </span>
     </a>
   )
