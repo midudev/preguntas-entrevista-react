@@ -50,7 +50,7 @@ const cleaned = (await addCodeHighlight(readme))
   .replaceAll('](#', '](/')
   .slice(start)
 
-fs.outputFile('./public/README.md', cleaned, { encoding: 'utf-8' })
+fs.outputFile('./public/content/README.md', cleaned, { encoding: 'utf-8' })
 
 const tree = marked.lexer(cleaned)
 
@@ -120,7 +120,7 @@ const promises = tree.map((item, i) => {
 }).filter(Boolean)
 
 Promise.all(promises).then(() => {
-  fs.outputJSON('./public/counter.json', counter)
-  fs.outputJSON('./public/index.json', index)
+  fs.outputJSON('./public/content/counter.json', counter)
+  fs.outputJSON('./public/content/index.json', index)
   console.log('All files generated')
 })
