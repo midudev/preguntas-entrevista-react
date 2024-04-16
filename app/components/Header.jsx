@@ -15,7 +15,6 @@ import ThemeToggle from './ThemeToggle'
 
 import { useEventListener } from '../../hooks/useEventListener'
 
-
 export function Header ({ stars }) {
   const pathname = usePathname()
   const [read, setRead] = useState(0)
@@ -90,7 +89,7 @@ export function Header ({ stars }) {
 
           {
             isHome && (
-              <div className='absolute p-2 overflow-hidden -right-4 md:right-0 top-6'>
+              <div className='absolute p-2 overflow-hidden -right-4 md:right-0 top-6 dark:invert'>
                 <div className='translate-x-1/3 sm:translate-x-0'>
                   <ReactLogo />
                 </div>
