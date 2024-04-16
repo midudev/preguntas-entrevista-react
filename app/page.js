@@ -1,4 +1,3 @@
-
 import { Card } from './components/Card.jsx'
 import { ListOfQuestions } from './components/ListOfQuestions.jsx'
 import { LEVELS } from './constants.js'
@@ -6,7 +5,7 @@ import { LEVELS } from './constants.js'
 export default function Page () {
   return (
     <>
-      <h2 className='pb-4 text-2xl font-bold text-blue-900'>Las preguntas más buscadas...</h2>
+      <h2 className='pb-4 text-2xl font-bold text-blue-900 dark:text-blue-200'>Las preguntas más buscadas...</h2>
       <section className='grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3'>
         <Card
           title='¿Para qué sirve useEffect?'
@@ -45,7 +44,7 @@ export default function Page () {
           level={LEVELS.HARD}
         />
       </section>
-      <h2 className='pb-4 mt-16 text-2xl font-bold text-blue-900'>Todas las preguntas sobre React disponibles</h2>
+      <h2 className='pb-4 mt-16 text-2xl font-bold text-blue-900 dark:text-blue-100'>Todas las preguntas sobre React disponibles</h2>
       <ListOfQuestions />
     </>
   )
