@@ -8,7 +8,7 @@
   },
   "scripts": {
     "markdown:lint": "node scripts/lint.mjs",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
     "lint": "next lint"
@@ -34,8 +34,7 @@
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "@headlessui/react": "1.7.18",
-    "@next/font": "14.2.1",
+    "@headlessui/react": "1.7.19",
     "@sindresorhus/slugify": "2.2.1",
     "@vercel/og": "0.6.2",
     "framer-motion": "8.0.0",
