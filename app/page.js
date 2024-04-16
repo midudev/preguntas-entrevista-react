@@ -2,6 +2,12 @@ import { Card } from './components/Card.jsx'
 import { ListOfQuestions } from './components/ListOfQuestions.jsx'
 import { LEVELS } from './constants.js'
 
+export const metadata = {
+  title: 'React.js Wiki - Preguntas típicas con respuesta y solución',
+  description: 'Preguntas típicas sobre React.js con respuesta y solución',
+  ogImage: 'https://reactjs.wiki/og.png'
+}
+
 export default function Page () {
   return (
     <>

@@ -10,6 +10,16 @@ export async function generateStaticParams () {
   return listPosts()
 }
 
+export async function generateMetadata ({ params: { post } }) {
+  const { title, content } = await fetchPost(post)
+
+  return {
+    title,
+    description: content,
+    ogImage: 'https://reactjs.wiki/og.png'
+  }
+}
+
 export default async function Post ({ params }) {
   const { post } = params
   const { content, level, title, prev, next } = await fetchPost(post)
