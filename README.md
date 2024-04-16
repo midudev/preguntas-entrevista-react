@@ -139,6 +139,7 @@
     - [Can’t perform a React state update on an unmounted component](#cant-perform-a-react-state-update-on-an-unmounted-component)
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
     - [¿Qué diferencia existe entre Shadow DOM y Virtual DOM?](#qué-diferencia-existe-entre-shadow-dom-y-virtual-dom)
+    - [¿Qué es el Binding?](#qué-es-el-binding)
 
 ---
 
@@ -423,7 +424,7 @@ En este ejemplo, lo mejor sería simplemente usar la prop `count` en el componen
 
 **Es una buena práctica evitar al máximo los estados de nuestros componentes y, siempre que se pueda, simplemente calcular el valor a mostrar a partir de las props.**
 
-En el caso que necesites inicializar un estado con una prop, es una buena práctica es añadir el prefijo de `initial` a la prop para indicar que es el valor inicial del estado y que luego no lo usaremos más:
+En el caso que necesites inicializar un estado con una prop, es una buena práctica añadir el prefijo de `initial` a la prop para indicar que es el valor inicial del estado y que luego no lo usaremos más:
 
 ```jsx
 const Input = ({ initialValue }) => {
