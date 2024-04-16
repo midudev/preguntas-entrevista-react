@@ -3,7 +3,6 @@ import { Space_Grotesk as SpaceGrotesk } from 'next/font/google'
 import { Header } from './components/Header.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BuyBook } from './components/BuyBook.jsx'
-import { Head } from './components/Head'
 import { ThemeContextProvider } from '../context/ThemeContext'
 import ThemeProvider from '../provider/ThemeProvider'
 
@@ -20,9 +19,6 @@ export default async function RootLayout ({ children }) {
 
   return (
     <html>
-      <head>
-        <Head />
-      </head>
 
       <body className={`${spaceGrotesk.className} overscroll-none`}>
         <ThemeContextProvider>
