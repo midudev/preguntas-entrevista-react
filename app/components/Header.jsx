@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import debounce from 'just-debounce-it'
 import Link from 'next/link'
 import { Combobox } from '@headlessui/react'
-import counter from '../../dist/counter.json'
+import counter from '../../public/content/counter.json'
 
 import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
