@@ -1,12 +1,9 @@
-import { readJSON } from 'fs-extra'
-import path from 'node:path'
+import { readIndex } from '../../utils/posts.js'
 
 import Link from 'next/link'
 
-const jsonDirectory = path.join(process.cwd(), 'dist')
-
 const getListOfQuestions = async () => {
-  const questions = await readJSON(`${jsonDirectory}/index.json`)
+  const questions = await readIndex()
   return questions
 }
 

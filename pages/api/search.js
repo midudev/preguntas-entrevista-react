@@ -1,6 +1,5 @@
-import path from 'path'
-import { readJSON } from 'fs-extra'
 import Fuse from 'fuse.js'
+import { readIndex } from '../../utils/posts.js'
 
 export const runtime = 'edge'
 
@@ -8,8 +7,7 @@ export default async function handler (req, res) {
   const { query = {} } = req
   const { q = '' } = query
 
-  const jsonDirectory = path.join(process.cwd(), 'dist')
-  const index = await readJSON(jsonDirectory + '/index.json', 'utf8')
+  const index = await readIndex()
 
   const fuse = new Fuse(index, {
     keys: ['text'],
