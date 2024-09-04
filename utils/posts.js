@@ -1,22 +1,15 @@
-const IS_PROD = process.env.NODE_ENV === 'production'
-const BASE_URL = IS_PROD ? 'https://reactjs.wiki/' : 'http://localhost:3000'
-
-let posts = []
+import posts from '../public/content/index.json'
 
 export const readIndex = async () => {
-  if (posts.length) return posts
-
-  const res = await fetch(`${BASE_URL}/content/index.json`)
-  posts = await res.json()
-
   return posts
 }
 
 export const fetchPost = async (slug) => {
   const posts = await readIndex()
 
-  const res = await fetch(`${BASE_URL}/content/${slug}.json`)
-  const { content, level, title, id } = await res.json()
+  const post = await import(`../public/content/${slug}.json`)
+  console.log(post)
+  const { content, level, title, id } = post
 
   const currentIndex = posts.findIndex(post => post.id === id)
   const prev = currentIndex > 0 ? posts[currentIndex - 1] : null
