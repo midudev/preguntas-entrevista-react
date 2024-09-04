@@ -8,7 +8,7 @@
   },
   "scripts": {
     "markdown:lint": "node scripts/lint.mjs",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
     "lint": "next lint"
