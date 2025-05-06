@@ -1,6 +1,6 @@
 ## Contribuciones
 
-Para editar un fichero, primero entra en la pestaña *Pull Requests* para comprobar que nadie está añadiendo la misma pregunta.
+Para editar un fichero, primero entra en la pestaña _Pull Requests_ para comprobar que nadie está añadiendo la misma pregunta.
 
 Para mejor organización, sólo debe añadirse una pregunta por Pull Requests y así evitar conflictos.
 
