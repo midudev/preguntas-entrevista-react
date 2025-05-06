@@ -4,18 +4,14 @@ import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 
-export const runtime = 'edge'
-
 export async function generateStaticParams() {
   return listPosts()
 }
 
 export async function generateMetadata(props) {
-  const params = await props.params;
+  const params = await props.params
 
-  const {
-    post
-  } = params;
+  const { post } = params
 
   const { title, content } = await fetchPost(post)
 
@@ -27,7 +23,7 @@ export async function generateMetadata(props) {
 }
 
 export default async function Post(props) {
-  const params = await props.params;
+  const params = await props.params
   const { post } = params
   const { content, level, title, prev, next } = await fetchPost(post)
 
