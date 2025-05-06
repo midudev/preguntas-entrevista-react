@@ -2,12 +2,13 @@
   <img height="60" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png">
   <h1>Preguntas de entrevista para React</h1>
 
-  <i>De cero a experto. Con respuestas detalladas en Español 🇪🇸</i>
+<i>De cero a experto. Con respuestas detalladas en Español 🇪🇸</i>
 
-  <sup>Deja tu :star: si te gusta el proyecto.</sup>
+<sup>Deja tu :star: si te gusta el proyecto.</sup>
 
-  <strong>Streams</strong> de programación en Twitch: [twitch.tv/midudev](https://twitch.tv/midudev)<br />
-  <strong>Comunidad</strong> de desarrollo en Discord: [discord.gg/midudev](https://discord.gg/midudev)
+<strong>Streams</strong> de programación en Twitch: [twitch.tv/midudev](https://twitch.tv/midudev)<br />
+<strong>Comunidad</strong> de desarrollo en Discord: [discord.gg/midudev](https://discord.gg/midudev)
+
 </div>
 
 ---
@@ -64,7 +65,7 @@
       - [Operador Rest](#operador-rest)
       - [Encadenamiento opcional (Optional Chaining)](#encadenamiento-opcional-optional-chaining)
   - [Intermedio](#intermedio)
-    - [¿Cómo crear un hook personalizado (*custom hook*)?](#cómo-crear-un-hook-personalizado-custom-hook)
+    - [¿Cómo crear un hook personalizado (_custom hook_)?](#cómo-crear-un-hook-personalizado-custom-hook)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
     - [¿Cómo podemos ejecutar código cuando el componente se desmonta del árbol?](#cómo-podemos-ejecutar-código-cuando-el-componente-se-desmonta-del-árbol)
     - [Cómo puedes cancelar una petición a una API en `useEffect` correctamente](#cómo-puedes-cancelar-una-petición-a-una-api-en-useeffect-correctamente)
@@ -92,7 +93,7 @@
     - [¿Cómo funciona el hook `useRef`?](#cómo-funciona-el-hook-useref)
     - [¿Qué hace el hook `useLayoutEffect`?](#qué-hace-el-hook-uselayouteffect)
       - [Orden de ejecución del `useLayoutEffect`](#orden-de-ejecución-del-uselayouteffect)
-    - [¿Qué son los componentes *stateless*?](#qué-son-los-componentes-stateless)
+    - [¿Qué son los componentes _stateless_?](#qué-son-los-componentes-stateless)
     - [¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?](#cómo-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react)
     - [¿Qué es el `StrictMode` en React?](#qué-es-el-strictmode-en-react)
     - [¿Por qué es recomendable exportar los componentes de React de forma nombrada?](#por-qué-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada)
@@ -222,10 +223,11 @@ Sin JSX, deberíamos usar `React.createElement` para crear los elementos de la i
 ```js
 import { createElement } from 'react'
 
-function Hello () { // un componente es una función! 👀
+function Hello() {
+  // un componente es una función! 👀
   return React.createElement(
     'h1', // elemento a renderizar
-     null, // atributos del elemento
+    null, // atributos del elemento
     'Hola Mundo 👋🌍!' // contenido del elemento
   )
 }
@@ -234,7 +236,7 @@ function Hello () { // un componente es una función! 👀
 Esto es muy tedioso y poco legible. Por eso, React usa JSX para declarar qué debe renderizar. Por eso usamos JSX de esta forma:
 
 ```jsx
-function Hello () {
+function Hello() {
   return <h1>Hola Mundo 👋🌍!</h1>
 }
 ```
@@ -247,7 +249,7 @@ Ambos códigos son equivalentes.
 
 #### ¿Cómo se transforma el JSX?
 
-**El JSX se transforma en código JavaScript compatible en el navegador usando un *transpilador* o *compilador***. El más famoso es a día de hoy Babel, que utiliza una serie de plugins para ser compatible con la transformación, pero existen otros como SWC.
+**El JSX se transforma en código JavaScript compatible en el navegador usando un _transpilador_ o _compilador_**. El más famoso es a día de hoy Babel, que utiliza una serie de plugins para ser compatible con la transformación, pero existen otros como SWC.
 
 Puedes ver cómo se transforma el JSX en el [playground de código de Babel](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABACQKYBt10QCgJSIDeAUIogE6pQjlIA8AFgIwB8yc6AhogLLgAm2QLwbgaR3APBuBYfYCEdAPTMWxAL5A&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.25.3&externalPlugins=&assumptions=%7B%7D).
 
@@ -355,7 +357,7 @@ Por ejemplo, si tenemos un componente `Card` que muestra una tarjeta con un tít
 ```jsx
 function Card(props) {
   return (
-    <div className="card">
+    <div className='card'>
       <h2>{props.title}</h2>
       <div>{props.children}</div>
     </div>
@@ -366,7 +368,7 @@ function Card(props) {
 Y luego podemos usarlo de la siguiente forma:
 
 ```jsx
-<Card title="Título de la tarjeta">
+<Card title='Título de la tarjeta'>
   <p>Contenido de la tarjeta</p>
 </Card>
 ```
@@ -381,11 +383,11 @@ Conocer y saber usar la prop `children` es muy importante para crear componentes
 
 ####  ¿Qué diferencia hay entre props y state?
 
-Las *props* son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
+Las _props_ son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
 
-El *state* es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
+El _state_ es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
 
-Así que mientras tanto *props* como *state* afectan al renderizado del componente, su gestión es diferente.
+Así que mientras tanto _props_ como _state_ afectan al renderizado del componente, su gestión es diferente.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -430,12 +432,7 @@ En el caso que necesites inicializar un estado con una prop, es una buena práct
 const Input = ({ initialValue }) => {
   const [value, setValue] = useState(initialValue)
 
-  return (
-    <input
-      value={value}
-      onChange={e => setValue(e.target.value)}
-    />
-  )
+  return <input value={value} onChange={e => setValue(e.target.value)} />
 }
 ```
 
@@ -453,9 +450,7 @@ Para hacer renderizado condicional en React usamos el operador ternario:
 
 ```jsx
 function Button({ text }) {
-  return text
-    ? <button>{text}</button>
-    : null
+  return text ? <button>{text}</button> : null
 }
 ```
 
@@ -465,13 +460,13 @@ Es común encontrar implementaciones del renderizado condicional con el operador
 
 ```jsx
 function List({ listArray }) {
-  return listArray?.length && listArray.map(item=>item)
+  return listArray?.length && listArray.map(item => item)
 }
 ```
 
 Parece que tiene sentido... si el `length` es positivo (mayor a cero) pintamos el map. !Pues no! ❌ Cuidado, si tiene `length` de cero ya que se pintará en el navegador un 0.
 
-Es preferible utilizar el operador ternario. *Kent C. Dodds* tiene un artículo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
+Es preferible utilizar el operador ternario. _Kent C. Dodds_ tiene un artículo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
 
 **[⬆ Volver a índice](#índice)**
 
@@ -483,11 +478,7 @@ Para aplicar clases CSS a un componente en React usamos la prop `className`:
 
 ```jsx
 function Button({ text }) {
-  return (
-    <button className="button">
-      {text}
-    </button>
-  )
+  return <button className='button'>{text}</button>
 }
 ```
 
@@ -503,11 +494,7 @@ Para aplicar estilos CSS en línea a un componente en React usamos la prop `styl
 
 ```jsx
 function Button({ text }) {
-  return (
-    <button style={{ color: 'red', borderRadius: '2px' }}>
-      {text}
-    </button>
-  )
+  return <button style={{ color: 'red', borderRadius: '2px' }}>{text}</button>
 }
 ```
 
@@ -523,11 +510,7 @@ Puedes aplicar estilos de forma condicional a un componente en React usando la p
 
 ```jsx
 function Button({ text, primary }) {
-  return (
-    <button style={{ color: primary ? 'red' : 'blue' }}>
-      {text}
-    </button>
-  )
+  return <button style={{ color: primary ? 'red' : 'blue' }}>{text}</button>
 }
 ```
 
@@ -537,11 +520,7 @@ También puedes seguir la misma mecánica usando clases. En este caso, usamos el
 
 ```jsx
 function Button({ text, primary }) {
-  return (
-    <button className={primary ? 'button-primary' : ''}>
-      {text}
-    </button>
-  )
+  return <button className={primary ? 'button-primary' : ''}>{text}</button>
 }
 ```
 
@@ -551,11 +530,7 @@ También podemos usar bibliotecas como `classnames`:
 import classnames from 'classnames'
 
 function Button({ text, primary }) {
-  return (
-    <button className={classnames('button', { primary })}>
-      {text}
-    </button>
-  )
+  return <button className={classnames('button', { primary })}>{text}</button>
 }
 ```
 
@@ -601,11 +576,7 @@ function Button({ text }) {
   /* Esto es un comentario
   de varias líneas */
 
-  return (
-    <button>
-      {text}
-    </button>
-  )
+  return <button>{text}</button>
 }
 ```
 
@@ -628,15 +599,11 @@ function Button({ text }) {
 
 #### ¿Cómo añadir un evento a un componente en React?
 
-Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en *camelCase*:
+Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en _camelCase_:
 
 ```jsx
 function Button({ text, onClick }) {
-  return (
-    <button onClick={onClick}>
-      {text}
-    </button>
-  )
+  return <button onClick={onClick}>{text}</button>
 }
 ```
 
@@ -652,11 +619,7 @@ Para pasar un parámetro a una función que maneja un evento en React podemos us
 
 ```jsx
 function Button({ id, text, onClick }) {
-  return (
-    <button onClick={() => onClick(id)}>
-      {text}
-    </button>
-  )
+  return <button onClick={() => onClick(id)}>{text}</button>
 }
 ```
 
@@ -666,15 +629,12 @@ También puedes crear una función que ejecuta la función `onClick` pasándole 
 
 ```jsx
 function Button({ id, text, onClick }) {
-  const handleClick = (event) => { // handleClick recibe el evento original
+  const handleClick = event => {
+    // handleClick recibe el evento original
     onClick(id)
   }
 
-  return (
-    <button onClick={handleClick}>
-      {text}
-    </button>
-  )
+  return <button onClick={handleClick}>{text}</button>
 }
 ```
 
@@ -804,7 +764,7 @@ Para entenderlo, lo mejor es que lo veamos con un ejemplo. Imagina que tenemos u
 ```jsx
 import { useState } from 'react'
 
-export default function App () {
+export default function App() {
   return (
     <>
       <h1>Lista de regalos</h1>
@@ -814,7 +774,7 @@ export default function App () {
   )
 }
 
-function GiftList () {
+function GiftList() {
   const [gifts, setGifts] = useState([])
 
   const addGift = () => {
@@ -835,7 +795,7 @@ function GiftList () {
   )
 }
 
-function TotalGifts () {
+function TotalGifts() {
   const [totalGifts, setTotalGifts] = useState(0)
 
   return (
@@ -854,7 +814,7 @@ Tenemos que subir el estado de `gifts` al componente padre `App` y le pasaremos 
 ```jsx
 import { useState } from 'react'
 
-export default function App () {
+export default function App() {
   const [gifts, setGifts] = useState([])
 
   const addGift = () => {
@@ -871,7 +831,7 @@ export default function App () {
   )
 }
 
-function GiftList ({ gifts, addGift }) {
+function GiftList({ gifts, addGift }) {
   return (
     <>
       <h2>Regalos</h2>
@@ -885,7 +845,7 @@ function GiftList ({ gifts, addGift }) {
   )
 }
 
-function TotalGifts ({ totalGifts }) {
+function TotalGifts({ totalGifts }) {
   return (
     <>
       <h2>Total de regalos</h2>
@@ -895,7 +855,7 @@ function TotalGifts ({ totalGifts }) {
 }
 ```
 
-Con esto, lo que hemos hecho es *elevar el estado*. Lo hemos movido desde el componente `GiftList` al componente `App`. Ahora pasamos como prop los regalos al componente `GiftList` y una forma de actualizar el estado, y también hemos pasado como prop al componente `TotalGifts` el número de regalos.
+Con esto, lo que hemos hecho es _elevar el estado_. Lo hemos movido desde el componente `GiftList` al componente `App`. Ahora pasamos como prop los regalos al componente `GiftList` y una forma de actualizar el estado, y también hemos pasado como prop al componente `TotalGifts` el número de regalos.
 
 - [Código de ejemplo](https://stackblitz.com/edit/react-ts-qitkys?file=App.tsx)
 
@@ -971,9 +931,7 @@ function Window() {
     }
   }, [])
 
-  return (
-    <p>Abre la consola y redimensiona la ventana</p>
-  )
+  return <p>Abre la consola y redimensiona la ventana</p>
 }
 ```
 
@@ -1017,10 +975,7 @@ function PasswordField() {
     <>
       <label>
         Password:
-        <input
-          type="password"
-          aria-describedby={passwordHintId}
-        />
+        <input type='password' aria-describedby={passwordHintId} />
       </label>
       <p id={passwordHintId}>
         El password debe ser de 18 letras y contener caracteres especiales
@@ -1059,9 +1014,7 @@ function Component() {
     console.log('El componente se ha montado')
   }, [])
 
-  return (
-    <p>Abre la consola y re-dimensiona la ventana</p>
-  )
+  return <p>Abre la consola y re-dimensiona la ventana</p>
 }
 ```
 
@@ -1071,7 +1024,7 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-Los *Fragments* son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
+Los _Fragments_ son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -1110,7 +1063,7 @@ function App() {
 Las razones por las que es recomendable usar Fragment en vez de un `div` a la hora de envolver varios elementos son:
 
 - Los `div` añaden un elemento extra al DOM, mientras que los Fragments no. Esto hace que el número de elementos HTML y la profundidad del DOM sea menor.
-- Los elementos envueltos con Fragment son afectados directamente por las propiedades *flex* o *grid* de CSS de su elemento padre. Si usas un `div` es posible que tengas problemas con el alineamiento de los elementos.
+- Los elementos envueltos con Fragment son afectados directamente por las propiedades _flex_ o _grid_ de CSS de su elemento padre. Si usas un `div` es posible que tengas problemas con el alineamiento de los elementos.
 - Los Fragments son más rápidos que los `div` ya que no tienen que ser renderizados.
 - Los `div` aplican CSS por defecto (hace que lo que envuelve el `div` se comporte como un bloque al aplicar un `display: block`) mientras que los Fragment no aplican ningún estilo por defecto.
 
@@ -1118,7 +1071,7 @@ Las razones por las que es recomendable usar Fragment en vez de un `div` a la ho
 
 ---
 
-#### ¿Qué es el Compound Components Pattern?  
+#### ¿Qué es el Compound Components Pattern?
 
 Es un patrón de diseño de componentes que se basa en crear un componente padre con un solo objetivo, proporcionarle a sus hijos las propiedades necesarias para que se rendericen sin problemas.
 
@@ -1134,22 +1087,13 @@ Un ejemplo de este diseño sería una lista que renderiza los elementos hijos:
 ```
 
 ```jsx
-const List = ({ children, ...props }) => (
-  <ul {...props} >
-    {children}
-  </ul>
-);
+const List = ({ children, ...props }) => <ul {...props}>{children}</ul>
 
 const ListItem = ({ children, ...props }) => {
+  return <li {...props}>{children}</li>
+}
 
-  return (
-    <li {...props}>
-      {children}
-    </li>
-  );
-};
-
-export { List, ListItem };
+export { List, ListItem }
 ```
 
 Este es un ejemplo sencillo, pero los componentes pueden ser tan complejos como quieras y tanto el padre como los hijos pueden tener sus propios estados.
@@ -1209,9 +1153,9 @@ Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolve
 
 React DOM es la librería que se encarga de renderizar los componentes de React para el navegador. Hay que tener en cuenta que React es una biblioteca que se puede usar en diferentes entornos (dispositivos móviles, apps de escritorio, terminal...).
 
-Mientras que la biblioteca de *React*, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... *React DOM* es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
+Mientras que la biblioteca de _React_, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... _React DOM_ es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
 
-*React Native*, por ejemplo, haría lo mismo, pero para dispositivos móviles.
+_React Native_, por ejemplo, haría lo mismo, pero para dispositivos móviles.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1219,7 +1163,7 @@ Mientras que la biblioteca de *React*, a secas, es el motor de creación de comp
 
 ##### JavaScript que necesitas para aprender React
 
-**Para aprender y dominar React necesitas saber JavaScript.** A diferencia de otros frameworks y bibliotecas, como *Angular* y *Vue*, que se basan en su propio *DSL* (Domain-Specific Language), React usa una extensión de la sintaxis de JavaScript llamada *JSX*. Más adelante lo veremos en detalle pero, al final, no deja de ser azúcar sintáctico para escribir menos JavaScript.
+**Para aprender y dominar React necesitas saber JavaScript.** A diferencia de otros frameworks y bibliotecas, como _Angular_ y _Vue_, que se basan en su propio _DSL_ (Domain-Specific Language), React usa una extensión de la sintaxis de JavaScript llamada _JSX_. Más adelante lo veremos en detalle pero, al final, no deja de ser azúcar sintáctico para escribir menos JavaScript.
 
 **En React todo es JavaScript.** Para bien y para mal. Este libro da por sentados unos conocimientos previos del lenguaje de programación pero antes de empezar vamos a hacer un pequeño repaso por algunas de las características más importantes que necesitarás conocer.
 
@@ -1251,19 +1195,19 @@ También podemos hacer exportaciones nombradas de módulos, de forma que un mód
 ```js
 // sayHi.js
 // podemos usar exportaciones nombradas para mejorar esto
-export const sayHi = (message) => console.log(message)
+export const sayHi = message => console.log(message)
 
 // y se pueden hacer tantas exportaciones de módulos nombrados como queramos
 export const anotherHi = msg => alert(msg)
 
 // index.js
 // ahora para importar estos módulos en otro archivo podríamos hacerlo así
-import {sayHi, anotherHi} from './sayHi.js'
+import { sayHi, anotherHi } from './sayHi.js'
 ```
 
-Los *imports* que hemos visto hasta aquí se conocen como *imports estáticos*. Esto significa que ese módulo será cargado en el momento de la carga del archivo que lo importa.
+Los _imports_ que hemos visto hasta aquí se conocen como _imports estáticos_. Esto significa que ese módulo será cargado en el momento de la carga del archivo que lo importa.
 
-También existen los *imports dinámicos*, de forma que podamos importar módulos que se carguen en el momento de la ejecución del programa o cuando nosotros decidamos (por ejemplo, como respuesta a un click).
+También existen los _imports dinámicos_, de forma que podamos importar módulos que se carguen en el momento de la ejecución del programa o cuando nosotros decidamos (por ejemplo, como respuesta a un click).
 
 ```js
 document.querySelector('button').addEventListener('click', () => {
@@ -1275,13 +1219,13 @@ document.querySelector('button').addEventListener('click', () => {
 })
 ```
 
-Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos *chunks* (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
+Los imports dinámicos son útiles también cuando trabajamos con empaquetadores como Webpack o Vite, ya que esto creará unos _chunks_ (fragmentos) que se cargarán fuera del bundle general. ¿El objetivo? Mejorar el rendimiento de la aplicación.
 
 Existen más sintaxis para trabajar con módulos, pero con saber las que hemos visto ya sería suficiente para seguir el libro.
 
 **¿Por qué es importante?**
 
-Para empezar React te ofrece diferentes partes de su biblioteca a través de módulos que podrás importar. Además nuestros componentes los tendremos separados en ficheros y, cada uno de ellos, se podrá importar utilizando *ESModules*.
+Para empezar React te ofrece diferentes partes de su biblioteca a través de módulos que podrás importar. Además nuestros componentes los tendremos separados en ficheros y, cada uno de ellos, se podrá importar utilizando _ESModules_.
 
 Además, por temas de optimización de rendimiento, podremos importar de forma dinámica componentes y así mejorar la experiencia de nuestros usuarios al necesitar cargar menos información para poder utilizar la página.
 
@@ -1302,18 +1246,19 @@ number % 2 === 0 ? console.log('Es par') : console.log('Es impar')
 
 **¿Por qué es importante?**
 
-En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del *JSX*.
+En las interfaces gráficas es muy normal que, dependiendo del estado de la aplicación o los datos que nos lleguen, vamos a querer renderizar una cosa u otra en pantalla. Para realizar esto, en lugar de utilizar `if` se usan las ternarias ya que queda mucho más legible dentro del _JSX_.
 
 ##### Funciones flecha o Arrow Functions
 
-Las *funciones flecha* o *arrow function* fueron añadidas a JavaScript en el estándar ECMAScript 6 (o ES2015). En principio parece que simplemente se trata de una sintaxis alternativa más simple a la hora de crear expresiones de funciones:
+Las _funciones flecha_ o _arrow function_ fueron añadidas a JavaScript en el estándar ECMAScript 6 (o ES2015). En principio parece que simplemente se trata de una sintaxis alternativa más simple a la hora de crear expresiones de funciones:
 
 ```js
 const nombreDeLaFuncion = function (param1, param2) {
   // instrucciones de la función
 }
 
-const nombreDeLaFuncion = (param1, param2) => { // con arrow function
+const nombreDeLaFuncion = (param1, param2) => {
+  // con arrow function
   // instrucciones de la función
 }
 ```
@@ -1348,7 +1293,7 @@ En JavaScript puedes proporcionar valores por defecto a los parámetros de una f
 ```js
 // al parámetro b le damos un valor por defecto de 1
 function multiply(a, b = 1) {
-  return a * b;
+  return a * b
 }
 
 // si le pasamos un argumento con valor, se ignora el valor por defecto
@@ -1379,7 +1324,7 @@ const inicio = 'Hola'
 const final = 'React'
 
 // usando una concatenación normal sería
-const mensaje = inicio + " " + final
+const mensaje = inicio + ' ' + final
 
 // con los template literals podemos evaluar expresiones
 const mensaje = `${inicio} ${final}`
@@ -1395,7 +1340,7 @@ En React esto se puede utilizar para diferentes cosas. No sólo es normal crear 
 
 ##### Propiedades abreviadas
 
-Desde *ECMAScript 2015* se puede iniciar un objeto utilizado nombre de propiedades abreviadas. Esto es que si quieres utilizar como valor una variable que tiene el mismo nombre que la key, entonces puedes indicar la inicialización una vez:
+Desde _ECMAScript 2015_ se puede iniciar un objeto utilizado nombre de propiedades abreviadas. Esto es que si quieres utilizar como valor una variable que tiene el mismo nombre que la key, entonces puedes indicar la inicialización una vez:
 
 ```js
 const name = 'Miguel'
@@ -1415,7 +1360,7 @@ En React se trata muchas veces con objetos y siempre vamos a querer escribir el 
 
 ##### La desestructuración
 
-La sintaxis de *desestructuración* es una expresión de JavaScript que permite extraer valores de Arrays o propiedades de objetos en distintas variables.
+La sintaxis de _desestructuración_ es una expresión de JavaScript que permite extraer valores de Arrays o propiedades de objetos en distintas variables.
 
 ```js
 // antes
@@ -1432,14 +1377,14 @@ const name = persona.name
 const age = persona.age
 
 // ahora con objetos
-const {age, name} = persona
+const { age, name } = persona
 
 // también podemos añadir valores por defecto
-const {books = 2} = persona
+const { books = 2 } = persona
 console.log(persona.books) // -> 2
 
 // también funciona en funciones
-const getName = ({name}) => `El nombre es ${name}`
+const getName = ({ name }) => `El nombre es ${name}`
 getName(persona)
 ```
 
@@ -1530,7 +1475,7 @@ const midu = { name: 'Miguel', twitter: '@midudev' }
 const miduWithNewInfo = {
   ...midu,
   youtube: 'https://youtube.com/midudev',
-  books: ['Aprende React']
+  books: ['Aprende React'],
 }
 console.log(miduWithNewInfo)
 // {
@@ -1549,14 +1494,14 @@ const midu = {
   twitter: '@midudev',
   experience: {
     years: 18,
-    focus: 'javascript'
-  }
+    focus: 'javascript',
+  },
 }
 
 const miduWithNewInfo = {
   ...midu,
   youtube: 'https://youtube.com/midudev',
-  books: ['Aprende React']
+  books: ['Aprende React'],
 }
 
 // cambiamos un par de propiedades de la "copia" del objeto
@@ -1582,7 +1527,7 @@ En React es muy normal tener que añadir nuevos elementos a un array o crear nue
 
 ##### Operador Rest
 
-La sintaxis `...` hace tiempo que funciona en JavaScript en los parámetros de una función. A esta técnica se le llamaba *parámetros rest* y nos permitía tener un número indefinido de argumentos en una función y poder acceder a ellos después como un array.
+La sintaxis `...` hace tiempo que funciona en JavaScript en los parámetros de una función. A esta técnica se le llamaba _parámetros rest_ y nos permitía tener un número indefinido de argumentos en una función y poder acceder a ellos después como un array.
 
 ```js
 function suma(...allArguments) {
@@ -1600,11 +1545,11 @@ const midu = {
   twitter: '@midudev',
   experience: {
     years: 18,
-    focus: 'javascript'
-  }
+    focus: 'javascript',
+  },
 }
 
-const {name, ...restOfMidu} = midu
+const { name, ...restOfMidu } = midu
 
 console.log(restOfMidu)
 // -> {
@@ -1626,7 +1571,7 @@ console.log(restOfNumbers) // -> [2, 3]
 
 **¿Por qué es importante?**
 
-Es una forma interesante de *eliminar* (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
+Es una forma interesante de _eliminar_ (de forma figurada) una propiedad de un objeto y creando una copia superficial del resto de propiedades. A veces puede ser interesante para extraer la información que queremos de unos parámetros y dejar el resto en un objeto que pasaremos hacia otro nivel.
 
 ##### Encadenamiento opcional (Optional Chaining)
 
@@ -1638,19 +1583,19 @@ De esta forma, en lugar de revisar si las propiedades existen para poder acceder
 const author = {
   name: 'Miguel',
   libro: {
-    name: 'Aprendiendo React'
+    name: 'Aprendiendo React',
   },
   writeBook() {
     return 'Writing!'
-  }
-};
+  },
+}
 
 // sin optional chaining
-(author === null || author === undefined)
+author === null || author === undefined
+  ? undefined
+  : author.libro === null || author.libro === undefined
     ? undefined
-    : (author.libro === null || author.libro === undefined)
-    ? undefined
-    : author.libro.name 
+    : author.libro.name
 
 // con optional chaining
 author?.libro?.name
@@ -1668,7 +1613,7 @@ Conforme tu UI sea más grande y compleja, estos objetos tendrán más informaci
 
 ### Intermedio
 
-#### ¿Cómo crear un hook personalizado (*custom hook*)?
+#### ¿Cómo crear un hook personalizado (_custom hook_)?
 
 Un hook personalizado es una función que empieza con la palabra `use` y que puede utilizar otros hooks. Son ideales para reutilizar lógica en diferentes componentes. Por ejemplo, podemos crear un hook personalizado para extraer la gestión del estado de un contador:
 
@@ -1801,7 +1746,7 @@ useEffect(() => {
 
 Los hooks en React tienen dos reglas fundamentales:
 
-- Los hooks solo se pueden usar en componentes funcionales o *custom hooks*.
+- Los hooks solo se pueden usar en componentes funcionales o _custom hooks_.
 - Los hooks solo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
 
 **[⬆ Volver a índice](#índice)**
@@ -1824,7 +1769,7 @@ Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, 
 
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
-Desde que en *React 16.8.0* se incluyeron los hooks, los componentes de funciones pueden hacer casi todo lo que los componentes de clase.
+Desde que en _React 16.8.0_ se incluyeron los hooks, los componentes de funciones pueden hacer casi todo lo que los componentes de clase.
 
 Aunque no hay una respuesta clara a esta pregunta, normalmente los componentes funcionales son más sencillos de leer y escribir y pueden tener un mejor rendimiento en general.
 
@@ -1850,11 +1795,7 @@ Para crear un componente puro en React usamos una function:
 
 ```jsx
 function Button({ text }) {
-  return (
-    <button>
-      {text}
-    </button>
-  )
+  return <button>{text}</button>
 }
 ```
 
@@ -1868,7 +1809,7 @@ En este caso, el componente `Button` recibe una prop `text` que es un string. El
 
 Cuando renderizamos nuestra aplicación en el servidor, React genera un HTML estático. Este HTML estático es simplemente un string que contiene el HTML que se va a mostrar en la página.
 
-Cuando el navegador recibe el HTML estático, lo renderiza en la página. Sin embargo, este HTML estático no tiene interactividad. No tiene eventos, no tiene lógica, no tiene estado, etc. Podríamos decir que *no tiene vida*.
+Cuando el navegador recibe el HTML estático, lo renderiza en la página. Sin embargo, este HTML estático no tiene interactividad. No tiene eventos, no tiene lógica, no tiene estado, etc. Podríamos decir que _no tiene vida_.
 
 Para hacer que este HTML estático pueda ser interactivo, React necesita que el HTML estático se convierta en un árbol de componentes de React. Esto se llama **hidratación**.
 
@@ -1880,7 +1821,7 @@ De esta forma, en el cliente, React reutiliza este HTML estático y se dedica a 
 
 #### ¿Qué es el Server Side Rendering y qué ventajas tiene?
 
-El *Server Side Rendering* es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
+El _Server Side Rendering_ es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
 
 Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.
 
@@ -1919,7 +1860,7 @@ Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
 
 #### ¿Puedes poner un ejemplo de efectos colaterales en React?
 
-Igual que las funciones en JavaScript, los componentes de React también pueden tener *side effects* (efectos colaterales). Un efecto colateral significa que el componente manipula o lee información que no está dentro de su ámbito.
+Igual que las funciones en JavaScript, los componentes de React también pueden tener _side effects_ (efectos colaterales). Un efecto colateral significa que el componente manipula o lee información que no está dentro de su ámbito.
 
 Aquí puedes ver un ejemplo simple de un componente que tiene un efecto colateral. Un componente que lee y modifica una variable que está fuera del componente. Esto hace que sea imposible saber qué renderizará el componente cada vez que se use, ya que no sabemos el valor que tendrá `count`:
 
@@ -1983,12 +1924,14 @@ Los High Order Components son funciones que reciben un componente como parámetr
 
 ```jsx
 function withLayout(Component) {
-  return function(props) {
-    return <main>
-      <section>
-        <Component {...props} />
-      </section>
-    </main>
+  return function (props) {
+    return (
+      <main>
+        <section>
+          <Component {...props} />
+        </section>
+      </main>
+    )
   }
 }
 ```
@@ -2008,9 +1951,7 @@ Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todav�
 Son un patrón de diseño de React que nos permite reutilizar código entre componentes e inyectar información en el renderizado de los componentes.
 
 ```jsx
-<DataProvider render={data => (
-  <h1>Hello {data.target}</h1>
-)}/>
+<DataProvider render={data => <h1>Hello {data.target}</h1>} />
 ```
 
 En este caso, el componente `DataProvider` recibe una función `render` como prop. Ahí le indicamos qué es lo que debe renderizar usando la información que recibe como parámetro.
@@ -2027,11 +1968,7 @@ function DataProvider({ render }) {
 También se puede encontrar este patrón usando la prop `children` en los componentes.
 
 ```jsx
-<DataProvider>
-  {data => (
-    <h1>Hello {data.target}</h1>
-  )}
-</DataProvider>
+<DataProvider>{data => <h1>Hello {data.target}</h1>}</DataProvider>
 ```
 
 Y la implementación sería similar:
@@ -2154,7 +2091,7 @@ Un ejemplo donde se ve el problema:
 const List = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
 
-  const handleRemove = (index) => {
+  const handleRemove = index => {
     const newItems = [...items]
     newItems.splice(index, 1)
     setItems(newItems)
@@ -2296,7 +2233,7 @@ function TextInputWithFocusButton() {
 
   return (
     <>
-      <input ref={inputEl} type="text" />
+      <input ref={inputEl} type='text' />
       <button onClick={onButtonClick}>Focus the input</button>
     </>
   )
@@ -2318,12 +2255,11 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 Llama `useLayoutEffect` en el nivel superior del componente.
 
 ```jsx
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react'
 
 useLayoutEffect(() => {
-  return () => {
-  }
-}, []);
+  return () => {}
+}, [])
 ```
 
 `useLayoutEffect` recibe dos argumentos:
@@ -2346,18 +2282,14 @@ El orden de ejecución del `useLayoutEffect`, ya que se ejecuta de forma síncro
 
 ---
 
-#### ¿Qué son los componentes *stateless*?
+#### ¿Qué son los componentes _stateless_?
 
-Los componentes *stateless* son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
+Los componentes _stateless_ son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
 
 ```jsx
 // Este es un ejemplo de componente stateless
 function Button({ text }) {
-  return (
-    <button>
-      {text}
-    </button>
-  )
+  return <button>{text}</button>
 }
 ```
 
@@ -2371,15 +2303,17 @@ Para prevenir el comportamiento por defecto de un evento en React, debemos usar 
 
 ```jsx
 function Form({ onSubmit }) {
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault()
     onSubmit()
   }
 
-  return <form onSubmit={handleSubmit}>
-    <input type="text" />
-    <button type="submit">Enviar</button>
-  </form>
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type='text' />
+      <button type='submit'>Enviar</button>
+    </form>
+  )
 }
 ```
 
@@ -2479,12 +2413,12 @@ Para exportar múltiples componentes de un mismo archivo, podemos usar la export
 
 ```jsx
 // button.jsx
-export function Button({children}) {
+export function Button({ children }) {
   return <button>{children}</button>
 }
 
-export function ButtonSecondary({children}) {
-  return <button class="btn-secondary">{children}</button>
+export function ButtonSecondary({ children }) {
+  return <button class='btn-secondary'>{children}</button>
 }
 ```
 
@@ -2542,7 +2476,7 @@ import { useState } from 'react'
 import { SuperBigModal } from './super-big-modal.jsx'
 
 // mostrar modal si el usuario da click en un botón
-export default function App () {
+export default function App() {
   const [showModal, setShowModal] = useState(false)
 
   return (
@@ -2564,7 +2498,7 @@ import { useState, lazy, Suspense } from 'react'
 const SuperBigModal = lazy(() => import('./super-big-modal.jsx'))
 
 // mostrar modal si el usuario da click en un botón
-export default function App () {
+export default function App() {
   const [showModal, setShowModal] = useState(false)
 
   return (
@@ -2580,9 +2514,9 @@ export default function App () {
 
 De esta forma, la parte de código que importa el componente `SuperBigModal` se carga de forma dinámica, es decir, cuando el usuario da click en el botón para mostrar la modal.
 
-Dependiendo del empaquetador de aplicaciones web que uses y su configuración, es posible que el resultado de la carga sea diferente (algunos creará un archivo a parte del *bundle* principal, otros podrían hacer un streaming del HTML...) pero la intención del código es la misma.
+Dependiendo del empaquetador de aplicaciones web que uses y su configuración, es posible que el resultado de la carga sea diferente (algunos creará un archivo a parte del _bundle_ principal, otros podrían hacer un streaming del HTML...) pero la intención del código es la misma.
 
-Así que siempre debemos intentar cargar los componentes de forma dinámica cuando no se vayan a usar desde el principio, sobretodo cuando están detrás de la interacción de un usuario. Lo mismo podría ocurrir con rutas completas de nuestra aplicación. ¿Por qué cargar la página de *About* si el usuario está visitando la página principal?
+Así que siempre debemos intentar cargar los componentes de forma dinámica cuando no se vayan a usar desde el principio, sobretodo cuando están detrás de la interacción de un usuario. Lo mismo podría ocurrir con rutas completas de nuestra aplicación. ¿Por qué cargar la página de _About_ si el usuario está visitando la página principal?
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2604,12 +2538,11 @@ import { lazy, Suspense } from 'react'
 
 // Al hacer el import dinámico, debemos especificar el nombre del componente que queremos importar
 // y hacer que devuelva un objeto donde la key default pasar a ser el componente nombrado
-const Button = lazy(
-  () => import('./button.jsx')
-  .then(({Button}) => ({ default: Button }))
+const Button = lazy(() =>
+  import('./button.jsx').then(({ Button }) => ({ default: Button }))
 )
 
-export default function App () {
+export default function App() {
   return (
     <div>
       <Suspense fallback={<div>Cargando botón...</div>}>
@@ -2667,7 +2600,7 @@ const ThemeContext = createContext()
 Para usar el contexto, debemos envolver el árbol de componentes con el componente `Provider`:
 
 ```jsx
-<ThemeContext.Provider value="dark">
+<ThemeContext.Provider value='dark'>
   <App />
 </ThemeContext.Provider>
 ```
@@ -2712,7 +2645,7 @@ function App() {
 `flushSync(callback)` Obliga a React a ejecutar de manera síncrona todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
 
 ```jsx
-import { flushSync } from "react-dom"
+import { flushSync } from 'react-dom'
 
 function App() {
   const handleClick = () => {
@@ -2724,9 +2657,9 @@ function App() {
     })
     // component ha sido re-renderizado y el DOM ha sido actualizado ✅
     flushSync(() => {
-      setName("John")
+      setName('John')
       // component no hace re-render 🚫
-      setEmail("john@doe.com")
+      setEmail('john@doe.com')
       // component re-renderiza aquí 🔄
     })
     // component ha sido re-renderizado y el DOM ha sido actualizado ✅
@@ -2800,17 +2733,17 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 #### ¿Qué son las Forward Refs?
 
-El reenvío de referencia o *Forward Refs* es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
+El reenvío de referencia o _Forward Refs_ es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
 
 ```jsx
 // Button.jsx
 import { forwardRef } from 'react'
 
 export const Button = forwardRef((props, ref) => (
-  <button ref={ref} className="rounded border border-sky-500 bg-white">
+  <button ref={ref} className='rounded border border-sky-500 bg-white'>
     {props.children}
   </button>
-));
+))
 
 // Parent.jsx
 import { Button } from './Button'
@@ -2825,9 +2758,7 @@ const Parent = () => {
     ref.current?.focus?.()
   }, [ref.current])
 
-  return (
-    <Button ref={ref}>My button</Button>
-  )
+  return <Button ref={ref}>My button</Button>
 }
 ```
 
@@ -2846,7 +2777,7 @@ React proporciona una forma de validar el tipo de las props de un componente en 
 El paquete se llama `prop-types` y se puede instalar con `npm install prop-types`.
 
 ```jsx
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 function App(props) {
   return <h1>{props.title}</h1>
@@ -2859,7 +2790,7 @@ App.propTypes = {
 
 En este ejemplo, estamos validando que la prop `title` sea de tipo `string` y que sea obligatoria.
 
-Existen una colección de *PropTypes* ya definidas para ayudarte a comprobar los tipos de las props más comunes:
+Existen una colección de _PropTypes_ ya definidas para ayudarte a comprobar los tipos de las props más comunes:
 
 ```js
 PropTypes.number // número
@@ -2887,7 +2818,7 @@ A todas estas se le puede añadir la propiedad `isRequired` para indicar que es 
 Para validar las propiedades de un objeto que se pasa como prop, podemos usar la propiedad `shape` de `PropTypes`:
 
 ```jsx
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 function App({ title }) {
   const { text, color } = title
@@ -2911,12 +2842,12 @@ App.propTypes = {
 Para validar las propiedades de un array que se pasa como prop, podemos usar la propiedad `arrayOf` de `PropTypes`:
 
 ```jsx
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 function App({ items }) {
   return (
     <ul>
-      {items.map((item) => (
+      {items.map(item => (
         <li key={item.text}>{item.text}</li>
       ))}
     </ul>
@@ -2940,12 +2871,12 @@ En este caso estamos validando que `items` sea un array y que cada uno de sus el
 
 #### ¿Cómo puedo inyectar HTML directamente en un componente de React?
 
-Una de las razones por las que se creó React es para evitar los ataques XSS (*Cross-Site Scripting*), impidiendo que un usuario pueda inyectar código HTML en la página.
+Una de las razones por las que se creó React es para evitar los ataques XSS (_Cross-Site Scripting_), impidiendo que un usuario pueda inyectar código HTML en la página.
 
 Por ello, React al intentar evaluar un string que contiene HTML lo escapa automáticamente. Por ejemplo, si intentamos renderizar el siguiente string:
 
 ```jsx
-const html = "<h1>My title</h1>"
+const html = '<h1>My title</h1>'
 
 function App() {
   return <div>{html}</div>
@@ -2963,7 +2894,7 @@ Sin embargo, hay ocasiones en las que es necesario inyectar HTML directamente en
 Para ello, podemos usar la propiedad `dangerouslySetInnerHTML`:
 
 ```jsx
-const html = "<h1>My title</h1>"
+const html = '<h1>My title</h1>'
 
 function App() {
   return <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -3014,7 +2945,7 @@ En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto pu
 
 #### ¿Cuál es el propósito del atributo "key" en React y por qué es importante usarlo correctamente al renderizar listas de elementos?
 
-El propósito del atributo "key" en React es proporcionar una identificación única a cada elemento en una lista renderizada dinámicamente. Esto permite a React identificar qué elementos han cambiado, añadido o eliminado de la lista cuando se realiza una actualización. 
+El propósito del atributo "key" en React es proporcionar una identificación única a cada elemento en una lista renderizada dinámicamente. Esto permite a React identificar qué elementos han cambiado, añadido o eliminado de la lista cuando se realiza una actualización.
 
 Cuando se renderiza una lista en React sin el atributo "key", React puede tener dificultades para identificar correctamente los cambios en la lista, lo que puede resultar en un comportamiento inesperado, como la re-renderización innecesaria de elementos o la pérdida de estado de los componentes.
 
@@ -3023,19 +2954,19 @@ Por lo tanto, es importante utilizar el atributo "key" de manera correcta y úni
 Ejemplo de cómo utilizar el atributo "key" en React:
 
 ```jsx
-import React from 'react';
+import React from 'react'
 
 const ListaItems = ({ items }) => {
   return (
     <ul>
-      {items.map((item) => (
+      {items.map(item => (
         <li key={item.id}>{item.nombre}</li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default ListaItems;
+export default ListaItems
 ```
 
 ---
@@ -3048,7 +2979,7 @@ export default ListaItems;
 
 Existe una fina línea hoy en día entre qué es una biblioteca o un framework. Oficialmente, React se autodenomina como biblioteca. Esto es porque para poder crear una aplicación completa, necesitas usar otras bibliotecas.
 
-Por ejemplo, *React* no ofrece un sistema de enrutado de aplicaciones oficial. Por ello, hay que usar una biblioteca como [React Router](https://reactrouter.com/) o usar un *framework* como [Next.js](https://nextjs.org/) que ya incluye un sistema de enrutado.
+Por ejemplo, _React_ no ofrece un sistema de enrutado de aplicaciones oficial. Por ello, hay que usar una biblioteca como [React Router](https://reactrouter.com/) o usar un _framework_ como [Next.js](https://nextjs.org/) que ya incluye un sistema de enrutado.
 
 Tampoco puedes usar React para añadir las cabeceras que van en el `<head>` en tu aplicación, y también necesitarás otra biblioteca o framework para solucionar esto.
 
@@ -3077,12 +3008,10 @@ function TextInput(props, ref) {
   useImperativeHandle(ref, () => ({
     focus: () => {
       inputEl.current.focus()
-    }
+    },
   }))
 
-  return (
-    <input ref={inputEl} type="text" />
-  )
+  return <input ref={inputEl} type='text' />
 }
 ```
 
@@ -3106,7 +3035,7 @@ import { cloneElement } from 'react'
 const Hello = ({ name }) => <h1>Hello {name}</h1>
 
 const App = () => {
-  const element = <Hello name="midudev" />
+  const element = <Hello name='midudev' />
 
   return (
     <div>
@@ -3139,7 +3068,7 @@ import { createPortal } from 'react-dom'
 
 function Modal() {
   return createPortal(
-    <div className="modal">
+    <div className='modal'>
       <h1>Modal</h1>
     </div>,
     document.getElementById('modal')
@@ -3160,7 +3089,7 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
-Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con *race conditions*.
+Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con _race conditions_.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3168,12 +3097,12 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 #### ¿Qué problemas crees que pueden aparecer en una aplicación al querer visualizar listas de miles/millones de datos?
 
-- **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategia. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al *parseo* y *envío* de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en *timeouts* en la respuesta.
-- **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo *declarativo* en el cual no debemos tener una exhaustivo control o gestión de cómo se *renderiza*, no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable *renderizar* un *DOM* con millones de elementos, el *navegador* no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
+- **Tiempo de respuesta del servidor:** Hacer peticiones de millones de datos no es, en general, una buena estrategia. Incluso en el mejor de los casos, en el que el servidor solo debe devolver los datos sin tratarlos, hay un coste asociado al _parseo_ y _envío_ de los mismos a través de la red. Llamadas con un tamaño desmesurado pueden incurrir en interfaces lentas, e incluso en _timeouts_ en la respuesta.
+- **Problemas de rendimiento:** Aunque es cierto que **React** se basa en un modelo _declarativo_ en el cual no debemos tener una exhaustivo control o gestión de cómo se _renderiza_, no hay que olvidar que malas decisiones técnicas pueden conllevar aplicaciones totalmente inestables incluso con las mejores tecnologías. No es viable _renderizar_ un _DOM_ con millones de elementos, el _navegador_ no podrá gestionarlo y, tarde o temprano, la aplicación no será usable.
 
- Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para *renderizar* en pantalla miles de datos.
+Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para _renderizar_ en pantalla miles de datos.
 
- **El espacio de visualización es limitado (*viewport*), al igual que deberían serlo los datos que añadimos al DOM.**
+**El espacio de visualización es limitado (_viewport_), al igual que deberían serlo los datos que añadimos al DOM.**
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3181,12 +3110,12 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 #### ¿Cómo puedes abortar una petición fetch con `useEffect` en React?
 
-Si quieres evitar que exista una *race condition* entre una petición asíncrona y que el componente se desmonte, puedes usar la API de `AbortController` para abortar la petición cuando lo necesites:
+Si quieres evitar que exista una _race condition_ entre una petición asíncrona y que el componente se desmonte, puedes usar la API de `AbortController` para abortar la petición cuando lo necesites:
 
 ```jsx
 import { useEffect, useState } from 'react'
 
-function Movies () {
+function Movies() {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
@@ -3197,8 +3126,9 @@ function Movies () {
     fetchMovies({ signal: abortController.signal })
       .then(() => {
         setMovies(data.results)
-      }).catch(error => {
-        if (error.name === 'AbortError') {
+      })
+      .catch(error => {
+        if (error.name === 'AbortError') {
           console.log('fetch aborted')
         }
       })
@@ -3217,7 +3147,7 @@ function Movies () {
 // para que enlace la petición con el controlador
 const fetchMovies = ({ signal }) => {
   return fetch('https://api.themoviedb.org/3/movie/popular', {
-    signal // <--- pasamos el signal
+    signal, // <--- pasamos el signal
   }).then(response => response.json())
 }
 ```
@@ -3232,11 +3162,11 @@ De esta forma evitamos que se produzca un error por parte de React de intentar a
 
 ##### Pagination
 
-En lugar de recibir la lista en una sola llamada a la API (lo cual sería negativo tanto para el rendimiento como para el propio servidor y tiempo de respuesta de la API), podríamos implementar un sistema de paginación en el cual la API recibirá un *offset* o *rango* de datos deseados. En el FE nuestra responsabilidad es mostrar unos controles adecuados (interfaz de paginación) y gestionar las llamadas a petición de cambio de página para siempre limitar la cantidad de DOM renderizado evitando así una sobrecarga del *DOM* y, por lo tanto, problemas de rendimiento.
+En lugar de recibir la lista en una sola llamada a la API (lo cual sería negativo tanto para el rendimiento como para el propio servidor y tiempo de respuesta de la API), podríamos implementar un sistema de paginación en el cual la API recibirá un _offset_ o _rango_ de datos deseados. En el FE nuestra responsabilidad es mostrar unos controles adecuados (interfaz de paginación) y gestionar las llamadas a petición de cambio de página para siempre limitar la cantidad de DOM renderizado evitando así una sobrecarga del _DOM_ y, por lo tanto, problemas de rendimiento.
 
 ##### Virtualization
 
-Existe una técnica llamada *Virtualización* que gestiona cuántos elementos de una lista mantenemos ***vivos*** en el *DOM*. El concepto se basa en solo montar los elementos que estén dentro del *viewport* más un *buffer* determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del *DOM* todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
+Existe una técnica llamada _Virtualización_ que gestiona cuántos elementos de una lista mantenemos **_vivos_** en el _DOM_. El concepto se basa en solo montar los elementos que estén dentro del _viewport_ más un _buffer_ determinado (para evitar falta de datos al hacer scroll) y, en cambio, desmontar del _DOM_ todos aquellos elementos que estén fuera de la vista del usuario. De este modo podremos obtener lo mejor de los dos mundos, una experiencia integrada y un DOM liviano que evitará posibles errores de rendimiento. Con esta solución también podremos aprovechar que contamos con los datos en memoria para realizar búsquedas/filtrados sin necesidad de más llamadas al servidor.
 
 Puedes consultar esta librería para aplicar Virtualización con React: [React Virtualized](https://github.com/bvaughn/react-virtualized).
 
@@ -3248,7 +3178,7 @@ Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perj
 
 #### ¿Qué es el hook `useDebugValue`?
 
-Nos permite mostrar un valor personalizado en la pestaña de *React DevTools* que nos permitirá depurar nuestro código.
+Nos permite mostrar un valor personalizado en la pestaña de _React DevTools_ que nos permitirá depurar nuestro código.
 
 ```jsx
 import { useDebugValue } from 'react'
@@ -3260,7 +3190,7 @@ function useCustomHook() {
 }
 ```
 
-En este ejemplo, el valor personalizado que se muestra en la pestaña de *React DevTools* es `custom value`.
+En este ejemplo, el valor personalizado que se muestra en la pestaña de _React DevTools_ es `custom value`.
 
 Aunque es útil para depurar, no se recomienda usar este hook en producción.
 
@@ -3277,9 +3207,12 @@ import { Profiler } from 'react'
 
 function App() {
   return (
-    <Profiler id="App" onRender={(id, phase, actualDuration) => {
-      console.log({id, phase, actualDuration})
-    }}>
+    <Profiler
+      id='App'
+      onRender={(id, phase, actualDuration) => {
+        console.log({ id, phase, actualDuration })
+      }}
+    >
       <Component />
     </Profiler>
   )
@@ -3331,39 +3264,35 @@ Aunque puedes usar el método `renderToString` para renderizar el HTML en el ser
 
 ```jsx
 let didError = false
-const stream = renderToPipeableStream(
-  <App />,
-  {
-    onShellReady() {
-      // El contenido por encima de los límites de Suspense ya están listos
-      // Si hay un error antes de empezar a hacer stream, mostramos el error adecuado
-      res.statusCode = didError ? 500 : 200
-      res.setHeader('Content-type', 'text/html')
-      stream.pipe(res)
-    },
-    onShellError(error) {
-      // Si algo ha ido mal al renderizar el contenido anterior a los límites de Suspense, lo indicamos.
-      res.statusCode = 500
-      res.send(
-        '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>'
-      )
-    },
-    onAllReady() {
-      // Si no quieres hacer streaming de los datos, puedes usar
-      // esto en lugar de onShellReady. Esto se ejecuta cuando
-      // todo el HTML está listo para ser enviado.
-      // Perfecto para crawlers o generación de sitios estáticos
-
-      // res.statusCode = didError ? 500 : 200
-      // res.setHeader('Content-type', 'text/html')
-      // stream.pipe(res)
-    },
-    onError(err) {
-      didError = true
-      console.error(err)
-    },
-  }
-)
+const stream = renderToPipeableStream(<App />, {
+  onShellReady() {
+    // El contenido por encima de los límites de Suspense ya están listos
+    // Si hay un error antes de empezar a hacer stream, mostramos el error adecuado
+    res.statusCode = didError ? 500 : 200
+    res.setHeader('Content-type', 'text/html')
+    stream.pipe(res)
+  },
+  onShellError(error) {
+    // Si algo ha ido mal al renderizar el contenido anterior a los límites de Suspense, lo indicamos.
+    res.statusCode = 500
+    res.send(
+      '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>'
+    )
+  },
+  onAllReady() {
+    // Si no quieres hacer streaming de los datos, puedes usar
+    // esto en lugar de onShellReady. Esto se ejecuta cuando
+    // todo el HTML está listo para ser enviado.
+    // Perfecto para crawlers o generación de sitios estáticos
+    // res.statusCode = didError ? 500 : 200
+    // res.setHeader('Content-type', 'text/html')
+    // stream.pipe(res)
+  },
+  onError(err) {
+    didError = true
+    console.error(err)
+  },
+})
 ```
 
 **[⬆ Volver a índice](#índice)**
@@ -3427,7 +3356,7 @@ try {
       onError(error) {
         didError = true
         console.error(error)
-      }
+      },
     }
   )
 
@@ -3437,14 +3366,14 @@ try {
 
   return new Response(stream, {
     status: didError ? 500 : 200,
-    headers: {'Content-Type': 'text/html'},
+    headers: { 'Content-Type': 'text/html' },
   })
 } catch (error) {
   return new Response(
     '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>',
     {
       status: 500,
-      headers: {'Content-Type': 'text/html'},
+      headers: { 'Content-Type': 'text/html' },
     }
   )
 }
@@ -3515,11 +3444,11 @@ test('useCounter', () => {
 
 #### ¿Qué es Flux?
 
-*Flux* es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
+_Flux_ es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
 
 No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
 
-Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. *Redux* se basó en este patrón para crear una biblioteca de gestión de estado global.
+Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. _Redux_ se basó en este patrón para crear una biblioteca de gestión de estado global.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3562,7 +3491,11 @@ function Counter() {
     const [name, setName] = useState('midu')
   }
 
-  return <div>{count} {name}</div>
+  return (
+    <div>
+      {count} {name}
+    </div>
+  )
 }
 ```
 
@@ -3579,7 +3512,11 @@ function Counter() {
 
   const [name, setName] = useState('midu')
 
-  return <div>{count} {name}</div>
+  return (
+    <div>
+      {count} {name}
+    </div>
+  )
 }
 ```
 
@@ -3595,7 +3532,11 @@ function Counter() {
 
   if (count === 0) return null
 
-  return <div>{count} {name}</div>
+  return (
+    <div>
+      {count} {name}
+    </div>
+  )
 }
 ```
 
@@ -3612,7 +3553,7 @@ Recomendamos revisar las siguientes secciones:
 Este error se produce cuando intentamos actualizar el estado de un componente que ya no está montado. Esto puede ocurrir cuando el componente se desmonta antes de que se complete una petición asíncrona, por ejemplo:
 
 ```jsx
-function Movies () {
+function Movies() {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
@@ -3641,7 +3582,7 @@ Parece un código inofensivo, pero imagina que usamos este componente en una pá
 Para evitar este error, podemos usar una variable booleana con `useRef` que nos indique si el componente está montado o no. De esta manera, podemos evitar que se ejecute el `setMovies` si el componente no está montado:
 
 ```jsx
-function Movies () {
+function Movies() {
   const [movies, setMovies] = useState([])
   const mounted = useRef(false)
 
@@ -3654,7 +3595,7 @@ function Movies () {
       }
     })
 
-    return () => mounted.current = false
+    return () => (mounted.current = false)
   })
 
   // ...
@@ -3664,7 +3605,7 @@ function Movies () {
 Esto soluciona el problema pero **no evita que se haga la petición aunque el componente ya no esté montado**. Para cancelar la petición y así ahorrar transferencia de datos, podemos abortar la petición usando la API `AbortController`:
 
 ```jsx
-function Movies () {
+function Movies() {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
@@ -3675,8 +3616,9 @@ function Movies () {
     fetchMovies({ signal: abortController.signal })
       .then(() => {
         setMovies(data.results)
-      }).catch(error => {
-        if (error.name === 'AbortError') {
+      })
+      .catch(error => {
+        if (error.name === 'AbortError') {
           console.log('fetch aborted')
         }
       })
@@ -3695,7 +3637,7 @@ function Movies () {
 // para que enlace la petición con el controlador
 const fetchMovies = ({ signal }) => {
   return fetch('https://api.themoviedb.org/3/movie/popular', {
-    signal // <--- pasamos el signal
+    signal, // <--- pasamos el signal
   }).then(response => response.json())
 }
 ```
@@ -3708,7 +3650,7 @@ Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. E
 
 #### Too many re-renders. React limits the number of renders to prevent an infinite loop
 
-Este error indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un *loop* (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
+Este error indica que algo dentro de nuestro componente está generando muchos pintados que pueden desembocar en un _loop_ (bucle) infinito. Algunas de las razones por las que puede aparecer este error son las siguientes:
 
 1. **Llamar a una función que actualiza el estado en el renderizado del componente.**
 
@@ -3716,15 +3658,15 @@ Este error indica que algo dentro de nuestro componente está generando muchos p
 function Counter() {
   const [count, setCount] = useState(0)
 
-// ❌ código incorrecto
-// no debemos actualizar el estado de manera directa
+  // ❌ código incorrecto
+  // no debemos actualizar el estado de manera directa
   setCount(count + 1)
 
   return <div>{count}</div>
 }
 ```
 
-Lo que sucede en este ejemplo, es que al *renderizarse* el componente, se llama a la función `setCount` para actualizar el estado. Una vez el estado es actualizado, se genera nuevamente un *render* del componente y se repite todo el proceso infinitas veces.
+Lo que sucede en este ejemplo, es que al _renderizarse_ el componente, se llama a la función `setCount` para actualizar el estado. Una vez el estado es actualizado, se genera nuevamente un _render_ del componente y se repite todo el proceso infinitas veces.
 
 Una posible solución sería:
 
@@ -3746,10 +3688,12 @@ function Counter() {
 
   // ❌ código incorrecto
   //se ejecuta directamente la función `setCount` y provoca un renderizado infinito
-  return <div>
-    <p>Contador: {count}</p>
-    <button onClick={setCount(count + 1)}>Incrementar</button>
-  </div>
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <button onClick={setCount(count + 1)}>Incrementar</button>
+    </div>
+  )
 }
 ```
 
@@ -3764,10 +3708,12 @@ function Counter() {
   // ✅ código correcto
   // se pasa un callback al evento `onClick`
   // esto evita que la función se ejecute en el renderizado
-  return <div>
-    <p>Contador: {count}</p>
-    <button onClick={() => setCount(count + 1)}>Incrementar</button>
-  </div>
+  return (
+    <div>
+      <p>Contador: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Incrementar</button>
+    </div>
+  )
 }
 ```
 
@@ -3830,77 +3776,77 @@ El **Virtual DOM** es una representación del DOM en memoria. Esta representaci�
 
 #### ¿Qué es el Binding?
 
-En React, el **Binding** se refiere a la forma en que se relaciona y sincroniza el **estado** *(state)* de un componente con su **vista** *(render)*. El estado de un componente es un objeto que contiene información que puede ser utilizada para determinar cómo se debe mostrar el componente. Existen **dos** tipos de binding en React: **One-Way Binding** y **Two-Way Binding**.
+En React, el **Binding** se refiere a la forma en que se relaciona y sincroniza el **estado** _(state)_ de un componente con su **vista** _(render)_. El estado de un componente es un objeto que contiene información que puede ser utilizada para determinar cómo se debe mostrar el componente. Existen **dos** tipos de binding en React: **One-Way Binding** y **Two-Way Binding**.
 
-**One-Way Binding** *(Enlace unidireccional)*:
+**One-Way Binding** _(Enlace unidireccional)_:
 
-En React se refiere a la capacidad de un componente para actualizar su **estado** *(state)* y su **vista** *(render)* de manera automática cuando cambia el estado, pero no permitiendo que la vista actualice el estado. En otras palabras, el **one-way binding** significa que el flujo de datos es unidireccional, desde el estado hacia la vista, y no al revés.
+En React se refiere a la capacidad de un componente para actualizar su **estado** _(state)_ y su **vista** _(render)_ de manera automática cuando cambia el estado, pero no permitiendo que la vista actualice el estado. En otras palabras, el **one-way binding** significa que el flujo de datos es unidireccional, desde el estado hacia la vista, y no al revés.
 
 Por ejemplo:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 function OneWayBindingExample() {
-  const [name, setName] = useState('midu');
+  const [name, setName] = useState('midu')
 
   return (
     <div>
       <p>Hello, {name}</p>
       <input
-        type="text"
-        placeholder="Enter your name"
-        onChange={(e) => setName(e.target.value)}
+        type='text'
+        placeholder='Enter your name'
+        onChange={e => setName(e.target.value)}
       />
     </div>
-  );
+  )
 }
 
-export default OneWayBindingExample;
+export default OneWayBindingExample
 ```
 
-*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input. Sin embargo, la **vista** (la linea que muestra **Hello, {name}**) no tiene la capacidad de actualizar el estado **name**.*
+_En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input. Sin embargo, la **vista** (la linea que muestra **Hello, {name}**) no tiene la capacidad de actualizar el estado **name**._
 
-**Two-Way Binding** *(Enlace bidireccional)*:
+**Two-Way Binding** _(Enlace bidireccional)_:
 
-Se refiere a la capacidad de un componente para actualizar su estado y su vista de manera automática tanto cuando cambia el estado como cuando se produce un evento en la vista. En otras palabras, el **Two-Way Binding** significa que el flujo de datos es bidireccional, desde el estado hacia la vista y desde la vista hacia el estado. Para lograr esto se utilizan en conjunto con los eventos, como **onChange**, para capturar la información de los inputs y actualizar el estado, *React no proporciona un mecanismo nativo para two-way binding, pero se puede lograr utilizando librerías como react-forms o formik.*
+Se refiere a la capacidad de un componente para actualizar su estado y su vista de manera automática tanto cuando cambia el estado como cuando se produce un evento en la vista. En otras palabras, el **Two-Way Binding** significa que el flujo de datos es bidireccional, desde el estado hacia la vista y desde la vista hacia el estado. Para lograr esto se utilizan en conjunto con los eventos, como **onChange**, para capturar la información de los inputs y actualizar el estado, _React no proporciona un mecanismo nativo para two-way binding, pero se puede lograr utilizando librerías como react-forms o formik._
 
 Por ejemplo:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 function TwoWayBindingExample() {
-  const [name, setName] = useState('midu');
+  const [name, setName] = useState('midu')
 
   return (
     <div>
       <p>Hello, {name}</p>
       <input
-        type="text"
-        placeholder="Enter your name"
+        type='text'
+        placeholder='Enter your name'
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={e => setName(e.target.value)}
       />
     </div>
-  );
+  )
 }
 
-export default TwoWayBindingExample;
+export default TwoWayBindingExample
 ```
 
-*En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input, y se puede ver reflejado en el valor del input. Sin embargo, en este caso se está utilizando el atributo **value** para que el valor del input sea actualizado con el valor del estado, es decir, se está actualizando tanto el estado como el input.*
+_En este ejemplo, el componente tiene un estado inicial llamado **name** con el valor **midu**. La función **setName** se utiliza para actualizar el estado **name** cuando se produce un evento **onChange** en el input, y se puede ver reflejado en el valor del input. Sin embargo, en este caso se está utilizando el atributo **value** para que el valor del input sea actualizado con el valor del estado, es decir, se está actualizando tanto el estado como el input._
 
 **Por si no quedó claro:**
 
-En términos sencillos, el **Binding** en React puede compararse con una cafetera y una taza de café. **El estado** del componente sería la *cafetera*, y **la vista** del componente sería *la taza de café*.
+En términos sencillos, el **Binding** en React puede compararse con una cafetera y una taza de café. **El estado** del componente sería la _cafetera_, y **la vista** del componente sería _la taza de café_.
 
-En el caso del **One-Way Binding**, la cafetera solo puede verter café en una dirección, hacia la taza de café. Esto significa que la cafetera puede llenar automáticamente la taza de café con café fresco, pero la taza de café no puede devolver automáticamente el café a la cafetera. De esta manera, **el estado** del componente *(la cafetera)* puede actualizar automáticamente **la vista** *(la taza de café)* cuando cambia, pero la **vista** no puede actualizar automáticamente el **estado**.
+En el caso del **One-Way Binding**, la cafetera solo puede verter café en una dirección, hacia la taza de café. Esto significa que la cafetera puede llenar automáticamente la taza de café con café fresco, pero la taza de café no puede devolver automáticamente el café a la cafetera. De esta manera, **el estado** del componente _(la cafetera)_ puede actualizar automáticamente **la vista** _(la taza de café)_ cuando cambia, pero la **vista** no puede actualizar automáticamente el **estado**.
 
 En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en ambas direcciones, hacia y desde la taza de café (no sé por qué alguien necesitaría hacer algo así). Esto significa que la cafetera puede llenar y vaciar automáticamente la taza de café con café fresco. De esta manera, tanto **el estado** del componente como **la vista** pueden actualizarse automáticamente entre sí.
 
 Sí quieres saber más comparto el siguiente enlace:  
-[How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)  
+[How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)
 
 **[⬆ Volver a índice](#índice)**
 

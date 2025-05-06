@@ -4,10 +4,10 @@ const { readConfigSync } = markdownlint
 
 const options = {
   config: readConfigSync('.markdownlint.json'),
-  files: ['README.md']
+  files: ['README.md'],
 }
 
-markdownlint(options, function callback (err, result) {
+markdownlint(options, function callback(err, result) {
   if (!err) {
     console.log(result.toString())
   }

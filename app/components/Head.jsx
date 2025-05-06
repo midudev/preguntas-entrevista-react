@@ -3,7 +3,10 @@ export const Head = ({ title, description, ogImage }) => {
     <>
       <title>{title}</title>
       <meta name='description' content={description} />
-      <meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1' />
+      <meta
+        name='viewport'
+        content='width=device-width,minimum-scale=1,initial-scale=1'
+      />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
       <meta property='og:image' content={ogImage} />
@@ -15,8 +18,16 @@ export const Head = ({ title, description, ogImage }) => {
       <meta name='twitter:creator' content='@midudev' />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
-      <link href='favicon.ico' rel='icon' media='(prefers-color-scheme: light)' />
-      <link href='favicon.dark.ico' rel='icon' media='(prefers-color-scheme: dark)' />
+      <link
+        href='favicon.ico'
+        rel='icon'
+        media='(prefers-color-scheme: light)'
+      />
+      <link
+        href='favicon.dark.ico'
+        rel='icon'
+        media='(prefers-color-scheme: dark)'
+      />
     </>
   )
 }

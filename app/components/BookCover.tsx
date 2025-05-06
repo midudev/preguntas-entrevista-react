@@ -66,7 +66,7 @@ export const BookCover = ({
   shadowColor = 'rgba(0, 0, 0, .2)',
   width = 100,
   height = 150,
-  pagesOffset = 4
+  pagesOffset = 4,
 }: Props) => {
   const uniqueId = 'book'
 
@@ -81,7 +81,7 @@ export const BookCover = ({
     shadowColor,
     width,
     height,
-    pagesOffset
+    pagesOffset,
   })
 
   return (
@@ -146,9 +146,9 @@ export const getCssForSettings = (uniqueId: string, settings: Settings) => {
       top: ${settings.pagesOffset}px;
       width: ${settings.thickness - 2}px;
       height: ${settings.height - 2 * settings.pagesOffset}px;
-      transform: translateX(${settings.width -
-        settings.thickness / 2 -
-        settings.pagesOffset}px) rotateY(90deg);
+      transform: translateX(${
+        settings.width - settings.thickness / 2 - settings.pagesOffset
+      }px) rotateY(90deg);
       background: linear-gradient(90deg, 
         #fff 0%,
         #f9f9f9 5%,

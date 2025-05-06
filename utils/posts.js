@@ -4,7 +4,7 @@ export const readIndex = async () => {
   return posts
 }
 
-export const fetchPost = async (slug) => {
+export const fetchPost = async slug => {
   const posts = await readIndex()
 
   const post = await import(`../public/content/${slug}.json`)

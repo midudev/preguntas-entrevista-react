@@ -5,7 +5,7 @@ import { readIndex } from '../../../utils/posts.js'
 export const runtime = 'edge'
 
 // Define the handler for GET requests
-export async function GET (req: Request) {
+export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const q = searchParams.get('q') ?? ''
 
@@ -17,7 +17,7 @@ export async function GET (req: Request) {
     keys: ['text'],
     includeScore: true,
     includeMatches: true,
-    minMatchCharLength: 2
+    minMatchCharLength: 2,
   })
 
   const results = fuse.search(search).slice(0, 5)

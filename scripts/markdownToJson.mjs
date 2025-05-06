@@ -7,21 +7,23 @@ const LEVELS = {
   EASY: 0,
   MEDIUM: 1,
   HARD: 2,
-  ERRORS: -1
+  ERRORS: -1,
 }
 
 const MAP_LEVELS = {
   principiante: LEVELS.EASY,
   intermedio: LEVELS.MEDIUM,
   avanzado: LEVELS.HARD,
-  'errores típicos en react': LEVELS.ERRORS
+  'errores típicos en react': LEVELS.ERRORS,
 }
 
-const addCodeHighlight = async (markdown) => {
+const addCodeHighlight = async markdown => {
   const codeBlockRegex = /^```(\w+)\n([a-z]*[\s\S]*?)\n```/gm
   for (const match of markdown.matchAll(codeBlockRegex)) {
     let lang = match[1]
-    const isPrismLanguageLoaded = Object.keys(Prism.languages).filter(id => typeof Prism.languages[id] === 'object').includes(lang)
+    const isPrismLanguageLoaded = Object.keys(Prism.languages)
+      .filter(id => typeof Prism.languages[id] === 'object')
+      .includes(lang)
     if (!isPrismLanguageLoaded) {
       try {
         // dynamically import the required component for languague
@@ -61,63 +63,67 @@ let levelLiteral = 'principiante'
 let stack = []
 
 const counter = {
-  total: 0
+  total: 0,
 }
 
-const promises = tree.map((item, i) => {
-  const { depth, type, text } = item
+const promises = tree
+  .map((item, i) => {
+    const { depth, type, text } = item
 
-  const isHeading = type === 'heading' && depth === 4
-  const isLevel = depth === 3
-  const isLast = i === tree.length - 1
+    const isHeading = type === 'heading' && depth === 4
+    const isLevel = depth === 3
+    const isLast = i === tree.length - 1
 
-  if (isLevel) {
-    levelLiteral = text.toLowerCase()
+    if (isLevel) {
+      levelLiteral = text.toLowerCase()
+      return null
+    }
+
+    if (isHeading || isLast) {
+      let id
+      let level
+
+      if (!isLast) {
+        id = slugify(text)
+        level = MAP_LEVELS[levelLiteral]
+        index.push({ id, text, level })
+      }
+
+      counter.total++
+
+      // only for the first one
+      if (previousId === null) {
+        previousId = id
+        previousTitle = text
+      }
+
+      if (previousId !== id || isLast) {
+        const content = marked.parser(stack)
+
+        content
+          .replace('<h4 ', '<h1 ')
+          .replace('</h4', '</h1')
+          .replace('<hr>', '')
+
+        const promise = fs.outputJSON(`./public/${previousId}.json`, {
+          id: previousId,
+          level,
+          title: previousTitle,
+          content,
+        })
+
+        stack = []
+        previousId = id
+        previousTitle = text
+
+        return promise
+      }
+    }
+
+    stack.push(item)
     return null
-  }
-
-  if (isHeading || isLast) {
-    let id
-    let level
-
-    if (!isLast) {
-      id = slugify(text)
-      level = MAP_LEVELS[levelLiteral]
-      index.push({ id, text, level })
-    }
-
-    counter.total++
-
-    // only for the first one
-    if (previousId === null) {
-      previousId = id
-      previousTitle = text
-    }
-
-    if (previousId !== id || isLast) {
-      const content = marked.parser(stack)
-
-      content
-        .replace('<h4 ', '<h1 ')
-        .replace('</h4', '</h1')
-        .replace('<hr>', '')
-
-      const promise = fs.outputJSON(
-        `./public/${previousId}.json`,
-        { id: previousId, level, title: previousTitle, content }
-      )
-
-      stack = []
-      previousId = id
-      previousTitle = text
-
-      return promise
-    }
-  }
-
-  stack.push(item)
-  return null
-}).filter(Boolean)
+  })
+  .filter(Boolean)
 
 Promise.all(promises).then(() => {
   fs.outputJSON('./public/content/counter.json', counter)

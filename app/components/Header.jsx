@@ -15,7 +15,7 @@ import ThemeToggle from './ThemeToggle'
 import { useEventListener } from '../../hooks/useEventListener'
 import counter from '../../public/content/counter.json'
 
-export function Header ({ stars }) {
+export function Header({ stars }) {
   const pathname = usePathname()
   const [read, setRead] = useState(0)
   const [results, setResults] = useState([])
@@ -25,7 +25,7 @@ export function Header ({ stars }) {
   const literal = isHome ? ' ' : '← Volver al inicio'
 
   const debouncedHandleChange = useCallback(
-    debounce((event) => {
+    debounce(event => {
       fetch(`/api/search?q=${event.target.value}`)
         .then(res => res.json())
         .then(resultsFromApi => {
@@ -35,7 +35,7 @@ export function Header ({ stars }) {
     []
   )
 
-  const handlerStorageListener = useCallback((event) => {
+  const handlerStorageListener = useCallback(event => {
     if (event.key === 'read') {
       setRead(JSON.parse(event.newValue).length)
     }
@@ -43,7 +43,7 @@ export function Header ({ stars }) {
 
   useEventListener({
     eventName: 'storage',
-    handler: handlerStorageListener
+    handler: handlerStorageListener,
   })
 
   useEffect(() => {
@@ -51,56 +51,55 @@ export function Header ({ stars }) {
   }, [pathname])
 
   useEffect(() => {
-    const readStorage = JSON.parse(localStorage.getItem('read')) || []
+    const readStorage = JSON.parse(window.localStorage.getItem('read')) || []
     setRead(readStorage.length)
   }, [])
 
-  const handleSelect = (result) => {
+  const handleSelect = result => {
     if (result) router.push(`/${result.id}/#content`)
   }
 
   return (
     <header className='relative pt-20 pb-10'>
+      {isHome && (
+        <div className='absolute right-0 flex items-center gap-x-2 top-1'>
+          <ThemeToggle />
+          <Stars stars={stars} />
+          <button className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'>
+            Leidas {read}/{counter.total}
+          </button>
+        </div>
+      )}
 
-      {
-        isHome && (
-          <div className='absolute right-0 flex items-center gap-x-2 top-1'>
-            <ThemeToggle />
-            <Stars stars={stars} />
-            <button
-              className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'
-            >
-              Leidas {read}/{counter.total}
-            </button>
-          </div>
-        )
-      }
-
-      <div className={`relative ${isHome ? 'block' : 'flex flex-col md:flex-row justify-between md:items-center'}`}>
-
-        <Link className='hover:underline' href='/'>{literal}</Link>
+      <div
+        className={`relative ${isHome ? 'block' : 'flex flex-col md:flex-row justify-between md:items-center'}`}
+      >
+        <Link className='hover:underline' href='/'>
+          {literal}
+        </Link>
 
         <div className='flex gap-x-2'>
           <Title isHome={isHome} />
 
-          {
-            !isHome && <ReactLogo animated={false} size='small' />
-          }
+          {!isHome && <ReactLogo animated={false} size='small' />}
 
-          {
-            isHome && (
-              <div className='absolute p-2 overflow-hidden -right-4 md:right-0 top-6 dark:invert'>
-                <div className='translate-x-1/3 sm:translate-x-0'>
-                  <ReactLogo />
-                </div>
+          {isHome && (
+            <div className='absolute p-2 overflow-hidden -right-4 md:right-0 top-6 dark:invert'>
+              <div className='translate-x-1/3 sm:translate-x-0'>
+                <ReactLogo />
               </div>
-            )
-          }
+            </div>
+          )}
         </div>
-
       </div>
 
-      <Combobox as='form' className='relative' onChange={handleSelect} onSubmit={e => e.preventDefault()} nullable>
+      <Combobox
+        as='form'
+        className='relative'
+        onChange={handleSelect}
+        onSubmit={e => e.preventDefault()}
+        nullable
+      >
         <label className='relative w-full'>
           <div className='absolute px-4 py-3 text-gray-300'>
             <SearchIcon className='w-8 h-8 md:w-12 md:h-12' />
@@ -113,38 +112,48 @@ export function Header ({ stars }) {
             onChange={debouncedHandleChange}
             placeholder='Introduce aquí tu pregunta sobre React'
             type='search'
-            displayValue={(element) => element?.text}
+            displayValue={element => element?.text}
           />
         </label>
 
-        {
-          results.length > 0 && (
-            <Combobox.Options className='absolute z-10 w-full overflow-hidden bg-white border border-gray-300 rounded-t-none shadow-lg rounded-3xl'>
-              {results.map(result => {
-                const { item, matches } = result
-                const { id, text } = item
-                const [{ indices }] = matches
+        {results.length > 0 && (
+          <Combobox.Options className='absolute z-10 w-full overflow-hidden bg-white border border-gray-300 rounded-t-none shadow-lg rounded-3xl'>
+            {results.map(result => {
+              const { item, matches } = result
+              const { id, text } = item
+              const [{ indices }] = matches
 
-                const [bestMatch] = indices.sort((a, b) => (b[1] - b[0]) - (a[1] - a[0]))
-                const html = text.slice(0, bestMatch[0]) + '<span class="bg-yellow-300 dark:text-black">' + text.slice(bestMatch[0], bestMatch[1] + 1) + '</span>' + text.slice(bestMatch[1] + 1)
+              const [bestMatch] = indices.sort(
+                (a, b) => b[1] - b[0] - (a[1] - a[0])
+              )
+              const html =
+                text.slice(0, bestMatch[0]) +
+                '<span class="bg-yellow-300 dark:text-black">' +
+                text.slice(bestMatch[0], bestMatch[1] + 1) +
+                '</span>' +
+                text.slice(bestMatch[1] + 1)
 
-                return (
-                  <Combobox.Option key={id} value={{ id, text }}>
-                    {({ active, selected }) => (
-                      <span className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100 dark:bg-slate-800' : 'bg-white dark:bg-secondry'}`} href={`/${id}/#content`}>
-                        {selected && <span className='sr-only'>Seleccionado</span>}
-                        <strong className='text-black dark:text-white' dangerouslySetInnerHTML={{ __html: html }} />
-                      </span>
-                    )}
-
-                  </Combobox.Option>
-                )
-              })}
-
-            </Combobox.Options>
-          )
-        }
-
+              return (
+                <Combobox.Option key={id} value={{ id, text }}>
+                  {({ active, selected }) => (
+                    <span
+                      className={`block p-4 hover:bg-gray-100 ${active ? 'bg-gray-100 dark:bg-slate-800' : 'bg-white dark:bg-secondry'}`}
+                      href={`/${id}/#content`}
+                    >
+                      {selected && (
+                        <span className='sr-only'>Seleccionado</span>
+                      )}
+                      <strong
+                        className='text-black dark:text-white'
+                        dangerouslySetInnerHTML={{ __html: html }}
+                      />
+                    </span>
+                  )}
+                </Combobox.Option>
+              )
+            })}
+          </Combobox.Options>
+        )}
       </Combobox>
     </header>
   )

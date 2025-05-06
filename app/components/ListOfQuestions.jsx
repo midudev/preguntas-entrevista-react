@@ -7,14 +7,17 @@ const getListOfQuestions = async () => {
   return questions
 }
 
-export async function ListOfQuestions () {
+export async function ListOfQuestions() {
   const questions = await getListOfQuestions()
 
   return (
     <ul className='space-y-3'>
       {questions.map(({ id, text }) => (
         <li key={id}>
-          <Link className='leading-snug hover:underline' href={`/${id}/#content`}>
+          <Link
+            className='leading-snug hover:underline'
+            href={`/${id}/#content`}
+          >
             {text}
           </Link>
         </li>
