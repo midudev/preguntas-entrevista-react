@@ -4,14 +4,15 @@
   "description": "",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "scripts": {
     "markdown:lint": "node scripts/lint.mjs",
     "dev": "next dev",
     "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
-    "lint": "next lint"
+    "prettier": "prettier --write .",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -22,28 +23,29 @@
   },
   "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme",
   "devDependencies": {
-    "@types/node": "22.5.3",
-    "@types/react": "18.3.5",
-    "autoprefixer": "10.4.20",
-    "eslint": "8.57.0",
-    "eslint-config-next": "14.2.7",
-    "markdownlint": "0.34.0",
-    "postcss": "8.4.44",
-    "standard": "17.1.0",
-    "tailwindcss": "3.4.10",
-    "typescript": "5.5.4"
+    "@types/node": "22.5.5",
+    "@types/react": "18.3.21",
+    "autoprefixer": "10.4.21",
+    "eslint": "9.26.0",
+    "eslint-config-next": "15.3.1",
+    "markdownlint": "0.38.0",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.8.3"
   },
   "dependencies": {
-    "@headlessui/react": "2.1.4",
+    "@headlessui/react": "2.2.2",
     "@sindresorhus/slugify": "2.2.1",
-    "@vercel/og": "0.6.2",
-    "framer-motion": "11.4.0",
-    "fs-extra": "11.2.0",
-    "fuse.js": "7.0.0",
+    "@vercel/og": "0.6.8",
+    "framer-motion": "11.18.2",
+    "fs-extra": "11.3.0",
+    "fuse.js": "7.1.0",
     "just-debounce-it": "3.2.0",
     "marked": "14.1.1",
-    "next": "14.2.7",
-    "prismjs": "1.29.0",
+    "neostandard": "^0.12.1",
+    "next": "14.2.28",
+    "prettier": "^3.5.3",
+    "prismjs": "1.30.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-github-btn": "1.4.0"
