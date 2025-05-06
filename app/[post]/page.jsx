@@ -10,7 +10,13 @@ export async function generateStaticParams() {
   return listPosts()
 }
 
-export async function generateMetadata({ params: { post } }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
+
+  const {
+    post
+  } = params;
+
   const { title, content } = await fetchPost(post)
 
   return {
@@ -20,7 +26,8 @@ export async function generateMetadata({ params: { post } }) {
   }
 }
 
-export default async function Post({ params }) {
+export default async function Post(props) {
+  const params = await props.params;
   const { post } = params
   const { content, level, title, prev, next } = await fetchPost(post)
 
