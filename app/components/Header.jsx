@@ -65,9 +65,11 @@ export function Header({ stars }) {
         <div className='absolute right-0 flex items-center gap-x-2 top-1'>
           <ThemeToggle />
           <Stars stars={stars} />
-          <button className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'>
-            Leidas {read}/{counter.total}
-          </button>
+          <Link href="/questions">
+            <button className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'>
+              Leidas {read}/{counter.total}
+            </button>
+          </Link>
         </div>
       )}
 
