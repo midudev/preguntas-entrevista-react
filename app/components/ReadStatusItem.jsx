@@ -32,8 +32,10 @@ export function ReadStatusItem({ id, text }) {
 
   return (
     <Link className={itemClassName} href={`/${id}/#content`}>
-      {isRead && (
-        <span className="inline-block w-2 h-2 mr-2 bg-green-500 rounded-full"></span>
+      {isRead ? (
+        <span className="inline-block w-3 h-3 mr-2 bg-green-500 rounded-full" title="Pregunta leída"></span>
+      ) : (
+        <span className="inline-block w-3 h-3 mr-2 bg-gray-300 dark:bg-gray-600 rounded-full" title="Pregunta no leída"></span>
       )}
       {text}
     </Link>
