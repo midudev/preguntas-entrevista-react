@@ -24,7 +24,7 @@ export async function Stars({ empty }) {
 
   return (
     <a
-      className='flex items-center justify-center h-full transition-colors dark:bg-[#a9a9a9] dark:text-white bg-gray-200 border border-gray-200 rounded hover:bg-gray-200'
+      className='flex items-center justify-center h-full transition-colors dark:bg-[#a9a9a9] dark:text-white bg-gray-200 border border-gray-200 rounded-sm hover:bg-gray-200'
       href='https://github.com/midudev/preguntas-entrevista-react'
       target='_blank'
       rel='noreferrer'
