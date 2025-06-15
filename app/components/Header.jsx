@@ -9,13 +9,12 @@ import { Combobox } from '@headlessui/react'
 import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
 import { Title } from './Title.jsx'
-import { Stars } from './Stars.jsx'
 import ThemeToggle from './ThemeToggle'
 
 import { useEventListener } from '../../hooks/useEventListener'
 import counter from '../../public/content/counter.json'
 
-export function Header({ stars }) {
+export function Header({ children }) {
   const pathname = usePathname()
   const [read, setRead] = useState(0)
   const [results, setResults] = useState([])
@@ -64,8 +63,8 @@ export function Header({ stars }) {
       {isHome && (
         <div className='absolute right-0 flex items-center gap-x-2 top-1'>
           <ThemeToggle />
-          <Stars stars={stars} />
-          <Link href="/questions">
+          {children}
+          <Link href='/questions'>
             <button className='border uppercase mix rounded-[4px] font-bold inline-block p-2 text-[10px]'>
               Leidas {read}/{counter.total}
             </button>

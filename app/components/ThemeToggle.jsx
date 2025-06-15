@@ -1,7 +1,9 @@
 'use client'
-import Image from 'next/image'
+
 import { useContext } from 'react'
-import { ThemeContext } from '../../context/ThemeContext'
+
+import Image from 'next/image'
+import { ThemeContext } from '@/context/ThemeContext'
 
 const ThemeToggle = () => {
   const { toggle, theme } = useContext(ThemeContext)

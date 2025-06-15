@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { useEventListener } from '../../hooks/useEventListener'
+import { useEventListener } from '@/hooks/useEventListener'
 
 export function ButtonRead({ title }) {
   const [isFavorite, setIsRead] = useState(false)

@@ -1,8 +1,24 @@
-export function Stars({ stars = 6379 }) {
+let cached = null
+
+const fetchGitHubStars = () => {
+  if (cached) return cached
+
+  return fetch(
+    'https://api.github.com/repos/midudev/preguntas-entrevista-react'
+  )
+    .then(res => res.json())
+    .then(response => {
+      cached = response.stargazers_count
+      return response.stargazers_count
+    })
+}
+
+export async function Stars({ empty }) {
+  const stars = empty ? 0 : await fetchGitHubStars()
+
   const formatNumber = number => {
-    if (number >= 1000) {
-      return `${(number / 1000).toFixed(1)}K`
-    }
+    if (number === 0) return '0.0K'
+    if (number >= 1000) return `${(number / 1000).toFixed(1)}K`
     return number
   }
 
