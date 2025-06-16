@@ -9,12 +9,10 @@ export const useEventListener = ({
   handler,
 }: UseEventListenerProps) => {
   useEffect(() => {
-    window.addEventListener(eventName, event => {
-      handler(event)
-    })
+    window.addEventListener(eventName, handler)
 
     return () => {
-      window.removeEventListener(eventName, () => {})
+      window.removeEventListener(eventName, handler)
     }
   }, [eventName, handler])
 
