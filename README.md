@@ -1668,7 +1668,7 @@ Conforme tu UI sea más grande y compleja, estos objetos tendrán más informaci
 
 #### ¿Cómo crear un hook personalizado (*custom hook*)?
 
-Un hook personalizado es una función que empieza con la palabra `use` y que puede utilizar otros hooks. Son ideales para reutilizar lógica en diferentes componentes. Por ejemplo, podemos crear un hook personalizado para extraer la gestión del estado de un contador:
+Un hook personalizado es una función que permite reutilizar lógica entre componentes y puede utilizar otros hooks. Por convención y estandarización, los custom hooks suelen empezar con la palabra `use`, pero lo importante es la funcionalidad que proporcionan, no el nombre en sí. Son ideales para extraer y compartir lógica común entre diferentes componentes. Por ejemplo, podemos crear un hook personalizado para extraer la gestión del estado de un contador:
 
 ```js
 // ./hooks/useCounter.js
