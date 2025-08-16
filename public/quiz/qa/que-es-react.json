@@ -1,0 +1,116 @@
+[
+  {
+    "id": "que-es-react-q-1",
+    "question_id": "que-es-react",
+    "question": "¿Qué es React?",
+    "alternatives": [
+      {
+        "id": "que-es-react-a-1",
+        "text": "React es una biblioteca de JavaScript para construir interfaces de usuario.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-a-2",
+        "text": "React es un framework para construir aplicaciones web.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-3",
+        "text": "React es un lenguaje de programación.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-4",
+        "text": "React es un sistema operativo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-5",
+        "text": "React es una base de datos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-6",
+        "text": "React es una herramienta para diseño gráfico.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-7",
+        "text": "React es un compilador de C++.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-8",
+        "text": "React es un servidor web.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-9",
+        "text": "React es un plugin para WordPress.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-10",
+        "text": "React es un lenguaje de marcado como HTML.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-q-2",
+    "question_id": "que-es-react",
+    "question": "¿Quién creó React y en qué contexto?",
+    "alternatives": [
+      {
+        "id": "que-es-react-a-11",
+        "text": "Lo creó Jordan Walke en 2011 mientras trabajaba en Facebook.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-a-12",
+        "text": "Lo creó Brendan Eich en 1995 como parte del motor de Netscape.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-13",
+        "text": "Fue lanzado por Google en 2012 como sucesor de AngularJS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-14",
+        "text": "Fue desarrollado por la Fundación Linux para estandarizar interfaces web.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-15",
+        "text": "Lo creó Microsoft para integrarse con .NET y Silverlight.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-16",
+        "text": "Fue un fork comunitario de jQuery UI aparecido en 2010.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-17",
+        "text": "Fue una iniciativa de Netflix para optimizar su streaming en 2014.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-18",
+        "text": "Surgió como especificación oficial del W3C para componentes web.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-19",
+        "text": "Lo desarrolló Twitter para reemplazar Backbone en su timeline.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-a-20",
+        "text": "Fue un experimento de Airbnb para renders isomórficos en 2013.",
+        "is_correct": false
+      }
+    ]
+  }
+]
