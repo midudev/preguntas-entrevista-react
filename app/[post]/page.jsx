@@ -1,6 +1,7 @@
+import './HighlightCode.css'
+
 import Link from 'next/link.js'
 import { fetchPost, listPosts } from '../../utils/posts.js'
-import './HighlightCode.css'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 
