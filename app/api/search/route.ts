@@ -22,8 +22,6 @@ export async function GET(req: Request) {
 
   const results = fuse.search(search).slice(0, 5)
 
-  console.log(results)
-
   // Return the results as a JSON response
   return NextResponse.json(results)
 }
