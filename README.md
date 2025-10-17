@@ -112,6 +112,17 @@
     - [¿Cómo puedo inyectar HTML directamente en un componente de React?](#cómo-puedo-inyectar-html-directamente-en-un-componente-de-react)
     - [¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?](#por-qué-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente)
     - [¿Cuál es el propósito del atributo "key" en React y por qué es importante usarlo correctamente al renderizar listas de elementos?](#cuál-es-el-propósito-del-atributo-key-en-react-y-por-qué-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos)
+    - [¿Para qué sirve el hook `useTransition` y cuándo deberías usarlo?](#para-qué-sirve-el-hook-usetransition-y-cuándo-deberías-usarlo)
+    - [¿Para qué sirve el hook `useActionState`?](#para-qué-sirve-el-hook-useactionstate)
+    - [¿Qué problema resuelve el hook `useOptimistic`?](#qué-problema-resuelve-el-hook-useoptimistic)
+    - [¿Cómo funciona el hook `useFormStatus` y qué aporta junto a las Server Actions?](#cómo-funciona-el-hook-useformstatus-y-qué-aporta-junto-a-las-server-actions)
+    - [¿Qué es el hook `useFormState` y cuándo conviene usarlo?](#qué-es-el-hook-useformstate-y-cuándo-conviene-usarlo)
+    - [¿Qué son las Server Actions y cómo se usan con formularios en React?](#qué-son-las-server-actions-y-cómo-se-usan-con-formularios-en-react)
+    - [¿Cuál es la diferencia entre la prop `action` y el atributo `formAction` en React/Next.js?](#cuál-es-la-diferencia-entre-la-prop-action-y-el-atributo-formaction-en-reactnextjs)
+    - [¿Qué diferencia hay entre componentes de servidor y componentes de cliente en React/Next.js?](#qué-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-reactnextjs)
+    - [¿Para qué sirve el hook `useSyncExternalStore`?](#para-qué-sirve-el-hook-usesyncexternalstore)
+    - [¿Cómo funciona `React.memo` y cuándo es útil?](#cómo-funciona-reactmemo-y-cuándo-es-útil)
+    - [¿Qué diferencia hay entre `ReactDOM.render`, `createRoot` y `hydrateRoot`?](#qué-diferencia-hay-entre-reactdomrender-createroot-y-hydrateroot)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
@@ -131,6 +142,9 @@
     - [¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?](#qué-diferencia-hay-entre-rendertostaticnodestream-y-rendertopipeablestream)
     - [¿Para qué sirve el hook `useDeferredValue`?](#para-qué-sirve-el-hook-usedeferredvalue)
     - [¿Para qué sirve el método `renderToReadableStream()`?](#para-qué-sirve-el-método-rendertoreadablestream)
+    - [¿Qué es la función `use` en React y para qué se utiliza?](#qué-es-la-función-use-en-react-y-para-qué-se-utiliza)
+    - [¿Para qué sirve el hook `useInsertionEffect`?](#para-qué-sirve-el-hook-useinsertioneffect)
+    - [¿Cómo se complementan `useMemo`, `useCallback`, `useTransition` y `useDeferredValue` para optimizar el rendimiento?](#cómo-se-complementan-usememo-usecallback-usetransition-y-usedeferredvalue-para-optimizar-el-rendimiento)
   - [¿Cómo puedo hacer testing de un componente?](#cómo-puedo-hacer-testing-de-un-componente)
   - [¿Cómo puedo hacer testing de un hook?](#cómo-puedo-hacer-testing-de-un-hook)
     - [¿Qué es Flux?](#qué-es-flux)
@@ -2973,6 +2987,352 @@ export default ListaItems
 
 **[⬆ Volver a índice](#índice)**
 
+---
+
+#### ¿Para qué sirve el hook `useTransition` y cuándo deberías usarlo?
+
+El hook `useTransition` etiqueta como “no urgentes” las actualizaciones que envuelves con `startTransition`, permitiendo que la UI siga respondiendo a interacciones prioritarias mientras React calcula los cambios costosos. Devuelve `[isPending, startTransition]`; `isPending` indica si hay una transición en curso.
+
+```jsx
+import { useState, useTransition } from 'react'
+
+function FilterableList({ items }) {
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState(items)
+  const [isPending, startTransition] = useTransition()
+
+  const handleChange = event => {
+    const value = event.target.value
+    setQuery(value)
+    startTransition(() => {
+      const filtered = items.filter(item =>
+        item.toLowerCase().includes(value.toLowerCase())
+      )
+      setResults(filtered)
+    })
+  }
+
+  return (
+    <>
+      <input value={query} onChange={handleChange} />
+      {isPending && <p>Cargando resultados...</p>}
+      <ul>
+        {results.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </>
+  )
+}
+```
+
+Úsalo cuando una actualización de estado dispara renders pesados (filtrar, ordenar, pintar cientos de filas) y quieres mantener la sensación de fluidez.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Para qué sirve el hook `useActionState`?
+
+`useActionState` simplifica el ciclo de vida de formularios que ejecutan Server Actions. Devuelve `[state, action, isPending]`: `state` es la respuesta más reciente, `action` se pasa al `<form action={...}>` y `isPending` indica si hay una petición en curso.
+
+```jsx
+'use client'
+
+import { useActionState } from 'react'
+
+async function createTodo(prevState, formData) {
+  'use server'
+  const title = formData.get('title')
+  if (!title) return { error: 'El título es obligatorio' }
+  await saveTodoInDb(title)
+  return { ok: true }
+}
+
+export function TodoForm() {
+  const [state, action, isPending] = useActionState(createTodo, { ok: false })
+
+  return (
+    <form action={action}>
+      <input name='title' placeholder='Comprar leche' />
+      <button disabled={isPending}>{isPending ? 'Creando…' : 'Crear'}</button>
+      {state.error && <p>{state.error}</p>}
+      {state.ok && <p>Todo creado ✅</p>}
+    </form>
+  )
+}
+```
+
+Así evitas crear estados manuales para “loading”, errores o resultados.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué problema resuelve el hook `useOptimistic`?
+
+`useOptimistic` permite mostrar datos temporales (optimistas) inmediatamente tras la interacción del usuario, antes de recibir la confirmación del servidor. Devuelve `[optimisticState, addOptimisticValue]` y una función reductora que decide cómo combinar el estado actual con el optimista.
+
+```jsx
+'use client'
+
+import { useOptimistic } from 'react'
+
+export function Comments({ initialComments, submitComment }) {
+  const [comments, addOptimisticComment] = useOptimistic(
+    initialComments,
+    (current, optimistic) => [optimistic, ...current]
+  )
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const message = formData.get('message')?.toString() ?? ''
+    const id = crypto.randomUUID()
+
+    addOptimisticComment({ id, message, pending: true })
+    await submitComment(formData)
+    event.currentTarget.reset()
+  }
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <textarea name='message' />
+        <button>Enviar</button>
+      </form>
+      <ul>
+        {comments.map(comment => (
+          <li key={comment.id}>
+            {comment.message} {comment.pending && <small>(enviando…)</small>}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+```
+
+Si la acción falla, deberás revertir manualmente el estado optimista (por ejemplo, eliminando el comentario temporal y mostrando un error).
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo funciona el hook `useFormStatus` y qué aporta junto a las Server Actions?
+
+`useFormStatus` (desde `react-dom`) expone el estado de envío del formulario que lo contiene: `pending`, `action`, `method` y el `formData` más reciente. Es ideal para deshabilitar botones o mostrar feedback sin levantar estados en el componente padre.
+
+```jsx
+'use client'
+
+import { useFormStatus } from 'react-dom'
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+  return (
+    <button disabled={pending}>{pending ? 'Guardando…' : 'Guardar'}</button>
+  )
+}
+
+export function ProfileForm({ updateProfile }) {
+  return (
+    <form action={updateProfile}>
+      <input name='name' />
+      <SubmitButton />
+    </form>
+  )
+}
+```
+
+Cada botón o indicador dentro del formulario accede al mismo estado sin necesidad de prop drilling.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el hook `useFormState` y cuándo conviene usarlo?
+
+`useFormState` enlaza el resultado más reciente de una Server Action con la UI del formulario. Recibe la acción y el estado inicial y devuelve `[state, formAction]`. Es perfecto para mostrar mensajes de error o éxito justo después del envío.
+
+```jsx
+'use client'
+
+import { useFormState } from 'react-dom'
+
+async function updatePassword(prevState, formData) {
+  'use server'
+  const password = formData.get('password')?.toString() ?? ''
+  if (password.length < 12) {
+    return { error: 'Debe tener al menos 12 caracteres' }
+  }
+  await savePassword(password)
+  return { success: true }
+}
+
+export function PasswordForm() {
+  const [state, action] = useFormState(updatePassword, { success: false })
+
+  return (
+    <form action={action}>
+      <input name='password' type='password' />
+      <button>Cambiar contraseña</button>
+      {state.error && <p>{state.error}</p>}
+      {state.success && <p>Contraseña actualizada ✅</p>}
+    </form>
+  )
+}
+```
+
+Mantienes toda la lógica de validación en el servidor mientras la UI reacciona al instante.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué son las Server Actions y cómo se usan con formularios en React?
+
+Las Server Actions son funciones marcadas con `'use server'` que React ejecuta en el backend. Pueden acceder a bases de datos, secretos o SDKs privados y se integran directamente con formularios y botones.
+
+```jsx
+'use server'
+
+export async function createPost(formData) {
+  const title = formData.get('title')
+  await db.post.create({ data: { title } })
+}
+
+;('use client')
+import { createPost } from './actions'
+
+export function PostForm() {
+  return (
+    <form action={createPost}>
+      <input name='title' />
+      <button>Publicar</button>
+    </form>
+  )
+}
+```
+
+Cuando envías el formulario, React serializa el `FormData`, ejecuta la acción en el servidor y retorna la respuesta al cliente sin que tengas que crear endpoints manuales.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cuál es la diferencia entre la prop `action` y el atributo `formAction` en React/Next.js?
+
+- `action` en un `<form>` define la acción predeterminada para todo el formulario (Enter o botón por defecto).
+- `formAction` en un `<button>` o `<input type='submit'>` sobrescribe la acción solo para ese control. Es ideal cuando un mismo formulario puede “Publicar” o “Guardar borrador”.
+
+```jsx
+'use client'
+
+import { publishPost, saveDraft } from './actions'
+
+export function EditorForm() {
+  return (
+    <form action={publishPost}>
+      <textarea name='content' />
+      <button>Publicar</button>
+      <button type='submit' formAction={saveDraft}>
+        Guardar borrador
+      </button>
+    </form>
+  )
+}
+```
+
+Ambas props aceptan una URL o una Server Action; elige `formAction` para botones alternativos sin duplicar formularios.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué diferencia hay entre componentes de servidor y componentes de cliente en React/Next.js?
+
+Los componentes de servidor se renderizan en el backend, pueden acceder a datos protegidos y devuelven HTML y payloads serializados. No pueden usar hooks del navegador (`useState`, `useEffect`). Los componentes de cliente se ejecutan en el navegador, escuchan eventos y pueden usar todos los hooks tradicionales.
+
+Para marcar un archivo como componente de cliente añade `'use client'` en la primera línea. Las Server Actions usan `'use server'` dentro de la función. Combinar ambos tipos te permite cargar datos en el servidor y mantener la interactividad solo donde es necesaria, reduciendo el JavaScript que llega al cliente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Para qué sirve el hook `useSyncExternalStore`?
+
+`useSyncExternalStore` conecta React con una fuente de datos externa (Redux, Zustand, APIs del navegador) ofreciendo lecturas consistentes en renderizados concurrentes y durante la hidratación.
+
+```jsx
+import { useSyncExternalStore } from 'react'
+
+function subscribe(callback) {
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  mediaQuery.addEventListener('change', callback)
+  return () => mediaQuery.removeEventListener('change', callback)
+}
+
+function getSnapshot() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+
+export function ThemeIndicator() {
+  const isDark = useSyncExternalStore(subscribe, getSnapshot, () => false)
+  return <p>Modo {isDark ? 'oscuro' : 'claro'}</p>
+}
+```
+
+Si renderizas en el servidor, proporciona un tercer argumento (`getServerSnapshot`) para evitar discrepancias entre el HTML inicial y la hidratación.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo funciona `React.memo` y cuándo es útil?
+
+`React.memo` memoriza el resultado de un componente funcional y solo lo vuelve a renderizar si sus props cambian tras una comparación superficial. Es útil para componentes que renderizan listas grandes o cálculos pesados con props estables.
+
+```jsx
+const PriceTag = React.memo(function PriceTag({ value, currency }) {
+  return (
+    <span>
+      {value.toLocaleString('es-ES', { style: 'currency', currency })}
+    </span>
+  )
+})
+
+export function Cart({ items }) {
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>
+          {item.name} <PriceTag value={item.price} currency='EUR' />
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+Combínalo con `useCallback` o `useMemo` para mantener estables las props de tipo función u objeto y evitar renders innecesarios.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué diferencia hay entre `ReactDOM.render`, `createRoot` y `hydrateRoot`?
+
+- `ReactDOM.render` es la API legacy previa a React 18; no habilita las capacidades concurrentes y está en desuso.
+- `createRoot` crea un root concurrente en el cliente: `const root = createRoot(container); root.render(<App />);`. Activa características como `useTransition`, `Suspense` para datos o el batching automático.
+- `hydrateRoot` conecta HTML generado en el servidor con React en el cliente manteniendo el DOM existente, imprescindible para SSR y streaming.
+
+En proyectos nuevos usa siempre `createRoot` o `hydrateRoot`; `ReactDOM.render` solo se mantiene por compatibilidad y desaparecerá en futuras versiones.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -3378,6 +3738,124 @@ try {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es la función `use` en React y para qué se utiliza?
+
+La función `use` permite esperar promesas o leer recursos asíncronos directamente dentro de un componente sin tener que encadenar hooks adicionales. React suspende el componente hasta que la promesa se resuelva (o se rechace) y reanuda el render con el valor devuelto.
+
+Se usa principalmente en componentes de servidor, pero también funciona en componentes cliente que reciben recursos que implementan el contrato de suspenso.
+
+```jsx
+import { use } from 'react'
+
+async function fetchProduct(id) {
+  const response = await fetch(`https://api.example.com/products/${id}`, {
+    cache: 'no-store',
+  })
+  if (!response.ok) throw new Error('Producto no encontrado')
+  return response.json()
+}
+
+export default function ProductPage({ params }) {
+  const product = use(fetchProduct(params.id))
+
+  return (
+    <article>
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+    </article>
+  )
+}
+```
+
+También puedes usar `use` con funciones como `cache` o `resources` que devuelven un objeto con un método `read()`, simplificando la lectura de datos sin boilerplate.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Para qué sirve el hook `useInsertionEffect`?
+
+`useInsertionEffect` se ejecuta de forma sincrónica justo antes de que React inserte mutaciones en el DOM. Es perfecto para librerías de CSS-in-JS que necesitan inyectar estilos antes de que el navegador pinte los cambios, evitando parpadeos (`FOUC`).
+
+No debe usarse para lógica que lea o escriba en el DOM: para eso siguen existiendo `useLayoutEffect` o `useEffect`. El objetivo es añadir estilos (o anotaciones) en el orden correcto.
+
+```jsx
+import { useInsertionEffect } from 'react'
+
+function useCss(className, rules) {
+  useInsertionEffect(() => {
+    const styleTag = document.createElement('style')
+    styleTag.dataset.injected = className
+    styleTag.append(rules)
+    document.head.append(styleTag)
+
+    return () => {
+      styleTag.remove()
+    }
+  }, [className, rules])
+}
+
+export function Button({ children }) {
+  useCss('btn', '.btn{padding:0.75rem 1rem;border-radius:9999px;}')
+  return <button className='btn'>{children}</button>
+}
+```
+
+Si no necesitas inyectar estilos dinámicamente, usa hojas de estilo tradicionales o CSS Modules; `useInsertionEffect` está pensado para casos muy concretos.
+
+> Este hook está pensado para bibliotecas de CSS en JS y no para uso directo en aplicaciones. Si no estás creando una librería de estilos, probablemente no necesites usarlo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo se complementan `useMemo`, `useCallback`, `useTransition` y `useDeferredValue` para optimizar el rendimiento?
+
+Cada una de estas APIs ataca un cuello de botella distinto; combinarlas ayuda a mantener la UI fluida sin caer en micro-optimizaciones innecesarias:
+
+- `useMemo` memoriza valores derivados costosos (cálculos, filtros) mientras sus dependencias no cambien.
+- `useCallback` memoriza funciones para evitar recrearlas en cada render y que componentes memoizados se vuelvan a renderizar sin necesidad.
+- `useTransition` baja la prioridad de actualizaciones no urgentes (por ejemplo, recalcular una lista) para que la UI siga respondiendo.
+- `useDeferredValue` retrasa la lectura de un valor concreto, útil cuando el input del usuario debe sentirse inmediato pero el resultado puede llegar con un pequeño retraso.
+
+```jsx
+function SearchProducts({ products }) {
+  const [query, setQuery] = useState('')
+  const [isPending, startTransition] = useTransition()
+  const deferredQuery = useDeferredValue(query)
+
+  const filtered = useMemo(() => {
+    const normalized = deferredQuery.trim().toLowerCase()
+    return products.filter(product =>
+      product.name.toLowerCase().includes(normalized)
+    )
+  }, [products, deferredQuery])
+
+  const handleChange = useCallback(event => {
+    const value = event.target.value
+    startTransition(() => setQuery(value))
+  }, [])
+
+  return (
+    <>
+      <input value={query} onChange={handleChange} />
+      {isPending && <p>Filtrando...</p>}
+      <ul>
+        {filtered.map(product => (
+          <li key={product.id}>{product.name}</li>
+        ))}
+      </ul>
+    </>
+  )
+}
+```
+
+El patrón típico es: memoriza los datos (`useMemo`), memoriza callbacks para pasárselos a componentes memoizados (`useCallback`), marca como transición las actualizaciones no críticas y usa `useDeferredValue` cuando quieras separar la reactividad de la entrada de usuario del cálculo caro.
 
 **[⬆ Volver a índice](#índice)**
 
