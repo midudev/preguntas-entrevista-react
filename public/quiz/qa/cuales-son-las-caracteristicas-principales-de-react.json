@@ -1,0 +1,194 @@
+[
+  {
+    "id": "cuales-son-las-caracteristicas-principales-de-react-q-1",
+    "question_id": "cuales-son-las-caracteristicas-principales-de-react",
+    "question": "¿Cuál es el concepto fundamental en React para construir la interfaz de usuario, donde cada pieza gestiona su propio estado?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-1",
+        "text": "La componetización, dividiendo la UI en componentes independientes y reutilizables.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-2",
+        "text": "La manipulación directa del DOM para mayor control.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-3",
+        "text": "El uso de plantillas HTML separadas, como en otros frameworks.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-4",
+        "text": "La herencia de clases como pilar principal de la arquitectura.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-5",
+        "text": "La definición de la UI exclusivamente a través de archivos CSS.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-caracteristicas-principales-de-react-q-2",
+    "question_id": "cuales-son-las-caracteristicas-principales-de-react",
+    "question": "¿Para qué utiliza React un DOM Virtual?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-6",
+        "text": "Para optimizar el rendimiento, comparando la representación en memoria con el DOM real y aplicando solo los cambios necesarios.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-7",
+        "text": "Para reemplazar completamente el DOM del navegador, ya que es obsoleto.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-8",
+        "text": "Para almacenar el estado de la aplicación de forma persistente en el navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-9",
+        "text": "Para crear una versión visualmente diferente de la interfaz para pruebas A/B.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-10",
+        "text": "Para ejecutar código de servidor directamente en el cliente de forma segura.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-caracteristicas-principales-de-react-q-3",
+    "question_id": "cuales-son-las-caracteristicas-principales-de-react",
+    "question": "Cuando se dice que React es 'declarativo', ¿a qué se refiere?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-11",
+        "text": "A que el desarrollador describe qué se debe mostrar, y React se encarga del cómo hacerlo.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-12",
+        "text": "A que se deben declarar todas las variables con 'var' al inicio del archivo.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-13",
+        "text": "A que es obligatorio declarar los tipos de datos para cada prop y estado.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-14",
+        "text": "A que se debe dar una secuencia de pasos imperativa para modificar el DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-15",
+        "text": "A que la sintaxis es muy similar a la de las declaraciones SQL.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-caracteristicas-principales-de-react-q-4",
+    "question_id": "cuales-son-las-caracteristicas-principales-de-react",
+    "question": "¿Qué implica que el flujo de datos en React sea 'unidireccional'?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-16",
+        "text": "Que los datos fluyen en una sola dirección, típicamente de componentes padres a componentes hijos.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-17",
+        "text": "Que un componente hijo puede modificar directamente el estado de su componente padre.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-18",
+        "text": "Que los datos solo pueden ser de un único tipo primitivo (string, number, etc.).",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-19",
+        "text": "Que una vez que un dato se define, no puede cambiar durante el ciclo de vida del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-20",
+        "text": "Que todos los datos de la aplicación deben estar en un único archivo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-caracteristicas-principales-de-react-q-5",
+    "question_id": "cuales-son-las-caracteristicas-principales-de-react",
+    "question": "La característica 'Universal' de React se refiere a su capacidad para:",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-21",
+        "text": "Ejecutarse tanto en el cliente como en el servidor, y usarse para crear apps nativas (React Native).",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-22",
+        "text": "Ser compatible con todos los navegadores web existentes sin excepción.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-23",
+        "text": "Tener una API universal que nunca cambia entre versiones.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-24",
+        "text": "Funcionar únicamente con un estado global universal para toda la aplicación.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-25",
+        "text": "Ser un estándar universal adoptado por todas las grandes empresas de tecnología.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-caracteristicas-principales-de-react-q-6",
+    "question_id": "cuales-son-las-caracteristicas-principales-de-react",
+    "question": "Cuando el estado de un componente cambia, ¿cuál es el proceso que sigue React combinando sus características principales?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-26",
+        "text": "React actualiza el DOM Virtual, lo compara con el DOM real para encontrar las diferencias y aplica solo esos cambios de forma eficiente.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-27",
+        "text": "El flujo de datos bidireccional informa al padre, que decide si vuelve a renderizar todo el árbol de componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-28",
+        "text": "Recarga toda la página desde el servidor para asegurar la consistencia, siguiendo su naturaleza universal.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-29",
+        "text": "Ignora el DOM Virtual y modifica directamente el DOM real para una máxima velocidad, siguiendo un enfoque imperativo.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-caracteristicas-principales-de-react-a-30",
+        "text": "El componente afectado se elimina del DOM y se vuelve a crear desde cero, sin importar la magnitud del cambio.",
+        "is_correct": false
+      }
+    ]
+  }
+]

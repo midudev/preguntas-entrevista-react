@@ -1,0 +1,88 @@
+[
+  {
+    "id": "que-significa-exactamente-que-sea-declarativo-q-1",
+    "question_id": "que-significa-exactamente-que-sea-declarativo",
+    "question": "¿Qué significa que React sea una biblioteca declarativa?",
+    "alternatives": [
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-1",
+        "text": "Le decimos qué debe renderizar y React se encarga de cómo hacerlo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-2",
+        "text": "Le damos a React las instrucciones paso a paso de cómo debe renderizar la interfaz.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-3",
+        "text": "Significa que debemos declarar todas las variables antes de usarlas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-4",
+        "text": "Se refiere a que la sintaxis de React es muy similar a la de una declaración jurada.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-5",
+        "text": "Implica que solo se pueden usar componentes declarados como clases.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-significa-exactamente-que-sea-declarativo-q-2",
+    "question_id": "que-significa-exactamente-que-sea-declarativo",
+    "question": "Observando el código de ejemplo, ¿cuál fragmento representa el enfoque imperativo?",
+    "alternatives": [
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-6",
+        "text": "const element = document.createElement('h1'); element.innerHTML = 'Hello, world'",
+        "is_correct": true
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-7",
+        "text": "const element = <h1>Hello, world</h1>",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-8",
+        "text": "Ambos fragmentos son imperativos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-9",
+        "text": "Ninguno de los dos, ambos son declarativos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-significa-exactamente-que-sea-declarativo-q-3",
+    "question_id": "que-significa-exactamente-que-sea-declarativo",
+    "question": "La sintaxis `<h1>Hello, world</h1>` en el ejemplo es un ejemplo de programación...",
+    "alternatives": [
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-10",
+        "text": "Declarativa.",
+        "is_correct": true
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-11",
+        "text": "Imperativa.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-12",
+        "text": "Orientada a objetos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-exactamente-que-sea-declarativo-a-13",
+        "text": "Funcional.",
+        "is_correct": false
+      }
+    ]
+  }
+]
