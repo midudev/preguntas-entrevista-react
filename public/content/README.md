@@ -2591,6 +2591,333 @@ Ejemplo de cómo utilizar el atributo "key" en React:
 
 
 
+---
+
+#### ¿Para qué sirve el hook `useTransition` y cuándo deberías usarlo?
+
+El hook `useTransition` etiqueta como “no urgentes” las actualizaciones que envuelves con `startTransition`, permitiendo que la UI siga respondiendo a interacciones prioritarias mientras React calcula los cambios costosos. Devuelve `[isPending, startTransition]`; `isPending` indica si hay una transición en curso.
+
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useTransition <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">function</span> <span class="token function">FilterableList</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> items <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>query<span class="token punctuation">,</span> setQuery<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>results<span class="token punctuation">,</span> setResults<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isPending<span class="token punctuation">,</span> startTransition<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useTransition</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+    <span class="token function">setQuery</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token function">startTransition</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> filtered <span class="token operator">=</span> items<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span>
+        item<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+      <span class="token function">setResults</span><span class="token punctuation">(</span>filtered<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>query<span class="token punctuation">}</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleChange<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>isPending <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Cargando resultados...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>results<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Úsalo cuando una actualización de estado dispara renders pesados (filtrar, ordenar, pintar cientos de filas) y quieres mantener la sensación de fluidez.
+
+
+
+---
+
+#### ¿Para qué sirve el hook `useActionState`?
+
+`useActionState` simplifica el ciclo de vida de formularios que ejecutan Server Actions. Devuelve `[state, action, isPending]`: `state` es la respuesta más reciente, `action` se pasa al `<form action={...}>` y `isPending` indica si hay una petición en curso.
+
+<pre><code class="language-jsx"><span class="token string">'use client'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useActionState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">createTodo</span><span class="token punctuation">(</span><span class="token parameter">prevState<span class="token punctuation">,</span> formData</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token string">'use server'</span>
+  <span class="token keyword">const</span> title <span class="token operator">=</span> formData<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>title<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token string">'El título es obligatorio'</span> <span class="token punctuation">}</span>
+  <span class="token keyword">await</span> <span class="token function">saveTodoInDb</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">ok</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">TodoForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>state<span class="token punctuation">,</span> action<span class="token punctuation">,</span> isPending<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useActionState</span><span class="token punctuation">(</span>createTodo<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">ok</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>action<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>title<span class="token punctuation">'</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>Comprar leche<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">disabled</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>isPending<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>isPending <span class="token operator">?</span> <span class="token string">'Creando…'</span> <span class="token operator">:</span> <span class="token string">'Crear'</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>state<span class="token punctuation">.</span>error <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>state<span class="token punctuation">.</span>error<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>state<span class="token punctuation">.</span>ok <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Todo creado ✅</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Así evitas crear estados manuales para “loading”, errores o resultados.
+
+
+
+---
+
+#### ¿Qué problema resuelve el hook `useOptimistic`?
+
+`useOptimistic` permite mostrar datos temporales (optimistas) inmediatamente tras la interacción del usuario, antes de recibir la confirmación del servidor. Devuelve `[optimisticState, addOptimisticValue]` y una función reductora que decide cómo combinar el estado actual con el optimista.
+
+<pre><code class="language-jsx"><span class="token string">'use client'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useOptimistic <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Comments</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> initialComments<span class="token punctuation">,</span> submitComment <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>comments<span class="token punctuation">,</span> addOptimisticComment<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useOptimistic</span><span class="token punctuation">(</span>
+    initialComments<span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">current<span class="token punctuation">,</span> optimistic</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span>optimistic<span class="token punctuation">,</span> <span class="token operator">...</span>current<span class="token punctuation">]</span>
+  <span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleSubmit</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>currentTarget<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> formData<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span><span class="token operator">?.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">??</span> <span class="token string">''</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token function">addOptimisticComment</span><span class="token punctuation">(</span><span class="token punctuation">{</span> id<span class="token punctuation">,</span> message<span class="token punctuation">,</span> <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> <span class="token function">submitComment</span><span class="token punctuation">(</span>formData<span class="token punctuation">)</span>
+    event<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">onSubmit</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleSubmit<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>message<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Enviar</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>comments<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">comment</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>comment<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+            </span><span class="token punctuation">{</span>comment<span class="token punctuation">.</span>message<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token string">' '</span><span class="token punctuation">}</span><span class="token plain-text">
+            </span><span class="token punctuation">{</span>comment<span class="token punctuation">.</span>pending <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>small</span><span class="token punctuation">></span></span><span class="token plain-text">(enviando…)</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>small</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Si la acción falla, deberás revertir manualmente el estado optimista (por ejemplo, eliminando el comentario temporal y mostrando un error).
+
+
+
+---
+
+#### ¿Cómo funciona el hook `useFormStatus` y qué aporta junto a las Server Actions?
+
+`useFormStatus` (desde `react-dom`) expone el estado de envío del formulario que lo contiene: `pending`, `action`, `method` y el `formData` más reciente. Es ideal para deshabilitar botones o mostrar feedback sin levantar estados en el componente padre.
+
+<pre><code class="language-jsx"><span class="token string">'use client'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useFormStatus <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+
+<span class="token keyword">function</span> <span class="token function">SubmitButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> pending <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useFormStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">disabled</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>pending<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>pending <span class="token operator">?</span> <span class="token string">'Guardando…'</span> <span class="token operator">:</span> <span class="token string">'Guardar'</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">ProfileForm</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> updateProfile <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>updateProfile<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>name<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">SubmitButton</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Cada botón o indicador dentro del formulario accede al mismo estado sin necesidad de prop drilling.
+
+
+
+---
+
+#### ¿Qué es el hook `useFormState` y cuándo conviene usarlo?
+
+`useFormState` enlaza el resultado más reciente de una Server Action con la UI del formulario. Recibe la acción y el estado inicial y devuelve `[state, formAction]`. Es perfecto para mostrar mensajes de error o éxito justo después del envío.
+
+<pre><code class="language-jsx"><span class="token string">'use client'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useFormState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">updatePassword</span><span class="token punctuation">(</span><span class="token parameter">prevState<span class="token punctuation">,</span> formData</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token string">'use server'</span>
+  <span class="token keyword">const</span> password <span class="token operator">=</span> formData<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token operator">?.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">??</span> <span class="token string">''</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>password<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token string">'Debe tener al menos 12 caracteres'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">await</span> <span class="token function">savePassword</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">success</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">PasswordForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>state<span class="token punctuation">,</span> action<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useFormState</span><span class="token punctuation">(</span>updatePassword<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">success</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>action<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>password<span class="token punctuation">'</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>password<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Cambiar contraseña</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>state<span class="token punctuation">.</span>error <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>state<span class="token punctuation">.</span>error<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>state<span class="token punctuation">.</span>success <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Contraseña actualizada ✅</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Mantienes toda la lógica de validación en el servidor mientras la UI reacciona al instante.
+
+
+
+---
+
+#### ¿Qué son las Server Actions y cómo se usan con formularios en React?
+
+Las Server Actions son funciones marcadas con `'use server'` que React ejecuta en el backend. Pueden acceder a bases de datos, secretos o SDKs privados y se integran directamente con formularios y botones.
+
+<pre><code class="language-jsx"><span class="token string">'use server'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">createPost</span><span class="token punctuation">(</span><span class="token parameter">formData</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> title <span class="token operator">=</span> formData<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span>
+  <span class="token keyword">await</span> db<span class="token punctuation">.</span>post<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span> title <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token string">'use client'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createPost <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./actions'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">PostForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>createPost<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>title<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Publicar</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Cuando envías el formulario, React serializa el `FormData`, ejecuta la acción en el servidor y retorna la respuesta al cliente sin que tengas que crear endpoints manuales.
+
+
+
+---
+
+#### ¿Cuál es la diferencia entre la prop `action` y el atributo `formAction` en React/Next.js?
+
+- `action` en un `<form>` define la acción predeterminada para todo el formulario (Enter o botón por defecto).
+- `formAction` en un `<button>` o `<input type='submit'>` sobrescribe la acción solo para ese control. Es ideal cuando un mismo formulario puede “Publicar” o “Guardar borrador”.
+
+<pre><code class="language-jsx"><span class="token string">'use client'</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> publishPost<span class="token punctuation">,</span> saveDraft <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./actions'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">EditorForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>publishPost<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>content<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Publicar</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>submit<span class="token punctuation">'</span></span> <span class="token attr-name">formAction</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>saveDraft<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        Guardar borrador
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Ambas props aceptan una URL o una Server Action; elige `formAction` para botones alternativos sin duplicar formularios.
+
+
+
+---
+
+#### ¿Qué diferencia hay entre componentes de servidor y componentes de cliente en React/Next.js?
+
+Los componentes de servidor se renderizan en el backend, pueden acceder a datos protegidos y devuelven HTML y payloads serializados. No pueden usar hooks del navegador (`useState`, `useEffect`). Los componentes de cliente se ejecutan en el navegador, escuchan eventos y pueden usar todos los hooks tradicionales.
+
+Para marcar un archivo como componente de cliente añade `'use client'` en la primera línea. Las Server Actions usan `'use server'` dentro de la función. Combinar ambos tipos te permite cargar datos en el servidor y mantener la interactividad solo donde es necesaria, reduciendo el JavaScript que llega al cliente.
+
+
+
+---
+
+#### ¿Para qué sirve el hook `useSyncExternalStore`?
+
+`useSyncExternalStore` conecta React con una fuente de datos externa (Redux, Zustand, APIs del navegador) ofreciendo lecturas consistentes en renderizados concurrentes y durante la hidratación.
+
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useSyncExternalStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">function</span> <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> mediaQuery <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">matchMedia</span><span class="token punctuation">(</span><span class="token string">'(prefers-color-scheme: dark)'</span><span class="token punctuation">)</span>
+  mediaQuery<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> mediaQuery<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getSnapshot</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> window<span class="token punctuation">.</span><span class="token function">matchMedia</span><span class="token punctuation">(</span><span class="token string">'(prefers-color-scheme: dark)'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>matches
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">ThemeIndicator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> isDark <span class="token operator">=</span> <span class="token function">useSyncExternalStore</span><span class="token punctuation">(</span>subscribe<span class="token punctuation">,</span> getSnapshot<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Modo </span><span class="token punctuation">{</span>isDark <span class="token operator">?</span> <span class="token string">'oscuro'</span> <span class="token operator">:</span> <span class="token string">'claro'</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
+
+Si renderizas en el servidor, proporciona un tercer argumento (`getServerSnapshot`) para evitar discrepancias entre el HTML inicial y la hidratación.
+
+
+
+---
+
+#### ¿Cómo funciona `React.memo` y cuándo es útil?
+
+`React.memo` memoriza el resultado de un componente funcional y solo lo vuelve a renderizar si sus props cambian tras una comparación superficial. Es útil para componentes que renderizan listas grandes o cálculos pesados con props estables.
+
+<pre><code class="language-jsx"><span class="token keyword">const</span> PriceTag <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">PriceTag</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value<span class="token punctuation">,</span> currency <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>value<span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token string">'es-ES'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">'currency'</span><span class="token punctuation">,</span> currency <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Cart</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> items <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>items<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token plain-text"> </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">PriceTag</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>price<span class="token punctuation">}</span></span> <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>EUR<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Combínalo con `useCallback` o `useMemo` para mantener estables las props de tipo función u objeto y evitar renders innecesarios.
+
+
+
+---
+
+#### ¿Qué diferencia hay entre `ReactDOM.render`, `createRoot` y `hydrateRoot`?
+
+- `ReactDOM.render` es la API legacy previa a React 18; no habilita las capacidades concurrentes y está en desuso.
+- `createRoot` crea un root concurrente en el cliente: `const root = createRoot(container); root.render(<App />);`. Activa características como `useTransition`, `Suspense` para datos o el batching automático.
+- `hydrateRoot` conecta HTML generado en el servidor con React en el cliente manteniendo el DOM existente, imprescindible para SSR y streaming.
+
+En proyectos nuevos usa siempre `createRoot` o `hydrateRoot`; `ReactDOM.render` solo se mantiene por compatibilidad y desaparecerá en futuras versiones.
+
+
+
+---
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -2974,6 +3301,116 @@ Un ejemplo de uso sería el siguiente:
     <span class="token punctuation">}</span>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
+
+
+
+---
+
+#### ¿Qué es la función `use` en React y para qué se utiliza?
+
+La función `use` permite esperar promesas o leer recursos asíncronos directamente dentro de un componente sin tener que encadenar hooks adicionales. React suspende el componente hasta que la promesa se resuelva (o se rechace) y reanuda el render con el valor devuelto.
+
+Se usa principalmente en componentes de servidor, pero también funciona en componentes cliente que reciben recursos que implementan el contrato de suspenso.
+
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> use <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchProduct</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://api.example.com/products/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">cache</span><span class="token operator">:</span> <span class="token string">'no-store'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Producto no encontrado'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">ProductPage</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> params <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> product <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token function">fetchProduct</span><span class="token punctuation">(</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>product<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>product<span class="token punctuation">.</span>description<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+También puedes usar `use` con funciones como `cache` o `resources` que devuelven un objeto con un método `read()`, simplificando la lectura de datos sin boilerplate.
+
+
+
+---
+
+#### ¿Para qué sirve el hook `useInsertionEffect`?
+
+`useInsertionEffect` se ejecuta de forma sincrónica justo antes de que React inserte mutaciones en el DOM. Es perfecto para librerías de CSS-in-JS que necesitan inyectar estilos antes de que el navegador pinte los cambios, evitando parpadeos (`FOUC`).
+
+No debe usarse para lógica que lea o escriba en el DOM: para eso siguen existiendo `useLayoutEffect` o `useEffect`. El objetivo es añadir estilos (o anotaciones) en el orden correcto.
+
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useInsertionEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">function</span> <span class="token function">useCss</span><span class="token punctuation">(</span><span class="token parameter">className<span class="token punctuation">,</span> rules</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">useInsertionEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> styleTag <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">)</span>
+    styleTag<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>injected <span class="token operator">=</span> className
+    styleTag<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>rules<span class="token punctuation">)</span>
+    document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>styleTag<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      styleTag<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>className<span class="token punctuation">,</span> rules<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">useCss</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">,</span> <span class="token string">'.btn{padding:0.75rem 1rem;border-radius:9999px;}'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>btn<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
+
+Si no necesitas inyectar estilos dinámicamente, usa hojas de estilo tradicionales o CSS Modules; `useInsertionEffect` está pensado para casos muy concretos.
+
+
+
+---
+
+#### ¿Cómo se complementan `useMemo`, `useCallback`, `useTransition` y `useDeferredValue` para optimizar el rendimiento?
+
+Cada una de estas APIs ataca un cuello de botella distinto; combinarlas ayuda a mantener la UI fluida sin caer en micro-optimizaciones innecesarias:
+
+- `useMemo` memoriza valores derivados costosos (cálculos, filtros) mientras sus dependencias no cambien.
+- `useCallback` memoriza funciones para evitar recrearlas en cada render y que componentes memoizados se vuelvan a renderizar sin necesidad.
+- `useTransition` baja la prioridad de actualizaciones no urgentes (por ejemplo, recalcular una lista) para que la UI siga respondiendo.
+- `useDeferredValue` retrasa la lectura de un valor concreto, útil cuando el input del usuario debe sentirse inmediato pero el resultado puede llegar con un pequeño retraso.
+
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">SearchProducts</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> products <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>query<span class="token punctuation">,</span> setQuery<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isPending<span class="token punctuation">,</span> startTransition<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useTransition</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> deferredQuery <span class="token operator">=</span> <span class="token function">useDeferredValue</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> filtered <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> normalized <span class="token operator">=</span> deferredQuery<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> products<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">product</span> <span class="token operator">=></span>
+      product<span class="token punctuation">.</span>name<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>normalized<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>products<span class="token punctuation">,</span> deferredQuery<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> handleChange <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+    <span class="token function">startTransition</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setQuery</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>query<span class="token punctuation">}</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleChange<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>isPending <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Filtrando...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>filtered<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">product</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>product<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>product<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+El patrón típico es: memoriza los datos (`useMemo`), memoriza callbacks para pasárselos a componentes memoizados (`useCallback`), marca como transición las actualizaciones no críticas y usa `useDeferredValue` cuando quieras separar la reactividad de la entrada de usuario del cálculo caro.
 
 
 
