@@ -27,7 +27,7 @@
     - [¿Cómo crear un componente en React?](#cómo-crear-un-componente-en-react)
     - [¿Qué son las props en React?](#qué-son-las-props-en-react)
     - [¿Qué es y para qué sirve la prop `children` en React?](#qué-es-y-para-qué-sirve-la-prop-children-en-react)
-    - [ ¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
+    - [¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?](#se-puede-inicializar-un-estado-con-el-valor-de-una-prop-qué-pasa-si-lo-haces-y-qué-hay-que-tener-en-cuenta)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
     - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
@@ -155,6 +155,7 @@
     - [Too many re-renders. React limits the number of renders to prevent an infinite loop](#too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop)
     - [¿Qué diferencia existe entre Shadow DOM y Virtual DOM?](#qué-diferencia-existe-entre-shadow-dom-y-virtual-dom)
     - [¿Qué es el Binding?](#qué-es-el-binding)
+    - [¿Qué es y cómo funciona el _Batching_ Automático en React?](#qué-es-y-cómo-funciona-el-batching-automático-en-react)
 
 ---
 
@@ -4327,5 +4328,49 @@ Sí quieres saber más comparto el siguiente enlace:
 [How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)
 
 **[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es y cómo funciona el _Batching_ Automático en React?
+
+El **Batching (procesamiento por lotes) automático** es una optimización introducida en **React 18** que **agrupa múltiples actualizaciones de estado** (llamadas a `setEstado`) en un **solo re-renderizado** del componente.
+
+Su objetivo es reducir la cantidad de trabajo que React realiza para actualizar la interfaz, lo que resulta en un mejor rendimiento y evita que el usuario vea estados intermedios inconsistentes.
+
+**Diferencia clave con React 17 (Legacy Mode):**
+
+| Versión      | Comportamiento                                                                                                                                                                                                                                                | Actualizaciones | Re-renderizados |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------- | :-------------- |
+| **React 17** | **Batching Manual.** Solo agrupaba las actualizaciones dentro de los _event handlers_ nativos de React (ej. `onClick`). Las actualizaciones dentro de promesas, `setTimeout` o eventos nativos del navegador **no** se agrupaban, causando múltiples renders. | 2               | 2               |
+| **React 18** | **Batching Automático.** Agrupa automáticamente las actualizaciones de estado en **cualquier lugar** (eventos nativos, promesas, _timeouts_, etc.), siempre y cuando ocurran dentro del mismo ciclo de evento del navegador.                                  | 2               | 1               |
+
+**Ejemplo:**
+
+En el siguiente ejemplo, si el código se ejecuta dentro de una promesa, React 18 garantiza que solo habrá **un re-renderizado** al final.
+
+```jsx
+import { useState } from 'react';
+
+function ProfileEditor() {
+  const [name, setName] = useState('');
+  const [age, setAge] = useState(0);
+
+  async function handleUpdate() {
+    await fetch('/api/user/update'); // Simulación de llamada asíncrona
+
+    // ⬇Ambas se agrupan en un solo renderizado por React 18
+    setName('Leo');
+    setAge(30);
+
+    // En React 17, esto habría forzado dos renders separados
+  }
+
+  return (
+    // ... UI del componente
+    <button onClick={handleUpdate}>Actualizar Perfil</button>
+  );
+}
+**[⬆ Volver a índice](#índice)**
+```
 
 ---
