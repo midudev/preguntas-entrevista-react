@@ -547,7 +547,7 @@
   },
   { "id": "que-es-el-binding", "text": "¿Qué es el Binding?", "level": -1 },
   {
-    "id": "qué-es-y-cómo-funciona-el-batching-automático-en-react",
+    "id": "que-es-y-como-funciona-el-batching",
     "text": "¿Qué es y cómo funciona el *Batching* Automático en React",
     "level": -1
   }

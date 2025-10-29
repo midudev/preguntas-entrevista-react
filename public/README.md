@@ -1314,7 +1314,7 @@ De esta forma, en lugar de revisar si las propiedades existen para poder acceder
     <span class="token operator">?</span> <span class="token keyword">undefined</span>
     <span class="token operator">:</span> <span class="token punctuation">(</span>author<span class="token punctuation">.</span>libro <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> author<span class="token punctuation">.</span>libro <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span>
     <span class="token operator">?</span> <span class="token keyword">undefined</span>
-    <span class="token operator">:</span> author<span class="token punctuation">.</span>libro<span class="token punctuation">.</span>name 
+    <span class="token operator">:</span> author<span class="token punctuation">.</span>libro<span class="token punctuation">.</span>name
 
 <span class="token comment">// con optional chaining</span>
 author<span class="token operator">?.</span>libro<span class="token operator">?.</span>name</code></pre>
@@ -3257,4 +3257,46 @@ En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en 
 Sí quieres saber más comparto el siguiente enlace:  
 [How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)
 
+#### ¿Qué es y cómo funciona el _Batching_ Automático en React?
+
+El **Batching (procesamiento por lotes) automático** es una optimización introducida en **React 18** que **agrupa múltiples actualizaciones de estado** (llamadas a `setEstado`) en un **solo re-renderizado** del componente.
+
+Su objetivo es reducir la cantidad de trabajo que React realiza para actualizar la interfaz, lo que resulta en un mejor rendimiento y evita que el usuario vea estados intermedios inconsistentes.
+
+**Diferencia clave con React 17 (Legacy Mode):**
+
+| Versión      | Comportamiento                                                                                                                                                                                                                                                | Actualizaciones | Re-renderizados |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------- | :-------------- |
+| **React 17** | **Batching Manual.** Solo agrupaba las actualizaciones dentro de los _event handlers_ nativos de React (ej. `onClick`). Las actualizaciones dentro de promesas, `setTimeout` o eventos nativos del navegador **no** se agrupaban, causando múltiples renders. | 2               | 2               |
+| **React 18** | **Batching Automático.** Agrupa automáticamente las actualizaciones de estado en **cualquier lugar** (eventos nativos, promesas, _timeouts_, etc.), siempre y cuando ocurran dentro del mismo ciclo de evento del navegador.                                  | 2               | 1               |
+
+**Ejemplo:**
+
+En el siguiente ejemplo, si el código se ejecuta dentro de una promesa, React 18 garantiza que solo habrá **un re-renderizado** al final.
+
+```jsx
+import { useState } from 'react';
+
+function ProfileEditor() {
+  const [name, setName] = useState('');
+  const [age, setAge] = useState(0);
+
+  async function handleUpdate() {
+    await fetch('/api/user/update'); // Simulación de llamada asíncrona
+
+    // ⬇Ambas se agrupan en un solo renderizado por React 18
+    setName('Leo');
+    setAge(30);
+
+    // En React 17, esto habría forzado dos renders separados
+  }
+
+  return (
+    // ... UI del componente
+    <button onClick={handleUpdate}>Actualizar Perfil</button>
+  );
+
+}
+
 ---
+```

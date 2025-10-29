@@ -4331,7 +4331,7 @@ Sí quieres saber más comparto el siguiente enlace:
 
 ---
 
-#### ¿Qué es y cómo funciona el _Batching_ Automático en React?
+#### ¿Qué es y cómo funciona el *Batching* Automático en React?
 
 El **Batching (procesamiento por lotes) automático** es una optimización introducida en **React 18** que **agrupa múltiples actualizaciones de estado** (llamadas a `setEstado`) en un **solo re-renderizado** del componente.
 
