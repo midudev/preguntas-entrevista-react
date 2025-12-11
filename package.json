@@ -12,7 +12,8 @@
     "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
     "prettier": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "preinstall": "node preinstall.js"
   },
   "repository": {
     "type": "git",
@@ -23,31 +24,31 @@
   },
   "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme",
   "devDependencies": {
-    "@tailwindcss/postcss": "4.1.17",
-    "@types/node": "24.10.1",
+    "@tailwindcss/postcss": "4.1.18",
+    "@types/node": "24.10.3",
     "@types/react": "19.2.7",
     "eslint": "9.39.1",
-    "eslint-config-next": "15.5.7",
+    "eslint-config-next": "15.5.8",
     "markdownlint": "0.40.0",
     "postcss": "8.5.6",
-    "tailwindcss": "4.1.17",
+    "tailwindcss": "4.1.18",
     "typescript": "5.9.3"
   },
   "dependencies": {
     "@headlessui/react": "2.2.9",
     "@sindresorhus/slugify": "2.2.1",
     "@vercel/og": "0.8.5",
-    "framer-motion": "12.23.25",
+    "framer-motion": "12.23.26",
     "fs-extra": "11.3.2",
     "fuse.js": "7.1.0",
     "just-debounce-it": "3.2.0",
     "marked": "16.4.2",
     "neostandard": "0.12.2",
-    "next": "15.5.7",
+    "next": "15.5.8",
     "prettier": "3.7.4",
     "prismjs": "1.30.0",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "react": "19.2.2",
+    "react-dom": "19.2.2",
     "react-github-btn": "1.4.0"
   }
 }

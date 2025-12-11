@@ -1,0 +1,6 @@
+{
+  "id": "para-que-sirve-el-hook-use-insertion-effect",
+  "level": 1,
+  "title": "¿Para qué sirve el hook `useInsertionEffect`?",
+  "content": "<p><code>useInsertionEffect</code> es un hook de muy alta prioridad pensado para librerías de estilos (CSS-in-JS). Se ejecuta <strong>antes</strong> de que el DOM se pinte, justo después de calcular el JSX, lo que permite inyectar reglas CSS sincronamente y evitar parpadeos (FOUC).</p>\n<pre><code class=\"language-jsx\">import { useInsertionEffect } from 'react'\n\nfunction useCssRule(rule) {\n  useInsertionEffect(() => {\n    const style = document.createElement('style')\n    style.setAttribute('data-inline', 'true')\n    style.textContent = rule\n    document.head.appendChild(style)\n    return () => style.remove()\n  }, [rule])\n}\n\nexport function Highlight({ children }) {\n  useCssRule('.highlight { background: #fffa9d; }')\n  return <span className=\"highlight\">{children}</span>\n}\n</code></pre>\n<p>Úsalo solo si necesitas insertar CSS antes del renderizado para evitar flashes de estilo. Para lógica habitual de efectos usa <code>useEffect</code> o <code>useLayoutEffect</code>.</p>\n<hr>\n"
+}

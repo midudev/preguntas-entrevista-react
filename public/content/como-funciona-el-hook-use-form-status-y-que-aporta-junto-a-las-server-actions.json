@@ -1,0 +1,6 @@
+{
+  "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions",
+  "level": 1,
+  "title": "¿Cómo funciona el hook `useFormStatus` y qué aporta junto a las Server Actions?",
+  "content": "<p><code>useFormStatus</code> es un hook de Client Components que lee el estado del <code>&lt;form&gt;</code> más cercano que ejecuta una Server Action. Devuelve <code>{ pending, data, method, action }</code>; <code>pending</code> indica si hay una petición en curso y <code>data</code> contiene el último <code>FormData</code> enviado.</p>\n<pre><code class=\"language-jsx\">'use client'\nimport { useFormStatus } from 'react-dom'\n\nfunction SubmitButton() {\n  const { pending } = useFormStatus()\n  return (\n    <button type=\"submit\" disabled={pending}>\n      {pending ? 'Enviando...' : 'Enviar'}\n    </button>\n  )\n}\n\nexport default function ContactForm({ action }) {\n  return (\n    <form action={action}>\n      <input name=\"email\" placeholder=\"Tu email\" />\n      <textarea name=\"message\" />\n      <SubmitButton />\n    </form>\n  )\n}\n</code></pre>\n<p>Combínalo con Server Actions para mostrar estados de carga, deshabilitar botones o leer el <code>FormData</code> sin levantar estado manual ni escribir handlers de submit en el cliente.</p>\n<hr>\n"
+}
