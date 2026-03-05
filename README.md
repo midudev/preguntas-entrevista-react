@@ -40,6 +40,7 @@
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
     - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
+    - [¿Cómo funciona `useReducer` en React?](#cómo-funciona-usereducer-en-react)
     - [¿Qué significa la expresión "subir el estado"?](#qué-significa-la-expresión-subir-el-estado)
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
@@ -759,6 +760,64 @@ function Counter() {
       <p>Contador: {count}</p>
       <button onClick={() => setCount(count => count + 1)}>Aumentar</button>
     </>
+  )
+}
+```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo funciona `useReducer` en React?
+
+`useReducer` es un hook de React que sirve como alternativa a `useState` cuando el estado es más complejo o requiere una lógica de actualización más estructurada.
+
+Es especialmente útil cuando:
+
+- Hay múltiples valores de estado relacionados.
+- El nuevo estado depende del anterior.
+- Queremos centralizar la lógica de cambios en una única función.
+
+Su sintaxis básica es:
+
+```jsx
+const [state, dispatch] = useReducer(reducer, initialState)
+```
+
+- `reducer` es una función que recibe el estado actual y una acción.
+- `initialState` es el estado inicial.
+- `dispatch(action)` envía acciones para actualizar el estado.
+
+Un ejemplo sencillo de contador:
+
+```jsx
+import { useReducer } from 'react'
+
+const initialState = { count: 0 }
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 }
+    case 'decrement':
+      return { count: state.count - 1 }
+    case 'reset':
+      return initialState
+    default:
+      return state
+  }
+}
+
+export default function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  return (
+    <div>
+      <h2>Contador: {state.count}</h2>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    </div>
   )
 }
 ```
