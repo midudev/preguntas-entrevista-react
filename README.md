@@ -30,12 +30,12 @@
     - [ ¿Qué diferencia hay entre props y state?](#qué-diferencia-hay-entre-props-y-state)
     - [¿Se puede inicializar un estado con el valor de una prop? ¿Qué pasa si lo haces y qué hay que tener en cuenta?](#se-puede-inicializar-un-estado-con-el-valor-de-una-prop-qué-pasa-si-lo-haces-y-qué-hay-que-tener-en-cuenta)
     - [¿Qué es el renderizado condicional en React?](#qué-es-el-renderizado-condicional-en-react)
-    - [¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-qué-no-se-puede-usar-class)
-    - [¿Cómo puedes aplicar estilos en línea a un componente en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-componente-en-react)
-    - [¿Cómo puedo aplicar estilos de forma condicional a un componente en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react)
+    - [¿Cómo puedes aplicar clases CSS a un elemento en React y por qué no se puede usar `class`?](#cómo-puedes-aplicar-clases-css-a-un-elemento-en-react-y-por-qué-no-se-puede-usar-class)
+    - [¿Cómo puedes aplicar estilos en línea a un elemento en React?](#cómo-puedes-aplicar-estilos-en-línea-a-un-elemento-en-react)
+    - [¿Cómo puedo aplicar estilos de forma condicional a un elemento en React?](#cómo-puedo-aplicar-estilos-de-forma-condicional-a-un-elemento-en-react)
     - [¿Qué es el renderizado de listas en React?](#qué-es-el-renderizado-de-listas-en-react)
     - [¿Cómo puedes escribir comentarios en React?](#cómo-puedes-escribir-comentarios-en-react)
-    - [¿Cómo añadir un evento a un componente en React?](#cómo-añadir-un-evento-a-un-componente-en-react)
+    - [¿Cómo añadir un evento a un elemento en React?](#cómo-añadir-un-evento-a-un-elemento-en-react)
     - [¿Cómo puedo pasar un parámetro a una función que maneja un evento en React?](#cómo-puedo-pasar-un-parámetro-a-una-función-que-maneja-un-evento-en-react)
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
@@ -486,9 +486,9 @@ Es preferible utilizar el operador ternario. _Kent C. Dodds_ tiene un artículo 
 
 ---
 
-#### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
+#### ¿Cómo puedes aplicar clases CSS a un elemento en React y por qué no se puede usar `class`?
 
-Para aplicar clases CSS a un componente en React usamos la prop `className`:
+Para aplicar clases CSS a un elemento en React usamos la prop `className`:
 
 ```jsx
 function Button({ text }) {
@@ -502,9 +502,9 @@ La razón por la que se llama `className` es porque `class` es una palabra reser
 
 ---
 
-#### ¿Cómo puedes aplicar estilos en línea a un componente en React?
+#### ¿Cómo puedes aplicar estilos en línea a un elemento en React?
 
-Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
+Para aplicar estilos CSS en línea a un elemento en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
 
 ```jsx
 function Button({ text }) {
@@ -518,9 +518,9 @@ Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
 
 ---
 
-#### ¿Cómo puedo aplicar estilos de forma condicional a un componente en React?
+#### ¿Cómo puedo aplicar estilos de forma condicional a un elemento en React?
 
-Puedes aplicar estilos de forma condicional a un componente en React usando la prop `style` y un operador ternario:
+Puedes aplicar estilos de forma condicional a un elemento en React usando la prop `style` y un operador ternario:
 
 ```jsx
 function Button({ text, primary }) {
@@ -611,9 +611,9 @@ function Button({ text }) {
 
 ---
 
-#### ¿Cómo añadir un evento a un componente en React?
+#### ¿Cómo añadir un evento a un elemento en React?
 
-Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en _camelCase_:
+Para añadir un evento a un elemento en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en _camelCase_:
 
 ```jsx
 function Button({ text, onClick }) {
