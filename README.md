@@ -2468,7 +2468,7 @@ Vamos a ver en detalle cada uno de los elementos que hemos usado:
 
 La función `import()` es parte del estándar de ECMAScript y nos permite importar de forma dinámica un módulo. Esta función devuelve una promesa que se resuelve con el módulo importado.
 
-El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`. Ten en cuenta que el componente que devuelve `lazy()` **debe ser un componente de React y ser exportado por defecto** (`export default`).
+El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`. Ten en cuenta que el componente que devuelve `lazy()` debe ser un componente de React y **se recomienda exportarlo por defecto** (`export default`) para simplificar la importación.
 
 El componente `Suspense` nos permite mostrar un mensaje mientras se está cargando el componente. Este componente recibe una prop `fallback` que es el mensaje que se muestra mientras se está cargando el componente.
 
