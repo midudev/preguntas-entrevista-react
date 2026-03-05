@@ -1783,13 +1783,55 @@ Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, 
 
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
-Desde que en _React 16.8.0_ se incluyeron los hooks, los componentes de funciones pueden hacer casi todo lo que los componentes de clase.
+Hoy en día, en la mayoría de proyectos nuevos, se usan más los **componentes funcionales**.  
+Pero ambos existen y es importante entender la diferencia:
 
-Aunque no hay una respuesta clara a esta pregunta, normalmente los componentes funcionales son más sencillos de leer y escribir y pueden tener un mejor rendimiento en general.
+- **Componente funcional**: es una función que recibe `props` y devuelve JSX.
+- **Componente de clase**: es una clase que extiende de `React.Component` y usa métodos como `render`.
 
-Además, **los hooks solo se pueden usar en los componentes funcionales**. Esto es importante, ya que con la creación de custom hooks podemos reutilizar la lógica y podría simplificar nuestros componentes.
+Con hooks, un componente funcional puede manejar estado y efectos:
 
-Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de los componentes, algo que no podemos hacer con los componentes funcionales donde solo podemos usar `useEffect`.
+```jsx
+import { useEffect, useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    document.title = `Clicks: ${count}`
+  }, [count])
+
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+El equivalente en componente de clase sería:
+
+```jsx
+import { Component } from 'react'
+
+class Counter extends Component {
+  state = { count: 0 }
+
+  componentDidUpdate() {
+    document.title = `Clicks: ${this.state.count}`
+  }
+
+  render() {
+    return (
+      <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+        {this.state.count}
+      </button>
+    )
+  }
+}
+```
+
+**Resumen rápido para entrevista:**
+
+- Hoy se prefiere funcional + hooks por simplicidad y reutilización de lógica.
+- Los componentes de clase siguen funcionando y los encontrarás en proyectos antiguos.
+- Entender ambos te ayuda a mantener código legado y a explicar la evolución de React.
 
 **Referencias:**
 
