@@ -1806,6 +1806,22 @@ Un ejemplo donde se ve el problema:
 
 ---
 
+#### ¿Qué es la memoización?
+
+La memoización es una técnica de optimización que guarda el resultado de un cálculo para reutilizarlo cuando recibe las mismas entradas. Así evitamos repetir operaciones costosas en cada render.
+
+En React aparece sobre todo con `useMemo`, `useCallback` y `React.memo`:
+
+- `useMemo` memoiza valores calculados.
+- `useCallback` memoiza funciones.
+- `React.memo` memoiza el renderizado de un componente según sus props.
+
+La idea clave es usarla cuando hay trabajo repetitivo o pesado, no por defecto en todo el código.
+
+
+
+---
+
 #### ¿Para qué sirve el hook `useMemo`?
 
 El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.

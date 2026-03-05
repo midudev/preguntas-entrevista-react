@@ -84,6 +84,7 @@
     - [¿Por qué debemos utilizar una función para actualizar el estado de React?](#por-qué-debemos-utilizar-una-función-para-actualizar-el-estado-de-react)
     - [¿Qué es el ciclo de vida de un componente en React?](#qué-es-el-ciclo-de-vida-de-un-componente-en-react)
     - [¿Por qué puede ser mala práctica usar el `index` como key en un listado de React?](#por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
+    - [¿Qué es la memoización?](#qué-es-la-memoización)
     - [¿Para qué sirve el hook `useMemo`?](#para-qué-sirve-el-hook-usememo)
     - [¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?](#es-buena-idea-usar-siempre-usememo-para-optimizar-nuestros-componentes)
     - [¿Para qué sirve el hook `useCallback`?](#para-qué-sirve-el-hook-usecallback)
@@ -2123,6 +2124,22 @@ const List = () => {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es la memoización?
+
+La memoización es una técnica de optimización que guarda el resultado de un cálculo para reutilizarlo cuando recibe las mismas entradas. Así evitamos repetir operaciones costosas en cada render.
+
+En React aparece sobre todo con `useMemo`, `useCallback` y `React.memo`:
+
+- `useMemo` memoiza valores calculados.
+- `useCallback` memoiza funciones.
+- `React.memo` memoiza el renderizado de un componente según sus props.
+
+La idea clave es usarla cuando hay trabajo repetitivo o pesado, no por defecto en todo el código.
 
 **[⬆ Volver a índice](#índice)**
 
