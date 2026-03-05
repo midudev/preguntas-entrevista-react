@@ -3,7 +3,7 @@ import { LEVELS } from '../constants.js'
 const LITERALS = {
   [LEVELS.EASY]: 'Principiante',
   [LEVELS.MEDIUM]: 'Intermedio',
-  [LEVELS.HARD]: 'Avanzado',
+  [LEVELS.HARD]: 'Experto',
   [LEVELS.ERRORS]: 'Errores típicos de React',
 }
 

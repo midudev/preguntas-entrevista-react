@@ -13,6 +13,7 @@ const LEVELS = {
 const MAP_LEVELS = {
   principiante: LEVELS.EASY,
   intermedio: LEVELS.MEDIUM,
+  experto: LEVELS.HARD,
   avanzado: LEVELS.HARD,
   'errores típicos en react': LEVELS.ERRORS,
 }
