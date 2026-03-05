@@ -120,6 +120,7 @@
     - [¿Qué son las Server Actions y cómo se usan con formularios en React?](#qué-son-las-server-actions-y-cómo-se-usan-con-formularios-en-react)
     - [¿Cuál es la diferencia entre la prop `action` y el atributo `formAction` en React/Next.js?](#cuál-es-la-diferencia-entre-la-prop-action-y-el-atributo-formaction-en-reactnextjs)
     - [¿Qué diferencia hay entre componentes de servidor y componentes de cliente en React/Next.js?](#qué-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-reactnextjs)
+    - [¿Cómo agregar soporte multiidioma (i18n) en una app React?](#cómo-agregar-soporte-multiidioma-i18n-en-una-app-react)
     - [¿Para qué sirve el hook `useSyncExternalStore`?](#para-qué-sirve-el-hook-usesyncexternalstore)
     - [¿Cómo funciona `React.memo` y cuándo es útil?](#cómo-funciona-reactmemo-y-cuándo-es-útil)
     - [¿Qué diferencia hay entre `ReactDOM.render`, `createRoot` y `hydrateRoot`?](#qué-diferencia-hay-entre-reactdomrender-createroot-y-hydrateroot)
@@ -3255,6 +3256,48 @@ Ambas props aceptan una URL o una Server Action; elige `formAction` para botones
 Los componentes de servidor se renderizan en el backend, pueden acceder a datos protegidos y devuelven HTML y payloads serializados. No pueden usar hooks del navegador (`useState`, `useEffect`). Los componentes de cliente se ejecutan en el navegador, escuchan eventos y pueden usar todos los hooks tradicionales.
 
 Para marcar un archivo como componente de cliente añade `'use client'` en la primera línea. Las Server Actions usan `'use server'` dentro de la función. Combinar ambos tipos te permite cargar datos en el servidor y mantener la interactividad solo donde es necesaria, reduciendo el JavaScript que llega al cliente.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo agregar soporte multiidioma (i18n) en una app React?
+
+Una estrategia común es centralizar los textos por idioma y resolverlos mediante una clave (`common.save`, `home.title`, etc.). En React puedes usar librerías como `react-intl` o `react-i18next`, o montar una solución ligera con contexto y el API `Intl` del navegador para fechas, números y monedas.
+
+```jsx
+import { createContext, useContext, useMemo, useState } from 'react'
+
+const messages = {
+  es: { greeting: 'Hola' },
+  en: { greeting: 'Hello' },
+}
+
+const I18nContext = createContext(null)
+
+export function I18nProvider({ children }) {
+  const [locale, setLocale] = useState('es')
+  const t = useMemo(() => key => messages[locale][key] ?? key, [locale])
+
+  return (
+    <I18nContext.Provider value={{ locale, setLocale, t }}>
+      {children}
+    </I18nContext.Provider>
+  )
+}
+
+export function Greeting() {
+  const { t, setLocale } = useContext(I18nContext)
+  return (
+    <>
+      <p>{t('greeting')}</p>
+      <button onClick={() => setLocale('en')}>EN</button>
+    </>
+  )
+}
+```
+
+Para apps reales, incluye fallback de idioma, detección automática (`navigator.language`) y carga diferida de traducciones por página para no enviar todos los diccionarios al cliente.
 
 **[⬆ Volver a índice](#índice)**
 

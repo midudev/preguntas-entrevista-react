@@ -2850,6 +2850,46 @@ Para marcar un archivo como componente de cliente añade `'use client'` en la pr
 
 ---
 
+#### ¿Cómo agregar soporte multiidioma (i18n) en una app React?
+
+Una estrategia común es centralizar los textos por idioma y resolverlos mediante una clave (`common.save`, `home.title`, etc.). En React puedes usar librerías como `react-intl` o `react-i18next`, o montar una solución ligera con contexto y el API `Intl` del navegador para fechas, números y monedas.
+
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> createContext<span class="token punctuation">,</span> useContext<span class="token punctuation">,</span> useMemo<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">const</span> messages <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">es</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">greeting</span><span class="token operator">:</span> <span class="token string">'Hola'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">en</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">greeting</span><span class="token operator">:</span> <span class="token string">'Hello'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> I18nContext <span class="token operator">=</span> <span class="token function">createContext</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">I18nProvider</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>locale<span class="token punctuation">,</span> setLocale<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">'es'</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> t <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token parameter">key</span> <span class="token operator">=></span> messages<span class="token punctuation">[</span>locale<span class="token punctuation">]</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">??</span> key<span class="token punctuation">,</span> <span class="token punctuation">[</span>locale<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">I18nContext.Provider</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> locale<span class="token punctuation">,</span> setLocale<span class="token punctuation">,</span> t <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">I18nContext.Provider</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Greeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> t<span class="token punctuation">,</span> setLocale <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useContext</span><span class="token punctuation">(</span>I18nContext<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token function">t</span><span class="token punctuation">(</span><span class="token string">'greeting'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setLocale</span><span class="token punctuation">(</span><span class="token string">'en'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">EN</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+
+Para apps reales, incluye fallback de idioma, detección automática (`navigator.language`) y carga diferida de traducciones por página para no enviar todos los diccionarios al cliente.
+
+
+
+---
+
 #### ¿Para qué sirve el hook `useSyncExternalStore`?
 
 `useSyncExternalStore` conecta React con una fuente de datos externa (Redux, Zustand, APIs del navegador) ofreciendo lecturas consistentes en renderizados concurrentes y durante la hidratación.
