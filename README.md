@@ -1801,19 +1801,23 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
-Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
+Un componente puro en React es aquel que, para las mismas `props`, estado y contexto, devuelve siempre el mismo resultado y no provoca efectos secundarios durante el render.
 
-Son más fáciles de testear y de mantener. Además, son más fáciles de entender porque no tienen lógica compleja.
-
-Para crear un componente puro en React usamos una function:
+> Ojo: **pureza** y **memoización** no son exactamente lo mismo.  
+> Un componente puede ser puro y aun así re-renderizarse cuando su padre se renderiza.  
+> Si además quieres evitar renders innecesarios, puedes usar `React.memo`.
 
 ```jsx
-function Button({ text }) {
+import { memo } from 'react'
+
+const Button = memo(function Button({ text }) {
   return <button>{text}</button>
-}
+})
 ```
 
-En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
+En este caso, `Button` es un componente puro (solo depende de `text`) y, al estar envuelto con `memo`, React puede saltarse su renderizado si `text` no cambia entre renders del padre.
+
+Mantener componentes puros hace la UI más predecible, facilita el testing y reduce errores. Además, combinado con memoización (`React.memo`, `useMemo`, `useCallback` cuando aplica), puede mejorar el rendimiento evitando trabajo innecesario.
 
 **[⬆ Volver a índice](#índice)**
 

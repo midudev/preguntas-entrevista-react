@@ -1507,17 +1507,21 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
-Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
+Un componente puro en React es aquel que, para las mismas `props`, estado y contexto, devuelve siempre el mismo resultado y no provoca efectos secundarios durante el render.
 
-Son más fáciles de testear y de mantener. Además, son más fáciles de entender porque no tienen lógica compleja.
+> Ojo: **pureza** y **memoización** no son exactamente lo mismo.  
+> Un componente puede ser puro y aun así re-renderizarse cuando su padre se renderiza.  
+> Si además quieres evitar renders innecesarios, puedes usar `React.memo`.
 
-Para crear un componente puro en React usamos una function:
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> memo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
 
-<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> text <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> Button <span class="token operator">=</span> <span class="token function">memo</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> text <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>text<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
-En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
+En este caso, `Button` es un componente puro (solo depende de `text`) y, al estar envuelto con `memo`, React puede saltarse su renderizado si `text` no cambia entre renders del padre.
+
+Mantener componentes puros hace la UI más predecible, facilita el testing y reduce errores. Además, combinado con memoización (`React.memo`, `useMemo`, `useCallback` cuando aplica), puede mejorar el rendimiento evitando trabajo innecesario.
 
 
 
