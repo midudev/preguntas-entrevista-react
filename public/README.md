@@ -2,7 +2,7 @@
 
 #### ¿Qué es React?
 
-**React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario.** Está basada en la componetización de la UI: la interfaz se divide en componentes independientes, que contienen su propio estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
+**React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario.** Está basada en la componetización de la UI: la interfaz se divide en componentes independientes, que pueden o no tener estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
 
 Esto hace que React sea una herramienta muy útil para construir interfaces complejas, ya que permite dividir la interfaz en piezas más pequeñas y reutilizables.
 
@@ -23,7 +23,7 @@ Enlaces de interés:
 
 Las características principales de React son:
 
-- **Componentes**: React está basado en la componetización de la UI. La interfaz se divide en componentes independientes, que contienen su propio estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
+- **Componentes**: React está basado en la componetización de la UI. La interfaz se divide en componentes independientes, que pueden o no tener estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
 
 - **Virtual DOM**: React usa un DOM virtual para renderizar los componentes. El DOM virtual es una representación en memoria del DOM real. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz. En lugar de modificar el DOM real, React modifica el DOM virtual y, a continuación, compara el DOM virtual con el DOM real. De esta forma, React sabe qué cambios se deben aplicar al DOM real.
 
