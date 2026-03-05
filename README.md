@@ -50,6 +50,7 @@
     - [¿Por qué es recomendable usar Fragment en vez de un div?](#por-qué-es-recomendable-usar-fragment-en-vez-de-un-div)
     - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
+    - [¿Cómo cambio el puerto, cómo manejo varias páginas y cómo renderizo un sitio web con React?](#cómo-cambio-el-puerto-cómo-manejo-varias-páginas-y-cómo-renderizo-un-sitio-web-con-react)
     - [¿Qué es React DOM?](#qué-es-react-dom)
     - [¿Qué JavaScript necesito para aprender React?](#qué-javascript-necesito-para-aprender-react)
       - [JavaScript que necesitas para aprender React](#javascript-que-necesitas-para-aprender-react)
@@ -1158,6 +1159,31 @@ npm init gatsby
 > La opción más popular y recomendada hoy en día es Nextjs. <small>Fuente [npm trends](https://npmtrends.com/gatsby-vs-next)</small>
 
 Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios y mucho más.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo cambio el puerto, cómo manejo varias páginas y cómo renderizo un sitio web con React?
+
+Buena pregunta, porque en realidad son tres temas diferentes:
+
+- **Cambiar el puerto en desarrollo**:
+  - En **Vite** puedes ejecutar: `npm run dev -- --port 4321`
+  - En **Next.js** puedes ejecutar: `npm run dev -- -p 4321`
+  - También puedes definir la variable de entorno `PORT`.
+
+- **Renderizar varias páginas en un mismo proyecto**:
+  - Sí, totalmente.
+  - En una SPA puedes usar **React Router** para tener rutas como `/`, `/about`, `/contact`.
+  - Si quieres rutas basadas en archivos y renderizado en servidor/estático, suele ser más cómodo usar un framework como **Next.js**.
+
+- **Renderizar un sitio web con React**:
+  - Si es React “puro”, montas la app en un nodo del DOM con `createRoot` (cliente).
+  - Para SEO, rendimiento y páginas estáticas/SSR, lo habitual hoy es usar **Next.js** (o Remix).
+  - Flujo típico: crear proyecto -> desarrollar componentes/rutas -> hacer `build` -> desplegar.
+
+React no te limita a “una sola página”. Puedes crear desde una SPA hasta un sitio completo con múltiples rutas y distintas estrategias de renderizado.
 
 **[⬆ Volver a índice](#índice)**
 

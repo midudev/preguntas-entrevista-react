@@ -915,6 +915,31 @@ Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolve
 
 ---
 
+#### ¿Cómo cambio el puerto, cómo manejo varias páginas y cómo renderizo un sitio web con React?
+
+Buena pregunta, porque en realidad son tres temas diferentes:
+
+- **Cambiar el puerto en desarrollo**:
+  - En **Vite** puedes ejecutar: `npm run dev -- --port 4321`
+  - En **Next.js** puedes ejecutar: `npm run dev -- -p 4321`
+  - También puedes definir la variable de entorno `PORT`.
+
+- **Renderizar varias páginas en un mismo proyecto**:
+  - Sí, totalmente.
+  - En una SPA puedes usar **React Router** para tener rutas como `/`, `/about`, `/contact`.
+  - Si quieres rutas basadas en archivos y renderizado en servidor/estático, suele ser más cómodo usar un framework como **Next.js**.
+
+- **Renderizar un sitio web con React**:
+  - Si es React “puro”, montas la app en un nodo del DOM con `createRoot` (cliente).
+  - Para SEO, rendimiento y páginas estáticas/SSR, lo habitual hoy es usar **Next.js** (o Remix).
+  - Flujo típico: crear proyecto -> desarrollar componentes/rutas -> hacer `build` -> desplegar.
+
+React no te limita a “una sola página”. Puedes crear desde una SPA hasta un sitio completo con múltiples rutas y distintas estrategias de renderizado.
+
+
+
+---
+
 #### ¿Qué es React DOM?
 
 React DOM es la librería que se encarga de renderizar los componentes de React para el navegador. Hay que tener en cuenta que React es una biblioteca que se puede usar en diferentes entornos (dispositivos móviles, apps de escritorio, terminal...).
