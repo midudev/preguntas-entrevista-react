@@ -1813,8 +1813,16 @@ import { Component } from 'react'
 class Counter extends Component {
   state = { count: 0 }
 
-  componentDidUpdate() {
+  updateTitle() {
     document.title = `Clicks: ${this.state.count}`
+  }
+
+  componentDidMount() {
+    this.updateTitle()
+  }
+
+  componentDidUpdate() {
+    this.updateTitle()
   }
 
   render() {
