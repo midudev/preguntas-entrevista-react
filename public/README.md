@@ -2614,7 +2614,7 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 
 Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para _renderizar_ en pantalla miles de datos.
 
-**El espacio de visualización es limitado (_viewport_), al igual que deberían serlo los datos que añadimos al DOM.**
+**El espacio de visualización es limitado (_viewport_), al igual que deberían ser los datos que añadimos al DOM.**
 
 ---
 
