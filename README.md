@@ -51,6 +51,7 @@
     - [¿Qué es el Compound Components Pattern?](#qué-es-el-compound-components-pattern)
     - [¿Cómo puedes inicializar un proyecto de React desde cero?](#cómo-puedes-inicializar-un-proyecto-de-react-desde-cero)
     - [¿Qué es React DOM?](#qué-es-react-dom)
+    - [¿Qué es React Router DOM?](#qué-es-react-router-dom)
     - [¿Qué JavaScript necesito para aprender React?](#qué-javascript-necesito-para-aprender-react)
       - [JavaScript que necesitas para aprender React](#javascript-que-necesitas-para-aprender-react)
       - [EcmaScript Modules o ESModules](#ecmascript-modules-o-esmodules)
@@ -1170,6 +1171,19 @@ React DOM es la librería que se encarga de renderizar los componentes de React 
 Mientras que la biblioteca de _React_, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... _React DOM_ es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
 
 _React Native_, por ejemplo, haría lo mismo, pero para dispositivos móviles.
+
+**[⬆ Volver a índice](#índice)**
+
+#### ¿Qué es React Router DOM?
+
+React Router DOM es la librería oficial de enrutado para aplicaciones React en la web. Permite definir rutas y mostrar diferentes componentes según la URL, facilitando crear navegación entre páginas sin recargar el navegador.
+
+En React, el enrutado no viene incluido en el núcleo, así que normalmente se usa React Router DOM para resolverlo en aplicaciones SPA.
+
+Enlaces de interés:
+
+- [Documentación oficial de React Router](https://reactrouter.com/home)
+- [Quick Start de React Router](https://reactrouter.com/start/declarative/installation)
 
 **[⬆ Volver a índice](#índice)**
 

@@ -925,6 +925,19 @@ _React Native_, por ejemplo, haría lo mismo, pero para dispositivos móviles.
 
 
 
+#### ¿Qué es React Router DOM?
+
+React Router DOM es la librería oficial de enrutado para aplicaciones React en la web. Permite definir rutas y mostrar diferentes componentes según la URL, facilitando crear navegación entre páginas sin recargar el navegador.
+
+En React, el enrutado no viene incluido en el núcleo, así que normalmente se usa React Router DOM para resolverlo en aplicaciones SPA.
+
+Enlaces de interés:
+
+- [Documentación oficial de React Router](https://reactrouter.com/home)
+- [Quick Start de React Router](https://reactrouter.com/start/declarative/installation)
+
+
+
 #### ¿Qué JavaScript necesito para aprender React?
 
 ##### JavaScript que necesitas para aprender React
