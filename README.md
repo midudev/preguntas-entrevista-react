@@ -3273,11 +3273,20 @@ const messages = {
   en: { greeting: 'Hello' },
 }
 
-const I18nContext = createContext(null)
+const fallbackLocale = 'en'
+
+const I18nContext = createContext({
+  locale: fallbackLocale,
+  setLocale: () => {},
+  t: key => key,
+})
 
 export function I18nProvider({ children }) {
   const [locale, setLocale] = useState('es')
-  const t = useMemo(() => key => messages[locale][key] ?? key, [locale])
+  const t = useMemo(
+    () => key => messages[locale]?.[key] ?? messages[fallbackLocale]?.[key] ?? key,
+    [locale]
+  )
 
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>
