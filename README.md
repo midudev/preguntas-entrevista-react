@@ -488,7 +488,7 @@ Es preferible utilizar el operador ternario. _Kent C. Dodds_ tiene un artículo 
 
 #### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
 
-Para aplicar clases CSS a un componente en React usamos la prop `className`:
+En React usamos la prop `className` para definir el valor del atributo `class` del HTML:
 
 ```jsx
 function Button({ text }) {
@@ -496,7 +496,7 @@ function Button({ text }) {
 }
 ```
 
-La razón por la que se llama `className` es porque `class` es una palabra reservada en JavaScript. Por eso, en JSX, tenemos que usar `className` para aplicar clases CSS.
+Es decir, las clases que pones en `className` son clases HTML normales (pueden usarse para CSS, tests, selectores, utilidades, etc.). En JSX no se usa `class` porque es una palabra reservada en JavaScript, por eso React utiliza `className`.
 
 **[⬆ Volver a índice](#índice)**
 
