@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-las-props-en-react-q-1",
+    "question_id": "que-son-las-props-en-react",
+    "question": "¿Que son las props en React?",
+    "alternatives": [
+      {
+        "id": "que-son-las-props-en-react-a-1",
+        "text": "Son datos que se pasan de un componente a otro.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-props-en-react-a-2",
+        "text": "Son variables globales de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-3",
+        "text": "Son metodos del ciclo de vida del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-4",
+        "text": "Son estilos CSS inline del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-5",
+        "text": "Son eventos del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-6",
+        "text": "Son archivos externos importados.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-props-en-react-q-2",
+    "question_id": "que-son-las-props-en-react",
+    "question": "¿Como se accede al valor de una prop dentro de un componente funcional?",
+    "alternatives": [
+      {
+        "id": "que-son-las-props-en-react-a-7",
+        "text": "A traves del objeto props que recibe la funcion como parametro.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-props-en-react-a-8",
+        "text": "Usando this.props dentro de la funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-9",
+        "text": "Usando el hook useProps().",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-10",
+        "text": "Accediendo a window.props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-11",
+        "text": "Importando las props desde React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-12",
+        "text": "Las props no estan disponibles en componentes funcionales.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-props-en-react-q-3",
+    "question_id": "que-son-las-props-en-react",
+    "question": "¿Como se usa una expresion JavaScript dentro de JSX?",
+    "alternatives": [
+      {
+        "id": "que-son-las-props-en-react-a-13",
+        "text": "Envolviendola con llaves {}.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-props-en-react-a-14",
+        "text": "Envolviendola con parentesis ().",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-15",
+        "text": "Envolviendola con corchetes [].",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-16",
+        "text": "Usando la palabra clave eval.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-17",
+        "text": "No se pueden usar expresiones JavaScript en JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-props-en-react-a-18",
+        "text": "Usando template literals con backticks.",
+        "is_correct": false
+      }
+    ]
+  }
+]

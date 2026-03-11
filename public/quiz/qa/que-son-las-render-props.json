@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-son-las-render-props-q-1",
+    "question_id": "que-son-las-render-props",
+    "question": "¿Que son las render props?",
+    "alternatives": [
+      {
+        "id": "que-son-las-render-props-a-1",
+        "text": "Un patron de diseno que permite reutilizar codigo e inyectar informacion en el renderizado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-render-props-a-2",
+        "text": "Props que solo pueden contener strings.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-3",
+        "text": "Un tipo especial de estado en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-4",
+        "text": "Una forma de definir estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-5",
+        "text": "Una alternativa a los hooks.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-6",
+        "text": "Props que se renderizan automaticamente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-render-props-q-2",
+    "question_id": "que-son-las-render-props",
+    "question": "¿Que recibe la prop render en el patron render props?",
+    "alternatives": [
+      {
+        "id": "que-son-las-render-props-a-7",
+        "text": "Una funcion que indica que debe renderizar usando la informacion que recibe como parametro.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-render-props-a-8",
+        "text": "Un componente de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-9",
+        "text": "Un string con HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-10",
+        "text": "Un numero que indica el orden de renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-11",
+        "text": "Un objeto de estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-12",
+        "text": "Un array de componentes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-render-props-q-3",
+    "question_id": "que-son-las-render-props",
+    "question": "¿Con que otra prop se puede implementar el patron render props?",
+    "alternatives": [
+      {
+        "id": "que-son-las-render-props-a-13",
+        "text": "Con la prop children.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-render-props-a-14",
+        "text": "Solo con la prop render.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-15",
+        "text": "Con la prop className.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-16",
+        "text": "Con la prop style.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-17",
+        "text": "Con la prop key.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-18",
+        "text": "No hay alternativa.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-render-props-q-4",
+    "question_id": "que-son-las-render-props",
+    "question": "¿Que bibliotecas populares usan el patron render props?",
+    "alternatives": [
+      {
+        "id": "que-son-las-render-props-a-19",
+        "text": "react-router, formik y react-motion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-render-props-a-20",
+        "text": "Solo Redux.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-21",
+        "text": "Ninguna biblioteca lo usa.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-22",
+        "text": "Solo se usa en proyectos personales.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-23",
+        "text": "Solo Next.js.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-render-props-a-24",
+        "text": "Solo bibliotecas de testing.",
+        "is_correct": false
+      }
+    ]
+  }
+]

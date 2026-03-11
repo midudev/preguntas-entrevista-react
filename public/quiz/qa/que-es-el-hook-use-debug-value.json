@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-hook-use-debug-value-q-1",
+    "question_id": "que-es-el-hook-use-debug-value",
+    "question": "¿Para que sirve useDebugValue?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-debug-value-a-1",
+        "text": "Mostrar un valor personalizado en React DevTools para depurar.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-2",
+        "text": "Mostrar errores en la consola.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-3",
+        "text": "Validar valores de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-4",
+        "text": "Crear breakpoints automaticos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-5",
+        "text": "Guardar logs en un archivo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-6",
+        "text": "Medir el rendimiento del componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-hook-use-debug-value-q-2",
+    "question_id": "que-es-el-hook-use-debug-value",
+    "question": "¿Donde se muestra el valor de useDebugValue?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-debug-value-a-7",
+        "text": "En la pestana de React DevTools.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-8",
+        "text": "En la consola del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-9",
+        "text": "En un alert del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-10",
+        "text": "En el DOM de la pagina.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-11",
+        "text": "En un archivo de log.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-12",
+        "text": "En ningun lugar visible.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-hook-use-debug-value-q-3",
+    "question_id": "que-es-el-hook-use-debug-value",
+    "question": "¿Se recomienda usar useDebugValue en produccion?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-debug-value-a-13",
+        "text": "No, solo es util para depurar en desarrollo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-14",
+        "text": "Si, siempre se recomienda.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-15",
+        "text": "Solo en aplicaciones grandes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-16",
+        "text": "Solo con TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-17",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-debug-value-a-18",
+        "text": "No existe ese hook.",
+        "is_correct": false
+      }
+    ]
+  }
+]

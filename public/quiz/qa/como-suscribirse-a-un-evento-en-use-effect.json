@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-suscribirse-a-un-evento-en-use-effect-q-1",
+    "question_id": "como-suscribirse-a-un-evento-en-use-effect",
+    "question": "¿Por que es importante desuscribirse de eventos en useEffect?",
+    "alternatives": [
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-1",
+        "text": "Para evitar fugas de memoria cuando el componente se desmonta.",
+        "is_correct": true
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-2",
+        "text": "Para mejorar el SEO de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-3",
+        "text": "Para que los estilos CSS funcionen correctamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-4",
+        "text": "No es necesario desuscribirse, React lo hace automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-5",
+        "text": "Solo es necesario en produccion, no en desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-6",
+        "text": "Para que el componente se renderice mas rapido.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-suscribirse-a-un-evento-en-use-effect-q-2",
+    "question_id": "como-suscribirse-a-un-evento-en-use-effect",
+    "question": "¿Como se desuscribe de un evento en useEffect?",
+    "alternatives": [
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-7",
+        "text": "Devolviendo una funcion de limpieza que llama a removeEventListener.",
+        "is_correct": true
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-8",
+        "text": "Llamando a useEffect.cleanup() manualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-9",
+        "text": "Usando el hook useUnsubscribe().",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-10",
+        "text": "Pasando un tercer parametro a useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-11",
+        "text": "No es posible desuscribirse manualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-12",
+        "text": "Usando window.clearEvent().",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-suscribirse-a-un-evento-en-use-effect-q-3",
+    "question_id": "como-suscribirse-a-un-evento-en-use-effect",
+    "question": "¿Cuando se ejecuta la funcion de limpieza (cleanup) de useEffect?",
+    "alternatives": [
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-13",
+        "text": "Cuando el componente se desmonta del arbol de componentes.",
+        "is_correct": true
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-14",
+        "text": "Inmediatamente despues de montar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-15",
+        "text": "Solo cuando el usuario cierra la pestana del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-16",
+        "text": "Cada vez que se renderiza el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-17",
+        "text": "Nunca se ejecuta automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-suscribirse-a-un-evento-en-use-effect-a-18",
+        "text": "Solo al refrescar la pagina.",
+        "is_correct": false
+      }
+    ]
+  }
+]

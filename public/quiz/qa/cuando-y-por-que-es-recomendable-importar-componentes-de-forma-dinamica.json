@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-q-1",
+    "question_id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica",
+    "question": "¿Cuando es recomendable importar componentes de forma dinamica?",
+    "alternatives": [
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-1",
+        "text": "Cuando el componente no se va a usar desde el principio, como modales o rutas secundarias.",
+        "is_correct": true
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-2",
+        "text": "Siempre, para todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-3",
+        "text": "Nunca, es mala practica.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-4",
+        "text": "Solo para componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-5",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-6",
+        "text": "Solo para componentes pequenos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-q-2",
+    "question_id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica",
+    "question": "¿Cual es el problema de importar siempre de forma estatica?",
+    "alternatives": [
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-7",
+        "text": "Se cargan componentes que no se van a usar desde el principio, haciendo la app mas lenta.",
+        "is_correct": true
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-8",
+        "text": "No hay ningun problema.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-9",
+        "text": "Los componentes no funcionan correctamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-10",
+        "text": "Solo funciona en produccion.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-11",
+        "text": "Causa errores de sintaxis.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-12",
+        "text": "No permite usar hooks.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-q-3",
+    "question_id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica",
+    "question": "¿Cual es el beneficio principal de la carga dinamica?",
+    "alternatives": [
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-13",
+        "text": "La aplicacion carga mas rapido al no cargar codigo innecesario al inicio.",
+        "is_correct": true
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-14",
+        "text": "El codigo es mas corto.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-15",
+        "text": "No hay beneficios, solo desventajas.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-16",
+        "text": "Permite usar mas hooks.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-17",
+        "text": "Mejora el SEO automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cuando-y-por-que-es-recomendable-importar-componentes-de-forma-dinamica-a-18",
+        "text": "Solo funciona con TypeScript.",
+        "is_correct": false
+      }
+    ]
+  }
+]

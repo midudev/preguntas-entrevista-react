@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-synthetic-event-en-react-q-1",
+    "question_id": "que-es-el-synthetic-event-en-react",
+    "question": "¿Que es el SyntheticEvent en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-1",
+        "text": "Una abstraccion del evento nativo del navegador para tener comportamiento consistente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-2",
+        "text": "Un evento que solo funciona en React Native.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-3",
+        "text": "Un tipo de estado en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-4",
+        "text": "Un hook para manejar eventos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-5",
+        "text": "Un metodo de ciclo de vida.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-6",
+        "text": "Un evento que no existe en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-synthetic-event-en-react-q-2",
+    "question_id": "que-es-el-synthetic-event-en-react",
+    "question": "¿Como se accede al evento nativo desde un SyntheticEvent?",
+    "alternatives": [
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-7",
+        "text": "A traves del atributo nativeEvent.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-8",
+        "text": "No se puede acceder al evento nativo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-9",
+        "text": "Usando event.original.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-10",
+        "text": "Llamando a getNativeEvent().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-11",
+        "text": "Usando event.browserEvent.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-12",
+        "text": "El SyntheticEvent es el evento nativo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-synthetic-event-en-react-q-3",
+    "question_id": "que-es-el-synthetic-event-en-react",
+    "question": "¿Cual es el beneficio principal del SyntheticEvent?",
+    "alternatives": [
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-13",
+        "text": "Comportamiento consistente en todos los navegadores.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-14",
+        "text": "Mayor velocidad de ejecucion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-15",
+        "text": "Menor uso de memoria.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-16",
+        "text": "No tiene beneficios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-17",
+        "text": "Solo funciona en Chrome.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-synthetic-event-en-react-a-18",
+        "text": "Elimina la necesidad de manejadores de eventos.",
+        "is_correct": false
+      }
+    ]
+  }
+]

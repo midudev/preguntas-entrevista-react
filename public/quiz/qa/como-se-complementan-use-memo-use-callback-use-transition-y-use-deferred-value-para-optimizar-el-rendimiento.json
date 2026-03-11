@@ -1,0 +1,150 @@
+[
+  {
+    "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-q-1",
+    "question_id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento",
+    "question": "¿Que hace useMemo en el contexto de optimizacion?",
+    "alternatives": [
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-1",
+        "text": "Memoriza valores costosos para evitar recomputarlos si sus dependencias no cambian.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-2",
+        "text": "Memoriza funciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-3",
+        "text": "Baja la prioridad de actualizaciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-4",
+        "text": "Retrasa la propagacion de valores.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-5",
+        "text": "Crea estados locales.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-6",
+        "text": "No tiene efecto en optimizacion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-q-2",
+    "question_id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento",
+    "question": "¿Que diferencia hay entre useCallback y useMemo?",
+    "alternatives": [
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-7",
+        "text": "useCallback memoriza funciones, useMemo memoriza valores.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-8",
+        "text": "Son identicos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-9",
+        "text": "useMemo es mas rapido.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-10",
+        "text": "useCallback es para efectos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-11",
+        "text": "useMemo solo funciona con primitivos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-12",
+        "text": "No hay diferencia practica.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-q-3",
+    "question_id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento",
+    "question": "¿Para que sirve useTransition en optimizacion?",
+    "alternatives": [
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-13",
+        "text": "Baja la prioridad de ciertas actualizaciones para mantener la UI fluida.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-14",
+        "text": "Memoriza valores costosos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-15",
+        "text": "Memoriza funciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-16",
+        "text": "Crea animaciones de transicion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-17",
+        "text": "Valida datos de entrada.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-18",
+        "text": "No tiene efecto en optimizacion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-q-4",
+    "question_id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento",
+    "question": "¿Que hace useDeferredValue?",
+    "alternatives": [
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-19",
+        "text": "Retrasa la propagacion de un valor a la parte cara del render.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-20",
+        "text": "Memoriza valores.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-21",
+        "text": "Memoriza funciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-22",
+        "text": "Valida valores de entrada.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-23",
+        "text": "Crea estados diferidos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-complementan-use-memo-use-callback-use-transition-y-use-deferred-value-para-optimizar-el-rendimiento-a-24",
+        "text": "No tiene efecto en optimizacion.",
+        "is_correct": false
+      }
+    ]
+  }
+]

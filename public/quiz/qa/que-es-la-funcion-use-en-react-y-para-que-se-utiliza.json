@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-q-1",
+    "question_id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza",
+    "question": "¿Que permite hacer la funcion use en React?",
+    "alternatives": [
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-1",
+        "text": "Suspender la renderizacion hasta que una promesa se resuelva.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-2",
+        "text": "Crear estados locales.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-3",
+        "text": "Manejar efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-4",
+        "text": "Crear refs.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-5",
+        "text": "Validar props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-6",
+        "text": "Crear componentes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-q-2",
+    "question_id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza",
+    "question": "¿En que tipo de componentes se puede usar 'use' directamente para esperar datos?",
+    "alternatives": [
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-7",
+        "text": "En Server Components.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-8",
+        "text": "Solo en Client Components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-9",
+        "text": "En cualquier componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-10",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-11",
+        "text": "Solo en hooks personalizados.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-12",
+        "text": "No se puede usar en ningun componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-q-3",
+    "question_id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza",
+    "question": "¿Donde se puede usar 'use' en Client Components?",
+    "alternatives": [
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-13",
+        "text": "En async event handlers o efectos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-14",
+        "text": "Directamente en el render.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-15",
+        "text": "En cualquier parte del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-16",
+        "text": "No se puede usar en Client Components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-17",
+        "text": "Solo en el constructor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-funcion-use-en-react-y-para-que-se-utiliza-a-18",
+        "text": "Solo en useEffect.",
+        "is_correct": false
+      }
+    ]
+  }
+]

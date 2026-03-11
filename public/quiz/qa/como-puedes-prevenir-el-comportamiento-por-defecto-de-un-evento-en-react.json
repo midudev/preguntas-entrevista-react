@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedes-prevenir-el-comportamiento-por-defecto-q-1",
+    "question_id": "como-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react",
+    "question": "¿Que metodo se usa para prevenir el comportamiento por defecto de un evento en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-1",
+        "text": "event.preventDefault()",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-2",
+        "text": "event.stopPropagation()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-3",
+        "text": "event.stop()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-4",
+        "text": "return false",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-5",
+        "text": "event.cancel()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-6",
+        "text": "No se puede prevenir.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-prevenir-el-comportamiento-por-defecto-q-2",
+    "question_id": "como-puedes-prevenir-el-comportamiento-por-defecto-de-un-evento-en-react",
+    "question": "¿En que caso es comun usar preventDefault en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-7",
+        "text": "En el evento onSubmit de un formulario para evitar que recargue la pagina.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-8",
+        "text": "En el evento onClick de un boton.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-9",
+        "text": "En todos los eventos de React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-10",
+        "text": "Solo en eventos de teclado.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-11",
+        "text": "Nunca se usa en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-prevenir-el-comportamiento-por-defecto-a-12",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  }
+]

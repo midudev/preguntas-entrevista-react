@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-q-1",
+    "question_id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types",
+    "question": "¿Que propiedad de PropTypes se usa para validar la estructura de un objeto?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-1",
+        "text": "PropTypes.shape()",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-2",
+        "text": "PropTypes.object()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-3",
+        "text": "PropTypes.struct()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-4",
+        "text": "PropTypes.objectOf()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-5",
+        "text": "PropTypes.validate()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-6",
+        "text": "No se puede validar la estructura de objetos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-q-2",
+    "question_id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types",
+    "question": "¿Que se define dentro de PropTypes.shape()?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-7",
+        "text": "Un objeto con las propiedades y sus tipos esperados.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-8",
+        "text": "Solo el nombre del tipo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-9",
+        "text": "Un string con la descripcion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-10",
+        "text": "Un array de nombres de propiedades.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-11",
+        "text": "Nada, se deja vacio.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-objeto-con-prop-types-a-12",
+        "text": "Solo funciones.",
+        "is_correct": false
+      }
+    ]
+  }
+]

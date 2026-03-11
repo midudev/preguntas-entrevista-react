@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-q-1",
+    "question_id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta",
+    "question": "¿Como se ejecuta codigo solo cuando el componente se monta?",
+    "alternatives": [
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-1",
+        "text": "Usando useEffect con un array de dependencias vacio [].",
+        "is_correct": true
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-2",
+        "text": "Usando useEffect sin segundo parametro.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-3",
+        "text": "Usando el hook useMount().",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-4",
+        "text": "Llamando al codigo directamente en el cuerpo de la funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-5",
+        "text": "Usando el metodo componentDidMount() en funciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-6",
+        "text": "Usando setTimeout con delay de 0.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-q-2",
+    "question_id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta",
+    "question": "¿Por que el array de dependencias vacio hace que el efecto se ejecute solo al montar?",
+    "alternatives": [
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-7",
+        "text": "Porque al no haber dependencias, no hay nada que pueda cambiar y disparar el efecto de nuevo.",
+        "is_correct": true
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-8",
+        "text": "Porque React interpreta [] como 'ejecutar una vez'.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-9",
+        "text": "Porque es una convencion del equipo de React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-10",
+        "text": "Porque [] desactiva el seguimiento de cambios.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-11",
+        "text": "Porque el array vacio siempre es igual a si mismo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-monta-a-12",
+        "text": "Es un comportamiento especial solo para arrays vacios.",
+        "is_correct": false
+      }
+    ]
+  }
+]

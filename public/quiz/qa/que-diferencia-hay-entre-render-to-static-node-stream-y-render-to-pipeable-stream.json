@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-q-1",
+    "question_id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream",
+    "question": "¿Que devuelve renderToStaticNodeStream?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-1",
+        "text": "Un stream de nodos estaticos sin atributos extra para hidratacion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-2",
+        "text": "Un stream con atributos para hidratacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-3",
+        "text": "Un string HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-4",
+        "text": "Un objeto JSON.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-5",
+        "text": "Un componente React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-6",
+        "text": "Nada, retorna undefined.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-q-2",
+    "question_id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream",
+    "question": "¿Para que tipo de paginas es util renderToStaticNodeStream?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-7",
+        "text": "Paginas totalmente estaticas sin interactividad.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-8",
+        "text": "Paginas con mucha interactividad.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-9",
+        "text": "Solo para aplicaciones SPA.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-10",
+        "text": "Solo para formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-11",
+        "text": "Para cualquier tipo de pagina.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-12",
+        "text": "Solo en desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-q-3",
+    "question_id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream",
+    "question": "¿Que permite hacer renderToPipeableStream que no hace renderToStaticNodeStream?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-13",
+        "text": "Hidratar el HTML en el cliente para hacerlo interactivo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-14",
+        "text": "Generar HTML mas rapido.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-15",
+        "text": "Comprimir el HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-16",
+        "text": "Cachear el resultado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-17",
+        "text": "Nada diferente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-render-to-static-node-stream-y-render-to-pipeable-stream-a-18",
+        "text": "Solo funciona en Node.js.",
+        "is_correct": false
+      }
+    ]
+  }
+]

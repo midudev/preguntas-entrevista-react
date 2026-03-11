@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-los-hooks-q-1",
+    "question_id": "que-son-los-hooks",
+    "question": "¿Que son los Hooks en React?",
+    "alternatives": [
+      {
+        "id": "que-son-los-hooks-a-1",
+        "text": "Una API que permite tener estado y otras caracteristicas de React en componentes funcionales.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-hooks-a-2",
+        "text": "Metodos exclusivos de los componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-3",
+        "text": "Funciones para conectar React con bases de datos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-4",
+        "text": "Herramientas para crear animaciones CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-5",
+        "text": "Plugins externos que se instalan con npm.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-6",
+        "text": "Eventos del navegador capturados por React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-hooks-q-2",
+    "question_id": "que-son-los-hooks",
+    "question": "¿Por que fueron creados los Hooks?",
+    "alternatives": [
+      {
+        "id": "que-son-los-hooks-a-7",
+        "text": "Para permitir usar estado y otras caracteristicas sin necesidad de crear clases.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-hooks-a-8",
+        "text": "Para reemplazar completamente el uso de JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-9",
+        "text": "Para mejorar el rendimiento de las animaciones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-10",
+        "text": "Para conectar React con Redux.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-11",
+        "text": "Para deprecar los componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-12",
+        "text": "Para simplificar la sintaxis de CSS en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-hooks-q-3",
+    "question_id": "que-son-los-hooks",
+    "question": "¿Que significa el nombre 'Hooks' (ganchos)?",
+    "alternatives": [
+      {
+        "id": "que-son-los-hooks-a-13",
+        "text": "Que permiten 'enganchar' componentes funcionales a las caracteristicas de React.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-hooks-a-14",
+        "text": "Que atrapan errores en tiempo de ejecucion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-15",
+        "text": "Que conectan diferentes aplicaciones entre si.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-16",
+        "text": "Es un acronimo de Higher Order Oriented Key System.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-17",
+        "text": "Hace referencia al patron de diseno Hook.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-hooks-a-18",
+        "text": "Es el apellido del creador de esta API.",
+        "is_correct": false
+      }
+    ]
+  }
+]

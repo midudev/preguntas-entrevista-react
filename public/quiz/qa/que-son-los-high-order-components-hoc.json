@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-los-high-order-components-hoc-q-1",
+    "question_id": "que-son-los-high-order-components-hoc",
+    "question": "¿Que es un High Order Component (HOC)?",
+    "alternatives": [
+      {
+        "id": "que-son-los-high-order-components-hoc-a-1",
+        "text": "Una funcion que recibe un componente como parametro y devuelve un componente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-2",
+        "text": "Un componente que esta en la parte superior del arbol.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-3",
+        "text": "Un hook personalizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-4",
+        "text": "Un componente de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-5",
+        "text": "Un componente que maneja el estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-6",
+        "text": "Un tipo de contexto en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-high-order-components-hoc-q-2",
+    "question_id": "que-son-los-high-order-components-hoc",
+    "question": "¿Para que sirve el patron HOC?",
+    "alternatives": [
+      {
+        "id": "que-son-los-high-order-components-hoc-a-7",
+        "text": "Para reutilizar codigo e inyectar funcionalidad, estilos u otras cosas a un componente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-8",
+        "text": "Para crear rutas en la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-9",
+        "text": "Para manejar errores en la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-10",
+        "text": "Para definir estilos CSS globales.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-11",
+        "text": "Para conectar con bases de datos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-12",
+        "text": "Para compilar JSX.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-high-order-components-hoc-q-3",
+    "question_id": "que-son-los-high-order-components-hoc",
+    "question": "¿Que ha sucedido con los HOCs desde la llegada de los hooks?",
+    "alternatives": [
+      {
+        "id": "que-son-los-high-order-components-hoc-a-13",
+        "text": "Se han vuelto menos populares, aunque todavia se usan en algunos casos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-14",
+        "text": "Han sido completamente eliminados de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-15",
+        "text": "Se han vuelto mas populares que nunca.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-16",
+        "text": "Ahora son obligatorios en todas las aplicaciones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-17",
+        "text": "Los hooks son un tipo de HOC.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-high-order-components-hoc-a-18",
+        "text": "No ha cambiado nada.",
+        "is_correct": false
+      }
+    ]
+  }
+]

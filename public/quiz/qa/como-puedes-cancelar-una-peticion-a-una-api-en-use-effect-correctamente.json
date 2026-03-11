@@ -1,0 +1,150 @@
+[
+  {
+    "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-q-1",
+    "question_id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente",
+    "question": "¿Que API nativa de JavaScript se usa para cancelar peticiones fetch en useEffect?",
+    "alternatives": [
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-1",
+        "text": "AbortController",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-2",
+        "text": "CancelToken",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-3",
+        "text": "FetchController",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-4",
+        "text": "RequestCanceler",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-5",
+        "text": "StopRequest",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-6",
+        "text": "No se puede cancelar una peticion fetch",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-q-2",
+    "question_id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente",
+    "question": "¿Donde se debe llamar al metodo abort() para cancelar la peticion?",
+    "alternatives": [
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-7",
+        "text": "En la funcion de limpieza (cleanup) del useEffect.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-8",
+        "text": "Dentro del bloque catch del fetch.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-9",
+        "text": "En el callback de useEffect antes del fetch.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-10",
+        "text": "En un setTimeout separado.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-11",
+        "text": "En el array de dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-12",
+        "text": "No se necesita llamar abort(), se cancela automaticamente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-q-3",
+    "question_id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente",
+    "question": "¿Que tipo de error se genera cuando se cancela una peticion con AbortController?",
+    "alternatives": [
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-13",
+        "text": "AbortError",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-14",
+        "text": "CancelError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-15",
+        "text": "NetworkError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-16",
+        "text": "FetchError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-17",
+        "text": "TimeoutError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-18",
+        "text": "No genera ningun error.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-q-4",
+    "question_id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente",
+    "question": "¿Que propiedad del AbortController se pasa como opcion al fetch?",
+    "alternatives": [
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-19",
+        "text": "signal",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-20",
+        "text": "abort",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-21",
+        "text": "controller",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-22",
+        "text": "cancel",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-23",
+        "text": "token",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente-a-24",
+        "text": "stop",
+        "is_correct": false
+      }
+    ]
+  }
+]

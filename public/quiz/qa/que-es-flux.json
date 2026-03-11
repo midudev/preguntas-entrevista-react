@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-flux-q-1",
+    "question_id": "que-es-flux",
+    "question": "¿Que es Flux?",
+    "alternatives": [
+      {
+        "id": "que-es-flux-a-1",
+        "text": "Un patron de arquitectura de aplicaciones basado en flujo unidireccional de datos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-flux-a-2",
+        "text": "Una libreria de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-3",
+        "text": "Un hook de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-4",
+        "text": "Un framework CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-5",
+        "text": "Un sistema de testing.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-6",
+        "text": "Un empaquetador de aplicaciones.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-flux-q-2",
+    "question_id": "que-es-flux",
+    "question": "¿En que direccion fluyen los datos en Flux?",
+    "alternatives": [
+      {
+        "id": "que-es-flux-a-7",
+        "text": "En una sola direccion: de las vistas a los stores.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-flux-a-8",
+        "text": "Bidireccional.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-9",
+        "text": "En multiples direcciones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-10",
+        "text": "No hay flujo de datos definido.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-11",
+        "text": "Solo del servidor al cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-12",
+        "text": "Solo del cliente al servidor.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-flux-q-3",
+    "question_id": "que-es-flux",
+    "question": "¿Que libreria se baso en el patron Flux?",
+    "alternatives": [
+      {
+        "id": "que-es-flux-a-13",
+        "text": "Redux",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-flux-a-14",
+        "text": "React Router",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-15",
+        "text": "Axios",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-16",
+        "text": "Lodash",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-17",
+        "text": "jQuery",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flux-a-18",
+        "text": "Ninguna libreria usa este patron.",
+        "is_correct": false
+      }
+    ]
+  }
+]

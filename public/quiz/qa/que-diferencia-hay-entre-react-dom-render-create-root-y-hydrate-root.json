@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-q-1",
+    "question_id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root",
+    "question": "¿Cual es el estado actual de ReactDOM.render?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-1",
+        "text": "Es la API legacy previa a React 18, esta en desuso.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-2",
+        "text": "Es la forma recomendada actualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-3",
+        "text": "Solo funciona con TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-4",
+        "text": "Fue introducido en React 18.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-5",
+        "text": "Solo sirve para SSR.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-6",
+        "text": "No existe ese metodo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-q-2",
+    "question_id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root",
+    "question": "¿Que caracteristicas activa createRoot?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-7",
+        "text": "useTransition, Suspense para datos y batching automatico.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-8",
+        "text": "Solo mejoras de rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-9",
+        "text": "Ninguna caracteristica especial.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-10",
+        "text": "Solo soporte para SSR.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-11",
+        "text": "Solo TypeScript support.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-12",
+        "text": "Solo hooks basicos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-q-3",
+    "question_id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root",
+    "question": "¿Para que se usa hydrateRoot?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-13",
+        "text": "Conectar HTML generado en el servidor con React en el cliente manteniendo el DOM existente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-14",
+        "text": "Crear una nueva raiz en el cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-15",
+        "text": "Hidratar estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-16",
+        "text": "Optimizar el rendimiento del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-17",
+        "text": "Crear componentes de servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-18",
+        "text": "No existe ese metodo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-q-4",
+    "question_id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root",
+    "question": "¿Que metodos se recomiendan usar en proyectos nuevos?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-19",
+        "text": "createRoot o hydrateRoot.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-20",
+        "text": "Solo ReactDOM.render.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-21",
+        "text": "Ninguno, se usa JSX directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-22",
+        "text": "mountRoot y unmountRoot.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-23",
+        "text": "Solo document.getElementById.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-react-dom-render-create-root-y-hydrate-root-a-24",
+        "text": "Todos son equivalentes.",
+        "is_correct": false
+      }
+    ]
+  }
+]

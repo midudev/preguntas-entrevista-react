@@ -1,0 +1,76 @@
+[
+  {
+    "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-q-1",
+    "question_id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto",
+    "question": "¿Es obligatorio exportar por defecto para usar carga dinamica?",
+    "alternatives": [
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-1",
+        "text": "No, pero el codigo para exports nombrados es mas complejo.",
+        "is_correct": true
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-2",
+        "text": "Si, es obligatorio.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-3",
+        "text": "Solo se pueden usar exports nombrados.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-4",
+        "text": "No hay diferencia entre ambos.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-5",
+        "text": "Depende del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-6",
+        "text": "La carga dinamica no existe en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-q-2",
+    "question_id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto",
+    "question": "¿Como se puede usar lazy() con un componente exportado de forma nombrada?",
+    "alternatives": [
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-7",
+        "text": "Usando .then() para convertir el export nombrado en { default: Component }.",
+        "is_correct": true
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-8",
+        "text": "No se puede usar.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-9",
+        "text": "Usando require() en lugar de import().",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-10",
+        "text": "Solo funciona en TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-11",
+        "text": "Cambiando la configuracion de Babel.",
+        "is_correct": false
+      },
+      {
+        "id": "solo-se-pueden-cargar-componentes-de-forma-dinamica-si-se-exportan-por-defecto-a-12",
+        "text": "Usando un hook especial.",
+        "is_correct": false
+      }
+    ]
+  }
+]

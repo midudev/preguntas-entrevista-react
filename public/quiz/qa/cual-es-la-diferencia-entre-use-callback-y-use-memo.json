@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-q-1",
+    "question_id": "cual-es-la-diferencia-entre-use-callback-y-use-memo",
+    "question": "¿Cual es la diferencia principal entre useCallback y useMemo?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-1",
+        "text": "useCallback memoriza una funcion, useMemo memoriza el resultado de una funcion.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-2",
+        "text": "No hay diferencia, son el mismo hook.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-3",
+        "text": "useCallback es para componentes de clase, useMemo para funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-4",
+        "text": "useMemo es mas rapido que useCallback.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-5",
+        "text": "useCallback no acepta dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-6",
+        "text": "useMemo solo funciona con numeros.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-q-2",
+    "question_id": "cual-es-la-diferencia-entre-use-callback-y-use-memo",
+    "question": "¿Que relacion hay entre useCallback y useMemo?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-7",
+        "text": "useCallback es una version especializada de useMemo para funciones.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-8",
+        "text": "Son completamente independientes.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-9",
+        "text": "useMemo es una version de useCallback.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-10",
+        "text": "Uno es para React y otro para React Native.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-11",
+        "text": "No pueden usarse en el mismo componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-12",
+        "text": "Son opuestos en funcionalidad.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-q-3",
+    "question_id": "cual-es-la-diferencia-entre-use-callback-y-use-memo",
+    "question": "¿Se puede simular useCallback con useMemo?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-13",
+        "text": "Si, retornando una funcion desde useMemo.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-14",
+        "text": "No, son completamente diferentes.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-15",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-16",
+        "text": "Solo con TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-17",
+        "text": "No, useMemo solo devuelve valores primitivos.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-use-callback-y-use-memo-a-18",
+        "text": "Solo en versiones antiguas de React.",
+        "is_correct": false
+      }
+    ]
+  }
+]

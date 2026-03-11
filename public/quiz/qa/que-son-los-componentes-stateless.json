@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-los-componentes-stateless-q-1",
+    "question_id": "que-son-los-componentes-stateless",
+    "question": "¿Que son los componentes stateless?",
+    "alternatives": [
+      {
+        "id": "que-son-los-componentes-stateless-a-1",
+        "text": "Componentes que no tienen estado y se crean con una function.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-2",
+        "text": "Componentes que siempre tienen estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-3",
+        "text": "Componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-4",
+        "text": "Componentes que manejan estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-5",
+        "text": "Componentes que solo existen en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-6",
+        "text": "Un tipo especial de hook.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-componentes-stateless-q-2",
+    "question_id": "que-son-los-componentes-stateless",
+    "question": "¿Cual es la ventaja de los componentes stateless?",
+    "alternatives": [
+      {
+        "id": "que-son-los-componentes-stateless-a-7",
+        "text": "Facilitan la creacion de componentes puros que siempre renderizan lo mismo para las mismas props.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-8",
+        "text": "Permiten manejar mas estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-9",
+        "text": "Son mas complejos de escribir.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-10",
+        "text": "Pueden acceder a cualquier estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-11",
+        "text": "No tienen ninguna ventaja.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-12",
+        "text": "Solo funcionan en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-componentes-stateless-q-3",
+    "question_id": "que-son-los-componentes-stateless",
+    "question": "¿De que depende el renderizado de un componente stateless?",
+    "alternatives": [
+      {
+        "id": "que-son-los-componentes-stateless-a-13",
+        "text": "Solo de las props que recibe.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-14",
+        "text": "Del estado interno del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-15",
+        "text": "Del estado global de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-16",
+        "text": "De variables externas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-17",
+        "text": "Del ciclo de vida del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-componentes-stateless-a-18",
+        "text": "De la hora del sistema.",
+        "is_correct": false
+      }
+    ]
+  }
+]

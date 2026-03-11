@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-anadir-un-evento-a-un-componente-en-react-q-1",
+    "question_id": "como-anadir-un-evento-a-un-componente-en-react",
+    "question": "¿Cual es la sintaxis para anadir un evento click a un boton en React?",
+    "alternatives": [
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-1",
+        "text": "onClick={funcion}",
+        "is_correct": true
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-2",
+        "text": "onclick=\"funcion()\"",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-3",
+        "text": "on-click={funcion}",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-4",
+        "text": "click={funcion}",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-5",
+        "text": "addEventListener('click', funcion)",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-6",
+        "text": "@click={funcion}",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-anadir-un-evento-a-un-componente-en-react-q-2",
+    "question_id": "como-anadir-un-evento-a-un-componente-en-react",
+    "question": "¿En que formato deben escribirse los nombres de los eventos en React?",
+    "alternatives": [
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-7",
+        "text": "En camelCase (ej: onClick, onChange, onMouseOver).",
+        "is_correct": true
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-8",
+        "text": "En minusculas (ej: onclick, onchange).",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-9",
+        "text": "En kebab-case (ej: on-click, on-change).",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-10",
+        "text": "En MAYUSCULAS (ej: ONCLICK).",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-11",
+        "text": "Sin prefijo on (ej: click, change).",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-12",
+        "text": "Cualquier formato es valido.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-anadir-un-evento-a-un-componente-en-react-q-3",
+    "question_id": "como-anadir-un-evento-a-un-componente-en-react",
+    "question": "¿Que se pasa como valor a la prop de evento en React?",
+    "alternatives": [
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-13",
+        "text": "Una funcion (referencia a funcion, no su invocacion).",
+        "is_correct": true
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-14",
+        "text": "Una cadena de texto con el nombre de la funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-15",
+        "text": "Un objeto con la configuracion del evento.",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-16",
+        "text": "El resultado de ejecutar la funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-17",
+        "text": "Un numero identificador del evento.",
+        "is_correct": false
+      },
+      {
+        "id": "como-anadir-un-evento-a-un-componente-en-react-a-18",
+        "text": "Un boolean indicando si el evento esta activo.",
+        "is_correct": false
+      }
+    ]
+  }
+]

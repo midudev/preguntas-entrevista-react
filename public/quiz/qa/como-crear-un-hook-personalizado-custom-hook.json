@@ -1,0 +1,150 @@
+[
+  {
+    "id": "como-crear-un-hook-personalizado-custom-hook-q-1",
+    "question_id": "como-crear-un-hook-personalizado-custom-hook",
+    "question": "¿Cual es el requisito del nombre para crear un hook personalizado?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-1",
+        "text": "El nombre debe empezar con la palabra 'use'.",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-2",
+        "text": "El nombre debe empezar con 'hook'.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-3",
+        "text": "El nombre debe estar en mayusculas.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-4",
+        "text": "No hay requisitos para el nombre.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-5",
+        "text": "El nombre debe terminar con 'Hook'.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-6",
+        "text": "El nombre debe contener 'custom'.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-crear-un-hook-personalizado-custom-hook-q-2",
+    "question_id": "como-crear-un-hook-personalizado-custom-hook",
+    "question": "¿Para que son ideales los custom hooks?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-7",
+        "text": "Para reutilizar logica en diferentes componentes.",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-8",
+        "text": "Para crear estilos CSS reutilizables.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-9",
+        "text": "Para definir rutas de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-10",
+        "text": "Para conectar con bases de datos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-11",
+        "text": "Para compilar codigo TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-12",
+        "text": "Para crear animaciones CSS.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-crear-un-hook-personalizado-custom-hook-q-3",
+    "question_id": "como-crear-un-hook-personalizado-custom-hook",
+    "question": "¿Que puede utilizar un custom hook internamente?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-13",
+        "text": "Otros hooks como useState, useEffect, etc.",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-14",
+        "text": "Solo puede usar variables locales.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-15",
+        "text": "No puede usar ningun otro hook.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-16",
+        "text": "Solo puede usar useContext.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-17",
+        "text": "Solo puede usar useRef.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-18",
+        "text": "Solo metodos de clase.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-crear-un-hook-personalizado-custom-hook-q-4",
+    "question_id": "como-crear-un-hook-personalizado-custom-hook",
+    "question": "¿Que puede devolver un custom hook?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-19",
+        "text": "Cualquier valor: objetos, arrays, funciones, valores primitivos, etc.",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-20",
+        "text": "Solo puede devolver un array de dos elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-21",
+        "text": "Solo puede devolver JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-22",
+        "text": "No puede devolver nada, solo ejecuta efectos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-23",
+        "text": "Solo puede devolver una funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-hook-personalizado-custom-hook-a-24",
+        "text": "Solo puede devolver un booleano.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "id": "cuantos-use-effect-puede-tener-un-componente-q-1",
+    "question_id": "cuantos-use-effect-puede-tener-un-componente",
+    "question": "¿Cuantos useEffect puede tener un componente?",
+    "alternatives": [
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-1",
+        "text": "Tantos como queramos, no hay limite.",
+        "is_correct": true
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-2",
+        "text": "Solo uno por componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-3",
+        "text": "Maximo tres useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-4",
+        "text": "Depende del tamano del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-5",
+        "text": "Solo dos, uno para montar y otro para desmontar.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-6",
+        "text": "Maximo cinco useEffect por componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuantos-use-effect-puede-tener-un-componente-q-2",
+    "question_id": "cuantos-use-effect-puede-tener-un-componente",
+    "question": "¿Cuando se ejecuta cada useEffect de un componente?",
+    "alternatives": [
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-7",
+        "text": "Cuando se renderiza el componente o cuando cambian sus dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-8",
+        "text": "Solo el primero se ejecuta, los demas se ignoran.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-9",
+        "text": "Se ejecutan de forma aleatoria.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-10",
+        "text": "Solo cuando el usuario interactua con el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-11",
+        "text": "Se ejecutan en paralelo en hilos diferentes.",
+        "is_correct": false
+      },
+      {
+        "id": "cuantos-use-effect-puede-tener-un-componente-a-12",
+        "text": "Solo se ejecuta el ultimo definido.",
+        "is_correct": false
+      }
+    ]
+  }
+]

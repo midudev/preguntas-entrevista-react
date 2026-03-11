@@ -1,0 +1,150 @@
+[
+  {
+    "id": "cuales-son-las-reglas-de-los-hooks-en-react-q-1",
+    "question_id": "cuales-son-las-reglas-de-los-hooks-en-react",
+    "question": "¿Donde se pueden usar los hooks en React?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-1",
+        "text": "Solo en componentes funcionales o custom hooks.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-2",
+        "text": "En cualquier funcion de JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-3",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-4",
+        "text": "En archivos de configuracion.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-5",
+        "text": "En cualquier parte del codigo.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-6",
+        "text": "Solo dentro de callbacks de eventos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-reglas-de-los-hooks-en-react-q-2",
+    "question_id": "cuales-son-las-reglas-de-los-hooks-en-react",
+    "question": "¿En que nivel de un componente se deben llamar los hooks?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-7",
+        "text": "Solo en el nivel superior, no dentro de bucles, condicionales o funciones anidadas.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-8",
+        "text": "Dentro de un bloque if para optimizar rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-9",
+        "text": "Solo dentro de bucles for.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-10",
+        "text": "En cualquier nivel, no hay restricciones.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-11",
+        "text": "Solo dentro de funciones callback.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-12",
+        "text": "Solo dentro del return del componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-reglas-de-los-hooks-en-react-q-3",
+    "question_id": "cuales-son-las-reglas-de-los-hooks-en-react",
+    "question": "¿Por que los hooks no pueden llamarse dentro de condicionales?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-13",
+        "text": "Porque React necesita que los hooks se llamen en el mismo orden en cada render.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-14",
+        "text": "Porque los condicionales no existen en JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-15",
+        "text": "Es solo una convencion, no una regla tecnica.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-16",
+        "text": "Porque los hooks no funcionan con valores booleanos.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-17",
+        "text": "Porque Babel no puede transpilar condicionales con hooks.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-18",
+        "text": "Solo aplica en modo de desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cuales-son-las-reglas-de-los-hooks-en-react-q-4",
+    "question_id": "cuales-son-las-reglas-de-los-hooks-en-react",
+    "question": "¿Cuantas reglas fundamentales tienen los hooks?",
+    "alternatives": [
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-19",
+        "text": "Dos reglas fundamentales.",
+        "is_correct": true
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-20",
+        "text": "Solo una regla.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-21",
+        "text": "Cinco reglas.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-22",
+        "text": "Diez reglas.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-23",
+        "text": "No hay reglas definidas.",
+        "is_correct": false
+      },
+      {
+        "id": "cuales-son-las-reglas-de-los-hooks-en-react-a-24",
+        "text": "Tres reglas.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-q-1",
+    "question_id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos",
+    "question": "¿Que problema puede causar hacer peticiones de millones de datos?",
+    "alternatives": [
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-1",
+        "text": "Interfaces lentas y posibles timeouts en la respuesta.",
+        "is_correct": true
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-2",
+        "text": "No causa ningun problema.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-3",
+        "text": "Solo problemas de seguridad.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-4",
+        "text": "Solo afecta en modo desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-5",
+        "text": "Mejora el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-6",
+        "text": "Solo problemas visuales.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-q-2",
+    "question_id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos",
+    "question": "¿Por que no es viable renderizar un DOM con millones de elementos?",
+    "alternatives": [
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-7",
+        "text": "El navegador no podra gestionarlo y la aplicacion sera inusable.",
+        "is_correct": true
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-8",
+        "text": "React lo prohibe.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-9",
+        "text": "Es totalmente viable.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-10",
+        "text": "Solo afecta a navegadores antiguos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-11",
+        "text": "Solo causa problemas de estilo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-12",
+        "text": "Solo afecta en dispositivos moviles.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-q-3",
+    "question_id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos",
+    "question": "¿Que debe priorizar un developer al mostrar grandes cantidades de datos?",
+    "alternatives": [
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-13",
+        "text": "El equilibrio entre rendimiento y experiencia de usuario.",
+        "is_correct": true
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-14",
+        "text": "Mostrar todos los datos siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-15",
+        "text": "Solo la velocidad de carga.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-16",
+        "text": "Solo el diseno visual.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-17",
+        "text": "Usar siempre componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problemas-crees-que-pueden-aparecer-en-una-aplicacion-al-querer-visualizar-listas-de-miles-millones-de-datos-a-18",
+        "text": "Evitar usar React.",
+        "is_correct": false
+      }
+    ]
+  }
+]

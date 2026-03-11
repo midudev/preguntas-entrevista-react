@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-es-el-contexto-en-react-q-1",
+    "question_id": "que-es-el-contexto-en-react-como-puedo-crearlo-y-consumirlo",
+    "question": "¿Que es el contexto en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-contexto-en-react-a-1",
+        "text": "Una forma de pasar datos a traves de la jerarquia de componentes sin pasar props manualmente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-2",
+        "text": "Un tipo especial de estado local.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-3",
+        "text": "Un metodo de ciclo de vida.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-4",
+        "text": "Una forma de crear componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-5",
+        "text": "Un tipo de evento en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-6",
+        "text": "Una herramienta de debugging.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-contexto-en-react-q-2",
+    "question_id": "que-es-el-contexto-en-react-como-puedo-crearlo-y-consumirlo",
+    "question": "¿Como se crea un contexto en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-contexto-en-react-a-7",
+        "text": "Usando createContext() de React.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-8",
+        "text": "Usando useState.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-9",
+        "text": "Usando useRef.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-10",
+        "text": "Usando newContext().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-11",
+        "text": "Usando el metodo context() de un componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-12",
+        "text": "No se puede crear, viene por defecto.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-contexto-en-react-q-3",
+    "question_id": "que-es-el-contexto-en-react-como-puedo-crearlo-y-consumirlo",
+    "question": "¿Que componente se usa para proveer el valor del contexto?",
+    "alternatives": [
+      {
+        "id": "que-es-el-contexto-en-react-a-13",
+        "text": "Context.Provider",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-14",
+        "text": "Context.Consumer",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-15",
+        "text": "Context.Wrapper",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-16",
+        "text": "ContextProvider",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-17",
+        "text": "ProvideContext",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-18",
+        "text": "No se necesita ningun componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-contexto-en-react-q-4",
+    "question_id": "que-es-el-contexto-en-react-como-puedo-crearlo-y-consumirlo",
+    "question": "¿Que hook se usa para consumir un contexto?",
+    "alternatives": [
+      {
+        "id": "que-es-el-contexto-en-react-a-19",
+        "text": "useContext",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-20",
+        "text": "useState",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-21",
+        "text": "useConsumer",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-22",
+        "text": "useProvider",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-23",
+        "text": "getContext",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-contexto-en-react-a-24",
+        "text": "consumeContext",
+        "is_correct": false
+      }
+    ]
+  }
+]

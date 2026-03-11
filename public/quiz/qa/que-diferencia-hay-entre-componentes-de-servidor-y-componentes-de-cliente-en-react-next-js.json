@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-q-1",
+    "question_id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js",
+    "question": "¿Donde se renderizan los componentes de servidor?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-1",
+        "text": "En el backend.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-2",
+        "text": "En el navegador del usuario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-3",
+        "text": "En ambos lugares.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-4",
+        "text": "En una CDN.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-5",
+        "text": "Solo en desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-6",
+        "text": "En un Web Worker.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-q-2",
+    "question_id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js",
+    "question": "¿Que hooks NO pueden usar los componentes de servidor?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-7",
+        "text": "useState y useEffect.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-8",
+        "text": "Todos los hooks.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-9",
+        "text": "Ningun hook, pueden usar todos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-10",
+        "text": "Solo useMemo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-11",
+        "text": "Solo useCallback.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-12",
+        "text": "Solo useRef.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-q-3",
+    "question_id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js",
+    "question": "¿Como se marca un archivo como componente de cliente?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-13",
+        "text": "Anadiendo 'use client' en la primera linea.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-14",
+        "text": "Usando 'use server' al inicio.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-15",
+        "text": "Exportando con 'export client'.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-16",
+        "text": "Usando la extension .client.jsx.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-17",
+        "text": "Todos los componentes son de cliente por defecto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-18",
+        "text": "No se pueden crear componentes de cliente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-q-4",
+    "question_id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js",
+    "question": "¿Cual es una ventaja de combinar componentes de servidor y cliente?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-19",
+        "text": "Reducir el JavaScript que llega al cliente manteniendo interactividad donde es necesaria.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-20",
+        "text": "No hay ninguna ventaja.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-21",
+        "text": "Solo mejora el SEO.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-22",
+        "text": "Solo funciona en produccion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-23",
+        "text": "Aumenta la complejidad sin beneficios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-de-servidor-y-componentes-de-cliente-en-react-next-js-a-24",
+        "text": "Solo sirve para aplicaciones pequenas.",
+        "is_correct": false
+      }
+    ]
+  }
+]

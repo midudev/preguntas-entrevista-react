@@ -1,0 +1,113 @@
+[
+  {
+    "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-q-1",
+    "question_id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react",
+    "question": "¿Que es un efecto colateral (side effect) en React?",
+    "alternatives": [
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-1",
+        "text": "Cuando un componente manipula o lee informacion que no esta dentro de su ambito.",
+        "is_correct": true
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-2",
+        "text": "Cuando un componente renderiza JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-3",
+        "text": "Cuando usamos props en un componente.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-4",
+        "text": "Cuando definimos estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-5",
+        "text": "Cuando importamos modulos.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-6",
+        "text": "Cuando exportamos componentes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-q-2",
+    "question_id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react",
+    "question": "¿Por que son problematicos los efectos colaterales en componentes?",
+    "alternatives": [
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-7",
+        "text": "Porque hacen imposible predecir que renderizara el componente.",
+        "is_correct": true
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-8",
+        "text": "Porque hacen el codigo mas corto.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-9",
+        "text": "Porque mejoran el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-10",
+        "text": "Porque son obligatorios en React.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-11",
+        "text": "No son problematicos, son recomendados.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-12",
+        "text": "Porque reducen el tamano del bundle.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-q-3",
+    "question_id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react",
+    "question": "¿Cual es un ejemplo de efecto colateral en un componente?",
+    "alternatives": [
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-13",
+        "text": "Modificar una variable externa al componente durante el renderizado.",
+        "is_correct": true
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-14",
+        "text": "Usar useState para manejar estado local.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-15",
+        "text": "Recibir props del componente padre.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-16",
+        "text": "Retornar JSX desde el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-17",
+        "text": "Definir funciones dentro del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "puedes-poner-un-ejemplo-de-efectos-colaterales-en-react-a-18",
+        "text": "Usar children en las props.",
+        "is_correct": false
+      }
+    ]
+  }
+]

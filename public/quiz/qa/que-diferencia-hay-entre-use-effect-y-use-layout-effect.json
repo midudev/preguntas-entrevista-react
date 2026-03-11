@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-q-1",
+    "question_id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect",
+    "question": "¿Cuando se ejecuta useLayoutEffect?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-1",
+        "text": "De forma sincrona inmediatamente despues de que React actualice el DOM.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-2",
+        "text": "De forma asincrona despues del renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-3",
+        "text": "Antes de que React actualice el DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-4",
+        "text": "Solo cuando el componente se monta.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-5",
+        "text": "En paralelo con el renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-6",
+        "text": "Solo en el servidor.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-q-2",
+    "question_id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect",
+    "question": "¿Cual de los dos hooks es recomendable usar la mayoria de las veces?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-7",
+        "text": "useEffect, porque tiene mejor rendimiento al no bloquear el renderizado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-8",
+        "text": "useLayoutEffect, porque es mas preciso.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-9",
+        "text": "Ambos tienen el mismo rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-10",
+        "text": "Ninguno, es mejor usar componentDidMount.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-11",
+        "text": "Depende del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-12",
+        "text": "useLayoutEffect siempre es mejor.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-q-3",
+    "question_id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect",
+    "question": "¿Para que caso es util usar useLayoutEffect?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-13",
+        "text": "Cuando necesitas acceder a las dimensiones o posicion de un elemento del DOM.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-14",
+        "text": "Para hacer peticiones a APIs.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-15",
+        "text": "Para suscribirse a eventos del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-16",
+        "text": "Para actualizar el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-17",
+        "text": "Para manejar errores en el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-18",
+        "text": "Para crear custom hooks.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-q-4",
+    "question_id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect",
+    "question": "¿Cual es la principal diferencia entre useEffect y useLayoutEffect?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-19",
+        "text": "El momento en que se ejecutan: useLayoutEffect es sincrono y useEffect es asincrono.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-20",
+        "text": "useLayoutEffect solo funciona en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-21",
+        "text": "useEffect no puede tener funcion de limpieza.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-22",
+        "text": "No hay ninguna diferencia, son sinonimos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-23",
+        "text": "useLayoutEffect no acepta dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-use-effect-y-use-layout-effect-a-24",
+        "text": "useEffect solo funciona en el servidor.",
+        "is_correct": false
+      }
+    ]
+  }
+]

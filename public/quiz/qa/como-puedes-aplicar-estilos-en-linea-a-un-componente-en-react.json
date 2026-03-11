@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-q-1",
+    "question_id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react",
+    "question": "¿Como se pasan los estilos en linea en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-1",
+        "text": "Como un objeto JavaScript, no como una cadena de texto.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-2",
+        "text": "Como una cadena de texto igual que en HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-3",
+        "text": "Como un array de propiedades CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-4",
+        "text": "Importando un archivo .css directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-5",
+        "text": "Usando la funcion createStyle().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-6",
+        "text": "No es posible usar estilos en linea en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-q-2",
+    "question_id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react",
+    "question": "¿En que formato deben estar los nombres de las propiedades CSS en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-7",
+        "text": "En camelCase (ej: borderRadius, backgroundColor).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-8",
+        "text": "En kebab-case (ej: border-radius, background-color).",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-9",
+        "text": "En snake_case (ej: border_radius).",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-10",
+        "text": "En MAYUSCULAS (ej: BORDERRADIUS).",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-11",
+        "text": "Cualquier formato es valido.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-12",
+        "text": "Solo se permiten propiedades de una sola palabra.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-q-3",
+    "question_id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react",
+    "question": "¿Cual es la sintaxis correcta para aplicar estilos en linea en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-13",
+        "text": "style={{ color: 'red', fontSize: '16px' }}",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-14",
+        "text": "style=\"color: red; font-size: 16px\"",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-15",
+        "text": "style={color: 'red', fontSize: '16px'}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-16",
+        "text": "css={{ color: 'red' }}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-17",
+        "text": "inline-style={color: 'red'}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-estilos-en-linea-a-un-componente-en-react-a-18",
+        "text": "styles=['color: red']",
+        "is_correct": false
+      }
+    ]
+  }
+]

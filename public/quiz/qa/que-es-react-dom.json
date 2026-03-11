@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-react-dom-q-1",
+    "question_id": "que-es-react-dom",
+    "question": "¿Que es React DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-react-dom-a-1",
+        "text": "La libreria que se encarga de renderizar componentes de React en el navegador.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-dom-a-2",
+        "text": "El nucleo principal de React que crea componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-3",
+        "text": "Una herramienta para depurar aplicaciones React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-4",
+        "text": "Un framework para crear aplicaciones moviles.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-5",
+        "text": "La API del Document Object Model nativa del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-6",
+        "text": "Un sistema de rutas para React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-dom-q-2",
+    "question_id": "que-es-react-dom",
+    "question": "¿Cual es la diferencia entre React y React DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-react-dom-a-7",
+        "text": "React es el motor de componentes y hooks, React DOM renderiza especificamente para el navegador.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-dom-a-8",
+        "text": "No hay diferencia, son la misma libreria.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-9",
+        "text": "React es para servidor, React DOM es para cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-10",
+        "text": "React DOM es una version antigua de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-11",
+        "text": "React es para TypeScript, React DOM es para JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-12",
+        "text": "React DOM solo funciona con componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-dom-q-3",
+    "question_id": "que-es-react-dom",
+    "question": "¿Que equivalente a React DOM existe para dispositivos moviles?",
+    "alternatives": [
+      {
+        "id": "que-es-react-dom-a-13",
+        "text": "React Native",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-dom-a-14",
+        "text": "React Mobile",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-15",
+        "text": "React iOS",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-16",
+        "text": "React Android",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-17",
+        "text": "React Phone",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-dom-a-18",
+        "text": "No existe equivalente para moviles.",
+        "is_correct": false
+      }
+    ]
+  }
+]

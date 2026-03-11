@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-q-1",
+    "question_id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero",
+    "question": "¿Que paquete de React se usa para renderizar componentes en el servidor?",
+    "alternatives": [
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-1",
+        "text": "react-dom/server",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-2",
+        "text": "react-server",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-3",
+        "text": "react-ssr",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-4",
+        "text": "react-dom/client",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-5",
+        "text": "react-render",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-6",
+        "text": "react/server",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-q-2",
+    "question_id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero",
+    "question": "¿Que funcion de react-dom/server convierte un componente a string HTML?",
+    "alternatives": [
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-7",
+        "text": "renderToString",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-8",
+        "text": "renderToHTML",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-9",
+        "text": "convertToString",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-10",
+        "text": "stringify",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-11",
+        "text": "toHTML",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-12",
+        "text": "render",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-q-3",
+    "question_id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero",
+    "question": "¿Que atributo especial agrega React al HTML renderizado en el servidor?",
+    "alternatives": [
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-13",
+        "text": "data-reactroot",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-14",
+        "text": "data-server",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-15",
+        "text": "react-id",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-16",
+        "text": "ssr-component",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-17",
+        "text": "No agrega ningun atributo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-crear-un-server-side-rendering-con-react-desde-cero-a-18",
+        "text": "class='react'",
+        "is_correct": false
+      }
+    ]
+  }
+]

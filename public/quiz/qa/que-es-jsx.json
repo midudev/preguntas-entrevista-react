@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-jsx-q-1",
+    "question_id": "que-es-jsx",
+    "question": "¿Que es JSX en React?",
+    "alternatives": [
+      {
+        "id": "que-es-jsx-a-1",
+        "text": "Una extension de JavaScript que permite escribir codigo similar a HTML.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-jsx-a-2",
+        "text": "Un lenguaje de programacion completamente diferente a JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-3",
+        "text": "Un framework CSS para estilizar componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-4",
+        "text": "Una base de datos para almacenar el estado de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-5",
+        "text": "Un servidor backend para procesar peticiones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-6",
+        "text": "Un plugin de Node.js para compilar codigo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-jsx-q-2",
+    "question_id": "que-es-jsx",
+    "question": "¿Cual es la alternativa a JSX para crear elementos en React?",
+    "alternatives": [
+      {
+        "id": "que-es-jsx-a-7",
+        "text": "Usar React.createElement() manualmente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-jsx-a-8",
+        "text": "Usar document.createElement() del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-9",
+        "text": "Escribir HTML directamente en el archivo JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-10",
+        "text": "Usar jQuery para manipular el DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-11",
+        "text": "Importar templates desde archivos .html externos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-12",
+        "text": "No existe alternativa, JSX es obligatorio.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-jsx-q-3",
+    "question_id": "que-es-jsx",
+    "question": "¿Por que se usa JSX en lugar de React.createElement()?",
+    "alternatives": [
+      {
+        "id": "que-es-jsx-a-13",
+        "text": "Porque mejora la legibilidad del codigo y es mas facil de entender.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-jsx-a-14",
+        "text": "Porque React.createElement() esta deprecado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-15",
+        "text": "Porque JSX es mas rapido en tiempo de ejecucion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-16",
+        "text": "Porque React.createElement() solo funciona en Node.js.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-17",
+        "text": "Porque JSX no necesita ser transpilado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-jsx-a-18",
+        "text": "Porque React.createElement() no soporta componentes funcionales.",
+        "is_correct": false
+      }
+    ]
+  }
+]

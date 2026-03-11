@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-la-hidratacion-hydration-en-react-q-1",
+    "question_id": "que-es-la-hidratacion-hydration-en-react",
+    "question": "¿Que es la hidratacion (hydration) en React?",
+    "alternatives": [
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-1",
+        "text": "El proceso de convertir HTML estatico del servidor en un arbol de componentes interactivo en el cliente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-2",
+        "text": "El proceso de renderizar componentes en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-3",
+        "text": "Una tecnica para optimizar el CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-4",
+        "text": "El proceso de cargar datos desde una API.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-5",
+        "text": "Una forma de limpiar la memoria del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-6",
+        "text": "El proceso de compilar JSX a JavaScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-hidratacion-hydration-en-react-q-2",
+    "question_id": "que-es-la-hidratacion-hydration-en-react",
+    "question": "¿Que caracteristica tiene el HTML estatico generado en el servidor antes de la hidratacion?",
+    "alternatives": [
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-7",
+        "text": "No tiene interactividad, ni eventos, ni logica, ni estado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-8",
+        "text": "Tiene toda la funcionalidad de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-9",
+        "text": "Ya incluye todos los eventos adjuntos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-10",
+        "text": "Es codigo JavaScript ejecutable.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-11",
+        "text": "Contiene el Virtual DOM completo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-12",
+        "text": "Puede manejar el estado de la aplicacion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-hidratacion-hydration-en-react-q-3",
+    "question_id": "que-es-la-hidratacion-hydration-en-react",
+    "question": "¿Que hace React durante el proceso de hidratacion en el cliente?",
+    "alternatives": [
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-13",
+        "text": "Reutiliza el HTML, adjunta eventos, ejecuta efectos y concilia el estado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-14",
+        "text": "Borra todo el HTML y lo vuelve a crear.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-15",
+        "text": "Solo anade estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-16",
+        "text": "Envia el HTML de vuelta al servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-17",
+        "text": "Compila el codigo TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-hidratacion-hydration-en-react-a-18",
+        "text": "Solo valida las props de los componentes.",
+        "is_correct": false
+      }
+    ]
+  }
+]

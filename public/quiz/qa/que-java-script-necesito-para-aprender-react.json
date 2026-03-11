@@ -1,0 +1,224 @@
+[
+  {
+    "id": "que-java-script-necesito-para-aprender-react-q-1",
+    "question_id": "que-java-script-necesito-para-aprender-react",
+    "question": "¿Que son los ESModules en JavaScript?",
+    "alternatives": [
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-1",
+        "text": "La forma nativa de JavaScript para importar y exportar variables, funciones y clases entre ficheros.",
+        "is_correct": true
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-2",
+        "text": "Un framework para crear aplicaciones modulares.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-3",
+        "text": "Un sistema de testing para JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-4",
+        "text": "Una libreria externa para manejar dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-5",
+        "text": "Un empaquetador de aplicaciones web.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-6",
+        "text": "Un tipo de componente de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-java-script-necesito-para-aprender-react-q-2",
+    "question_id": "que-java-script-necesito-para-aprender-react",
+    "question": "¿Cual es la diferencia entre export default y exportacion nombrada?",
+    "alternatives": [
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-7",
+        "text": "Export default permite importar con cualquier nombre; la nombrada requiere usar el nombre exacto.",
+        "is_correct": true
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-8",
+        "text": "No hay diferencia, son sinonimos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-9",
+        "text": "Export default es mas rapido que la nombrada.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-10",
+        "text": "Solo se puede usar export default en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-11",
+        "text": "La nombrada solo funciona con funciones, no con variables.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-12",
+        "text": "Export default solo puede usarse una vez por proyecto.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-java-script-necesito-para-aprender-react-q-3",
+    "question_id": "que-java-script-necesito-para-aprender-react",
+    "question": "¿Por que se usan las ternarias en lugar de if en React?",
+    "alternatives": [
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-13",
+        "text": "Porque son expresiones que pueden usarse directamente dentro del JSX para renderizado condicional.",
+        "is_correct": true
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-14",
+        "text": "Porque if esta deprecado en JavaScript moderno.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-15",
+        "text": "Porque las ternarias son mas rapidas que if.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-16",
+        "text": "Porque React no soporta la sintaxis if.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-17",
+        "text": "Por convencion del equipo de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-18",
+        "text": "Porque if solo funciona en componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-java-script-necesito-para-aprender-react-q-4",
+    "question_id": "que-java-script-necesito-para-aprender-react",
+    "question": "¿Que hace el operador spread (...) con un array?",
+    "alternatives": [
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-19",
+        "text": "Expande los elementos del array en otro lugar donde se espera esa informacion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-20",
+        "text": "Elimina todos los elementos del array.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-21",
+        "text": "Ordena los elementos del array alfabeticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-22",
+        "text": "Convierte el array en un string.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-23",
+        "text": "Invierte el orden de los elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-24",
+        "text": "Duplica cada elemento del array.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-java-script-necesito-para-aprender-react-q-5",
+    "question_id": "que-java-script-necesito-para-aprender-react",
+    "question": "¿Que es la desestructuracion en JavaScript?",
+    "alternatives": [
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-25",
+        "text": "Una sintaxis que permite extraer valores de arrays u objetos en variables distintas.",
+        "is_correct": true
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-26",
+        "text": "Una forma de eliminar propiedades de un objeto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-27",
+        "text": "Un metodo para dividir strings en arrays.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-28",
+        "text": "Una tecnica para romper referencias de objetos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-29",
+        "text": "Un patron de diseno para componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-30",
+        "text": "Una forma de destruir objetos de la memoria.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-java-script-necesito-para-aprender-react-q-6",
+    "question_id": "que-java-script-necesito-para-aprender-react",
+    "question": "¿Que hace el encadenamiento opcional (?.) en JavaScript?",
+    "alternatives": [
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-31",
+        "text": "Permite leer con seguridad el valor de una propiedad anidada sin verificar manualmente cada nivel.",
+        "is_correct": true
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-32",
+        "text": "Crea una cadena de texto con las propiedades.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-33",
+        "text": "Encadena multiples funciones en una sola linea.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-34",
+        "text": "Hace las propiedades opcionales en TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-35",
+        "text": "Valida el tipo de dato de una propiedad.",
+        "is_correct": false
+      },
+      {
+        "id": "que-java-script-necesito-para-aprender-react-a-36",
+        "text": "Conecta objetos entre si formando una cadena.",
+        "is_correct": false
+      }
+    ]
+  }
+]

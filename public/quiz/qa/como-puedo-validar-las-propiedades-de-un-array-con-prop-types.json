@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-q-1",
+    "question_id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types",
+    "question": "¿Que propiedad de PropTypes se usa para validar un array y el tipo de sus elementos?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-1",
+        "text": "PropTypes.arrayOf()",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-2",
+        "text": "PropTypes.array()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-3",
+        "text": "PropTypes.listOf()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-4",
+        "text": "PropTypes.itemsOf()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-5",
+        "text": "PropTypes.elements()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-6",
+        "text": "No se puede validar el contenido de arrays.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-q-2",
+    "question_id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types",
+    "question": "¿Se puede combinar arrayOf con shape para validar arrays de objetos?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-7",
+        "text": "Si, usando PropTypes.arrayOf(PropTypes.shape({...})).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-8",
+        "text": "No, son incompatibles.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-9",
+        "text": "Solo con TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-10",
+        "text": "Solo se puede usar uno u otro.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-11",
+        "text": "Se necesita una libreria adicional.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-las-propiedades-de-un-array-con-prop-types-a-12",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  }
+]

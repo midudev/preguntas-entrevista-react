@@ -1,0 +1,150 @@
+[
+  {
+    "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-q-1",
+    "question_id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-en-un-listado-de-react",
+    "question": "¿Por que React necesita una key en cada elemento de una lista?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-1",
+        "text": "Para saber que elementos han cambiado, han sido anadidos o eliminados.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-2",
+        "text": "Para ordenar los elementos alfabeticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-3",
+        "text": "Para aplicar estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-4",
+        "text": "Es opcional, no es necesario.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-5",
+        "text": "Para conectar con la base de datos.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-6",
+        "text": "Solo por convencion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-q-2",
+    "question_id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-en-un-listado-de-react",
+    "question": "¿Cuando es problematico usar el index como key?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-7",
+        "text": "Cuando la lista se reordena o se eliminan elementos.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-8",
+        "text": "Nunca es problematico.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-9",
+        "text": "Siempre es problematico.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-10",
+        "text": "Solo cuando hay mas de 100 elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-11",
+        "text": "Solo en listas de strings.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-12",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-q-3",
+    "question_id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-en-un-listado-de-react",
+    "question": "¿Que sucede si no proporcionamos una key a los elementos de una lista?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-13",
+        "text": "React usa el indice del elemento como key por defecto.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-14",
+        "text": "La aplicacion no funciona.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-15",
+        "text": "React genera un ID aleatorio.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-16",
+        "text": "No pasa nada, es opcional.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-17",
+        "text": "React no renderiza la lista.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-18",
+        "text": "Se produce un error de compilacion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-q-4",
+    "question_id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-en-un-listado-de-react",
+    "question": "¿Que tipo de valor es recomendable usar como key?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-19",
+        "text": "Un identificador unico y estable para cada elemento.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-20",
+        "text": "Siempre el indice del array.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-21",
+        "text": "Un numero aleatorio.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-22",
+        "text": "La fecha actual.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-23",
+        "text": "El nombre del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-practica-usar-el-index-como-key-a-24",
+        "text": "No importa el valor, cualquiera funciona igual.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-es-el-binding-q-1",
+    "question_id": "que-es-el-binding",
+    "question": "¿Que es el Binding en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-binding-a-1",
+        "text": "La forma en que se relaciona y sincroniza el estado de un componente con su vista.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-binding-a-2",
+        "text": "Un metodo para conectar componentes padre e hijo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-3",
+        "text": "Una tecnica para optimizar el renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-4",
+        "text": "Un hook para manejar eventos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-5",
+        "text": "Una forma de importar librerias externas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-6",
+        "text": "Un patron de diseno para estructurar componentes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-binding-q-2",
+    "question_id": "que-es-el-binding",
+    "question": "¿Que significa One-Way Binding (enlace unidireccional)?",
+    "alternatives": [
+      {
+        "id": "que-es-el-binding-a-7",
+        "text": "El flujo de datos va del estado hacia la vista, pero la vista no puede actualizar el estado directamente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-binding-a-8",
+        "text": "Solo se puede usar un estado por componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-9",
+        "text": "Los datos solo pueden fluir de padre a hijo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-10",
+        "text": "El componente solo puede renderizarse una vez.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-11",
+        "text": "Solo funciona con componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-12",
+        "text": "Solo se puede vincular un input por formulario.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-binding-q-3",
+    "question_id": "que-es-el-binding",
+    "question": "¿Como se logra el Two-Way Binding en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-binding-a-13",
+        "text": "Usando el atributo value junto con un evento onChange para sincronizar el estado con el input.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-binding-a-14",
+        "text": "React tiene Two-Way Binding nativo automatico.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-15",
+        "text": "Usando el hook useTwoWayBinding.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-16",
+        "text": "Agregando la propiedad twoWay al componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-17",
+        "text": "Solo es posible con componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-18",
+        "text": "No es posible hacer Two-Way Binding en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-binding-q-4",
+    "question_id": "que-es-el-binding",
+    "question": "¿Cual es la diferencia clave entre los dos tipos de binding en un input?",
+    "alternatives": [
+      {
+        "id": "que-es-el-binding-a-19",
+        "text": "En Two-Way Binding el input tiene el atributo value vinculado al estado; en One-Way Binding no.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-binding-a-20",
+        "text": "One-Way Binding es mas rapido que Two-Way Binding.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-21",
+        "text": "Two-Way Binding solo funciona con inputs de tipo text.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-22",
+        "text": "No hay diferencia, ambos funcionan igual.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-23",
+        "text": "One-Way Binding requiere useRef, Two-Way Binding usa useState.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-binding-a-24",
+        "text": "Two-Way Binding no puede usar eventos onChange.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-q-1",
+    "question_id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos",
+    "question": "¿Cual es el proposito principal del atributo key en React?",
+    "alternatives": [
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-1",
+        "text": "Proporcionar una identificacion unica a cada elemento en una lista.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-2",
+        "text": "Aplicar estilos CSS a los elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-3",
+        "text": "Encriptar los datos del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-4",
+        "text": "Ordenar los elementos alfabeticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-5",
+        "text": "Acceder al DOM directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-6",
+        "text": "Es solo decorativo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-q-2",
+    "question_id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos",
+    "question": "¿Que puede ocurrir si no usas el atributo key al renderizar listas?",
+    "alternatives": [
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-7",
+        "text": "Re-renderizacion innecesaria de elementos o perdida de estado.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-8",
+        "text": "La aplicacion no compila.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-9",
+        "text": "Los elementos se ocultan automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-10",
+        "text": "React deja de funcionar completamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-11",
+        "text": "No tiene ningun efecto.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-12",
+        "text": "Solo afecta en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-q-3",
+    "question_id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos",
+    "question": "¿Que se recomienda usar como valor para el atributo key?",
+    "alternatives": [
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-13",
+        "text": "Identificadores unicos de cada elemento en lugar de indices de array.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-14",
+        "text": "Siempre el indice del array.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-15",
+        "text": "Numeros aleatorios generados con Math.random().",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-16",
+        "text": "El mismo valor para todos los elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-17",
+        "text": "El nombre del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-el-proposito-del-atributo-key-en-react-y-por-que-es-importante-usarlo-correctamente-al-renderizar-listas-de-elementos-a-18",
+        "text": "La fecha actual.",
+        "is_correct": false
+      }
+    ]
+  }
+]

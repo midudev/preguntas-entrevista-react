@@ -1,0 +1,113 @@
+[
+  {
+    "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-q-1",
+    "question_id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion",
+    "question": "¿Por que StrictMode renderiza dos veces la aplicacion?",
+    "alternatives": [
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-1",
+        "text": "Para encontrar efectos que necesitan limpieza y exponer problemas de race conditions.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-2",
+        "text": "Es un bug de React.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-3",
+        "text": "Para mejorar el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-4",
+        "text": "Para duplicar el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-5",
+        "text": "Para verificar la sintaxis JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-6",
+        "text": "Solo ocurre en produccion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-q-2",
+    "question_id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion",
+    "question": "¿Que se preserva cuando StrictMode monta los componentes dos veces?",
+    "alternatives": [
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-7",
+        "text": "El estado y el DOM.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-8",
+        "text": "Nada, todo se resetea.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-9",
+        "text": "Solo las props.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-10",
+        "text": "Solo los refs.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-11",
+        "text": "Solo el context.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-12",
+        "text": "Solo los estilos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-q-3",
+    "question_id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion",
+    "question": "¿Que tipo de problemas ayuda a detectar el doble renderizado de StrictMode?",
+    "alternatives": [
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-13",
+        "text": "Race conditions y efectos sin limpieza.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-14",
+        "text": "Errores de sintaxis.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-15",
+        "text": "Problemas de CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-16",
+        "text": "Errores de tipado.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-17",
+        "text": "Problemas de seguridad.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-strict-mode-renderiza-dos-veces-la-aplicacion-a-18",
+        "text": "No detecta ningun problema.",
+        "is_correct": false
+      }
+    ]
+  }
+]

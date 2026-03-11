@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-crear-un-componente-en-react-q-1",
+    "question_id": "como-crear-un-componente-en-react",
+    "question": "¿Cual es la forma mas recomendada de crear un componente en React actualmente?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-componente-en-react-a-1",
+        "text": "Usando funciones.",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-2",
+        "text": "Usando clases exclusivamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-3",
+        "text": "Usando objetos literales.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-4",
+        "text": "Usando Web Components.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-5",
+        "text": "Usando templates HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-6",
+        "text": "Usando archivos .jsx sin codigo JavaScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-crear-un-componente-en-react-q-2",
+    "question_id": "como-crear-un-componente-en-react",
+    "question": "¿Por que el nombre de un componente debe empezar con letra mayuscula?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-componente-en-react-a-7",
+        "text": "Para que React pueda distinguir entre componentes y elementos HTML.",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-8",
+        "text": "Es una convencion opcional que no afecta el funcionamiento.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-9",
+        "text": "Para que el navegador pueda optimizar el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-10",
+        "text": "Solo es necesario en TypeScript, no en JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-11",
+        "text": "Para que Babel pueda transpilar el codigo correctamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-12",
+        "text": "Es un requisito de ESLint, no de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-crear-un-componente-en-react-q-3",
+    "question_id": "como-crear-un-componente-en-react",
+    "question": "Al crear un componente con clase, ¿que metodo es obligatorio implementar?",
+    "alternatives": [
+      {
+        "id": "como-crear-un-componente-en-react-a-13",
+        "text": "El metodo render().",
+        "is_correct": true
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-14",
+        "text": "El metodo constructor().",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-15",
+        "text": "El metodo componentDidMount().",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-16",
+        "text": "El metodo setState().",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-17",
+        "text": "El metodo useState().",
+        "is_correct": false
+      },
+      {
+        "id": "como-crear-un-componente-en-react-a-18",
+        "text": "El metodo return().",
+        "is_correct": false
+      }
+    ]
+  }
+]

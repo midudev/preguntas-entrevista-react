@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-problema-resuelve-el-hook-use-optimistic-q-1",
+    "question_id": "que-problema-resuelve-el-hook-use-optimistic",
+    "question": "¿Que devuelve el hook useOptimistic?",
+    "alternatives": [
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-1",
+        "text": "[optimisticValue, addOptimistic]",
+        "is_correct": true
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-2",
+        "text": "[state, setState]",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-3",
+        "text": "[loading, error]",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-4",
+        "text": "Un valor booleano",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-5",
+        "text": "[pending, startOptimistic]",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-6",
+        "text": "Una promesa",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-problema-resuelve-el-hook-use-optimistic-q-2",
+    "question_id": "que-problema-resuelve-el-hook-use-optimistic",
+    "question": "¿Que problema resuelve useOptimistic?",
+    "alternatives": [
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-7",
+        "text": "Mostrar un estado optimista en la UI mientras una accion asincrona se completa.",
+        "is_correct": true
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-8",
+        "text": "Cachear datos en el navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-9",
+        "text": "Validar formularios antes de enviar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-10",
+        "text": "Crear rutas dinamicas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-11",
+        "text": "Manejar errores del servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-12",
+        "text": "Optimizar el rendimiento de renderizado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-problema-resuelve-el-hook-use-optimistic-q-3",
+    "question_id": "que-problema-resuelve-el-hook-use-optimistic",
+    "question": "¿Cuando es recomendable usar useOptimistic?",
+    "alternatives": [
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-13",
+        "text": "Cuando quieres evitar parpadeos o latencias perceptibles (likes, toggles, formularios simples).",
+        "is_correct": true
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-14",
+        "text": "Siempre en todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-15",
+        "text": "Solo para consultas de lectura.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-16",
+        "text": "Unicamente en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-17",
+        "text": "Solo para operaciones de base de datos complejas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-18",
+        "text": "Nunca, es un hook experimental.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-problema-resuelve-el-hook-use-optimistic-q-4",
+    "question_id": "que-problema-resuelve-el-hook-use-optimistic",
+    "question": "¿Que hace addOptimistic en useOptimistic?",
+    "alternatives": [
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-19",
+        "text": "Aplica un cambio inmediato (optimista) antes de la confirmacion del servidor.",
+        "is_correct": true
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-20",
+        "text": "Envia datos al servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-21",
+        "text": "Cancela la operacion en curso.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-22",
+        "text": "Valida los datos del formulario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-23",
+        "text": "Resetea el estado al valor inicial.",
+        "is_correct": false
+      },
+      {
+        "id": "que-problema-resuelve-el-hook-use-optimistic-a-24",
+        "text": "Guarda el estado en localStorage.",
+        "is_correct": false
+      }
+    ]
+  }
+]

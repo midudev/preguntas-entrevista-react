@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-q-1",
+    "question_id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales",
+    "question": "¿Desde que version de React los componentes funcionales pueden hacer casi todo lo que los de clase?",
+    "alternatives": [
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-1",
+        "text": "React 16.8.0, con la introduccion de los hooks.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-2",
+        "text": "React 15.0.0.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-3",
+        "text": "React 18.0.0.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-4",
+        "text": "Siempre fue posible desde la primera version.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-5",
+        "text": "React 17.0.0.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-6",
+        "text": "Aun no es posible.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-q-2",
+    "question_id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales",
+    "question": "¿Cual es una ventaja importante de los componentes funcionales sobre los de clase?",
+    "alternatives": [
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-7",
+        "text": "Son mas sencillos de leer y escribir, y pueden tener mejor rendimiento.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-8",
+        "text": "Tienen acceso al ciclo de vida completo del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-9",
+        "text": "Pueden usar this para acceder al estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-10",
+        "text": "Permiten usar componentDidMount.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-11",
+        "text": "Solo los componentes de clase pueden tener estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-12",
+        "text": "No hay ventajas, son equivalentes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-q-3",
+    "question_id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales",
+    "question": "¿En que tipo de componentes se pueden usar los hooks?",
+    "alternatives": [
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-13",
+        "text": "Solo en componentes funcionales.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-14",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-15",
+        "text": "En ambos tipos de componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-16",
+        "text": "En ninguno, son funciones separadas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-17",
+        "text": "Solo en componentes puros.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-18",
+        "text": "Solo en componentes de alto orden.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-q-4",
+    "question_id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales",
+    "question": "¿Que ventaja ofrecen los custom hooks en componentes funcionales?",
+    "alternatives": [
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-19",
+        "text": "Permiten reutilizar logica entre componentes.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-20",
+        "text": "Permiten usar el ciclo de vida completo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-21",
+        "text": "Eliminan la necesidad de props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-22",
+        "text": "Hacen el codigo mas largo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-23",
+        "text": "Solo sirven para estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-mejores-los-componentes-de-clase-o-los-componentes-funcionales-a-24",
+        "text": "No tienen ninguna ventaja especial.",
+        "is_correct": false
+      }
+    ]
+  }
+]

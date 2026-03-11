@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-strict-mode-en-react-q-1",
+    "question_id": "que-es-el-strict-mode-en-react",
+    "question": "¿Que es StrictMode en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-strict-mode-en-react-a-1",
+        "text": "Un componente que activa comprobaciones de desarrollo para detectar problemas.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-2",
+        "text": "Un modo de produccion mas rapido.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-3",
+        "text": "Un hook para validar props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-4",
+        "text": "Una forma de escribir CSS en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-5",
+        "text": "Un tipo especial de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-6",
+        "text": "Un metodo de ciclo de vida.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-strict-mode-en-react-q-2",
+    "question_id": "que-es-el-strict-mode-en-react",
+    "question": "¿Que detecta StrictMode?",
+    "alternatives": [
+      {
+        "id": "que-es-el-strict-mode-en-react-a-7",
+        "text": "Componentes que se renderizan innecesariamente y funcionalidades obsoletas.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-8",
+        "text": "Errores de sintaxis en el codigo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-9",
+        "text": "Problemas de CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-10",
+        "text": "Solo errores de red.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-11",
+        "text": "No detecta nada, es decorativo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-12",
+        "text": "Solo errores de TypeScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-strict-mode-en-react-q-3",
+    "question_id": "que-es-el-strict-mode-en-react",
+    "question": "¿Como se usa StrictMode en una aplicacion React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-strict-mode-en-react-a-13",
+        "text": "Envolviendo los componentes con el componente <StrictMode>.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-14",
+        "text": "Llamando a una funcion useStrictMode().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-15",
+        "text": "Anadiendo strict: true en package.json.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-16",
+        "text": "Se activa automaticamente, no hay que hacer nada.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-17",
+        "text": "Usando una directiva 'use strict' en el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-strict-mode-en-react-a-18",
+        "text": "Pasando una prop strict={true} al componente raiz.",
+        "is_correct": false
+      }
+    ]
+  }
+]

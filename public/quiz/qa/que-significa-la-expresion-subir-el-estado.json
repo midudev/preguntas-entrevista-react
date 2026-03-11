@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-significa-la-expresion-subir-el-estado-q-1",
+    "question_id": "que-significa-la-expresion-subir-el-estado",
+    "question": "¿Que significa 'subir el estado' en React?",
+    "alternatives": [
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-1",
+        "text": "Mover el estado al componente ancestro comun mas cercano cuando varios componentes lo necesitan.",
+        "is_correct": true
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-2",
+        "text": "Incrementar el valor numerico del estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-3",
+        "text": "Enviar el estado a un servidor remoto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-4",
+        "text": "Guardar el estado en el localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-5",
+        "text": "Convertir el estado local en estado global de Redux.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-6",
+        "text": "Mejorar el rendimiento del estado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-significa-la-expresion-subir-el-estado-q-2",
+    "question_id": "que-significa-la-expresion-subir-el-estado",
+    "question": "¿Cuando se recomienda subir el estado?",
+    "alternatives": [
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-7",
+        "text": "Cuando varios componentes hijos necesitan compartir los mismos datos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-8",
+        "text": "Siempre, es obligatorio en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-9",
+        "text": "Solo cuando el estado es de tipo objeto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-10",
+        "text": "Nunca, cada componente debe tener su propio estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-11",
+        "text": "Solo en aplicaciones con mas de 100 componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-12",
+        "text": "Solo cuando se usa TypeScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-significa-la-expresion-subir-el-estado-q-3",
+    "question_id": "que-significa-la-expresion-subir-el-estado",
+    "question": "Al subir el estado, ¿como comparten los componentes hijos los datos?",
+    "alternatives": [
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-13",
+        "text": "El componente padre pasa los datos como props a los hijos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-14",
+        "text": "Los hijos acceden directamente al estado del padre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-15",
+        "text": "Se usa una variable global de JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-16",
+        "text": "Los hijos se comunican entre si sin pasar por el padre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-17",
+        "text": "Se usa el hook useSyncState().",
+        "is_correct": false
+      },
+      {
+        "id": "que-significa-la-expresion-subir-el-estado-a-18",
+        "text": "Los datos se almacenan en el DOM.",
+        "is_correct": false
+      }
+    ]
+  }
+]

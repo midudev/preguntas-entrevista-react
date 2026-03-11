@@ -1,0 +1,150 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-memo-q-1",
+    "question_id": "para-que-sirve-el-hook-use-memo",
+    "question": "¿Para que sirve el hook useMemo?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-1",
+        "text": "Para memorizar el resultado de una funcion y evitar recalculos innecesarios.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-2",
+        "text": "Para memorizar componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-3",
+        "text": "Para guardar datos en localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-4",
+        "text": "Para crear efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-5",
+        "text": "Para manejar el estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-6",
+        "text": "Para crear referencias al DOM.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-memo-q-2",
+    "question_id": "para-que-sirve-el-hook-use-memo",
+    "question": "¿Que parametros recibe useMemo?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-7",
+        "text": "Una funcion y un array de dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-8",
+        "text": "Solo una funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-9",
+        "text": "Solo un valor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-10",
+        "text": "Un componente y props.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-11",
+        "text": "Un string y un numero.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-12",
+        "text": "No recibe parametros.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-memo-q-3",
+    "question_id": "para-que-sirve-el-hook-use-memo",
+    "question": "¿Cuando se ejecuta la funcion pasada a useMemo?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-13",
+        "text": "Cuando el componente se renderiza por primera vez y cuando cambian las dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-14",
+        "text": "En cada renderizado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-15",
+        "text": "Solo una vez cuando se monta el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-16",
+        "text": "Nunca se ejecuta automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-17",
+        "text": "Solo cuando el usuario hace clic.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-18",
+        "text": "Solo al desmontar el componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-memo-q-4",
+    "question_id": "para-que-sirve-el-hook-use-memo",
+    "question": "¿Cual es la ventaja de usar useMemo?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-19",
+        "text": "Evita recalcular valores costosos si las dependencias no han cambiado.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-20",
+        "text": "Hace el codigo mas legible.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-21",
+        "text": "Permite usar clases en componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-22",
+        "text": "No tiene ninguna ventaja.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-23",
+        "text": "Permite acceder al DOM directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-memo-a-24",
+        "text": "Elimina la necesidad de props.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-q-1",
+    "question_id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react",
+    "question": "¿Que se necesita para importar un componente de forma dinamica en React?",
+    "alternatives": [
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-1",
+        "text": "La funcion import(), el metodo lazy() y el componente Suspense.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-2",
+        "text": "Solo la funcion require().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-3",
+        "text": "El hook useState.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-4",
+        "text": "No es posible importar de forma dinamica.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-5",
+        "text": "Solo useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-6",
+        "text": "El componente Fragment.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-q-2",
+    "question_id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react",
+    "question": "¿Para que sirve el componente Suspense en la carga dinamica?",
+    "alternatives": [
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-7",
+        "text": "Para mostrar un mensaje (fallback) mientras se carga el componente.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-8",
+        "text": "Para cargar el componente mas rapido.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-9",
+        "text": "Para manejar errores de carga.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-10",
+        "text": "Para exportar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-11",
+        "text": "No tiene ninguna funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-12",
+        "text": "Para compilar el codigo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-q-3",
+    "question_id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react",
+    "question": "¿Que tipo de exportacion es recomendable para componentes que se cargan con lazy()?",
+    "alternatives": [
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-13",
+        "text": "Exportacion por defecto (export default).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-14",
+        "text": "Solo exportacion nombrada.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-15",
+        "text": "No importa el tipo de exportacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-16",
+        "text": "Solo module.exports.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-17",
+        "text": "No se pueden exportar componentes lazy.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-importar-de-forma-dinamica-un-componente-en-react-a-18",
+        "text": "Solo CommonJS.",
+        "is_correct": false
+      }
+    ]
+  }
+]

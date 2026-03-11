@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-q-1",
+    "question_id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop",
+    "question": "¿Cuando aparece el error 'Each child in a list should have a unique key prop'?",
+    "alternatives": [
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-1",
+        "text": "Cuando renderizamos un listado sin indicar la propiedad 'key'.",
+        "is_correct": true
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-2",
+        "text": "Cuando usamos componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-3",
+        "text": "Cuando no importamos React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-4",
+        "text": "Cuando usamos hooks incorrectamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-5",
+        "text": "Cuando hay errores de sintaxis JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-6",
+        "text": "Nunca aparece este error.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-q-2",
+    "question_id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop",
+    "question": "¿Para que usa React la propiedad 'key'?",
+    "alternatives": [
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-7",
+        "text": "Para determinar que elemento hijo ha sufrido cambios y optimizar la renderizacion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-8",
+        "text": "Para aplicar estilos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-9",
+        "text": "Para acceder al DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-10",
+        "text": "Para ordenar los elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-11",
+        "text": "Para validar props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-12",
+        "text": "No tiene ninguna funcion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-q-3",
+    "question_id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop",
+    "question": "¿Como se soluciona este error?",
+    "alternatives": [
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-13",
+        "text": "Anadiendo la propiedad 'key' con un valor unico a cada elemento del listado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-14",
+        "text": "Usando componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-15",
+        "text": "Importando React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-16",
+        "text": "Usando useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-17",
+        "text": "No se puede solucionar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop-a-18",
+        "text": "Reiniciando el servidor.",
+        "is_correct": false
+      }
+    ]
+  }
+]

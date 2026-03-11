@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-diferencia-hay-entre-props-y-state-q-1",
+    "question_id": "que-diferencia-hay-entre-props-y-state",
+    "question": "¿De donde provienen las props en un componente?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-1",
+        "text": "Se pasan como argumentos desde un componente padre.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-2",
+        "text": "Se definen dentro del propio componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-3",
+        "text": "Se obtienen de una API externa.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-4",
+        "text": "Se importan desde un archivo de configuracion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-5",
+        "text": "Se generan automaticamente por React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-6",
+        "text": "Se almacenan en el localStorage del navegador.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-props-y-state-q-2",
+    "question_id": "que-diferencia-hay-entre-props-y-state",
+    "question": "¿Donde se define el state de un componente?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-7",
+        "text": "Dentro del propio componente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-8",
+        "text": "En el componente padre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-9",
+        "text": "En un archivo de configuracion global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-10",
+        "text": "En el archivo index.html.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-11",
+        "text": "En el servidor backend.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-12",
+        "text": "En las DevTools del navegador.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-props-y-state-q-3",
+    "question_id": "que-diferencia-hay-entre-props-y-state",
+    "question": "¿Se pueden modificar las props desde el componente hijo?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-13",
+        "text": "No, las props son inmutables y no se pueden modificar desde el componente hijo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-14",
+        "text": "Si, las props se pueden modificar libremente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-15",
+        "text": "Solo si se usa el hook useProps().",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-16",
+        "text": "Solo en componentes de clase, no en funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-17",
+        "text": "Si, pero solo las props de tipo string.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-props-y-state-a-18",
+        "text": "Depende de la version de React instalada.",
+        "is_correct": false
+      }
+    ]
+  }
+]

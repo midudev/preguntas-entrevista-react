@@ -1,0 +1,150 @@
+[
+  {
+    "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-q-1",
+    "question_id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions",
+    "question": "¿Que devuelve el hook useFormStatus?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-1",
+        "text": "{ pending, data, method, action }",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-2",
+        "text": "[state, setState]",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-3",
+        "text": "Un valor booleano",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-4",
+        "text": "{ loading, error, success }",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-5",
+        "text": "[formData, submit]",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-6",
+        "text": "Una promesa",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-q-2",
+    "question_id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions",
+    "question": "¿De donde proviene useFormStatus?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-7",
+        "text": "react-dom",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-8",
+        "text": "react",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-9",
+        "text": "react-router",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-10",
+        "text": "next/forms",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-11",
+        "text": "react-hook-form",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-12",
+        "text": "formik",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-q-3",
+    "question_id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions",
+    "question": "¿Que indica la propiedad 'pending' de useFormStatus?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-13",
+        "text": "Si hay una peticion en curso.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-14",
+        "text": "Si el formulario tiene errores.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-15",
+        "text": "El numero de campos pendientes.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-16",
+        "text": "Si el formulario fue validado.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-17",
+        "text": "El tiempo restante para enviar.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-18",
+        "text": "Si el usuario esta escribiendo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-q-4",
+    "question_id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions",
+    "question": "¿De que formulario lee el estado useFormStatus?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-19",
+        "text": "Del <form> mas cercano que ejecuta una Server Action.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-20",
+        "text": "De todos los formularios de la pagina.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-21",
+        "text": "Solo del formulario con id='main'.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-22",
+        "text": "Del formulario especificado manualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-23",
+        "text": "Del primer formulario del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-form-status-y-que-aporta-junto-a-las-server-actions-a-24",
+        "text": "De ningun formulario, crea uno virtual.",
+        "is_correct": false
+      }
+    ]
+  }
+]

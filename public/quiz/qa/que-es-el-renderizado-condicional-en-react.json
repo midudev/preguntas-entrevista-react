@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-renderizado-condicional-en-react-q-1",
+    "question_id": "que-es-el-renderizado-condicional-en-react",
+    "question": "¿Que es el renderizado condicional en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-1",
+        "text": "Es mostrar un componente u otro dependiendo de una condicion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-2",
+        "text": "Es renderizar componentes solo en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-3",
+        "text": "Es optimizar el rendimiento de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-4",
+        "text": "Es cargar componentes de forma asincrona.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-5",
+        "text": "Es aplicar estilos CSS de forma dinamica.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-6",
+        "text": "Es validar las props de un componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-renderizado-condicional-en-react-q-2",
+    "question_id": "que-es-el-renderizado-condicional-en-react",
+    "question": "¿Cual es la forma recomendada de hacer renderizado condicional en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-7",
+        "text": "Usando el operador ternario (condicion ? a : b).",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-8",
+        "text": "Usando if/else dentro del JSX directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-9",
+        "text": "Usando switch/case dentro del return.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-10",
+        "text": "Usando el operador && siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-11",
+        "text": "Usando el hook useCondition().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-12",
+        "text": "Usando display: none en CSS.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-renderizado-condicional-en-react-q-3",
+    "question_id": "que-es-el-renderizado-condicional-en-react",
+    "question": "¿Cual es el problema de usar el operador && con arrays de longitud 0?",
+    "alternatives": [
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-13",
+        "text": "Se renderiza el numero 0 en el navegador en lugar de no mostrar nada.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-14",
+        "text": "Produce un error de JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-15",
+        "text": "El componente no se renderiza nunca.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-16",
+        "text": "React entra en un bucle infinito.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-17",
+        "text": "Se muestra undefined en pantalla.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-condicional-en-react-a-18",
+        "text": "No hay ningun problema, funciona correctamente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

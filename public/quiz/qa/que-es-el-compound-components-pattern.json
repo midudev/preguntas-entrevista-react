@@ -1,0 +1,76 @@
+[
+  {
+    "id": "que-es-el-compound-components-pattern-q-1",
+    "question_id": "que-es-el-compound-components-pattern",
+    "question": "¿Que es el Compound Components Pattern?",
+    "alternatives": [
+      {
+        "id": "que-es-el-compound-components-pattern-a-1",
+        "text": "Un patron donde el componente padre proporciona a sus hijos las propiedades necesarias para renderizarse.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-2",
+        "text": "Un patron para crear componentes que no pueden tener hijos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-3",
+        "text": "Una forma de compilar varios componentes en uno solo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-4",
+        "text": "Un metodo para combinar CSS de multiples componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-5",
+        "text": "Una tecnica para mezclar hooks en un componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-6",
+        "text": "Un patron exclusivo de componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-compound-components-pattern-q-2",
+    "question_id": "que-es-el-compound-components-pattern",
+    "question": "¿Que ventajas ofrece el Compound Components Pattern?",
+    "alternatives": [
+      {
+        "id": "que-es-el-compound-components-pattern-a-7",
+        "text": "Permite una estructura declarativa y mejora la legibilidad del codigo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-8",
+        "text": "Reduce el tamano del bundle de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-9",
+        "text": "Elimina la necesidad de usar props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-10",
+        "text": "Hace que los componentes no necesiten estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-11",
+        "text": "Permite usar CSS sin archivos externos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-compound-components-pattern-a-12",
+        "text": "Reemplaza la necesidad de usar Context.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,150 @@
+[
+  {
+    "id": "es-react-una-biblioteca-o-un-framework-por-que-q-1",
+    "question_id": "es-react-una-biblioteca-o-un-framework-por-que",
+    "question": "¿Como se autodenomina oficialmente React?",
+    "alternatives": [
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-1",
+        "text": "Como una biblioteca.",
+        "is_correct": true
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-2",
+        "text": "Como un framework.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-3",
+        "text": "Como un lenguaje de programacion.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-4",
+        "text": "Como un sistema operativo.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-5",
+        "text": "Como un motor de renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-6",
+        "text": "No tiene denominacion oficial.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "es-react-una-biblioteca-o-un-framework-por-que-q-2",
+    "question_id": "es-react-una-biblioteca-o-un-framework-por-que",
+    "question": "¿Por que React se considera biblioteca y no framework?",
+    "alternatives": [
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-7",
+        "text": "Porque necesitas otras bibliotecas para crear una aplicacion completa.",
+        "is_correct": true
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-8",
+        "text": "Porque es mas pequeno.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-9",
+        "text": "Porque solo funciona en el navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-10",
+        "text": "Porque es gratuito.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-11",
+        "text": "Porque fue creado por Facebook.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-12",
+        "text": "Porque usa JavaScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "es-react-una-biblioteca-o-un-framework-por-que-q-3",
+    "question_id": "es-react-una-biblioteca-o-un-framework-por-que",
+    "question": "¿Que NO incluye React de forma nativa?",
+    "alternatives": [
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-13",
+        "text": "Sistema de enrutado de aplicaciones.",
+        "is_correct": true
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-14",
+        "text": "Componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-15",
+        "text": "Hooks como useState.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-16",
+        "text": "JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-17",
+        "text": "Virtual DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-18",
+        "text": "Props y state.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "es-react-una-biblioteca-o-un-framework-por-que-q-4",
+    "question_id": "es-react-una-biblioteca-o-un-framework-por-que",
+    "question": "¿Que se considera un framework de React?",
+    "alternatives": [
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-19",
+        "text": "Next.js, porque incluye React, enrutado, SSR, etc.",
+        "is_correct": true
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-20",
+        "text": "Redux, porque maneja el estado.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-21",
+        "text": "React Router, porque maneja rutas.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-22",
+        "text": "Axios, porque maneja peticiones.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-23",
+        "text": "React en si mismo.",
+        "is_correct": false
+      },
+      {
+        "id": "es-react-una-biblioteca-o-un-framework-por-que-a-24",
+        "text": "Ninguno es un framework.",
+        "is_correct": false
+      }
+    ]
+  }
+]

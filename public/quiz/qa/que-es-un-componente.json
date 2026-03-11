@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-un-componente-q-1",
+    "question_id": "que-es-un-componente",
+    "question": "En React, un componente es...",
+    "alternatives": [
+      {
+        "id": "que-es-un-componente-a-1",
+        "text": "Una pieza de codigo que renderiza una parte de la interfaz.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-un-componente-a-2",
+        "text": "Un archivo CSS que define los estilos de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-3",
+        "text": "Una base de datos para almacenar el estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-4",
+        "text": "Un servidor que procesa las peticiones HTTP.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-5",
+        "text": "Un plugin del navegador para depuracion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-6",
+        "text": "Una libreria externa para manejar rutas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-un-componente-q-2",
+    "question_id": "que-es-un-componente",
+    "question": "¿Cuales son las dos formas principales de crear un componente en React?",
+    "alternatives": [
+      {
+        "id": "que-es-un-componente-a-7",
+        "text": "Usando funciones o clases.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-un-componente-a-8",
+        "text": "Usando objetos literales o arrays.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-9",
+        "text": "Usando modulos CommonJS o ES Modules.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-10",
+        "text": "Usando promesas o callbacks.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-11",
+        "text": "Usando templates o factories.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-12",
+        "text": "Usando HTML puro o Web Components.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-un-componente-q-3",
+    "question_id": "que-es-un-componente",
+    "question": "¿Que caracteristicas pueden tener los componentes en React?",
+    "alternatives": [
+      {
+        "id": "que-es-un-componente-a-13",
+        "text": "Pueden ser parametrizados, reutilizados y contener su propio estado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-un-componente-a-14",
+        "text": "Solo pueden mostrar texto estatico sin interactividad.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-15",
+        "text": "No pueden recibir parametros externos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-16",
+        "text": "Deben ser unicos y no se pueden reutilizar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-17",
+        "text": "Solo pueden acceder al estado global de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-un-componente-a-18",
+        "text": "No pueden tener estado interno, solo props.",
+        "is_correct": false
+      }
+    ]
+  }
+]

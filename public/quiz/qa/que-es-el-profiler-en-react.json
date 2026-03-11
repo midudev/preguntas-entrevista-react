@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-profiler-en-react-q-1",
+    "question_id": "que-es-el-profiler-en-react",
+    "question": "¿Para que sirve el componente Profiler en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-profiler-en-react-a-1",
+        "text": "Medir el tiempo que tarda en renderizarse un componente y sus hijos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-2",
+        "text": "Crear perfiles de usuario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-3",
+        "text": "Mostrar errores de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-4",
+        "text": "Validar props de componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-5",
+        "text": "Crear tests automaticos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-6",
+        "text": "Manejar el estado global.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-profiler-en-react-q-2",
+    "question_id": "que-es-el-profiler-en-react",
+    "question": "¿Que parametros recibe el componente Profiler?",
+    "alternatives": [
+      {
+        "id": "que-es-el-profiler-en-react-a-7",
+        "text": "id (identificador unico) y onRender (funcion callback).",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-8",
+        "text": "Solo el nombre del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-9",
+        "text": "Una URL de reporte.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-10",
+        "text": "Un numero de iteraciones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-11",
+        "text": "No recibe parametros.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-12",
+        "text": "Solo un objeto de configuracion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-profiler-en-react-q-3",
+    "question_id": "que-es-el-profiler-en-react",
+    "question": "¿Cuando se ejecuta la funcion onRender del Profiler?",
+    "alternatives": [
+      {
+        "id": "que-es-el-profiler-en-react-a-13",
+        "text": "Cada vez que el componente se renderiza.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-14",
+        "text": "Solo al montar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-15",
+        "text": "Solo al desmontar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-16",
+        "text": "Cada segundo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-17",
+        "text": "Solo cuando hay errores.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-profiler-en-react-a-18",
+        "text": "Nunca se ejecuta automaticamente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

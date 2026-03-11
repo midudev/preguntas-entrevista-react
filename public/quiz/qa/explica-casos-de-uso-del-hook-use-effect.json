@@ -1,0 +1,113 @@
+[
+  {
+    "id": "explica-casos-de-uso-del-hook-use-effect-q-1",
+    "question_id": "explica-casos-de-uso-del-hook-use-effect",
+    "question": "¿Cual es un caso de uso comun de useEffect?",
+    "alternatives": [
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-1",
+        "text": "Hacer llamadas a APIs cuando se monta el componente.",
+        "is_correct": true
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-2",
+        "text": "Definir el estado inicial del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-3",
+        "text": "Crear componentes hijos dinamicamente.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-4",
+        "text": "Definir las props del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-5",
+        "text": "Compilar el codigo JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-6",
+        "text": "Importar modulos de forma sincrona.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "explica-casos-de-uso-del-hook-use-effect-q-2",
+    "question_id": "explica-casos-de-uso-del-hook-use-effect",
+    "question": "¿Para que se puede usar useEffect con eventos del navegador?",
+    "alternatives": [
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-7",
+        "text": "Para suscribirse a eventos como resize y desuscribirse al desmontar.",
+        "is_correct": true
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-8",
+        "text": "Para crear nuevos eventos personalizados del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-9",
+        "text": "Para desactivar eventos del navegador permanentemente.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-10",
+        "text": "Para cambiar el comportamiento predeterminado del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-11",
+        "text": "useEffect no puede trabajar con eventos del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-12",
+        "text": "Para reemplazar los eventos nativos por eventos de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "explica-casos-de-uso-del-hook-use-effect-q-3",
+    "question_id": "explica-casos-de-uso-del-hook-use-effect",
+    "question": "¿Se puede usar useEffect para validar formularios?",
+    "alternatives": [
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-13",
+        "text": "Si, para actualizar la UI mostrando errores cada vez que cambia el estado.",
+        "is_correct": true
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-14",
+        "text": "No, la validacion debe hacerse solo con HTML5.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-15",
+        "text": "No, se debe usar el hook useValidation().",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-16",
+        "text": "Solo si se usa una libreria externa de validacion.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-17",
+        "text": "No, useEffect solo funciona con peticiones HTTP.",
+        "is_correct": false
+      },
+      {
+        "id": "explica-casos-de-uso-del-hook-use-effect-a-18",
+        "text": "Solo en formularios con menos de 5 campos.",
+        "is_correct": false
+      }
+    ]
+  }
+]

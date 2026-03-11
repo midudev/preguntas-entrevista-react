@@ -1,0 +1,113 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-callback-q-1",
+    "question_id": "para-que-sirve-el-hook-use-callback",
+    "question": "¿Para que sirve el hook useCallback?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-1",
+        "text": "Para memorizar una funcion y evitar crearla de nuevo si las dependencias no cambian.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-2",
+        "text": "Para memorizar el resultado de una funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-3",
+        "text": "Para crear efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-4",
+        "text": "Para manejar el estado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-5",
+        "text": "Para crear referencias al DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-6",
+        "text": "Para definir contextos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-callback-q-2",
+    "question_id": "para-que-sirve-el-hook-use-callback",
+    "question": "¿Que parametros recibe useCallback?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-7",
+        "text": "Una funcion y un array de dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-8",
+        "text": "Solo una funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-9",
+        "text": "Solo un array de dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-10",
+        "text": "Un valor y un callback.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-11",
+        "text": "Tres parametros obligatorios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-12",
+        "text": "No recibe parametros.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-callback-q-3",
+    "question_id": "para-que-sirve-el-hook-use-callback",
+    "question": "¿Cual es la ventaja de usar useCallback?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-13",
+        "text": "Evita la creacion de una nueva funcion si las dependencias no cambian.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-14",
+        "text": "Hace que las funciones sean mas rapidas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-15",
+        "text": "Permite usar funciones async.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-16",
+        "text": "No tiene ninguna ventaja.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-17",
+        "text": "Permite crear efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-callback-a-18",
+        "text": "Solo sirve para debugging.",
+        "is_correct": false
+      }
+    ]
+  }
+]

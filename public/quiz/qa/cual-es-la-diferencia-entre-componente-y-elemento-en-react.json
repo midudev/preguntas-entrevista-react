@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-q-1",
+    "question_id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react",
+    "question": "En React, ¿que es un componente?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-1",
+        "text": "Una funcion o clase que recibe props y devuelve un elemento.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-2",
+        "text": "Un objeto que representa un nodo del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-3",
+        "text": "Una etiqueta HTML nativa del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-4",
+        "text": "Un archivo CSS que define estilos.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-5",
+        "text": "Una variable que almacena estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-6",
+        "text": "Un metodo del ciclo de vida de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-q-2",
+    "question_id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react",
+    "question": "En React, ¿que es un elemento?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-7",
+        "text": "Un objeto que representa un nodo del DOM o una instancia de un componente.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-8",
+        "text": "Una funcion que devuelve JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-9",
+        "text": "Una clase que extiende React.Component.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-10",
+        "text": "Un hook para manejar el estado.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-11",
+        "text": "Un archivo JavaScript que exporta componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-12",
+        "text": "Una referencia al DOM real del navegador.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-q-3",
+    "question_id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react",
+    "question": "¿Que propiedades tiene un elemento de React que representa un nodo del DOM?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-13",
+        "text": "type (tipo de elemento) y props (propiedades incluyendo children).",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-14",
+        "text": "state (estado) y methods (metodos).",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-15",
+        "text": "render (funcion de renderizado) y lifecycle (ciclo de vida).",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-16",
+        "text": "innerHTML y className solamente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-17",
+        "text": "id y class como en HTML tradicional.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-componente-y-elemento-en-react-a-18",
+        "text": "hooks y context unicamente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

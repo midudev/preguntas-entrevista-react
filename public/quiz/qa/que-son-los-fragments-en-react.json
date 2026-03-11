@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-los-fragments-en-react-q-1",
+    "question_id": "que-son-los-fragments-en-react",
+    "question": "¿Que son los Fragments en React?",
+    "alternatives": [
+      {
+        "id": "que-son-los-fragments-en-react-a-1",
+        "text": "Una forma de agrupar elementos sin anadir un elemento extra al DOM.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-2",
+        "text": "Componentes que se cargan de forma perezosa.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-3",
+        "text": "Partes del Virtual DOM que se actualizan.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-4",
+        "text": "Pedazos de codigo que se ejecutan de forma aislada.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-5",
+        "text": "Comentarios especiales dentro del JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-6",
+        "text": "Archivos de configuracion de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-fragments-en-react-q-2",
+    "question_id": "que-son-los-fragments-en-react",
+    "question": "¿Cual es la sintaxis abreviada para Fragment?",
+    "alternatives": [
+      {
+        "id": "que-son-los-fragments-en-react-a-7",
+        "text": "<> ... </>",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-8",
+        "text": "[] ... []",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-9",
+        "text": "{} ... {}",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-10",
+        "text": "<frag> ... </frag>",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-11",
+        "text": "<react> ... </react>",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-12",
+        "text": "No existe sintaxis abreviada.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-fragments-en-react-q-3",
+    "question_id": "que-son-los-fragments-en-react",
+    "question": "¿Por que React requiere un solo elemento raiz en los componentes?",
+    "alternatives": [
+      {
+        "id": "que-son-los-fragments-en-react-a-13",
+        "text": "Porque React no permite devolver varios elementos, solo un elemento raiz.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-14",
+        "text": "Es solo una convencion, se pueden devolver multiples elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-15",
+        "text": "Para mejorar el SEO de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-16",
+        "text": "Solo es necesario en TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-17",
+        "text": "Es un requisito del navegador, no de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-fragments-en-react-a-18",
+        "text": "Solo aplica a componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  }
+]

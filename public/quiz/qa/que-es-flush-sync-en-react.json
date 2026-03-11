@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-flush-sync-en-react-q-1",
+    "question_id": "que-es-flush-sync-en-react",
+    "question": "¿Que hace flushSync en React?",
+    "alternatives": [
+      {
+        "id": "que-es-flush-sync-en-react-a-1",
+        "text": "Obliga a React a ejecutar de manera sincrona las actualizaciones de estado y actualizar el DOM inmediatamente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-2",
+        "text": "Cancela todas las actualizaciones pendientes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-3",
+        "text": "Limpia el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-4",
+        "text": "Sincroniza el estado con el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-5",
+        "text": "Reinicia el Virtual DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-6",
+        "text": "No existe en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-flush-sync-en-react-q-2",
+    "question_id": "que-es-flush-sync-en-react",
+    "question": "¿De que paquete se importa flushSync?",
+    "alternatives": [
+      {
+        "id": "que-es-flush-sync-en-react-a-7",
+        "text": "react-dom",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-8",
+        "text": "react",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-9",
+        "text": "react-sync",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-10",
+        "text": "react-flush",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-11",
+        "text": "react-dom/client",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-12",
+        "text": "No necesita importarse.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-flush-sync-en-react-q-3",
+    "question_id": "que-es-flush-sync-en-react",
+    "question": "¿Cual es una consideracion importante al usar flushSync?",
+    "alternatives": [
+      {
+        "id": "que-es-flush-sync-en-react-a-13",
+        "text": "Puede afectar significativamente el rendimiento, usar con moderacion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-14",
+        "text": "Siempre mejora el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-15",
+        "text": "Se debe usar en todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-16",
+        "text": "No tiene efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-17",
+        "text": "Solo funciona en modo desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-flush-sync-en-react-a-18",
+        "text": "Es obligatorio para actualizar el DOM.",
+        "is_correct": false
+      }
+    ]
+  }
+]

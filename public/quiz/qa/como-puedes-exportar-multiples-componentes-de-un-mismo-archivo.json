@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-q-1",
+    "question_id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo",
+    "question": "¿Como se exportan multiples componentes de un mismo archivo?",
+    "alternatives": [
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-1",
+        "text": "Usando exportacion nombrada (export function Component).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-2",
+        "text": "Usando multiples export default.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-3",
+        "text": "No es posible exportar multiples componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-4",
+        "text": "Solo con TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-5",
+        "text": "Creando archivos separados.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-6",
+        "text": "Usando module.exports.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-q-2",
+    "question_id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo",
+    "question": "¿Cuantos export default puede tener un archivo JavaScript?",
+    "alternatives": [
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-7",
+        "text": "Solo uno.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-8",
+        "text": "Ilimitados.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-9",
+        "text": "Dos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-10",
+        "text": "Cinco.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-11",
+        "text": "Depende del tamano del archivo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-exportar-multiples-componentes-de-un-mismo-archivo-a-12",
+        "text": "Ninguno, no existe export default.",
+        "is_correct": false
+      }
+    ]
+  }
+]

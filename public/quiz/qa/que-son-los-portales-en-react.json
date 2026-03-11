@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-son-los-portales-en-react-q-1",
+    "question_id": "que-son-los-portales-en-react",
+    "question": "¿Que permiten hacer los portales en React?",
+    "alternatives": [
+      {
+        "id": "que-son-los-portales-en-react-a-1",
+        "text": "Renderizar un componente en un nodo del DOM que no es hijo del componente que lo renderiza.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-2",
+        "text": "Crear enlaces entre paginas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-3",
+        "text": "Teletransportar datos entre componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-4",
+        "text": "Crear animaciones de transicion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-5",
+        "text": "Conectar con APIs externas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-6",
+        "text": "Crear rutas dinamicas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-portales-en-react-q-2",
+    "question_id": "que-son-los-portales-en-react",
+    "question": "¿Que funcion se usa para crear un portal?",
+    "alternatives": [
+      {
+        "id": "que-son-los-portales-en-react-a-7",
+        "text": "createPortal de react-dom.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-8",
+        "text": "usePortal de react.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-9",
+        "text": "Portal.create().",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-10",
+        "text": "ReactDOM.portal().",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-11",
+        "text": "document.createPortal().",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-12",
+        "text": "No existe funcion especifica.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-portales-en-react-q-3",
+    "question_id": "que-son-los-portales-en-react",
+    "question": "¿Cuantos parametros recibe createPortal?",
+    "alternatives": [
+      {
+        "id": "que-son-los-portales-en-react-a-13",
+        "text": "Dos: el componente a renderizar y el nodo del DOM destino.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-14",
+        "text": "Uno: solo el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-15",
+        "text": "Tres: componente, nodo y opciones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-16",
+        "text": "Ninguno.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-17",
+        "text": "Cuatro: componente, nodo, key y ref.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-18",
+        "text": "Solo un objeto de configuracion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-portales-en-react-q-4",
+    "question_id": "que-son-los-portales-en-react",
+    "question": "¿Cual es un caso de uso perfecto para portales?",
+    "alternatives": [
+      {
+        "id": "que-son-los-portales-en-react-a-19",
+        "text": "Modales.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-20",
+        "text": "Formularios de login.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-21",
+        "text": "Listas de elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-22",
+        "text": "Botones simples.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-23",
+        "text": "Inputs de texto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-portales-en-react-a-24",
+        "text": "Encabezados de pagina.",
+        "is_correct": false
+      }
+    ]
+  }
+]

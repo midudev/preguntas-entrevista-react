@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-y-para-que-sirve-la-prop-children-en-react-q-1",
+    "question_id": "que-es-y-para-que-sirve-la-prop-children-en-react",
+    "question": "¿Que es la prop children en React?",
+    "alternatives": [
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-1",
+        "text": "Una prop especial que contiene los elementos que envuelve un componente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-2",
+        "text": "Una lista de componentes hijos registrados en el DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-3",
+        "text": "Un array con todos los subcomponentes de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-4",
+        "text": "Una referencia al componente padre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-5",
+        "text": "Un metodo para crear nuevos componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-6",
+        "text": "Una variable global de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-y-para-que-sirve-la-prop-children-en-react-q-2",
+    "question_id": "que-es-y-para-que-sirve-la-prop-children-en-react",
+    "question": "¿Para que sirve la prop children?",
+    "alternatives": [
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-7",
+        "text": "Para crear componentes reutilizables que pueden envolver contenido dinamico.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-8",
+        "text": "Para acceder al estado de los componentes hijos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-9",
+        "text": "Para modificar las props de otros componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-10",
+        "text": "Para conectarse a APIs externas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-11",
+        "text": "Para manejar eventos del usuario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-12",
+        "text": "Para definir estilos CSS del componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-y-para-que-sirve-la-prop-children-en-react-q-3",
+    "question_id": "que-es-y-para-que-sirve-la-prop-children-en-react",
+    "question": "¿Como se accede a la prop children dentro de un componente?",
+    "alternatives": [
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-13",
+        "text": "A traves de props.children.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-14",
+        "text": "Usando el hook useChildren().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-15",
+        "text": "Importando Children desde react.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-16",
+        "text": "Accediendo a this.state.children.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-17",
+        "text": "Usando document.children.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-y-para-que-sirve-la-prop-children-en-react-a-18",
+        "text": "Llamando al metodo getChildren().",
+        "is_correct": false
+      }
+    ]
+  }
+]

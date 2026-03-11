@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-renderizado-de-listas-en-react-q-1",
+    "question_id": "que-es-el-renderizado-de-listas-en-react",
+    "question": "¿Que metodo de array se usa para renderizar listas en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-1",
+        "text": "El metodo map().",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-2",
+        "text": "El metodo forEach().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-3",
+        "text": "El metodo filter().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-4",
+        "text": "El metodo reduce().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-5",
+        "text": "Un bucle for tradicional dentro del JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-6",
+        "text": "El hook useList().",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-renderizado-de-listas-en-react-q-2",
+    "question_id": "que-es-el-renderizado-de-listas-en-react",
+    "question": "¿Para que sirve la prop 'key' al renderizar listas?",
+    "alternatives": [
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-7",
+        "text": "Para que React pueda identificar cada elemento y actualizarlo de forma eficiente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-8",
+        "text": "Para aplicar estilos CSS al elemento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-9",
+        "text": "Para acceder al elemento desde otros componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-10",
+        "text": "Es opcional y no tiene ninguna funcion especifica.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-11",
+        "text": "Para ordenar los elementos alfabeticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-12",
+        "text": "Para encriptar los datos del elemento.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-renderizado-de-listas-en-react-q-3",
+    "question_id": "que-es-el-renderizado-de-listas-en-react",
+    "question": "¿Que caracteristica debe tener el valor de la prop 'key'?",
+    "alternatives": [
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-13",
+        "text": "Debe ser un identificador unico para cada elemento.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-14",
+        "text": "Debe ser siempre un numero entero.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-15",
+        "text": "Debe ser el indice del array.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-16",
+        "text": "Puede ser cualquier valor, incluso repetido.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-17",
+        "text": "Debe ser siempre una cadena de texto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-renderizado-de-listas-en-react-a-18",
+        "text": "Debe ser un UUID generado automaticamente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

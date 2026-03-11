@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-q-1",
+    "question_id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-que-no-se-puede-usar-class",
+    "question": "¿Que prop se usa para aplicar clases CSS a un componente en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-1",
+        "text": "className",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-2",
+        "text": "class",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-3",
+        "text": "cssClass",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-4",
+        "text": "styleClass",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-5",
+        "text": "classes",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-6",
+        "text": "htmlClass",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-q-2",
+    "question_id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-y-por-que-no-se-puede-usar-class",
+    "question": "¿Por que no se puede usar 'class' para aplicar clases CSS en JSX?",
+    "alternatives": [
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-7",
+        "text": "Porque 'class' es una palabra reservada en JavaScript.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-8",
+        "text": "Porque React no soporta CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-9",
+        "text": "Porque los navegadores no reconocen 'class'.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-10",
+        "text": "Porque Babel no puede transpilarlo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-11",
+        "text": "Porque solo funciona en TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-aplicar-clases-css-a-un-componente-en-react-a-12",
+        "text": "Es una decision de diseno sin razon tecnica.",
+        "is_correct": false
+      }
+    ]
+  }
+]

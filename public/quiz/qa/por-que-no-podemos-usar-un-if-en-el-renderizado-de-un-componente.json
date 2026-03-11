@@ -1,0 +1,150 @@
+[
+  {
+    "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-q-1",
+    "question_id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente",
+    "question": "¿Por que no podemos usar un if dentro del JSX en React?",
+    "alternatives": [
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-1",
+        "text": "Porque if es una declaracion, no una expresion, y JSX solo admite expresiones.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-2",
+        "text": "Porque if no existe en JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-3",
+        "text": "Porque React no soporta condicionales.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-4",
+        "text": "Porque causa errores de rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-5",
+        "text": "Es solo una convencion, realmente se puede usar.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-6",
+        "text": "Porque Babel no lo puede transpilar.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-q-2",
+    "question_id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente",
+    "question": "¿Que alternativa se usa en JSX en lugar de if?",
+    "alternatives": [
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-7",
+        "text": "Operadores ternarios, que si son expresiones.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-8",
+        "text": "No hay alternativa para condicionales.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-9",
+        "text": "Solo se puede usar switch.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-10",
+        "text": "Se usa un componente especial llamado If.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-11",
+        "text": "Usar comentarios HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-12",
+        "text": "No se puede hacer renderizado condicional.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-q-3",
+    "question_id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente",
+    "question": "¿Cual es la diferencia entre una expresion y una declaracion en JavaScript?",
+    "alternatives": [
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-13",
+        "text": "Las expresiones devuelven un valor, las declaraciones no.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-14",
+        "text": "Son lo mismo, solo cambia el nombre.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-15",
+        "text": "Las declaraciones son mas rapidas.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-16",
+        "text": "Las expresiones solo se usan en React.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-17",
+        "text": "Las declaraciones son solo para TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-18",
+        "text": "Las expresiones no pueden contener variables.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-q-4",
+    "question_id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente",
+    "question": "¿Que otras estructuras de control tampoco se pueden usar dentro del JSX?",
+    "alternatives": [
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-19",
+        "text": "for, while y switch.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-20",
+        "text": "Solo if, las demas si se pueden usar.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-21",
+        "text": "Todas las estructuras de control funcionan.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-22",
+        "text": "Solo switch no funciona.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-23",
+        "text": "try-catch es la unica que no funciona.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-podemos-usar-un-if-en-el-renderizado-de-un-componente-a-24",
+        "text": "return es la unica que no funciona.",
+        "is_correct": false
+      }
+    ]
+  }
+]

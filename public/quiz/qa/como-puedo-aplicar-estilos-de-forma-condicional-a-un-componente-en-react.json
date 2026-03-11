@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedo-aplicar-estilos-de-forma-condicional-q-1",
+    "question_id": "como-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react",
+    "question": "¿Como se pueden aplicar estilos de forma condicional en React?",
+    "alternatives": [
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-1",
+        "text": "Usando la prop style con un operador ternario.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-2",
+        "text": "Usando CSS puro con media queries.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-3",
+        "text": "No es posible aplicar estilos condicionales en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-4",
+        "text": "Usando el hook useStyle().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-5",
+        "text": "Solo se puede hacer con styled-components.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-6",
+        "text": "Modificando el DOM directamente con JavaScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-aplicar-estilos-de-forma-condicional-q-2",
+    "question_id": "como-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react",
+    "question": "¿Que biblioteca se puede usar para facilitar la aplicacion de clases condicionales?",
+    "alternatives": [
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-7",
+        "text": "classnames",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-8",
+        "text": "react-css",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-9",
+        "text": "css-loader",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-10",
+        "text": "style-react",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-11",
+        "text": "react-class-manager",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-12",
+        "text": "conditional-css",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-aplicar-estilos-de-forma-condicional-q-3",
+    "question_id": "como-puedo-aplicar-estilos-de-forma-condicional-a-un-componente-en-react",
+    "question": "¿Como se aplican clases CSS de forma condicional sin usar bibliotecas externas?",
+    "alternatives": [
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-13",
+        "text": "Usando el operador ternario en className: className={condicion ? 'clase' : ''}",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-14",
+        "text": "Usando if/else dentro del JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-15",
+        "text": "Usando document.getElementById().classList.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-16",
+        "text": "No es posible sin bibliotecas externas.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-17",
+        "text": "Usando el metodo React.addClass().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-aplicar-estilos-de-forma-condicional-a-18",
+        "text": "Solo con CSS-in-JS.",
+        "is_correct": false
+      }
+    ]
+  }
+]

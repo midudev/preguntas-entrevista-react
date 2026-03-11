@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-q-1",
+    "question_id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene",
+    "question": "¿Que caracteriza a un componente puro en React?",
+    "alternatives": [
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-1",
+        "text": "No tiene estado y no tiene efectos secundarios.",
+        "is_correct": true
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-2",
+        "text": "Usa solo componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-3",
+        "text": "Tiene mucha logica de negocio.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-4",
+        "text": "Hace peticiones a APIs.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-5",
+        "text": "Modifica el DOM directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-6",
+        "text": "Usa useState y useEffect.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-q-2",
+    "question_id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene",
+    "question": "¿Cuales son las ventajas de los componentes puros?",
+    "alternatives": [
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-7",
+        "text": "Son mas faciles de testear, mantener y entender.",
+        "is_correct": true
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-8",
+        "text": "Pueden manejar estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-9",
+        "text": "Permiten hacer llamadas a APIs directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-10",
+        "text": "Son mas complejos pero mas potentes.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-11",
+        "text": "Solo sirven para aplicaciones pequenas.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-12",
+        "text": "No tienen ventajas, es solo un patron antiguo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-q-3",
+    "question_id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene",
+    "question": "¿Cual es la unica responsabilidad de un componente puro?",
+    "alternatives": [
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-13",
+        "text": "Renderizar la interfaz.",
+        "is_correct": true
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-14",
+        "text": "Gestionar el estado de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-15",
+        "text": "Hacer peticiones HTTP.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-16",
+        "text": "Manejar eventos del usuario.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-17",
+        "text": "Validar formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "como-mantener-los-componentes-puros-y-que-ventajas-tiene-a-18",
+        "text": "Conectar con la base de datos.",
+        "is_correct": false
+      }
+    ]
+  }
+]

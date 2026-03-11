@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-hace-el-hook-use-layout-effect-q-1",
+    "question_id": "que-hace-el-hook-use-layout-effect",
+    "question": "¿Como funciona useLayoutEffect comparado con useEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-1",
+        "text": "Igual que useEffect, pero se dispara sincronicamente despues de las mutaciones del DOM.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-2",
+        "text": "Es completamente diferente a useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-3",
+        "text": "Se ejecuta antes de que React renderice.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-4",
+        "text": "Solo funciona en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-5",
+        "text": "No acepta dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-6",
+        "text": "Se ejecuta en un hilo separado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-layout-effect-q-2",
+    "question_id": "que-hace-el-hook-use-layout-effect",
+    "question": "¿Que argumentos recibe useLayoutEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-7",
+        "text": "Una funcion callback y una lista de dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-8",
+        "text": "Solo una funcion callback.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-9",
+        "text": "Solo una lista de dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-10",
+        "text": "Tres argumentos obligatorios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-11",
+        "text": "Un componente y props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-12",
+        "text": "No recibe argumentos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-layout-effect-q-3",
+    "question_id": "que-hace-el-hook-use-layout-effect",
+    "question": "¿Cuando conviene usar useLayoutEffect en lugar de useEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-13",
+        "text": "Cuando los efectos del DOM necesitan mutar la apariencia antes de mostrar en pantalla.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-14",
+        "text": "Siempre, es mejor que useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-15",
+        "text": "Nunca, useEffect es suficiente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-16",
+        "text": "Solo para peticiones a APIs.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-17",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-18",
+        "text": "Solo para manejar estado global.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-layout-effect-q-4",
+    "question_id": "que-hace-el-hook-use-layout-effect",
+    "question": "¿En que orden se ejecuta useLayoutEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-19",
+        "text": "Despues de que React renderiza el componente pero antes de actualizar la pantalla visualmente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-20",
+        "text": "Antes de que React renderice el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-21",
+        "text": "Despues de que la pantalla se actualiza visualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-22",
+        "text": "En paralelo con el renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-23",
+        "text": "Solo cuando el usuario interactua.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-layout-effect-a-24",
+        "text": "En un momento aleatorio.",
+        "is_correct": false
+      }
+    ]
+  }
+]

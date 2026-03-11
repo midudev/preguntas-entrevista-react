@@ -1,0 +1,113 @@
+[
+  {
+    "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-q-1",
+    "question_id": "por-que-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada",
+    "question": "¿Cual es la desventaja de la exportacion por defecto en React?",
+    "alternatives": [
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-1",
+        "text": "Permite usar cualquier nombre al importar, lo que puede causar inconsistencias.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-2",
+        "text": "No permite exportar componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-3",
+        "text": "Es mas lento que la exportacion nombrada.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-4",
+        "text": "No funciona en React.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-5",
+        "text": "Solo funciona con componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-6",
+        "text": "No tiene desventajas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-q-2",
+    "question_id": "por-que-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada",
+    "question": "¿Que ventaja tienen los exports nombrados?",
+    "alternatives": [
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-7",
+        "text": "Obligan a usar el mismo nombre en todos los archivos.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-8",
+        "text": "Son mas rapidos.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-9",
+        "text": "Permiten exportar mas de un componente por defecto.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-10",
+        "text": "No requieren imports.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-11",
+        "text": "Solo funcionan en TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-12",
+        "text": "No tienen ventajas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-q-3",
+    "question_id": "por-que-es-recomendable-exportar-los-componentes-de-react-de-forma-nombrada",
+    "question": "¿Como se importa un componente con exportacion nombrada?",
+    "alternatives": [
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-13",
+        "text": "import { Button } from './button.jsx'",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-14",
+        "text": "import Button from './button.jsx'",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-15",
+        "text": "import * as Button from './button.jsx'",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-16",
+        "text": "require('./button.jsx').Button",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-17",
+        "text": "load Button from './button.jsx'",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-exportar-los-componentes-de-forma-nombrada-a-18",
+        "text": "include { Button } from './button.jsx'",
+        "is_correct": false
+      }
+    ]
+  }
+]

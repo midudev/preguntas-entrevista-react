@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-q-1",
+    "question_id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react",
+    "question": "¿Que propiedad se usa para inyectar HTML directamente en React?",
+    "alternatives": [
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-1",
+        "text": "dangerouslySetInnerHTML",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-2",
+        "text": "innerHTML",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-3",
+        "text": "setHTML",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-4",
+        "text": "htmlContent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-5",
+        "text": "No se puede inyectar HTML en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-6",
+        "text": "rawHTML",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-q-2",
+    "question_id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react",
+    "question": "¿Por que React escapa el HTML por defecto?",
+    "alternatives": [
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-7",
+        "text": "Para evitar ataques XSS (Cross-Site Scripting).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-8",
+        "text": "Para mejorar el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-9",
+        "text": "Porque no soporta HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-10",
+        "text": "Es un bug de React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-11",
+        "text": "Solo por convencion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-12",
+        "text": "Para facilitar el debugging.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-q-3",
+    "question_id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react",
+    "question": "¿Cual es el formato correcto para usar dangerouslySetInnerHTML?",
+    "alternatives": [
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-13",
+        "text": "dangerouslySetInnerHTML={{ __html: htmlString }}",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-14",
+        "text": "dangerouslySetInnerHTML={htmlString}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-15",
+        "text": "dangerouslySetInnerHTML={{ html: htmlString }}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-16",
+        "text": "dangerouslySetInnerHTML={[htmlString]}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-17",
+        "text": "dangerouslySetInnerHTML(htmlString)",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-inyectar-html-directamente-en-un-componente-de-react-a-18",
+        "text": "dangerouslySetInnerHTML={{ content: htmlString }}",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-q-1",
+    "question_id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react",
+    "question": "¿Que objeto crea React en lugar del evento nativo del navegador?",
+    "alternatives": [
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-1",
+        "text": "SyntheticEvent",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-2",
+        "text": "ReactEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-3",
+        "text": "VirtualEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-4",
+        "text": "CustomEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-5",
+        "text": "DOMEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-6",
+        "text": "BrowserEvent",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-q-2",
+    "question_id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react",
+    "question": "¿Que atributo se usa para acceder al evento nativo del navegador?",
+    "alternatives": [
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-7",
+        "text": "nativeEvent",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-8",
+        "text": "originalEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-9",
+        "text": "browserEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-10",
+        "text": "rawEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-11",
+        "text": "domEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-12",
+        "text": "No se puede acceder.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-q-3",
+    "question_id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react",
+    "question": "¿Cual es la sintaxis correcta para acceder al evento nativo?",
+    "alternatives": [
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-13",
+        "text": "e.nativeEvent",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-14",
+        "text": "e.getNative()",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-15",
+        "text": "React.nativeEvent(e)",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-16",
+        "text": "window.event",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-17",
+        "text": "e.target.nativeEvent",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-acceder-al-evento-nativo-del-navegador-en-react-a-18",
+        "text": "this.nativeEvent",
+        "is_correct": false
+      }
+    ]
+  }
+]

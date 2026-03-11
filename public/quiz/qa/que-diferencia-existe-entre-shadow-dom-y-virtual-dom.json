@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-q-1",
+    "question_id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom",
+    "question": "¿Que es el Shadow DOM?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-1",
+        "text": "Una API del navegador que permite crear un arbol de nodos DOM independiente dentro de un elemento.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-2",
+        "text": "Una representacion del DOM en memoria usada por React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-3",
+        "text": "Un hook de React para manipular el DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-4",
+        "text": "Una copia del DOM que se guarda en localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-5",
+        "text": "Un sistema de estilos CSS encapsulados.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-6",
+        "text": "Una libreria externa para manipular el DOM.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-q-2",
+    "question_id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom",
+    "question": "¿Que es el Virtual DOM?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-7",
+        "text": "Una representacion del DOM en memoria que permite comparar cambios y hacer actualizaciones minimas al DOM real.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-8",
+        "text": "Una API nativa del navegador para encapsular componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-9",
+        "text": "Un sistema de cache del navegador para elementos HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-10",
+        "text": "Una tecnologia para crear Web Components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-11",
+        "text": "Una version simplificada del DOM para dispositivos moviles.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-12",
+        "text": "Un iframe invisible donde React renderiza componentes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-q-3",
+    "question_id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom",
+    "question": "¿Para que se usa principalmente el Shadow DOM?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-13",
+        "text": "Para crear Web Components que no interfieran con el resto de la aplicacion.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-14",
+        "text": "Para optimizar el rendimiento de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-15",
+        "text": "Para hacer Server Side Rendering.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-16",
+        "text": "Para crear animaciones CSS avanzadas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-17",
+        "text": "Para manejar eventos del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-18",
+        "text": "Para almacenar datos de sesion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-q-4",
+    "question_id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom",
+    "question": "¿Cual es la principal diferencia entre Shadow DOM y Virtual DOM?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-19",
+        "text": "Shadow DOM es una API nativa del navegador; Virtual DOM es una representacion en memoria usada por React.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-20",
+        "text": "Shadow DOM es mas rapido que Virtual DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-21",
+        "text": "Virtual DOM solo funciona en Chrome, Shadow DOM en todos los navegadores.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-22",
+        "text": "Son lo mismo, solo cambia el nombre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-23",
+        "text": "Shadow DOM es para CSS y Virtual DOM para JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-existe-entre-shadow-dom-y-virtual-dom-a-24",
+        "text": "Virtual DOM esta deprecado, Shadow DOM es su reemplazo.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-q-1",
+    "question_id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-que-pasa-si-lo-haces-y-que-hay-que-tener-en-cuenta",
+    "question": "¿Se puede inicializar un estado con el valor de una prop?",
+    "alternatives": [
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-1",
+        "text": "Si, pero el estado no se actualizara automaticamente si la prop cambia.",
+        "is_correct": true
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-2",
+        "text": "No, React no permite inicializar estados con props.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-3",
+        "text": "Si, y el estado siempre se sincroniza automaticamente con la prop.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-4",
+        "text": "Solo en componentes de clase, no en funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-5",
+        "text": "Solo si la prop es de tipo primitivo (string o number).",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-6",
+        "text": "Produce un error en tiempo de ejecucion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-q-2",
+    "question_id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-que-pasa-si-lo-haces-y-que-hay-que-tener-en-cuenta",
+    "question": "¿Cual es una buena practica al nombrar una prop que se usara para inicializar un estado?",
+    "alternatives": [
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-7",
+        "text": "Anadir el prefijo 'initial' a la prop, como initialValue.",
+        "is_correct": true
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-8",
+        "text": "Usar siempre el nombre 'defaultState'.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-9",
+        "text": "Nombrarla igual que el estado interno.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-10",
+        "text": "Usar el prefijo 'set' como setInitial.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-11",
+        "text": "No existe ninguna convencion para esto.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-12",
+        "text": "Usar el sufijo 'Prop' como valueProp.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-q-3",
+    "question_id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-que-pasa-si-lo-haces-y-que-hay-que-tener-en-cuenta",
+    "question": "¿Cual es una buena practica respecto al uso de estados en componentes?",
+    "alternatives": [
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-13",
+        "text": "Evitar estados al maximo y calcular valores a partir de las props cuando sea posible.",
+        "is_correct": true
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-14",
+        "text": "Crear un estado para cada prop que reciba el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-15",
+        "text": "Siempre duplicar las props en estados locales.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-16",
+        "text": "Usar solo variables globales en lugar de estados.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-17",
+        "text": "Almacenar todo en localStorage en vez de usar estados.",
+        "is_correct": false
+      },
+      {
+        "id": "se-puede-inicializar-un-estado-con-el-valor-de-una-prop-a-18",
+        "text": "Nunca usar useState, solo useReducer.",
+        "is_correct": false
+      }
+    ]
+  }
+]

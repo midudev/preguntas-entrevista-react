@@ -1,0 +1,113 @@
+[
+  {
+    "id": "para-que-sirve-el-metodo-render-to-readable-stream-q-1",
+    "question_id": "para-que-sirve-el-metodo-render-to-readable-stream",
+    "question": "¿Para que entornos esta pensado renderToReadableStream?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-1",
+        "text": "Entornos que soporten Web Streams como Deno.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-2",
+        "text": "Solo para Node.js.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-3",
+        "text": "Solo para navegadores.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-4",
+        "text": "Para cualquier entorno JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-5",
+        "text": "Solo para React Native.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-6",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-metodo-render-to-readable-stream-q-2",
+    "question_id": "para-que-sirve-el-metodo-render-to-readable-stream",
+    "question": "¿A que metodo es similar renderToReadableStream?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-7",
+        "text": "renderToNodeStream",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-8",
+        "text": "renderToString",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-9",
+        "text": "createRoot",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-10",
+        "text": "hydrateRoot",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-11",
+        "text": "ReactDOM.render",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-12",
+        "text": "No es similar a ningun otro.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-metodo-render-to-readable-stream-q-3",
+    "question_id": "para-que-sirve-el-metodo-render-to-readable-stream",
+    "question": "¿Que propiedad se puede usar para esperar todo el HTML antes de enviarlo?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-13",
+        "text": "stream.allReady",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-14",
+        "text": "stream.complete",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-15",
+        "text": "stream.done",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-16",
+        "text": "stream.finished",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-17",
+        "text": "stream.wait()",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-render-to-readable-stream-a-18",
+        "text": "No se puede esperar.",
+        "is_correct": false
+      }
+    ]
+  }
+]

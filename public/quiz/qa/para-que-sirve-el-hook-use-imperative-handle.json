@@ -1,0 +1,113 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-imperative-handle-q-1",
+    "question_id": "para-que-sirve-el-hook-use-imperative-handle",
+    "question": "¿Para que sirve useImperativeHandle?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-1",
+        "text": "Definir que propiedades y metodos son accesibles desde el componente padre.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-2",
+        "text": "Manejar el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-3",
+        "text": "Crear efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-4",
+        "text": "Memorizar valores calculados.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-5",
+        "text": "Manejar eventos del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-6",
+        "text": "Crear contextos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-imperative-handle-q-2",
+    "question_id": "para-que-sirve-el-hook-use-imperative-handle",
+    "question": "¿Cuantos parametros recibe useImperativeHandle?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-7",
+        "text": "Dos: una referencia y una funcion que devuelve un objeto.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-8",
+        "text": "Uno: solo la referencia.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-9",
+        "text": "Tres: referencia, estado y callback.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-10",
+        "text": "Ninguno.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-11",
+        "text": "Cuatro: ref, callback, deps y options.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-12",
+        "text": "Solo un string con el nombre del metodo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-imperative-handle-q-3",
+    "question_id": "para-que-sirve-el-hook-use-imperative-handle",
+    "question": "¿Con que otro hook se suele usar useImperativeHandle?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-13",
+        "text": "useRef para crear la referencia interna.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-14",
+        "text": "useState para el estado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-15",
+        "text": "useEffect para efectos.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-16",
+        "text": "useContext para el contexto.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-17",
+        "text": "useMemo para memorizacion.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-imperative-handle-a-18",
+        "text": "No se usa con otros hooks.",
+        "is_correct": false
+      }
+    ]
+  }
+]

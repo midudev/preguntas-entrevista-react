@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-q-1",
+    "question_id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos",
+    "question": "¿Que tecnica limita la cantidad de datos recibidos por llamada a la API?",
+    "alternatives": [
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-1",
+        "text": "Paginacion (Pagination).",
+        "is_correct": true
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-2",
+        "text": "Virtualizacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-3",
+        "text": "Memorizacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-4",
+        "text": "Lazy loading de componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-5",
+        "text": "Server-side rendering.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-6",
+        "text": "Code splitting.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-q-2",
+    "question_id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos",
+    "question": "¿Que hace la tecnica de Virtualizacion?",
+    "alternatives": [
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-7",
+        "text": "Solo monta los elementos visibles en el viewport mas un buffer.",
+        "is_correct": true
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-8",
+        "text": "Crea una copia virtual de toda la lista.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-9",
+        "text": "Oculta los elementos con CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-10",
+        "text": "Comprime los datos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-11",
+        "text": "Carga todo en memoria.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-12",
+        "text": "Elimina los datos duplicados.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-q-3",
+    "question_id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos",
+    "question": "¿Que libreria de React se puede usar para Virtualizacion?",
+    "alternatives": [
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-13",
+        "text": "react-virtualized",
+        "is_correct": true
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-14",
+        "text": "react-pagination",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-15",
+        "text": "react-list-optimizer",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-16",
+        "text": "react-dom-manager",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-17",
+        "text": "react-fast-list",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-18",
+        "text": "No hay librerias para esto.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-q-4",
+    "question_id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos",
+    "question": "¿Cual es una ventaja de la Virtualizacion sobre la Paginacion?",
+    "alternatives": [
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-19",
+        "text": "Permite hacer busquedas/filtrados en memoria sin mas llamadas al servidor.",
+        "is_correct": true
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-20",
+        "text": "Es mas facil de implementar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-21",
+        "text": "No necesita JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-22",
+        "text": "Funciona en todos los navegadores.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-23",
+        "text": "No tiene ninguna ventaja.",
+        "is_correct": false
+      },
+      {
+        "id": "que-solucion-es-implementarias-para-evitar-problemas-de-rendimiento-al-trabajar-con-listas-de-miles-millones-de-datos-a-24",
+        "text": "Solo funciona con paginacion.",
+        "is_correct": false
+      }
+    ]
+  }
+]

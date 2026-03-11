@@ -1,0 +1,113 @@
+[
+  {
+    "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-q-1",
+    "question_id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div",
+    "question": "¿Por que Fragment es mejor que div para envolver elementos?",
+    "alternatives": [
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-1",
+        "text": "Porque no anade elementos extra al DOM y no afecta el layout CSS.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-2",
+        "text": "Porque es mas facil de escribir.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-3",
+        "text": "Porque tiene mejor compatibilidad con navegadores antiguos.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-4",
+        "text": "No hay diferencia, ambos son equivalentes.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-5",
+        "text": "Porque Fragment permite aplicar estilos inline.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-6",
+        "text": "Porque div esta deprecado en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-q-2",
+    "question_id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div",
+    "question": "¿Que problema puede causar usar div con CSS flex o grid?",
+    "alternatives": [
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-7",
+        "text": "Puede afectar el alineamiento porque div crea un nivel extra en el DOM.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-8",
+        "text": "No causa ningun problema con flex o grid.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-9",
+        "text": "Hace que los estilos no se apliquen.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-10",
+        "text": "Produce errores de JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-11",
+        "text": "Solo afecta en navegadores moviles.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-12",
+        "text": "Flex y grid no funcionan con div.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-q-3",
+    "question_id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div",
+    "question": "¿Que estilo aplica div por defecto que Fragment no aplica?",
+    "alternatives": [
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-13",
+        "text": "display: block, haciendo que se comporte como un bloque.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-14",
+        "text": "display: flex.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-15",
+        "text": "display: inline.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-16",
+        "text": "display: none.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-17",
+        "text": "Ningun estilo, ambos son iguales.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-es-recomendable-usar-fragment-en-vez-de-un-div-a-18",
+        "text": "position: relative.",
+        "is_correct": false
+      }
+    ]
+  }
+]

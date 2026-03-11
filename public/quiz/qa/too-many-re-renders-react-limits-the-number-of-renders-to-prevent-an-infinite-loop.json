@@ -1,0 +1,150 @@
+[
+  {
+    "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-q-1",
+    "question_id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop",
+    "question": "¿Que indica el error 'Too many re-renders'?",
+    "alternatives": [
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-1",
+        "text": "Que algo esta generando muchos pintados que pueden causar un loop infinito.",
+        "is_correct": true
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-2",
+        "text": "Que hay demasiados componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-3",
+        "text": "Que falta memoria.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-4",
+        "text": "Que el servidor esta lento.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-5",
+        "text": "Que hay errores de sintaxis.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-6",
+        "text": "Que React necesita actualizarse.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-q-2",
+    "question_id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop",
+    "question": "¿Cual es una causa comun de este error?",
+    "alternatives": [
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-7",
+        "text": "Llamar a setState directamente en el renderizado del componente.",
+        "is_correct": true
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-8",
+        "text": "Usar componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-9",
+        "text": "Importar React.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-10",
+        "text": "Usar useRef.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-11",
+        "text": "Tener muchos props.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-12",
+        "text": "Usar TypeScript.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-q-3",
+    "question_id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop",
+    "question": "¿Que error comun causa este problema en onClick?",
+    "alternatives": [
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-13",
+        "text": "Ejecutar la funcion directamente: onClick={setCount(count + 1)} en lugar de onClick={() => setCount(count + 1)}.",
+        "is_correct": true
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-14",
+        "text": "Usar arrow functions.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-15",
+        "text": "Usar el evento click.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-16",
+        "text": "No definir el handler.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-17",
+        "text": "Usar botones.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-18",
+        "text": "No hay diferencia entre ambas sintaxis.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-q-4",
+    "question_id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop",
+    "question": "¿Que error con useEffect causa re-renders infinitos?",
+    "alternatives": [
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-19",
+        "text": "No colocar el array de dependencias cuando se actualiza el estado dentro del efecto.",
+        "is_correct": true
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-20",
+        "text": "Usar useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-21",
+        "text": "Colocar array de dependencias vacio.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-22",
+        "text": "Retornar una funcion de limpieza.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-23",
+        "text": "Hacer peticiones async.",
+        "is_correct": false
+      },
+      {
+        "id": "too-many-re-renders-react-limits-the-number-of-renders-to-prevent-an-infinite-loop-a-24",
+        "text": "Importar useEffect.",
+        "is_correct": false
+      }
+    ]
+  }
+]

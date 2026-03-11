@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-las-forward-refs-q-1",
+    "question_id": "que-son-las-forward-refs",
+    "question": "¿Que son las Forward Refs?",
+    "alternatives": [
+      {
+        "id": "que-son-las-forward-refs-a-1",
+        "text": "Una tecnica para acceder a una referencia de un componente hijo desde el padre.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-forward-refs-a-2",
+        "text": "Referencias que apuntan hacia adelante en el tiempo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-3",
+        "text": "Un tipo especial de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-4",
+        "text": "Referencias que solo funcionan con clases.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-5",
+        "text": "Un hook para crear referencias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-6",
+        "text": "No existen en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-forward-refs-q-2",
+    "question_id": "que-son-las-forward-refs",
+    "question": "¿Que funcion de React se usa para implementar Forward Refs?",
+    "alternatives": [
+      {
+        "id": "que-son-las-forward-refs-a-7",
+        "text": "forwardRef",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-forward-refs-a-8",
+        "text": "useRef",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-9",
+        "text": "createRef",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-10",
+        "text": "passRef",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-11",
+        "text": "sendRef",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-12",
+        "text": "refForward",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-forward-refs-q-3",
+    "question_id": "que-son-las-forward-refs",
+    "question": "¿En que caso son utiles las Forward Refs?",
+    "alternatives": [
+      {
+        "id": "que-son-las-forward-refs-a-13",
+        "text": "En sistemas de diseno o componentes reutilizables de terceros.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-forward-refs-a-14",
+        "text": "En todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-15",
+        "text": "Solo para manejar formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-16",
+        "text": "Solo en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-17",
+        "text": "Solo para animaciones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-forward-refs-a-18",
+        "text": "No tienen uso practico.",
+        "is_correct": false
+      }
+    ]
+  }
+]

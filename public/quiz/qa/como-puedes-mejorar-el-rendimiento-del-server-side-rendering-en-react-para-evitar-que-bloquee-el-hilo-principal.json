@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-q-1",
+    "question_id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal",
+    "question": "¿Cual es el problema de usar renderToString para SSR?",
+    "alternatives": [
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-1",
+        "text": "Es sincrono y bloquea el hilo principal.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-2",
+        "text": "No funciona con React 18.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-3",
+        "text": "No soporta componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-4",
+        "text": "Solo funciona en desarrollo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-5",
+        "text": "No genera HTML valido.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-6",
+        "text": "No tiene ningun problema.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-q-2",
+    "question_id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal",
+    "question": "¿Que metodo se debe usar para evitar bloquear el hilo principal en SSR?",
+    "alternatives": [
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-7",
+        "text": "renderToPipeableStream",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-8",
+        "text": "renderToString",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-9",
+        "text": "renderToDOM",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-10",
+        "text": "renderAsync",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-11",
+        "text": "streamRender",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-12",
+        "text": "No se puede evitar.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-q-3",
+    "question_id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal",
+    "question": "¿Que callback de renderToPipeableStream se ejecuta cuando el contenido por encima de Suspense esta listo?",
+    "alternatives": [
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-13",
+        "text": "onShellReady",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-14",
+        "text": "onAllReady",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-15",
+        "text": "onComplete",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-16",
+        "text": "onRender",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-17",
+        "text": "onStart",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-mejorar-el-rendimiento-del-server-side-rendering-en-react-para-evitar-que-bloquee-el-hilo-principal-a-18",
+        "text": "onLoad",
+        "is_correct": false
+      }
+    ]
+  }
+]

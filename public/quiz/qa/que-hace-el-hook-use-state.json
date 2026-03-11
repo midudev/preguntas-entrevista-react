@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-hace-el-hook-use-state-q-1",
+    "question_id": "que-hace-el-hook-use-state",
+    "question": "¿Para que se utiliza el hook useState?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-state-a-1",
+        "text": "Para crear variables de estado cuyo valor puede cambiar y causa re-renderizado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-2",
+        "text": "Para ejecutar efectos secundarios en el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-3",
+        "text": "Para acceder al contexto global de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-4",
+        "text": "Para crear referencias a elementos del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-5",
+        "text": "Para memorizar calculos costosos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-6",
+        "text": "Para definir el estilo CSS del componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-state-q-2",
+    "question_id": "que-hace-el-hook-use-state",
+    "question": "¿Que parametro recibe useState?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-state-a-7",
+        "text": "El valor inicial del estado.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-8",
+        "text": "Una funcion callback.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-9",
+        "text": "El nombre de la variable de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-10",
+        "text": "Un array de dependencias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-11",
+        "text": "Una referencia a otro componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-12",
+        "text": "No recibe ningun parametro.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-state-q-3",
+    "question_id": "que-hace-el-hook-use-state",
+    "question": "¿Como se puede acceder al valor actual del estado dentro de la funcion set?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-state-a-13",
+        "text": "Pasando una funcion como parametro: setCount(count => count + 1)",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-14",
+        "text": "Usando this.state dentro de la funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-15",
+        "text": "Llamando a getState() previamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-16",
+        "text": "Accediendo a useState.current.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-17",
+        "text": "No es posible acceder al valor actual.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-state-a-18",
+        "text": "Usando el hook useCurrentState().",
+        "is_correct": false
+      }
+    ]
+  }
+]

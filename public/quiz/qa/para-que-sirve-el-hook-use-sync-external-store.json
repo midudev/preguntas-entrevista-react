@@ -1,0 +1,150 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-sync-external-store-q-1",
+    "question_id": "para-que-sirve-el-hook-use-sync-external-store",
+    "question": "¿Para que sirve useSyncExternalStore?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-1",
+        "text": "Conectar React con una fuente de datos externa (Redux, Zustand, APIs del navegador).",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-2",
+        "text": "Sincronizar datos entre pestanas del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-3",
+        "text": "Almacenar datos en localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-4",
+        "text": "Crear animaciones sincronizadas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-5",
+        "text": "Sincronizar el estado con el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-6",
+        "text": "Gestionar WebSockets.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-sync-external-store-q-2",
+    "question_id": "para-que-sirve-el-hook-use-sync-external-store",
+    "question": "¿Cuantos argumentos principales recibe useSyncExternalStore?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-7",
+        "text": "Tres: subscribe, getSnapshot y getServerSnapshot (opcional).",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-8",
+        "text": "Uno: el store.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-9",
+        "text": "Dos: estado inicial y reducer.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-10",
+        "text": "Ninguno, no recibe argumentos.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-11",
+        "text": "Cuatro: subscribe, unsubscribe, get y set.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-12",
+        "text": "Solo la URL del store externo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-sync-external-store-q-3",
+    "question_id": "para-que-sirve-el-hook-use-sync-external-store",
+    "question": "¿Para que sirve el tercer argumento (getServerSnapshot)?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-13",
+        "text": "Evitar discrepancias entre el HTML inicial y la hidratacion en SSR.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-14",
+        "text": "Enviar datos al servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-15",
+        "text": "Guardar el estado en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-16",
+        "text": "Validar los datos del store.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-17",
+        "text": "Crear un backup del estado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-18",
+        "text": "No tiene ninguna funcion especifica.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-sync-external-store-q-4",
+    "question_id": "para-que-sirve-el-hook-use-sync-external-store",
+    "question": "¿Que ventaja ofrece useSyncExternalStore en renderizados concurrentes?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-19",
+        "text": "Lecturas consistentes durante los renders.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-20",
+        "text": "Mayor velocidad de renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-21",
+        "text": "Menos memoria utilizada.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-22",
+        "text": "Animaciones mas fluidas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-23",
+        "text": "No tiene ventajas especificas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-sync-external-store-a-24",
+        "text": "Solo funciona en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  }
+]

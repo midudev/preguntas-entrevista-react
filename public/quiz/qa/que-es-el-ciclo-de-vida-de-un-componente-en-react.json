@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-q-1",
+    "question_id": "que-es-el-ciclo-de-vida-de-un-componente-en-react",
+    "question": "¿Cuales son las tres fases del ciclo de vida de un componente de clase en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-1",
+        "text": "Montaje, actualizacion y desmontaje.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-2",
+        "text": "Inicio, proceso y fin.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-3",
+        "text": "Crear, renderizar y destruir.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-4",
+        "text": "Compilar, ejecutar y terminar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-5",
+        "text": "Solo hay una fase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-6",
+        "text": "Hay cinco fases.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-q-2",
+    "question_id": "que-es-el-ciclo-de-vida-de-un-componente-en-react",
+    "question": "¿Que metodo se ejecuta cuando el componente se anade al DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-7",
+        "text": "componentDidMount",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-8",
+        "text": "componentWillUnmount",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-9",
+        "text": "componentDidUpdate",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-10",
+        "text": "componentWillMount",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-11",
+        "text": "onMount",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-12",
+        "text": "useMount",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-q-3",
+    "question_id": "que-es-el-ciclo-de-vida-de-un-componente-en-react",
+    "question": "¿Que metodo se ejecuta cuando el componente se elimina del DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-13",
+        "text": "componentWillUnmount",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-14",
+        "text": "componentDidMount",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-15",
+        "text": "componentDidUpdate",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-16",
+        "text": "componentOnDestroy",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-17",
+        "text": "onDestroy",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-18",
+        "text": "destructor",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-q-4",
+    "question_id": "que-es-el-ciclo-de-vida-de-un-componente-en-react",
+    "question": "¿En que orden se ejecutan los metodos del ciclo de vida?",
+    "alternatives": [
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-19",
+        "text": "constructor, render, componentDidMount, componentDidUpdate, componentWillUnmount",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-20",
+        "text": "render, constructor, componentDidMount",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-21",
+        "text": "componentDidMount, render, constructor",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-22",
+        "text": "No hay orden definido.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-23",
+        "text": "componentWillUnmount, render, constructor",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-ciclo-de-vida-de-un-componente-en-react-a-24",
+        "text": "Se ejecutan de forma aleatoria.",
+        "is_correct": false
+      }
+    ]
+  }
+]

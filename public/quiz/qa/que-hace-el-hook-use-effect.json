@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-hace-el-hook-use-effect-q-1",
+    "question_id": "que-hace-el-hook-use-effect",
+    "question": "¿Para que se usa el hook useEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-effect-a-1",
+        "text": "Para ejecutar codigo cuando se renderiza el componente o cuando cambian las dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-2",
+        "text": "Para crear variables de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-3",
+        "text": "Para memorizar valores calculados.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-4",
+        "text": "Para crear referencias a elementos del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-5",
+        "text": "Para definir el contexto de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-6",
+        "text": "Para validar las props del componente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-effect-q-2",
+    "question_id": "que-hace-el-hook-use-effect",
+    "question": "¿Que parametros recibe useEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-effect-a-7",
+        "text": "Una funcion y un array de dependencias.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-8",
+        "text": "Solo una funcion, sin mas parametros.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-9",
+        "text": "Un valor inicial y una funcion set.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-10",
+        "text": "Una referencia y un callback.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-11",
+        "text": "Un objeto de configuracion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-12",
+        "text": "Tres parametros: funcion, dependencias y timeout.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-effect-q-3",
+    "question_id": "que-hace-el-hook-use-effect",
+    "question": "¿Cuando se ejecuta la funcion de useEffect?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-effect-a-13",
+        "text": "Cuando se renderiza el componente y cuando cambia alguna dependencia del array.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-14",
+        "text": "Solo una vez al montar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-15",
+        "text": "Solo cuando el usuario interactua con el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-16",
+        "text": "Antes de que se renderice el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-17",
+        "text": "Solo cuando se llama manualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-effect-a-18",
+        "text": "Cada segundo automaticamente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

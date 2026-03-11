@@ -1,0 +1,76 @@
+[
+  {
+    "id": "es-buena-idea-usar-siempre-use-memo-q-1",
+    "question_id": "es-buena-idea-usar-siempre-use-memo-para-optimizar-nuestros-componentes",
+    "question": "¿Es buena idea usar siempre useMemo para optimizar componentes?",
+    "alternatives": [
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-1",
+        "text": "No, a veces el calculo es tan rapido que no merece la pena memorizarlo.",
+        "is_correct": true
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-2",
+        "text": "Si, siempre mejora el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-3",
+        "text": "Si, es una herramienta magica de optimizacion.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-4",
+        "text": "Si, React lo recomienda para todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-5",
+        "text": "No existe useMemo en React.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-6",
+        "text": "Solo se debe usar en produccion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "es-buena-idea-usar-siempre-use-memo-q-2",
+    "question_id": "es-buena-idea-usar-siempre-use-memo-para-optimizar-nuestros-componentes",
+    "question": "¿Que puede suceder si usamos useMemo innecesariamente?",
+    "alternatives": [
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-7",
+        "text": "Puede ser mas lento memorizarlo que calcularlo de nuevo.",
+        "is_correct": true
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-8",
+        "text": "Siempre es mas rapido.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-9",
+        "text": "No pasa nada, siempre es beneficioso.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-10",
+        "text": "La aplicacion deja de funcionar.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-11",
+        "text": "Se produce un error de compilacion.",
+        "is_correct": false
+      },
+      {
+        "id": "es-buena-idea-usar-siempre-use-memo-a-12",
+        "text": "React lanza una advertencia.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedes-escribir-comentarios-en-react-q-1",
+    "question_id": "como-puedes-escribir-comentarios-en-react",
+    "question": "¿Como se escribe un comentario dentro del renderizado (JSX) de un componente?",
+    "alternatives": [
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-1",
+        "text": "Envolviendo el comentario en llaves con sintaxis de bloque: {/* comentario */}",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-2",
+        "text": "Usando // comentario directamente en el JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-3",
+        "text": "Usando <!-- comentario --> como en HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-4",
+        "text": "No es posible escribir comentarios dentro del JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-5",
+        "text": "Usando la etiqueta <comment>texto</comment>.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-6",
+        "text": "Usando el hook useComment().",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-escribir-comentarios-en-react-q-2",
+    "question_id": "como-puedes-escribir-comentarios-en-react",
+    "question": "¿Como se escribe un comentario fuera del renderizado de un componente?",
+    "alternatives": [
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-7",
+        "text": "Usando la sintaxis normal de JavaScript: // o /* */",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-8",
+        "text": "Solo se puede usar {/* */} en cualquier parte.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-9",
+        "text": "Usando <!-- --> como en HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-10",
+        "text": "No se pueden escribir comentarios fuera del JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-11",
+        "text": "Usando la funcion React.comment().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-escribir-comentarios-en-react-a-12",
+        "text": "Solo con el formato /** */ de JSDoc.",
+        "is_correct": false
+      }
+    ]
+  }
+]

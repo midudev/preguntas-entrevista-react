@@ -1,0 +1,113 @@
+[
+  {
+    "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-q-1",
+    "question_id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react",
+    "question": "¿Por que debemos usar la funcion setState para actualizar el estado en React?",
+    "alternatives": [
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-1",
+        "text": "Porque el estado debe ser inmutable y React necesita saber cuando re-renderizar.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-2",
+        "text": "Es solo una convencion, se puede modificar directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-3",
+        "text": "Porque JavaScript no permite modificar variables.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-4",
+        "text": "Solo por motivos de rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-5",
+        "text": "Porque las funciones son mas rapidas que las variables.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-6",
+        "text": "No es necesario, es opcional.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-q-2",
+    "question_id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react",
+    "question": "¿De que forma actualiza React el estado cuando llamamos a setState?",
+    "alternatives": [
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-7",
+        "text": "De forma asincrona, cuando React lo considere oportuno.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-8",
+        "text": "De forma sincrona inmediatamente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-9",
+        "text": "Solo al final de la ejecucion del programa.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-10",
+        "text": "Solo cuando el usuario interactua.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-11",
+        "text": "Nunca actualiza el estado automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-12",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-q-3",
+    "question_id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react",
+    "question": "¿Que garantiza la inmutabilidad del estado en React?",
+    "alternatives": [
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-13",
+        "text": "Que la integridad de la UI respecto a los datos que renderiza siempre es correcta.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-14",
+        "text": "Que el codigo sea mas corto.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-15",
+        "text": "Que la aplicacion sea mas lenta.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-16",
+        "text": "Nada, es solo una preferencia.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-17",
+        "text": "Que no se pueda usar TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-debemos-utilizar-una-funcion-para-actualizar-el-estado-de-react-a-18",
+        "text": "Que solo funcione en el servidor.",
+        "is_correct": false
+      }
+    ]
+  }
+]

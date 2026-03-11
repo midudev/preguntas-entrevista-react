@@ -1,0 +1,113 @@
+[
+  {
+    "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-q-1",
+    "question_id": "can-t-perform-a-react-state-update-on-an-unmounted-component",
+    "question": "¿Cuando se produce este error?",
+    "alternatives": [
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-1",
+        "text": "Cuando intentamos actualizar el estado de un componente que ya no esta montado.",
+        "is_correct": true
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-2",
+        "text": "Cuando usamos hooks incorrectamente.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-3",
+        "text": "Cuando hay errores de sintaxis.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-4",
+        "text": "Cuando falta la propiedad key.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-5",
+        "text": "Cuando no importamos React.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-6",
+        "text": "Nunca se produce este error.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-q-2",
+    "question_id": "can-t-perform-a-react-state-update-on-an-unmounted-component",
+    "question": "¿Cual es una causa comun de este error?",
+    "alternatives": [
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-7",
+        "text": "Cuando el componente se desmonta antes de que se complete una peticion asincrona.",
+        "is_correct": true
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-8",
+        "text": "Usar componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-9",
+        "text": "No usar PropTypes.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-10",
+        "text": "Usar demasiados componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-11",
+        "text": "Falta de memoria.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-12",
+        "text": "Version antigua de React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-q-3",
+    "question_id": "can-t-perform-a-react-state-update-on-an-unmounted-component",
+    "question": "¿Que API se puede usar para cancelar peticiones y evitar este error?",
+    "alternatives": [
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-13",
+        "text": "AbortController",
+        "is_correct": true
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-14",
+        "text": "CancelToken",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-15",
+        "text": "StopRequest",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-16",
+        "text": "RequestKiller",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-17",
+        "text": "No se puede cancelar.",
+        "is_correct": false
+      },
+      {
+        "id": "can-t-perform-a-react-state-update-on-an-unmounted-component-a-18",
+        "text": "useCancel hook.",
+        "is_correct": false
+      }
+    ]
+  }
+]

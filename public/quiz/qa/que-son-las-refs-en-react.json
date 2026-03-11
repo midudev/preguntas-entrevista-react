@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-son-las-refs-en-react-q-1",
+    "question_id": "que-son-las-refs-en-react",
+    "question": "¿Que son las refs en React?",
+    "alternatives": [
+      {
+        "id": "que-son-las-refs-en-react-a-1",
+        "text": "Referencias a elementos del DOM o valores que se mantienen entre renderizados.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-2",
+        "text": "Referencias a componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-3",
+        "text": "Un tipo especial de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-4",
+        "text": "Referencias a archivos externos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-5",
+        "text": "Un metodo de ciclo de vida.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-6",
+        "text": "Una forma de definir rutas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-refs-en-react-q-2",
+    "question_id": "que-son-las-refs-en-react",
+    "question": "¿Como se pueden crear refs en React?",
+    "alternatives": [
+      {
+        "id": "que-son-las-refs-en-react-a-7",
+        "text": "Con createRef o con el hook useRef.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-8",
+        "text": "Solo con useState.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-9",
+        "text": "Solo con useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-10",
+        "text": "Con el metodo newRef().",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-11",
+        "text": "No se pueden crear refs en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-12",
+        "text": "Solo con componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-refs-en-react-q-3",
+    "question_id": "que-son-las-refs-en-react",
+    "question": "¿Que caracteristica tienen las refs respecto a los renderizados?",
+    "alternatives": [
+      {
+        "id": "que-son-las-refs-en-react-a-13",
+        "text": "El valor de la ref se mantiene entre renderizados.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-14",
+        "text": "Se reinician en cada renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-15",
+        "text": "Solo existen durante el primer renderizado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-16",
+        "text": "Causan re-renderizados cuando cambian.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-17",
+        "text": "Solo funcionan en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-refs-en-react-a-18",
+        "text": "Bloquean los renderizados.",
+        "is_correct": false
+      }
+    ]
+  }
+]

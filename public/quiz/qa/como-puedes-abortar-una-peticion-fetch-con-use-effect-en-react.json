@@ -1,0 +1,150 @@
+[
+  {
+    "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-q-1",
+    "question_id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react",
+    "question": "¿Que API se usa para abortar una peticion fetch en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-1",
+        "text": "AbortController",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-2",
+        "text": "CancelToken",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-3",
+        "text": "FetchCancel",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-4",
+        "text": "RequestStopper",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-5",
+        "text": "useAbort",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-6",
+        "text": "No se puede abortar una peticion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-q-2",
+    "question_id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react",
+    "question": "¿Donde se llama a abort() para cancelar la peticion?",
+    "alternatives": [
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-7",
+        "text": "En la funcion de limpieza (return) del useEffect.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-8",
+        "text": "En el then de la promesa.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-9",
+        "text": "Antes de llamar a fetch.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-10",
+        "text": "En el componente padre.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-11",
+        "text": "En un useState.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-12",
+        "text": "No hay lugar especifico.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-q-3",
+    "question_id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react",
+    "question": "¿Que se pasa al fetch para enlazarlo con el AbortController?",
+    "alternatives": [
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-13",
+        "text": "La propiedad signal del controller.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-14",
+        "text": "El controller completo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-15",
+        "text": "Un callback de cancelacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-16",
+        "text": "Un ID unico.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-17",
+        "text": "Nada, se hace automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-18",
+        "text": "La URL de cancelacion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-q-4",
+    "question_id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react",
+    "question": "¿Que error se lanza cuando una peticion es abortada?",
+    "alternatives": [
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-19",
+        "text": "AbortError",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-20",
+        "text": "CancelError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-21",
+        "text": "FetchError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-22",
+        "text": "NetworkError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-23",
+        "text": "RequestError",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-abortar-una-peticion-fetch-con-use-effect-en-react-a-24",
+        "text": "No lanza ningun error.",
+        "is_correct": false
+      }
+    ]
+  }
+]

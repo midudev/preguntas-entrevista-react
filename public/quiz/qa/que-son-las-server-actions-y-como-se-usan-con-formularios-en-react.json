@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-q-1",
+    "question_id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react",
+    "question": "¿Que son las Server Actions?",
+    "alternatives": [
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-1",
+        "text": "Funciones marcadas con 'use server' que React ejecuta en el backend.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-2",
+        "text": "Componentes que solo renderizan en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-3",
+        "text": "Hooks para manejar peticiones HTTP.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-4",
+        "text": "Eventos del DOM ejecutados en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-5",
+        "text": "Middlewares de Express.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-6",
+        "text": "Rutas API en Next.js.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-q-2",
+    "question_id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react",
+    "question": "¿Que directiva se usa para marcar una Server Action?",
+    "alternatives": [
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-7",
+        "text": "'use server'",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-8",
+        "text": "'use client'",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-9",
+        "text": "'server-only'",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-10",
+        "text": "'use action'",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-11",
+        "text": "@server",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-12",
+        "text": "export server",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-q-3",
+    "question_id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react",
+    "question": "¿Como se conecta una Server Action a un formulario?",
+    "alternatives": [
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-13",
+        "text": "Pasando la funcion al atributo action del formulario: <form action={createPost}>",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-14",
+        "text": "Usando onSubmit={createPost}.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-15",
+        "text": "Llamando a fetch manualmente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-16",
+        "text": "Usando useEffect para enviar los datos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-17",
+        "text": "Creando un endpoint REST.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-18",
+        "text": "No se pueden usar con formularios.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-q-4",
+    "question_id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react",
+    "question": "¿A que pueden acceder las Server Actions?",
+    "alternatives": [
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-19",
+        "text": "Bases de datos, secretos y SDKs privados del servidor.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-20",
+        "text": "Solo al localStorage del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-21",
+        "text": "Unicamente a APIs publicas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-22",
+        "text": "Solo al DOM del cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-23",
+        "text": "A nada, son solo para validacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-las-server-actions-y-como-se-usan-con-formularios-en-react-a-24",
+        "text": "Solo a cookies del cliente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

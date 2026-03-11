@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-hace-el-hook-use-id-q-1",
+    "question_id": "que-hace-el-hook-use-id",
+    "question": "¿Para que se usa el hook useId?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-id-a-1",
+        "text": "Para generar identificadores unicos que se pueden pasar a atributos HTML.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-2",
+        "text": "Para obtener el id del componente actual.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-3",
+        "text": "Para crear un identificador de sesion del usuario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-4",
+        "text": "Para generar claves para listas de elementos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-5",
+        "text": "Para identificar errores en el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-6",
+        "text": "Para obtener el id del usuario autenticado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-id-q-2",
+    "question_id": "que-hace-el-hook-use-id",
+    "question": "¿Para que es especialmente util useId?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-id-a-7",
+        "text": "Para accesibilidad, como relacionar inputs con sus descripciones usando aria-describedby.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-8",
+        "text": "Para mejorar el rendimiento de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-9",
+        "text": "Para conectar con bases de datos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-10",
+        "text": "Para autenticar usuarios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-11",
+        "text": "Para gestionar el estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-12",
+        "text": "Para hacer peticiones HTTP.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-id-q-3",
+    "question_id": "que-hace-el-hook-use-id",
+    "question": "¿Que ventaja tiene useId cuando un componente se usa multiples veces?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-id-a-13",
+        "text": "Genera IDs unicos para cada instancia, evitando duplicados.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-14",
+        "text": "Reutiliza el mismo ID para todas las instancias.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-15",
+        "text": "Genera un error si hay mas de una instancia.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-16",
+        "text": "Requiere pasar un prefijo manual para evitar colisiones.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-17",
+        "text": "No tiene ninguna ventaja especial en ese caso.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-id-a-18",
+        "text": "Solo funciona con la primera instancia del componente.",
+        "is_correct": false
+      }
+    ]
+  }
+]

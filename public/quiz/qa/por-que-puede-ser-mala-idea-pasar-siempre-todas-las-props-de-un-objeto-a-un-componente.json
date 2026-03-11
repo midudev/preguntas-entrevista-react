@@ -1,0 +1,113 @@
+[
+  {
+    "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-q-1",
+    "question_id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente",
+    "question": "¿Que sintaxis se usa para pasar todas las props de un objeto a un componente hijo?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-1",
+        "text": "{...props}",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-2",
+        "text": "[...props]",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-3",
+        "text": "props.all()",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-4",
+        "text": "passProps(props)",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-5",
+        "text": "Object.spread(props)",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-6",
+        "text": "props.*",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-q-2",
+    "question_id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente",
+    "question": "¿Por que puede ser mala idea usar {...props} para pasar todas las props a un componente hijo?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-7",
+        "text": "Puede pasar props innecesarias que el componente hijo no usa, lo cual es confuso.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-8",
+        "text": "Causa errores de compilacion.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-9",
+        "text": "No funciona con componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-10",
+        "text": "React prohibe esta sintaxis.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-11",
+        "text": "Solo funciona en produccion.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-12",
+        "text": "Es mas lento que pasar props individuales.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-q-3",
+    "question_id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente",
+    "question": "¿Cual es una mejor practica en lugar de usar {...props} indiscriminadamente?",
+    "alternatives": [
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-13",
+        "text": "Pasar solo las props que el componente hijo realmente necesita.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-14",
+        "text": "Usar siempre componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-15",
+        "text": "Evitar el uso de props completamente.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-16",
+        "text": "Usar solo Context para pasar datos.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-17",
+        "text": "Convertir todas las props a estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-puede-ser-mala-idea-pasar-siempre-todas-las-props-de-un-objeto-a-un-componente-a-18",
+        "text": "Nunca usar el operador spread.",
+        "is_correct": false
+      }
+    ]
+  }
+]

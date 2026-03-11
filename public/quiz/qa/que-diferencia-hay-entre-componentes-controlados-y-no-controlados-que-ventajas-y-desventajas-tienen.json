@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-q-1",
+    "question_id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-que-ventajas-y-desventajas-tienen",
+    "question": "¿Que caracteriza a un componente controlado en React?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-1",
+        "text": "Tiene un estado que controla el valor del componente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-2",
+        "text": "El navegador controla el valor internamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-3",
+        "text": "No puede tener ningun estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-4",
+        "text": "Solo se puede usar en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-5",
+        "text": "Usa refs para leer el valor del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-6",
+        "text": "No puede recibir props.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-q-2",
+    "question_id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-que-ventajas-y-desventajas-tienen",
+    "question": "¿Cual es una ventaja de los componentes controlados?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-7",
+        "text": "Son mas faciles de testear y permiten crear validaciones facilmente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-8",
+        "text": "Tienen mejor rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-9",
+        "text": "No requieren mantener estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-10",
+        "text": "Son mas simples de crear.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-11",
+        "text": "No provocan re-renderizados.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-12",
+        "text": "No necesitan eventos onChange.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-q-3",
+    "question_id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-que-ventajas-y-desventajas-tienen",
+    "question": "¿Cual es una ventaja de los componentes no controlados?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-13",
+        "text": "Mejor rendimiento porque no se re-renderizan al cambiar el valor.",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-14",
+        "text": "Son mas faciles de validar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-15",
+        "text": "Son mas faciles de testear.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-16",
+        "text": "No requieren acceso al DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-17",
+        "text": "Permiten codigo mas declarativo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-18",
+        "text": "Requieren mas lineas de codigo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-q-4",
+    "question_id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-que-ventajas-y-desventajas-tienen",
+    "question": "¿Como se lee el valor de un componente no controlado?",
+    "alternatives": [
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-19",
+        "text": "Usando una ref para acceder al DOM (inputRef.current.value).",
+        "is_correct": true
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-20",
+        "text": "Usando el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-21",
+        "text": "A traves de las props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-22",
+        "text": "Con el evento onChange.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-23",
+        "text": "Usando useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-diferencia-hay-entre-componentes-controlados-y-no-controlados-a-24",
+        "text": "No se puede leer el valor.",
+        "is_correct": false
+      }
+    ]
+  }
+]

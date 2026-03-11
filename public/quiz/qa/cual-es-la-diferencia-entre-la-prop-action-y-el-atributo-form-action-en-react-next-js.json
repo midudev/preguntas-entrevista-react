@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-q-1",
+    "question_id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js",
+    "question": "¿Que define la prop 'action' en un <form>?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-1",
+        "text": "La accion predeterminada para todo el formulario.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-2",
+        "text": "Solo la accion del primer boton.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-3",
+        "text": "El estilo del formulario.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-4",
+        "text": "El metodo HTTP (GET/POST).",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-5",
+        "text": "La validacion de campos.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-6",
+        "text": "No existe esa prop en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-q-2",
+    "question_id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js",
+    "question": "¿Que hace el atributo formAction en un <button>?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-7",
+        "text": "Sobrescribe la accion solo para ese boton.",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-8",
+        "text": "Desactiva el boton.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-9",
+        "text": "Cambia la accion de todo el formulario permanentemente.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-10",
+        "text": "Aplica estilos al boton.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-11",
+        "text": "Previene el submit del formulario.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-12",
+        "text": "No existe ese atributo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-q-3",
+    "question_id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js",
+    "question": "¿Cuando es util usar formAction?",
+    "alternatives": [
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-13",
+        "text": "Cuando un mismo formulario tiene botones con acciones diferentes (ej: 'Publicar' y 'Guardar borrador').",
+        "is_correct": true
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-14",
+        "text": "Siempre en todos los formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-15",
+        "text": "Solo para formularios de login.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-16",
+        "text": "Nunca, esta deprecado.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-17",
+        "text": "Solo con GET requests.",
+        "is_correct": false
+      },
+      {
+        "id": "cual-es-la-diferencia-entre-la-prop-action-y-el-atributo-form-action-en-react-next-js-a-18",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  }
+]

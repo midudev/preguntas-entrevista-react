@@ -1,0 +1,113 @@
+[
+  {
+    "id": "para-que-sirve-el-metodo-clone-element-de-react-q-1",
+    "question_id": "para-que-sirve-el-metodo-clone-element-de-react",
+    "question": "¿Que permite hacer cloneElement?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-1",
+        "text": "Clonar un elemento React y anadir o modificar sus props.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-2",
+        "text": "Duplicar el DOM del navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-3",
+        "text": "Crear una copia profunda del estado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-4",
+        "text": "Copiar archivos del proyecto.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-5",
+        "text": "Clonar componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-6",
+        "text": "Duplicar hooks.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-metodo-clone-element-de-react-q-2",
+    "question_id": "para-que-sirve-el-metodo-clone-element-de-react",
+    "question": "¿Que pasa con las props originales al usar cloneElement con props nuevas?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-7",
+        "text": "Las props nuevas reemplazan a las originales.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-8",
+        "text": "Se mantienen ambas props.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-9",
+        "text": "Se genera un error.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-10",
+        "text": "Las props originales tienen prioridad.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-11",
+        "text": "Se fusionan en un array.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-12",
+        "text": "Se ignoran ambas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-metodo-clone-element-de-react-q-3",
+    "question_id": "para-que-sirve-el-metodo-clone-element-de-react",
+    "question": "¿Cuando es util usar cloneElement?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-13",
+        "text": "Para modificar un elemento que viene del padre sin posibilidad de re-crearlo.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-14",
+        "text": "Siempre que se crea un componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-15",
+        "text": "Solo en formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-16",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-17",
+        "text": "Nunca, esta deprecado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-metodo-clone-element-de-react-a-18",
+        "text": "Solo para testing.",
+        "is_correct": false
+      }
+    ]
+  }
+]

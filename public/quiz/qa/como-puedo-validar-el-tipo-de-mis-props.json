@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedo-validar-el-tipo-de-mis-props-q-1",
+    "question_id": "como-puedo-validar-el-tipo-de-mis-props",
+    "question": "¿Que paquete se usa para validar el tipo de las props en React?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-1",
+        "text": "prop-types",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-2",
+        "text": "react-types",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-3",
+        "text": "type-check",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-4",
+        "text": "props-validator",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-5",
+        "text": "No se puede validar props en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-6",
+        "text": "react-validator",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-validar-el-tipo-de-mis-props-q-2",
+    "question_id": "como-puedo-validar-el-tipo-de-mis-props",
+    "question": "¿Como se indica que una prop es obligatoria con PropTypes?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-7",
+        "text": "Anadiendo .isRequired al tipo.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-8",
+        "text": "Usando PropTypes.required.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-9",
+        "text": "Anadiendo required: true.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-10",
+        "text": "Usando PropTypes.mandatory.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-11",
+        "text": "Todas las props son obligatorias por defecto.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-12",
+        "text": "No se puede hacer obligatoria.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-validar-el-tipo-de-mis-props-q-3",
+    "question_id": "como-puedo-validar-el-tipo-de-mis-props",
+    "question": "¿Cuando se ejecuta la validacion de PropTypes?",
+    "alternatives": [
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-13",
+        "text": "En tiempo de ejecucion y solo en modo desarrollo.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-14",
+        "text": "En tiempo de compilacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-15",
+        "text": "Solo en produccion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-16",
+        "text": "Solo al guardar el archivo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-17",
+        "text": "Nunca se ejecuta automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-validar-el-tipo-de-mis-props-a-18",
+        "text": "Solo en el servidor.",
+        "is_correct": false
+      }
+    ]
+  }
+]

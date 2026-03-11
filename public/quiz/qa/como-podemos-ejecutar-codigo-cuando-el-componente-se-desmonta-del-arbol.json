@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-q-1",
+    "question_id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-del-arbol",
+    "question": "¿Como se ejecuta codigo cuando un componente se desmonta?",
+    "alternatives": [
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-1",
+        "text": "Retornando una funcion dentro del useEffect.",
+        "is_correct": true
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-2",
+        "text": "Usando el hook useUnmount().",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-3",
+        "text": "Llamando a componentWillUnmount() en funciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-4",
+        "text": "Pasando un tercer parametro a useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-5",
+        "text": "Usando el evento onUnmount en el JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-6",
+        "text": "No es posible en componentes funcionales.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-q-2",
+    "question_id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-del-arbol",
+    "question": "¿Para que es util la funcion de limpieza de useEffect?",
+    "alternatives": [
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-7",
+        "text": "Para limpiar recursos como eventos del navegador o cancelar peticiones a APIs.",
+        "is_correct": true
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-8",
+        "text": "Para renderizar componentes adicionales.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-9",
+        "text": "Para actualizar el estado antes de desmontar.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-10",
+        "text": "Para guardar datos en localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-11",
+        "text": "No tiene ninguna utilidad practica.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-12",
+        "text": "Solo para mostrar mensajes de consola.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-q-3",
+    "question_id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-del-arbol",
+    "question": "¿Cuando se ejecuta la funcion retornada por useEffect?",
+    "alternatives": [
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-13",
+        "text": "Cuando el componente se desmonta del arbol de componentes.",
+        "is_correct": true
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-14",
+        "text": "Inmediatamente despues de montar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-15",
+        "text": "Cada vez que se re-renderiza el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-16",
+        "text": "Solo cuando hay un error en el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-17",
+        "text": "Nunca se ejecuta automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-podemos-ejecutar-codigo-cuando-el-componente-se-desmonta-a-18",
+        "text": "Solo cuando el usuario cierra el navegador.",
+        "is_correct": false
+      }
+    ]
+  }
+]

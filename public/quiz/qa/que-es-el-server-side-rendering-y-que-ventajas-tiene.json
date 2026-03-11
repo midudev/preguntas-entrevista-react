@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-q-1",
+    "question_id": "que-es-el-server-side-rendering-y-que-ventajas-tiene",
+    "question": "¿Que es el Server Side Rendering (SSR)?",
+    "alternatives": [
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-1",
+        "text": "Una tecnica que renderiza el HTML en el servidor y lo envia al cliente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-2",
+        "text": "Renderizar todo el codigo en el navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-3",
+        "text": "Una forma de compilar CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-4",
+        "text": "Un patron para manejar estado global.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-5",
+        "text": "Una herramienta de testing.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-6",
+        "text": "Un tipo de base de datos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-q-2",
+    "question_id": "que-es-el-server-side-rendering-y-que-ventajas-tiene",
+    "question": "¿Cuales son las ventajas principales del SSR?",
+    "alternatives": [
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-7",
+        "text": "Mejora la experiencia de usuario y mejora el SEO.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-8",
+        "text": "Reduce el tamano de los archivos JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-9",
+        "text": "Elimina la necesidad de usar React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-10",
+        "text": "Permite usar solo CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-11",
+        "text": "Elimina la necesidad de un servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-12",
+        "text": "Solo sirve para aplicaciones moviles.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-q-3",
+    "question_id": "que-es-el-server-side-rendering-y-que-ventajas-tiene",
+    "question": "¿Que permite el SSR respecto a la carga de la aplicacion?",
+    "alternatives": [
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-13",
+        "text": "Que el usuario vea la interfaz antes de que se cargue el JavaScript.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-14",
+        "text": "Que la aplicacion funcione sin HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-15",
+        "text": "Que no se necesite conexion a internet.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-16",
+        "text": "Que el CSS se cargue despues del JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-17",
+        "text": "Que solo se carguen imagenes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene-a-18",
+        "text": "Que no se necesite un navegador.",
+        "is_correct": false
+      }
+    ]
+  }
+]

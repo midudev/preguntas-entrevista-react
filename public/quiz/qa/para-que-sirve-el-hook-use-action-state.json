@@ -1,0 +1,150 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-action-state-q-1",
+    "question_id": "para-que-sirve-el-hook-use-action-state",
+    "question": "¿Que devuelve el hook useActionState?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-1",
+        "text": "[state, action, isPending]",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-2",
+        "text": "[state, setState]",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-3",
+        "text": "Un objeto con error y loading",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-4",
+        "text": "Solo el estado actual",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-5",
+        "text": "[formData, submit]",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-6",
+        "text": "Una promesa",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-action-state-q-2",
+    "question_id": "para-que-sirve-el-hook-use-action-state",
+    "question": "¿Para que se usa principalmente useActionState?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-7",
+        "text": "Simplificar el ciclo de vida de formularios con Server Actions.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-8",
+        "text": "Manejar animaciones CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-9",
+        "text": "Crear rutas dinamicas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-10",
+        "text": "Gestionar el estado global de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-11",
+        "text": "Validar props de componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-12",
+        "text": "Cachear resultados de funciones.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-action-state-q-3",
+    "question_id": "para-que-sirve-el-hook-use-action-state",
+    "question": "¿Que guarda el valor 'state' retornado por useActionState?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-13",
+        "text": "La respuesta mas reciente del servidor.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-14",
+        "text": "Los datos del formulario.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-15",
+        "text": "El estado anterior del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-16",
+        "text": "El numero de envios del formulario.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-17",
+        "text": "La URL del servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-18",
+        "text": "El metodo HTTP utilizado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-action-state-q-4",
+    "question_id": "para-que-sirve-el-hook-use-action-state",
+    "question": "¿Donde se pasa el 'action' retornado por useActionState?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-19",
+        "text": "Al atributo action del formulario: <form action={formAction}>",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-20",
+        "text": "Al evento onClick de un boton.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-21",
+        "text": "A un useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-22",
+        "text": "Al Context Provider.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-23",
+        "text": "No se usa directamente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-action-state-a-24",
+        "text": "A la prop ref del formulario.",
+        "is_correct": false
+      }
+    ]
+  }
+]

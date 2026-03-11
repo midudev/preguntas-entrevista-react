@@ -1,0 +1,113 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-insertion-effect-q-1",
+    "question_id": "para-que-sirve-el-hook-use-insertion-effect",
+    "question": "¿Para que esta pensado useInsertionEffect?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-1",
+        "text": "Para librerias de estilos (CSS-in-JS).",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-2",
+        "text": "Para insertar elementos en listas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-3",
+        "text": "Para manejar formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-4",
+        "text": "Para insertar datos en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-5",
+        "text": "Para crear animaciones.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-6",
+        "text": "Para cualquier efecto secundario.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-insertion-effect-q-2",
+    "question_id": "para-que-sirve-el-hook-use-insertion-effect",
+    "question": "¿Cuando se ejecuta useInsertionEffect?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-7",
+        "text": "Antes de que el DOM se pinte, justo despues de calcular el JSX.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-8",
+        "text": "Despues de que el DOM se pinte.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-9",
+        "text": "Al montar el componente unicamente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-10",
+        "text": "Solo al desmontar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-11",
+        "text": "En cada render del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-12",
+        "text": "Nunca se ejecuta automaticamente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-insertion-effect-q-3",
+    "question_id": "para-que-sirve-el-hook-use-insertion-effect",
+    "question": "¿Que problema evita useInsertionEffect al inyectar CSS?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-13",
+        "text": "Parpadeos o flash of unstyled content (FOUC).",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-14",
+        "text": "Errores de compilacion.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-15",
+        "text": "Problemas de memoria.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-16",
+        "text": "Conflictos de CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-17",
+        "text": "Errores de tipado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-insertion-effect-a-18",
+        "text": "No evita ningun problema.",
+        "is_correct": false
+      }
+    ]
+  }
+]

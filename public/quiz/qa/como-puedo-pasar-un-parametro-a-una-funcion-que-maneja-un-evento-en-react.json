@@ -1,0 +1,76 @@
+[
+  {
+    "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-q-1",
+    "question_id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-en-react",
+    "question": "¿Como se puede pasar un parametro a una funcion que maneja un evento en React?",
+    "alternatives": [
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-1",
+        "text": "Usando una funcion anonima: onClick={() => handleClick(id)}",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-2",
+        "text": "Pasando el parametro directamente: onClick={handleClick(id)}",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-3",
+        "text": "Usando el atributo data-param en el elemento.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-4",
+        "text": "No es posible pasar parametros a funciones de eventos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-5",
+        "text": "Usando el hook useParam().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-6",
+        "text": "Concatenando el parametro al nombre de la funcion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-q-2",
+    "question_id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-en-react",
+    "question": "¿Que problema hay al escribir onClick={handleClick(id)} directamente?",
+    "alternatives": [
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-7",
+        "text": "La funcion se ejecuta inmediatamente al renderizar, no al hacer click.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-8",
+        "text": "No hay ningun problema, es la forma correcta.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-9",
+        "text": "Solo funciona con parametros de tipo string.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-10",
+        "text": "Produce un error de sintaxis en JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-11",
+        "text": "React ignora completamente la llamada.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-pasar-un-parametro-a-una-funcion-que-maneja-un-evento-a-12",
+        "text": "Solo funciona en componentes de clase.",
+        "is_correct": false
+      }
+    ]
+  }
+]

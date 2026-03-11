@@ -1,0 +1,113 @@
+[
+  {
+    "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-q-1",
+    "question_id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render",
+    "question": "¿Por que React necesita que los hooks se llamen en el mismo orden?",
+    "alternatives": [
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-1",
+        "text": "Para saber en que orden se llaman y mantener el estado internamente.",
+        "is_correct": true
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-2",
+        "text": "Para mejorar el rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-3",
+        "text": "Por convencion de estilo.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-4",
+        "text": "Para compatibilidad con navegadores antiguos.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-5",
+        "text": "No es necesario, es solo una recomendacion.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-6",
+        "text": "Para facilitar el debugging.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-q-2",
+    "question_id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render",
+    "question": "¿Donde NO pueden usarse los hooks?",
+    "alternatives": [
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-7",
+        "text": "Dentro de condiciones if, loops o funciones anonimas.",
+        "is_correct": true
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-8",
+        "text": "En componentes funcionales.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-9",
+        "text": "En el nivel superior de la funcion.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-10",
+        "text": "En custom hooks.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-11",
+        "text": "En cualquier lugar, no hay restricciones.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-12",
+        "text": "Solo en produccion.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-q-3",
+    "question_id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render",
+    "question": "¿Como se soluciona este error?",
+    "alternatives": [
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-13",
+        "text": "Mover los hooks al nivel superior de la funcion, antes de cualquier condicion.",
+        "is_correct": true
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-14",
+        "text": "Usar componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-15",
+        "text": "Ignorar el error.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-16",
+        "text": "Usar try-catch.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-17",
+        "text": "Reiniciar el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "react-hook-use-xxx-is-called-conditionally-react-hooks-must-be-called-in-the-exact-same-order-in-every-component-render-a-18",
+        "text": "No se puede solucionar.",
+        "is_correct": false
+      }
+    ]
+  }
+]

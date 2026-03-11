@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-funciona-el-hook-use-ref-q-1",
+    "question_id": "como-funciona-el-hook-use-ref",
+    "question": "¿Para que sirve el hook useRef?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-ref-a-1",
+        "text": "Para guardar referencias a elementos del DOM o valores que persisten entre renderizados.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-2",
+        "text": "Para manejar el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-3",
+        "text": "Para crear efectos secundarios.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-4",
+        "text": "Para definir contextos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-5",
+        "text": "Para memorizar funciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-6",
+        "text": "Para renderizar listas.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-el-hook-use-ref-q-2",
+    "question_id": "como-funciona-el-hook-use-ref",
+    "question": "¿Como se accede al elemento del DOM referenciado con useRef?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-ref-a-7",
+        "text": "A traves de la propiedad current de la referencia.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-8",
+        "text": "Directamente desde la variable ref.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-9",
+        "text": "Con el metodo getValue().",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-10",
+        "text": "Usando document.querySelector.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-11",
+        "text": "Con la propiedad element.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-12",
+        "text": "No se puede acceder al elemento.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-el-hook-use-ref-q-3",
+    "question_id": "como-funciona-el-hook-use-ref",
+    "question": "¿Como se pasa una ref a un elemento del DOM?",
+    "alternatives": [
+      {
+        "id": "como-funciona-el-hook-use-ref-a-13",
+        "text": "Usando el atributo ref en el elemento JSX.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-14",
+        "text": "Usando el atributo id.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-15",
+        "text": "Usando el atributo reference.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-16",
+        "text": "No se puede pasar a elementos del DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-17",
+        "text": "Usando el atributo data-ref.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-el-hook-use-ref-a-18",
+        "text": "Solo se puede usar con componentes.",
+        "is_correct": false
+      }
+    ]
+  }
+]

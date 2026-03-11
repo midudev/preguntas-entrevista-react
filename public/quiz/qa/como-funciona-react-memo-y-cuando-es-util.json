@@ -1,0 +1,150 @@
+[
+  {
+    "id": "como-funciona-react-memo-y-cuando-es-util-q-1",
+    "question_id": "como-funciona-react-memo-y-cuando-es-util",
+    "question": "¿Que hace React.memo?",
+    "alternatives": [
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-1",
+        "text": "Memoriza el resultado de un componente y solo lo re-renderiza si sus props cambian.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-2",
+        "text": "Memoriza el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-3",
+        "text": "Cachea llamadas a APIs.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-4",
+        "text": "Guarda el componente en localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-5",
+        "text": "Crea una copia del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-6",
+        "text": "Convierte el componente en clase.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-react-memo-y-cuando-es-util-q-2",
+    "question_id": "como-funciona-react-memo-y-cuando-es-util",
+    "question": "¿Que tipo de comparacion usa React.memo por defecto?",
+    "alternatives": [
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-7",
+        "text": "Comparacion superficial (shallow comparison).",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-8",
+        "text": "Comparacion profunda (deep comparison).",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-9",
+        "text": "Comparacion por referencia estricta.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-10",
+        "text": "Ninguna comparacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-11",
+        "text": "Comparacion por JSON.stringify.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-12",
+        "text": "Comparacion solo de tipos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-react-memo-y-cuando-es-util-q-3",
+    "question_id": "como-funciona-react-memo-y-cuando-es-util",
+    "question": "¿Cuando es util usar React.memo?",
+    "alternatives": [
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-13",
+        "text": "Para componentes que renderizan listas grandes o calculos pesados con props estables.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-14",
+        "text": "Siempre en todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-15",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-16",
+        "text": "Solo para manejar formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-17",
+        "text": "Nunca, esta deprecado.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-18",
+        "text": "Solo en modo desarrollo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-funciona-react-memo-y-cuando-es-util-q-4",
+    "question_id": "como-funciona-react-memo-y-cuando-es-util",
+    "question": "¿Con que hooks se recomienda combinar React.memo para evitar renders innecesarios?",
+    "alternatives": [
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-19",
+        "text": "useCallback y useMemo para mantener estables funciones y objetos.",
+        "is_correct": true
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-20",
+        "text": "Solo useState.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-21",
+        "text": "Solo useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-22",
+        "text": "useRef unicamente.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-23",
+        "text": "No se combina con ningun hook.",
+        "is_correct": false
+      },
+      {
+        "id": "como-funciona-react-memo-y-cuando-es-util-a-24",
+        "text": "Solo useContext.",
+        "is_correct": false
+      }
+    ]
+  }
+]

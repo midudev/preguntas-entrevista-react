@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-se-transforma-el-jsx-q-1",
+    "question_id": "como-se-transforma-el-jsx",
+    "question": "¿Como se transforma el JSX en codigo JavaScript compatible?",
+    "alternatives": [
+      {
+        "id": "como-se-transforma-el-jsx-a-1",
+        "text": "Usando un transpilador o compilador como Babel o SWC.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-2",
+        "text": "El navegador lo interpreta directamente sin transformacion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-3",
+        "text": "React lo convierte automaticamente en tiempo de ejecucion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-4",
+        "text": "Se usa un plugin de CSS para procesarlo.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-5",
+        "text": "Node.js tiene soporte nativo para JSX sin configuracion.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-6",
+        "text": "Webpack lo transforma sin necesidad de plugins adicionales.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-se-transforma-el-jsx-q-2",
+    "question_id": "como-se-transforma-el-jsx",
+    "question": "¿Cual es el transpilador mas famoso para transformar JSX?",
+    "alternatives": [
+      {
+        "id": "como-se-transforma-el-jsx-a-7",
+        "text": "Babel.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-8",
+        "text": "TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-9",
+        "text": "Webpack.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-10",
+        "text": "ESLint.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-11",
+        "text": "Prettier.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-12",
+        "text": "npm.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-se-transforma-el-jsx-q-3",
+    "question_id": "como-se-transforma-el-jsx",
+    "question": "¿Existe algun entorno donde no sea necesario transpilar JSX?",
+    "alternatives": [
+      {
+        "id": "como-se-transforma-el-jsx-a-13",
+        "text": "Si, Deno tiene soporte nativo para la sintaxis JSX.",
+        "is_correct": true
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-14",
+        "text": "No, siempre es necesario transpilar JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-15",
+        "text": "Si, todos los navegadores modernos soportan JSX.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-16",
+        "text": "Si, Node.js soporta JSX de forma nativa.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-17",
+        "text": "No, JSX solo funciona con Babel instalado.",
+        "is_correct": false
+      },
+      {
+        "id": "como-se-transforma-el-jsx-a-18",
+        "text": "Si, Chrome tiene un flag experimental para JSX.",
+        "is_correct": false
+      }
+    ]
+  }
+]

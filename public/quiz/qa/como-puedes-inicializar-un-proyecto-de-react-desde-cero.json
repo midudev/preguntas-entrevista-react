@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-q-1",
+    "question_id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero",
+    "question": "¿Cual es la herramienta mas popular y recomendada para inicializar un proyecto React hoy en dia?",
+    "alternatives": [
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-1",
+        "text": "Vite",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-2",
+        "text": "Create React App",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-3",
+        "text": "Webpack",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-4",
+        "text": "Parcel",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-5",
+        "text": "Rollup",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-6",
+        "text": "Grunt",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-q-2",
+    "question_id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero",
+    "question": "¿Cual es el framework de React mas popular actualmente?",
+    "alternatives": [
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-7",
+        "text": "Next.js",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-8",
+        "text": "Gatsby",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-9",
+        "text": "Remix",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-10",
+        "text": "Blitz.js",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-11",
+        "text": "RedwoodJS",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-12",
+        "text": "Astro",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-q-3",
+    "question_id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero",
+    "question": "¿Que funcion tienen los empaquetadores como Vite o Webpack?",
+    "alternatives": [
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-13",
+        "text": "Resolver dependencias, levantar entorno de desarrollo y empaquetar para produccion.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-14",
+        "text": "Solo sirven para ejecutar tests.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-15",
+        "text": "Unicamente minifican archivos CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-16",
+        "text": "Solo gestionan las variables de entorno.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-17",
+        "text": "Exclusivamente sirven para compilar TypeScript.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-inicializar-un-proyecto-de-react-desde-cero-a-18",
+        "text": "Solo se usan para desplegar la aplicacion.",
+        "is_correct": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-son-los-error-boundaries-en-react-q-1",
+    "question_id": "que-son-los-error-boundaries-en-react",
+    "question": "¿Que son los Error Boundaries en React?",
+    "alternatives": [
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-1",
+        "text": "Componentes que manejan errores en el arbol de componentes.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-2",
+        "text": "Hooks para capturar errores.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-3",
+        "text": "Funciones para validar props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-4",
+        "text": "Un tipo de evento de error.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-5",
+        "text": "Mensajes de error en la consola.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-6",
+        "text": "No existen en React.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-error-boundaries-en-react-q-2",
+    "question_id": "que-son-los-error-boundaries-en-react",
+    "question": "¿Que metodo debe implementar un Error Boundary?",
+    "alternatives": [
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-7",
+        "text": "componentDidCatch",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-8",
+        "text": "componentWillError",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-9",
+        "text": "catchError",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-10",
+        "text": "onError",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-11",
+        "text": "handleError",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-12",
+        "text": "errorHandler",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-error-boundaries-en-react-q-3",
+    "question_id": "que-son-los-error-boundaries-en-react",
+    "question": "¿Se pueden crear Error Boundaries con componentes funcionales nativamente?",
+    "alternatives": [
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-13",
+        "text": "No, se necesita usar componentes de clase o librerias como react-error-boundary.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-14",
+        "text": "Si, con el hook useErrorBoundary.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-15",
+        "text": "Si, con useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-16",
+        "text": "Si, con useState.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-17",
+        "text": "Solo en React 19.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-18",
+        "text": "Solo se pueden crear en el servidor.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-son-los-error-boundaries-en-react-q-4",
+    "question_id": "que-son-los-error-boundaries-en-react",
+    "question": "¿Que ventaja tienen los Error Boundaries?",
+    "alternatives": [
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-19",
+        "text": "Evitan que la aplicacion se rompa completamente al capturar errores.",
+        "is_correct": true
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-20",
+        "text": "Eliminan todos los errores automaticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-21",
+        "text": "Hacen la aplicacion mas rapida.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-22",
+        "text": "Solo sirven para debugging.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-23",
+        "text": "No tienen ninguna ventaja.",
+        "is_correct": false
+      },
+      {
+        "id": "que-son-los-error-boundaries-en-react-a-24",
+        "text": "Solo funcionan en produccion.",
+        "is_correct": false
+      }
+    ]
+  }
+]

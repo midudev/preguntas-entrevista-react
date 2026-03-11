@@ -1,0 +1,113 @@
+[
+  {
+    "id": "para-que-sirve-el-hook-use-deferred-value-q-1",
+    "question_id": "para-que-sirve-el-hook-use-deferred-value",
+    "question": "¿Para que sirve useDeferredValue?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-1",
+        "text": "Renderizar un valor con prioridad baja.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-2",
+        "text": "Retrasar la ejecucion de efectos.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-3",
+        "text": "Cachear valores calculados.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-4",
+        "text": "Sincronizar estado con el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-5",
+        "text": "Validar valores de estado.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-6",
+        "text": "Crear animaciones.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-deferred-value-q-2",
+    "question_id": "para-que-sirve-el-hook-use-deferred-value",
+    "question": "¿Cuando es util usar useDeferredValue?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-7",
+        "text": "Para valores no criticos para la interaccion del usuario.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-8",
+        "text": "Siempre en todos los componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-9",
+        "text": "Solo para formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-10",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-11",
+        "text": "Solo para valores de input.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-12",
+        "text": "Nunca, esta deprecado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "para-que-sirve-el-hook-use-deferred-value-q-3",
+    "question_id": "para-que-sirve-el-hook-use-deferred-value",
+    "question": "¿Cual es un caso de uso tipico de useDeferredValue?",
+    "alternatives": [
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-13",
+        "text": "Actualizar una lista de resultados mientras el input sigue respondiendo.",
+        "is_correct": true
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-14",
+        "text": "Validar formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-15",
+        "text": "Manejar errores.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-16",
+        "text": "Crear rutas dinamicas.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-17",
+        "text": "Autenticar usuarios.",
+        "is_correct": false
+      },
+      {
+        "id": "para-que-sirve-el-hook-use-deferred-value-a-18",
+        "text": "Guardar datos en localStorage.",
+        "is_correct": false
+      }
+    ]
+  }
+]

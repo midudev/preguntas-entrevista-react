@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-q-1",
+    "question_id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react",
+    "question": "¿En que fase se registran los eventos por defecto en React?",
+    "alternatives": [
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-1",
+        "text": "En la fase de burbuja (bubbling).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-2",
+        "text": "En la fase de captura.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-3",
+        "text": "En ambas fases.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-4",
+        "text": "En la fase de target.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-5",
+        "text": "No hay fases en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-6",
+        "text": "Depende del navegador.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-q-2",
+    "question_id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react",
+    "question": "¿Como se registra un evento en la fase de captura?",
+    "alternatives": [
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-7",
+        "text": "Anadiendo 'Capture' al nombre del evento (ej: onClickCapture).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-8",
+        "text": "Usando un segundo parametro capture: true.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-9",
+        "text": "Usando useCapture hook.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-10",
+        "text": "Llamando a e.capture().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-11",
+        "text": "No se puede en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-12",
+        "text": "Usando addEventListener directamente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-q-3",
+    "question_id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react",
+    "question": "¿Cual es el nombre correcto para registrar un click en fase de captura?",
+    "alternatives": [
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-13",
+        "text": "onClickCapture",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-14",
+        "text": "onCaptureClick",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-15",
+        "text": "onClick.capture",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-16",
+        "text": "captureOnClick",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-17",
+        "text": "onClick_capture",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-registrar-un-evento-en-la-fase-de-captura-en-react-a-18",
+        "text": "onClickCap",
+        "is_correct": false
+      }
+    ]
+  }
+]

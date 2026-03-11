@@ -1,0 +1,150 @@
+[
+  {
+    "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-q-1",
+    "question_id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo",
+    "question": "¿Que devuelve el hook useFormState?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-1",
+        "text": "[state, formAction]",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-2",
+        "text": "[state, setState]",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-3",
+        "text": "{ pending, data }",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-4",
+        "text": "Un valor booleano",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-5",
+        "text": "[formData, submit, reset]",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-6",
+        "text": "Una promesa",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-q-2",
+    "question_id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo",
+    "question": "¿Que representa 'state' en useFormState?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-7",
+        "text": "El resultado acumulado de la Server Action.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-8",
+        "text": "Los datos del formulario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-9",
+        "text": "El estado de carga.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-10",
+        "text": "Los errores de validacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-11",
+        "text": "El metodo HTTP usado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-12",
+        "text": "La URL del endpoint.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-q-3",
+    "question_id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo",
+    "question": "¿Cuando conviene usar useFormState?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-13",
+        "text": "Cuando quieres manejar el estado de un formulario ligado a una Server Action sin handlers manuales.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-14",
+        "text": "Siempre en todos los formularios.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-15",
+        "text": "Solo para validacion de campos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-16",
+        "text": "Unicamente en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-17",
+        "text": "Solo para formularios sin Server Actions.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-18",
+        "text": "Nunca, esta deprecado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-q-4",
+    "question_id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo",
+    "question": "¿Que hook se usa junto a useFormState para mostrar estados de carga?",
+    "alternatives": [
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-19",
+        "text": "useFormStatus",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-20",
+        "text": "useState",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-21",
+        "text": "useLoading",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-22",
+        "text": "usePending",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-23",
+        "text": "useTransition",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-hook-use-form-state-y-cuando-conviene-usarlo-a-24",
+        "text": "useEffect",
+        "is_correct": false
+      }
+    ]
+  }
+]

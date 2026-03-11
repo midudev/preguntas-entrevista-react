@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-estado-en-react-q-1",
+    "question_id": "que-es-el-estado-en-react",
+    "question": "¿Que es el estado en React?",
+    "alternatives": [
+      {
+        "id": "que-es-el-estado-en-react-a-1",
+        "text": "Un objeto que contiene datos que pueden cambiar en el tiempo y controla la interfaz.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-2",
+        "text": "Una variable global accesible desde cualquier componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-3",
+        "text": "Un archivo de configuracion de la aplicacion.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-4",
+        "text": "Una funcion que se ejecuta al cargar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-5",
+        "text": "Un metodo del ciclo de vida del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-6",
+        "text": "Los datos almacenados en el localStorage.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-estado-en-react-q-2",
+    "question_id": "que-es-el-estado-en-react",
+    "question": "¿Que hook se usa para crear estado en componentes funcionales?",
+    "alternatives": [
+      {
+        "id": "que-es-el-estado-en-react-a-7",
+        "text": "useState",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-8",
+        "text": "useEffect",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-9",
+        "text": "useContext",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-10",
+        "text": "useRef",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-11",
+        "text": "useMemo",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-12",
+        "text": "createState",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-estado-en-react-q-3",
+    "question_id": "que-es-el-estado-en-react",
+    "question": "¿Que devuelve el hook useState?",
+    "alternatives": [
+      {
+        "id": "que-es-el-estado-en-react-a-13",
+        "text": "Un array con el valor del estado y la funcion para cambiarlo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-14",
+        "text": "Solo el valor del estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-15",
+        "text": "Un objeto con propiedades value y setValue.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-16",
+        "text": "Una promesa que resuelve al valor del estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-17",
+        "text": "Solo la funcion para modificar el estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-en-react-a-18",
+        "text": "Un booleano indicando si el estado cambio.",
+        "is_correct": false
+      }
+    ]
+  }
+]
