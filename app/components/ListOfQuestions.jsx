@@ -11,7 +11,7 @@ export async function ListOfQuestions({ showReadStatus = false }) {
   const questions = await getListOfQuestions()
 
   return (
-    <ul className='space-y-3'>
+    <ul className='space-y-3 animate-fade-in animate-duration-700'>
       {questions.map(({ id, text }) => (
         <li key={id}>
           {showReadStatus ? (

@@ -4,7 +4,7 @@ import { Pill } from './Pill.jsx'
 export function Card({ title, excerpt, slug, level }) {
   return (
     <Link
-      className='relative h-full p-6 transition-all rounded-lg z-10 dark:hover:scale-105 dark:hover:bg-primary dark:shadow-darkbox hover:scale-105 hover:bg-sky-100 hover:z-30 shadow-box'
+      className='relative h-full p-6 transition-all rounded-lg z-10 dark:hover:scale-105 dark:hover:bg-primary dark:shadow-darkbox hover:scale-105 hover:bg-sky-100 hover:z-30 shadow-box animate-fade-in-up animate-duration-500'
       href={slug}
     >
       <article className='flex flex-col justify-center gap-y-4'>

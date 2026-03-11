@@ -1,6 +1,6 @@
 export async function Footer() {
   return (
-    <footer className='w-full'>
+    <footer className='w-full animate-fade-in animate-duration-700'>
       <section className='max-w-6xl px-4 m-auto text-center md:text-right'>
         <p>
           <a
