@@ -1,5 +1,8 @@
 'use strict'
 
-module.exports = require('neostandard')({
-  noStyle: true,
-})
+module.exports = [
+  { ignores: ['.next/**'] },
+  ...require('neostandard')({
+    noStyle: true,
+  }),
+]
