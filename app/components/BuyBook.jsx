@@ -5,7 +5,7 @@ import Image from 'next/image.js'
 
 export const BuyBook = () => {
   return (
-    <div className='fixed m-4 bottom-4 right-4'>
+    <div className='fixed m-4 bottom-4 right-4 z-20'>
       <div className='relative'>
         <a
           href='https://leanpub.com/react-preguntas-tipicas'
