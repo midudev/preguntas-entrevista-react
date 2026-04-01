@@ -118,7 +118,7 @@ export function Header({ children }) {
         </label>
 
         {results.length > 0 && (
-          <Combobox.Options className='absolute z-10 w-full overflow-hidden bg-white/98 dark:bg-[#0f172a]/92 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-white/10 rounded-t-none shadow-xl shadow-black/20 dark:shadow-black/50 rounded-3xl backdrop-blur-md'>
+          <Combobox.Options className='absolute z-50 w-full overflow-hidden bg-white/98 dark:bg-[#0f172a]/92 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-white/10 rounded-t-none shadow-xl shadow-black/20 dark:shadow-black/50 rounded-3xl backdrop-blur-md'>
             {results.map(result => {
               const { item, matches } = result
               const { id, text } = item
