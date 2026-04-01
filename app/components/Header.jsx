@@ -35,13 +35,19 @@ export function Header({ children }) {
   )
 
   const handlerStorageListener = useCallback(event => {
-    if (event.key === 'read') {
-      setRead(JSON.parse(event.newValue).length)
+    const { key, newValue } = event.detail ?? event
+    if (key === 'read') {
+      setRead(JSON.parse(newValue).length)
     }
   }, [])
 
   useEventListener({
     eventName: 'storage',
+    handler: handlerStorageListener,
+  })
+
+  useEventListener({
+    eventName: 'local-storage',
     handler: handlerStorageListener,
   })
 

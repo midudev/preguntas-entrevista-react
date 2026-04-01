@@ -13,8 +13,9 @@ export function ButtonRead({ title }) {
 
   const handlerStorageListener = useCallback(
     event => {
-      if (event.key === 'read') {
-        setIsRead(JSON.parse(event.newValue).includes(title))
+      const { key, newValue } = event.detail ?? event
+      if (key === 'read') {
+        setIsRead(JSON.parse(newValue).includes(title))
       }
     },
     [title]
@@ -22,6 +23,11 @@ export function ButtonRead({ title }) {
 
   useEventListener({
     eventName: 'storage',
+    handler: handlerStorageListener,
+  })
+
+  useEventListener({
+    eventName: 'local-storage',
     handler: handlerStorageListener,
   })
 
@@ -36,7 +42,14 @@ export function ButtonRead({ title }) {
         read.push(title)
         setIsRead(true)
       }
-      window.localStorage.setItem('read', JSON.stringify(read))
+
+      const newValue = JSON.stringify(read)
+      window.localStorage.setItem('read', newValue)
+      window.dispatchEvent(
+        new CustomEvent('local-storage', {
+          detail: { key: 'read', newValue },
+        })
+      )
     }
   }
 
