@@ -17,8 +17,6 @@ Enlaces de interés:
 - [Introduction to React.js de Facebook (2013)](https://www.youtube.com/watch?v=XxVg_s8xAms)
 - [Documentación oficial de React actualizada](https://beta.reactjs.org/) en inglés
 
-
-
 ---
 
 #### ¿Cuáles son las características principales de React?
@@ -35,13 +33,19 @@ Las características principales de React son:
 
 - **Universal**: React se puede ejecutar tanto en el cliente como en el servidor. Además, puedes usar React Native para crear aplicaciones nativas para Android e iOS.
 
-
-
 ---
 
 #### ¿Qué significa exactamente que sea declarativo?
 
-No le decimos cómo debe renderizar la interfaz a base de instrucciones. Le decimos qué debe renderizar y React se encarga de renderizarlo.
+Que React sea declarativo significa que describimos el resultado que queremos en la interfaz para un estado concreto, en vez de programar manualmente cada paso para manipular el DOM.
+
+Es decir: declaramos el "qué" y React se ocupa del "cómo".
+
+Esto aporta ventajas importantes:
+
+- Hace el código más predecible y fácil de mantener.
+- Reduce errores derivados de manipulación imperativa del DOM.
+- Permite razonar la UI como una función del estado.
 
 Un ejemplo entre declarativo e imperativo:
 
@@ -52,17 +56,22 @@ Un ejemplo entre declarativo e imperativo:
 <span class="token keyword">const</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span>
 element<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'Hello, world'</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué es un componente?
 
-Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.
+Un componente es la unidad fundamental de construcción en React. Es una pieza de interfaz autónoma y reutilizable que encapsula su estructura (JSX), su comportamiento (eventos y lógica), y en muchos casos también su estado.
 
-En React los componentes se crean usando funciones o clases.
+Pensar en componentes es pensar en términos de composición: en lugar de construir una pantalla como un bloque monolítico, la dividimos en partes pequeñas y bien definidas (por ejemplo: `Header`, `Sidebar`, `UserCard`, `Button`). Esta forma de trabajar hace que la aplicación sea más mantenible, escalable y fácil de testear.
 
+Un componente puede:
 
+- Recibir datos de entrada mediante props.
+- Renderizar una salida visual en función de esos datos.
+- Gestionar estado interno cuando necesita recordar información entre renderizados.
+- Reutilizarse en distintos contextos sin duplicar lógica.
+
+En React moderno, los componentes se escriben principalmente como funciones. Históricamente también se han usado clases, y es importante conocerlas para leer código legado, pero hoy el enfoque recomendado es funcional junto a hooks.
 
 ---
 
@@ -91,8 +100,6 @@ Esto es muy tedioso y poco legible. Por eso, React usa JSX para declarar qué de
 
 Ambos códigos son equivalentes.
 
-
-
 ---
 
 #### ¿Cómo se transforma el JSX?
@@ -102,8 +109,6 @@ Ambos códigos son equivalentes.
 Puedes ver cómo se transforma el JSX en el [playground de código de Babel](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABACQKYBt10QCgJSIDeAUIogE6pQjlIA8AFgIwB8yc6AhogLLgAm2QLwbgaR3APBuBYfYCEdAPTMWxAL5A&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.25.3&externalPlugins=&assumptions=%7B%7D).
 
 Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **Deno tiene soporte nativo para la sintaxis JSX** y no es necesario transformar el código para hacerlo compatible.
-
-
 
 ---
 
@@ -135,19 +140,19 @@ Un elemento es un objeto que representa un nodo del DOM o una instancia de un co
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Cómo crear un componente en React?
 
-Los componentes en React son funciones o clases que devuelven un elemento de React. Hoy en día lo más recomendado es usar funciones:
+En React, un componente es una función (o, de forma histórica, una clase) que describe una parte de la interfaz.
+
+Hoy en día, el enfoque recomendado es crear componentes funcionales:
 
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">HelloWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hello World!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-Pero también puedes usar una clase para crear un componente React:
+También puedes encontrarte componentes de clase en código legado:
 
 <pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
 
@@ -157,9 +162,13 @@ Pero también puedes usar una clase para crear un componente React:
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 
-Lo importante es que el nombre de la función o clase empiece con una letra mayúscula. Esto es necesario para que React pueda distinguir entre componentes y elementos HTML.
+Reglas básicas al crear componentes:
 
+- El nombre debe empezar en mayúscula para que React lo interprete como componente y no como etiqueta HTML.
+- Debe ser reutilizable y tener una responsabilidad clara.
+- Debe recibir datos por props cuando necesite configuración externa.
 
+Como criterio de arquitectura, cuanto más pequeños y específicos sean tus componentes, más fácil será mantener y escalar la aplicación.
 
 ---
 
@@ -181,8 +190,6 @@ Para usarlo, indicamos el nombre del componente y le pasamos las props que quere
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span></span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Seguir a @midudev<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 
 Las props son una forma de parametrizar nuestros componentes igual que hacemos con las funciones. Podemos pasarle cualquier tipo de dato a un componente, incluso otros componentes.
-
-
 
 ---
 
@@ -211,19 +218,21 @@ En este caso, la prop `children` contiene el elemento `<p>Contenido de la tarjet
 
 Conocer y saber usar la prop `children` es muy importante para crear componentes reutilizables en React.
 
-
-
 ---
 
 ####  ¿Qué diferencia hay entre props y state?
 
-Las _props_ son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
+Aunque ambos afectan al renderizado, cumplen funciones distintas:
 
-El _state_ es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
+- Las _props_ son datos de entrada que recibe un componente desde fuera (normalmente desde su componente padre). Dentro del componente receptor se tratan como inmutables.
+- El _state_ es memoria interna del componente y representa datos que cambian con el tiempo por interacción del usuario o por lógica de negocio.
 
-Así que mientras tanto _props_ como _state_ afectan al renderizado del componente, su gestión es diferente.
+Una regla práctica para recordarlo:
 
+- _props_ = configuración externa.
+- _state_ = estado interno que evoluciona.
 
+Entender esta diferencia es fundamental para diseñar componentes predecibles y mantener un flujo de datos unidireccional.
 
 ---
 
@@ -268,8 +277,6 @@ En el caso que necesites inicializar un estado con una prop, es una buena práct
 
 Es un error muy común pensar que la prop actualizará el estado, así que tenlo en cuenta.
 
-
-
 ---
 
 #### ¿Qué es el renderizado condicional en React?
@@ -294,8 +301,6 @@ Parece que tiene sentido... si el `length` es positivo (mayor a cero) pintamos e
 
 Es preferible utilizar el operador ternario. _Kent C. Dodds_ tiene un artículo interesante hablando del tema. [Use ternaries rather than && in JSX](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
 
-
-
 ---
 
 #### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
@@ -308,8 +313,6 @@ En React usamos la prop `className` para definir el valor del atributo `class` d
 
 Es decir, las clases que pones en `className` son clases HTML normales (pueden usarse para CSS, tests, selectores, utilidades, etc.). En JSX no se usa `class` porque es una palabra reservada en JavaScript, por eso React utiliza `className`.
 
-
-
 ---
 
 #### ¿Cómo puedes aplicar estilos en línea a un componente en React?
@@ -321,8 +324,6 @@ Para aplicar estilos CSS en línea a un componente en React usamos la prop `styl
 <span class="token punctuation">}</span></code></pre>
 
 Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
-
-
 
 ---
 
@@ -352,8 +353,6 @@ También podemos usar bibliotecas como `classnames`:
 
 En este caso, si la prop `primary` es `true`, se añadirá la clase `primary` al botón. Si no, no se añadirá. En cambio la clase `button` siempre se añadirá.
 
-
-
 ---
 
 #### ¿Qué es el renderizado de listas en React?
@@ -375,8 +374,6 @@ Para hacer renderizado de listas en React usamos el método `map` de los arrays:
 En este caso, se renderiza una lista de elementos usando el componente `List`. El componente `List` recibe una prop `items` que es un array de objetos del tipo `[{ id: 1, name: "John Doe" }]`. El componente `List` renderiza un elemento `li` por cada elemento del array.
 
 El elemento `li` tiene una prop `key` que es un identificador único para cada elemento. Esto es necesario para que React pueda identificar cada elemento de la lista y actualizarlo de forma eficiente. Más adelante hay una explicación más detallada sobre esto.
-
-
 
 ---
 
@@ -403,21 +400,30 @@ Si vas a escribir un comentario dentro del renderizado de un componente, debes e
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Cómo añadir un evento a un componente en React?
 
-Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en _camelCase_:
+En React, los eventos se registran con props que siguen la convención `on` + nombre del evento en _camelCase_ (`onClick`, `onChange`, `onSubmit`, etc.).
+
+La clave es pasar una función como manejador del evento, no ejecutar la función durante el render.
 
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> text<span class="token punctuation">,</span> onClick <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>text<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+En este caso, `Button` recibe una prop `onClick` y delega en ella su comportamiento al hacer clic. Este patrón permite crear componentes más reutilizables y desacoplados.
 
+Si necesitas añadir lógica intermedia (tracking, validaciones, etc.), puedes encapsularla en una función interna:
 
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> text<span class="token punctuation">,</span> onClick <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// lógica previa</span>
+    <span class="token function">onClick</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>text<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
 
 ---
 
@@ -441,8 +447,6 @@ También puedes crear una función que ejecuta la función `onClick` pasándole 
 
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>text<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
-
-
 
 ---
 
@@ -502,19 +506,22 @@ Con un componente de clase, la creación del estado sería así:
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué son los hooks?
 
-Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
+Los Hooks son funciones especiales de React que permiten usar estado, efectos y otras capacidades del framework dentro de componentes funcionales.
 
-Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
+Antes de su aparición, estas capacidades se asociaban sobre todo a componentes de clase. Con hooks, el modelo funcional pasó a ser la opción principal.
 
-Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
+Algunos hooks fundamentales son:
 
+- `useState`: para estado local.
+- `useEffect`: para sincronizar efectos secundarios.
+- `useMemo` y `useCallback`: para optimización de cálculos y referencias.
+- `useRef`: para referencias mutables o acceso al DOM.
 
+Además, React permite crear _custom hooks_, que son una forma excelente de reutilizar lógica con estado entre componentes sin duplicar código.
 
 ---
 
@@ -546,8 +553,6 @@ En este ejemplo mostramos como el valor de `count` se inicializa en 0, y tambié
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
-
-
 
 ---
 
@@ -653,8 +658,6 @@ Con esto, lo que hemos hecho es _elevar el estado_. Lo hemos movido desde el com
 
 - [Código de ejemplo](https://stackblitz.com/edit/react-ts-qitkys?file=App.tsx)
 
-
-
 ---
 
 #### ¿Qué hace el hook `useEffect`?
@@ -685,8 +688,6 @@ En este ejemplo mostramos un mensaje en consola cuando carga el componente y cad
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### Explica casos de uso del hook `useEffect`
@@ -698,8 +699,6 @@ Podemos usar el hook `useEffect` de diferentes formas, tales como:
 - Realizar tracking de eventos, como Google Analytics, para saber qué páginas visitan los usuarios.
 - Podemos validar un formulario para que cada vez que cambie el estado, podamos actualizar la UI y mostrar dónde están los errores.
 - Podemos suscribirnos a eventos del navegador, como por ejemplo el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana.
-
-
 
 ---
 
@@ -724,8 +723,6 @@ Dentro de `useEffect` nos podemos suscribir a eventos del navegador, como el eve
 
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Abre la consola y redimensiona la ventana</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
-
-
 
 ---
 
@@ -782,8 +779,6 @@ El ejemplo completo sería así:
 
 Como ves en `App` estamos usando el componente dos veces. Si pusieramos una id a mano, por ejemplo `password`, entonces la ID no sería única y quedaría duplicada. Por eso es importante que generes la ID automáticamente con `useId`.
 
-
-
 ---
 
 #### ¿Cómo podemos ejecutar código cuando el componente se monta?
@@ -800,13 +795,13 @@ Podemos ejecutar código cuando el componente se monta usando el hook `useEffect
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">Abre la consola y re-dimensiona la ventana</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué son los Fragments en React?
 
-Los _Fragments_ son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
+Los _Fragments_ permiten agrupar varios elementos JSX sin añadir nodos extra al DOM.
+
+En React, un componente debe devolver un único elemento raíz. `Fragment` resuelve ese requisito sin introducir un `div` adicional que pueda afectar al layout o a los estilos.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -832,7 +827,18 @@ También podemos usar la sintaxis de abreviatura:
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
+Si necesitas añadir una `key` (por ejemplo, al renderizar una lista), debes usar la versión explícita con `Fragment`:
 
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Fragment <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">function</span> <span class="token function">List</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> items <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> items<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Fragment</span></span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>description<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Fragment</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
 
 ---
 
@@ -844,8 +850,6 @@ Las razones por las que es recomendable usar Fragment en vez de un `div` a la ho
 - Los elementos envueltos con Fragment son afectados directamente por las propiedades _flex_ o _grid_ de CSS de su elemento padre. Si usas un `div` es posible que tengas problemas con el alineamiento de los elementos.
 - Los Fragments son más rápidos que los `div` ya que no tienen que ser renderizados.
 - Los `div` aplican CSS por defecto (hace que lo que envuelve el `div` se comporte como un bloque al aplicar un `display: block`) mientras que los Fragment no aplican ningún estilo por defecto.
-
-
 
 ---
 
@@ -879,8 +883,6 @@ Enlaces de interés:
 - [Compound Components by Jenna Smith](https://jjenzz.com/compound-components) <strong>en inglés</strong>
 - [Compound Components Lesson by Kent C. Dodds](https://egghead.io/lessons/react-write-compound-components) <strong>en inglés</strong>
 
-
-
 ---
 
 #### ¿Cómo puedes inicializar un proyecto de React desde cero?
@@ -911,8 +913,6 @@ Usando un Framework, entre las más populares están:
 
 Cada uno de ellos es un empaquetador de aplicaciones web. Se encargan de resolver las dependencias de tu proyecto, levantar un entorno de desarrollo que se refresca automáticamente con cada cambio y de empaquetar tu aplicación para producción con todos los archivos estáticos necesarios y mucho más.
 
-
-
 ---
 
 #### ¿Qué es React DOM?
@@ -922,8 +922,6 @@ React DOM es la librería que se encarga de renderizar los componentes de React 
 Mientras que la biblioteca de _React_, a secas, es el motor de creación de componentes, hooks, sistema de props y estado... _React DOM_ es la librería que se encarga de renderizar los componentes de React específicamente en el navegador.
 
 _React Native_, por ejemplo, haría lo mismo, pero para dispositivos móviles.
-
-
 
 #### ¿Qué JavaScript necesito para aprender React?
 
@@ -1337,8 +1335,6 @@ Un objeto es una estructura de datos que es perfecta a la hora de representar mu
 
 Conforme tu UI sea más grande y compleja, estos objetos tendrán más información y necesitarás dominar el encadenamiento opcional `?.` para poder acceder a su información con garantías.
 
-
-
 ---
 
 ### Intermedio
@@ -1374,15 +1370,23 @@ Para usarlo en un componente:
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Cuántos `useEffect` puede tener un componente?
 
-Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
+Un componente puede tener tantos `useEffect` como necesite. No existe un límite práctico impuesto por React.
 
+De hecho, en la mayoría de casos es preferible tener varios `useEffect` pequeños y bien enfocados antes que uno solo con demasiadas responsabilidades.
 
+Buena práctica habitual:
+
+- Un `useEffect` para suscribirse a eventos del navegador.
+- Otro para sincronizar datos con una API.
+- Otro para persistir estado en `localStorage`.
+
+Separar efectos por responsabilidad mejora la legibilidad, reduce errores y hace más sencillo mantener el código.
+
+Además, cada efecto tiene su propio ciclo de vida: React ejecuta o limpia cada uno según sus dependencias. Esto permite un control mucho más fino que concentrar toda la lógica en un único bloque.
 
 ---
 
@@ -1405,8 +1409,6 @@ Podemos ejecutar código cuando el componente se desmonta usando el hook `useEff
 <span class="token punctuation">}</span></code></pre>
 
 Esto es muy útil para limpiar recursos que se hayan creado en el componente, como por ejemplo, eventos del navegador o para cancelar peticiones a APIs.
-
-
 
 ---
 
@@ -1458,18 +1460,42 @@ Esto también funciona con `axios`:
   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> controller<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 
-
-
 ---
 
 #### ¿Cuáles son las reglas de los hooks en React?
 
-Los hooks en React tienen dos reglas fundamentales:
+Los hooks en React tienen dos reglas fundamentales, y respetarlas es clave para evitar comportamientos impredecibles:
 
-- Los hooks solo se pueden usar en componentes funcionales o _custom hooks_.
-- Los hooks solo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
+- Solo pueden llamarse en componentes funcionales de React o en _custom hooks_.
+- Deben llamarse siempre en el nivel superior del componente o del hook, nunca dentro de condicionales, bucles o funciones internas.
 
+¿Por qué existe esta restricción? Porque React identifica cada hook por su orden de ejecución. Si ese orden cambia entre renderizados, React puede mezclar estados y efectos, generando bugs difíciles de depurar.
 
+Ejemplo incorrecto:
+
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Component</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> isOpen <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isOpen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'abierto'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">Hola</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
+
+Ejemplo correcto:
+
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Component</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> isOpen <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isOpen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'abierto'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isOpen<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">Hola</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
+
+Para ayudarte a cumplir estas reglas de forma consistente, es muy recomendable usar `eslint-plugin-react-hooks`, que detecta automáticamente violaciones comunes.
 
 ---
 
@@ -1482,8 +1508,6 @@ Aunque ambos son muy parecidos, tienen una pequeña diferencia en el momento en 
 `useEffect` se ejecuta de forma asíncrona tras el renderizado, pero no asegura que el DOM se haya actualizado. Es decir, si necesitas recuperar un elemento del DOM y acceder a sus dimensiones o posición en pantalla, no podrás hacerlo con `useEffect` porque no tienes la garantía de que el DOM se haya actualizado.
 
 Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, tiene mejor rendimiento, ya que no bloquea el renderizado.
-
-
 
 ---
 
@@ -1501,8 +1525,6 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 
 - [Tweet de midudev donde muestra que los componentes funcionales se transpilan mejor que los de clases.](https://twitter.com/midudev/status/1065516163856310272)
 
-
-
 ---
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
@@ -1519,8 +1541,6 @@ Para crear un componente puro en React usamos una function:
 
 En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
 
-
-
 ---
 
 #### ¿Qué es la hidratación (hydration) en React?
@@ -1533,17 +1553,21 @@ Para hacer que este HTML estático pueda ser interactivo, React necesita que el 
 
 De esta forma, en el cliente, React reutiliza este HTML estático y se dedica a adjuntar los eventos a los elementos, ejecutar los efectos que tengamos en los componentes y conciliar el estado de los componentes.
 
-
-
 ---
 
 #### ¿Qué es el Server Side Rendering y qué ventajas tiene?
 
-El _Server Side Rendering_ es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
+El _Server Side Rendering_ (SSR) es una estrategia de renderizado donde el servidor genera el HTML inicial de la página y lo envía ya renderizado al navegador.
 
-Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.
+Después, en el cliente, React hidrata ese HTML para añadir interactividad.
 
+Ventajas principales:
 
+- Mejor percepción de velocidad inicial, porque el usuario ve contenido antes.
+- Mejor indexación SEO en muchos escenarios, al entregar HTML útil desde el primer momento.
+- Mejor rendimiento en dispositivos lentos al reducir trabajo inicial del cliente.
+
+Eso sí, SSR no es una solución universal: aumenta la carga del servidor y requiere diseñar bien la estrategia de caché y de datos para mantener tiempos de respuesta estables.
 
 ---
 
@@ -1567,8 +1591,6 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
 Esto nos devolverá el HTML de la aplicación al acceder a la ruta `/`.
 
 <pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">data-reactroot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hola mundo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></code></pre>
-
-
 
 ---
 
@@ -1597,8 +1619,6 @@ Aquí puedes ver un ejemplo simple de un componente que tiene un efecto colatera
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué diferencia hay entre componentes controlados y no controlados? ¿Qué ventajas y desventajas tienen?
@@ -1624,8 +1644,6 @@ La ventaja de este tipo de componentes es que se crean de forma muy fácil y no 
 <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> defaultValue<span class="token operator">=</span><span class="token string">"foo"</span> ref<span class="token operator">=</span><span class="token punctuation">{</span>inputRef<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 <span class="token comment">// Usamos `inputRef.current.value` para leer el valor del input</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué son los High Order Components (HOC)?
@@ -1649,8 +1667,6 @@ En este caso, la función `withLayout` recibe un componente como parámetro y de
 Es un patrón que nos permite reutilizar código y así podemos inyectar funcionalidad, estilos o cualquier otra cosa a un componente de forma sencilla.
 
 Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todavía se usan en algunos casos.
-
-
 
 ---
 
@@ -1682,8 +1698,6 @@ Y la implementación sería similar:
 
 Este patrón es usado por grandes bibliotecas como `react-router`, `formik` o `react-motion`.
 
-
-
 ---
 
 #### ¿Por qué no podemos usar un `if` en el renderizado de un componente?
@@ -1711,8 +1725,6 @@ En JSX solo podemos usar expresiones, por eso usamos ternarias, que sí son expr
 
 De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del renderizado de un componente.
 
-
-
 ---
 
 #### ¿Por qué debemos utilizar una función para actualizar el estado de React?
@@ -1728,8 +1740,6 @@ A la hora de actualizar el estado de React, debemos utilizar la función que nos
 Esto nos permite que la integridad de la UI respecto a los datos que renderiza siempre es correcta.
 
 Por otro lado, llamar a una función le permite a React saber que el estado ha cambiado y que debe re-renderizar el componente si es necesario. Además esto lo hace de forma asíncrona, por lo que podemos llamar a `setCount` tantas veces como queramos y React se encargará de actualizar el estado cuando lo considere oportuno.
-
-
 
 ---
 
@@ -1752,8 +1762,6 @@ Estos métodos se definen en la clase y se ejecutan en el orden que se muestran 
 - componentWillUnmount
 
 En cada uno de estos métodos podemos ejecutar código que nos permita controlar el comportamiento de nuestro componente.
-
-
 
 ---
 
@@ -1802,8 +1810,6 @@ Un ejemplo donde se ve el problema:
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Para qué sirve el hook `useMemo`?
@@ -1829,15 +1835,11 @@ El hook `useMemo` recibe dos parámetros: una función y un array de dependencia
 
 La ventaja es que si la prop `count` no cambia, se evita el cálculo del doble y se devuelve el valor que ya se había calculado previamente.
 
-
-
 ---
 
 #### ¿Es buena idea usar siempre `useMemo` para optimizar nuestros componentes?
 
 No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces el cálculo de un valor es tan rápido que no merece la pena memorizarlo. Incluso, en algunos casos, puede ser más lento memorizarlo que calcularlo de nuevo.
-
-
 
 ---
 
@@ -1866,23 +1868,27 @@ El hook `useCallback` recibe dos parámetros: una función y un array de depende
 
 La ventaja es que si la prop `count` o la prop `onIncrement` no cambian, se evita la creación de una nueva función y se devuelve la función que ya se había calculado previamente.
 
-
-
 ---
 
 #### ¿Es buena idea usar siempre `useCallback` para optimizar nuestros componentes?
 
 No. `useCallback` es una herramienta que nos permite optimizar nuestros componentes, pero no es una herramienta mágica que nos va a hacer que nuestros componentes sean más rápidos. A veces la creación de una función es tan rápida que no merece la pena memorizarla. Incluso, en algunos casos, puede ser más lento memorizarla que crearla de nuevo.
 
-
-
 ---
 
 #### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
 
-La diferencia entre `useCallback` y `useMemo` es que `useCallback` memoriza una función y `useMemo` memoriza el resultado de una función.
+La diferencia principal es esta:
 
-En cualquier caso, en realidad, `useCallback` es una versión especializada de `useMemo`. De hecho se puede simular la funcionalidad de `useCallback` con `useMemo`:
+- `useMemo` memoriza el resultado de un cálculo.
+- `useCallback` memoriza la referencia de una función.
+
+En términos prácticos, ambos se usan para evitar trabajo innecesario entre renderizados, pero no persiguen exactamente el mismo objetivo:
+
+- Usa `useMemo` cuando el cálculo sea costoso y quieras reutilizar su resultado.
+- Usa `useCallback` cuando pases funciones a componentes memoizados o a hooks que dependan de la estabilidad de esa referencia.
+
+También es cierto que `useCallback` puede entenderse como un caso particular de `useMemo`. De hecho, se puede simular así:
 
 <pre><code class="language-js"><span class="token keyword">const</span> memoizedCallback <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -1890,15 +1896,22 @@ En cualquier caso, en realidad, `useCallback` es una versión especializada de `
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 
-
+Importante: no conviene usar `useMemo` y `useCallback` de forma indiscriminada. Añadir memoización sin necesidad puede aumentar complejidad y, en algunos casos, empeorar el rendimiento.
 
 ---
 
 #### ¿Qué son las refs en React?
 
-Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando `createRef` o con el hook `useRef`.
+Las refs (referencias) son una vía de acceso imperativa en React. Permiten apuntar a un nodo del DOM o a un valor mutable que queremos conservar entre renderizados sin provocar un nuevo render cuando cambia.
 
+Se utilizan principalmente en dos escenarios:
 
+- Interactuar con el DOM de forma puntual (por ejemplo, hacer focus a un input, medir un elemento o gestionar selecciones).
+- Guardar valores mutables entre renders que no forman parte de la UI (por ejemplo, un identificador de intervalo, un flag interno o el valor previo de una variable).
+
+En componentes funcionales se usa normalmente `useRef`, y en componentes de clase se ha usado históricamente `createRef`.
+
+Es importante entender que una ref no sustituye al estado: si un cambio debe reflejarse en la interfaz, debería gestionarse con state; si no necesita re-render, una ref suele ser la herramienta adecuada.
 
 ---
 
@@ -1927,8 +1940,6 @@ En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<
 Creamos una referencia `inputEl` con `useRef` y la pasamos al elemento `<input>` como prop `ref`. Cuando el componente se monta, la referencia `inputEl` apunta al elemento `<input>` del DOM.
 
 Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia.
-
-
 
 ---
 
@@ -1960,26 +1971,28 @@ El orden de ejecución del `useLayoutEffect`, ya que se ejecuta de forma síncro
 - Tu efecto es ejecutado
 - La pantalla se actualiza “visualmente”
 
-
-
 ---
 
 #### ¿Qué son los componentes _stateless_?
 
-Los componentes _stateless_ son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
+Los componentes _stateless_ son componentes que no gestionan estado interno. Su salida depende exclusivamente de las props que reciben.
+
+Por ese motivo, suelen ser más fáciles de entender, de testear y de reutilizar. También favorecen un estilo de desarrollo más predecible, cercano a los componentes puros.
+
+En la práctica, son muy útiles para piezas de UI presentacionales (botones, tarjetas, encabezados, etiquetas, etc.) donde la lógica de estado vive en componentes contenedores o hooks.
 
 <pre><code class="language-jsx"><span class="token comment">// Este es un ejemplo de componente stateless</span>
 <span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> text <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>text<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
 
-Para prevenir el comportamiento por defecto de un evento en React, debemos usar el método `preventDefault`:
+Para prevenir el comportamiento por defecto de un evento en React, se usa el método `preventDefault()` sobre el objeto del evento.
+
+Esto es habitual en formularios, enlaces o cualquier interacción donde quieras mantener el control del flujo desde JavaScript en lugar de dejar que actúe el comportamiento nativo del navegador.
 
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Form</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> onSubmit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token function-variable function">handleSubmit</span> <span class="token operator">=</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -1995,13 +2008,24 @@ Para prevenir el comportamiento por defecto de un evento en React, debemos usar 
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
+En este ejemplo, evitamos que el formulario recargue la página al hacer submit, para poder validar y procesar los datos de forma controlada.
 
+Nota útil: `preventDefault()` evita la acción por defecto, pero no detiene la propagación del evento. Si también necesitas evitar que el evento siga propagándose, debes usar además `stopPropagation()`.
 
 ---
 
 #### ¿Qué es el `StrictMode` en React?
 
-El `StrictMode` es un componente que nos permite activar algunas comprobaciones de desarrollo en React. Por ejemplo, detecta componentes que se renderizan de forma innecesaria o funcionalidades obsoletas que se están usando.
+`StrictMode` es una herramienta de desarrollo que activa comprobaciones adicionales en una parte del árbol de componentes para detectar malas prácticas antes de llegar a producción.
+
+No añade interfaz visual y no cambia el comportamiento funcional en producción. Su valor está en detectar problemas de calidad durante el desarrollo, por ejemplo:
+
+- Efectos con limpieza incompleta.
+- Side effects ejecutados en sitios inadecuados (como el render).
+- Uso de APIs obsoletas o patrones no recomendados.
+- Código no idempotente que falla si se ejecuta más de una vez.
+
+Por eso, cuando activas `StrictMode`, es normal ver ejecuciones extra en desarrollo: no es un error, es una estrategia deliberada para exponer fragilidades de tu código cuanto antes.
 
 <pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> StrictMode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
 
@@ -2012,8 +2036,6 @@ El `StrictMode` es un componente que nos permite activar algunas comprobaciones 
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">StrictMode</span></span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
-
-
 
 ---
 
@@ -2073,13 +2095,19 @@ Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span></span> <span class="token punctuation">/></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
 
-Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
+Para exportar múltiples componentes desde un mismo archivo, lo habitual es usar exportaciones nombradas (named exports). Este enfoque es especialmente útil cuando los componentes están relacionados entre sí (por ejemplo, variantes de un mismo componente o piezas de un patrón compuesto).
+
+Además, las exportaciones nombradas suelen mejorar la mantenibilidad porque:
+
+- Hacen explícito qué se exporta públicamente.
+- Facilitan el autocompletado y los refactors en el editor.
+- Evitan ambiguedades típicas de mezclar demasiados default exports.
+
+Ejemplo:
 
 <pre><code class="language-jsx"><span class="token comment">// button.jsx</span>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2090,7 +2118,13 @@ Para exportar múltiples componentes de un mismo archivo, podemos usar la export
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>btn-secondary<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
+Y luego se importan así:
 
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> ButtonSecondary <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./button.jsx'</span></code></pre>
+
+Si en algún caso quieres renombrar una exportación al importar, también puedes hacerlo:
+
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> ButtonSecondary <span class="token keyword">as</span> SecondaryButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./button.jsx'</span></code></pre>
 
 ---
 
@@ -2125,8 +2159,6 @@ El método `lazy()` de React nos permite crear un componente que se renderiza de
 El componente `Suspense` nos permite mostrar un mensaje mientras se está cargando el componente. Este componente recibe una prop `fallback` que es el mensaje que se muestra mientras se está cargando el componente.
 
 - [Código de ejemplo](https://stackblitz.com/edit/react-ts-n6zal2?file=App.tsx)
-
-
 
 ---
 
@@ -2179,8 +2211,6 @@ De esta forma, la parte de código que importa el componente `SuperBigModal` se 
 Dependiendo del empaquetador de aplicaciones web que uses y su configuración, es posible que el resultado de la carga sea diferente (algunos creará un archivo a parte del _bundle_ principal, otros podrían hacer un streaming del HTML...) pero la intención del código es la misma.
 
 Así que siempre debemos intentar cargar los componentes de forma dinámica cuando no se vayan a usar desde el principio, sobretodo cuando están detrás de la interacción de un usuario. Lo mismo podría ocurrir con rutas completas de nuestra aplicación. ¿Por qué cargar la página de _About_ si el usuario está visitando la página principal?
-
-
 
 ---
 
@@ -2239,8 +2269,6 @@ Otra opción es tener un fichero intermedio que exporte el componente de forma p
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué es el contexto en React? ¿Cómo puedo crearlo y consumirlo?
@@ -2268,25 +2296,29 @@ Para consumir el contexto, debemos usar el hook `useContext`:
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>theme<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Haz clic aquí</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué es el `SyntheticEvent` en React?
 
-El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
+`SyntheticEvent` es la capa de abstracción de eventos que React usa sobre los eventos nativos del navegador. Su objetivo es ofrecer una API homogénea y consistente entre navegadores.
 
-Dentro del `SyntheticEvent` puede encontrarse una referencia al evento nativo en su atributo `nativeEvent`
+En la práctica, cuando trabajas con eventos en React (`onClick`, `onChange`, etc.), el objeto `event` que recibes es un `SyntheticEvent`, no directamente un evento nativo.
+
+Ventajas de este enfoque:
+
+- API consistente entre navegadores.
+- Misma interfaz para distintos tipos de evento.
+- Integración con el sistema de eventos de React.
+
+Si en algún caso necesitas el evento nativo real, puedes acceder mediante `event.nativeEvent`.
 
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">function</span> <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token comment">// SyntheticEvent</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Haz clic aquí</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
-
-
 
 ---
 
@@ -2318,8 +2350,6 @@ Dentro del `SyntheticEvent` puede encontrarse una referencia al evento nativo en
 <span class="token punctuation">}</span></code></pre>
 
 NOTA: `flushSync` puede afectar significativamente el rendimiento. Úsalo con moderación.
-
-
 
 ---
 
@@ -2369,8 +2399,6 @@ Podemos crear un Error Boundary en cualquier nivel del árbol de componentes, de
 
 Por ahora no existe una forma nativa de crear un Error Boundary en una función de React. Para crear un Error Boundary en una función, puedes usar la librería [react-error-boundary](https://github.com/bvaughn/react-error-boundary).
 
-
-
 ---
 
 #### ¿Qué son las Forward Refs?
@@ -2405,8 +2433,6 @@ El reenvío de referencia o _Forward Refs_ es una técnica que nos permite acced
 En este ejemplo, recuperamos la referencia del botón (elemento HTML `<button>`) y la recupera el componente padre (`Parent`), para poder hacer focus en él gracias al uso de `forwardRef` en el componente hijo (`Button`).
 
 Para la gran mayoría de componentes esto no es necesario pero puede ser útil para sistemas de diseño o componentes de terceros reutilizables.
-
-
 
 ---
 
@@ -2445,13 +2471,13 @@ A todas estas se le puede añadir la propiedad `isRequired` para indicar que es 
 
 > Otra opción es usar TypeScript, un lenguaje de programación que compila a JavaScript y que ofrece validación de tipos de forma estática. Ten en cuenta que mientras que TypeScript comprueba los tipos en tiempo de compilación, las PropTypes lo hacen en tiempo de ejecución.
 
-
-
 ---
 
 #### ¿Cómo puedo validar las propiedades de un objeto con PropTypes?
 
-Para validar las propiedades de un objeto que se pasa como prop, podemos usar la propiedad `shape` de `PropTypes`:
+Para validar una prop de tipo objeto se suele usar `PropTypes.shape`, donde defines la estructura esperada campo por campo.
+
+Esto es útil para documentar contratos de componente y detectar usos incorrectos en tiempo de ejecución durante desarrollo.
 
 <pre><code class="language-jsx"><span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">'prop-types'</span>
 
@@ -2467,13 +2493,22 @@ App<span class="token punctuation">.</span>propTypes <span class="token operator
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span></code></pre>
 
+Si quieres una validación más estricta (sin permitir propiedades adicionales), puedes usar `PropTypes.exact`.
 
+<pre><code class="language-jsx">App<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">title</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">exact</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">text</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+    <span class="token literal-property property">color</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 
 ---
 
 #### ¿Cómo puedo validar las propiedades de un array con PropTypes?
 
-Para validar las propiedades de un array que se pasa como prop, podemos usar la propiedad `arrayOf` de `PropTypes`:
+Para validar arrays en PropTypes se usa `PropTypes.arrayOf`, indicando el tipo que debe tener cada elemento.
+
+Cuando los elementos son objetos, es habitual combinar `arrayOf` con `shape` o `exact`.
 
 <pre><code class="language-jsx"><span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">'prop-types'</span>
 
@@ -2497,7 +2532,7 @@ App<span class="token punctuation">.</span>propTypes <span class="token operator
 
 En este caso estamos validando que `items` sea un array y que cada uno de sus elementos sea un objeto con la propiedad `text` de tipo `string`. Además, la prop es obligatoria.
 
-
+Si tu lista necesita campos adicionales (por ejemplo `id`, `text`, `completed`), lo recomendable es declararlos todos para tener una validación más expresiva y detectar errores antes.
 
 ---
 
@@ -2533,8 +2568,6 @@ Ahora sí veremos el HTML renderizado:
 
 Como ves, **el nombre ya nos indica que es una propiedad peligrosa y que debemos usarla con cuidado.** Intenta evitarla siempre que puedas y sólo recurre a ella cuando realmente no tengas otra opción.
 
-
-
 ---
 
 #### ¿Por qué puede ser mala idea pasar siempre todas las props de un objeto a un componente?
@@ -2558,8 +2591,6 @@ Y que tenemos otro componente `Layout` que recibe un objeto `props` con todas la
 En este caso, `Layout` está pasando todas las props que recibe a `App`. Esto puede ser una mala idea por varias razones:
 
 - Si `Layout` recibe una prop que no necesita, la pasará a `App` y éste puede que no la use. Esto puede ser confuso para el que lea el código.
-
-
 
 ---
 
@@ -2588,8 +2619,6 @@ Ejemplo de cómo utilizar el atributo "key" en React:
 <span class="token keyword">export</span> <span class="token keyword">default</span> ListaItems</code></pre>
 
 ---
-
-
 
 ---
 
@@ -2630,8 +2659,6 @@ El hook `useTransition` etiqueta como “no urgentes” las actualizaciones que 
 
 Úsalo cuando una actualización de estado dispara renders pesados (filtrar, ordenar, pintar cientos de filas) y quieres mantener la sensación de fluidez.
 
-
-
 ---
 
 #### ¿Para qué sirve el hook `useActionState`?
@@ -2664,8 +2691,6 @@ El hook `useTransition` etiqueta como “no urgentes” las actualizaciones que 
 <span class="token punctuation">}</span></code></pre>
 
 Así evitas crear estados manuales para “loading”, errores o resultados.
-
-
 
 ---
 
@@ -2713,8 +2738,6 @@ Así evitas crear estados manuales para “loading”, errores o resultados.
 
 Si la acción falla, deberás revertir manualmente el estado optimista (por ejemplo, eliminando el comentario temporal y mostrando un error).
 
-
-
 ---
 
 #### ¿Cómo funciona el hook `useFormStatus` y qué aporta junto a las Server Actions?
@@ -2742,8 +2765,6 @@ Si la acción falla, deberás revertir manualmente el estado optimista (por ejem
 <span class="token punctuation">}</span></code></pre>
 
 Cada botón o indicador dentro del formulario accede al mismo estado sin necesidad de prop drilling.
-
-
 
 ---
 
@@ -2780,8 +2801,6 @@ Cada botón o indicador dentro del formulario accede al mismo estado sin necesid
 
 Mantienes toda la lógica de validación en el servidor mientras la UI reacciona al instante.
 
-
-
 ---
 
 #### ¿Qué son las Server Actions y cómo se usan con formularios en React?
@@ -2809,8 +2828,6 @@ Las Server Actions son funciones marcadas con `'use server'` que React ejecuta e
 
 Cuando envías el formulario, React serializa el `FormData`, ejecuta la acción en el servidor y retorna la respuesta al cliente sin que tengas que crear endpoints manuales.
 
-
-
 ---
 
 #### ¿Cuál es la diferencia entre la prop `action` y el atributo `formAction` en React/Next.js?
@@ -2836,8 +2853,6 @@ Cuando envías el formulario, React serializa el `FormData`, ejecuta la acción 
 
 Ambas props aceptan una URL o una Server Action; elige `formAction` para botones alternativos sin duplicar formularios.
 
-
-
 ---
 
 #### ¿Qué diferencia hay entre componentes de servidor y componentes de cliente en React/Next.js?
@@ -2845,8 +2860,6 @@ Ambas props aceptan una URL o una Server Action; elige `formAction` para botones
 Los componentes de servidor se renderizan en el backend, pueden acceder a datos protegidos y devuelven HTML y payloads serializados. No pueden usar hooks del navegador (`useState`, `useEffect`). Los componentes de cliente se ejecutan en el navegador, escuchan eventos y pueden usar todos los hooks tradicionales.
 
 Para marcar un archivo como componente de cliente añade `'use client'` en la primera línea. Las Server Actions usan `'use server'` dentro de la función. Combinar ambos tipos te permite cargar datos en el servidor y mantener la interactividad solo donde es necesaria, reduciendo el JavaScript que llega al cliente.
-
-
 
 ---
 
@@ -2872,8 +2885,6 @@ Para marcar un archivo como componente de cliente añade `'use client'` en la pr
 <span class="token punctuation">}</span></code></pre>
 
 Si renderizas en el servidor, proporciona un tercer argumento (`getServerSnapshot`) para evitar discrepancias entre el HTML inicial y la hidratación.
-
-
 
 ---
 
@@ -2903,8 +2914,6 @@ Si renderizas en el servidor, proporciona un tercer argumento (`getServerSnapsho
 
 Combínalo con `useCallback` o `useMemo` para mantener estables las props de tipo función u objeto y evitar renders innecesarios.
 
-
-
 ---
 
 #### ¿Qué diferencia hay entre `ReactDOM.render`, `createRoot` y `hydrateRoot`?
@@ -2914,8 +2923,6 @@ Combínalo con `useCallback` o `useMemo` para mantener estables las props de tip
 - `hydrateRoot` conecta HTML generado en el servidor con React en el cliente manteniendo el DOM existente, imprescindible para SSR y streaming.
 
 En proyectos nuevos usa siempre `createRoot` o `hydrateRoot`; `ReactDOM.render` solo se mantiene por compatibilidad y desaparecerá en futuras versiones.
-
-
 
 ---
 
@@ -2934,8 +2941,6 @@ Otra diferencia es que React no está opinionado sobre qué empaquetador de apli
 Aún así, existe gente que considera a React como un framework. Aunque no hay una definición oficial de qué es un framework, la mayoría de la gente considera que un framework es una biblioteca que incluye otras bibliotecas para crear una aplicación completa de forma opinionada y casi sin configuración.
 
 Por ejemplo, **Next.js se podría considerar un framework de React** porque incluye React, un sistema de enrutado, un sistema de renderizado del lado del servidor, etc.
-
-
 
 ---
 
@@ -2965,8 +2970,6 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 Para que el componente padre pueda acceder al método `focus`, usamos el hook `useImperativeHandle`. Este hook recibe dos parámetros: una referencia y una función que devuelve un objeto con las propiedades y métodos que queremos que sean accesibles desde el componente padre.
 
-
-
 ---
 
 #### ¿Para qué sirve el método `cloneElement` de React?
@@ -2995,8 +2998,6 @@ Puede ser útil para modificar un elemento que ya nos viene de un componente pad
 
 - [Código de ejemplo](https://stackblitz.com/edit/react-ts-tc39vr?file=App.tsx)
 
-
-
 ---
 
 #### ¿Qué son los portales en React?
@@ -3023,15 +3024,22 @@ Es perfecto para ciertos casos de uso como, por ejemplo, modales:
 
 En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
-
-
 ---
 
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
-Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con _race conditions_.
+En desarrollo, `StrictMode` fuerza ejecuciones adicionales de ciertos ciclos (incluyendo render y efectos) para ayudarte a detectar errores que en producción suelen ser más difíciles de reproducir.
 
+No es un bug: es una herramienta de diagnóstico.
 
+Su objetivo principal es destapar problemas como:
+
+- Efectos con limpieza incompleta o ausente.
+- Lógica no idempotente (código que se rompe si se ejecuta más de una vez).
+- Side effects dentro del render.
+- Posibles _race conditions_ en flujos asíncronos.
+
+Punto importante: este comportamiento extra ocurre en desarrollo, no en producción. Si tu código falla con `StrictMode`, normalmente está señalando una fragilidad real que conviene corregir antes de publicar.
 
 ---
 
@@ -3043,8 +3051,6 @@ Cuando el modo `StrictMode` está activado, React monta los componentes dos vece
 Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para _renderizar_ en pantalla miles de datos.
 
 **El espacio de visualización es limitado (_viewport_), al igual que deberían serlo los datos que añadimos al DOM.**
-
-
 
 ---
 
@@ -3092,8 +3098,6 @@ Si quieres evitar que exista una _race condition_ entre una petición asíncrona
 
 De esta forma evitamos que se produzca un error por parte de React de intentar actualizar el estado de un componente que ya no existe, además de evitar que se produzcan llamadas innecesarias al servidor.
 
-
-
 ---
 
 #### ¿Qué solución/es implementarías para evitar problemas de rendimiento al trabajar con listas de miles/millones de datos?
@@ -3110,13 +3114,13 @@ Puedes consultar esta librería para aplicar Virtualización con React: [React V
 
 Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perjuicios en ambos métodos, dependiendo de factores como capacidad de respuesta de la API, cantidad de datos, necesidad de filtros complejos, etc. Por ello es importante analizar cada caso con criterio.
 
-
-
 ---
 
 #### ¿Qué es el hook `useDebugValue`?
 
-Nos permite mostrar un valor personalizado en la pestaña de _React DevTools_ que nos permitirá depurar nuestro código.
+`useDebugValue` es un hook pensado para mejorar la experiencia de depuración de _custom hooks_ en React DevTools.
+
+Permite mostrar una etiqueta o valor descriptivo para entender rápidamente el estado interno de un hook mientras desarrollas.
 
 <pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useDebugValue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
 
@@ -3126,17 +3130,23 @@ Nos permite mostrar un valor personalizado en la pestaña de _React DevTools_ qu
   <span class="token keyword">return</span> value
 <span class="token punctuation">}</span></code></pre>
 
-En este ejemplo, el valor personalizado que se muestra en la pestaña de _React DevTools_ es `custom value`.
+En este ejemplo, React DevTools mostrará `custom value` como información adicional del hook.
 
-Aunque es útil para depurar, no se recomienda usar este hook en producción.
+Es especialmente útil en hooks reutilizables complejos (por ejemplo, hooks de formularios, sockets, estado remoto o sincronización).
 
+Si quieres, también puedes formatear el valor para mostrar información más clara:
 
+<pre><code class="language-jsx"><span class="token function">useDebugValue</span><span class="token punctuation">(</span>status<span class="token punctuation">,</span> <span class="token parameter">value</span> <span class="token operator">=></span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Estado: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span></code></pre>
+
+Aunque no suele tener impacto significativo, se usa principalmente con propósito de desarrollo y diagnóstico.
 
 ---
 
 #### ¿Qué es el `Profiler` en React?
 
-El `Profiler` es un componente que nos permite medir el tiempo que tarda en renderizarse un componente y sus hijos.
+`Profiler` es una herramienta de React para medir el coste de renderizado de un subárbol de componentes.
+
+Su objetivo es ayudarte a detectar cuellos de botella de rendimiento y validar si una optimización realmente mejora tiempos de render.
 
 <pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Profiler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
 
@@ -3153,38 +3163,47 @@ El `Profiler` es un componente que nos permite medir el tiempo que tarda en rend
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-El componente `Profiler` recibe dos parámetros:
+El componente `Profiler` recibe dos props clave:
 
 - `id`: es un identificador único para el componente
 - `onRender`: es una función que se ejecuta cada vez que el componente se renderiza
 
-Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
+Con esos datos puedes saber, por ejemplo, qué componentes renderizan más de lo esperado o cuáles tardan demasiado en actualizarse.
 
-
+Recomendación práctica: úsalo en desarrollo para auditar zonas críticas, y combina sus resultados con React DevTools Profiler para obtener una visión completa del rendimiento.
 
 ---
 
 #### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
-React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
+En React, el manejador recibe un `SyntheticEvent`. Si necesitas acceder al evento nativo del navegador, puedes hacerlo con `event.nativeEvent`.
+
+Esto es útil en casos avanzados donde necesitas una propiedad específica del evento nativo o integrarte con librerías que esperan ese objeto.
 
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> onClick <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token operator">=></span> <span class="token function">onClick</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>nativeEvent<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Haz clic aquí</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-
+En la mayoría de escenarios no hace falta bajar al evento nativo: con la API de `SyntheticEvent` suele ser suficiente y más portable.
 
 ---
 
 #### ¿Cómo puedes registrar un evento en la fase de captura en React?
 
-En React, los eventos se registran en la fase de burbuja por defecto. Para registrar un evento en la fase de captura, debemos añadir `Capture` al nombre del evento:
+En React, los eventos se manejan por defecto en fase de burbuja. Si necesitas capturarlos antes de que lleguen al objetivo o de que suban por el árbol, debes usar la versión con sufijo `Capture`.
+
+React sigue la convención:
+
+- Burbuja: `onClick`, `onChange`, `onFocus`, etc.
+- Captura: `onClickCapture`, `onChangeCapture`, `onFocusCapture`, etc.
+
+Ejemplo:
 
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Button</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> onClick <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClickCapture</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>onClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Haz clic aquí</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span></code></pre>
 
-
+Usar la fase de captura es útil cuando quieres interceptar eventos de forma temprana (por ejemplo, logging global, analítica o reglas de interacción antes de que se ejecute la lógica de componentes hijos).
 
 ---
 
@@ -3223,8 +3242,6 @@ Aunque puedes usar el método `renderToString` para renderizar el HTML en el ser
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué diferencia hay entre `renderToStaticNodeStream()` y `renderToPipeableStream()`?
@@ -3232,8 +3249,6 @@ Aunque puedes usar el método `renderToString` para renderizar el HTML en el ser
 `renderToStaticNodeStream()` devuelve un stream de nodos estáticos, esto significa que no añade atributos extras para el DOM que React usa internamente para poder lograr la hidratación del HTML en el cliente. Esto significa que no podrás hacer el HTML interactivo en el cliente, pero puede ser útil para páginas totalmente estáticas.
 
 `renderToPipeableStream()` devuelve un stream de nodos que contienen atributos del DOM extra para que React pueda hidratar el HTML en el cliente. Esto significa que podrás hacer el HTML interactivo en el cliente pero puede ser más lento que `renderToStaticNodeStream()`.
-
-
 
 ---
 
@@ -3255,8 +3270,6 @@ El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baj
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
-
-
 
 ---
 
@@ -3303,8 +3316,6 @@ Un ejemplo de uso sería el siguiente:
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué es la función `use` en React y para qué se utiliza?
@@ -3335,8 +3346,6 @@ Se usa principalmente en componentes de servidor, pero también funciona en comp
 <span class="token punctuation">}</span></code></pre>
 
 También puedes usar `use` con funciones como `cache` o `resources` que devuelven un objeto con un método `read()`, simplificando la lectura de datos sin boilerplate.
-
-
 
 ---
 
@@ -3369,8 +3378,6 @@ No debe usarse para lógica que lea o escriba en el DOM: para eso siguen existie
 Si no necesitas inyectar estilos dinámicamente, usa hojas de estilo tradicionales o CSS Modules; `useInsertionEffect` está pensado para casos muy concretos.
 
 > Este hook está pensado para bibliotecas de CSS en JS y no para uso directo en aplicaciones. Si no estás creando una librería de estilos, probablemente no necesites usarlo.
-
-
 
 ---
 
@@ -3415,8 +3422,6 @@ Cada una de estas APIs ataca un cuello de botella distinto; combinarlas ayuda a 
 
 El patrón típico es: memoriza los datos (`useMemo`), memoriza callbacks para pasárselos a componentes memoizados (`useCallback`), marca como transición las actualizaciones no críticas y usa `useDeferredValue` cuando quieras separar la reactividad de la entrada de usuario del cálculo caro.
 
-
-
 ---
 
 ### ¿Cómo puedo hacer testing de un componente?
@@ -3444,8 +3449,6 @@ Para hacer testing de un componente, puedes usar la función `render` de la libr
   <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">getByText</span><span class="token punctuation">(</span><span class="token string">'Count: 1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
-
-
 ---
 
 ### ¿Cómo puedo hacer testing de un hook?
@@ -3470,8 +3473,6 @@ Para hacer testing de un hook, puedes usar la función `renderHook` de la librer
   <span class="token function">expect</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>current<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 
-
-
 ---
 
 #### ¿Qué es Flux?
@@ -3481,8 +3482,6 @@ _Flux_ es un patrón de arquitectura de aplicaciones que se basa en un unidirecc
 No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
 
 Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. _Redux_ se basó en este patrón para crear una biblioteca de gestión de estado global.
-
-
 
 ---
 
@@ -3501,8 +3500,6 @@ Recomendamos revisar las siguientes secciones:
 - [¿Qué es el renderizado de listas en React?](/qué-es-el-renderizado-de-listas-en-react)
 
 - [¿Por qué puede ser mala práctica usar el ´index´ como key en un listado de React?](/por-qué-puede-ser-mala-práctica-usar-el-index-como-key-en-un-listado-de-react)
-
-
 
 ---
 
@@ -3569,8 +3566,6 @@ Para arreglar este error, como hemos comentado antes, debes asegurarte de que lo
 Recomendamos revisar las siguientes secciones:
 
 - [¿Cuáles son las reglas de los hooks en React?](/cuáles-son-las-reglas-de-los-hooks-en-react)
-
-
 
 ---
 
@@ -3663,8 +3658,6 @@ Esto soluciona el problema pero **no evita que se haga la petición aunque el co
 <span class="token punctuation">}</span></code></pre>
 
 Sólo ten en cuenta la compatibilidad de `AbortController` en los navegadores. En [caniuse](https://caniuse.com/#feat=abortcontroller) puedes ver que no está soportado en Internet Explorer y versiones anteriores de Chrome 66, Safari 12.1 y Edge 16.
-
-
 
 ---
 
@@ -3768,8 +3761,6 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 - [¿Qué hace el hook useEffect?](/qué-hace-el-hook-useeffect)
 - [¿Cuáles son las reglas de los hooks en React?](/cuáles-son-las-reglas-de-los-hooks-en-react)
 
-
-
 ---
 
 #### ¿Qué diferencia existe entre Shadow DOM y Virtual DOM?
@@ -3777,8 +3768,6 @@ Estas son solo algunas de las posibles causas que podemos encontrar cuando nos t
 El **Shadow DOM** es una API del navegador que nos permite crear un árbol de nodos DOM independiente dentro de un elemento del DOM. Esto nos permite crear componentes que no interfieran con el resto de la aplicación. Se usa especialmente con Web Components.
 
 El **Virtual DOM** es una representación del DOM en memoria. Esta representación se crea cada vez que se produce un cambio en el DOM. Esto nos permite comparar el DOM actual con el DOM anterior y así determinar qué cambios se deben realizar en el DOM real. Lo usa React y otras bibliotecas para hacer el mínimo número de cambios en el DOM real.
-
-
 
 ---
 
@@ -3851,7 +3840,5 @@ En el caso del **Two-Way Binding**, la cafetera puede verter y recibir café en 
 
 Sí quieres saber más comparto el siguiente enlace:  
 [How To Bind Any Component to Data in React: One-Way Binding](https://www.telerik.com/blogs/how-to-bind-any-component-data-react-one-way-binding)
-
-
 
 ---

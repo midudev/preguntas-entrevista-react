@@ -201,7 +201,15 @@ Las características principales de React son:
 
 #### ¿Qué significa exactamente que sea declarativo?
 
-No le decimos cómo debe renderizar la interfaz a base de instrucciones. Le decimos qué debe renderizar y React se encarga de renderizarlo.
+Que React sea declarativo significa que describimos el resultado que queremos en la interfaz para un estado concreto, en vez de programar manualmente cada paso para manipular el DOM.
+
+Es decir: declaramos el "qué" y React se ocupa del "cómo".
+
+Esto aporta ventajas importantes:
+
+- Hace el código más predecible y fácil de mantener.
+- Reduce errores derivados de manipulación imperativa del DOM.
+- Permite razonar la UI como una función del estado.
 
 Un ejemplo entre declarativo e imperativo:
 
@@ -220,9 +228,18 @@ element.innerHTML = 'Hello, world'
 
 #### ¿Qué es un componente?
 
-Un componente es una pieza de código que renderiza una parte de la interfaz. Los componentes pueden ser parametrizados, reutilizados y pueden contener su propio estado.
+Un componente es la unidad fundamental de construcción en React. Es una pieza de interfaz autónoma y reutilizable que encapsula su estructura (JSX), su comportamiento (eventos y lógica), y en muchos casos también su estado.
 
-En React los componentes se crean usando funciones o clases.
+Pensar en componentes es pensar en términos de composición: en lugar de construir una pantalla como un bloque monolítico, la dividimos en partes pequeñas y bien definidas (por ejemplo: `Header`, `Sidebar`, `UserCard`, `Button`). Esta forma de trabajar hace que la aplicación sea más mantenible, escalable y fácil de testear.
+
+Un componente puede:
+
+- Recibir datos de entrada mediante props.
+- Renderizar una salida visual en función de esos datos.
+- Gestionar estado interno cuando necesita recordar información entre renderizados.
+- Reutilizarse en distintos contextos sin duplicar lógica.
+
+En React moderno, los componentes se escriben principalmente como funciones. Históricamente también se han usado clases, y es importante conocerlas para leer código legado, pero hoy el enfoque recomendado es funcional junto a hooks.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -309,7 +326,9 @@ Un elemento es un objeto que representa un nodo del DOM o una instancia de un co
 
 #### ¿Cómo crear un componente en React?
 
-Los componentes en React son funciones o clases que devuelven un elemento de React. Hoy en día lo más recomendado es usar funciones:
+En React, un componente es una función (o, de forma histórica, una clase) que describe una parte de la interfaz.
+
+Hoy en día, el enfoque recomendado es crear componentes funcionales:
 
 ```jsx
 function HelloWorld() {
@@ -317,7 +336,7 @@ function HelloWorld() {
 }
 ```
 
-Pero también puedes usar una clase para crear un componente React:
+También puedes encontrarte componentes de clase en código legado:
 
 ```jsx
 import { Component } from 'react'
@@ -329,7 +348,13 @@ class HelloWorld extends Component {
 }
 ```
 
-Lo importante es que el nombre de la función o clase empiece con una letra mayúscula. Esto es necesario para que React pueda distinguir entre componentes y elementos HTML.
+Reglas básicas al crear componentes:
+
+- El nombre debe empezar en mayúscula para que React lo interprete como componente y no como etiqueta HTML.
+- Debe ser reutilizable y tener una responsabilidad clara.
+- Debe recibir datos por props cuando necesite configuración externa.
+
+Como criterio de arquitectura, cuanto más pequeños y específicos sean tus componentes, más fácil será mantener y escalar la aplicación.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -397,11 +422,17 @@ Conocer y saber usar la prop `children` es muy importante para crear componentes
 
 ####  ¿Qué diferencia hay entre props y state?
 
-Las _props_ son un objeto que **se pasan como argumentos de un componente padre a un componente hijo**. Son inmutables y no se pueden modificar desde el componente hijo.
+Aunque ambos afectan al renderizado, cumplen funciones distintas:
 
-El _state_ es un valor que **se define dentro de un componente**. Su valor es inmutable (no se puede modificar directamente) pero se puede establecer un valor nuevo del estado para que React vuelva a renderizar el componente.
+- Las _props_ son datos de entrada que recibe un componente desde fuera (normalmente desde su componente padre). Dentro del componente receptor se tratan como inmutables.
+- El _state_ es memoria interna del componente y representa datos que cambian con el tiempo por interacción del usuario o por lógica de negocio.
 
-Así que mientras tanto _props_ como _state_ afectan al renderizado del componente, su gestión es diferente.
+Una regla práctica para recordarlo:
+
+- _props_ = configuración externa.
+- _state_ = estado interno que evoluciona.
+
+Entender esta diferencia es fundamental para diseñar componentes predecibles y mantener un flujo de datos unidireccional.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -613,7 +644,9 @@ function Button({ text }) {
 
 #### ¿Cómo añadir un evento a un componente en React?
 
-Para añadir un evento a un componente en React usamos la sintaxis `on` y el nombre del evento nativo del navegador en _camelCase_:
+En React, los eventos se registran con props que siguen la convención `on` + nombre del evento en _camelCase_ (`onClick`, `onChange`, `onSubmit`, etc.).
+
+La clave es pasar una función como manejador del evento, no ejecutar la función durante el render.
 
 ```jsx
 function Button({ text, onClick }) {
@@ -621,7 +654,20 @@ function Button({ text, onClick }) {
 }
 ```
 
-En este caso, el componente `Button` recibe una prop `onClick` que es una función. Cuando el usuario hace clic en el botón, se ejecuta la función `onClick`.
+En este caso, `Button` recibe una prop `onClick` y delega en ella su comportamiento al hacer clic. Este patrón permite crear componentes más reutilizables y desacoplados.
+
+Si necesitas añadir lógica intermedia (tracking, validaciones, etc.), puedes encapsularla en una función interna:
+
+```jsx
+function Button({ text, onClick }) {
+  const handleClick = event => {
+    // lógica previa
+    onClick(event)
+  }
+
+  return <button onClick={handleClick}>{text}</button>
+}
+```
 
 **[⬆ Volver a índice](#índice)**
 
@@ -722,11 +768,18 @@ class Counter extends Component {
 
 #### ¿Qué son los hooks?
 
-Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.
+Los Hooks son funciones especiales de React que permiten usar estado, efectos y otras capacidades del framework dentro de componentes funcionales.
 
-Esto, antes, no era posible y nos obligaba a crear un componente con `class` para poder acceder a todas las posibilidades de la librería.
+Antes de su aparición, estas capacidades se asociaban sobre todo a componentes de clase. Con hooks, el modelo funcional pasó a ser la opción principal.
 
-Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.
+Algunos hooks fundamentales son:
+
+- `useState`: para estado local.
+- `useEffect`: para sincronizar efectos secundarios.
+- `useMemo` y `useCallback`: para optimización de cálculos y referencias.
+- `useRef`: para referencias mutables o acceso al DOM.
+
+Además, React permite crear _custom hooks_, que son una forma excelente de reutilizar lógica con estado entre componentes sin duplicar código.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1038,7 +1091,9 @@ function Component() {
 
 #### ¿Qué son los Fragments en React?
 
-Los _Fragments_ son una forma de agrupar elementos sin añadir un elemento extra al DOM, ya que React no permite devolver varios elementos en un componente, solo un elemento raíz.
+Los _Fragments_ permiten agrupar varios elementos JSX sin añadir nodos extra al DOM.
+
+En React, un componente debe devolver un único elemento raíz. `Fragment` resuelve ese requisito sin introducir un `div` adicional que pueda afectar al layout o a los estilos.
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
@@ -1065,6 +1120,21 @@ function App() {
       <p>Párrafo</p>
     </>
   )
+}
+```
+
+Si necesitas añadir una `key` (por ejemplo, al renderizar una lista), debes usar la versión explícita con `Fragment`:
+
+```jsx
+import { Fragment } from 'react'
+
+function List({ items }) {
+  return items.map(item => (
+    <Fragment key={item.id}>
+      <h2>{item.title}</h2>
+      <p>{item.description}</p>
+    </Fragment>
+  ))
 }
 ```
 
@@ -1668,7 +1738,19 @@ function Counter() {
 
 #### ¿Cuántos `useEffect` puede tener un componente?
 
-Aunque normalmente los componentes de React solo cuentan con un `useEffect` lo cierto es que podemos tener tantos `useEffect` como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.
+Un componente puede tener tantos `useEffect` como necesite. No existe un límite práctico impuesto por React.
+
+De hecho, en la mayoría de casos es preferible tener varios `useEffect` pequeños y bien enfocados antes que uno solo con demasiadas responsabilidades.
+
+Buena práctica habitual:
+
+- Un `useEffect` para suscribirse a eventos del navegador.
+- Otro para sincronizar datos con una API.
+- Otro para persistir estado en `localStorage`.
+
+Separar efectos por responsabilidad mejora la legibilidad, reduce errores y hace más sencillo mantener el código.
+
+Además, cada efecto tiene su propio ciclo de vida: React ejecuta o limpia cada uno según sus dependencias. Esto permite un control mucho más fino que concentrar toda la lógica en un único bloque.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1758,10 +1840,42 @@ useEffect(() => {
 
 #### ¿Cuáles son las reglas de los hooks en React?
 
-Los hooks en React tienen dos reglas fundamentales:
+Los hooks en React tienen dos reglas fundamentales, y respetarlas es clave para evitar comportamientos impredecibles:
 
-- Los hooks solo se pueden usar en componentes funcionales o _custom hooks_.
-- Los hooks solo se pueden llamar en el nivel superior de un componente. No se pueden llamar dentro de bucles, condicionales o funciones anidadas.
+- Solo pueden llamarse en componentes funcionales de React o en _custom hooks_.
+- Deben llamarse siempre en el nivel superior del componente o del hook, nunca dentro de condicionales, bucles o funciones internas.
+
+¿Por qué existe esta restricción? Porque React identifica cada hook por su orden de ejecución. Si ese orden cambia entre renderizados, React puede mezclar estados y efectos, generando bugs difíciles de depurar.
+
+Ejemplo incorrecto:
+
+```jsx
+function Component({ isOpen }) {
+  if (isOpen) {
+    useEffect(() => {
+      console.log('abierto')
+    }, [])
+  }
+
+  return <div>Hola</div>
+}
+```
+
+Ejemplo correcto:
+
+```jsx
+function Component({ isOpen }) {
+  useEffect(() => {
+    if (isOpen) {
+      console.log('abierto')
+    }
+  }, [isOpen])
+
+  return <div>Hola</div>
+}
+```
+
+Para ayudarte a cumplir estas reglas de forma consistente, es muy recomendable usar `eslint-plugin-react-hooks`, que detecta automáticamente violaciones comunes.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1835,9 +1949,17 @@ De esta forma, en el cliente, React reutiliza este HTML estático y se dedica a 
 
 #### ¿Qué es el Server Side Rendering y qué ventajas tiene?
 
-El _Server Side Rendering_ es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.
+El _Server Side Rendering_ (SSR) es una estrategia de renderizado donde el servidor genera el HTML inicial de la página y lo envía ya renderizado al navegador.
 
-Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.
+Después, en el cliente, React hidrata ese HTML para añadir interactividad.
+
+Ventajas principales:
+
+- Mejor percepción de velocidad inicial, porque el usuario ve contenido antes.
+- Mejor indexación SEO en muchos escenarios, al entregar HTML útil desde el primer momento.
+- Mejor rendimiento en dispositivos lentos al reducir trabajo inicial del cliente.
+
+Eso sí, SSR no es una solución universal: aumenta la carga del servidor y requiere diseñar bien la estrategia de caché y de datos para mantener tiempos de respuesta estables.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2206,9 +2328,17 @@ No. `useCallback` es una herramienta que nos permite optimizar nuestros componen
 
 #### ¿Cuál es la diferencia entre `useCallback` y `useMemo`?
 
-La diferencia entre `useCallback` y `useMemo` es que `useCallback` memoriza una función y `useMemo` memoriza el resultado de una función.
+La diferencia principal es esta:
 
-En cualquier caso, en realidad, `useCallback` es una versión especializada de `useMemo`. De hecho se puede simular la funcionalidad de `useCallback` con `useMemo`:
+- `useMemo` memoriza el resultado de un cálculo.
+- `useCallback` memoriza la referencia de una función.
+
+En términos prácticos, ambos se usan para evitar trabajo innecesario entre renderizados, pero no persiguen exactamente el mismo objetivo:
+
+- Usa `useMemo` cuando el cálculo sea costoso y quieras reutilizar su resultado.
+- Usa `useCallback` cuando pases funciones a componentes memoizados o a hooks que dependan de la estabilidad de esa referencia.
+
+También es cierto que `useCallback` puede entenderse como un caso particular de `useMemo`. De hecho, se puede simular así:
 
 ```js
 const memoizedCallback = useMemo(() => {
@@ -2218,13 +2348,24 @@ const memoizedCallback = useMemo(() => {
 }, [a, b])
 ```
 
+Importante: no conviene usar `useMemo` y `useCallback` de forma indiscriminada. Añadir memoización sin necesidad puede aumentar complejidad y, en algunos casos, empeorar el rendimiento.
+
 **[⬆ Volver a índice](#índice)**
 
 ---
 
 #### ¿Qué son las refs en React?
 
-Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando `createRef` o con el hook `useRef`.
+Las refs (referencias) son una vía de acceso imperativa en React. Permiten apuntar a un nodo del DOM o a un valor mutable que queremos conservar entre renderizados sin provocar un nuevo render cuando cambia.
+
+Se utilizan principalmente en dos escenarios:
+
+- Interactuar con el DOM de forma puntual (por ejemplo, hacer focus a un input, medir un elemento o gestionar selecciones).
+- Guardar valores mutables entre renders que no forman parte de la UI (por ejemplo, un identificador de intervalo, un flag interno o el valor previo de una variable).
+
+En componentes funcionales se usa normalmente `useRef`, y en componentes de clase se ha usado históricamente `createRef`.
+
+Es importante entender que una ref no sustituye al estado: si un cambio debe reflejarse en la interfaz, debería gestionarse con state; si no necesita re-render, una ref suele ser la herramienta adecuada.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2298,7 +2439,11 @@ El orden de ejecución del `useLayoutEffect`, ya que se ejecuta de forma síncro
 
 #### ¿Qué son los componentes _stateless_?
 
-Los componentes _stateless_ son componentes que no tienen estado. Estos componentes se crean con una `function` y no tienen acceso al estado de la aplicación. La ventaja que tienen estos componentes es que hace que sea más fácil crear componentes puros (que siempre renderizan lo mismo para unas mismas props).
+Los componentes _stateless_ son componentes que no gestionan estado interno. Su salida depende exclusivamente de las props que reciben.
+
+Por ese motivo, suelen ser más fáciles de entender, de testear y de reutilizar. También favorecen un estilo de desarrollo más predecible, cercano a los componentes puros.
+
+En la práctica, son muy útiles para piezas de UI presentacionales (botones, tarjetas, encabezados, etiquetas, etc.) donde la lógica de estado vive en componentes contenedores o hooks.
 
 ```jsx
 // Este es un ejemplo de componente stateless
@@ -2313,7 +2458,9 @@ function Button({ text }) {
 
 #### ¿Cómo puedes prevenir el comportamiento por defecto de un evento en React?
 
-Para prevenir el comportamiento por defecto de un evento en React, debemos usar el método `preventDefault`:
+Para prevenir el comportamiento por defecto de un evento en React, se usa el método `preventDefault()` sobre el objeto del evento.
+
+Esto es habitual en formularios, enlaces o cualquier interacción donde quieras mantener el control del flujo desde JavaScript en lugar de dejar que actúe el comportamiento nativo del navegador.
 
 ```jsx
 function Form({ onSubmit }) {
@@ -2331,13 +2478,26 @@ function Form({ onSubmit }) {
 }
 ```
 
+En este ejemplo, evitamos que el formulario recargue la página al hacer submit, para poder validar y procesar los datos de forma controlada.
+
+Nota útil: `preventDefault()` evita la acción por defecto, pero no detiene la propagación del evento. Si también necesitas evitar que el evento siga propagándose, debes usar además `stopPropagation()`.
+
 **[⬆ Volver a índice](#índice)**
 
 ---
 
 #### ¿Qué es el `StrictMode` en React?
 
-El `StrictMode` es un componente que nos permite activar algunas comprobaciones de desarrollo en React. Por ejemplo, detecta componentes que se renderizan de forma innecesaria o funcionalidades obsoletas que se están usando.
+`StrictMode` es una herramienta de desarrollo que activa comprobaciones adicionales en una parte del árbol de componentes para detectar malas prácticas antes de llegar a producción.
+
+No añade interfaz visual y no cambia el comportamiento funcional en producción. Su valor está en detectar problemas de calidad durante el desarrollo, por ejemplo:
+
+- Efectos con limpieza incompleta.
+- Side effects ejecutados en sitios inadecuados (como el render).
+- Uso de APIs obsoletas o patrones no recomendados.
+- Código no idempotente que falla si se ejecuta más de una vez.
+
+Por eso, cuando activas `StrictMode`, es normal ver ejecuciones extra en desarrollo: no es un error, es una estrategia deliberada para exponer fragilidades de tu código cuanto antes.
 
 ```jsx
 import { StrictMode } from 'react'
@@ -2423,7 +2583,15 @@ function App() {
 
 #### ¿Cómo puedes exportar múltiples componentes de un mismo archivo?
 
-Para exportar múltiples componentes de un mismo archivo, podemos usar la exportación nombrada:
+Para exportar múltiples componentes desde un mismo archivo, lo habitual es usar exportaciones nombradas (named exports). Este enfoque es especialmente útil cuando los componentes están relacionados entre sí (por ejemplo, variantes de un mismo componente o piezas de un patrón compuesto).
+
+Además, las exportaciones nombradas suelen mejorar la mantenibilidad porque:
+
+- Hacen explícito qué se exporta públicamente.
+- Facilitan el autocompletado y los refactors en el editor.
+- Evitan ambiguedades típicas de mezclar demasiados default exports.
+
+Ejemplo:
 
 ```jsx
 // button.jsx
@@ -2434,6 +2602,18 @@ export function Button({ children }) {
 export function ButtonSecondary({ children }) {
   return <button class='btn-secondary'>{children}</button>
 }
+```
+
+Y luego se importan así:
+
+```jsx
+import { Button, ButtonSecondary } from './button.jsx'
+```
+
+Si en algún caso quieres renombrar una exportación al importar, también puedes hacerlo:
+
+```jsx
+import { ButtonSecondary as SecondaryButton } from './button.jsx'
 ```
 
 **[⬆ Volver a índice](#índice)**
@@ -2636,14 +2816,22 @@ function Button() {
 
 #### ¿Qué es el `SyntheticEvent` en React?
 
-El `SyntheticEvent` es una abstracción del evento nativo del navegador. Esto le permite a React tener un comportamiento consistente en todos los navegadores.
+`SyntheticEvent` es la capa de abstracción de eventos que React usa sobre los eventos nativos del navegador. Su objetivo es ofrecer una API homogénea y consistente entre navegadores.
 
-Dentro del `SyntheticEvent` puede encontrarse una referencia al evento nativo en su atributo `nativeEvent`
+En la práctica, cuando trabajas con eventos en React (`onClick`, `onChange`, etc.), el objeto `event` que recibes es un `SyntheticEvent`, no directamente un evento nativo.
+
+Ventajas de este enfoque:
+
+- API consistente entre navegadores.
+- Misma interfaz para distintos tipos de evento.
+- Integración con el sistema de eventos de React.
+
+Si en algún caso necesitas el evento nativo real, puedes acceder mediante `event.nativeEvent`.
 
 ```jsx
 function App() {
   function handleClick(event) {
-    console.log(event)
+    console.log(event) // SyntheticEvent
   }
 
   return <button onClick={handleClick}>Haz clic aquí</button>
@@ -2829,7 +3017,9 @@ A todas estas se le puede añadir la propiedad `isRequired` para indicar que es 
 
 #### ¿Cómo puedo validar las propiedades de un objeto con PropTypes?
 
-Para validar las propiedades de un objeto que se pasa como prop, podemos usar la propiedad `shape` de `PropTypes`:
+Para validar una prop de tipo objeto se suele usar `PropTypes.shape`, donde defines la estructura esperada campo por campo.
+
+Esto es útil para documentar contratos de componente y detectar usos incorrectos en tiempo de ejecución durante desarrollo.
 
 ```jsx
 import PropTypes from 'prop-types'
@@ -2847,13 +3037,26 @@ App.propTypes = {
 }
 ```
 
+Si quieres una validación más estricta (sin permitir propiedades adicionales), puedes usar `PropTypes.exact`.
+
+```jsx
+App.propTypes = {
+  title: PropTypes.exact({
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
+}
+```
+
 **[⬆ Volver a índice](#índice)**
 
 ---
 
 #### ¿Cómo puedo validar las propiedades de un array con PropTypes?
 
-Para validar las propiedades de un array que se pasa como prop, podemos usar la propiedad `arrayOf` de `PropTypes`:
+Para validar arrays en PropTypes se usa `PropTypes.arrayOf`, indicando el tipo que debe tener cada elemento.
+
+Cuando los elementos son objetos, es habitual combinar `arrayOf` con `shape` o `exact`.
 
 ```jsx
 import PropTypes from 'prop-types'
@@ -2878,6 +3081,8 @@ App.propTypes = {
 ```
 
 En este caso estamos validando que `items` sea un array y que cada uno de sus elementos sea un objeto con la propiedad `text` de tipo `string`. Además, la prop es obligatoria.
+
+Si tu lista necesita campos adicionales (por ejemplo `id`, `text`, `completed`), lo recomendable es declararlos todos para tener una validación más expresiva y detectar errores antes.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3449,7 +3654,18 @@ En este caso el modal se renderiza en el nodo `#modal` del DOM.
 
 #### ¿Por qué `StrictMode` renderiza dos veces la aplicación?
 
-Cuando el modo `StrictMode` está activado, React monta los componentes dos veces (el estado y el DOM se preserva). Esto ayuda a encontrar efectos que necesitan una limpieza o expone problemas con _race conditions_.
+En desarrollo, `StrictMode` fuerza ejecuciones adicionales de ciertos ciclos (incluyendo render y efectos) para ayudarte a detectar errores que en producción suelen ser más difíciles de reproducir.
+
+No es un bug: es una herramienta de diagnóstico.
+
+Su objetivo principal es destapar problemas como:
+
+- Efectos con limpieza incompleta o ausente.
+- Lógica no idempotente (código que se rompe si se ejecuta más de una vez).
+- Side effects dentro del render.
+- Posibles _race conditions_ en flujos asíncronos.
+
+Punto importante: este comportamiento extra ocurre en desarrollo, no en producción. Si tu código falla con `StrictMode`, normalmente está señalando una fragilidad real que conviene corregir antes de publicar.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3538,7 +3754,9 @@ Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perj
 
 #### ¿Qué es el hook `useDebugValue`?
 
-Nos permite mostrar un valor personalizado en la pestaña de _React DevTools_ que nos permitirá depurar nuestro código.
+`useDebugValue` es un hook pensado para mejorar la experiencia de depuración de _custom hooks_ en React DevTools.
+
+Permite mostrar una etiqueta o valor descriptivo para entender rápidamente el estado interno de un hook mientras desarrollas.
 
 ```jsx
 import { useDebugValue } from 'react'
@@ -3550,9 +3768,17 @@ function useCustomHook() {
 }
 ```
 
-En este ejemplo, el valor personalizado que se muestra en la pestaña de _React DevTools_ es `custom value`.
+En este ejemplo, React DevTools mostrará `custom value` como información adicional del hook.
 
-Aunque es útil para depurar, no se recomienda usar este hook en producción.
+Es especialmente útil en hooks reutilizables complejos (por ejemplo, hooks de formularios, sockets, estado remoto o sincronización).
+
+Si quieres, también puedes formatear el valor para mostrar información más clara:
+
+```jsx
+useDebugValue(status, value => `Estado: ${value}`)
+```
+
+Aunque no suele tener impacto significativo, se usa principalmente con propósito de desarrollo y diagnóstico.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3560,7 +3786,9 @@ Aunque es útil para depurar, no se recomienda usar este hook en producción.
 
 #### ¿Qué es el `Profiler` en React?
 
-El `Profiler` es un componente que nos permite medir el tiempo que tarda en renderizarse un componente y sus hijos.
+`Profiler` es una herramienta de React para medir el coste de renderizado de un subárbol de componentes.
+
+Su objetivo es ayudarte a detectar cuellos de botella de rendimiento y validar si una optimización realmente mejora tiempos de render.
 
 ```jsx
 import { Profiler } from 'react'
@@ -3579,12 +3807,14 @@ function App() {
 }
 ```
 
-El componente `Profiler` recibe dos parámetros:
+El componente `Profiler` recibe dos props clave:
 
 - `id`: es un identificador único para el componente
 - `onRender`: es una función que se ejecuta cada vez que el componente se renderiza
 
-Esta información es muy útil para detectar componentes que toman mucho tiempo en renderizarse y optimizarlos.
+Con esos datos puedes saber, por ejemplo, qué componentes renderizan más de lo esperado o cuáles tardan demasiado en actualizarse.
+
+Recomendación práctica: úsalo en desarrollo para auditar zonas críticas, y combina sus resultados con React DevTools Profiler para obtener una visión completa del rendimiento.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3592,7 +3822,9 @@ Esta información es muy útil para detectar componentes que toman mucho tiempo 
 
 #### ¿Cómo puedes acceder al evento nativo del navegador en React?
 
-React no expone el evento nativo del navegador. En su lugar, React crea un objeto sintético que se basa en el evento nativo del navegador llamado `SyntheticEvent`. Para acceder al evento nativo del navegador, debemos usar el atributo `nativeEvent`:
+En React, el manejador recibe un `SyntheticEvent`. Si necesitas acceder al evento nativo del navegador, puedes hacerlo con `event.nativeEvent`.
+
+Esto es útil en casos avanzados donde necesitas una propiedad específica del evento nativo o integrarte con librerías que esperan ese objeto.
 
 ```jsx
 function Button({ onClick }) {
@@ -3600,19 +3832,30 @@ function Button({ onClick }) {
 }
 ```
 
+En la mayoría de escenarios no hace falta bajar al evento nativo: con la API de `SyntheticEvent` suele ser suficiente y más portable.
+
 **[⬆ Volver a índice](#índice)**
 
 ---
 
 #### ¿Cómo puedes registrar un evento en la fase de captura en React?
 
-En React, los eventos se registran en la fase de burbuja por defecto. Para registrar un evento en la fase de captura, debemos añadir `Capture` al nombre del evento:
+En React, los eventos se manejan por defecto en fase de burbuja. Si necesitas capturarlos antes de que lleguen al objetivo o de que suban por el árbol, debes usar la versión con sufijo `Capture`.
+
+React sigue la convención:
+
+- Burbuja: `onClick`, `onChange`, `onFocus`, etc.
+- Captura: `onClickCapture`, `onChangeCapture`, `onFocusCapture`, etc.
+
+Ejemplo:
 
 ```jsx
 function Button({ onClick }) {
   return <button onClickCapture={onClick}>Haz clic aquí</button>
 }
 ```
+
+Usar la fase de captura es útil cuando quieres interceptar eventos de forma temprana (por ejemplo, logging global, analítica o reglas de interacción antes de que se ejecute la lógica de componentes hijos).
 
 **[⬆ Volver a índice](#índice)**
 

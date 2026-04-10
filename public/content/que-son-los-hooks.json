@@ -1,6 +1,1 @@
-{
-  "id": "que-son-los-hooks",
-  "level": 0,
-  "title": "¿Qué son los hooks?",
-  "content": "<p>Los Hooks son una API de React que nos permite tener estado, y otras características de React, en los componentes creados con una function.</p>\n<p>Esto, antes, no era posible y nos obligaba a crear un componente con <code>class</code> para poder acceder a todas las posibilidades de la librería.</p>\n<p>Hooks es gancho y, precisamente, lo que hacen, es que te permiten enganchar tus componentes funcionales a todas las características que ofrece React.</p>\n<hr>\n"
-}
+{"id":"que-son-los-hooks","level":0,"title":"¿Qué son los hooks?","content":"<p>Los Hooks son funciones especiales de React que permiten usar estado, efectos y otras capacidades del framework dentro de componentes funcionales.</p>\n<p>Antes de su aparición, estas capacidades se asociaban sobre todo a componentes de clase. Con hooks, el modelo funcional pasó a ser la opción principal.</p>\n<p>Algunos hooks fundamentales son:</p>\n<ul>\n<li><code>useState</code>: para estado local.</li>\n<li><code>useEffect</code>: para sincronizar efectos secundarios.</li>\n<li><code>useMemo</code> y <code>useCallback</code>: para optimización de cálculos y referencias.</li>\n<li><code>useRef</code>: para referencias mutables o acceso al DOM.</li>\n</ul>\n<p>Además, React permite crear <em>custom hooks</em>, que son una forma excelente de reutilizar lógica con estado entre componentes sin duplicar código.</p>\n<hr>\n"}

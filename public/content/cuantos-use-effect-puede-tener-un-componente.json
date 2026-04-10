@@ -1,6 +1,1 @@
-{
-  "id": "cuantos-use-effect-puede-tener-un-componente",
-  "level": 1,
-  "title": "¿Cuántos `useEffect` puede tener un componente?",
-  "content": "<p>Aunque normalmente los componentes de React solo cuentan con un <code>useEffect</code> lo cierto es que podemos tener tantos <code>useEffect</code> como queramos en un componente. Cada uno de ellos se ejecutará cuando se renderice el componente o cuando cambien las dependencias del efecto.</p>\n<hr>\n"
-}
+{"id":"cuantos-use-effect-puede-tener-un-componente","level":1,"title":"¿Cuántos `useEffect` puede tener un componente?","content":"<p>Un componente puede tener tantos <code>useEffect</code> como necesite. No existe un límite práctico impuesto por React.</p>\n<p>De hecho, en la mayoría de casos es preferible tener varios <code>useEffect</code> pequeños y bien enfocados antes que uno solo con demasiadas responsabilidades.</p>\n<p>Buena práctica habitual:</p>\n<ul>\n<li>Un <code>useEffect</code> para suscribirse a eventos del navegador.</li>\n<li>Otro para sincronizar datos con una API.</li>\n<li>Otro para persistir estado en <code>localStorage</code>.</li>\n</ul>\n<p>Separar efectos por responsabilidad mejora la legibilidad, reduce errores y hace más sencillo mantener el código.</p>\n<p>Además, cada efecto tiene su propio ciclo de vida: React ejecuta o limpia cada uno según sus dependencias. Esto permite un control mucho más fino que concentrar toda la lógica en un único bloque.</p>\n<hr>\n"}

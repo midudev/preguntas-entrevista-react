@@ -1,6 +1,1 @@
-{
-  "id": "que-es-el-server-side-rendering-y-que-ventajas-tiene",
-  "level": 1,
-  "title": "¿Qué es el Server Side Rendering y qué ventajas tiene?",
-  "content": "<p>El <em>Server Side Rendering</em> es una técnica que consiste en renderizar el HTML en el servidor y enviarlo al cliente. Esto nos permite que el usuario vea la interfaz de la aplicación antes de que se cargue el JavaScript.</p>\n<p>Esta técnica nos permite mejorar la experiencia de usuario y mejorar el SEO de nuestra aplicación.</p>\n<hr>\n"
-}
+{"id":"que-es-el-server-side-rendering-y-que-ventajas-tiene","level":1,"title":"¿Qué es el Server Side Rendering y qué ventajas tiene?","content":"<p>El <em>Server Side Rendering</em> (SSR) es una estrategia de renderizado donde el servidor genera el HTML inicial de la página y lo envía ya renderizado al navegador.</p>\n<p>Después, en el cliente, React hidrata ese HTML para añadir interactividad.</p>\n<p>Ventajas principales:</p>\n<ul>\n<li>Mejor percepción de velocidad inicial, porque el usuario ve contenido antes.</li>\n<li>Mejor indexación SEO en muchos escenarios, al entregar HTML útil desde el primer momento.</li>\n<li>Mejor rendimiento en dispositivos lentos al reducir trabajo inicial del cliente.</li>\n</ul>\n<p>Eso sí, SSR no es una solución universal: aumenta la carga del servidor y requiere diseñar bien la estrategia de caché y de datos para mantener tiempos de respuesta estables.</p>\n<hr>\n"}

@@ -1,6 +1,1 @@
-{
-  "id": "que-son-las-refs-en-react",
-  "level": 1,
-  "title": "¿Qué son las refs en React?",
-  "content": "<p>Las refs nos permiten crear una referencia a un elemento del DOM o a un valor que se mantendrá entre renderizados. Se pueden declarar por medio del comando <code>createRef</code> o con el hook <code>useRef</code>.</p>\n<hr>\n"
-}
+{"id":"que-son-las-refs-en-react","level":1,"title":"¿Qué son las refs en React?","content":"<p>Las refs (referencias) son una vía de acceso imperativa en React. Permiten apuntar a un nodo del DOM o a un valor mutable que queremos conservar entre renderizados sin provocar un nuevo render cuando cambia.</p>\n<p>Se utilizan principalmente en dos escenarios:</p>\n<ul>\n<li>Interactuar con el DOM de forma puntual (por ejemplo, hacer focus a un input, medir un elemento o gestionar selecciones).</li>\n<li>Guardar valores mutables entre renders que no forman parte de la UI (por ejemplo, un identificador de intervalo, un flag interno o el valor previo de una variable).</li>\n</ul>\n<p>En componentes funcionales se usa normalmente <code>useRef</code>, y en componentes de clase se ha usado históricamente <code>createRef</code>.</p>\n<p>Es importante entender que una ref no sustituye al estado: si un cambio debe reflejarse en la interfaz, debería gestionarse con state; si no necesita re-render, una ref suele ser la herramienta adecuada.</p>\n<hr>\n"}
