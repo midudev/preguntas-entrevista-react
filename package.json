@@ -12,8 +12,7 @@
     "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
     "prettier": "prettier --write .",
-    "lint": "eslint .",
-    "preinstall": "node preinstall.js"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
