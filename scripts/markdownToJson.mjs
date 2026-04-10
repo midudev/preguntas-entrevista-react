@@ -105,7 +105,7 @@ const promises = tree
           .replace('</h4', '</h1')
           .replace('<hr>', '')
 
-        const promise = fs.outputJSON(`./public/${previousId}.json`, {
+        const promise = fs.outputJSON(`./public/content/${previousId}.json`, {
           id: previousId,
           level,
           title: previousTitle,
