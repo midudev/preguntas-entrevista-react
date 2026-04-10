@@ -19,7 +19,7 @@ export const BuyBook = () => {
           <BookCover>
             <Image
               alt='Portada del libro de Preguntas de React'
-              src='/book.png'
+              src='/book.webp'
               width='136'
               height='176'
               loading='lazy'

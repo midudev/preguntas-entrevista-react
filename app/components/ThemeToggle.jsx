@@ -1,8 +1,7 @@
 'use client'
 
 import { useContext } from 'react'
-
-import Image from 'next/image'
+import { IconMoon, IconSun } from '@tabler/icons-react'
 import { ThemeContext } from '@/context/ThemeContext'
 
 const ThemeToggle = () => {
@@ -20,7 +19,7 @@ const ThemeToggle = () => {
           : { backgroundColor: 'white' }
       }
     >
-      <Image src='/moon.png' alt='' width={14} height={14} className='z-10' />
+      <IconMoon size={14} className='z-10 text-slate-200' aria-hidden='true' />
       <span
         className={`absolute top-0.75 h-5 w-5 rounded-full transition-transform duration-300 ${
           theme === 'dark'
@@ -28,7 +27,7 @@ const ThemeToggle = () => {
             : 'left-8.25 bg-slate-800 shadow-[0_0_0_2px_rgba(59,130,246,0.2)]'
         }`}
       />
-      <Image src='/sun.png' alt='' width={14} height={14} className='z-10' />
+      <IconSun size={14} className='z-10 text-amber-500' aria-hidden='true' />
     </button>
   )
 }

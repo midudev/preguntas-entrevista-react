@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import debounce from 'just-debounce-it'
 import Link from 'next/link'
 import { Combobox } from '@headlessui/react'
+import { IconArrowLeft } from '@tabler/icons-react'
 
 import { ReactLogo } from './ReactLogo.jsx'
 import { SearchIcon } from './SearchIcon.jsx'
@@ -22,7 +23,7 @@ export function Header({ children }) {
   const router = useRouter()
 
   const isHome = pathname === '/'
-  const literal = isHome ? 'Inicio' : '← Volver al inicio'
+  const literal = isHome ? 'Inicio' : 'Volver al inicio'
 
   const debouncedHandleChange = useCallback(
     debounce(event => {
@@ -95,13 +96,14 @@ export function Header({ children }) {
           className='inline-flex w-fit rounded-full border border-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300'
           href='/'
         >
+          {!isHome && (
+            <IconArrowLeft size={14} className='mr-1' aria-hidden='true' />
+          )}
           {literal}
         </Link>
 
         <div className='flex gap-x-2'>
           <Title isHome={isHome} />
-
-          {!isHome && <ReactLogo animated={false} size='small' />}
 
           {isHome && (
             <div className='absolute p-2 overflow-hidden -right-4 md:right-0 top-6 dark:invert'>

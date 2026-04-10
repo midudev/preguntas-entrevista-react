@@ -1,10 +1,16 @@
 import { LEVELS } from '../constants.js'
+import {
+  IconAntennaBars2,
+  IconAntennaBars3,
+  IconAntennaBars5,
+  IconAlertTriangle,
+} from '@tabler/icons-react'
 
 const LITERALS = {
   [LEVELS.EASY]: 'Principiante',
   [LEVELS.MEDIUM]: 'Intermedio',
   [LEVELS.HARD]: 'Experto',
-  [LEVELS.ERRORS]: 'Errores típicos de React',
+  [LEVELS.ERRORS]: 'Errores típicos',
 }
 
 const COLORS = {
@@ -18,13 +24,26 @@ const COLORS = {
     'border-red-500/40 bg-red-50 text-red-700 dark:bg-red-500/15 dark:text-red-300',
 }
 
+const ICONS = {
+  [LEVELS.EASY]: IconAntennaBars2,
+  [LEVELS.MEDIUM]: IconAntennaBars3,
+  [LEVELS.HARD]: IconAntennaBars5,
+  [LEVELS.ERRORS]: IconAlertTriangle,
+}
+
 export function Pill({ level }) {
   const color = COLORS[level] ?? COLORS[LEVELS.EASY]
   const literal = LITERALS[level] ?? LITERALS[LEVELS.EASY]
+  const Icon = ICONS[level] ?? ICONS[LEVELS.EASY]
 
   return (
     <div>
-      <span className={`${color} pill-tag font-bold`}>{literal}</span>
+      <span
+        className={`${color} pill-tag font-bold inline-flex items-center gap-1`}
+      >
+        <Icon size={13} aria-hidden='true' />
+        {literal}
+      </span>
     </div>
   )
 }

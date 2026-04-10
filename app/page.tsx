@@ -41,7 +41,7 @@ export default function Page() {
           preparan para cualquier entrevista.
         </h2>
         <p className='mt-6 max-w-2xl text-base leading-relaxed text-slate-500 md:text-lg dark:text-slate-400'>
-          Seleccionamos los temas que mas se repiten en procesos de seleccion
+          Seleccionamos los temas que más se repiten en procesos de selección
           para que practiques con contexto, no con definiciones memorizadas.
         </p>
       </section>

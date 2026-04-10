@@ -1,7 +1,7 @@
-export function ReactLogo({ animated = true, size }) {
+export function ReactLogo({ animated = true, size, className = '' }) {
   return (
     <svg
-      className={`h-auto ${size === 'small' ? 'w-12' : 'w-60'} ${animated ? 'animate-[spin_30s_linear_infinite]' : ''}`}
+      className={`h-auto ${size === 'small' ? 'w-12' : 'w-60'} ${animated ? 'animate-[spin_30s_linear_infinite]' : ''} ${className}`}
       aria-label='Logo de React'
       fill='none'
       height='219'

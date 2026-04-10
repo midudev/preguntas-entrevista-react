@@ -19,16 +19,16 @@ export default function QuestionsPage() {
 
       <div className='mb-8 flex flex-wrap gap-4 text-sm'>
         <div className='flex items-center rounded-full border border-emerald-500/35 bg-emerald-500/10 px-3 py-1.5'>
-          <span className='mr-2 inline-block h-2.5 w-2.5 rounded-full bg-green-500'></span>
+          <span className='mr-2 inline-block h-2.5 w-2.5 rounded-full bg-green-500' />
           <span>Preguntas leídas</span>
         </div>
         <div className='flex items-center rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 dark:border-slate-500/55 dark:bg-slate-800/65'>
-          <span className='mr-2 inline-block h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600'></span>
+          <span className='mr-2 inline-block h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600' />
           <span>Preguntas por leer</span>
         </div>
       </div>
 
-      <ListOfQuestions showReadStatus={true} />
+      <ListOfQuestions showReadStatus />
     </section>
   )
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Pill } from './Pill.jsx'
+import { IconArrowRight } from '@tabler/icons-react'
 
 export function Card({ title, excerpt, slug, level }) {
   return (
@@ -17,7 +18,7 @@ export function Card({ title, excerpt, slug, level }) {
         </p>
         <p className='mt-auto inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-blue-600 dark:text-blue-400'>
           Abrir respuesta
-          <span aria-hidden='true'>→</span>
+          <IconArrowRight size={14} aria-hidden='true' />
         </p>
       </article>
     </Link>
