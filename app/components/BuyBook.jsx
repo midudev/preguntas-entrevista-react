@@ -11,6 +11,7 @@ export const BuyBook = () => {
           href='https://leanpub.com/react-preguntas-tipicas'
           target='_blank'
           rel='noreferrer'
+          aria-label='Compra el libro de preguntas tipicas de React en Leanpub'
         >
           <strong className='block p-2 text-xs dark:bg-secondry dark:text-white bg-white rounded-full'>
             Compra el libro
@@ -21,6 +22,7 @@ export const BuyBook = () => {
               src='/book.png'
               width='136'
               height='176'
+              loading='lazy'
             />
           </BookCover>
         </a>

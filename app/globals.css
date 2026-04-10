@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #000000;
-  --color-secondry: #121212;
+  --color-primary: #0d111b;
+  --color-secondry: #101827;
 
   --background-image-blue-gradient-radial: radial-gradient(
     circle,
@@ -13,30 +13,333 @@
     rgba(161, 252, 70, 0) 71%
   );
 
-  --font-grotesk: Space Grotesk, sans-serif;
+  --font-grotesk:
+    var(--font-display-local), 'Avenir Next Condensed', 'Gill Sans',
+    sans-serif;
 
-  --shadow-box:
-    0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%),
-    0 12px 24px rgb(0 0 0 / 5%);
-  --shadow-darkbox:
-    0 0 0 1px rgb(255 255 255 / 7%), 0 2px 4px rgb(255 255 255 / 5%),
-    0 12px 24px rgb(255 255 255 / 5%);
+  --shadow-card:
+    0 1px 2px rgb(0 0 0 / 6%),
+    0 6px 16px rgb(15 23 42 / 8%),
+    0 20px 40px rgb(15 23 42 / 5%);
+  --shadow-card-hover:
+    0 4px 12px rgb(15 23 42 / 10%),
+    0 20px 40px rgb(15 23 42 / 12%),
+    0 0 0 1px rgb(99 179 237 / 22%);
+  --shadow-panel:
+    0 1px 3px rgb(0 0 0 / 4%),
+    0 12px 32px rgb(15 23 42 / 8%),
+    0 32px 64px rgb(15 23 42 / 4%);
+  --shadow-search:
+    0 4px 20px rgb(15 23 42 / 8%),
+    0 16px 44px rgb(15 23 42 / 6%);
+  --shadow-darkcard:
+    0 0 0 1px rgb(255 255 255 / 8%),
+    0 8px 24px rgb(0 0 0 / 40%),
+    0 24px 48px rgb(0 0 0 / 30%);
+  --shadow-darkpanel:
+    0 0 0 1px rgb(255 255 255 / 10%),
+    0 16px 40px rgb(0 0 0 / 50%),
+    0 40px 80px rgb(0 0 0 / 30%);
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-grotesk);
+    letter-spacing: -0.025em;
+  }
+
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(59 130 246);
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Skip link ─── */
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgb(15 23 42);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ─── Visually hidden ─── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Reduced motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Ornamental background orbs ─── */
+
+.design-orb {
+  position: absolute;
+  border-radius: 9999px;
+  animation: orb-drift 20s ease-in-out infinite;
+}
+
+.design-orb-a {
+  width: 600px;
+  height: 600px;
+  top: -180px;
+  left: -120px;
+  background: radial-gradient(circle, rgb(59 130 246 / 30%), transparent 70%);
+  filter: blur(80px);
+}
+
+.design-orb-b {
+  width: 500px;
+  height: 500px;
+  top: 300px;
+  right: -160px;
+  background: radial-gradient(circle, rgb(168 85 247 / 22%), transparent 70%);
+  filter: blur(80px);
+  animation-delay: -7s;
+}
+
+.design-orb-c {
+  width: 400px;
+  height: 400px;
+  top: 800px;
+  left: 10%;
+  background: radial-gradient(circle, rgb(14 165 163 / 18%), transparent 70%);
+  filter: blur(70px);
+  animation-delay: -12s;
+}
+
+/* ─── Hero panel ─── */
+
+.hero-panel {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 50%, #e8f4f8 100%);
+  border: 1px solid rgb(59 130 246 / 15%);
+  box-shadow: var(--shadow-panel);
+}
+
+.hero-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgb(99 102 241 / 12%), transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgb(14 165 163 / 10%), transparent 50%);
+  pointer-events: none;
+}
+
+/* ─── Question cards ─── */
+
+.question-card {
+  border-radius: 1.125rem;
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.question-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(99 179 237 / 60%);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ─── Pill tags ─── */
+
+.pill-tag {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
+}
+
+/* ─── Question list rows ─── */
+
+.questions-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.questions-list > li {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 3.2rem;
+}
+
+.question-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  background: white;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.94rem;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.question-row:hover {
+  transform: translateX(3px);
+  border-color: rgb(99 179 237 / 55%);
+  box-shadow: 0 2px 8px rgb(59 130 246 / 10%);
+}
+
+.question-row-read {
+  border-color: rgb(52 211 153 / 50%);
+  background: rgb(240 253 244);
+}
+
+.status-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 9999px;
+  flex: 0 0 auto;
+  background: rgb(203 213 225);
+}
+
+.status-dot-read {
+  background: rgb(52 211 153);
+}
+
+/* ─── Search input ─── */
+
+.search-input {
+  box-shadow: var(--shadow-search);
+}
+
+.search-input:focus {
+  box-shadow:
+    0 0 0 3px rgb(59 130 246 / 20%),
+    0 8px 30px rgb(15 23 42 / 12%);
+}
+
+/* ─── Dark mode overrides ─── */
+
+.dark .hero-panel {
+  background: linear-gradient(135deg, #0f172a 0%, #131c30 50%, #0f1b2d 100%);
+  border-color: rgb(255 255 255 / 10%);
+  box-shadow: var(--shadow-darkpanel);
+}
+
+.dark .hero-panel::before {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgb(99 102 241 / 18%), transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgb(45 212 191 / 12%), transparent 50%);
+}
+
+.dark .question-card {
+  background: #141e33;
+  border-color: rgb(255 255 255 / 10%);
+  box-shadow: var(--shadow-darkcard);
+}
+
+.dark .question-card:hover {
+  border-color: rgb(99 179 237 / 45%);
+  box-shadow:
+    0 0 0 1px rgb(99 179 237 / 20%),
+    0 12px 32px rgb(0 0 0 / 50%),
+    0 24px 48px rgb(0 0 0 / 35%);
+}
+
+.dark .question-row {
+  background: rgb(20 30 51 / 80%);
+  border-color: rgb(255 255 255 / 10%);
+}
+
+.dark .question-row:hover {
+  border-color: rgb(99 179 237 / 45%);
+  box-shadow: 0 2px 12px rgb(99 179 237 / 12%);
+}
+
+.dark .question-row-read {
+  border-color: rgb(52 211 153 / 40%);
+  background: rgb(17 42 37 / 60%);
+}
+
+.dark .search-input {
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 8%),
+    0 8px 30px rgb(0 0 0 / 50%);
+}
+
+.dark .search-input:focus {
+  box-shadow:
+    0 0 0 3px rgb(99 179 237 / 25%),
+    0 8px 30px rgb(0 0 0 / 40%);
+}
+
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.06);
   }
 }

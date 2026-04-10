@@ -8,10 +8,14 @@ const LITERALS = {
 }
 
 const COLORS = {
-  [LEVELS.EASY]: 'text-green-600',
-  [LEVELS.MEDIUM]: 'text-yellow-600',
-  [LEVELS.HARD]: 'text-blue-600',
-  [LEVELS.ERRORS]: 'text-red-600',
+  [LEVELS.EASY]:
+    'border-emerald-500/40 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300',
+  [LEVELS.MEDIUM]:
+    'border-amber-500/40 bg-amber-50 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300',
+  [LEVELS.HARD]:
+    'border-violet-500/40 bg-violet-50 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300',
+  [LEVELS.ERRORS]:
+    'border-red-500/40 bg-red-50 text-red-700 dark:bg-red-500/15 dark:text-red-300',
 }
 
 export function Pill({ level }) {
@@ -20,11 +24,7 @@ export function Pill({ level }) {
 
   return (
     <div>
-      <span
-        className={`${color} tracking-widest uppercase mix rounded-[4px] font-bold inline-block text-xs`}
-      >
-        {literal}
-      </span>
+      <span className={`${color} pill-tag font-bold`}>{literal}</span>
     </div>
   )
 }

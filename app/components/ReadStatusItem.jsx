@@ -33,15 +33,19 @@ export function ReadStatusItem({ id, text }) {
   })
 
   const itemClassName = isRead
-    ? 'leading-snug hover:underline text-green-600 dark:text-green-400 flex items-center'
-    : 'leading-snug hover:underline flex items-center'
+    ? 'question-row question-row-read leading-snug text-green-700 dark:text-green-300'
+    : 'question-row leading-snug text-slate-800 dark:text-slate-100'
 
   return (
-    <Link className={itemClassName} href={`/${id}/#content`}>
+    <Link
+      className={itemClassName}
+      href={`/${id}/#content`}
+      aria-label={`${text}${isRead ? ' (leida)' : ' (no leida)'}`}
+    >
       {isRead ? (
-        <span className="inline-block w-3 h-3 mr-2 bg-green-500 rounded-full" title="Pregunta leída" />
+        <span className='status-dot status-dot-read' aria-hidden='true' />
       ) : (
-        <span className="inline-block w-3 h-3 mr-2 bg-gray-300 dark:bg-gray-600 rounded-full" title="Pregunta no leída" />
+        <span className='status-dot' aria-hidden='true' />
       )}
       {text}
     </Link>

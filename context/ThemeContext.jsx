@@ -3,17 +3,15 @@ import { createContext, useEffect, useState } from 'react'
 
 export const ThemeContext = createContext()
 
-const getFromLocalStorage = () => {
-  if (typeof window !== 'undefined') {
-    const value = window.localStorage.getItem('theme')
-    return value || 'light'
-  }
-}
-
 export const ThemeContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    return getFromLocalStorage()
-  })
+  const [theme, setTheme] = useState('light')
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem('theme')
+    if (stored && stored !== theme) {
+      setTheme(stored)
+    }
+  }, [])
 
   const toggle = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')

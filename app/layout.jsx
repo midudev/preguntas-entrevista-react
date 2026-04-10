@@ -1,34 +1,114 @@
 import './globals.css'
-import { Space_Grotesk as SpaceGrotesk } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import { ThemeContextProvider } from '@/context/ThemeContext.jsx'
 import ThemeProvider from '@/provider/ThemeProvider.jsx'
 
 import { Header } from './components/Header.jsx'
 import { Footer } from './components/Footer.jsx'
-import { BuyBook } from './components/BuyBook.jsx'
 import { Stars } from './components/Stars.jsx'
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 
-const spaceGrotesk = SpaceGrotesk({
-  weight: ['400', '700'],
-  subsets: ['latin'],
+const BuyBook = lazy(() =>
+  import('./components/BuyBook.jsx').then(m => ({ default: m.BuyBook }))
+)
+
+const SITE_URL = 'https://reactjs.wiki'
+const DEFAULT_TITLE = 'React.js Wiki - Preguntas y respuestas de React'
+const DEFAULT_DESCRIPTION =
+  'Aprende React con preguntas de entrevista y conceptos clave explicados en espanol con ejemplos practicos.'
+
+export const metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: '%s | React.js Wiki',
+  },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: 'React.js Wiki',
+  alternates: {
+    canonical: '/',
+  },
+  keywords: [
+    'React',
+    'preguntas de React',
+    'entrevista React',
+    'aprender React',
+    'React en espanol',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    url: SITE_URL,
+    siteName: 'React.js Wiki',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: '/og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'React.js Wiki - Preguntas y respuestas de React',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@midudev',
+    creator: '@midudev',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: ['/og.jpg'],
+  },
+}
+
+const displayFont = localFont({
+  src: [{ path: '../assets/space-grotesk.bold.woff2', weight: '700' }],
+  variable: '--font-display-local',
+  display: 'swap',
 })
 
 export default async function RootLayout({ children }) {
   return (
-    <html>
-      <body className={`${spaceGrotesk.className} overscroll-none`}>
+    <html lang='es' suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
+          }}
+        />
+      </head>
+      <body className={`${displayFont.variable} app-shell overscroll-none`}>
         <ThemeContextProvider>
           <ThemeProvider>
-            <div className='relative min-h-screen flex flex-col bg-white text-black dark:bg-secondry dark:text-white'>
+            <div className='relative flex min-h-screen flex-col overflow-x-clip bg-[#fafbff] text-slate-900 dark:bg-[#0a0f1a] dark:text-slate-100'>
+              <a href='#main-content' className='skip-link'>
+                Saltar al contenido
+              </a>
               <div
                 aria-hidden='true'
-                className='absolute inset-0 z-0 overflow-hidden pointer-events-none'
+                className='pointer-events-none absolute inset-0 z-0 overflow-hidden'
               >
-                <div className='absolute top-0 scale-150 rounded-full bg-blue-gradient-radial w-96 h-96 left-14 opacity-20' />
+                <div className='design-orb design-orb-a' />
+                <div className='design-orb design-orb-b' />
+                <div className='design-orb design-orb-c' />
               </div>
-              <main className='relative flex-1 block w-full max-w-6xl p-4 pb-32 m-auto'>
+              <main
+                id='main-content'
+                tabIndex={-1}
+                className='relative z-10 mx-auto block w-full max-w-6xl flex-1 px-5 pb-32 pt-3 md:px-8'
+              >
                 <Header>
                   <Suspense fallback={<Stars empty />}>
                     <Stars />
@@ -37,7 +117,9 @@ export default async function RootLayout({ children }) {
                 {children}
               </main>
               <Footer />
-              <BuyBook />
+              <Suspense fallback={null}>
+                <BuyBook />
+              </Suspense>
             </div>
           </ThemeProvider>
         </ThemeContextProvider>

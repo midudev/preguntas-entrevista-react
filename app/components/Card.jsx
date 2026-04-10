@@ -4,14 +4,21 @@ import { Pill } from './Pill.jsx'
 export function Card({ title, excerpt, slug, level }) {
   return (
     <Link
-      className='relative h-full p-6 transition-all rounded-lg z-10 dark:hover:scale-105 dark:hover:bg-primary dark:shadow-darkbox hover:scale-105 hover:bg-sky-100 hover:z-30 shadow-box animate-fade-in-up animate-duration-500'
+      className='question-card relative z-10 h-full animate-fade-in-up animate-duration-500'
       href={slug}
     >
-      <article className='flex flex-col justify-center gap-y-4'>
+      <article className='flex h-full flex-col gap-y-4'>
         <Pill level={level} />
-        <h2 className='text-xl font-bold md:text-2xl'>{title}</h2>
-        <p>{excerpt}</p>
-        <p className='text-sm italic text-right text-sky-500'>Leer más...</p>
+        <h2 className='font-display text-xl font-bold leading-tight text-slate-900 dark:text-white'>
+          {title}
+        </h2>
+        <p className='text-sm leading-relaxed text-slate-600 dark:text-slate-400'>
+          {excerpt}
+        </p>
+        <p className='mt-auto inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-blue-600 dark:text-blue-400'>
+          Abrir respuesta
+          <span aria-hidden='true'>→</span>
+        </p>
       </article>
     </Link>
   )

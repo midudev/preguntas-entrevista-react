@@ -6,6 +6,25 @@ import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
 import { PostActionsSheet } from '../components/PostActionsSheet.jsx'
 
+const DESCRIPTION_MAX_LENGTH = 160
+
+const stripHtml = value => {
+  return value
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+const toMetaDescription = content => {
+  const cleanContent = stripHtml(content)
+
+  if (cleanContent.length <= DESCRIPTION_MAX_LENGTH) {
+    return cleanContent
+  }
+
+  return `${cleanContent.slice(0, DESCRIPTION_MAX_LENGTH - 1).trimEnd()}...`
+}
+
 export async function generateStaticParams() {
   return listPosts()
 }
@@ -16,11 +35,27 @@ export async function generateMetadata(props) {
   const { post } = params
 
   const { title, content } = await fetchPost(post)
+  const description = toMetaDescription(content)
 
   return {
     title,
-    description: content,
-    ogImage: 'https://reactjs.wiki/og.png',
+    description,
+    alternates: {
+      canonical: `/${post}`,
+    },
+    openGraph: {
+      url: `/${post}`,
+      type: 'article',
+      title,
+      description,
+      images: ['/og.jpg'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og.jpg'],
+    },
   }
 }
 

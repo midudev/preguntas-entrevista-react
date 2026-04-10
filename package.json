@@ -23,33 +23,32 @@
   },
   "homepage": "https://github.com/midudev/preguntas-entrevista-react#readme",
   "devDependencies": {
-    "@tailwindcss/postcss": "4.2.1",
-    "@types/node": "25.4.0",
+    "@tailwindcss/postcss": "4.2.2",
+    "@types/node": "25.6.0",
     "@types/react": "19.2.14",
-    "eslint": "10.0.3",
-    "eslint-config-next": "16.1.6",
+    "eslint": "10.2.0",
+    "eslint-config-next": "16.2.3",
     "markdownlint": "0.40.0",
-    "postcss": "8.5.8",
-    "tailwindcss": "4.2.1",
-    "typescript": "5.9.3"
+    "postcss": "8.5.9",
+    "tailwindcss": "4.2.2",
+    "typescript": "6.0.2"
   },
   "dependencies": {
-    "@headlessui/react": "2.2.9",
+    "@headlessui/react": "2.2.10",
     "@sindresorhus/slugify": "3.0.0",
     "@vercel/og": "0.11.1",
-    "framer-motion": "12.35.2",
     "fs-extra": "11.3.4",
-    "fuse.js": "7.1.0",
+    "fuse.js": "7.3.0",
     "just-debounce-it": "3.2.0",
-    "marked": "17.0.4",
+    "marked": "18.0.0",
     "neostandard": "0.13.0",
-    "next": "16.1.6",
-    "prettier": "3.8.1",
+    "next": "16.2.3",
+    "prettier": "3.8.2",
     "prismjs": "1.30.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "react-github-btn": "1.4.0",
-    "tailwind-animations": "^1.0.1"
+    "tailwind-animations": "1.0.1"
   },
   "pnpm": {
     "overrides": {

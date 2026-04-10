@@ -1,15 +1,8 @@
-'use client'
-
-import { motion } from 'framer-motion'
-
 export function ReactLogo({ animated = true, size }) {
   return (
-    <motion.svg
-      className={`h-auto ${size === 'small' ? 'w-12' : 'w-60'}`}
-      initial={{ rotate: '0deg' }}
-      animate={{ rotate: animated ? '360deg' : '0deg' }}
-      transition={{ duration: 30, repeat: Infinity }}
-      aria-labelledby='react-visual-title'
+    <svg
+      className={`h-auto ${size === 'small' ? 'w-12' : 'w-60'} ${animated ? 'animate-[spin_30s_linear_infinite]' : ''}`}
+      aria-label='Logo de React'
       fill='none'
       height='219'
       role='img'
@@ -77,6 +70,6 @@ export function ReactLogo({ animated = true, size }) {
           <stop offset='1' stopOpacity='0.1' />
         </radialGradient>
       </defs>
-    </motion.svg>
+    </svg>
   )
 }
