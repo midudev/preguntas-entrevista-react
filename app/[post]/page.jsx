@@ -4,7 +4,7 @@ import Link from 'next/link.js'
 import { fetchPost, listPosts } from '../../utils/posts.js'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
-import { PostActionsSheet } from '../components/PostActionsSheet.jsx'
+import { Quiz } from '../components/Quiz.jsx'
 
 const DESCRIPTION_MAX_LENGTH = 160
 
@@ -82,7 +82,12 @@ export default async function Post(props) {
         className='prose max-w-none pb-4 [&>hr]:hidden [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-blue-900 [&>h1]:pb-8 [&>p]:pb-6 [&>p]:text-lg md:[&>p]:text-xl [&>p>strong]:bg-yellow-50 dark:[&>p>strong]:bg-yellow-950 [&_a]:text-blue-700 dark:[&_a]:text-blue-300 [&_a:hover]:underline [&>ul>li]:list-disc [&>ul]:text-lg md:[&>ul]:text-xl [&>ul]:text-blue-900 dark:[&>ul]:text-blue-200 [&>ul]:pb-4 [&>ul>li]:ml-5 [&>ul]:space-y-3 [&>pre]:overflow-x-auto  [&>pre]:rounded-xl [&>pre]:text-white [&>pre]:mb-8 [&>pre]:p-8 [&>pre]:bg-slate-800'
         dangerouslySetInnerHTML={{ __html: content }}
       />
-      <PostActionsSheet postId={post} />
+      <section className='mt-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm'>
+        <h2 className='text-lg font-bold text-slate-900 dark:text-slate-100 pb-4'>
+          Evaluar
+        </h2>
+        <Quiz slug={post} />
+      </section>
       <footer className='py-12 clear-both text-center [&>a]:leading-snug [&>a]:hover:underline [&>a]:block [&>a]:my-2'>
         {prev && (
           <Link className='lg:float-left' href={`/${prev.id}/#content`}>

@@ -123,43 +123,6 @@
   }
 }
 
-/* ─── Ornamental background orbs ─── */
-
-.design-orb {
-  position: absolute;
-  border-radius: 9999px;
-  animation: orb-drift 20s ease-in-out infinite;
-}
-
-.design-orb-a {
-  width: 600px;
-  height: 600px;
-  top: -180px;
-  left: -120px;
-  background: radial-gradient(circle, rgb(59 130 246 / 30%), transparent 70%);
-  filter: blur(80px);
-}
-
-.design-orb-b {
-  width: 500px;
-  height: 500px;
-  top: 300px;
-  right: -160px;
-  background: radial-gradient(circle, rgb(168 85 247 / 22%), transparent 70%);
-  filter: blur(80px);
-  animation-delay: -7s;
-}
-
-.design-orb-c {
-  width: 400px;
-  height: 400px;
-  top: 800px;
-  left: 10%;
-  background: radial-gradient(circle, rgb(14 165 163 / 18%), transparent 70%);
-  filter: blur(70px);
-  animation-delay: -12s;
-}
-
 /* ─── Hero panel ─── */
 
 .hero-panel {
@@ -334,12 +297,3 @@
     0 8px 30px rgb(0 0 0 / 40%);
 }
 
-@keyframes orb-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -18px, 0) scale(1.06);
-  }
-}

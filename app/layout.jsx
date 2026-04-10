@@ -26,6 +26,12 @@ export const metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   applicationName: 'React.js Wiki',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', media: '(prefers-color-scheme: light)' },
+      { url: '/favicon.dark.ico', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
   alternates: {
     canonical: '/',
   },
@@ -96,14 +102,6 @@ export default async function RootLayout({ children }) {
               <a href='#main-content' className='skip-link'>
                 Saltar al contenido
               </a>
-              <div
-                aria-hidden='true'
-                className='pointer-events-none absolute inset-0 z-0 overflow-hidden'
-              >
-                <div className='design-orb design-orb-a' />
-                <div className='design-orb design-orb-b' />
-                <div className='design-orb design-orb-c' />
-              </div>
               <main
                 id='main-content'
                 tabIndex={-1}

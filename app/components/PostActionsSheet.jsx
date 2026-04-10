@@ -38,7 +38,7 @@ export function PostActionsSheet({ postId }) {
   const openSheet = type => setOpen(type)
 
   const baseBtn =
-    'border dark:border-white uppercase mix rounded-[4px] font-bold inline-block px-2 py-[3px] text-[10px] bg-white dark:bg-secondry hover:bg-blue-50 dark:hover:bg-blue-900 transition-colors'
+    'border border-slate-200 dark:border-slate-600 uppercase rounded-md font-bold inline-block px-3 py-1 text-[10px] bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors'
 
   const sheet = (
     <div
@@ -54,15 +54,15 @@ export function PostActionsSheet({ postId }) {
         role='dialog'
         aria-modal='true'
         aria-label={open === 'practicar' ? 'Prácticar' : 'Evaluar'}
-        className={`absolute bottom-0 left-0 right-0 mx-auto max-w-3xl rounded-t-xl border border-blue-200 dark:border-blue-800 bg-white dark:bg-secondry shadow-xl p-6 transition-transform duration-300 ${open ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`absolute bottom-0 left-0 right-0 mx-auto max-w-3xl rounded-t-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl p-6 md:p-8 transition-transform duration-300 ${open ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className='flex items-start justify-between pb-4'>
-          <h2 className='text-base font-bold text-blue-900 dark:text-blue-100'>
+          <h2 className='text-base font-bold text-slate-900 dark:text-slate-100'>
             {open === 'practicar' ? 'Prácticar' : 'Evaluar'}
           </h2>
           <button
             onClick={close}
-            className='text-xs font-semibold px-2 py-1 rounded hover:bg-blue-100 dark:hover:bg-blue-900'
+            className='text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors'
           >
             Cerrar
           </button>

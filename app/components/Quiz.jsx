@@ -158,7 +158,7 @@ export function Quiz({ slug }) {
         <div className='flex flex-wrap gap-3 justify-center'>
           <button
             onClick={handleRestart}
-            className='border dark:border-white rounded px-4 py-2 text-sm font-semibold bg-white dark:bg-secondry hover:bg-blue-50 dark:hover:bg-blue-900'
+            className='rounded-lg px-5 py-2.5 text-sm font-semibold bg-white text-slate-800 hover:bg-blue-50 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 transition-colors'
           >
             Reintentar
           </button>
@@ -175,7 +175,7 @@ export function Quiz({ slug }) {
                 return (
                   <li
                     key={q.id}
-                    className='border border-blue-200 dark:border-blue-800 rounded p-2'
+                    className='border border-slate-200 dark:border-slate-700 rounded-lg p-3'
                   >
                     <p className='font-semibold mb-1'>{q.question}</p>
                     <p>
@@ -221,7 +221,7 @@ export function Quiz({ slug }) {
             {current + 1}/{total}
           </span>
         </div>
-        <div className='h-2 rounded bg-blue-100 dark:bg-blue-900 overflow-hidden'>
+        <div className='h-2 rounded-full bg-blue-100 dark:bg-slate-700 overflow-hidden'>
           <div
             className='h-full bg-blue-600 dark:bg-blue-400 transition-all'
             style={{ width: `${progress}%` }}
@@ -229,7 +229,7 @@ export function Quiz({ slug }) {
         </div>
       </div>
       <div>
-        <h3 className='text-lg font-bold text-blue-900 dark:text-blue-50 leading-snug'>
+        <h3 className='text-lg font-bold text-slate-900 dark:text-slate-50 leading-snug'>
           {question.question}
         </h3>
       </div>
@@ -245,21 +245,21 @@ export function Quiz({ slug }) {
                 disabled={!!answered}
                 className={[
                   'w-full text-left rounded-lg border px-4 py-3 text-sm md:text-base transition-colors duration-200',
-                  'bg-white dark:bg-secondry/60 hover:bg-blue-50 dark:hover:bg-blue-900/40',
+                  'bg-white hover:bg-blue-50 dark:bg-slate-800 dark:hover:bg-slate-700',
                   selected
-                    ? 'ring-2 ring-blue-400'
-                    : 'border-blue-200 dark:border-blue-800',
+                    ? 'ring-2 ring-blue-400 border-blue-400'
+                    : 'border-slate-200 dark:border-slate-600',
                   correctness &&
-                    'bg-green-100 dark:bg-green-900/40 border-green-400 dark:border-green-500',
+                    'bg-green-50 dark:bg-green-900/30 border-green-400 dark:border-green-500 ring-2 ring-green-400',
                   isWrongSelection &&
-                    'bg-red-100 dark:bg-red-900/40 border-red-400 dark:border-red-500',
+                    'bg-red-50 dark:bg-red-900/30 border-red-400 dark:border-red-500 ring-2 ring-red-400',
                   'disabled:cursor-default',
                 ]
                   .filter(Boolean)
                   .join(' ')}
               >
                 <span className='flex items-start gap-3'>
-                  <span className='mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-semibold bg-white dark:bg-transparent dark:border-blue-700'>
+                  <span className='mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-semibold bg-blue-50 text-blue-700 border-blue-300 dark:bg-slate-700 dark:text-slate-200 dark:border-slate-500'>
                     {selected
                       ? correctness
                         ? '✓'
@@ -279,7 +279,7 @@ export function Quiz({ slug }) {
         <div className='flex justify-end pt-2'>
           <button
             onClick={handleNext}
-            className='text-xs font-semibold border rounded px-3 py-2 bg-white dark:bg-secondry hover:bg-blue-50 dark:hover:bg-blue-900'
+            className='text-xs font-semibold rounded-lg px-4 py-2 bg-white text-slate-700 hover:bg-blue-50 border border-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:border-slate-600 dark:hover:bg-slate-600 transition-colors'
           >
             Siguiente →
           </button>
@@ -299,13 +299,13 @@ export function Quiz({ slug }) {
         <button
           onClick={handlePrev}
           disabled={current === 0}
-          className='text-[10px] font-semibold px-2 py-1 rounded border disabled:opacity-40 bg-white dark:bg-secondry hover:bg-blue-50 dark:hover:bg-blue-900'
+          className='text-[10px] font-semibold px-3 py-1.5 rounded-lg border border-slate-200 disabled:opacity-30 bg-white text-slate-600 hover:bg-blue-50 dark:bg-slate-700 dark:text-slate-300 dark:border-slate-600 dark:hover:bg-slate-600 transition-colors'
         >
           ← Anterior
         </button>
         <button
           onClick={handleRestart}
-          className='text-[10px] font-semibold px-2 py-1 rounded border bg-white dark:bg-secondry hover:bg-blue-50 dark:hover:bg-blue-900'
+          className='text-[10px] font-semibold px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-blue-50 dark:bg-slate-700 dark:text-slate-300 dark:border-slate-600 dark:hover:bg-slate-600 transition-colors'
         >
           Reiniciar
         </button>
