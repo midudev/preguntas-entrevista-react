@@ -12,7 +12,7 @@
     "build": "node scripts/markdownToJson.mjs && next build",
     "start": "next start",
     "prettier": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "oxlint"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,8 @@
     "@tailwindcss/postcss": "4.2.2",
     "@types/node": "25.6.0",
     "@types/react": "19.2.14",
-    "eslint": "10.2.0",
-    "eslint-config-next": "16.2.3",
     "markdownlint": "0.40.0",
+    "oxlint": "^1.59.0",
     "postcss": "8.5.9",
     "tailwindcss": "4.2.2",
     "typescript": "6.0.2"
@@ -36,12 +35,12 @@
   "dependencies": {
     "@headlessui/react": "2.2.10",
     "@sindresorhus/slugify": "3.0.0",
+    "@tabler/icons-react": "3.41.1",
     "@vercel/og": "0.11.1",
     "fs-extra": "11.3.4",
     "fuse.js": "7.3.0",
     "just-debounce-it": "3.2.0",
     "marked": "18.0.0",
-    "neostandard": "0.13.0",
     "next": "16.2.3",
     "prettier": "3.8.2",
     "prismjs": "1.30.0",
