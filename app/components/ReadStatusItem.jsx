@@ -14,8 +14,9 @@ export function ReadStatusItem({ id, text }) {
 
   const handlerStorageListener = useCallback(
     event => {
-      if (event.key === 'read') {
-        setIsRead(JSON.parse(event.newValue).includes(text))
+      const { key, newValue } = event.detail ?? event
+      if (key === 'read') {
+        setIsRead(JSON.parse(newValue).includes(text))
       }
     },
     [text]
@@ -23,6 +24,11 @@ export function ReadStatusItem({ id, text }) {
 
   useEventListener({
     eventName: 'storage',
+    handler: handlerStorageListener,
+  })
+
+  useEventListener({
+    eventName: 'local-storage',
     handler: handlerStorageListener,
   })
 
