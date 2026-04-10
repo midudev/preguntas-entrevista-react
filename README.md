@@ -40,6 +40,7 @@
     - [¿Qué es el estado en React?](#qué-es-el-estado-en-react)
     - [¿Qué son los hooks?](#qué-son-los-hooks)
     - [¿Qué hace el hook `useState`?](#qué-hace-el-hook-usestate)
+    - [¿Qué hace el hook `useReducer`?](#qué-hace-el-hook-usereducer)
     - [¿Qué significa la expresión "subir el estado"?](#qué-significa-la-expresión-subir-el-estado)
     - [¿Qué hace el hook `useEffect`?](#qué-hace-el-hook-useeffect)
     - [Explica casos de uso del hook `useEffect`](#explica-casos-de-uso-del-hook-useeffect)
@@ -162,7 +163,7 @@
 
 #### ¿Qué es React?
 
-**React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario.** Está basada en la componetización de la UI: la interfaz se divide en componentes independientes, que contienen su propio estado. Cuando el estado de un componente cambia, React vuelve a renderizar la interfaz.
+**React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario.** Está basada en la componetización de la UI: la interfaz se divide en componentes independientes que pueden tener estado local y recibir datos por props. Cuando cambian los datos relevantes de un componente, React vuelve a renderizar la interfaz.
 
 Esto hace que React sea una herramienta muy útil para construir interfaces complejas, ya que permite dividir la interfaz en piezas más pequeñas y reutilizables.
 
@@ -519,6 +520,8 @@ Es preferible utilizar el operador ternario. _Kent C. Dodds_ tiene un artículo 
 
 #### ¿Cómo puedes aplicar clases CSS a un componente en React y por qué no se puede usar `class`?
 
+Nota: aunque el enunciado hable de "componente", la prop `className` se aplica sobre los elementos JSX/HTML que el componente renderiza.
+
 En React usamos la prop `className` para definir el valor del atributo `class` del HTML:
 
 ```jsx
@@ -535,6 +538,8 @@ Es decir, las clases que pones en `className` son clases HTML normales (pueden u
 
 #### ¿Cómo puedes aplicar estilos en línea a un componente en React?
 
+Nota: al igual que con `className`, el estilo en línea se asigna a elementos JSX/HTML renderizados por el componente.
+
 Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
 
 ```jsx
@@ -550,6 +555,8 @@ Fíjate que, además, los nombres de las propiedades CSS están en camelCase.
 ---
 
 #### ¿Cómo puedo aplicar estilos de forma condicional a un componente en React?
+
+En la práctica, esa condición termina afectando a props de estilo (`style`, `className`) sobre los elementos renderizados por el componente.
 
 Puedes aplicar estilos de forma condicional a un componente en React usando la prop `style` y un operador ternario:
 
@@ -643,6 +650,8 @@ function Button({ text }) {
 ---
 
 #### ¿Cómo añadir un evento a un componente en React?
+
+De nuevo, estrictamente hablando, el evento se conecta en el elemento JSX renderizado (`button`, `input`, `form`, etc.), aunque lo configuremos desde el componente.
 
 En React, los eventos se registran con props que siguen la convención `on` + nombre del evento en _camelCase_ (`onClick`, `onChange`, `onSubmit`, etc.).
 
@@ -815,6 +824,66 @@ function Counter() {
   )
 }
 ```
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué hace el hook `useReducer`?
+
+`useReducer` es un hook para gestionar estado cuando las transiciones son más complejas que un simple "setear valor".
+
+Es especialmente útil cuando:
+
+- El estado tiene varios campos relacionados.
+- Hay varias acciones que modifican ese estado.
+- Quieres centralizar la lógica de actualización en una única función (`reducer`).
+
+Su firma básica es:
+
+```jsx
+const [state, dispatch] = useReducer(reducer, initialState)
+```
+
+- `state`: estado actual.
+- `dispatch`: función para enviar acciones.
+- `reducer(state, action)`: función pura que devuelve el siguiente estado.
+
+Ejemplo:
+
+```jsx
+import { useReducer } from 'react'
+
+const initialState = { count: 0 }
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 }
+    case 'decrement':
+      return { count: state.count - 1 }
+    case 'reset':
+      return initialState
+    default:
+      return state
+  }
+}
+
+export default function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  return (
+    <>
+      <p>Contador: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    </>
+  )
+}
+```
+
+`useState` suele ser más simple para casos sencillos; `useReducer` brilla cuando necesitas reglas de negocio más explícitas y escalables.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -1897,13 +1966,16 @@ Normalmente, el 99% de las veces, vas a querer utilizar `useEffect` y, además, 
 
 #### ¿Qué son mejores los componentes de clase o los componentes funcionales?
 
-Desde que en _React 16.8.0_ se incluyeron los hooks, los componentes de funciones pueden hacer casi todo lo que los componentes de clase.
+Hoy en día, para proyectos nuevos, la recomendación general es usar componentes funcionales con hooks.
 
-Aunque no hay una respuesta clara a esta pregunta, normalmente los componentes funcionales son más sencillos de leer y escribir y pueden tener un mejor rendimiento en general.
+Comparativa rápida:
 
-Además, **los hooks solo se pueden usar en los componentes funcionales**. Esto es importante, ya que con la creación de custom hooks podemos reutilizar la lógica y podría simplificar nuestros componentes.
+- **Componentes funcionales**: menos boilerplate, mejor composición de lógica con hooks y patrón dominante en el ecosistema actual.
+- **Componentes de clase**: siguen siendo válidos, pero se usan menos en código nuevo y suelen mantenerse sobre todo en bases de código heredadas.
 
-Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de los componentes, algo que no podemos hacer con los componentes funcionales donde solo podemos usar `useEffect`.
+Es importante matizar que en componentes funcionales sí puedes modelar ciclo de vida, no solo con `useEffect`, también con hooks como `useLayoutEffect` y patrones de composición entre hooks.
+
+En entrevistas suele valorarse que conozcas ambos enfoques, pero que puedas justificar por qué el estilo funcional es hoy la opción principal en React moderno.
 
 **Referencias:**
 
@@ -1915,11 +1987,18 @@ Por otro lado, los componentes de clase nos permiten usar el ciclo de vida de lo
 
 #### ¿Cómo mantener los componentes puros y qué ventajas tiene?
 
-Los componentes puros son aquellos que no tienen estado y que no tienen efectos secundarios. Esto quiere decir que no tienen ningún tipo de lógica que no sea la de renderizar la interfaz.
+Un componente puro, conceptualmente, es aquel que para las mismas entradas (props, estado y contexto) produce la misma salida visual y no introduce efectos secundarios durante el render.
 
-Son más fáciles de testear y de mantener. Además, son más fáciles de entender porque no tienen lógica compleja.
+Eso no significa "sin estado" obligatoriamente. Un componente puede tener estado y seguir siendo predecible si respeta estas reglas de pureza en el render.
 
-Para crear un componente puro en React usamos una function:
+Ventajas:
+
+- Comportamiento más predecible.
+- Mayor facilidad para testear.
+- Menos bugs de sincronización.
+- Mejor oportunidad de optimización con `React.memo` cuando aplica.
+
+Ejemplo base (render puro):
 
 ```jsx
 function Button({ text }) {
@@ -1927,7 +2006,17 @@ function Button({ text }) {
 }
 ```
 
-En este caso, el componente `Button` recibe una prop `text` que es un string. El componente `Button` renderiza un botón con el texto que recibe en la prop `text`.
+Y si ese botón se renderiza muchas veces con las mismas props, puedes evaluar memoización:
+
+```jsx
+import { memo } from 'react'
+
+const Button = memo(function Button({ text }) {
+  return <button>{text}</button>
+})
+```
+
+`React.memo` no "hace puro" al componente; solo evita renders cuando las props no cambian (comparación superficial).
 
 **[⬆ Volver a índice](#índice)**
 
@@ -2648,7 +2737,7 @@ Vamos a ver en detalle cada uno de los elementos que hemos usado:
 
 La función `import()` es parte del estándar de ECMAScript y nos permite importar de forma dinámica un módulo. Esta función devuelve una promesa que se resuelve con el módulo importado.
 
-El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`. Ten en cuenta que el componente que devuelve `lazy()` **debe ser un componente de React y ser exportado por defecto** (`export default`).
+El método `lazy()` de React nos permite crear un componente que se renderiza de forma diferida. Este método recibe una función que debe devolver una promesa que se resuelve con un componente. En este caso, se resolverá con el componente que tenemos en el fichero `button.jsx`. En el caso más directo de uso, `lazy()` espera un `export default`; si usas export nombrado, también se puede, pero requiere adaptar la importación (lo vemos en la siguiente pregunta).
 
 El componente `Suspense` nos permite mostrar un mensaje mientras se está cargando el componente. Este componente recibe una prop `fallback` que es el mensaje que se muestra mientras se está cargando el componente.
 
@@ -3678,7 +3767,7 @@ Punto importante: este comportamiento extra ocurre en desarrollo, no en producci
 
 Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y experiencia, intentando priorizar siempre cómo el usuario sentirá la aplicación. No hay ningún caso lo suficientemente justificado para _renderizar_ en pantalla miles de datos.
 
-**El espacio de visualización es limitado (_viewport_), al igual que deberían serlo los datos que añadimos al DOM.**
+**El espacio de visualización es limitado (_viewport_), al igual que deberían ser los datos que añadimos al DOM.**
 
 **[⬆ Volver a índice](#índice)**
 
