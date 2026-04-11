@@ -82,7 +82,7 @@ export function Header({ children }) {
           <ThemeToggle />
           {children}
           <Link href='/questions'>
-            <span className='inline-flex rounded-full bg-slate-900 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-blue-600 dark:bg-white dark:text-slate-900 dark:hover:bg-blue-400'>
+            <span className='inline-flex rounded-full border border-transparent px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300'>
               Leidas {read}/{counter.total}
             </span>
           </Link>
