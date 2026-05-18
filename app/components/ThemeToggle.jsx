@@ -24,7 +24,7 @@ const ThemeToggle = () => {
         className={`absolute top-0.75 h-5 w-5 rounded-full transition-transform duration-300 ${
           theme === 'dark'
             ? 'left-0.75 bg-blue-400 shadow-[0_0_0_2px_rgba(30,41,59,0.5)]'
-            : 'left-8.25 bg-slate-800 shadow-[0_0_0_2px_rgba(59,130,246,0.2)]'
+            : 'left-7.75 bg-slate-800 shadow-[0_0_0_2px_rgba(59,130,246,0.2)]'
         }`}
       />
       <IconSun size={14} className='z-10 text-amber-500' aria-hidden='true' />

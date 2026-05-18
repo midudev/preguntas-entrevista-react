@@ -187,11 +187,6 @@
   gap: 0.55rem;
 }
 
-.questions-list > li {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 3.2rem;
-}
-
 .question-row {
   display: flex;
   align-items: center;
@@ -296,4 +291,3 @@
     0 0 0 3px rgb(99 179 237 / 25%),
     0 8px 30px rgb(0 0 0 / 40%);
 }
-

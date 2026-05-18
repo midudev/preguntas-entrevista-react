@@ -98,7 +98,7 @@ export default function Page() {
           Explora todas las preguntas disponibles y marca lo que ya has repasado
           para llevar un progreso real.
         </p>
-        <ListOfQuestions />
+        <ListOfQuestions showReadStatus={true} />
       </section>
     </>
   )
