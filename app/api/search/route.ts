@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server'
 import Fuse from 'fuse.js'
 import { readIndex } from '../../../utils/posts.js'
 
-export const runtime = 'edge'
-
 // Define the handler for GET requests
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
