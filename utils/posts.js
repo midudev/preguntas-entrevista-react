@@ -6,13 +6,17 @@ export const readIndex = async () => {
 
 export const fetchPost = async slug => {
   const posts = await readIndex()
+  const currentIndex = posts.findIndex(post => post.id === slug)
+
+  if (currentIndex === -1) {
+    return null
+  }
 
   const post = await import(`../public/content/${slug}.json`)
-  const { content, level, title, id } = post
+  const { content, level, title } = post
 
-  const currentIndex = posts.findIndex(post => post.id === id)
   const prev = currentIndex > 0 ? posts[currentIndex - 1] : null
-  const next = currentIndex < posts.length ? posts[currentIndex + 1] : null
+  const next = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null
 
   return { content, level, title, prev, next }
 }

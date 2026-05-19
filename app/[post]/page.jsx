@@ -1,6 +1,7 @@
 import './HighlightCode.css'
 
 import Link from 'next/link.js'
+import { notFound } from 'next/navigation'
 import { fetchPost, listPosts } from '../../utils/posts.js'
 import { Pill } from '../components/Pill.jsx'
 import { ButtonRead } from '../components/ButtonRead.jsx'
@@ -8,6 +9,8 @@ import { Quiz } from '../components/Quiz.jsx'
 import { IconArrowLeft, IconArrowRight, IconBrain } from '@tabler/icons-react'
 
 const DESCRIPTION_MAX_LENGTH = 160
+
+export const dynamicParams = false
 
 const stripHtml = value => {
   return value
@@ -35,7 +38,13 @@ export async function generateMetadata(props) {
 
   const { post } = params
 
-  const { title, content } = await fetchPost(post)
+  const postData = await fetchPost(post)
+
+  if (postData === null) {
+    notFound()
+  }
+
+  const { title, content } = postData
   const description = toMetaDescription(content)
 
   return {
@@ -63,7 +72,13 @@ export async function generateMetadata(props) {
 export default async function Post(props) {
   const params = await props.params
   const { post } = params
-  const { content, level, title, prev, next } = await fetchPost(post)
+  const postData = await fetchPost(post)
+
+  if (postData === null) {
+    notFound()
+  }
+
+  const { content, level, title, prev, next } = postData
 
   return (
     <>
