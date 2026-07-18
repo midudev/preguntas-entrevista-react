@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-virtual-dom-q-1",
+    "question_id": "que-es-el-virtual-dom",
+    "question": "¿Qué es el Virtual DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-el-virtual-dom-a-1",
+        "text": "Una representación en memoria del DOM que React usa para calcular cambios eficientemente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-2",
+        "text": "Una copia exacta y permanente del DOM en el disco duro.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-3",
+        "text": "Un navegador embebido dentro de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-4",
+        "text": "Un sustituto del CSS para estilar componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-5",
+        "text": "Un framework de enrutado de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-6",
+        "text": "Una base de datos en el cliente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-virtual-dom-q-2",
+    "question_id": "que-es-el-virtual-dom",
+    "question": "¿Cuál es la principal ventaja del Virtual DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-el-virtual-dom-a-7",
+        "text": "Minimizar mutaciones costosas en el DOM real aplicando solo los cambios necesarios.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-8",
+        "text": "Eliminar por completo la necesidad de JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-9",
+        "text": "Hacer que CSS no sea necesario.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-10",
+        "text": "Garantizar cero re-renders en cualquier app.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-11",
+        "text": "Sustituir al servidor en todas las apps.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-12",
+        "text": "Compilar TypeScript automáticamente.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-virtual-dom-q-3",
+    "question_id": "que-es-el-virtual-dom",
+    "question": "¿Qué hace React tras un cambio de estado respecto al Virtual DOM?",
+    "alternatives": [
+      {
+        "id": "que-es-el-virtual-dom-a-13",
+        "text": "Genera un nuevo árbol virtual, lo compara con el anterior y aplica el diff al DOM real.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-14",
+        "text": "Borra todo el documento HTML y lo reescribe desde cero siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-15",
+        "text": "Ignora el cambio hasta recargar la página.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-16",
+        "text": "Envía el Virtual DOM al servidor para renderizarlo allí obligatoriamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-17",
+        "text": "Convierte el Virtual DOM en WebAssembly.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-virtual-dom-a-18",
+        "text": "Solo actualiza el localStorage.",
+        "is_correct": false
+      }
+    ]
+  }
+]

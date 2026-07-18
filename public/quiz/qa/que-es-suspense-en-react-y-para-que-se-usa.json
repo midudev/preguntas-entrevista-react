@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-suspense-en-react-y-para-que-se-usa-q-1",
+    "question_id": "que-es-suspense-en-react-y-para-que-se-usa",
+    "question": "¿Para qué sirve Suspense?",
+    "alternatives": [
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-1",
+        "text": "Mostrar un fallback mientras un hijo espera código o datos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-2",
+        "text": "Sustituir por completo a los Error Boundaries.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-3",
+        "text": "Definir rutas del servidor automáticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-4",
+        "text": "Compilar TypeScript en el cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-5",
+        "text": "Gestionar cookies HttpOnly.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-6",
+        "text": "Reemplazar a useState.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-suspense-en-react-y-para-que-se-usa-q-2",
+    "question_id": "que-es-suspense-en-react-y-para-que-se-usa",
+    "question": "¿Qué prop usa Suspense para la UI de carga?",
+    "alternatives": [
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-7",
+        "text": "fallback",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-8",
+        "text": "loading",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-9",
+        "text": "placeholder",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-10",
+        "text": "spinner",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-11",
+        "text": "pending",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-12",
+        "text": "skeleton",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-suspense-en-react-y-para-que-se-usa-q-3",
+    "question_id": "que-es-suspense-en-react-y-para-que-se-usa",
+    "question": "¿Con qué se combina a menudo React.lazy?",
+    "alternatives": [
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-13",
+        "text": "Con un límite de Suspense alrededor del componente lazy.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-14",
+        "text": "Con document.write.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-15",
+        "text": "Con eval del código del chunk.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-16",
+        "text": "Solo con class components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-17",
+        "text": "Con ReactDOM.render legacy obligatorio.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-suspense-en-react-y-para-que-se-usa-a-18",
+        "text": "Con innerHTML del root.",
+        "is_correct": false
+      }
+    ]
+  }
+]

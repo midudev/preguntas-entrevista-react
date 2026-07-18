@@ -1,0 +1,113 @@
+[
+  {
+    "id": "en-react-19-se-necesita-todavia-forward-ref-q-1",
+    "question_id": "en-react-19-se-necesita-todavia-forward-ref",
+    "question": "En React 19, ¿ref en un componente de función…?",
+    "alternatives": [
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-1",
+        "text": "Puede recibirse como prop normal sin forwardRef en la mayoría de casos.",
+        "is_correct": true
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-2",
+        "text": "Está prohibida y lanza error siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-3",
+        "text": "Solo funciona en class components.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-4",
+        "text": "Debe ser siempre un string.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-5",
+        "text": "Solo existe en React Native.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-6",
+        "text": "Requiere obligatoriamente createRef en el hijo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "en-react-19-se-necesita-todavia-forward-ref-q-2",
+    "question_id": "en-react-19-se-necesita-todavia-forward-ref",
+    "question": "¿Para qué se mantiene forwardRef?",
+    "alternatives": [
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-7",
+        "text": "Por compatibilidad con código y librerías antiguas.",
+        "is_correct": true
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-8",
+        "text": "Es la única forma de usar useState.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-9",
+        "text": "Es obligatorio en todos los hooks.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-10",
+        "text": "Sustituye a useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-11",
+        "text": "Activa el React Compiler.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-12",
+        "text": "Es necesario para JSX.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "en-react-19-se-necesita-todavia-forward-ref-q-3",
+    "question_id": "en-react-19-se-necesita-todavia-forward-ref",
+    "question": "Si quieres exponer métodos imperativos al padre, ¿qué hook ayuda?",
+    "alternatives": [
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-13",
+        "text": "useImperativeHandle junto a una ref.",
+        "is_correct": true
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-14",
+        "text": "useId solamente.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-15",
+        "text": "useDebugValue solamente.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-16",
+        "text": "useDeferredValue.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-17",
+        "text": "useFormStatus.",
+        "is_correct": false
+      },
+      {
+        "id": "en-react-19-se-necesita-todavia-forward-ref-a-18",
+        "text": "useSyncExternalStore obligatorio.",
+        "is_correct": false
+      }
+    ]
+  }
+]

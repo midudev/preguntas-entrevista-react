@@ -1,0 +1,113 @@
+[
+  {
+    "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-q-1",
+    "question_id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react",
+    "question": "¿Por qué no debes mutar el estado directamente?",
+    "alternatives": [
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-1",
+        "text": "Porque React puede no detectar el cambio si la referencia no cambia y no re-renderizar.",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-2",
+        "text": "Porque mutar el estado está prohibido por el navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-3",
+        "text": "Porque useState no acepta objetos en ningún caso.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-4",
+        "text": "Porque JavaScript no permite mutar arrays.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-5",
+        "text": "Porque solo se puede usar strings como estado.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-6",
+        "text": "Porque mutar el estado borra el localStorage.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-q-2",
+    "question_id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react",
+    "question": "¿Cuál es la forma correcta de actualizar un objeto en el estado?",
+    "alternatives": [
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-7",
+        "text": "Crear una nueva referencia, por ejemplo con spread: setUser({ ...user, age: 31 }).",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-8",
+        "text": "Hacer user.age = 31 y luego setUser(user) con la misma referencia.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-9",
+        "text": "Asignar window.user = user.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-10",
+        "text": "Usar document.write con el nuevo valor.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-11",
+        "text": "Mutar user y no llamar a setUser.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-12",
+        "text": "Solo se puede actualizar con Redux.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-q-3",
+    "question_id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react",
+    "question": "¿Qué forma de setState ayuda a basarte en el valor anterior de forma segura?",
+    "alternatives": [
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-13",
+        "text": "La forma funcional: setCount(c => c + 1).",
+        "is_correct": true
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-14",
+        "text": "setCount++ sin función.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-15",
+        "text": "count = count + 1 sin setCount.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-16",
+        "text": "Solo setCount(count + 1) dentro de un setTimeout vacío sin deps.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-17",
+        "text": "Usar eval para incrementar.",
+        "is_correct": false
+      },
+      {
+        "id": "por-que-no-se-debe-mutar-el-estado-directamente-en-react-a-18",
+        "text": "Mutar count.current si no es una ref.",
+        "is_correct": false
+      }
+    ]
+  }
+]

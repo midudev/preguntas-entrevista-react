@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedo-hacer-testing-de-un-componente-q-1",
+    "question_id": "como-puedo-hacer-testing-de-un-componente",
+    "question": "¿Qué librería se usa habitualmente para testear componentes React?",
+    "alternatives": [
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-1",
+        "text": "React Testing Library (@testing-library/react).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-2",
+        "text": "Solo Selenium sin más abstracciones.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-3",
+        "text": "jQuery unit.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-4",
+        "text": "Moment.js.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-5",
+        "text": "Lodash test.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-6",
+        "text": "Express test runner.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-hacer-testing-de-un-componente-q-2",
+    "question_id": "como-puedo-hacer-testing-de-un-componente",
+    "question": "¿Qué prioriza Testing Library?",
+    "alternatives": [
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-7",
+        "text": "Probar lo que el usuario ve y hace, no detalles de implementación.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-8",
+        "text": "Probar solo los nombres de variables internas.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-9",
+        "text": "Acoplarse a classNames generados por CSS-in-JS.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-10",
+        "text": "Mockear siempre todo el Virtual DOM a mano.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-11",
+        "text": "Evitar assertions sobre el DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-12",
+        "text": "Prohibir el uso de roles ARIA en tests.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-hacer-testing-de-un-componente-q-3",
+    "question_id": "como-puedo-hacer-testing-de-un-componente",
+    "question": "¿Qué consulta es preferible para un botón?",
+    "alternatives": [
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-13",
+        "text": "getByRole(\"button\", { name: \"...\" }).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-14",
+        "text": "document.getElementsByTagName(\"div\")[7].",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-15",
+        "text": "container.firstChild.firstChild.childNodes[2].",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-16",
+        "text": "querySelector(\".css-xyz-random\").",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-17",
+        "text": "Solo snapshot del JSON del estado interno.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-componente-a-18",
+        "text": "Leer el código fuente del componente en el test.",
+        "is_correct": false
+      }
+    ]
+  }
+]

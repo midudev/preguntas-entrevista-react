@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-q-1",
+    "question_id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context",
+    "question": "¿Qué ocurre si cambia el value del Provider?",
+    "alternatives": [
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-1",
+        "text": "Se re-renderizan todos los consumidores de ese contexto.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-2",
+        "text": "Solo se re-renderiza el Provider, nunca los hijos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-3",
+        "text": "React ignora a los consumidores.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-4",
+        "text": "Se recarga la página entera.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-5",
+        "text": "Solo se actualiza el Virtual DOM en disco.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-6",
+        "text": "Nada; el contexto no provoca renders.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-q-2",
+    "question_id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context",
+    "question": "¿Qué estrategia reduce re-renders con Context?",
+    "alternatives": [
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-7",
+        "text": "Partir contextos, memoizar el value y no subir estado que cambia muy a menudo.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-8",
+        "text": "Poner todo el estado de la app en un único contexto gigante.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-9",
+        "text": "Crear un objeto value nuevo en cada render a propósito.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-10",
+        "text": "Evitar useMemo en todos los casos.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-11",
+        "text": "Usar Math.random() en el value.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-12",
+        "text": "Consumir el contexto en cada componente hoja sin necesidad.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-q-3",
+    "question_id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context",
+    "question": "¿Por qué es mala idea un input controlado global en Context de alto nivel?",
+    "alternatives": [
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-13",
+        "text": "Porque cada tecla cambia el value y re-renderiza a todos los consumidores.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-14",
+        "text": "Porque los inputs no pueden ser controlados en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-15",
+        "text": "Porque Context no admite strings.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-16",
+        "text": "Porque useState no funciona con inputs.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-17",
+        "text": "Porque el teclado no dispara eventos en React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedes-evitar-re-renders-innecesarios-al-usar-context-a-18",
+        "text": "Porque HTML prohíbe value en input.",
+        "is_correct": false
+      }
+    ]
+  }
+]

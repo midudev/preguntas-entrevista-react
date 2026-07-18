@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-q-1",
+    "question_id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render",
+    "question": "¿Qué es el estado derivado?",
+    "alternatives": [
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-1",
+        "text": "Un valor que se puede calcular a partir de props u otro estado ya existente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-2",
+        "text": "Estado que solo vive en el servidor.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-3",
+        "text": "Estado almacenado en localStorage por defecto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-4",
+        "text": "Estado que React elimina automáticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-5",
+        "text": "Cualquier valor de useRef.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-6",
+        "text": "El resultado de useEffect sin más.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-q-2",
+    "question_id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render",
+    "question": "¿Por qué conviene calcularlo en el render en lugar de guardarlo en useState?",
+    "alternatives": [
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-7",
+        "text": "Evita desincronización y dobles actualizaciones; hay una sola fuente de verdad.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-8",
+        "text": "Porque useState no admite números.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-9",
+        "text": "Porque el render es más lento siempre si calculas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-10",
+        "text": "Porque React prohíbe useState para strings.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-11",
+        "text": "Porque así se desactiva StrictMode.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-12",
+        "text": "Porque el Virtual DOM lo exige por ley.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-q-3",
+    "question_id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render",
+    "question": "Si el cálculo derivado es muy costoso, ¿qué puedes usar?",
+    "alternatives": [
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-13",
+        "text": "useMemo con las dependencias correctas.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-14",
+        "text": "Mutar el estado dentro del render.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-15",
+        "text": "setState en el cuerpo del componente sin guards.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-16",
+        "text": "document.write del resultado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-17",
+        "text": "Un while(true) para cachear.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-estado-derivado-y-por-que-conviene-calcularlo-en-el-render-a-18",
+        "text": "eval del cálculo.",
+        "is_correct": false
+      }
+    ]
+  }
+]

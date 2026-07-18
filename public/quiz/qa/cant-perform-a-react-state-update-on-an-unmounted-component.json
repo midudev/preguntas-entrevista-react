@@ -1,0 +1,113 @@
+[
+  {
+    "id": "cant-perform-a-react-state-update-on-an-unmounted-component-q-1",
+    "question_id": "cant-perform-a-react-state-update-on-an-unmounted-component",
+    "question": "¿Qué significa este warning?",
+    "alternatives": [
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-1",
+        "text": "Se intentó hacer setState (o similar) cuando el componente ya no está montado.",
+        "is_correct": true
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-2",
+        "text": "Que faltan keys en una lista.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-3",
+        "text": "Que un hook se llamó condicionalmente.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-4",
+        "text": "Que hay demasiados re-renders.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-5",
+        "text": "Que PropTypes falló la validación.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-6",
+        "text": "Que el Virtual DOM está corrupto en disco.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cant-perform-a-react-state-update-on-an-unmounted-component-q-2",
+    "question_id": "cant-perform-a-react-state-update-on-an-unmounted-component",
+    "question": "¿Cuál es una causa típica?",
+    "alternatives": [
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-7",
+        "text": "Una petición async o un timer que resuelve después de desmontar el componente.",
+        "is_correct": true
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-8",
+        "text": "Usar className en lugar de class.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-9",
+        "text": "Exportar el componente de forma nombrada.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-10",
+        "text": "Usar Fragment.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-11",
+        "text": "Tener un solo useState.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-12",
+        "text": "Importar React en el archivo.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "cant-perform-a-react-state-update-on-an-unmounted-component-q-3",
+    "question_id": "cant-perform-a-react-state-update-on-an-unmounted-component",
+    "question": "¿Cómo se mitiga a menudo?",
+    "alternatives": [
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-13",
+        "text": "Cancelar la petición/timer en el cleanup del useEffect o ignorar el resultado si se desmontó.",
+        "is_correct": true
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-14",
+        "text": "Mutar el estado directamente sin setState.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-15",
+        "text": "Quitar todas las keys.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-16",
+        "text": "Usar Math.random en cada render.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-17",
+        "text": "Desactivar React DevTools.",
+        "is_correct": false
+      },
+      {
+        "id": "cant-perform-a-react-state-update-on-an-unmounted-component-a-18",
+        "text": "Poner el estado en una variable global mutable sin más.",
+        "is_correct": false
+      }
+    ]
+  }
+]

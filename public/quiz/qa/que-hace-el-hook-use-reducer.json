@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-hace-el-hook-use-reducer-q-1",
+    "question_id": "que-hace-el-hook-use-reducer",
+    "question": "¿Para qué sirve useReducer?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-reducer-a-1",
+        "text": "Para gestionar estado complejo con una función reducer y acciones.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-2",
+        "text": "Solo para efectos secundarios al montar el componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-3",
+        "text": "Para memorizar valores calculados entre renders.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-4",
+        "text": "Para crear referencias al DOM sin re-renderizar.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-5",
+        "text": "Para validar el tipo de las props en tiempo de ejecución.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-6",
+        "text": "Para cargar componentes de forma dinámica.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-reducer-q-2",
+    "question_id": "que-hace-el-hook-use-reducer",
+    "question": "¿Qué devuelve useReducer?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-reducer-a-7",
+        "text": "Un array con el estado actual y la función dispatch.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-8",
+        "text": "Solo el estado, sin forma de actualizarlo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-9",
+        "text": "Una promesa que se resuelve con el estado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-10",
+        "text": "Un objeto con getState y subscribe.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-11",
+        "text": "El valor del contexto más cercano.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-12",
+        "text": "Una ref mutable con el último estado.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-hace-el-hook-use-reducer-q-3",
+    "question_id": "que-hace-el-hook-use-reducer",
+    "question": "¿Cuándo suele preferirse useReducer frente a useState?",
+    "alternatives": [
+      {
+        "id": "que-hace-el-hook-use-reducer-a-13",
+        "text": "Cuando el estado es complejo o las actualizaciones dependen de la lógica anterior.",
+        "is_correct": true
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-14",
+        "text": "Siempre, en cualquier contador trivial.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-15",
+        "text": "Nunca; useState cubre todos los casos.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-16",
+        "text": "Solo en componentes de clase.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-17",
+        "text": "Únicamente en Server Components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-hace-el-hook-use-reducer-a-18",
+        "text": "Solo para estilos en línea.",
+        "is_correct": false
+      }
+    ]
+  }
+]

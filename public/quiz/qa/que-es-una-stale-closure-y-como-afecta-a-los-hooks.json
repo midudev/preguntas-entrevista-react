@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-q-1",
+    "question_id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks",
+    "question": "¿Qué es una stale closure?",
+    "alternatives": [
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-1",
+        "text": "Una función que captura valores de un render anterior en lugar de los actuales.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-2",
+        "text": "Un memory leak del garbage collector de V8.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-3",
+        "text": "Un error de CORS en fetch.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-4",
+        "text": "Un fallo de CSS specificity.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-5",
+        "text": "Una key duplicada en una lista.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-6",
+        "text": "Un warning de PropTypes.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-q-2",
+    "question_id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks",
+    "question": "¿Dónde aparecen a menudo las stale closures?",
+    "alternatives": [
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-7",
+        "text": "En useEffect, setInterval, suscripciones o callbacks con deps incompletas.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-8",
+        "text": "Solo al importar CSS Modules.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-9",
+        "text": "Únicamente en Server Components sin JS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-10",
+        "text": "Solo al usar className.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-11",
+        "text": "Nunca en React 18+.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-12",
+        "text": "Solo en SVG.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-q-3",
+    "question_id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks",
+    "question": "¿Cómo evitas una stale closure al incrementar un contador en un interval?",
+    "alternatives": [
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-13",
+        "text": "Usar la forma funcional setCount(c => c + 1) o incluir count en las deps.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-14",
+        "text": "Mutar count directamente: count++.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-15",
+        "text": "Usar var en lugar de const.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-16",
+        "text": "Poner el interval fuera de React en window sin cleanup.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-17",
+        "text": "Desactivar StrictMode.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-una-stale-closure-y-como-afecta-a-los-hooks-a-18",
+        "text": "Usar innerHTML del contador.",
+        "is_correct": false
+      }
+    ]
+  }
+]

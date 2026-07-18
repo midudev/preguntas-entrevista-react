@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-q-1",
+    "question_id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia",
+    "question": "¿Qué es la composición de componentes?",
+    "alternatives": [
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-1",
+        "text": "Combinar componentes pequeños (p. ej. con children) para construir UIs más complejas.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-2",
+        "text": "Extender siempre una clase base Component de la app.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-3",
+        "text": "Copiar y pegar JSX entre archivos sin props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-4",
+        "text": "Usar solo un único componente App con todo el HTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-5",
+        "text": "Heredar estilos CSS de un componente padre automáticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-6",
+        "text": "Compilar componentes a Web Components nativos.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-q-2",
+    "question_id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia",
+    "question": "¿Por qué React prefiere composición a herencia?",
+    "alternatives": [
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-7",
+        "text": "Porque es más flexible, legible y evita jerarquías de clases frágiles.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-8",
+        "text": "Porque la herencia está prohibida en JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-9",
+        "text": "Porque los componentes de función no pueden recibir props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-10",
+        "text": "Porque children no existe en React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-11",
+        "text": "Porque la composición es más lenta siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-12",
+        "text": "Porque la herencia solo funciona en Vue.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-q-3",
+    "question_id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia",
+    "question": "¿Qué prop facilita la composición de UI genérica?",
+    "alternatives": [
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-13",
+        "text": "children (y a veces slots o render props).",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-14",
+        "text": "dangerouslySetInnerHTML siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-15",
+        "text": "key con valor aleatorio Math.random().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-16",
+        "text": "ref como string \"myRef\".",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-17",
+        "text": "class en lugar de className.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-composicion-de-componentes-y-por-que-react-la-prefiere-a-la-herencia-a-18",
+        "text": "innerHTML como prop oficial de React.",
+        "is_correct": false
+      }
+    ]
+  }
+]

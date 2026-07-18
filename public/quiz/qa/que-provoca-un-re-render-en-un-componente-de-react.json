@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-provoca-un-re-render-en-un-componente-de-react-q-1",
+    "question_id": "que-provoca-un-re-render-en-un-componente-de-react",
+    "question": "¿Qué provoca un re-render en un componente?",
+    "alternatives": [
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-1",
+        "text": "Cambios de estado, props, contexto consumido o re-render del padre (sin memoización).",
+        "is_correct": true
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-2",
+        "text": "Solo cambiar una variable let local sin setState.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-3",
+        "text": "Actualizar una ref con useRef.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-4",
+        "text": "Leer document.title en el cuerpo del componente sin más.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-5",
+        "text": "Importar un módulo estático.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-6",
+        "text": "Usar console.log en el render.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-provoca-un-re-render-en-un-componente-de-react-q-2",
+    "question_id": "que-provoca-un-re-render-en-un-componente-de-react",
+    "question": "¿Actualizar useRef provoca re-render?",
+    "alternatives": [
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-7",
+        "text": "No; cambiar .current no dispara un re-render por sí solo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-8",
+        "text": "Sí, siempre en el siguiente frame.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-9",
+        "text": "Sí, y además limpia el estado del componente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-10",
+        "text": "Solo si la ref apunta a un input.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-11",
+        "text": "Solo en StrictMode.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-12",
+        "text": "Sí, pero únicamente en Server Components.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-provoca-un-re-render-en-un-componente-de-react-q-3",
+    "question_id": "que-provoca-un-re-render-en-un-componente-de-react",
+    "question": "¿Re-render implica siempre mutar el DOM?",
+    "alternatives": [
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-13",
+        "text": "No; React puede reconciliar y no aplicar cambios al DOM si el resultado es igual.",
+        "is_correct": true
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-14",
+        "text": "Sí; cada render reescribe todo el document.body.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-15",
+        "text": "Sí; React destruye y recrea el nodo raíz siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-16",
+        "text": "Sí; obliga a recargar la página.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-17",
+        "text": "Sí; vacía el localStorage.",
+        "is_correct": false
+      },
+      {
+        "id": "que-provoca-un-re-render-en-un-componente-de-react-a-18",
+        "text": "Sí; invalida todas las cookies.",
+        "is_correct": false
+      }
+    ]
+  }
+]

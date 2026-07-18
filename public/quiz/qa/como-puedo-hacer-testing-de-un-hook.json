@@ -1,0 +1,113 @@
+[
+  {
+    "id": "como-puedo-hacer-testing-de-un-hook-q-1",
+    "question_id": "como-puedo-hacer-testing-de-un-hook",
+    "question": "¿Cómo se suele testear un hook aislado?",
+    "alternatives": [
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-1",
+        "text": "Con renderHook de @testing-library/react.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-2",
+        "text": "Llamándolo en la raíz del módulo de test sin React.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-3",
+        "text": "Con document.write del resultado.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-4",
+        "text": "Solo con CSS snapshots.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-5",
+        "text": "Importándolo en el navegador sin assert.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-6",
+        "text": "Con alert() del valor.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-hacer-testing-de-un-hook-q-2",
+    "question_id": "como-puedo-hacer-testing-de-un-hook",
+    "question": "¿Cómo envuelves actualizaciones de estado en el test del hook?",
+    "alternatives": [
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-7",
+        "text": "Con act(() => { ... }).",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-8",
+        "text": "Con window.forceUpdate().",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-9",
+        "text": "Con setTimeout de 10 segundos siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-10",
+        "text": "Sin envolver nada nunca.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-11",
+        "text": "Con eval del setState.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-12",
+        "text": "Con ReactDOM.render legacy obligatorio.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "como-puedo-hacer-testing-de-un-hook-q-3",
+    "question_id": "como-puedo-hacer-testing-de-un-hook",
+    "question": "Si el hook depende de Context, ¿qué haces?",
+    "alternatives": [
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-13",
+        "text": "Pasar un wrapper con el Provider en las opciones de renderHook.",
+        "is_correct": true
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-14",
+        "text": "No se puede testear.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-15",
+        "text": "Mockear process.exit.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-16",
+        "text": "Borrar el contexto del código de producción.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-17",
+        "text": "Usar solo class components en tests.",
+        "is_correct": false
+      },
+      {
+        "id": "como-puedo-hacer-testing-de-un-hook-a-18",
+        "text": "Desactivar JavaScript.",
+        "is_correct": false
+      }
+    ]
+  }
+]

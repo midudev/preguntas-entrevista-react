@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-react-compiler-y-que-ventajas-aporta-q-1",
+    "question_id": "que-es-el-react-compiler-y-que-ventajas-aporta",
+    "question": "¿Qué hace el React Compiler?",
+    "alternatives": [
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-1",
+        "text": "Analiza el código y memoiza automáticamente cuando es seguro.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-2",
+        "text": "Traduce React a jQuery.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-3",
+        "text": "Genera bases de datos SQL.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-4",
+        "text": "Sustituye al navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-5",
+        "text": "Elimina la necesidad de JSX sin alternativa.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-6",
+        "text": "Convierte la app en una extensión de VS Code.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-react-compiler-y-que-ventajas-aporta-q-2",
+    "question_id": "que-es-el-react-compiler-y-que-ventajas-aporta",
+    "question": "¿Qué boilerplate puede reducir el compilador?",
+    "alternatives": [
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-7",
+        "text": "Muchos useMemo, useCallback y React.memo manuales.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-8",
+        "text": "Todos los useEffect del proyecto sin excepción.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-9",
+        "text": "La necesidad de keys en listas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-10",
+        "text": "El uso de props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-11",
+        "text": "HTML y CSS por completo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-12",
+        "text": "TypeScript en general.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-react-compiler-y-que-ventajas-aporta-q-3",
+    "question_id": "que-es-el-react-compiler-y-que-ventajas-aporta",
+    "question": "¿El compilador elimina la necesidad de entender re-renders?",
+    "alternatives": [
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-13",
+        "text": "No; sigue siendo importante un buen diseño de estado y componentes puros.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-14",
+        "text": "Sí; ya no hace falta saber nada de rendimiento.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-15",
+        "text": "Sí; y tampoco hacen falta keys.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-16",
+        "text": "Sí; Context deja de existir.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-17",
+        "text": "Sí; Suspense queda obsoleto.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-react-compiler-y-que-ventajas-aporta-a-18",
+        "text": "Sí; solo sirve para class components.",
+        "is_correct": false
+      }
+    ]
+  }
+]

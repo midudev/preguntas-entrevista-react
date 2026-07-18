@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-la-reconciliacion-reconciliation-en-react-q-1",
+    "question_id": "que-es-la-reconciliacion-reconciliation-en-react",
+    "question": "¿Qué es la reconciliación?",
+    "alternatives": [
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-1",
+        "text": "El proceso de comparar el árbol anterior y el nuevo para actualizar el DOM de forma eficiente.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-2",
+        "text": "La sincronización de la base de datos con el cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-3",
+        "text": "El minificado del bundle de producción.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-4",
+        "text": "La generación de source maps.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-5",
+        "text": "El tree-shaking de imports no usados.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-6",
+        "text": "La hidratación de cookies de sesión.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-reconciliacion-reconciliation-en-react-q-2",
+    "question_id": "que-es-la-reconciliacion-reconciliation-en-react",
+    "question": "¿Qué ayuda a identificar ítems de una lista entre renders?",
+    "alternatives": [
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-7",
+        "text": "La prop key estable e identificativa.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-8",
+        "text": "El atributo id HTML aleatorio en cada render.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-9",
+        "text": "El índice como key cuando la lista se reordena (siempre ideal).",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-10",
+        "text": "Math.random() como key.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-11",
+        "text": "No usar keys nunca.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-12",
+        "text": "La prop ref en cada li.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-la-reconciliacion-reconciliation-en-react-q-3",
+    "question_id": "que-es-la-reconciliacion-reconciliation-en-react",
+    "question": "Si cambia el tipo de un elemento (div → span), React…",
+    "alternatives": [
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-13",
+        "text": "Desmonta el árbol viejo y monta uno nuevo.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-14",
+        "text": "Solo cambia el tag name sin tocar hijos nunca.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-15",
+        "text": "Lanza un error y detiene la app.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-16",
+        "text": "Ignora el cambio.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-17",
+        "text": "Convierte el span en Web Component.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-la-reconciliacion-reconciliation-en-react-a-18",
+        "text": "Fuerza un full reload del navegador.",
+        "is_correct": false
+      }
+    ]
+  }
+]

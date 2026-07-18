@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-react-lazy-y-como-se-combina-con-suspense-q-1",
+    "question_id": "que-es-react-lazy-y-como-se-combina-con-suspense",
+    "question": "¿Qué hace React.lazy?",
+    "alternatives": [
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-1",
+        "text": "Carga un componente bajo demanda con import dinámico (code splitting).",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-2",
+        "text": "Memoiza un componente para evitar re-renders.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-3",
+        "text": "Crea un portal a document.body.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-4",
+        "text": "Registra un Service Worker.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-5",
+        "text": "Compila JSX en el navegador.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-6",
+        "text": "Activa StrictMode.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-lazy-y-como-se-combina-con-suspense-q-2",
+    "question_id": "que-es-react-lazy-y-como-se-combina-con-suspense",
+    "question": "¿Qué necesitas alrededor de un componente lazy?",
+    "alternatives": [
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-7",
+        "text": "Un Suspense con fallback mientras carga el chunk.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-8",
+        "text": "Obligatoriamente un Error Boundary y nada más.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-9",
+        "text": "Un iframe.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-10",
+        "text": "ReactDOM.render legacy.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-11",
+        "text": "Un Worker dedicado.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-12",
+        "text": "Nada; lazy funciona sin wrappers.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-lazy-y-como-se-combina-con-suspense-q-3",
+    "question_id": "que-es-react-lazy-y-como-se-combina-con-suspense",
+    "question": "¿Para qué casos es ideal React.lazy?",
+    "alternatives": [
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-13",
+        "text": "Rutas o paneles pesados que no hacen falta en el primer paint.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-14",
+        "text": "Cada botón y cada span de la app.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-15",
+        "text": "Sustituir por completo a CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-16",
+        "text": "Evitar usar keys en listas.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-17",
+        "text": "Eliminar la necesidad de props.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-lazy-y-como-se-combina-con-suspense-a-18",
+        "text": "Hacer SSR sin framework sin ninguna consideración extra.",
+        "is_correct": false
+      }
+    ]
+  }
+]

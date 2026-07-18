@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-q-1",
+    "question_id": "que-es-el-batching-de-actualizaciones-de-estado-en-react",
+    "question": "¿Qué es el batching de actualizaciones?",
+    "alternatives": [
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-1",
+        "text": "Agrupar varios setState en un único re-render.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-2",
+        "text": "Enviar el estado al servidor en lotes de red.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-3",
+        "text": "Comprimir el bundle de JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-4",
+        "text": "Agrupar imports dinámicos en un solo chunk.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-5",
+        "text": "Unir varios CSS en un archivo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-6",
+        "text": "Cachear imágenes en el navegador.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-q-2",
+    "question_id": "que-es-el-batching-de-actualizaciones-de-estado-en-react",
+    "question": "¿Qué cambió con React 18 respecto al batching?",
+    "alternatives": [
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-7",
+        "text": "El batching automático también aplica en promesas, timeouts y handlers nativos.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-8",
+        "text": "Se eliminó por completo el batching.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-9",
+        "text": "Solo funciona dentro de class components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-10",
+        "text": "Obliga a usar Redux para cualquier setState.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-11",
+        "text": "Desactiva StrictMode.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-12",
+        "text": "Impide usar useEffect.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-q-3",
+    "question_id": "que-es-el-batching-de-actualizaciones-de-estado-en-react",
+    "question": "¿Cómo forzar un flush síncrono si lo necesitas?",
+    "alternatives": [
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-13",
+        "text": "Con flushSync de react-dom.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-14",
+        "text": "Con window.forceUpdate().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-15",
+        "text": "Con document.reflow().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-16",
+        "text": "Con useLayoutEffect vacío sin deps.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-17",
+        "text": "Con React.sync().",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-el-batching-de-actualizaciones-de-estado-en-react-a-18",
+        "text": "No existe ninguna API para ello.",
+        "is_correct": false
+      }
+    ]
+  }
+]

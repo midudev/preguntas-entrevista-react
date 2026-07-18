@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-concurrent-react-y-que-problemas-resuelve-q-1",
+    "question_id": "que-es-concurrent-react-y-que-problemas-resuelve",
+    "question": "¿Qué permite Concurrent React?",
+    "alternatives": [
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-1",
+        "text": "Renderizado interruptible y priorizable para no bloquear la interacción.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-2",
+        "text": "Ejecutar React sin JavaScript en el cliente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-3",
+        "text": "Eliminar el Virtual DOM.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-4",
+        "text": "Usar solo class components.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-5",
+        "text": "Desactivar el batching.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-6",
+        "text": "Compilar a WebAssembly de forma nativa siempre.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-concurrent-react-y-que-problemas-resuelve-q-2",
+    "question_id": "que-es-concurrent-react-y-que-problemas-resuelve",
+    "question": "¿Qué API de entrada habilita el modelo concurrente en el cliente?",
+    "alternatives": [
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-7",
+        "text": "createRoot (en lugar de ReactDOM.render legacy).",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-8",
+        "text": "Solo ReactDOM.render.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-9",
+        "text": "document.createElement.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-10",
+        "text": "eval del bundle.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-11",
+        "text": "localStorage.setItem.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-12",
+        "text": "window.concurrent = true.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-concurrent-react-y-que-problemas-resuelve-q-3",
+    "question_id": "que-es-concurrent-react-y-que-problemas-resuelve",
+    "question": "¿Qué APIs se relacionan con concurrent features?",
+    "alternatives": [
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-13",
+        "text": "useTransition, useDeferredValue, Suspense y startTransition.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-14",
+        "text": "Solo componentDidMount.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-15",
+        "text": "Solo PropTypes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-16",
+        "text": "Solo dangerouslySetInnerHTML.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-17",
+        "text": "Solo findDOMNode.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-concurrent-react-y-que-problemas-resuelve-a-18",
+        "text": "Solo React.createClass.",
+        "is_correct": false
+      }
+    ]
+  }
+]

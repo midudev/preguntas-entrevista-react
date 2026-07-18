@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-react-fiber-q-1",
+    "question_id": "que-es-react-fiber",
+    "question": "¿Qué es React Fiber?",
+    "alternatives": [
+      {
+        "id": "que-es-react-fiber-a-1",
+        "text": "La arquitectura de reconciliación de React desde la versión 16.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-fiber-a-2",
+        "text": "Un router oficial de React.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-3",
+        "text": "Un sustituto de npm.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-4",
+        "text": "Un preprocesador de CSS.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-5",
+        "text": "Una base de datos embebida.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-6",
+        "text": "Un bundler como Vite.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-fiber-q-2",
+    "question_id": "que-es-react-fiber",
+    "question": "¿Qué permitió Fiber respecto al render?",
+    "alternatives": [
+      {
+        "id": "que-es-react-fiber-a-7",
+        "text": "Trabajo incremental, bases para concurrent rendering y mejor manejo de prioridades.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-fiber-a-8",
+        "text": "Eliminar por completo los re-renders.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-9",
+        "text": "Dejar de usar JavaScript.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-10",
+        "text": "Obligar a usar herencia de componentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-11",
+        "text": "Sustituir HTML por Markdown.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-12",
+        "text": "Desactivar el Virtual DOM para siempre.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-react-fiber-q-3",
+    "question_id": "que-es-react-fiber",
+    "question": "Como desarrollador de aplicación, ¿usas Fiber directamente?",
+    "alternatives": [
+      {
+        "id": "que-es-react-fiber-a-13",
+        "text": "No; es un detalle del runtime, aunque explica capacidades de React.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-react-fiber-a-14",
+        "text": "Sí; importas Fiber de \"react-fiber\" en cada archivo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-15",
+        "text": "Sí; es un hook useFiber obligatorio.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-16",
+        "text": "Sí; es un componente <Fiber />.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-17",
+        "text": "Sí; es una prop fiber={true}.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-react-fiber-a-18",
+        "text": "Sí; es un atributo HTML data-fiber.",
+        "is_correct": false
+      }
+    ]
+  }
+]

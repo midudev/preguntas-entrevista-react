@@ -1,0 +1,113 @@
+[
+  {
+    "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-q-1",
+    "question_id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal",
+    "question": "¿Qué hace startTransition?",
+    "alternatives": [
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-1",
+        "text": "Marca una actualización de estado como no urgente / de menor prioridad.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-2",
+        "text": "Inicia una animación CSS automáticamente.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-3",
+        "text": "Navega a otra ruta del router.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-4",
+        "text": "Cancela todas las promesas pendientes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-5",
+        "text": "Fuerza un re-render síncrono inmediato siempre.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-6",
+        "text": "Limpia el estado global de la app.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-q-2",
+    "question_id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal",
+    "question": "En un buscador, ¿qué suele ser urgente y qué no?",
+    "alternatives": [
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-7",
+        "text": "Urgente: el valor del input. No urgente: filtrar una lista grande.",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-8",
+        "text": "Urgente: filtrar miles de filas. No urgente: pintar el input.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-9",
+        "text": "Todo debe ser startTransition, incluido el input.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-10",
+        "text": "Nada debe ser transición nunca.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-11",
+        "text": "Solo las animaciones de CSS son urgentes.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-12",
+        "text": "Las Server Actions no pueden ir con el input.",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-q-3",
+    "question_id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal",
+    "question": "¿startTransition sustituye a useMemo?",
+    "alternatives": [
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-13",
+        "text": "No; atacan problemas distintos (prioridad vs memorizar valores).",
+        "is_correct": true
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-14",
+        "text": "Sí; useMemo queda obsoleto por completo.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-15",
+        "text": "Sí; y también sustituye a useEffect.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-16",
+        "text": "Sí; elimina la necesidad de keys.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-17",
+        "text": "Sí; reemplaza a Context.",
+        "is_correct": false
+      },
+      {
+        "id": "que-es-start-transition-y-en-que-se-diferencia-de-actualizar-el-estado-de-forma-normal-a-18",
+        "text": "Sí; es un alias de useCallback.",
+        "is_correct": false
+      }
+    ]
+  }
+]
