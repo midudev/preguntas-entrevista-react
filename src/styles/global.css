@@ -10,7 +10,8 @@
 }
 
 
-@custom-variant dark (&:is(.dark *));
+/* Match .dark on the root and any descendant (Tailwind v4 class strategy) */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: #0d111b;
@@ -54,15 +55,17 @@
 @layer base {
   html {
     min-height: 100%;
-    background-color: #fafbff;
+    background-color: var(--page-bg, #fafbff);
+    color-scheme: light;
   }
 
-  html.dark {
-    background-color: #0a0f1a;
+  html.dark,
+  html[data-theme='dark'] {
+    background-color: var(--page-bg, #0a0f1a);
     color-scheme: dark;
   }
 
-  html:not(.dark) {
+  html:not(.dark):not([data-theme='dark']) {
     color-scheme: light;
   }
 
@@ -74,7 +77,8 @@
   body {
     font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-color: inherit;
+    background-color: var(--page-bg, #fafbff);
+    color: var(--page-fg, #0f172a);
   }
 
   h1,

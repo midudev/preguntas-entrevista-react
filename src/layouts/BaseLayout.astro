@@ -29,44 +29,62 @@ const {
 <html lang="es-ES">
   <head>
     <meta charset="utf-8" />
-    {/* Blocking theme bootstrap: must run before first paint to avoid light flash */}
-    <script is:inline>
+    {/*
+      Theme bootstrap MUST be the first executable content in <head>.
+      data-cfasync="false" prevents Cloudflare Rocket Loader from deferring it
+      (that deferral is a common cause of light-mode FOUC).
+    */}
+    <script is:inline data-cfasync="false">
       ;(function () {
         var root = document.documentElement
-        var theme
+        var stored = null
         try {
-          theme = localStorage.getItem('theme')
+          stored = localStorage.getItem('theme')
         } catch (e) {}
-        var dark =
-          theme === 'dark' ||
-          (theme !== 'light' &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches)
-        if (dark) {
-          root.classList.add('dark')
-          root.style.colorScheme = 'dark'
-          root.style.backgroundColor = '#0a0f1a'
-        } else {
-          root.classList.remove('dark')
-          root.style.colorScheme = 'light'
-          root.style.backgroundColor = '#fafbff'
-        }
+        var prefersDark = false
+        try {
+          prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        } catch (e) {}
+        var dark = stored === 'dark' || (stored !== 'light' && prefersDark)
+        root.classList.toggle('dark', dark)
+        root.dataset.theme = dark ? 'dark' : 'light'
+        root.style.colorScheme = dark ? 'dark' : 'light'
+        root.style.setProperty('--page-bg', dark ? '#0a0f1a' : '#fafbff')
+        root.style.setProperty('--page-fg', dark ? '#f1f5f9' : '#0f172a')
       })()
     </script>
     <style is:inline>
+      /* Critical theme colors — apply before the main CSS bundle loads */
       html {
-        background-color: #fafbff;
+        background-color: var(--page-bg, #fafbff);
+        color-scheme: light;
       }
+      html[data-theme='dark'],
       html.dark {
-        background-color: #0a0f1a;
+        background-color: var(--page-bg, #0a0f1a);
+        color-scheme: dark;
       }
       html,
       body {
         min-height: 100%;
+        background-color: var(--page-bg, #fafbff);
+        color: var(--page-fg, #0f172a);
       }
-      body {
-        background-color: inherit;
+      /* Hide unthemed paint if script is delayed (e.g. by a CDN); removed once data-theme is set */
+      html:not([data-theme]) {
+        visibility: hidden;
+      }
+      html[data-theme] {
+        visibility: visible;
       }
     </style>
+    <noscript>
+      <style>
+        html {
+          visibility: visible !important;
+        }
+      </style>
+    </noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
@@ -82,7 +100,7 @@ const {
     />
     <slot name="head" />
   </head>
-  <body class="app-shell overscroll-none bg-[#fafbff] text-slate-900 dark:bg-[#0a0f1a] dark:text-slate-100">
+  <body class="app-shell overscroll-none">
     <div class="relative flex min-h-screen flex-col overflow-x-clip">
       <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
       <Header />
