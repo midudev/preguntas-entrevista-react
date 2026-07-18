@@ -130,6 +130,7 @@
 
 .code-line-number {
   display: block;
+  /* Match pre line box: font-size × unitless line-height on the code column */
   height: calc(var(--code-font-size) * var(--code-line-height));
   padding: 0 0.75rem 0 0.85rem;
   color: var(--code-gutter-fg);
@@ -158,7 +159,8 @@ pre.code-block-pre {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
+  /* Fixed line box so gutter numbers stay aligned with source lines */
+  line-height: var(--code-line-height);
   tab-size: 2;
   -moz-tab-size: 2;
   white-space: pre;
@@ -177,6 +179,7 @@ pre.code-block-pre {
 .code-block code,
 .code-block-pre code,
 code[class*='language-'] {
+  display: block;
   font-family: inherit;
   font-size: inherit;
   font-weight: 400;
@@ -189,16 +192,6 @@ code[class*='language-'] {
   border-radius: 0;
   white-space: inherit;
   tab-size: 2;
-}
-
-.code-line {
-  display: block;
-  min-height: calc(var(--code-font-size) * var(--code-line-height));
-  line-height: calc(var(--code-font-size) * var(--code-line-height));
-}
-
-.code-line:hover {
-  background: var(--code-line-hover);
 }
 
 /* Fallback for unenhanced pre/code (legacy / edge cases) */
@@ -412,8 +405,4 @@ code[class*='language-'] *::selection {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .code-line {
-    transition: none;
-  }
-}
+

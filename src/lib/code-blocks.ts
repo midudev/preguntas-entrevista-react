@@ -1,6 +1,11 @@
 /**
  * Wrap Prism-highlighted <pre><code> blocks with a polished shell:
  * language label + sticky line numbers.
+ *
+ * Important: do NOT split the code HTML into per-line wrappers. Prism JSX
+ * (and other grammars) emit token spans that cross newlines; wrapping each
+ * line would produce invalid HTML and the browser would "fix" it by
+ * collapsing indentation and mis-aligning the gutter.
  */
 export function enhanceCodeBlocks(html: string): string {
   return html.replace(
@@ -9,30 +14,11 @@ export function enhanceCodeBlocks(html: string): string {
       const langMatch = String(className).match(/language-([\w+-]+)/i)
       const lang = langMatch?.[1]?.toLowerCase() ?? ''
       const langLabel = formatLangLabel(lang)
+      const lineCount = countLines(codeHtml)
 
-      // Preserve Prism token HTML; split only on real newlines.
-      let lines = codeHtml.split('\n')
-      // Drop a single trailing empty line from a final newline in the source.
-      if (lines.length > 1 && lines[lines.length - 1].trim() === '') {
-        lines = lines.slice(0, -1)
-      }
-      if (lines.length === 0) lines = ['']
-
-      const lineCount = lines.length
       const gutter = Array.from({ length: lineCount }, (_, i) => {
-        const n = i + 1
-        return `<span class="code-line-number">${n}</span>`
+        return `<span class="code-line-number">${i + 1}</span>`
       }).join('')
-
-      // Join without newlines: each .code-line is display:block, and a
-      // literal \n between spans would double the vertical spacing in <pre>.
-      const body = lines
-        .map(line => {
-          // Keep empty lines selectable / non-collapsing via CSS min-height
-          const content = line.length === 0 ? '' : line
-          return `<span class="code-line">${content}</span>`
-        })
-        .join('')
 
       const classAttr = className ? ` class="${className}"` : ''
       const langAttr = lang ? ` data-lang="${escapeAttr(lang)}"` : ''
@@ -45,11 +31,21 @@ export function enhanceCodeBlocks(html: string): string {
         header +
         `<div class="code-block-body">` +
         `<div class="code-gutter" aria-hidden="true">${gutter}</div>` +
-        `<pre class="code-block-pre" tabindex="0"><code${classAttr}>${body}</code></pre>` +
+        // Keep Prism HTML intact (including cross-line token spans)
+        `<pre class="code-block-pre" tabindex="0"><code${classAttr}>${codeHtml}</code></pre>` +
         `</div></div>`
       )
     }
   )
+}
+
+function countLines(codeHtml: string): number {
+  let lines = codeHtml.split('\n')
+  // Drop a single trailing empty line from a final newline in the source
+  if (lines.length > 1 && lines[lines.length - 1] === '') {
+    lines = lines.slice(0, -1)
+  }
+  return Math.max(lines.length, 1)
 }
 
 function formatLangLabel(lang: string): string {
