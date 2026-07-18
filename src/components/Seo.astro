@@ -4,6 +4,11 @@ import {
   SITE_NAME,
   DEFAULT_TITLE,
   DEFAULT_DESCRIPTION,
+  OG_IMAGE_PATH,
+  OG_IMAGE_TYPE,
+  OG_IMAGE_WIDTH,
+  OG_IMAGE_HEIGHT,
+  absoluteUrl,
 } from '../constants'
 
 interface Props {
@@ -30,9 +35,10 @@ const pageTitle = title
     : `${title} | ${SITE_NAME}`
   : DEFAULT_TITLE
 
-const canonicalUrl = new URL(canonical, SITE_URL).href
-const ogImage = new URL('/og.jpg', SITE_URL).href
-const ogImageAlt = 'React.js Wiki — Preguntas y respuestas de entrevista de React en español'
+const canonicalUrl = absoluteUrl(canonical)
+const ogImage = absoluteUrl(OG_IMAGE_PATH)
+const ogImageAlt =
+  'React.js Wiki — Preguntas y respuestas de entrevista de React en español'
 const jsonLdItems = jsonLd
   ? Array.isArray(jsonLd)
     ? jsonLd
@@ -76,9 +82,9 @@ const metaDescription =
 <meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:secure_url" content={ogImage} />
-<meta property="og:image:type" content="image/jpeg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content={OG_IMAGE_TYPE} />
+<meta property="og:image:width" content={String(OG_IMAGE_WIDTH)} />
+<meta property="og:image:height" content={String(OG_IMAGE_HEIGHT)} />
 <meta property="og:image:alt" content={ogImageAlt} />
 {type === 'article' && <meta property="article:author" content="https://midu.dev" />}
 {type === 'article' && <meta property="article:section" content="React" />}

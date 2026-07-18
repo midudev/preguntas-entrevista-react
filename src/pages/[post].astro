@@ -10,7 +10,7 @@ import {
   stripHtml,
 } from '../lib/posts'
 import { renderInlineMarkdown, stripMarkdown } from '../lib/markdown'
-import { SITE_URL, SITE_NAME } from '../constants'
+import { SITE_URL, SITE_NAME, OG_IMAGE_PATH, absoluteUrl } from '../constants'
 import '../styles/highlight.css'
 
 export function getStaticPaths() {
@@ -42,7 +42,8 @@ const levelLabels: Record<number, string> = {
   [-1]: 'Errores típicos',
 }
 const levelLabel = levelLabels[level] ?? 'React'
-const pageUrl = new URL(canonical, SITE_URL).href
+const pageUrl = absoluteUrl(canonical)
+const ogImageUrl = absoluteUrl(OG_IMAGE_PATH)
 
 const jsonLd = [
   {
@@ -51,7 +52,7 @@ const jsonLd = [
     headline: plainTitle,
     description,
     inLanguage: 'es-ES',
-    image: `${SITE_URL}/og.jpg`,
+    image: ogImageUrl,
     isPartOf: {
       '@type': 'WebSite',
       name: SITE_NAME,
@@ -69,7 +70,7 @@ const jsonLd = [
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/og.jpg`,
+        url: ogImageUrl,
       },
     },
     mainEntityOfPage: {

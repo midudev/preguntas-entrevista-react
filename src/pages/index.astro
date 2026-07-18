@@ -7,6 +7,8 @@ import {
   SITE_URL,
   SITE_NAME,
   DEFAULT_DESCRIPTION,
+  OG_IMAGE_PATH,
+  absoluteUrl,
 } from '../constants'
 import { readIndex } from '../lib/posts'
 
@@ -76,7 +78,7 @@ const jsonLd = [
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/og.jpg`,
+        url: absoluteUrl(OG_IMAGE_PATH),
       },
     },
     potentialAction: {
@@ -93,7 +95,7 @@ const jsonLd = [
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/og.jpg`,
+    logo: absoluteUrl(OG_IMAGE_PATH),
     sameAs: [
       'https://github.com/midudev/preguntas-entrevista-react',
       'https://twitter.com/midudev',
