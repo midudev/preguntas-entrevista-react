@@ -65,6 +65,9 @@
       - [Sintaxis Spread](#sintaxis-spread)
       - [Operador Rest](#operador-rest)
       - [Encadenamiento opcional (Optional Chaining)](#encadenamiento-opcional-optional-chaining)
+    - [¿Qué es el Virtual DOM?](#qué-es-el-virtual-dom)
+    - [¿Por qué no se debe mutar el estado directamente en React?](#por-qué-no-se-debe-mutar-el-estado-directamente-en-react)
+    - [¿Qué es la composición de componentes y por qué React la prefiere a la herencia?](#qué-es-la-composición-de-componentes-y-por-qué-react-la-prefiere-a-la-herencia)
   - [Intermedio](#intermedio)
     - [¿Cómo crear un hook personalizado (_custom hook_)?](#cómo-crear-un-hook-personalizado-custom-hook)
     - [¿Cuántos `useEffect` puede tener un componente?](#cuántos-useeffect-puede-tener-un-componente)
@@ -124,6 +127,16 @@
     - [¿Para qué sirve el hook `useSyncExternalStore`?](#para-qué-sirve-el-hook-usesyncexternalstore)
     - [¿Cómo funciona `React.memo` y cuándo es útil?](#cómo-funciona-reactmemo-y-cuándo-es-útil)
     - [¿Qué diferencia hay entre `ReactDOM.render`, `createRoot` y `hydrateRoot`?](#qué-diferencia-hay-entre-reactdomrender-createroot-y-hydrateroot)
+    - [¿Qué provoca un re-render en un componente de React?](#qué-provoca-un-re-render-en-un-componente-de-react)
+    - [¿Qué es el batching de actualizaciones de estado en React?](#qué-es-el-batching-de-actualizaciones-de-estado-en-react)
+    - [¿Qué es `Suspense` en React y para qué se usa?](#qué-es-suspense-en-react-y-para-qué-se-usa)
+    - [¿Qué es la reconciliación (reconciliation) en React?](#qué-es-la-reconciliación-reconciliation-en-react)
+    - [¿Qué es el estado derivado y por qué conviene calcularlo en el render?](#qué-es-el-estado-derivado-y-por-qué-conviene-calcularlo-en-el-render)
+    - [¿Qué es una *stale closure* y cómo afecta a los hooks?](#qué-es-una-stale-closure-y-cómo-afecta-a-los-hooks)
+    - [¿Cómo puedes evitar re-renders innecesarios al usar Context?](#cómo-puedes-evitar-re-renders-innecesarios-al-usar-context)
+    - [¿Qué es `React.lazy` y cómo se combina con `Suspense`?](#qué-es-reactlazy-y-cómo-se-combina-con-suspense)
+    - [¿Qué es `startTransition` y en qué se diferencia de actualizar el estado de forma normal?](#qué-es-starttransition-y-en-qué-se-diferencia-de-actualizar-el-estado-de-forma-normal)
+    - [¿En React 19 se necesita todavía `forwardRef`?](#en-react-19-se-necesita-todavía-forwardref)
   - [Experto](#experto)
     - [¿Es React una biblioteca o un framework? ¿Por qué?](#es-react-una-biblioteca-o-un-framework-por-qué)
     - [¿Para qué sirve el hook `useImperativeHandle`?](#para-qué-sirve-el-hook-useimperativehandle)
@@ -146,8 +159,11 @@
     - [¿Qué es la función `use` en React y para qué se utiliza?](#qué-es-la-función-use-en-react-y-para-qué-se-utiliza)
     - [¿Para qué sirve el hook `useInsertionEffect`?](#para-qué-sirve-el-hook-useinsertioneffect)
     - [¿Cómo se complementan `useMemo`, `useCallback`, `useTransition` y `useDeferredValue` para optimizar el rendimiento?](#cómo-se-complementan-usememo-usecallback-usetransition-y-usedeferredvalue-para-optimizar-el-rendimiento)
-  - [¿Cómo puedo hacer testing de un componente?](#cómo-puedo-hacer-testing-de-un-componente)
-  - [¿Cómo puedo hacer testing de un hook?](#cómo-puedo-hacer-testing-de-un-hook)
+    - [¿Qué es Concurrent React y qué problemas resuelve?](#qué-es-concurrent-react-y-qué-problemas-resuelve)
+    - [¿Qué es React Fiber?](#qué-es-react-fiber)
+    - [¿Qué es el React Compiler y qué ventajas aporta?](#qué-es-el-react-compiler-y-qué-ventajas-aporta)
+    - [¿Cómo puedo hacer testing de un componente?](#cómo-puedo-hacer-testing-de-un-componente)
+    - [¿Cómo puedo hacer testing de un hook?](#cómo-puedo-hacer-testing-de-un-hook)
     - [¿Qué es Flux?](#qué-es-flux)
   - [Errores Típicos en React](#errores-típicos-en-react)
     - [¿Qué quiere decir: Warning: Each child in a list should have a unique key prop?](#qué-quiere-decir-warning-each-child-in-a-list-should-have-a-unique-key-prop)
@@ -1759,6 +1775,84 @@ author?.libro?.name
 Un objeto es una estructura de datos que es perfecta a la hora de representar muchos elementos de la UI. ¿Tienes un artículo? Toda la información de un artículo seguramente la tendrás representada en un objeto.
 
 Conforme tu UI sea más grande y compleja, estos objetos tendrán más información y necesitarás dominar el encadenamiento opcional `?.` para poder acceder a su información con garantías.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el Virtual DOM?
+
+El **Virtual DOM** es una representación en memoria del DOM real. React la usa para calcular de forma eficiente qué partes de la interfaz han cambiado y actualizar solo lo necesario en el navegador.
+
+Cuando el estado o las props de un componente cambian:
+
+1. React genera un nuevo árbol virtual.
+2. Lo **compara** (diff) con el árbol anterior.
+3. Aplica al DOM real el **mínimo de mutaciones** posible (commit).
+
+No es un “DOM más rápido”: el Virtual DOM añade un paso intermedio. La ganancia viene de **evitar trabajo innecesario en el DOM real**, que es caro de tocar.
+
+Hoy React usa el algoritmo **Fiber** por debajo, pero el concepto de Virtual DOM sigue siendo útil para entender por qué no mutamos el DOM a mano y por qué las `key` importan al reconciliar listas.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Por qué no se debe mutar el estado directamente en React?
+
+Porque React decide cuándo volver a renderizar basándose en **actualizaciones de estado inmutables**. Si mutas el valor anterior y lo devuelves tal cual, React puede **no detectar el cambio** y la UI se queda desactualizada.
+
+```jsx
+// ❌ Mal: mutación directa
+const [user, setUser] = useState({ name: 'midu', age: 30 })
+user.age = 31
+setUser(user) // misma referencia → React puede no re-renderizar
+
+// ✅ Bien: nueva referencia
+setUser({ ...user, age: 31 })
+// o con función actualizadora
+setUser(prev => ({ ...prev, age: prev.age + 1 }))
+```
+
+Con arrays pasa lo mismo: no uses `push`/`splice` sobre el array del estado; crea uno nuevo con `map`, `filter`, spread, etc.
+
+Además, la inmutabilidad hace el código más predecible, facilita depurar y encaja con APIs como `React.memo` o el concurrent rendering.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es la composición de componentes y por qué React la prefiere a la herencia?
+
+La **composición** consiste en combinar componentes pequeños para construir interfaces más complejas, normalmente con `children`, props de render o componentes “ranurados” (slots). React **no recomienda herencia de clases de componentes** para reutilizar UI.
+
+```jsx
+function Card({ title, children }) {
+  return (
+    <article className="card">
+      <h2>{title}</h2>
+      {children}
+    </article>
+  )
+}
+
+function Profile() {
+  return (
+    <Card title="Usuario">
+      <Avatar />
+      <Bio />
+    </Card>
+  )
+}
+```
+
+Ventajas de la composición:
+
+- Más flexible: el padre decide qué va dentro sin acoplar jerarquías rígidas.
+- Más legible: el árbol JSX describe la UI.
+- Encaja con patrones como Compound Components, slots o providers de contexto.
+
+La herencia en componentes de clase suele volverse frágil y difícil de mantener; la composición escala mejor.
 
 **[⬆ Volver a índice](#índice)**
 
@@ -3627,6 +3721,274 @@ En proyectos nuevos usa siempre `createRoot` o `hydrateRoot`; `ReactDOM.render` 
 
 ---
 
+#### ¿Qué provoca un re-render en un componente de React?
+
+Un componente se vuelve a renderizar cuando React considera que su salida puede haber cambiado. Las causas más habituales:
+
+1. **Cambia su estado** (`useState`, `useReducer`).
+2. **Cambia una prop** que recibe del padre.
+3. **Cambia el valor de un contexto** que consume (`useContext`).
+4. **El padre se re-renderiza** y vuelve a crear el elemento hijo (salvo que el hijo esté memoizado y sus props sean estables).
+
+Importante:
+
+- Renderizar **no es lo mismo** que tocar el DOM: React puede reconciliar y no mutar nodos.
+- Actualizar una ref (`useRef`) **no** provoca re-render.
+- Mutar el estado sin crear una nueva referencia puede **impedir** el re-render esperado.
+
+Para depurar re-renders usa React DevTools (Profiler / highlight updates) y pregunta siempre: _“¿qué dato cambió y por qué este componente lo lee?”_.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el batching de actualizaciones de estado en React?
+
+El **batching** agrupa varias actualizaciones de estado en un **único re-render**. Así evitas renders intermedios costosos.
+
+Desde React 18 el batching es **automático también dentro de promesas, timeouts y manejadores nativos**, no solo en eventos de React:
+
+```jsx
+function handleClick() {
+  setCount(c => c + 1)
+  setFlag(f => !f)
+  // Un solo re-render con ambos estados actualizados
+}
+
+setTimeout(() => {
+  setCount(c => c + 1)
+  setFlag(f => !f)
+  // También se agrupan (React 18+)
+}, 0)
+```
+
+Si en un caso muy concreto necesitas forzar un flush síncrono (por ejemplo leer el DOM justo después), usa `flushSync` de `react-dom`, sabiendo que puede degradar el rendimiento.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es `Suspense` en React y para qué se usa?
+
+`Suspense` permite mostrar un **fallback** mientras un hijo “espera” algo: código cargado con `React.lazy`, o datos con APIs que se integran con Suspense (por ejemplo `use` con promesas, o frameworks como Next.js/Remix).
+
+```jsx
+import { lazy, Suspense } from 'react'
+
+const Comments = lazy(() => import('./Comments'))
+
+function Post() {
+  return (
+    <article>
+      <h1>Artículo</h1>
+      <Suspense fallback={<p>Cargando comentarios…</p>}>
+        <Comments />
+      </Suspense>
+    </article>
+  )
+}
+```
+
+Ideas clave:
+
+- El fallback se muestra **hasta que el árbol hijo puede renderizarse**.
+- Puedes anidar varios límites de `Suspense` para granular la UX (spinner solo en una sección).
+- Se combina bien con streaming SSR y con Error Boundaries (Suspense no sustituye el manejo de errores).
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es la reconciliación (reconciliation) en React?
+
+La **reconciliación** es el proceso por el que React compara el árbol de elementos anterior con el nuevo y decide **qué nodos del DOM actualizar, crear o eliminar**.
+
+Reglas importantes que usa React:
+
+- Si el **tipo de elemento cambia** (`div` → `span`, o un componente por otro), desmonta el árbol viejo y monta uno nuevo.
+- Si el tipo es el mismo, **reutiliza** el nodo y actualiza solo props/atributos que cambiaron.
+- En **listas**, la prop `key` ayuda a identificar cada hijo entre renders y evitar reutilizar el componente equivocado.
+
+Por eso las keys deben ser **estables e identificativas** (un id), no el índice si la lista se reordena, y nunca un valor aleatorio en cada render.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el estado derivado y por qué conviene calcularlo en el render?
+
+El **estado derivado** es un valor que se puede obtener a partir de props u otro estado ya existente. En la mayoría de casos **no debes guardarlo en un `useState` aparte**: calcúlalo durante el render.
+
+```jsx
+// ❌ Redundante y propenso a desincronizarse
+const [items, setItems] = useState([])
+const [count, setCount] = useState(0)
+// hay que recordar actualizar count cada vez que cambia items
+
+// ✅ Derivado en render
+const [items, setItems] = useState([])
+const count = items.length
+const expensive = useMemo(() => compute(items), [items]) // solo si es costoso
+```
+
+Ventajas: menos bugs de sincronización, menos renders por dobles `setState`, y la fuente de verdad es única.
+
+Usa estado solo para datos **independientes** que cambian con el tiempo por interacción o efectos; todo lo demás, derívalo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es una *stale closure* y cómo afecta a los hooks?
+
+Una **stale closure** (clausura obsoleta) ocurre cuando una función “recuerda” valores de un render anterior en lugar de los más recientes. Es un clásico con `useEffect`, `setTimeout`, suscripciones o callbacks memorizados.
+
+```jsx
+function Timer() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      // ❌ puede leer siempre el count inicial (0)
+      setCount(count + 1)
+    }, 1000)
+    return () => clearInterval(id)
+  }, []) // deps vacías → la función captura count=0
+
+  // ✅ forma funcional: siempre parte del valor actual
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + 1)
+    }, 1000)
+    return () => clearInterval(id)
+  }, [])
+}
+```
+
+Cómo evitarlas:
+
+- Incluye en el array de dependencias todo valor reactivo que uses.
+- Prefiere la forma funcional de `setState` cuando actualices basándote en el valor anterior.
+- Para lecturas “siempre frescas” sin re-subscribir, a veces se usa un ref (`useRef`) o patrones más avanzados.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedes evitar re-renders innecesarios al usar Context?
+
+El Context es práctico, pero **cualquier cambio en el `value` del Provider re-renderiza a todos los consumidores**, aunque solo usen una parte del valor.
+
+Estrategias habituales:
+
+1. **Partir el contexto**: uno para datos que cambian poco (tema, user) y otro para acciones/dispatch estables.
+2. **Memoizar el value** del Provider para no crear un objeto nuevo en cada render del padre.
+3. **Colocar el estado cerca** de quien lo necesita (no subas al contexto global lo que solo usan dos componentes).
+4. En casos extremos, bibliotecas de estado con suscripciones selectivas (Zustand, Jotai, Redux) o `useSyncExternalStore`.
+
+```jsx
+const value = useMemo(
+  () => ({ user, login, logout }),
+  [user] // login/logout con useCallback estables
+)
+
+return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+```
+
+Si el contexto cambia muy a menudo (input en cada tecla), casi seguro no debería vivir en un Provider de alto nivel.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es `React.lazy` y cómo se combina con `Suspense`?
+
+`React.lazy` permite **cargar un componente bajo demanda** (code splitting) con un import dinámico. Debe envolver el resultado en un límite de `Suspense` que muestre un fallback mientras llega el chunk.
+
+```jsx
+import { lazy, Suspense } from 'react'
+
+const Dashboard = lazy(() => import('./Dashboard'))
+
+export function App() {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <Dashboard />
+    </Suspense>
+  )
+}
+```
+
+Notas:
+
+- Tradicionalmente el módulo debe exportar el componente por **default** (o adaptar el import).
+- Ideal para rutas o paneles pesados que no se ven en el primer paint.
+- En SSR el code splitting con `lazy` requiere soporte del framework o alternativas; en apps 100 % cliente es directo.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es `startTransition` y en qué se diferencia de actualizar el estado de forma normal?
+
+`startTransition` marca una actualización de estado como **no urgente**. React puede interrumpirla o posponerla para mantener prioritarias las interacciones del usuario (escribir en un input, clic).
+
+```jsx
+import { useState, startTransition } from 'react'
+
+function Search({ items }) {
+  const [query, setQuery] = useState('')
+  const [filtered, setFiltered] = useState(items)
+
+  function onChange(e) {
+    const value = e.target.value
+    setQuery(value) // urgente: el input no debe ir retrasado
+    startTransition(() => {
+      setFiltered(items.filter(i => i.includes(value))) // no urgente
+    })
+  }
+
+  return (
+    <>
+      <input value={query} onChange={onChange} />
+      <List items={filtered} />
+    </>
+  )
+}
+```
+
+Diferencias con un `setState` normal:
+
+- Las actualizaciones urgentes se sienten instantáneas.
+- Las de transición pueden quedar “atrás” o mostrarse con `isPending` vía `useTransition`.
+- No sustituye a `useMemo`/`useCallback`; ataca otro problema: **prioridad del render**.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿En React 19 se necesita todavía `forwardRef`?
+
+En la mayoría de casos **ya no**. Desde React 19, `ref` es una **prop normal** en componentes de función: puedes recibirla y asignarla sin `forwardRef`.
+
+```jsx
+// React 19+
+function Input({ ref, ...props }) {
+  return <input ref={ref} {...props} />
+}
+
+// Antes (sigue funcionando)
+const InputLegacy = forwardRef(function Input(props, ref) {
+  return <input ref={ref} {...props} />
+})
+```
+
+`forwardRef` se mantiene por **compatibilidad** con código y librerías antiguas. En código nuevo, prefieren la prop `ref` directa. Para APIs imperativas expuestas al padre, sigue siendo útil `useImperativeHandle` junto a esa ref.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
 ### Experto
 
 #### ¿Es React una biblioteca o un framework? ¿Por qué?
@@ -4193,47 +4555,104 @@ El patrón típico es: memoriza los datos (`useMemo`), memoriza callbacks para p
 
 ---
 
-### ¿Cómo puedo hacer testing de un componente?
+#### ¿Qué es Concurrent React y qué problemas resuelve?
 
-Para hacer testing de un componente, puedes usar la función `render` de la librería `@testing-library/react`. Esta función nos permite renderizar un componente y obtener el resultado.
+**Concurrent React** (desde React 18, con `createRoot`) permite que el renderizado sea **interruptible y priorizable**. React puede empezar a renderizar una actualización, pausarla si llega algo más urgente (un clic, escritura) y reanudar o descartar el trabajo.
 
-```jsx
-import { render } from '@testing-library/react'
+Problemas que aborda:
 
-function Counter() {
-  const [count, setCount] = useState(0)
-  const increment = () => setCount(count + 1)
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  )
-}
+- UIs que se “congelan” al filtrar o renderizar listas grandes.
+- Actualizaciones de baja prioridad que bloquean la interacción.
+- Mejor integración con streaming SSR y `Suspense`.
 
-test('Counter', () => {
-  const { getByText } = render(<Counter />)
-
-  expect(getByText('Count: 0')).toBeInTheDocument()
-  fireEvent.click(getByText('Increment'))
-  expect(getByText('Count: 1')).toBeInTheDocument()
-})
-```
+APIs relacionadas: `useTransition`, `useDeferredValue`, `Suspense`, `startTransition`. No es un modo que actives con un flag aparte en apps nuevas: al usar `createRoot` ya entras en el modelo concurrente.
 
 **[⬆ Volver a índice](#índice)**
 
 ---
 
-### ¿Cómo puedo hacer testing de un hook?
+#### ¿Qué es React Fiber?
 
-Para hacer testing de un hook, puedes usar la función `renderHook` de la librería `@testing-library/react-hooks`. Esta función nos permite renderizar un hook y obtener el resultado.
+**Fiber** es la arquitectura de reconciliación de React (desde React 16). Representa cada unidad de trabajo del árbol como una estructura de datos (un “fiber”) que React puede procesar de forma **incremental**.
+
+Aportó:
+
+- Poder **partir** el trabajo de render en trozos y no bloquear el hilo principal tanto tiempo.
+- Prioridades y, más adelante, las bases del concurrent rendering.
+- Mejor manejo de errores con Error Boundaries y del ciclo de vida.
+
+Como desarrollador de aplicación no usas Fiber directamente, pero explica por qué React puede pausar trabajo, por qué el orden de efectos importa y por qué algunas optimizaciones del runtime son posibles.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Qué es el React Compiler y qué ventajas aporta?
+
+El **React Compiler** (antes conocido en el ecosistema como React Forget) es un compilador que analiza tu código y **memoiza automáticamente** componentes y valores cuando es seguro, reduciendo la necesidad de escribir a mano `useMemo`, `useCallback` o `React.memo` en muchos casos.
+
+Ventajas:
+
+- Menos boilerplate de optimización manual.
+- Menos riesgo de deps incorrectas en hooks de memoización.
+- Rendimiento más consistente si el compilador puede demostrar pureza.
+
+Limitaciones:
+
+- No sustituye un buen diseño de estado y de límites de componentes.
+- Aún hay que escribir componentes **puros** (sin efectos colaterales en el render).
+- No elimina la necesidad de entender re-renders, keys o concurrent features.
+
+Es una pieza moderna del ecosistema React: conviene conocerla en entrevistas senior aunque el proyecto aún no la use.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo hacer testing de un componente?
+
+Para hacer testing de un componente, la opción habitual es **React Testing Library** (`@testing-library/react`). Prioriza probar lo que ve y hace el usuario, no los detalles internos del componente.
 
 ```jsx
-import { renderHook } from '@testing-library/react-hooks'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(c => c + 1)}>Increment</button>
+    </div>
+  )
+}
+
+test('Counter incrementa al hacer clic', async () => {
+  const user = userEvent.setup()
+  render(<Counter />)
+
+  expect(screen.getByText('Count: 0')).toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: 'Increment' }))
+  expect(screen.getByText('Count: 1')).toBeInTheDocument()
+})
+```
+
+Buenas prácticas: consulta por rol/texto (`getByRole`, `getByLabelText`), evita acoplarte a classNames internos y prueba comportamientos, no implementación.
+
+**[⬆ Volver a índice](#índice)**
+
+---
+
+#### ¿Cómo puedo hacer testing de un hook?
+
+Puedes probar un hook con `renderHook` de `@testing-library/react` (ya no hace falta el paquete antiguo `@testing-library/react-hooks` en versiones recientes).
+
+```jsx
+import { renderHook, act } from '@testing-library/react'
 
 function useCounter() {
   const [count, setCount] = useState(0)
-  const increment = () => setCount(count + 1)
+  const increment = () => setCount(c => c + 1)
   return { count, increment }
 }
 
@@ -4248,17 +4667,19 @@ test('useCounter', () => {
 })
 ```
 
+Si el hook depende de Context o de un router, envuélvelo con un `wrapper` en las opciones de `renderHook`. Cuando el hook solo existe para un componente, a menudo es más simple testear el componente que lo usa.
+
 **[⬆ Volver a índice](#índice)**
 
 ---
 
 #### ¿Qué es Flux?
 
-_Flux_ es un patrón de arquitectura de aplicaciones que se basa en un unidireccional de datos. En este patrón, los datos fluyen en una sola dirección: de las vistas a los stores.
+_Flux_ es un patrón de arquitectura de aplicaciones de **flujo de datos unidireccional**. Los datos van en una sola dirección: acciones → dispatcher → stores → vistas.
 
-No es específico de React y se puede usar con cualquier librería de vistas. En este patrón, los stores son los encargados de almacenar los datos de la aplicación. Los stores emiten eventos cuando los datos cambian. Las vistas se suscriben a estos eventos para actualizar los datos.
+No es específico de React. Los stores guardan el estado y emiten eventos al cambiar; las vistas se suscriben para actualizarse.
 
-Esta arquitectura fue creada por Facebook para manejar la complejidad de sus aplicaciones. _Redux_ se basó en este patrón para crear una biblioteca de gestión de estado global.
+Facebook lo creó para gestionar UIs complejas. **Redux** y otras librerías de estado se inspiraron en este patrón (acción → reducer/store → UI).
 
 **[⬆ Volver a índice](#índice)**
 
