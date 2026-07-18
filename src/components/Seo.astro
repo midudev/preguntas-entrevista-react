@@ -32,20 +32,27 @@ const pageTitle = title
 
 const canonicalUrl = new URL(canonical, SITE_URL).href
 const ogImage = new URL('/og.jpg', SITE_URL).href
+const ogImageAlt = 'React.js Wiki — Preguntas y respuestas de entrevista de React en español'
 const jsonLdItems = jsonLd
   ? Array.isArray(jsonLd)
     ? jsonLd
     : [jsonLd]
   : []
+
+const metaDescription =
+  description.length > 160
+    ? `${description.slice(0, 157).trimEnd()}…`
+    : description
 ---
 
 <title>{pageTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonicalUrl} />
 <meta name="application-name" content={SITE_NAME} />
+<meta name="author" content="midudev" />
 <meta
   name="keywords"
-  content="React, preguntas de React, entrevista React, aprender React, React en español"
+  content="React, preguntas de React, entrevista React, aprender React, React en español, hooks, useEffect, useState, Next.js"
 />
 {
   noindex ? (
@@ -57,38 +64,36 @@ const jsonLdItems = jsonLd
     />
   )
 }
+<link rel="alternate" hreflang="es" href={canonicalUrl} />
+<link rel="alternate" hreflang="es-ES" href={canonicalUrl} />
+<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
 <meta property="og:type" content={type} />
 <meta property="og:locale" content="es_ES" />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:site_name" content={SITE_NAME} />
 <meta property="og:title" content={pageTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:secure_url" content={ogImage} />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta
-  property="og:image:alt"
-  content="React.js Wiki - Preguntas y respuestas de React"
-/>
+<meta property="og:image:alt" content={ogImageAlt} />
+{type === 'article' && <meta property="article:author" content="https://midu.dev" />}
+{type === 'article' && <meta property="article:section" content="React" />}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@midudev" />
 <meta name="twitter:creator" content="@midudev" />
 <meta name="twitter:title" content={pageTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
 
-<link
-  rel="icon"
-  href="/favicon.ico"
-  media="(prefers-color-scheme: light)"
-/>
-<link
-  rel="icon"
-  href="/favicon.dark.ico"
-  media="(prefers-color-scheme: dark)"
-/>
+<link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: light)" />
+<link rel="icon" href="/favicon.dark.ico" media="(prefers-color-scheme: dark)" />
+<link rel="apple-touch-icon" href="/og.jpg" />
 
 {
   jsonLdItems.map(item => (

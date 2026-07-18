@@ -1,31 +1,113 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ListOfQuestions from '../components/ListOfQuestions.astro'
+import { SITE_URL, SITE_NAME } from '../constants'
+import { readIndex } from '../lib/posts'
+import { stripMarkdown } from '../lib/markdown'
+
+const questions = readIndex()
+const title = 'Lista de preguntas de React para practicar'
+const description =
+  'Explora todas las preguntas de entrevista de React disponibles, marca las que ya has leído y repasa tu progreso.'
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: `${SITE_URL}/questions`,
+    inLanguage: 'es-ES',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    numberOfItems: questions.length,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Lista de preguntas',
+        item: `${SITE_URL}/questions`,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Todas las preguntas de React',
+    numberOfItems: questions.length,
+    itemListElement: questions.slice(0, 50).map((q, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: stripMarkdown(q.text),
+      url: `${SITE_URL}/${q.id}`,
+    })),
+  },
+]
 ---
 
 <BaseLayout
-  title="Lista de preguntas para leer"
-  description="Lista de todas las preguntas disponibles sobre React.js con indicación de leídas y no leídas"
+  title={title}
+  description={description}
   canonical="/questions"
+  jsonLd={jsonLd}
 >
-  <section class="hero-panel animate-fade-in-up animate-duration-700 px-5 py-8 md:px-10 md:py-10">
-    <h1 class="font-display pb-4 text-4xl font-bold text-slate-900 dark:text-white md:text-5xl">
+  <nav aria-label="Migas de pan" class="pt-6 text-sm text-slate-500 dark:text-slate-400">
+    <ol class="flex flex-wrap items-center gap-1.5">
+      <li>
+        <a
+          href="/"
+          class="font-medium text-slate-600 underline-offset-2 transition hover:text-blue-600 hover:underline dark:text-slate-300 dark:hover:text-blue-400"
+        >
+          Inicio
+        </a>
+      </li>
+      <li aria-hidden="true" class="text-slate-400">/</li>
+      <li>
+        <span class="text-slate-800 dark:text-slate-200" aria-current="page">
+          Lista de preguntas
+        </span>
+      </li>
+    </ol>
+  </nav>
+
+  <section
+    class="hero-panel mt-6 animate-fade-in-up animate-duration-700 px-5 py-8 md:px-10 md:py-10"
+    aria-labelledby="questions-heading"
+  >
+    <h1
+      id="questions-heading"
+      class="font-display pb-4 text-4xl font-bold text-slate-900 dark:text-white md:text-5xl"
+    >
       Lista de preguntas
     </h1>
     <p class="pb-6 text-base text-slate-700 md:text-lg dark:text-slate-200">
-      A continuación encontrarás todas las preguntas disponibles.
+      A continuación encontrarás las {questions.length} preguntas disponibles
+      sobre React, agrupadas por nivel de dificultad.
     </p>
 
-    <div class="mb-8 flex flex-wrap gap-4 text-sm">
-      <div class="flex items-center rounded-full border border-emerald-500/35 bg-emerald-500/10 px-3 py-1.5">
-        <span class="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-green-500"></span>
+    <ul class="mb-8 flex list-none flex-wrap gap-4 p-0 text-sm" aria-label="Leyenda de progreso">
+      <li class="flex items-center rounded-full border border-emerald-500/35 bg-emerald-500/10 px-3 py-1.5">
+        <span class="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-green-500" aria-hidden="true"></span>
         <span>Preguntas leídas</span>
-      </div>
-      <div class="flex items-center rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 dark:border-slate-500/55 dark:bg-slate-800/65">
-        <span class="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600"></span>
+      </li>
+      <li class="flex items-center rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 dark:border-slate-500/55 dark:bg-slate-800/65">
+        <span class="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600" aria-hidden="true"></span>
         <span>Preguntas por leer</span>
-      </div>
-    </div>
+      </li>
+    </ul>
 
     <ListOfQuestions showReadStatus />
   </section>
