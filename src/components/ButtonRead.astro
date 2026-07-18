@@ -1,14 +1,17 @@
 ---
 interface Props {
   title: string
+  /** Mark as read automatically when the page loads (default true). */
+  autoMark?: boolean
 }
-const { title } = Astro.props
+const { title, autoMark = true } = Astro.props
 ---
 
 <button
   type="button"
   data-read-button
   data-title={title}
+  data-auto-mark={autoMark ? 'true' : 'false'}
   aria-pressed="false"
   class="pill-tag font-bold inline-flex items-center gap-1 transition-colors border-slate-300/60 bg-slate-50 text-slate-600 hover:border-blue-400/50 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-600/60 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
 >
@@ -20,7 +23,10 @@ const { title } = Astro.props
 <script>
   function getRead(): string[] {
     try {
-      return JSON.parse(localStorage.getItem('read') || '[]')
+      const raw = localStorage.getItem('read')
+      if (!raw) return []
+      const parsed = JSON.parse(raw)
+      return Array.isArray(parsed) ? parsed.filter(x => typeof x === 'string') : []
     } catch {
       return []
     }
@@ -34,6 +40,24 @@ const { title } = Astro.props
     )
   }
 
+  function markAsRead(title: string) {
+    if (!title) return false
+    const list = getRead()
+    if (list.includes(title)) return false
+    list.push(title)
+    setRead(list)
+    return true
+  }
+
+  function toggleRead(title: string) {
+    if (!title) return
+    const list = getRead()
+    const idx = list.indexOf(title)
+    if (idx >= 0) list.splice(idx, 1)
+    else list.push(title)
+    setRead(list)
+  }
+
   function paintButton(btn: HTMLElement) {
     const title = btn.dataset.title || ''
     const isRead = getRead().includes(title)
@@ -45,6 +69,10 @@ const { title } = Astro.props
     iconRead?.classList.toggle('hidden', !isRead)
     iconUnread?.classList.toggle('hidden', isRead)
     btn.setAttribute('aria-pressed', isRead ? 'true' : 'false')
+    btn.setAttribute(
+      'aria-label',
+      isRead ? 'Marcar como no leído' : 'Marcar como leído'
+    )
 
     btn.classList.toggle('border-blue-500/40', isRead)
     btn.classList.toggle('bg-blue-50', isRead)
@@ -55,17 +83,21 @@ const { title } = Astro.props
 
   function initReadButtons() {
     document.querySelectorAll<HTMLElement>('[data-read-button]').forEach(btn => {
+      const title = btn.dataset.title || ''
+      const shouldAuto = btn.dataset.autoMark === 'true'
+
+      // Mark as read when landing on the article (once per visit setup)
+      if (shouldAuto && title && btn.dataset.autoMarked !== '1') {
+        btn.dataset.autoMarked = '1'
+        markAsRead(title)
+      }
+
       paintButton(btn)
+
       if (btn.dataset.bound === '1') return
       btn.dataset.bound = '1'
       btn.addEventListener('click', () => {
-        const title = btn.dataset.title || ''
-        if (!title) return
-        const list = getRead()
-        const idx = list.indexOf(title)
-        if (idx >= 0) list.splice(idx, 1)
-        else list.push(title)
-        setRead(list)
+        toggleRead(btn.dataset.title || '')
         paintButton(btn)
       })
     })
