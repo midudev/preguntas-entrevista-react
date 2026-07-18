@@ -2,75 +2,155 @@
 import BookCover from './BookCover.astro'
 ---
 
-<aside
-  class="fixed bottom-4 right-4 z-20 m-4"
-  aria-label="Promoción del libro"
-  data-buy-book
->
-  <div class="relative">
-    <button
-      type="button"
-      class="absolute -right-1 -top-1 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:bg-slate-800 dark:hover:text-white"
-      data-buy-book-dismiss
-      aria-label="Cerrar promoción del libro"
+<aside class="buy-book" aria-label="Promoción del libro" data-buy-book>
+  <button
+    type="button"
+    class="buy-book-close"
+    data-buy-book-dismiss
+    aria-label="Cerrar promoción del libro"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.6"
+      stroke-linecap="round"
+      aria-hidden="true"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.4"
-        stroke-linecap="round"
-        aria-hidden="true"
-      >
-        <path d="M18 6L6 18"></path>
-        <path d="M6 6l12 12"></path>
-      </svg>
-    </button>
-    <a
-      href="https://leanpub.com/react-preguntas-tipicas"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
-      aria-label="Comprar el libro de preguntas típicas de React en Leanpub (se abre en una pestaña nueva)"
-    >
-      <span
-        class="pill-tag mb-4 gap-1 border-slate-300/60 bg-slate-50 font-bold text-slate-600 shadow-[0_8px_30px_rgb(59_130_246_/_12%)] backdrop-blur-md transition-colors hover:border-blue-400/50 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-600/60 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
-        aria-hidden="true"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="13"
-          height="13"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          ><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
-            d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
-            d="M17 17h-11v-14h-2"></path><path d="M6 5l14 1l-1 7h-13"></path
-          ></svg
-        >
-        Compra el libro
-      </span>
-      <BookCover width={136} height={176}>
-        <img
-          alt=""
-          src="/book.webp"
-          width="136"
-          height="176"
-          loading="lazy"
-          decoding="async"
-        />
-      </BookCover>
-    </a>
-  </div>
+      <path d="M18 6L6 18"></path>
+      <path d="M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <a
+    href="https://leanpub.com/react-preguntas-tipicas"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="buy-book-link"
+    aria-label="Comprar el libro de preguntas típicas de React en Leanpub (se abre en una pestaña nueva)"
+  >
+    <BookCover width={120} height={156} rotate={22} rotateHover={6}>
+      <img
+        alt=""
+        src="/book.webp"
+        width="120"
+        height="156"
+        loading="lazy"
+        decoding="async"
+      />
+    </BookCover>
+    <span class="buy-book-cta" aria-hidden="true">Comprar libro</span>
+  </a>
 </aside>
+
+<style>
+  .buy-book {
+    position: fixed;
+    right: 1.15rem;
+    bottom: 1.15rem;
+    z-index: 30;
+  }
+
+  .buy-book-close {
+    position: absolute;
+    top: -0.4rem;
+    right: -0.4rem;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid rgb(255 255 255 / 12%);
+    border-radius: 9999px;
+    background: rgb(15 23 42 / 90%);
+    color: rgb(203 213 225);
+    box-shadow: 0 4px 14px rgb(0 0 0 / 35%);
+    cursor: pointer;
+    transition:
+      background-color 140ms ease,
+      color 140ms ease,
+      transform 140ms ease;
+  }
+
+  .buy-book-close:hover {
+    background: rgb(30 41 59);
+    color: white;
+    transform: scale(1.06);
+  }
+
+  .buy-book-close:focus-visible {
+    outline: 2px solid rgb(96 165 250);
+    outline-offset: 2px;
+  }
+
+  .buy-book-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .buy-book-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .buy-book-link:focus-visible {
+    outline: 2px solid rgb(96 165 250);
+    outline-offset: 4px;
+    border-radius: 0.5rem;
+  }
+
+  .buy-book-cta {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: rgb(226 232 240);
+    text-shadow: 0 1px 8px rgb(0 0 0 / 45%);
+    transition: color 140ms ease;
+  }
+
+  .buy-book-link:hover .buy-book-cta {
+    color: white;
+  }
+
+  :global(html:not(.dark)) .buy-book-close {
+    border-color: rgb(226 232 240);
+    background: white;
+    color: rgb(100 116 139);
+    box-shadow: 0 4px 12px rgb(15 23 42 / 12%);
+  }
+
+  :global(html:not(.dark)) .buy-book-close:hover {
+    background: rgb(248 250 252);
+    color: rgb(15 23 42);
+  }
+
+  :global(html:not(.dark)) .buy-book-cta {
+    color: rgb(51 65 85);
+    text-shadow: none;
+  }
+
+  :global(html:not(.dark)) .buy-book-link:hover .buy-book-cta {
+    color: rgb(29 78 216);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .buy-book-link,
+    .buy-book-close {
+      transition: none;
+    }
+
+    .buy-book-link:hover {
+      transform: none;
+    }
+  }
+</style>
 
 <script>
   const STORAGE_KEY = 'buy-book-dismissed'
