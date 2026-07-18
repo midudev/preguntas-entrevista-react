@@ -275,162 +275,6 @@
   }
 }
 
-/* ─── Hero staggered entrance ─── */
-
-@keyframes hero-rise {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 1.1rem, 0);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    filter: blur(0);
-  }
-}
-
-@keyframes hero-rise-soft {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 0.65rem, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes hero-scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.88);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes hero-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.hero-reveal {
-  --hero-delay: 0ms;
-  --hero-duration: 700ms;
-  opacity: 0;
-  animation: hero-rise var(--hero-duration) cubic-bezier(0.22, 1, 0.36, 1)
-    var(--hero-delay) both;
-  will-change: opacity, transform, filter;
-}
-
-.hero-reveal-soft {
-  animation-name: hero-rise-soft;
-  --hero-duration: 600ms;
-}
-
-.hero-reveal-scale {
-  animation-name: hero-scale-in;
-  --hero-duration: 800ms;
-}
-
-.hero-reveal-fade {
-  animation-name: hero-fade;
-  --hero-duration: 500ms;
-}
-
-/* Stagger steps for home intro pieces */
-.hero-d1 {
-  --hero-delay: 80ms;
-}
-.hero-d2 {
-  --hero-delay: 160ms;
-}
-.hero-d3 {
-  --hero-delay: 260ms;
-}
-.hero-d4 {
-  --hero-delay: 360ms;
-}
-.hero-d5 {
-  --hero-delay: 460ms;
-}
-.hero-d6 {
-  --hero-delay: 560ms;
-}
-.hero-d7 {
-  --hero-delay: 660ms;
-}
-.hero-d8 {
-  --hero-delay: 760ms;
-}
-.hero-d9 {
-  --hero-delay: 860ms;
-}
-.hero-d10 {
-  --hero-delay: 960ms;
-}
-.hero-d11 {
-  --hero-delay: 1060ms;
-}
-.hero-d12 {
-  --hero-delay: 1160ms;
-}
-
-/* Level chips: cascade left → right */
-.home-intro-levels > li:nth-child(1) {
-  --hero-delay: 900ms;
-}
-.home-intro-levels > li:nth-child(2) {
-  --hero-delay: 980ms;
-}
-.home-intro-levels > li:nth-child(3) {
-  --hero-delay: 1060ms;
-}
-.home-intro-levels > li:nth-child(4) {
-  --hero-delay: 1140ms;
-}
-
-/* Featured cards cascade after hero */
-.home-featured-list > li:nth-child(1) {
-  --hero-delay: 1100ms;
-}
-.home-featured-list > li:nth-child(2) {
-  --hero-delay: 1200ms;
-}
-.home-featured-list > li:nth-child(3) {
-  --hero-delay: 1300ms;
-}
-.home-featured-list > li:nth-child(4) {
-  --hero-delay: 1400ms;
-}
-.home-featured-list > li:nth-child(5) {
-  --hero-delay: 1500ms;
-}
-.home-featured-list > li:nth-child(6) {
-  --hero-delay: 1600ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-reveal,
-  .hero-reveal-soft,
-  .hero-reveal-scale,
-  .hero-reveal-fade,
-  .home-intro-levels > li,
-  .home-featured-list > li {
-    opacity: 1 !important;
-    filter: none !important;
-    transform: none !important;
-    animation: none !important;
-  }
-}
-
 /* ─── Home intro (below search) ─── */
 
 .home-intro {
@@ -1069,7 +913,6 @@
   box-shadow:
     0 18px 50px rgb(15 23 42 / 14%),
     0 0 0 1px rgb(59 130 246 / 10%);
-  animation: search-panel-in 160ms ease-out;
 }
 
 .search-shell--compact .search-panel {
@@ -1078,17 +921,6 @@
 
 .search-shell[data-open='true'] .search-panel {
   display: block;
-}
-
-@keyframes search-panel-in {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .search-results {

@@ -149,19 +149,22 @@ const jsonLd = [
 >
   <section class="home-intro" aria-labelledby="home-intro-heading">
     <div class="home-intro-copy">
-      <p class="home-intro-kicker hero-reveal hero-reveal-soft hero-d5">
+      <p class="home-intro-kicker animate-fade-in-up animate-duration-500 animate-delay-500">
         Guía para entrevistas técnicas
       </p>
-      <h2 id="home-intro-heading" class="home-intro-title hero-reveal hero-d6">
+      <h2
+        id="home-intro-heading"
+        class="home-intro-title animate-blurred-fade-in animate-duration-700 animate-delay-700"
+      >
         Preguntas reales.
         <span class="home-intro-title-accent">Respuestas con contexto.</span>
       </h2>
-      <p class="home-intro-lead hero-reveal hero-reveal-soft hero-d7">
+      <p class="home-intro-lead animate-fade-in-up animate-duration-500 animate-delay-800">
         Los temas que más se repiten en procesos de selección, explicados en
         español y con ejemplos. Practica con criterio, no con definiciones
         memorizadas. Más de {totalQuestions} preguntas.
       </p>
-      <div class="home-intro-actions hero-reveal hero-reveal-soft hero-d8">
+      <div class="home-intro-actions animate-fade-in-up animate-duration-500 animate-delay-900">
         <a href="#featured-heading" class="home-intro-btn home-intro-btn-primary">
           Ver las más buscadas
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7l-7 -7"/></svg>
@@ -173,25 +176,25 @@ const jsonLd = [
     </div>
 
     <ul class="home-intro-levels" aria-label="Preguntas por nivel">
-      <li class="hero-reveal hero-reveal-soft">
+      <li class="animate-fade-in-up animate-duration-500 animate-delay-900">
         <a href="/questions#category-beginner" class="home-level-chip home-level-chip-easy">
           <span class="home-level-chip-count tabular-nums">{byLevel.beginner}</span>
           <span class="home-level-chip-name">Principiante</span>
         </a>
       </li>
-      <li class="hero-reveal hero-reveal-soft">
+      <li class="animate-fade-in-up animate-duration-500 animate-delay-1000">
         <a href="/questions#category-intermediate" class="home-level-chip home-level-chip-medium">
           <span class="home-level-chip-count tabular-nums">{byLevel.intermediate}</span>
           <span class="home-level-chip-name">Intermedio</span>
         </a>
       </li>
-      <li class="hero-reveal hero-reveal-soft">
+      <li class="animate-fade-in-up animate-duration-500 animate-delay-1100">
         <a href="/questions#category-expert" class="home-level-chip home-level-chip-hard">
           <span class="home-level-chip-count tabular-nums">{byLevel.expert}</span>
           <span class="home-level-chip-name">Experto</span>
         </a>
       </li>
-      <li class="hero-reveal hero-reveal-soft">
+      <li class="animate-fade-in-up animate-duration-500 animate-delay-1200">
         <a href="/questions#category-errors" class="home-level-chip home-level-chip-errors">
           <span class="home-level-chip-count tabular-nums">{byLevel.errors}</span>
           <span class="home-level-chip-name">Errores</span>
@@ -201,7 +204,7 @@ const jsonLd = [
   </section>
 
   <section class="mt-14 md:mt-16" aria-labelledby="featured-heading">
-    <div class="mb-5 flex flex-wrap items-end justify-between gap-3 hero-reveal hero-reveal-soft hero-d10">
+    <div class="mb-5 flex flex-wrap items-end justify-between gap-3 animate-fade-in-up animate-duration-500 animate-delay-1000">
       <h2
         id="featured-heading"
         class="font-display text-2xl font-bold text-slate-900 md:text-3xl dark:text-white"
@@ -215,10 +218,20 @@ const jsonLd = [
         Ver todas →
       </a>
     </div>
-    <ul class="home-featured-list grid list-none grid-cols-1 gap-5 p-0 sm:gap-6 sm:grid-cols-2 lg:gap-7 lg:grid-cols-3 [&>*]:min-w-0">
+    <ul class="grid list-none grid-cols-1 gap-5 p-0 sm:gap-6 sm:grid-cols-2 lg:gap-7 lg:grid-cols-3 [&>*]:min-w-0">
       {
-        featured.map(item => (
-          <li class="min-w-0 hero-reveal hero-reveal-soft">
+        featured.map((item, i) => (
+          <li
+            class:list={[
+              'min-w-0 animate-fade-in-up animate-duration-500',
+              i === 0 && 'animate-delay-1100',
+              i === 1 && 'animate-delay-1200',
+              i === 2 && 'animate-delay-1300',
+              i === 3 && 'animate-delay-1400',
+              i === 4 && 'animate-delay-1500',
+              i === 5 && 'animate-delay-1600',
+            ]}
+          >
             <Card
               title={item.title}
               excerpt={item.excerpt}
