@@ -119,7 +119,7 @@ Esto aporta ventajas importantes:
 
 Un ejemplo entre declarativo e imperativo:
 
-```js
+```javascript
 // Declarativo
 const element = <h1>Hello, world</h1>
 
@@ -205,7 +205,7 @@ React usa JSX para declarar qué debe renderizar. JSX es una extensión de JavaS
 
 Sin JSX, deberíamos usar `React.createElement` para crear los elementos de la interfaz manualmente de esta forma:
 
-```js
+```javascript
 import { createElement } from 'react'
 
 function Hello() {
@@ -220,7 +220,7 @@ function Hello() {
 
 Esto es muy tedioso y poco legible. Por eso, React usa JSX para declarar qué debe renderizar. Por eso usamos JSX de esta forma:
 
-```jsx
+```javascript
 function Hello() {
   return <h1>Hola Mundo 👋🌍!</h1>
 }
@@ -297,7 +297,7 @@ Hay casos especiales en los que un transpilador no es necesario. Por ejemplo, **
 Un componente es una función o clase que recibe props y devuelve un elemento.
 Un elemento es un objeto que representa un nodo del DOM o una instancia de un componente de React.
 
-```js
+```javascript
 // Elemento que representa un nodo del DOM
 {
   type: 'button',
@@ -356,7 +356,7 @@ En React, un componente es una función (o, de forma histórica, una clase) que 
 
 Hoy en día, el enfoque recomendado es crear componentes funcionales:
 
-```jsx
+```javascript
 function HelloWorld() {
   return <h1>Hello World!</h1>
 }
@@ -364,7 +364,7 @@ function HelloWorld() {
 
 También puedes encontrarte componentes de clase en código legado:
 
-```jsx
+```javascript
 import { Component } from 'react'
 
 class HelloWorld extends Component {
@@ -414,7 +414,7 @@ Como criterio de arquitectura, cuanto más pequeños y específicos sean tus com
 
 Las props son las propiedades de un componente. Son datos que se pasan de un componente a otro. Por ejemplo, si tienes un componente `Button` que muestra un botón, puedes pasarle una prop `text` para que el botón muestre ese texto:
 
-```jsx
+```javascript
 function Button(props) {
   return <button>{props.text}</button>
 }
@@ -426,7 +426,7 @@ Debe considerarse además que al usar cualquier expresión JavaScript dentro de 
 
 Para usarlo, indicamos el nombre del componente y le pasamos las props que queremos:
 
-```jsx
+```javascript
 <Button text="Haz clic aquí" />
 <Button text="Seguir a @midudev" />
 ```
@@ -467,7 +467,7 @@ La prop `children` es una prop especial que se pasa a los componentes. Es un obj
 
 Por ejemplo, si tenemos un componente `Card` que muestra una tarjeta con un título y un contenido, podemos usar la prop `children` para mostrar el contenido:
 
-```jsx
+```javascript
 function Card(props) {
   return (
     <div className='card'>
@@ -480,7 +480,7 @@ function Card(props) {
 
 Y luego podemos usarlo de la siguiente forma:
 
-```jsx
+```javascript
 <Card title='Título de la tarjeta'>
   <p>Contenido de la tarjeta</p>
 </Card>
@@ -566,7 +566,7 @@ Sí, se puede inicializar el estado con el valor de una prop. Pero hay que tener
 
 Por ejemplo, con componentes funcionales:
 
-```jsx
+```javascript
 const Counter = () => {
   const [count, setCount] = useState(0)
 
@@ -595,7 +595,7 @@ En este ejemplo, lo mejor sería simplemente usar la prop `count` en el componen
 
 En el caso que necesites inicializar un estado con una prop, es una buena práctica añadir el prefijo de `initial` a la prop para indicar que es el valor inicial del estado y que luego no lo usaremos más:
 
-```jsx
+```javascript
 const Input = ({ initialValue }) => {
   const [value, setValue] = useState(initialValue)
 
@@ -639,7 +639,7 @@ El renderizado condicional es la forma de mostrar un componente u otro dependien
 
 Para hacer renderizado condicional en React usamos el operador ternario:
 
-```jsx
+```javascript
 function Button({ text }) {
   return text ? <button>{text}</button> : null
 }
@@ -649,7 +649,7 @@ En este caso, si la prop `text` existe, se renderiza el botón. Si no existe, no
 
 Es común encontrar implementaciones del renderizado condicional con el operador `&&`, del tipo:
 
-```jsx
+```javascript
 function List({ listArray }) {
   return listArray?.length && listArray.map(item => item)
 }
@@ -693,7 +693,7 @@ Nota: aunque el enunciado hable de "componente", la prop `className` se aplica s
 
 En React usamos la prop `className` para definir el valor del atributo `class` del HTML:
 
-```jsx
+```javascript
 function Button({ text }) {
   return <button className='button'>{text}</button>
 }
@@ -728,7 +728,7 @@ Nota: al igual que con `className`, el estilo en línea se asigna a elementos JS
 
 Para aplicar estilos CSS en línea a un componente en React usamos la prop `style`. La diferencia de cómo lo haríamos con HTML, es que en React los estilos se pasan como un objeto y no como una cadena de texto (esto puede verse más claro con los dobles corchetes, los primeros para indicar que es una expresión JavaScript, y los segundos para crear el objeto):
 
-```jsx
+```javascript
 function Button({ text }) {
   return <button style={{ color: 'red', borderRadius: '2px' }}>{text}</button>
 }
@@ -770,7 +770,7 @@ En la práctica, esa condición termina afectando a props de estilo (`style`, `c
 
 Puedes aplicar estilos de forma condicional a un componente en React usando la prop `style` y un operador ternario:
 
-```jsx
+```javascript
 function Button({ text, primary }) {
   return <button style={{ color: primary ? 'red' : 'blue' }}>{text}</button>
 }
@@ -780,7 +780,7 @@ En el caso anterior, si la prop `primary` es `true`, el botón tendrá el color 
 
 También puedes seguir la misma mecánica usando clases. En este caso, usamos el operador ternario para decidir si añadir o no la clase:
 
-```jsx
+```javascript
 function Button({ text, primary }) {
   return <button className={primary ? 'button-primary' : ''}>{text}</button>
 }
@@ -788,7 +788,7 @@ function Button({ text, primary }) {
 
 También podemos usar bibliotecas como `classnames`:
 
-```jsx
+```javascript
 import classnames from 'classnames'
 
 function Button({ text, primary }) {
@@ -832,7 +832,7 @@ El renderizado de listas es la forma de iterar un array de elementos y renderiza
 
 Para hacer renderizado de listas en React usamos el método `map` de los arrays:
 
-```jsx
+```javascript
 function List({ items }) {
   return (
     <ul>
@@ -880,7 +880,7 @@ El elemento `li` tiene una prop `key` que es un identificador único para cada e
 
 Si vas a escribir un comentario fuera del renderizado de un componente, puedes usar la sintaxis de comentarios de JavaScript sin problemas:
 
-```jsx
+```javascript
 function Button({ text }) {
   // Esto es un comentario
   /* Esto es un comentario
@@ -892,7 +892,7 @@ function Button({ text }) {
 
 Si vas a escribir un comentario dentro del renderizado de un componente, debes envolver el comentario en llaves y usar siempre la sintaxis de comentarios de bloque:
 
-```jsx
+```javascript
 function Button({ text }) {
   return (
     <button>
@@ -932,7 +932,7 @@ En React, los eventos se registran con props que siguen la convención `on` + no
 
 La clave es pasar una función como manejador del evento, no ejecutar la función durante el render.
 
-```jsx
+```javascript
 function Button({ text, onClick }) {
   return <button onClick={onClick}>{text}</button>
 }
@@ -942,7 +942,7 @@ En este caso, `Button` recibe una prop `onClick` y delega en ella su comportamie
 
 Si necesitas añadir lógica intermedia (tracking, validaciones, etc.), puedes encapsularla en una función interna:
 
-```jsx
+```javascript
 function Button({ text, onClick }) {
   const handleClick = event => {
     // lógica previa
@@ -985,7 +985,7 @@ function Button({ text, onClick }) {
 
 Para pasar un parámetro a una función que maneja un evento en React podemos usar una función anónima:
 
-```jsx
+```javascript
 function Button({ id, text, onClick }) {
   return <button onClick={() => onClick(id)}>{text}</button>
 }
@@ -995,7 +995,7 @@ Cuando el usuario hace clic en el botón, se ejecuta la función `onClick` pasá
 
 También puedes crear una función que ejecuta la función `onClick` pasándole el valor de la prop `id`:
 
-```jsx
+```javascript
 function Button({ id, text, onClick }) {
   const handleClick = event => {
     // handleClick recibe el evento original
@@ -1041,7 +1041,7 @@ Por ejemplo, si tienes un componente `Counter` que muestra un contador, puedes u
 
 Para crear un estado en React usamos el hook `useState`:
 
-```jsx
+```javascript
 import { useState } from 'react'
 
 function Counter() {
@@ -1065,7 +1065,7 @@ Suele usarse desestructuración para facilitar la lectura y ahorrarnos algunas l
 
 Con un componente de clase, la creación del estado sería así:
 
-```jsx
+```javascript
 import { Component } from 'react'
 
 class Counter extends Component {
@@ -1174,7 +1174,7 @@ Devuelve un array con dos variables:
 
 En este ejemplo mostramos como el valor de `count` se inicializa en 0, y también se renderiza cada vez que el valor es modificado con la función `setCount` en el evento `onClick` del button:
 
-```jsx
+```javascript
 import { useState } from 'react'
 
 function Counter() {
@@ -1229,7 +1229,7 @@ Es especialmente útil cuando:
 
 Su firma básica es:
 
-```jsx
+```javascript
 const [state, dispatch] = useReducer(reducer, initialState)
 ```
 
@@ -1239,7 +1239,7 @@ const [state, dispatch] = useReducer(reducer, initialState)
 
 Ejemplo:
 
-```jsx
+```javascript
 import { useReducer } from 'react'
 
 const initialState = { count: 0 }
@@ -1309,7 +1309,7 @@ Dicho de otra forma. Si dos componentes hijos comparten los mismos datos de su p
 
 Para entenderlo, lo mejor es que lo veamos con un ejemplo. Imagina que tenemos una lista de regalos deseados y queremos poder añadir regalos y mostrar el total de regalos que hay en la lista.
 
-```jsx
+```javascript
 import { useState } from 'react'
 
 export default function App() {
@@ -1359,7 +1359,7 @@ function TotalGifts() {
 
 Tenemos que subir el estado de `gifts` al componente padre `App` y le pasaremos el número de regalos como prop al componente `TotalGifts`.
 
-```jsx
+```javascript
 import { useState } from 'react'
 
 export default function App() {
@@ -1446,7 +1446,7 @@ Recibe dos parámetros:
 
 En este ejemplo mostramos un mensaje en consola cuando carga el componente y cada vez que cambia el valor de `count`:
 
-```jsx
+```javascript
 import { useEffect, useState } from 'react'
 
 function Counter() {
@@ -1535,7 +1535,7 @@ Podemos usar el hook `useEffect` de diferentes formas, tales como:
 
 Dentro de `useEffect` nos podemos suscribir a eventos del navegador, como el evento `resize` para saber cuando el usuario cambia el tamaño de la ventana. Es importante que nos desuscribamos cuando el componente se desmonte para evitar fugas de memoria. Para ello, tenemos que devolver una función dentro del `useEffect` que se ejecutará cuando el componente se desmonte.
 
-```jsx
+```javascript
 import { useEffect } from 'react'
 
 function Window() {
@@ -1589,7 +1589,7 @@ function Window() {
 
 Llama `useId` en el nivel superior del componente para generar una ID única:
 
-```jsx
+```javascript
 import { useId } from 'react'
 function PasswordField() {
   const passwordHintId = useId()
@@ -1598,7 +1598,7 @@ function PasswordField() {
 
 A continuación, pasa el ID generado a diferentes atributos:
 
-```jsx
+```javascript
 <>
   <input type="password" aria-describedby={passwordHintId} />
   <p id={passwordHintId}>
@@ -1609,7 +1609,7 @@ La etiqueta `aria-describedby` te permite especificar que dos etiquetas están r
 
 El ejemplo completo sería así:
 
-```jsx
+```javascript
 import { useId } from 'react'
 
 function PasswordField() {
@@ -1674,7 +1674,7 @@ Como ves en `App` estamos usando el componente dos veces. Si pusieramos una id a
 
 Podemos ejecutar código cuando el componente se monta usando el hook `useEffect` sin pasarle ninguna dependencia. En este caso, la función que se pasa como primer parámetro se ejecutará cuando el componente se monte.
 
-```jsx
+```javascript
 import { useEffect } from 'react'
 
 function Component() {
@@ -1715,7 +1715,7 @@ En React, un componente debe devolver un único elemento raíz. `Fragment` resue
 
 Para crear un Fragment en React usamos el componente `Fragment`:
 
-```jsx
+```javascript
 import { Fragment } from 'react'
 
 function App() {
@@ -1730,7 +1730,7 @@ function App() {
 
 También podemos usar la sintaxis de abreviatura:
 
-```jsx
+```javascript
 function App() {
   return (
     <>
@@ -1743,7 +1743,7 @@ function App() {
 
 Si necesitas añadir una `key` (por ejemplo, al renderizar una lista), debes usar la versión explícita con `Fragment`:
 
-```jsx
+```javascript
 import { Fragment } from 'react'
 
 function List({ items }) {
@@ -1829,14 +1829,14 @@ Permite una estructura declarativa a la hora de construir nuevos componentes, ad
 
 Un ejemplo de este diseño sería una lista que renderiza los elementos hijos:
 
-```jsx
+```javascript
 <List>
   <ListItem>Cat</ListItem>
   <ListItem>Dog</ListItem>
 </List>
 ```
 
-```jsx
+```javascript
 const List = ({ children, ...props }) => <ul {...props}>{children}</ul>
 
 const ListItem = ({ children, ...props }) => {
@@ -1992,7 +1992,7 @@ Los **EcmaScript Modules** es la forma nativa que tiene JavaScript para importar
 
 Por un lado podemos crear módulos exportándolos por defecto:
 
-```js
+```javascript
 // sayHi.js
 // exportamos por defecto el módulo sayHi
 export default sayHi (message) {
@@ -2009,7 +2009,7 @@ import miduHi from './sayHi.js'
 
 También podemos hacer exportaciones nombradas de módulos, de forma que un módulo tiene un nombre asignado y para importarlo necesitamos usar exactamente el nombre usado al exportarlo:
 
-```js
+```javascript
 // sayHi.js
 // podemos usar exportaciones nombradas para mejorar esto
 export const sayHi = message => console.log(message)
@@ -2026,7 +2026,7 @@ Los _imports_ que hemos visto hasta aquí se conocen como _imports estáticos_. 
 
 También existen los _imports dinámicos_, de forma que podamos importar módulos que se carguen en el momento de la ejecución del programa o cuando nosotros decidamos (por ejemplo, como respuesta a un click).
 
-```js
+```javascript
 document.querySelector('button').addEventListener('click', () => {
   // los imports dinámicos devuelven una Promesa
   import('./sayHi.js').then(module => {
@@ -2050,7 +2050,7 @@ Además, por temas de optimización de rendimiento, podremos importar de forma d
 
 Las ternarias son una forma de realizar condiciones sin la necesidad de usar la sintaxis con `if`. Se podría decir que es una forma de atajo para evitar escribir tanto código.
 
-```js
+```javascript
 if (number % 2 === 0) {
   console.log('Es par')
 } else {
@@ -2069,7 +2069,7 @@ En las interfaces gráficas es muy normal que, dependiendo del estado de la apli
 
 Las _funciones flecha_ o _arrow function_ fueron añadidas a JavaScript en el estándar ECMAScript 6 (o ES2015). En principio parece que simplemente se trata de una sintaxis alternativa más simple a la hora de crear expresiones de funciones:
 
-```js
+```javascript
 const nombreDeLaFuncion = function (param1, param2) {
   // instrucciones de la función
 }
@@ -2082,7 +2082,7 @@ const nombreDeLaFuncion = (param1, param2) => {
 
 Pero además del cambio de sintaxis existen otras características de las funciones flechas que se usan constantemente en React.
 
-```js
+```javascript
 // return implícito al escribir una sola línea
 const getName = () => 'midudev'
 
@@ -2107,7 +2107,7 @@ Las funciones flecha, además, puedes verlas fácilmente conviviendo dentro de t
 
 En JavaScript puedes proporcionar valores por defecto a los parámetros de una función en caso que no se le pase ningún argumento.
 
-```js
+```javascript
 // al parámetro b le damos un valor por defecto de 1
 function multiply(a, b = 1) {
   return a * b
@@ -2136,7 +2136,7 @@ Los componentes, por ejemplo, pueden no recibir parámetros y, pese a ello, segu
 
 Los template literals o plantillas de cadenas llevan las cadenas de texto al siguiente nivel permitiendo expresiones incrustadas en ellas.
 
-```js
+```javascript
 const inicio = 'Hola'
 const final = 'React'
 
@@ -2159,7 +2159,7 @@ En React esto se puede utilizar para diferentes cosas. No sólo es normal crear 
 
 Desde _ECMAScript 2015_ se puede iniciar un objeto utilizado nombre de propiedades abreviadas. Esto es que si quieres utilizar como valor una variable que tiene el mismo nombre que la key, entonces puedes indicar la inicialización una vez:
 
-```js
+```javascript
 const name = 'Miguel'
 const age = 36
 const book = 'React'
@@ -2179,7 +2179,7 @@ En React se trata muchas veces con objetos y siempre vamos a querer escribir el 
 
 La sintaxis de _desestructuración_ es una expresión de JavaScript que permite extraer valores de Arrays o propiedades de objetos en distintas variables.
 
-```js
+```javascript
 // antes
 const array = [1, 2, 3]
 const primerNumero = array[0]
@@ -2215,7 +2215,7 @@ Saber manipular arreglos en JavaScript es básico para considerar que se domina.
 
 Vamos a revisar algunos de los métodos más usados:
 
-```js
+```javascript
 // tenemos este array con diferentes elementos
 const networks = [
   {
@@ -2274,7 +2274,7 @@ En React es muy normal almacenar los datos que tenemos que representar en la UI 
 
 La sintaxis de spread nos permite expandir un iterable o un objeto en otro lugar dónde se espere esa información. Para poder utilizarlo, necesitamos utilizar los tres puntos suspensivos `...` justo antes.
 
-```js
+```javascript
 const networks = ['Twitter', 'Twitch', 'Instagram']
 const newNetwork = 'Tik Tok'
 // creamos un nuevo array expandiendo el array networks y
@@ -2287,7 +2287,7 @@ console.log(allNetworks)
 
 Esto mismo lo podemos conseguir con un objeto, de forma que podemos expandir todas sus propiedades en otro objeto de forma muy sencilla.
 
-```js
+```javascript
 const midu = { name: 'Miguel', twitter: '@midudev' }
 const miduWithNewInfo = {
   ...midu,
@@ -2305,7 +2305,7 @@ console.log(miduWithNewInfo)
 
 Es importante notar que esto hace una copia, sí, pero superficial. Si tuviéramos objetos anidados dentro del objeto entonces deberíamos tener en cuenta que podríamos mutar la referencia. Veamos un ejemplo.
 
-```js
+```javascript
 const midu = {
   name: 'Miguel',
   twitter: '@midudev',
@@ -2346,7 +2346,7 @@ En React es muy normal tener que añadir nuevos elementos a un array o crear nue
 
 La sintaxis `...` hace tiempo que funciona en JavaScript en los parámetros de una función. A esta técnica se le llamaba _parámetros rest_ y nos permitía tener un número indefinido de argumentos en una función y poder acceder a ellos después como un array.
 
-```js
+```javascript
 function suma(...allArguments) {
   return allArguments.reduce((previous, current) => {
     return previous + current
@@ -2356,7 +2356,7 @@ function suma(...allArguments) {
 
 Ahora el operador rest también se puede utilizar para agrupar el resto de propiedades un objeto o iterable. Esto puede ser útil para extraer un elemento en concreto del objeto o el iterable y crear una copia superficial del resto en una nueva variable.
 
-```js
+```javascript
 const midu = {
   name: 'Miguel',
   twitter: '@midudev',
@@ -2380,7 +2380,7 @@ console.log(restOfMidu)
 
 También podría funcionar con arrays:
 
-```js
+```javascript
 const [firstNumber, ...restOfNumbers] = [1, 2, 3]
 console.log(firstNumber) // -> 1
 console.log(restOfNumbers) // -> [2, 3]
@@ -2396,7 +2396,7 @@ El operador de encadenamiento opcional `?.` te permite leer con seguridad el val
 
 De esta forma, en lugar de revisar si las propiedades existen para poder acceder a ellas, lo que hacemos es usar el encadenamiento opcional.
 
-```js
+```javascript
 const author = {
   name: 'Miguel',
   libro: {
@@ -2519,7 +2519,7 @@ Hoy React usa el algoritmo **Fiber** por debajo, pero el concepto de Virtual DOM
 
 Porque React decide cuándo volver a renderizar basándose en **actualizaciones de estado inmutables**. Si mutas el valor anterior y lo devuelves tal cual, React puede **no detectar el cambio** y la UI se queda desactualizada.
 
-```jsx
+```javascript
 // ❌ Mal: mutación directa
 const [user, setUser] = useState({ name: 'midu', age: 30 })
 user.age = 31
@@ -2567,7 +2567,7 @@ Además, la inmutabilidad hace el código más predecible, facilita depurar y en
 
 La **composición** consiste en combinar componentes pequeños para construir interfaces más complejas, normalmente con `children`, props de render o componentes “ranurados” (slots). React **no recomienda herencia de clases de componentes** para reutilizar UI.
 
-```jsx
+```javascript
 function Card({ title, children }) {
   return (
     <article className="card">

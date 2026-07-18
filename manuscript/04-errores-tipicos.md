@@ -52,7 +52,7 @@ Una de las reglas de los hooks de React es que deben llamarse en el mismo orden 
 
 Por eso el siguiente código es incorrecto:
 
-```jsx
+```javascript
 // ❌ código incorrecto por saltar las reglas de los hooks
 function Counter() {
   const [count, setCount] = useState(0)
@@ -73,7 +73,7 @@ function Counter() {
 
 También el siguiente código sería incorrecto, aunque no lo parezca, ya que estamos usando el segundo `useState` de forma condicional (pese a no estar dentro de un `if`) ya que se ejecutará sólo cuando `count` sea diferente a `0`:
 
-```jsx
+```javascript
 // ❌ código incorrecto por saltar las reglas de los hooks
 function Counter() {
   const [count, setCount] = useState(0)
@@ -96,7 +96,7 @@ Ten en cuenta que si ignoras este error, es posible que tus componentes no se co
 
 Para arreglar este error, como hemos comentado antes, debes asegurarte de que los hooks se llaman en el mismo orden en cada renderizado. El último ejemplo quedaría así:
 
-```jsx
+```javascript
 function Counter() {
   const [count, setCount] = useState(0)
   // movemos el hook useState antes del if
@@ -148,7 +148,7 @@ Recomendamos revisar las siguientes secciones:
 
 Este error se produce cuando intentamos actualizar el estado de un componente que ya no está montado. Esto puede ocurrir cuando el componente se desmonta antes de que se complete una petición asíncrona, por ejemplo:
 
-```jsx
+```javascript
 function Movies() {
   const [movies, setMovies] = useState([])
 
@@ -177,7 +177,7 @@ Parece un código inofensivo, pero imagina que usamos este componente en una pá
 
 Para evitar este error, podemos usar una variable booleana con `useRef` que nos indique si el componente está montado o no. De esta manera, podemos evitar que se ejecute el `setMovies` si el componente no está montado:
 
-```jsx
+```javascript
 function Movies() {
   const [movies, setMovies] = useState([])
   const mounted = useRef(false)
@@ -200,7 +200,7 @@ function Movies() {
 
 Esto soluciona el problema pero **no evita que se haga la petición aunque el componente ya no esté montado**. Para cancelar la petición y así ahorrar transferencia de datos, podemos abortar la petición usando la API `AbortController`:
 
-```jsx
+```javascript
 function Movies() {
   const [movies, setMovies] = useState([])
 
@@ -274,7 +274,7 @@ Este error indica que algo dentro de nuestro componente está generando muchos p
 
 1. **Llamar a una función que actualiza el estado en el renderizado del componente.**
 
-```jsx
+```javascript
 function Counter() {
   const [count, setCount] = useState(0)
 
@@ -290,7 +290,7 @@ Lo que sucede en este ejemplo, es que al _renderizarse_ el componente, se llama 
 
 Una posible solución sería:
 
-```jsx
+```javascript
 function Counter() {
   // ✅ código correcto
   // se pasa el valor inicial deseado en el `useState`
@@ -302,7 +302,7 @@ function Counter() {
 
 **Llamar directamente a una función en un controlador de eventos.**
 
-```jsx
+```javascript
 function Counter() {
   const [count, setCount] = useState(0)
 
@@ -321,7 +321,7 @@ En este código, se está ejecutando la función `setCount` que actualiza el est
 
 La manera correcta sería la siguiente:
 
-```jsx
+```javascript
 function Counter() {
   const [count, setCount] = useState(0)
 
@@ -341,7 +341,7 @@ function Counter() {
 
 Al ver este ejemplo:
 
-```jsx
+```javascript
 function Counter() {
   const [count, setCount] = useState(0)
 
@@ -358,7 +358,7 @@ Lo que ocurre, es que al no colocar un array de dependencias en el hook de `useE
 
 Para solucionarlo, podemos hacer lo siguiente:
 
-```jsx
+```javascript
 function Counter() {
   const [count, setCount] = useState(0)
 
@@ -466,7 +466,7 @@ En React se refiere a la capacidad de un componente para actualizar su **estado*
 
 Por ejemplo:
 
-```jsx
+```javascript
 import React, { useState } from 'react'
 
 function OneWayBindingExample() {
@@ -495,7 +495,7 @@ Se refiere a la capacidad de un componente para actualizar su estado y su vista 
 
 Por ejemplo:
 
-```jsx
+```javascript
 import React, { useState } from 'react'
 
 function TwoWayBindingExample() {

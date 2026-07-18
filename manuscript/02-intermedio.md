@@ -8,7 +8,7 @@ Preguntas de nivel **Intermedio**. Tras cada explicación puedes encontrar un bl
 
 Un hook personalizado es una función que empieza con la palabra `use` y que puede utilizar otros hooks. Son ideales para reutilizar lógica en diferentes componentes. Por ejemplo, podemos crear un hook personalizado para extraer la gestión del estado de un contador:
 
-```js
+```javascript
 // ./hooks/useCounter.js
 
 export function useCounter() {
@@ -23,7 +23,7 @@ export function useCounter() {
 
 Para usarlo en un componente:
 
-```js
+```javascript
 import { useCounter } from './hooks/useCounter.js'
 
 function Counter() {
@@ -115,7 +115,7 @@ Además, cada efecto tiene su propio ciclo de vida: React ejecuta o limpia cada 
 
 Podemos ejecutar código cuando el componente se desmonta usando el hook `useEffect` y dentro devolver una función con el código que queremos ejecutar. En este caso, la función que se pasa como primer parámetro del `useEffect` se ejecutará cuando el componente se monte, y la función que es retornada se ejecutará cuando se desmonte.
 
-```jsx
+```javascript
 import { useEffect } from 'react'
 
 function Component() {
@@ -165,7 +165,7 @@ Esto es muy útil para limpiar recursos que se hayan creado en el componente, co
 
 Cuando hacemos una petición a una API, podemos cancelarla para evitar que se ejecute cuando el componente se desmonte usando `AbortController` como hacemos en este ejemplo:
 
-```jsx
+```javascript
 useEffect(() => {
   // Creamos el controlador para abortar la petición
   const controller = new AbortController()
@@ -190,7 +190,7 @@ useEffect(() => {
 
 Esto también funciona con `axios`:
 
-```jsx
+```javascript
 useEffect(() => {
   // Creamos el controlador para abortar la petición
   const controller = new AbortController()
@@ -259,7 +259,7 @@ Los hooks en React tienen dos reglas fundamentales, y respetarlas es clave para 
 
 Ejemplo incorrecto:
 
-```jsx
+```javascript
 function Component({ isOpen }) {
   if (isOpen) {
     useEffect(() => {
@@ -273,7 +273,7 @@ function Component({ isOpen }) {
 
 Ejemplo correcto:
 
-```jsx
+```javascript
 function Component({ isOpen }) {
   useEffect(() => {
     if (isOpen) {
@@ -434,7 +434,7 @@ Ventajas:
 
 Ejemplo base (render puro):
 
-```jsx
+```javascript
 function Button({ text }) {
   return <button>{text}</button>
 }
@@ -442,7 +442,7 @@ function Button({ text }) {
 
 Y si ese botón se renderiza muchas veces con las mismas props, puedes evaluar memoización:
 
-```jsx
+```javascript
 import { memo } from 'react'
 
 const Button = memo(function Button({ text }) {
@@ -566,7 +566,7 @@ Para crear un Server Side Rendering con React desde cero podemos usar el paquete
 
 Veamos un ejemplo de cómo crear un Server Side Rendering con React desde cero con Express:
 
-```jsx
+```javascript
 import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
@@ -619,7 +619,7 @@ Igual que las funciones en JavaScript, los componentes de React también pueden 
 
 Aquí puedes ver un ejemplo simple de un componente que tiene un efecto colateral. Un componente que lee y modifica una variable que está fuera del componente. Esto hace que sea imposible saber qué renderizará el componente cada vez que se use, ya que no sabemos el valor que tendrá `count`:
 
-```jsx
+```javascript
 let count = 0
 
 function Counter() {
@@ -681,7 +681,7 @@ La ventaja de este tipo de componentes es que son más fáciles de testear porqu
 
 La ventaja de este tipo de componentes es que se crean de forma muy fácil y no tienes que mantener un estado. Además, el rendimiento es mejor, ya que no tiene que re-renderizarse al cambiar el valor del input. Lo malo es que hay que tratar más con el DOM directamente y crear código imperativo.
 
-```js
+```javascript
 // Controlado:
 const [value, setValue] = useState('')
 const handleChange = () => setValue(event.target.value)
@@ -732,7 +732,7 @@ const handleChange = () => setValue(event.target.value)
 
 Los High Order Components son funciones que reciben un componente como parámetro y devuelven un componente.
 
-```jsx
+```javascript
 function withLayout(Component) {
   return function (props) {
     return (
@@ -784,7 +784,7 @@ Con la llegada de los hooks, los HOCs se han vuelto menos populares, pero todav�
 
 Son un patrón de diseño de React que nos permite reutilizar código entre componentes e inyectar información en el renderizado de los componentes.
 
-```jsx
+```javascript
 <DataProvider render={data => <h1>Hello {data.target}</h1>} />
 ```
 
@@ -792,7 +792,7 @@ En este caso, el componente `DataProvider` recibe una función `render` como pro
 
 La implementación del `DataProvider` con funciones podría ser la siguiente:
 
-```jsx
+```javascript
 function DataProvider({ render }) {
   const data = { target: 'world' }
   return render(data)
@@ -801,13 +801,13 @@ function DataProvider({ render }) {
 
 También se puede encontrar este patrón usando la prop `children` en los componentes.
 
-```jsx
+```javascript
 <DataProvider>{data => <h1>Hello {data.target}</h1>}</DataProvider>
 ```
 
 Y la implementación sería similar:
 
-```jsx
+```javascript
 function DataProvider({ children }) {
   const data = { target: 'world' }
   return children(data)
@@ -857,7 +857,7 @@ En React, no podemos usar un `if` en el renderizado de un componente porque no e
 
 En JSX solo podemos usar expresiones, por eso usamos ternarias, que sí son expresiones.
 
-```jsx
+```javascript
 // ❌ Esto no funciona
 function Button({ text }) {
   return (
@@ -917,7 +917,7 @@ De la misma forma, tampoco podemos usar `for`, `while` o `switch` dentro del ren
 
 A la hora de actualizar el estado de React, debemos utilizar la función que nos facilita el hook `useState` para actualizar el estado.
 
-```jsx
+```javascript
 const [count, setCount] = useState(0)
 
 setCount(count + 1)
@@ -1018,7 +1018,7 @@ Cuando renderizamos una lista de elementos, React necesita saber qué elementos 
 
 Para ello, React necesita una key única para cada elemento de la lista. Si no le pasamos una key, React usa el índice del elemento como key.
 
-```jsx
+```javascript
 const List = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
 
@@ -1038,7 +1038,7 @@ En este caso, React no sabe qué elementos han cambiado y puede que se produzcan
 
 Un ejemplo donde se ve el problema:
 
-```jsx
+```javascript
 const List = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3'])
 
@@ -1100,7 +1100,7 @@ const List = () => {
 
 El hook `useMemo` es un hook que nos permite memorizar el resultado de una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve el resultado que ya se había calculado.
 
-```jsx
+```javascript
 import { useMemo } from 'react'
 
 function Counter({ count }) {
@@ -1185,7 +1185,7 @@ No. `useMemo` es una herramienta que nos permite optimizar nuestros componentes,
 
 El hook `useCallback` es un hook que nos permite memorizar una función. Esto quiere decir que si la función que le pasamos como parámetro no ha cambiado, no se ejecuta de nuevo y se devuelve la función que ya se había calculado.
 
-```jsx
+```javascript
 import { useCallback } from 'react'
 
 function Counter({ count, onIncrement }) {
@@ -1275,7 +1275,7 @@ En términos prácticos, ambos se usan para evitar trabajo innecesario entre ren
 
 También es cierto que `useCallback` puede entenderse como un caso particular de `useMemo`. De hecho, se puede simular así:
 
-```js
+```javascript
 const memoizedCallback = useMemo(() => {
   return () => {
     doSomething(a, b)
@@ -1358,7 +1358,7 @@ Es importante entender que una ref no sustituye al estado: si un cambio debe ref
 
 En el siguiente ejemplo vamos a guardar la referencia en el DOM a un elemento `<input>` y vamos a cambiar el foco a ese elemento cuando hacemos clic en el botón.
 
-```jsx
+```javascript
 import { useRef } from 'react'
 
 function TextInputWithFocusButton() {
@@ -1416,7 +1416,7 @@ Para acceder al elemento del DOM, usamos la propiedad `current` de la referencia
 
 Llama `useLayoutEffect` en el nivel superior del componente.
 
-```jsx
+```javascript
 import { useLayoutEffect } from 'react'
 
 useLayoutEffect(() => {
@@ -1483,7 +1483,7 @@ Por ese motivo, suelen ser más fáciles de entender, de testear y de reutilizar
 
 En la práctica, son muy útiles para piezas de UI presentacionales (botones, tarjetas, encabezados, etiquetas, etc.) donde la lógica de estado vive en componentes contenedores o hooks.
 
-```jsx
+```javascript
 // Este es un ejemplo de componente stateless
 function Button({ text }) {
   return <button>{text}</button>
@@ -1524,7 +1524,7 @@ Para prevenir el comportamiento por defecto de un evento en React, se usa el mé
 
 Esto es habitual en formularios, enlaces o cualquier interacción donde quieras mantener el control del flujo desde JavaScript en lugar de dejar que actúe el comportamiento nativo del navegador.
 
-```jsx
+```javascript
 function Form({ onSubmit }) {
   const handleSubmit = event => {
     event.preventDefault()
@@ -1578,7 +1578,7 @@ No añade interfaz visual y no cambia el comportamiento funcional en producción
 
 Por eso, cuando activas `StrictMode`, es normal ver ejecuciones extra en desarrollo: no es un error, es una estrategia deliberada para exponer fragilidades de tu código cuanto antes.
 
-```jsx
+```javascript
 import { StrictMode } from 'react'
 
 function App() {
@@ -1627,7 +1627,7 @@ Los componentes de React se pueden exportar de dos formas:
 
 Para exportar un componente por defecto, usamos la palabra reservada `default`:
 
-```jsx
+```javascript
 // button.jsx
 export default function Button() {
   return <button>Click</button>
@@ -1643,7 +1643,7 @@ function App() {
 
 La gran desventaja que tiene la exportación por defecto es que a la hora de importarlo puedes usar el nombre que quieras. Y esto trae problemas, ya que puedes no usar siempre el mismo en el proyecto o usar un nombre que no sea correcto con lo que importas.
 
-```jsx
+```javascript
 // button.jsx
 export default function Button() {
   return <button>Click</button>
@@ -1666,7 +1666,7 @@ function Otro() {
 
 Los exports nombrados nos obligan a usar el mismo nombre en todos los archivos y, por tanto, nos aseguramos de que siempre estamos usando el nombre correcto.
 
-```jsx
+```javascript
 // button.jsx
 export function Button() {
   return <button>Click</button>
@@ -1720,7 +1720,7 @@ Además, las exportaciones nombradas suelen mejorar la mantenibilidad porque:
 
 Ejemplo:
 
-```jsx
+```javascript
 // button.jsx
 export function Button({ children }) {
   return <button>{children}</button>
@@ -1733,13 +1733,13 @@ export function ButtonSecondary({ children }) {
 
 Y luego se importan así:
 
-```jsx
+```javascript
 import { Button, ButtonSecondary } from './button.jsx'
 ```
 
 Si en algún caso quieres renombrar una exportación al importar, también puedes hacerlo:
 
-```jsx
+```javascript
 import { ButtonSecondary as SecondaryButton } from './button.jsx'
 ```
 
@@ -1768,7 +1768,7 @@ import { ButtonSecondary as SecondaryButton } from './button.jsx'
 
 Para importar de forma dinámica un componente en React debemos usar la función `import()`, el método `lazy()` de React y el componente `Suspense`.
 
-```jsx
+```javascript
 // App.jsx
 import { lazy, Suspense } from 'react'
 
@@ -1832,7 +1832,7 @@ En React, nuestras aplicaciones están creadas a partir de componentes. Estos co
 
 La importación de componentes de forma estática es la forma más común de importar componentes en React. En este caso, los componentes se importan en la parte superior del fichero y se renderizan en el código. El problema es que, si siempre lo hacemos así, es bastante probable que estemos cargando componentes que no se van a usar desde el principio.
 
-```jsx
+```javascript
 import { useState } from 'react'
 // importamos de forma estática el componente de la Modal
 import { SuperBigModal } from './super-big-modal.jsx'
@@ -1854,7 +1854,7 @@ Este componente `SuperBigModal` se importa de forma estática, por lo que se car
 
 Si queremos ofrecer la mejor experiencia a nuestros usuarios, debemos intentar que la aplicación cargue lo más rápido posible. Por eso, es recomendable importar de forma dinámica los componentes que no se van a usar desde el principio.
 
-```jsx
+```javascript
 import { useState, lazy, Suspense } from 'react'
 // importamos de forma dinámica el componente de la Modal
 const SuperBigModal = lazy(() => import('./super-big-modal.jsx'))
@@ -1912,7 +1912,7 @@ Así que siempre debemos intentar cargar los componentes de forma dinámica cuan
 
 No, no es necesario que los componentes se exporten por defecto para poder cargarlos de forma dinámica. Podemos exportarlos de forma nombrada y cargarlos de forma dinámica... pero no es lo más recomendable ya que el código necesario es mucho más lioso.
 
-```jsx
+```javascript
 // button.jsx
 // exportamos el componente Button de forma nombrada
 export function Button() {
@@ -1941,7 +1941,7 @@ export default function App() {
 
 Otra opción es tener un fichero intermedio que exporte el componente de forma por defecto y que sea el que importemos de forma dinámica.
 
-```jsx
+```javascript
 // button-component.jsx
 // exportamos el componente Button de forma nombrada
 export function Button() {
@@ -1994,7 +1994,7 @@ El contexto es una forma de pasar datos a través de la jerarquía de componente
 
 Para crear un contexto en React usamos el hook `createContext`:
 
-```jsx
+```javascript
 import { createContext } from 'react'
 
 const ThemeContext = createContext()
@@ -2002,7 +2002,7 @@ const ThemeContext = createContext()
 
 Para usar el contexto, debemos envolver el árbol de componentes con el componente `Provider`:
 
-```jsx
+```javascript
 <ThemeContext.Provider value='dark'>
   <App />
 </ThemeContext.Provider>
@@ -2010,7 +2010,7 @@ Para usar el contexto, debemos envolver el árbol de componentes con el componen
 
 Para consumir el contexto, debemos usar el hook `useContext`:
 
-```jsx
+```javascript
 import { useContext } from 'react'
 
 function Button() {
@@ -2068,7 +2068,7 @@ Ventajas de este enfoque:
 
 Si en algún caso necesitas el evento nativo real, puedes acceder mediante `event.nativeEvent`.
 
-```jsx
+```javascript
 function App() {
   function handleClick(event) {
     console.log(event) // SyntheticEvent
@@ -2110,7 +2110,7 @@ function App() {
 
 `flushSync(callback)` Obliga a React a ejecutar de manera síncrona todas las actualizaciones de los state dentro del callback proporcionado. Así se asegura que el DOM se actualiza inmediatamente.
 
-```jsx
+```javascript
 import { flushSync } from 'react-dom'
 
 function App() {
@@ -2169,7 +2169,7 @@ NOTA: `flushSync` puede afectar significativamente el rendimiento. Úsalo con mo
 
 Los Error Boundaries son componentes que nos permiten manejar los errores que se producen en el árbol de componentes. Para crear un Error Boundary, debemos crear un componente que implemente el método `componentDidCatch`:
 
-```jsx
+```javascript
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
@@ -2198,7 +2198,7 @@ De esta forma podemos capturar los errores que se producen en el árbol de compo
 
 Ahora podemos envolver el árbol de componentes con el componente `ErrorBoundary`:
 
-```jsx
+```javascript
 <ErrorBoundary>
   <App />
 </ErrorBoundary>
@@ -2206,7 +2206,7 @@ Ahora podemos envolver el árbol de componentes con el componente `ErrorBoundary
 
 Podemos crear un Error Boundary en cualquier nivel del árbol de componentes, de esta forma podemos tener un control más granular de los errores.
 
-```jsx
+```javascript
 <ErrorBoundary>
   <App />
   <ErrorBoundary>
@@ -2256,7 +2256,7 @@ Por ahora no existe una forma nativa de crear un Error Boundary en una función 
 
 El reenvío de referencia o _Forward Refs_ es una técnica que nos permite acceder a una referencia de un componente hijo desde un componente padre.
 
-```jsx
+```javascript
 // Button.jsx
 import { forwardRef } from 'react'
 
@@ -2321,7 +2321,7 @@ React proporciona una forma de validar el tipo de las props de un componente en 
 
 El paquete se llama `prop-types` y se puede instalar con `npm install prop-types`.
 
-```jsx
+```javascript
 import PropTypes from 'prop-types'
 
 function App(props) {
@@ -2337,7 +2337,7 @@ En este ejemplo, estamos validando que la prop `title` sea de tipo `string` y qu
 
 Existen una colección de _PropTypes_ ya definidas para ayudarte a comprobar los tipos de las props más comunes:
 
-```js
+```javascript
 PropTypes.number // número
 PropTypes.string // string
 PropTypes.array // array
@@ -2388,7 +2388,7 @@ Para validar una prop de tipo objeto se suele usar `PropTypes.shape`, donde defi
 
 Esto es útil para documentar contratos de componente y detectar usos incorrectos en tiempo de ejecución durante desarrollo.
 
-```jsx
+```javascript
 import PropTypes from 'prop-types'
 
 function App({ title }) {
@@ -2406,7 +2406,7 @@ App.propTypes = {
 
 Si quieres una validación más estricta (sin permitir propiedades adicionales), puedes usar `PropTypes.exact`.
 
-```jsx
+```javascript
 App.propTypes = {
   title: PropTypes.exact({
     text: PropTypes.string.isRequired,
@@ -2442,7 +2442,7 @@ Para validar arrays en PropTypes se usa `PropTypes.arrayOf`, indicando el tipo q
 
 Cuando los elementos son objetos, es habitual combinar `arrayOf` con `shape` o `exact`.
 
-```jsx
+```javascript
 import PropTypes from 'prop-types'
 
 function App({ items }) {
@@ -2495,7 +2495,7 @@ Una de las razones por las que se creó React es para evitar los ataques XSS (_C
 
 Por ello, React al intentar evaluar un string que contiene HTML lo escapa automáticamente. Por ejemplo, si intentamos renderizar el siguiente string:
 
-```jsx
+```javascript
 const html = '<h1>My title</h1>'
 
 function App() {
@@ -2513,7 +2513,7 @@ Sin embargo, hay ocasiones en las que es necesario inyectar HTML directamente en
 
 Para ello, podemos usar la propiedad `dangerouslySetInnerHTML`:
 
-```jsx
+```javascript
 const html = '<h1>My title</h1>'
 
 function App() {
@@ -2561,7 +2561,7 @@ Como ves, **el nombre ya nos indica que es una propiedad peligrosa y que debemos
 
 Digamos que tenemos un componente `App` que recibe un objeto `props` con todas las props que necesita:
 
-```jsx
+```javascript
 function App(props) {
   return <h1>{props.title}</h1>
 }
@@ -2569,7 +2569,7 @@ function App(props) {
 
 Y que tenemos otro componente `Layout` que recibe un objeto `props` con todas las props que necesita:
 
-```jsx
+```javascript
 function Layout(props) {
   return (
     <div>
@@ -2621,7 +2621,7 @@ Por lo tanto, es importante utilizar el atributo "key" de manera correcta y úni
 
 Ejemplo de cómo utilizar el atributo "key" en React:
 
-```jsx
+```javascript
 import React from 'react'
 
 const ListaItems = ({ items }) => {
@@ -2671,7 +2671,7 @@ export default ListaItems
 
 El hook `useTransition` etiqueta como “no urgentes” las actualizaciones que envuelves con `startTransition`, permitiendo que la UI siga respondiendo a interacciones prioritarias mientras React calcula los cambios costosos. Devuelve `[isPending, startTransition]`; `isPending` indica si hay una transición en curso.
 
-```jsx
+```javascript
 import { useState, useTransition } from 'react'
 
 function FilterableList({ items }) {
@@ -2745,7 +2745,7 @@ function FilterableList({ items }) {
 
 `useActionState` simplifica el ciclo de vida de formularios que ejecutan Server Actions. Devuelve `[state, action, isPending]`: `state` es la respuesta más reciente, `action` se pasa al `<form action={...}>` y `isPending` indica si hay una petición en curso.
 
-```jsx
+```javascript
 'use client'
 
 import { useActionState } from 'react'
@@ -2813,7 +2813,7 @@ Así evitas crear estados manuales para “loading”, errores o resultados.
 
 `useOptimistic` permite mostrar datos temporales (optimistas) inmediatamente tras la interacción del usuario, antes de recibir la confirmación del servidor. Devuelve `[optimisticState, addOptimisticValue]` y una función reductora que decide cómo combinar el estado actual con el optimista.
 
-```jsx
+```javascript
 'use client'
 
 import { useOptimistic } from 'react'
@@ -2894,7 +2894,7 @@ Si la acción falla, deberás revertir manualmente el estado optimista (por ejem
 
 `useFormStatus` (desde `react-dom`) expone el estado de envío del formulario que lo contiene: `pending`, `action`, `method` y el `formData` más reciente. Es ideal para deshabilitar botones o mostrar feedback sin levantar estados en el componente padre.
 
-```jsx
+```javascript
 'use client'
 
 import { useFormStatus } from 'react-dom'
@@ -2957,7 +2957,7 @@ Cada botón o indicador dentro del formulario accede al mismo estado sin necesid
 
 `useFormState` enlaza el resultado más reciente de una Server Action con la UI del formulario. Recibe la acción y el estado inicial y devuelve `[state, formAction]`. Es perfecto para mostrar mensajes de error o éxito justo después del envío.
 
-```jsx
+```javascript
 'use client'
 
 import { useFormState } from 'react-dom'
@@ -3027,7 +3027,7 @@ Mantienes toda la lógica de validación en el servidor mientras la UI reacciona
 
 Las Server Actions son funciones marcadas con `'use server'` que React ejecuta en el backend. Pueden acceder a bases de datos, secretos o SDKs privados y se integran directamente con formularios y botones.
 
-```jsx
+```javascript
 'use server'
 
 export async function createPost(formData) {
@@ -3090,7 +3090,7 @@ Cuando envías el formulario, React serializa el `FormData`, ejecuta la acción 
 - `action` en un `<form>` define la acción predeterminada para todo el formulario (Enter o botón por defecto).
 - `formAction` en un `<button>` o `<input type='submit'>` sobrescribe la acción solo para ese control. Es ideal cuando un mismo formulario puede “Publicar” o “Guardar borrador”.
 
-```jsx
+```javascript
 'use client'
 
 import { publishPost, saveDraft } from './actions'
@@ -3183,7 +3183,7 @@ Para marcar un archivo como componente de cliente añade `'use client'` en la pr
 
 `useSyncExternalStore` conecta React con una fuente de datos externa (Redux, Zustand, APIs del navegador) ofreciendo lecturas consistentes en renderizados concurrentes y durante la hidratación.
 
-```jsx
+```javascript
 import { useSyncExternalStore } from 'react'
 
 function subscribe(callback) {
@@ -3243,7 +3243,7 @@ Si renderizas en el servidor, proporciona un tercer argumento (`getServerSnapsho
 
 `React.memo` memoriza el resultado de un componente funcional y solo lo vuelve a renderizar si sus props cambian tras una comparación superficial. Es útil para componentes que renderizan listas grandes o cálculos pesados con props estables.
 
-```jsx
+```javascript
 const PriceTag = React.memo(function PriceTag({ value, currency }) {
   return (
     <span>
@@ -3396,7 +3396,7 @@ El **batching** agrupa varias actualizaciones de estado en un **único re-render
 
 Desde React 18 el batching es **automático también dentro de promesas, timeouts y manejadores nativos**, no solo en eventos de React:
 
-```jsx
+```javascript
 function handleClick() {
   setCount(c => c + 1)
   setFlag(f => !f)
@@ -3444,7 +3444,7 @@ Si en un caso muy concreto necesitas forzar un flush síncrono (por ejemplo leer
 
 `Suspense` permite mostrar un **fallback** mientras un hijo “espera” algo: código cargado con `React.lazy`, o datos con APIs que se integran con Suspense (por ejemplo `use` con promesas, o frameworks como Next.js/Remix).
 
-```jsx
+```javascript
 import { lazy, Suspense } from 'react'
 
 const Comments = lazy(() => import('./Comments'))
@@ -3539,7 +3539,7 @@ Por eso las keys deben ser **estables e identificativas** (un id), no el índice
 
 El **estado derivado** es un valor que se puede obtener a partir de props u otro estado ya existente. En la mayoría de casos **no debes guardarlo en un `useState` aparte**: calcúlalo durante el render.
 
-```jsx
+```javascript
 // ❌ Redundante y propenso a desincronizarse
 const [items, setItems] = useState([])
 const [count, setCount] = useState(0)
@@ -3587,7 +3587,7 @@ Usa estado solo para datos **independientes** que cambian con el tiempo por inte
 
 Una **stale closure** (clausura obsoleta) ocurre cuando una función “recuerda” valores de un render anterior en lugar de los más recientes. Es un clásico con `useEffect`, `setTimeout`, suscripciones o callbacks memorizados.
 
-```jsx
+```javascript
 function Timer() {
   const [count, setCount] = useState(0)
 
@@ -3654,7 +3654,7 @@ Estrategias habituales:
 3. **Colocar el estado cerca** de quien lo necesita (no subas al contexto global lo que solo usan dos componentes).
 4. En casos extremos, bibliotecas de estado con suscripciones selectivas (Zustand, Jotai, Redux) o `useSyncExternalStore`.
 
-```jsx
+```javascript
 const value = useMemo(
   () => ({ user, login, logout }),
   [user] // login/logout con useCallback estables
@@ -3697,7 +3697,7 @@ Si el contexto cambia muy a menudo (input en cada tecla), casi seguro no deberí
 
 `React.lazy` permite **cargar un componente bajo demanda** (code splitting) con un import dinámico. Debe envolver el resultado en un límite de `Suspense` que muestre un fallback mientras llega el chunk.
 
-```jsx
+```javascript
 import { lazy, Suspense } from 'react'
 
 const Dashboard = lazy(() => import('./Dashboard'))
@@ -3749,7 +3749,7 @@ Notas:
 
 `startTransition` marca una actualización de estado como **no urgente**. React puede interrumpirla o posponerla para mantener prioritarias las interacciones del usuario (escribir en un input, clic).
 
-```jsx
+```javascript
 import { useState, startTransition } from 'react'
 
 function Search({ items }) {
@@ -3811,7 +3811,7 @@ Diferencias con un `setState` normal:
 
 En la mayoría de casos **ya no**. Desde React 19, `ref` es una **prop normal** en componentes de función: puedes recibirla y asignarla sin `forwardRef`.
 
-```jsx
+```javascript
 // React 19+
 function Input({ ref, ...props }) {
   return <input ref={ref} {...props} />

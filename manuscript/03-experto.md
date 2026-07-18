@@ -59,7 +59,7 @@ Nos permite definir qué propiedades y métodos queremos que sean accesibles des
 
 En el siguiente ejemplo vamos a crear un componente `TextInput` que tiene un método `focus` que cambia el foco al elemento `<input>`.
 
-```jsx
+```javascript
 import { useRef, useImperativeHandle } from 'react'
 
 function TextInput(props, ref) {
@@ -113,7 +113,7 @@ Para que el componente padre pueda acceder al método `focus`, usamos el hook `u
 
 Te permite clonar un elemento React y añadirle o modificar las props que recibe.
 
-```jsx
+```javascript
 import { cloneElement } from 'react'
 
 const Hello = ({ name }) => <h1>Hello {name}</h1>
@@ -171,7 +171,7 @@ Los portales nos permiten renderizar un componente en un nodo del DOM que no es 
 
 Es perfecto para ciertos casos de uso como, por ejemplo, modales:
 
-```jsx
+```javascript
 import { createPortal } from 'react-dom'
 
 function Modal() {
@@ -310,7 +310,7 @@ Como developers, nuestra misión es encontrar el equilibrio entre rendimiento y 
 
 Si quieres evitar que exista una _race condition_ entre una petición asíncrona y que el componente se desmonte, puedes usar la API de `AbortController` para abortar la petición cuando lo necesites:
 
-```jsx
+```javascript
 import { useEffect, useState } from 'react'
 
 function Movies() {
@@ -442,7 +442,7 @@ Hay que tener en cuenta que cada caso de uso puede encontrar beneficios y/o perj
 
 Permite mostrar una etiqueta o valor descriptivo para entender rápidamente el estado interno de un hook mientras desarrollas.
 
-```jsx
+```javascript
 import { useDebugValue } from 'react'
 
 function useCustomHook() {
@@ -458,7 +458,7 @@ Es especialmente útil en hooks reutilizables complejos (por ejemplo, hooks de f
 
 Si quieres, también puedes formatear el valor para mostrar información más clara:
 
-```jsx
+```javascript
 useDebugValue(status, value => `Estado: ${value}`)
 ```
 
@@ -498,7 +498,7 @@ Aunque no suele tener impacto significativo, se usa principalmente con propósit
 
 Su objetivo es ayudarte a detectar cuellos de botella de rendimiento y validar si una optimización realmente mejora tiempos de render.
 
-```jsx
+```javascript
 import { Profiler } from 'react'
 
 function App() {
@@ -558,7 +558,7 @@ En React, el manejador recibe un `SyntheticEvent`. Si necesitas acceder al event
 
 Esto es útil en casos avanzados donde necesitas una propiedad específica del evento nativo o integrarte con librerías que esperan ese objeto.
 
-```jsx
+```javascript
 function Button({ onClick }) {
   return <button onClick={e => onClick(e.nativeEvent)}>Haz clic aquí</button>
 }
@@ -605,7 +605,7 @@ React sigue la convención:
 
 Ejemplo:
 
-```jsx
+```javascript
 function Button({ onClick }) {
   return <button onClickCapture={onClick}>Haz clic aquí</button>
 }
@@ -645,7 +645,7 @@ Usar la fase de captura es útil cuando quieres interceptar eventos de forma tem
 
 Aunque puedes usar el método `renderToString` para renderizar el HTML en el servidor, este método es síncrono y bloquea el hilo principal. Para evitar que bloquee el hilo principal, debemos usar el método `renderToPipeableStream`:
 
-```jsx
+```javascript
 let didError = false
 const stream = renderToPipeableStream(<App />, {
   onShellReady() {
@@ -744,7 +744,7 @@ const stream = renderToPipeableStream(<App />, {
 
 El hook `useDeferredValue` nos permite renderizar un valor con una prioridad baja. Esto es útil para renderizar un valor que no es crítico para la interacción del usuario.
 
-```jsx
+```javascript
 function App() {
   const [text, setText] = useState('¡Hola mundo!')
   const deferredText = useDeferredValue(text, { timeoutMs: 2000 })
@@ -795,7 +795,7 @@ Este método es similar a `renderToNodeStream`, pero está pensado para entornos
 
 Un ejemplo de uso sería el siguiente:
 
-```jsx
+```javascript
 const controller = new AbortController()
 const { signal } = controller
 
@@ -868,7 +868,7 @@ La función `use` permite esperar promesas o leer recursos asíncronos directame
 
 Se usa principalmente en componentes de servidor, pero también funciona en componentes cliente que reciben recursos que implementan el contrato de suspenso.
 
-```jsx
+```javascript
 import { use } from 'react'
 
 async function fetchProduct(id) {
@@ -927,7 +927,7 @@ También puedes usar `use` con funciones como `cache` o `resources` que devuelve
 
 No debe usarse para lógica que lea o escriba en el DOM: para eso siguen existiendo `useLayoutEffect` o `useEffect`. El objetivo es añadir estilos (o anotaciones) en el orden correcto.
 
-```jsx
+```javascript
 import { useInsertionEffect } from 'react'
 
 function useCss(className, rules) {
@@ -990,7 +990,7 @@ Cada una de estas APIs ataca un cuello de botella distinto; combinarlas ayuda a 
 - `useTransition` baja la prioridad de actualizaciones no urgentes (por ejemplo, recalcular una lista) para que la UI siga respondiendo.
 - `useDeferredValue` retrasa la lectura de un valor concreto, útil cuando el input del usuario debe sentirse inmediato pero el resultado puede llegar con un pequeño retraso.
 
-```jsx
+```javascript
 function SearchProducts({ products }) {
   const [query, setQuery] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -1189,7 +1189,7 @@ Es una pieza moderna del ecosistema React: conviene conocerla en entrevistas sen
 
 Para hacer testing de un componente, la opción habitual es **React Testing Library** (`@testing-library/react`). Prioriza probar lo que ve y hace el usuario, no los detalles internos del componente.
 
-```jsx
+```javascript
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -1247,7 +1247,7 @@ Buenas prácticas: consulta por rol/texto (`getByRole`, `getByLabelText`), evita
 
 Puedes probar un hook con `renderHook` de `@testing-library/react` (ya no hace falta el paquete antiguo `@testing-library/react-hooks` en versiones recientes).
 
-```jsx
+```javascript
 import { renderHook, act } from '@testing-library/react'
 
 function useCounter() {
