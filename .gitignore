@@ -17,9 +17,6 @@
 /dist
 .astro
 
-# Leanpub manuscript (regenerate with `pnpm book`)
-/manuscript/
-
 # misc
 .DS_Store
 *.pem
