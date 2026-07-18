@@ -3,8 +3,14 @@ interface Props {
   animated?: boolean
   size?: 'small' | 'large'
   class?: string
+  decorative?: boolean
 }
-const { animated = true, size, class: className = '' } = Astro.props
+const {
+  animated = true,
+  size,
+  class: className = '',
+  decorative = true,
+} = Astro.props
 ---
 
 <svg
@@ -14,13 +20,15 @@ const { animated = true, size, class: className = '' } = Astro.props
     animated && 'animate-[spin_30s_linear_infinite]',
     className,
   ]}
-  aria-label="Logo de React"
   fill="none"
   height="219"
-  role="img"
   viewBox="0 0 246 219"
   width="246"
   xmlns="http://www.w3.org/2000/svg"
+  aria-hidden={decorative ? 'true' : undefined}
+  role={decorative ? 'presentation' : 'img'}
+  aria-label={decorative ? undefined : 'Logo de React'}
+  focusable="false"
 >
   <circle cx="123" cy="110" fill="black" r="21"></circle>
   <circle cx="123" cy="110" fill="url(#paint0_radial_1766_6655)" r="21"></circle>

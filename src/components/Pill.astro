@@ -3,9 +3,10 @@ import { LEVELS } from '../constants'
 
 interface Props {
   level?: number
+  as?: 'div' | 'span' | 'h2' | 'h3' | 'p'
 }
 
-const { level = LEVELS.EASY } = Astro.props
+const { level = LEVELS.EASY, as: Tag = 'div' } = Astro.props
 
 const LITERALS: Record<number, string> = {
   [LEVELS.EASY]: 'Principiante',
@@ -27,10 +28,13 @@ const COLORS: Record<number, string> = {
 
 const literal = LITERALS[level] ?? LITERALS[LEVELS.EASY]
 const color = COLORS[level] ?? COLORS[LEVELS.EASY]
+const isHeading = Tag === 'h2' || Tag === 'h3'
 ---
 
-<div>
-  <span class:list={[color, 'pill-tag font-bold inline-flex items-center gap-1']}>
+<Tag class:list={[isHeading && 'm-0 text-inherit font-inherit']}>
+  <span
+    class:list={[color, 'pill-tag font-bold inline-flex items-center gap-1']}
+  >
     {
       level === LEVELS.ERRORS ? (
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"/><path d="M12 16h.01"/></svg>
@@ -42,6 +46,7 @@ const color = COLORS[level] ?? COLORS[LEVELS.EASY]
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18l0 -3"/><path d="M10 18l0 0"/><path d="M14 18l0 0"/><path d="M18 18l0 0"/></svg>
       )
     }
+    <span class="sr-only">Nivel: </span>
     {literal}
   </span>
-</div>
+</Tag>

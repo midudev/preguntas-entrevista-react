@@ -41,22 +41,34 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
 
 <div class="animate-fade-in animate-duration-700 space-y-8" data-questions-list>
   {
-    grouped.map(category => (
-      <section>
+    grouped.map(category => {
+      const headingId = `category-${category.id}`
+      const countId = `count-${category.id}`
+      return (
+      <section aria-labelledby={headingId}>
         <div class="mb-3 flex items-center justify-between gap-3">
           {'level' in category && category.level !== undefined ? (
-            <Pill level={category.level} />
+            <div id={headingId}>
+              <Pill level={category.level} as="h3" />
+            </div>
           ) : (
-            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white md:text-2xl">
+            <h3
+              id={headingId}
+              class="font-display text-xl font-bold text-slate-900 dark:text-white md:text-2xl"
+            >
               {category.label}
             </h3>
           )}
-          <span class="rounded-full border border-slate-300/80 bg-white/70 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:border-slate-500/60 dark:bg-slate-800/65 dark:text-slate-200">
-            {category.questions.length}
+          <span
+            id={countId}
+            class="rounded-full border border-slate-300/80 bg-white/70 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:border-slate-500/60 dark:bg-slate-800/65 dark:text-slate-200"
+            aria-label={`${category.questions.length} preguntas en ${category.label}`}
+          >
+            <span aria-hidden="true">{category.questions.length}</span>
           </span>
         </div>
 
-        <ul class="questions-list">
+        <ul class="questions-list" aria-describedby={countId}>
           {category.questions.map(({ id, text }) => {
             const textHtml = renderInlineMarkdown(text)
             const plainText = stripMarkdown(text)
@@ -68,10 +80,10 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
                   href={`/${id}#content`}
                   data-read-item
                   data-read-title={text}
-                  aria-label={plainText}
                 >
                   <span class="status-dot" data-status-dot aria-hidden="true" />
                   <span set:html={textHtml} />
+                  <span class="sr-only" data-read-status></span>
                 </a>
               ) : (
                 <a
@@ -86,7 +98,8 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
           })}
         </ul>
       </section>
-    ))
+      )
+    })
   }
 </div>
 
@@ -100,13 +113,6 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
       }
     }
 
-    function plainLabel(text: string) {
-      return text
-        .replace(/`([^`]+)`/g, '$1')
-        .replace(/\*\*([^*]+)\*\*/g, '$1')
-        .replace(/(^|[\s(])_([^_]+)_([\s).,;:?!]|$)/g, '$1$2$3')
-    }
-
     function paintReadItems() {
       const read = getRead()
       document.querySelectorAll<HTMLElement>('[data-read-item]').forEach(el => {
@@ -117,10 +123,10 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
         el.classList.toggle('dark:text-green-300', isRead)
         const dot = el.querySelector('[data-status-dot]')
         dot?.classList.toggle('status-dot-read', isRead)
-        el.setAttribute(
-          'aria-label',
-          `${plainLabel(title)}${isRead ? ' (leída)' : ' (no leída)'}`
-        )
+        const status = el.querySelector('[data-read-status]')
+        if (status) {
+          status.textContent = isRead ? ' (leída)' : ' (no leída)'
+        }
       })
     }
 

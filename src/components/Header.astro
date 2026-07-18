@@ -11,25 +11,28 @@ const literal = isHome ? 'Inicio' : 'Volver al inicio'
 const total = counter.total
 ---
 
-<header class="relative pb-10 pt-14 md:pt-16">
+<header class="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-16">
   {
     isHome && (
       <nav
-        aria-label="Acciones de la pagina"
-        class="absolute right-0 top-2 z-20 flex items-center gap-x-3 rounded-full border border-slate-200/80 bg-white/80 px-2 py-1.5 shadow-sm backdrop-blur-md dark:border-slate-700/80 dark:bg-slate-900/80"
+        aria-label="Acciones del sitio"
+        class="absolute right-5 top-2 z-20 flex items-center gap-x-3 rounded-full border border-slate-200/80 bg-white/80 px-2 py-1.5 shadow-sm backdrop-blur-md md:right-8 dark:border-slate-700/80 dark:bg-slate-900/80"
       >
         <ThemeToggle />
         <Stars />
-        <a href="/questions">
-          <span
-            class="inline-flex items-center gap-1.5 rounded-full border border-transparent px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
-            data-read-counter
-          >
-            <span>Leídas</span>
-            <span class="tabular-nums tracking-normal normal-case">
-              <span data-read-count>0</span>/{total}
-            </span>
+        <a
+          href="/questions"
+          class="inline-flex items-center gap-1.5 rounded-full border border-transparent px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+          data-read-counter
+        >
+          <span>Leídas</span>
+          <span class="tabular-nums tracking-normal normal-case" aria-live="polite">
+            <span data-read-count>0</span>
+            <span class="sr-only"> de </span>
+            <span aria-hidden="true">/</span>
+            {total}
           </span>
+          <span class="sr-only">preguntas leídas de {total}</span>
         </a>
       </nav>
     )
@@ -44,6 +47,7 @@ const total = counter.total
     <a
       class="inline-flex w-fit rounded-full border border-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
       href="/"
+      aria-current={isHome ? 'page' : undefined}
     >
       {
         !isHome && (
@@ -71,9 +75,9 @@ const total = counter.total
       <Title isHome={isHome} />
       {
         isHome && (
-          <div class="absolute p-2 overflow-hidden -right-4 md:right-0 top-6 dark:invert">
+          <div class="absolute -right-4 top-6 overflow-hidden p-2 md:right-0 dark:invert" aria-hidden="true">
             <div class="translate-x-1/3 sm:translate-x-0">
-              <ReactLogo />
+              <ReactLogo animated />
             </div>
           </div>
         )
@@ -88,10 +92,10 @@ const total = counter.total
     data-search-form
     onsubmit="return false"
   >
-    <label class="relative w-full">
-      <span class="sr-only">Buscar preguntas</span>
+    <div class="relative w-full">
+      <label for="search-input" class="sr-only">Buscar preguntas sobre React</label>
       <div
-        class="absolute px-4 py-3 text-slate-400 dark:text-slate-500"
+        class="pointer-events-none absolute px-4 py-3 text-slate-400 dark:text-slate-500"
         aria-hidden="true"
       >
         <svg
@@ -102,7 +106,7 @@ const total = counter.total
           fill="none"
           stroke="currentColor"
           stroke-width="1.5"
-          class="w-8 h-8 md:w-12 md:h-12"
+          class="h-8 w-8 md:h-12 md:w-12"
         >
           <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
           <path d="M21 21l-6 -6"></path>
@@ -113,17 +117,28 @@ const total = counter.total
         data-search-input
         class="search-input z-10 block w-full appearance-none rounded-2xl border border-slate-200 bg-white p-4 pl-14 text-base font-bold text-slate-900 outline-hidden transition-all duration-300 hover:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/25 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-100 dark:hover:border-blue-500/50 dark:focus:border-blue-400 dark:focus:ring-blue-400/25 md:p-6 md:pl-20 md:text-xl"
         type="search"
+        name="q"
         placeholder="Introduce aquí tu pregunta sobre React"
         autocomplete="off"
+        enterkeyhint="search"
+        spellcheck="false"
+        role="combobox"
         aria-autocomplete="list"
         aria-controls="search-results"
         aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-describedby="search-hint"
       />
-    </label>
+      <p id="search-hint" class="sr-only">
+        Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer
+        resultados y Enter para abrir la pregunta.
+      </p>
+    </div>
     <ul
       id="search-results"
       data-search-results
       role="listbox"
+      aria-label="Resultados de búsqueda"
       class="absolute z-50 hidden w-full overflow-hidden rounded-2xl rounded-t-none border border-slate-200 bg-white text-slate-900 shadow-2xl shadow-black/10 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 dark:shadow-black/50"
     >
     </ul>
@@ -139,6 +154,15 @@ const total = counter.total
   let fuse: Fuse<IndexItem> | null = null
   let activeIndex = -1
   let currentResults: Fuse.FuseResult<IndexItem>[] = []
+
+  function announce(message: string) {
+    const el = document.getElementById('a11y-status')
+    if (!el) return
+    el.textContent = ''
+    requestAnimationFrame(() => {
+      el.textContent = message
+    })
+  }
 
   async function ensureFuse() {
     if (fuse) return fuse
@@ -167,7 +191,6 @@ const total = counter.total
     })
   }
 
-  /** Inline Markdown → HTML (code, emphasis). Escape first so raw text is safe. */
   function renderInlineMarkdown(text: string): string {
     const escaped = text
       .replace(/&/g, '&amp;')
@@ -185,7 +208,6 @@ const total = counter.total
     const [bestMatch] = [...indices].sort((a, b) => b[1] - b[0] - (a[1] - a[0]))
     if (!bestMatch) return renderInlineMarkdown(text)
 
-    // Highlight on raw source, then format Markdown outside the mark tags.
     const before = text.slice(0, bestMatch[0])
     const matched = text.slice(bestMatch[0], bestMatch[1] + 1)
     const after = text.slice(bestMatch[1] + 1)
@@ -205,12 +227,16 @@ const total = counter.total
 
     currentResults = results
     activeIndex = -1
+    input.removeAttribute('aria-activedescendant')
 
     if (results.length === 0) {
       list.classList.add('hidden')
       list.innerHTML = ''
       input.classList.remove('focus:rounded-b-none', 'focus:border-b-0')
       input.setAttribute('aria-expanded', 'false')
+      if (input.value.trim().length >= 2) {
+        announce('No se encontraron preguntas')
+      }
       return
     }
 
@@ -221,13 +247,19 @@ const total = counter.total
       .map((result, i) => {
         const { item, matches } = result
         const html = highlight(item.text, matches)
-        return `<li role="option" id="search-option-${i}" data-index="${i}" aria-selected="false"><a href="/${item.id}#content" class="rich-text block p-4 text-slate-900 hover:bg-blue-50 dark:text-slate-100 dark:hover:bg-blue-500/12 cursor-pointer" data-search-link><strong class="text-slate-950 dark:text-white">${html}</strong></a></li>`
+        return `<li role="option" id="search-option-${i}" data-index="${i}" aria-selected="false"><a href="/${item.id}#content" class="rich-text block p-4 text-slate-900 hover:bg-blue-50 dark:text-slate-100 dark:hover:bg-blue-500/12 cursor-pointer" data-search-link tabindex="-1"><span class="font-bold text-slate-950 dark:text-white">${html}</span></a></li>`
       })
       .join('')
+    announce(
+      results.length === 1
+        ? '1 resultado encontrado'
+        : `${results.length} resultados encontrados`
+    )
   }
 
   function setActive(index: number) {
     const list = document.querySelector('[data-search-results]')
+    const input = document.querySelector<HTMLInputElement>('[data-search-input]')
     if (!list) return
     const options = list.querySelectorAll<HTMLElement>('[role="option"]')
     options.forEach((opt, i) => {
@@ -240,6 +272,12 @@ const total = counter.total
       opt.setAttribute('aria-selected', active ? 'true' : 'false')
     })
     activeIndex = index
+    if (index >= 0) {
+      input?.setAttribute('aria-activedescendant', `search-option-${index}`)
+      options[index]?.scrollIntoView({ block: 'nearest' })
+    } else {
+      input?.removeAttribute('aria-activedescendant')
+    }
   }
 
   function goTo(id: string) {
@@ -262,8 +300,11 @@ const total = counter.total
     if (input.dataset.bound === '1') return
     input.dataset.bound = '1'
 
-    if (window.location.pathname === '/' || window.location.pathname === '') {
-      input.focus()
+    const params = new URLSearchParams(window.location.search)
+    const q = params.get('q')
+    if (q) {
+      input.value = q
+      runSearch(q)
     }
 
     input.addEventListener('input', e => {
@@ -288,12 +329,25 @@ const total = counter.total
       } else if (e.key === 'Escape') {
         renderResults([])
         input.blur()
+      } else if (e.key === 'Home' && activeIndex >= 0) {
+        e.preventDefault()
+        setActive(0)
+      } else if (e.key === 'End' && activeIndex >= 0) {
+        e.preventDefault()
+        setActive(currentResults.length - 1)
       }
     })
 
     list.addEventListener('mousemove', e => {
       const li = (e.target as HTMLElement).closest<HTMLElement>('[data-index]')
       if (li?.dataset.index != null) setActive(Number(li.dataset.index))
+    })
+
+    document.addEventListener('click', e => {
+      const target = e.target as Node
+      if (!input.contains(target) && !list.contains(target)) {
+        renderResults([])
+      }
     })
   }
 

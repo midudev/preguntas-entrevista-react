@@ -101,8 +101,18 @@
   transition: top 150ms ease;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 1rem;
+  outline: 2px solid rgb(96 165 250);
+  outline-offset: 2px;
+}
+
+/* Prefer native scroll margin for in-page anchors */
+:target,
+#content,
+#main-content {
+  scroll-margin-top: 1.25rem;
 }
 
 /* ─── Visually hidden ─── */

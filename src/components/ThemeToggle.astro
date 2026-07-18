@@ -1,7 +1,8 @@
 <button
   type="button"
   id="theme-toggle"
-  aria-label="Cambiar tema"
+  aria-label="Activar tema oscuro"
+  aria-pressed="false"
   class="relative flex h-7 w-14 cursor-pointer items-center justify-between rounded-full border border-slate-200 px-1.5 shadow-sm transition hover:border-blue-300 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-400/50 dark:border-slate-600 dark:hover:border-blue-500"
   data-theme-toggle
 >
@@ -9,14 +10,26 @@
   <span
     id="theme-toggle-knob"
     class="absolute top-0.75 h-5 w-5 rounded-full transition-transform duration-300 left-7.75 bg-slate-800 shadow-[0_0_0_2px_rgba(59,130,246,0.2)] dark:left-0.75 dark:bg-blue-400 dark:shadow-[0_0_0_2px_rgba(30,41,59,0.5)]"
+    aria-hidden="true"
   ></span>
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="z-10 text-amber-500" aria-hidden="true"><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg>
 </button>
 
 <script>
+  function syncThemeButton(btn: HTMLElement) {
+    const isDark = document.documentElement.classList.contains('dark')
+    btn.setAttribute('aria-pressed', isDark ? 'true' : 'false')
+    btn.setAttribute(
+      'aria-label',
+      isDark ? 'Activar tema claro' : 'Activar tema oscuro'
+    )
+  }
+
   function initThemeToggle() {
-    const btn = document.querySelector('[data-theme-toggle]')
-    if (!btn || btn.dataset.bound === '1') return
+    const btn = document.querySelector<HTMLElement>('[data-theme-toggle]')
+    if (!btn) return
+    syncThemeButton(btn)
+    if (btn.dataset.bound === '1') return
     btn.dataset.bound = '1'
 
     const apply = (theme: string) => {
@@ -24,6 +37,15 @@
       try {
         localStorage.setItem('theme', theme)
       } catch {}
+      syncThemeButton(btn)
+      const status = document.getElementById('a11y-status')
+      if (status) {
+        status.textContent = ''
+        requestAnimationFrame(() => {
+          status.textContent =
+            theme === 'dark' ? 'Tema oscuro activado' : 'Tema claro activado'
+        })
+      }
     }
 
     btn.addEventListener('click', () => {
