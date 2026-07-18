@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="React.js Wiki">
+  <style>
+    .bg { fill: #0a0f1a; }
+    .orbit { fill: none; stroke: #61dafb; stroke-width: 1.35; }
+    .core { fill: #61dafb; }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #fafbff; }
+      .orbit { stroke: #087ea4; }
+      .core { fill: #087ea4; }
+    }
+  </style>
+  <rect class="bg" width="32" height="32" rx="7" />
+  <g transform="translate(16 16)">
+    <ellipse class="orbit" rx="11" ry="4.2" />
+    <ellipse class="orbit" rx="11" ry="4.2" transform="rotate(60)" />
+    <ellipse class="orbit" rx="11" ry="4.2" transform="rotate(120)" />
+    <circle class="core" r="2.1" />
+  </g>
+</svg>
