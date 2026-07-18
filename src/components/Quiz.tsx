@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import {
   IconCheck,
   IconX,
@@ -19,6 +19,10 @@ export function Quiz({ slug }: { slug: string }) {
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState({})
   const [score, setScore] = useState(0)
+  const [focusOption, setFocusOption] = useState(0)
+  const nextBtnRef = useRef(null)
+  const resultBtnRef = useRef(null)
+  const questionHeadingRef = useRef(null)
 
   useEffect(() => {
     if (!slug) {
@@ -65,18 +69,41 @@ export function Quiz({ slug }: { slug: string }) {
   const answered = answers[question?.id]
   const isLast = current === total - 1
 
+  // After answering, move focus to the primary action (no auto-advance —
+  // better for keyboard / screen-reader control).
+  useEffect(() => {
+    if (!answered) return
+    const id = window.setTimeout(() => {
+      if (isLast) resultBtnRef.current?.focus()
+      else nextBtnRef.current?.focus()
+    }, 50)
+    return () => window.clearTimeout(id)
+  }, [answered, isLast, current])
+
+  // Announce question changes by focusing the heading when the index changes
+  // (not on first mount of each load to avoid fighting the page).
+  const prevCurrent = useRef(null)
+  useEffect(() => {
+    if (status !== 'ready') return
+    if (prevCurrent.current === null) {
+      prevCurrent.current = current
+      return
+    }
+    if (prevCurrent.current !== current) {
+      prevCurrent.current = current
+      setFocusOption(0)
+      questionHeadingRef.current?.focus({ preventScroll: false })
+    }
+  }, [current, status])
+
   const handleSelect = useCallback(
     alternative => {
       if (answered) return
       const isCorrect = alternative.is_correct
       setAnswers(prev => ({ ...prev, [question.id]: alternative.id }))
       if (isCorrect) setScore(s => s + 1)
-      setTimeout(() => {
-        if (!isLast) setCurrent(c => c + 1)
-        else setStatus('finished')
-      }, 900)
     },
-    [answered, question, isLast]
+    [answered, question]
   )
 
   const handleNext = () => {
@@ -95,6 +122,7 @@ export function Quiz({ slug }: { slug: string }) {
     setAnswers({})
     setScore(0)
     setCurrent(0)
+    setFocusOption(0)
     setQuestions(qs =>
       qs.map(q => ({
         ...q,
@@ -102,6 +130,38 @@ export function Quiz({ slug }: { slug: string }) {
       }))
     )
     setStatus('ready')
+  }
+
+  const handleRadioKeyDown = (e, index) => {
+    if (answered) return
+    const count = question?.alternatives?.length ?? 0
+    if (!count) return
+
+    let next = index
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault()
+      next = (index + 1) % count
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault()
+      next = (index - 1 + count) % count
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      next = 0
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      next = count - 1
+    } else if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault()
+      handleSelect(question.alternatives[index])
+      return
+    } else {
+      return
+    }
+    setFocusOption(next)
+    // Focus the button after state update
+    requestAnimationFrame(() => {
+      document.getElementById(`quiz-option-${question.id}-${next}`)?.focus()
+    })
   }
 
   function prepareAlternatives(full = []) {
@@ -217,10 +277,11 @@ export function Quiz({ slug }: { slug: string }) {
         </div>
 
         <details className='group rounded-xl border border-slate-200 dark:border-slate-700/80 overflow-hidden'>
-          <summary className='flex cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/60'>
+          <summary className='flex cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:bg-slate-800/60'>
             <IconChevronDown
               size={16}
               className='transition-transform group-open:rotate-180'
+              aria-hidden='true'
             />
             Ver resumen de respuestas
           </summary>
@@ -242,11 +303,13 @@ export function Quiz({ slug }: { slug: string }) {
                       <IconCheck
                         size={14}
                         className='mt-0.5 shrink-0 text-emerald-500'
+                        aria-hidden='true'
                       />
                     ) : (
                       <IconX
                         size={14}
                         className='mt-0.5 shrink-0 text-red-500'
+                        aria-hidden='true'
                       />
                     )}
                     <span
@@ -256,13 +319,23 @@ export function Quiz({ slug }: { slug: string }) {
                           : 'text-red-600 dark:text-red-400'
                       }
                     >
+                      <span className='sr-only'>
+                        {isCorrect ? 'Correcta: ' : 'Tu respuesta: '}
+                      </span>
                       {userAlt?.text || '—'}
                     </span>
                   </div>
                   {!isCorrect && (
                     <div className='mt-1 ml-5 flex items-start gap-1.5 text-emerald-600 dark:text-emerald-400'>
-                      <IconCheck size={14} className='mt-0.5 shrink-0' />
-                      <span>{correctAlt?.text}</span>
+                      <IconCheck
+                        size={14}
+                        className='mt-0.5 shrink-0'
+                        aria-hidden='true'
+                      />
+                      <span>
+                        <span className='sr-only'>Respuesta correcta: </span>
+                        {correctAlt?.text}
+                      </span>
                     </div>
                   )}
                 </li>
@@ -328,7 +401,9 @@ export function Quiz({ slug }: { slug: string }) {
 
       <h3
         id={questionHeadingId}
-        className='text-xl font-bold leading-snug text-slate-900 dark:text-white md:text-2xl'
+        ref={questionHeadingRef}
+        tabIndex={-1}
+        className='text-xl font-bold leading-snug text-slate-900 outline-none dark:text-white md:text-2xl'
       >
         {question.question}
       </h3>
@@ -343,6 +418,7 @@ export function Quiz({ slug }: { slug: string }) {
           const correctness = answered && alt.is_correct
           const isWrongSelection = answered && selected && !alt.is_correct
           const letter = LETTERS[idx] || String.fromCharCode(65 + idx)
+          const isFocused = focusOption === idx
 
           let optionStyle =
             'border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 dark:border-slate-700 dark:bg-slate-800/60 dark:hover:border-blue-500/50 dark:hover:bg-blue-500/5'
@@ -373,12 +449,19 @@ export function Quiz({ slug }: { slug: string }) {
             <div key={alt.id}>
               <button
                 type='button'
+                id={`quiz-option-${question.id}-${idx}`}
                 role='radio'
                 aria-checked={!!selected}
                 aria-describedby={answered ? feedbackId : undefined}
-                onClick={() => handleSelect(alt)}
+                tabIndex={answered ? -1 : isFocused ? 0 : -1}
+                onClick={() => {
+                  setFocusOption(idx)
+                  handleSelect(alt)
+                }}
+                onKeyDown={e => handleRadioKeyDown(e, idx)}
+                onFocus={() => setFocusOption(idx)}
                 disabled={!!answered}
-                className={`group flex min-h-12 w-full items-center gap-3.5 rounded-xl border px-4 py-3.5 text-left text-sm transition-all duration-200 disabled:cursor-default md:text-base ${optionStyle}`}
+                className={`group flex min-h-12 w-full items-center gap-3.5 rounded-xl border px-4 py-3.5 text-left text-sm transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 disabled:cursor-default md:text-base ${optionStyle}`}
               >
                 <span
                   className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border text-xs font-bold transition-all ${letterStyle}`}
@@ -397,7 +480,12 @@ export function Quiz({ slug }: { slug: string }) {
       </div>
 
       {answered && (
-        <p id={feedbackId} className='sr-only' role='status' aria-live='polite'>
+        <p
+          id={feedbackId}
+          className='rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-200'
+          role='status'
+          aria-live='polite'
+        >
           {feedbackText}
         </p>
       )}
@@ -405,9 +493,10 @@ export function Quiz({ slug }: { slug: string }) {
       {answered && !isLast && (
         <div className='flex justify-end'>
           <button
+            ref={nextBtnRef}
             type='button'
             onClick={handleNext}
-            className='inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 active:scale-[0.97] dark:bg-blue-500 dark:hover:bg-blue-400'
+            className='inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:scale-[0.97] dark:bg-blue-500 dark:hover:bg-blue-400'
           >
             Siguiente
             <IconArrowRight size={16} aria-hidden='true' />
@@ -417,9 +506,10 @@ export function Quiz({ slug }: { slug: string }) {
       {answered && isLast && (
         <div className='flex justify-end'>
           <button
+            ref={resultBtnRef}
             type='button'
             onClick={() => setStatus('finished')}
-            className='inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 active:scale-[0.97] dark:bg-blue-500 dark:hover:bg-blue-400'
+            className='inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:scale-[0.97] dark:bg-blue-500 dark:hover:bg-blue-400'
           >
             <IconTrophy size={16} aria-hidden='true' />
             Ver resultado

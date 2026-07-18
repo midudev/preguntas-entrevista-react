@@ -22,17 +22,24 @@ export function enhanceCodeBlocks(html: string): string {
 
       const classAttr = className ? ` class="${className}"` : ''
       const langAttr = lang ? ` data-lang="${escapeAttr(lang)}"` : ''
+      const linesLabel =
+        lineCount === 1 ? '1 línea' : `${lineCount} líneas`
       const header = langLabel
-        ? `<div class="code-block-header"><span class="code-block-lang">${escapeHtml(langLabel)}</span><span class="code-block-meta" aria-hidden="true">${lineCount} ${lineCount === 1 ? 'línea' : 'líneas'}</span></div>`
+        ? `<div class="code-block-header"><span class="code-block-lang">${escapeHtml(langLabel)}</span><span class="code-block-meta" aria-hidden="true">${escapeHtml(linesLabel)}</span></div>`
         : ''
 
+      const regionLabel = langLabel
+        ? `Bloque de código ${langLabel}, ${linesLabel}`
+        : `Bloque de código, ${linesLabel}`
+
       return (
-        `<div class="code-block"${langAttr}>` +
+        `<div class="code-block"${langAttr} role="group" aria-label="${escapeAttr(regionLabel)}">` +
         header +
         `<div class="code-block-body">` +
         `<div class="code-gutter" aria-hidden="true">${gutter}</div>` +
-        // Keep Prism HTML intact (including cross-line token spans)
-        `<pre class="code-block-pre" tabindex="0"><code${classAttr}>${codeHtml}</code></pre>` +
+        // Keep Prism HTML intact (including cross-line token spans).
+        // tabindex allows keyboard users to scroll wide code with arrows.
+        `<pre class="code-block-pre" tabindex="0" aria-label="${escapeAttr(regionLabel)}"><code${classAttr}>${codeHtml}</code></pre>` +
         `</div></div>`
       )
     }

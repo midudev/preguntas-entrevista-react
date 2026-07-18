@@ -2,21 +2,65 @@
 import BookCover from './BookCover.astro'
 ---
 
-<aside class="fixed m-4 bottom-4 right-4 z-20" aria-label="Promoción del libro">
+<aside
+  class="fixed bottom-4 right-4 z-20 m-4"
+  aria-label="Promoción del libro"
+  data-buy-book
+>
   <div class="relative">
+    <button
+      type="button"
+      class="absolute -right-1 -top-1 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:bg-slate-800 dark:hover:text-white"
+      data-buy-book-dismiss
+      aria-label="Cerrar promoción del libro"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M18 6L6 18"></path>
+        <path d="M6 6l12 12"></path>
+      </svg>
+    </button>
     <a
       href="https://leanpub.com/react-preguntas-tipicas"
       target="_blank"
       rel="noopener noreferrer"
+      class="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
       aria-label="Comprar el libro de preguntas típicas de React en Leanpub (se abre en una pestaña nueva)"
     >
-      <span class="pill-tag mb-4 gap-1 border-slate-300/60 bg-slate-50 font-bold text-slate-600 shadow-[0_8px_30px_rgb(59_130_246_/_12%)] backdrop-blur-md transition-colors hover:border-blue-400/50 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-600/60 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17h-11v-14h-2"/><path d="M6 5l14 1l-1 7h-13"/></svg>
+      <span
+        class="pill-tag mb-4 gap-1 border-slate-300/60 bg-slate-50 font-bold text-slate-600 shadow-[0_8px_30px_rgb(59_130_246_/_12%)] backdrop-blur-md transition-colors hover:border-blue-400/50 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-600/60 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+        aria-hidden="true"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          ><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
+            d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
+            d="M17 17h-11v-14h-2"></path><path d="M6 5l14 1l-1 7h-13"></path
+          ></svg
+        >
         Compra el libro
       </span>
       <BookCover width={136} height={176}>
         <img
-          alt="Portada del libro de Preguntas de React"
+          alt=""
           src="/book.webp"
           width="136"
           height="176"
@@ -27,3 +71,46 @@ import BookCover from './BookCover.astro'
     </a>
   </div>
 </aside>
+
+<script>
+  const STORAGE_KEY = 'buy-book-dismissed'
+
+  function initBuyBook() {
+    const root = document.querySelector<HTMLElement>('[data-buy-book]')
+    const dismiss = document.querySelector<HTMLButtonElement>(
+      '[data-buy-book-dismiss]'
+    )
+    if (!root || !dismiss) return
+
+    try {
+      if (localStorage.getItem(STORAGE_KEY) === '1') {
+        root.hidden = true
+        return
+      }
+    } catch {
+      /* private mode */
+    }
+
+    if (dismiss.dataset.bound === '1') return
+    dismiss.dataset.bound = '1'
+
+    dismiss.addEventListener('click', () => {
+      root.hidden = true
+      try {
+        localStorage.setItem(STORAGE_KEY, '1')
+      } catch {
+        /* ignore */
+      }
+      const status = document.getElementById('a11y-status')
+      if (status) {
+        status.textContent = ''
+        requestAnimationFrame(() => {
+          status.textContent = 'Promoción del libro cerrada'
+        })
+      }
+    })
+  }
+
+  initBuyBook()
+  document.addEventListener('astro:page-load', initBuyBook)
+</script>
