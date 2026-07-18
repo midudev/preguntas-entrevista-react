@@ -13,7 +13,10 @@ const total = counter.total
 {
   isHome ? (
     <header class="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-16">
-      <nav aria-label="Acciones del sitio" class="site-actions absolute right-5 top-2 z-20 md:right-8">
+      <nav
+        aria-label="Acciones del sitio"
+        class="site-actions hero-reveal hero-reveal-fade hero-d1 absolute right-5 top-2 z-20 md:right-8"
+      >
         <ThemeToggle />
         <span class="site-actions-sep" aria-hidden="true"></span>
         <Stars />
@@ -53,7 +56,10 @@ const total = counter.total
       <div class="relative">
         <div class="flex gap-x-2">
           <Title isHome />
-          <div class="absolute -right-4 top-6 overflow-hidden p-2 md:right-0 dark:invert" aria-hidden="true">
+          <div
+            class="hero-reveal hero-reveal-scale hero-d3 absolute -right-4 top-6 overflow-hidden p-2 md:right-0 dark:invert"
+            aria-hidden="true"
+          >
             <div class="translate-x-1/3 sm:translate-x-0">
               <ReactLogo animated />
             </div>
@@ -62,7 +68,7 @@ const total = counter.total
       </div>
 
       <form
-        class="search-shell mt-6"
+        class="search-shell hero-reveal hero-reveal-soft hero-d4 mt-6"
         role="search"
         aria-label="Buscar preguntas sobre React"
         data-search-form

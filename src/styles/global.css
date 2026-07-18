@@ -228,7 +228,10 @@
 #content,
 #main-content,
 #search-input,
-#quiz-heading {
+#quiz-heading,
+#featured-heading,
+#archive-heading,
+#home-intro-heading {
   scroll-margin-top: 5.5rem;
 }
 
@@ -237,7 +240,10 @@
   #content,
   #main-content,
   #search-input,
-  #quiz-heading {
+  #quiz-heading,
+  #featured-heading,
+  #archive-heading,
+  #home-intro-heading {
     scroll-margin-top: 4.5rem;
   }
 }
@@ -267,6 +273,442 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ─── Hero staggered entrance ─── */
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.1rem, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-rise-soft {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.65rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-reveal {
+  --hero-delay: 0ms;
+  --hero-duration: 700ms;
+  opacity: 0;
+  animation: hero-rise var(--hero-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--hero-delay) both;
+  will-change: opacity, transform, filter;
+}
+
+.hero-reveal-soft {
+  animation-name: hero-rise-soft;
+  --hero-duration: 600ms;
+}
+
+.hero-reveal-scale {
+  animation-name: hero-scale-in;
+  --hero-duration: 800ms;
+}
+
+.hero-reveal-fade {
+  animation-name: hero-fade;
+  --hero-duration: 500ms;
+}
+
+/* Stagger steps for home intro pieces */
+.hero-d1 {
+  --hero-delay: 80ms;
+}
+.hero-d2 {
+  --hero-delay: 160ms;
+}
+.hero-d3 {
+  --hero-delay: 260ms;
+}
+.hero-d4 {
+  --hero-delay: 360ms;
+}
+.hero-d5 {
+  --hero-delay: 460ms;
+}
+.hero-d6 {
+  --hero-delay: 560ms;
+}
+.hero-d7 {
+  --hero-delay: 660ms;
+}
+.hero-d8 {
+  --hero-delay: 760ms;
+}
+.hero-d9 {
+  --hero-delay: 860ms;
+}
+.hero-d10 {
+  --hero-delay: 960ms;
+}
+.hero-d11 {
+  --hero-delay: 1060ms;
+}
+.hero-d12 {
+  --hero-delay: 1160ms;
+}
+
+/* Level chips: cascade left → right */
+.home-intro-levels > li:nth-child(1) {
+  --hero-delay: 900ms;
+}
+.home-intro-levels > li:nth-child(2) {
+  --hero-delay: 980ms;
+}
+.home-intro-levels > li:nth-child(3) {
+  --hero-delay: 1060ms;
+}
+.home-intro-levels > li:nth-child(4) {
+  --hero-delay: 1140ms;
+}
+
+/* Featured cards cascade after hero */
+.home-featured-list > li:nth-child(1) {
+  --hero-delay: 1100ms;
+}
+.home-featured-list > li:nth-child(2) {
+  --hero-delay: 1200ms;
+}
+.home-featured-list > li:nth-child(3) {
+  --hero-delay: 1300ms;
+}
+.home-featured-list > li:nth-child(4) {
+  --hero-delay: 1400ms;
+}
+.home-featured-list > li:nth-child(5) {
+  --hero-delay: 1500ms;
+}
+.home-featured-list > li:nth-child(6) {
+  --hero-delay: 1600ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .hero-reveal-soft,
+  .hero-reveal-scale,
+  .hero-reveal-fade,
+  .home-intro-levels > li,
+  .home-featured-list > li {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ─── Home intro (below search) ─── */
+
+.home-intro {
+  margin-top: 0.25rem;
+  padding: 1.5rem 0 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .home-intro {
+    padding-top: 1.75rem;
+  }
+}
+
+.home-intro-kicker {
+  margin: 0 0 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(37 99 235);
+}
+
+.dark .home-intro-kicker {
+  color: rgb(147 197 253);
+}
+
+.home-intro-title {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 1.2rem + 2.4vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: rgb(15 23 42);
+  text-wrap: balance;
+}
+
+.dark .home-intro-title {
+  color: rgb(248 250 252);
+}
+
+.home-intro-title-accent {
+  display: block;
+  color: rgb(37 99 235);
+}
+
+.dark .home-intro-title-accent {
+  color: rgb(96 165 250);
+}
+
+.home-intro-lead {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgb(71 85 105);
+}
+
+.dark .home-intro-lead {
+  color: rgb(148 163 184);
+}
+
+.home-intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.home-intro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.6rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.home-intro-btn:active {
+  transform: scale(0.98);
+}
+
+.home-intro-btn-primary {
+  background: rgb(37 99 235);
+  color: white;
+  box-shadow: 0 8px 20px rgb(37 99 235 / 22%);
+}
+
+.home-intro-btn-primary:hover {
+  background: rgb(29 78 216);
+  color: white;
+}
+
+.dark .home-intro-btn-primary {
+  background: rgb(59 130 246);
+  box-shadow: 0 8px 24px rgb(37 99 235 / 28%);
+}
+
+.dark .home-intro-btn-primary:hover {
+  background: rgb(96 165 250);
+  color: rgb(15 23 42);
+}
+
+.home-intro-btn-ghost {
+  border: 1px solid rgb(226 232 240);
+  background: rgb(255 255 255 / 60%);
+  color: rgb(51 65 85);
+}
+
+.home-intro-btn-ghost:hover {
+  border-color: rgb(147 197 253);
+  background: white;
+  color: rgb(29 78 216);
+}
+
+.dark .home-intro-btn-ghost {
+  border-color: rgb(255 255 255 / 12%);
+  background: rgb(15 23 42 / 40%);
+  color: rgb(203 213 225);
+}
+
+.dark .home-intro-btn-ghost:hover {
+  border-color: rgb(96 165 250 / 45%);
+  background: rgb(30 41 59);
+  color: rgb(191 219 254);
+}
+
+.home-intro-levels {
+  list-style: none;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+@media (min-width: 640px) {
+  .home-intro-levels {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.home-level-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-height: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.9rem;
+  background: rgb(255 255 255 / 70%);
+  text-decoration: none;
+  transition:
+    border-color 140ms ease,
+    background-color 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.home-level-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgb(15 23 42 / 6%);
+}
+
+.home-level-chip-count {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: rgb(15 23 42);
+}
+
+.home-level-chip-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgb(100 116 139);
+}
+
+.dark .home-level-chip {
+  border-color: rgb(255 255 255 / 10%);
+  background: rgb(15 23 42 / 45%);
+}
+
+.dark .home-level-chip:hover {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+}
+
+.dark .home-level-chip-count {
+  color: rgb(248 250 252);
+}
+
+.dark .home-level-chip-name {
+  color: rgb(148 163 184);
+}
+
+.home-level-chip-easy {
+  border-color: rgb(16 185 129 / 25%);
+}
+.home-level-chip-easy:hover {
+  border-color: rgb(16 185 129 / 50%);
+  background: rgb(236 253 245 / 70%);
+}
+.home-level-chip-easy .home-level-chip-count {
+  color: rgb(5 150 105);
+}
+
+.home-level-chip-medium {
+  border-color: rgb(245 158 11 / 25%);
+}
+.home-level-chip-medium:hover {
+  border-color: rgb(245 158 11 / 50%);
+  background: rgb(255 251 235 / 70%);
+}
+.home-level-chip-medium .home-level-chip-count {
+  color: rgb(217 119 6);
+}
+
+.home-level-chip-hard {
+  border-color: rgb(139 92 246 / 25%);
+}
+.home-level-chip-hard:hover {
+  border-color: rgb(139 92 246 / 50%);
+  background: rgb(245 243 255 / 70%);
+}
+.home-level-chip-hard .home-level-chip-count {
+  color: rgb(124 58 237);
+}
+
+.home-level-chip-errors {
+  border-color: rgb(244 63 94 / 25%);
+}
+.home-level-chip-errors:hover {
+  border-color: rgb(244 63 94 / 50%);
+  background: rgb(255 241 242 / 70%);
+}
+.home-level-chip-errors .home-level-chip-count {
+  color: rgb(225 29 72);
+}
+
+.dark .home-level-chip-easy:hover {
+  background: rgb(6 78 59 / 25%);
+}
+.dark .home-level-chip-easy .home-level-chip-count {
+  color: rgb(52 211 153);
+}
+
+.dark .home-level-chip-medium:hover {
+  background: rgb(120 53 15 / 25%);
+}
+.dark .home-level-chip-medium .home-level-chip-count {
+  color: rgb(251 191 36);
+}
+
+.dark .home-level-chip-hard:hover {
+  background: rgb(76 29 149 / 25%);
+}
+.dark .home-level-chip-hard .home-level-chip-count {
+  color: rgb(167 139 250);
+}
+
+.dark .home-level-chip-errors:hover {
+  background: rgb(136 19 55 / 25%);
+}
+.dark .home-level-chip-errors .home-level-chip-count {
+  color: rgb(251 113 133);
 }
 
 /* ─── Hero panel ─── */

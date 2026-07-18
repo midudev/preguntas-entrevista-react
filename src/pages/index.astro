@@ -63,6 +63,12 @@ const featured = [
 
 const allQuestions = readIndex()
 const totalQuestions = allQuestions.length
+const byLevel = {
+  beginner: allQuestions.filter(q => q.level === LEVELS.EASY).length,
+  intermediate: allQuestions.filter(q => q.level === LEVELS.MEDIUM).length,
+  expert: allQuestions.filter(q => q.level === LEVELS.HARD).length,
+  errors: allQuestions.filter(q => q.level === LEVELS.ERRORS).length,
+}
 
 const jsonLd = [
   {
@@ -141,39 +147,78 @@ const jsonLd = [
   canonical="/"
   jsonLd={jsonLd}
 >
-  <section
-    class="animate-fade-in-up animate-duration-700 py-6 md:py-10"
-    aria-labelledby="home-intro-heading"
-  >
-    <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-blue-700 dark:border-blue-400/25 dark:bg-blue-400/10 dark:text-blue-300">
-      <span class="h-1.5 w-1.5 rounded-full bg-blue-500 dark:bg-blue-400" aria-hidden="true"></span>
-      Guía para entrevistas
-    </p>
-    <h2
-      id="home-intro-heading"
-      class="font-display max-w-4xl text-4xl leading-[1.08] text-slate-950 md:text-6xl dark:text-white"
-    >
-      Domina React con preguntas reales, respuestas claras y ejemplos que te
-      preparan para cualquier entrevista.
-    </h2>
-    <p class="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg dark:text-slate-300">
-      Seleccionamos los temas que más se repiten en procesos de selección
-      para que practiques con contexto, no con definiciones memorizadas.
-      Más de {totalQuestions} preguntas con respuestas en español.
-    </p>
+  <section class="home-intro" aria-labelledby="home-intro-heading">
+    <div class="home-intro-copy">
+      <p class="home-intro-kicker hero-reveal hero-reveal-soft hero-d5">
+        Guía para entrevistas técnicas
+      </p>
+      <h2 id="home-intro-heading" class="home-intro-title hero-reveal hero-d6">
+        Preguntas reales.
+        <span class="home-intro-title-accent">Respuestas con contexto.</span>
+      </h2>
+      <p class="home-intro-lead hero-reveal hero-reveal-soft hero-d7">
+        Los temas que más se repiten en procesos de selección, explicados en
+        español y con ejemplos. Practica con criterio, no con definiciones
+        memorizadas. Más de {totalQuestions} preguntas.
+      </p>
+      <div class="home-intro-actions hero-reveal hero-reveal-soft hero-d8">
+        <a href="#featured-heading" class="home-intro-btn home-intro-btn-primary">
+          Ver las más buscadas
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7l-7 -7"/></svg>
+        </a>
+        <a href="#archive-heading" class="home-intro-btn home-intro-btn-ghost">
+          Explorar todo el archivo
+        </a>
+      </div>
+    </div>
+
+    <ul class="home-intro-levels" aria-label="Preguntas por nivel">
+      <li class="hero-reveal hero-reveal-soft">
+        <a href="/questions#category-beginner" class="home-level-chip home-level-chip-easy">
+          <span class="home-level-chip-count tabular-nums">{byLevel.beginner}</span>
+          <span class="home-level-chip-name">Principiante</span>
+        </a>
+      </li>
+      <li class="hero-reveal hero-reveal-soft">
+        <a href="/questions#category-intermediate" class="home-level-chip home-level-chip-medium">
+          <span class="home-level-chip-count tabular-nums">{byLevel.intermediate}</span>
+          <span class="home-level-chip-name">Intermedio</span>
+        </a>
+      </li>
+      <li class="hero-reveal hero-reveal-soft">
+        <a href="/questions#category-expert" class="home-level-chip home-level-chip-hard">
+          <span class="home-level-chip-count tabular-nums">{byLevel.expert}</span>
+          <span class="home-level-chip-name">Experto</span>
+        </a>
+      </li>
+      <li class="hero-reveal hero-reveal-soft">
+        <a href="/questions#category-errors" class="home-level-chip home-level-chip-errors">
+          <span class="home-level-chip-count tabular-nums">{byLevel.errors}</span>
+          <span class="home-level-chip-name">Errores</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
-  <section class="mt-12" aria-labelledby="featured-heading">
-    <h2
-      id="featured-heading"
-      class="font-display pb-5 text-2xl font-bold text-slate-900 animate-fade-in animate-duration-500 md:text-3xl dark:text-white"
-    >
-      Las preguntas más buscadas
-    </h2>
-    <ul class="grid list-none grid-cols-1 gap-5 p-0 sm:gap-6 sm:grid-cols-2 lg:gap-7 lg:grid-cols-3 [&>*]:min-w-0">
+  <section class="mt-14 md:mt-16" aria-labelledby="featured-heading">
+    <div class="mb-5 flex flex-wrap items-end justify-between gap-3 hero-reveal hero-reveal-soft hero-d10">
+      <h2
+        id="featured-heading"
+        class="font-display text-2xl font-bold text-slate-900 md:text-3xl dark:text-white"
+      >
+        Las preguntas más buscadas
+      </h2>
+      <a
+        href="/questions"
+        class="text-sm font-semibold text-blue-600 transition hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+      >
+        Ver todas →
+      </a>
+    </div>
+    <ul class="home-featured-list grid list-none grid-cols-1 gap-5 p-0 sm:gap-6 sm:grid-cols-2 lg:gap-7 lg:grid-cols-3 [&>*]:min-w-0">
       {
         featured.map(item => (
-          <li class="min-w-0">
+          <li class="min-w-0 hero-reveal hero-reveal-soft">
             <Card
               title={item.title}
               excerpt={item.excerpt}
