@@ -86,39 +86,39 @@ const total = counter.total
   </div>
 
   <form
-    class="relative mt-6"
+    class="search-shell mt-6"
     role="search"
     aria-label="Buscar preguntas sobre React"
     data-search-form
+    data-open="false"
     onsubmit="return false"
   >
-    <div class="relative w-full">
+    <div class="search-field">
       <label for="search-input" class="sr-only">Buscar preguntas sobre React</label>
-      <div
-        class="pointer-events-none absolute px-4 py-3 text-slate-400 dark:text-slate-500"
-        aria-hidden="true"
-      >
+      <span class="search-field-icon" aria-hidden="true">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
+          width="22"
+          height="22"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
-          class="h-8 w-8 md:h-12 md:w-12"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5 md:h-6 md:w-6"
         >
-          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-          <path d="M21 21l-6 -6"></path>
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M21 21l-4.3-4.3"></path>
         </svg>
-      </div>
+      </span>
       <input
         id="search-input"
         data-search-input
-        class="search-input z-10 block w-full appearance-none rounded-2xl border border-slate-200 bg-white p-4 pl-14 text-base font-bold text-slate-900 outline-hidden transition-all duration-300 hover:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/25 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-100 dark:hover:border-blue-500/50 dark:focus:border-blue-400 dark:focus:ring-blue-400/25 md:p-6 md:pl-20 md:text-xl"
+        class="search-input"
         type="search"
         name="q"
-        placeholder="Introduce aquí tu pregunta sobre React"
+        placeholder="Busca una pregunta sobre React…"
         autocomplete="off"
         enterkeyhint="search"
         spellcheck="false"
@@ -129,19 +129,53 @@ const total = counter.total
         aria-haspopup="listbox"
         aria-describedby="search-hint"
       />
+      <button
+        type="button"
+        class="search-clear"
+        data-search-clear
+        data-visible="false"
+        aria-label="Limpiar búsqueda"
+        tabindex="-1"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M18 6L6 18"></path>
+          <path d="M6 6l12 12"></path>
+        </svg>
+      </button>
       <p id="search-hint" class="sr-only">
         Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer
         resultados y Enter para abrir la pregunta.
       </p>
     </div>
-    <ul
-      id="search-results"
-      data-search-results
-      role="listbox"
-      aria-label="Resultados de búsqueda"
-      class="absolute z-50 hidden w-full overflow-hidden rounded-2xl rounded-t-none border border-slate-200 bg-white text-slate-900 shadow-2xl shadow-black/10 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 dark:shadow-black/50"
-    >
-    </ul>
+
+    <div class="search-panel" data-search-panel>
+      <ul
+        id="search-results"
+        data-search-results
+        role="listbox"
+        aria-label="Resultados de búsqueda"
+        class="search-results"
+      >
+      </ul>
+      <div class="search-footer" data-search-footer hidden>
+        <span class="search-footer-count" data-search-count></span>
+        <div class="search-footer-keys" aria-hidden="true">
+          <span><kbd class="search-kbd">↑</kbd><kbd class="search-kbd">↓</kbd> navegar</span>
+          <span><kbd class="search-kbd">↵</kbd> abrir</span>
+          <span><kbd class="search-kbd">esc</kbd> cerrar</span>
+        </div>
+      </div>
+    </div>
   </form>
 </header>
 
@@ -150,10 +184,12 @@ const total = counter.total
   import debounce from 'just-debounce-it'
 
   type IndexItem = { id: string; text: string; level?: number }
+  type Range = [number, number]
 
   let fuse: Fuse<IndexItem> | null = null
   let activeIndex = -1
   let currentResults: Fuse.FuseResult<IndexItem>[] = []
+  let panelMode: 'closed' | 'results' | 'empty' = 'closed'
 
   function announce(message: string) {
     const el = document.getElementById('a11y-status')
@@ -173,6 +209,7 @@ const total = counter.total
       includeScore: true,
       includeMatches: true,
       minMatchCharLength: 2,
+      threshold: 0.35,
     })
     return fuse
   }
@@ -191,65 +228,229 @@ const total = counter.total
     })
   }
 
-  function renderInlineMarkdown(text: string): string {
-    const escaped = text
+  function escapeHtml(text: string): string {
+    return text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
-    return escaped
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/"/g, '&quot;')
+  }
+
+  function mergeRanges(ranges: Range[]): Range[] {
+    if (!ranges.length) return []
+    const sorted = [...ranges].sort((a, b) => a[0] - b[0] || a[1] - b[1])
+    const merged: Range[] = [[sorted[0][0], sorted[0][1]]]
+    for (let i = 1; i < sorted.length; i++) {
+      const current = sorted[i]
+      const last = merged[merged.length - 1]
+      if (current[0] <= last[1] + 1) {
+        last[1] = Math.max(last[1], current[1])
+      } else {
+        merged.push([current[0], current[1]])
+      }
+    }
+    return merged
+  }
+
+  function getMatchRanges(matches?: readonly Fuse.FuseResultMatch[]): Range[] {
+    if (!matches?.length) return []
+    const ranges: Range[] = []
+    for (const match of matches) {
+      for (const [start, end] of match.indices) {
+        ranges.push([start, end])
+      }
+    }
+    return mergeRanges(ranges)
+  }
+
+  /** Build a boolean mask of highlighted character offsets in the original string. */
+  function buildHighlightMask(length: number, ranges: Range[]): boolean[] {
+    const mask = new Array(length).fill(false)
+    for (const [start, end] of ranges) {
+      for (let i = start; i <= end && i < length; i++) {
+        if (i >= 0) mask[i] = true
+      }
+    }
+    return mask
+  }
+
+  /**
+   * Highlight a slice of the original text using absolute character offsets.
+   * Handles nested marks cleanly without breaking code spans.
+   */
+  function highlightSlice(
+    value: string,
+    absoluteStart: number,
+    mask: boolean[]
+  ): string {
+    let html = ''
+    let open = false
+    for (let i = 0; i < value.length; i++) {
+      const on = mask[absoluteStart + i] === true
+      if (on && !open) {
+        html += '<mark class="search-mark">'
+        open = true
+      } else if (!on && open) {
+        html += '</mark>'
+        open = false
+      }
+      html += escapeHtml(value[i])
+    }
+    if (open) html += '</mark>'
+    return html
+  }
+
+  /**
+   * Tokenize inline `code` spans first so highlights never leave raw backticks
+   * and marks nest correctly inside <code>.
+   */
+  function highlightTitle(
+    text: string,
+    matches?: readonly Fuse.FuseResultMatch[]
+  ): string {
+    const mask = buildHighlightMask(text.length, getMatchRanges(matches))
+    const codeRe = /`([^`]+)`/g
+    let html = ''
+    let cursor = 0
+    let m: RegExpExecArray | null
+
+    while ((m = codeRe.exec(text))) {
+      if (m.index > cursor) {
+        html += highlightSlice(text.slice(cursor, m.index), cursor, mask)
+      }
+      // Content lives between the backticks
+      const contentStart = m.index + 1
+      html += `<code>${highlightSlice(m[1], contentStart, mask)}</code>`
+      cursor = m.index + m[0].length
+    }
+
+    if (cursor < text.length) {
+      html += highlightSlice(text.slice(cursor), cursor, mask)
+    }
+
+    // Lightweight strong/em after highlight (no nesting issues for our titles)
+    return html
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[\s(])_([^_]+)_([\s).,;:?!]|$)/g, '$1<em>$2</em>$3')
   }
 
-  function highlight(text: string, matches?: readonly Fuse.FuseResultMatch[]) {
-    if (!matches?.length) return renderInlineMarkdown(text)
-    const [{ indices }] = matches
-    const [bestMatch] = [...indices].sort((a, b) => b[1] - b[0] - (a[1] - a[0]))
-    if (!bestMatch) return renderInlineMarkdown(text)
-
-    const before = text.slice(0, bestMatch[0])
-    const matched = text.slice(bestMatch[0], bestMatch[1] + 1)
-    const after = text.slice(bestMatch[1] + 1)
-    return (
-      renderInlineMarkdown(before) +
-      '<mark class="bg-yellow-300 dark:text-black">' +
-      renderInlineMarkdown(matched) +
-      '</mark>' +
-      renderInlineMarkdown(after)
-    )
+  function getEls() {
+    return {
+      form: document.querySelector<HTMLElement>('[data-search-form]'),
+      input: document.querySelector<HTMLInputElement>('[data-search-input]'),
+      list: document.querySelector<HTMLElement>('[data-search-results]'),
+      panel: document.querySelector<HTMLElement>('[data-search-panel]'),
+      footer: document.querySelector<HTMLElement>('[data-search-footer]'),
+      count: document.querySelector<HTMLElement>('[data-search-count]'),
+      clear: document.querySelector<HTMLButtonElement>('[data-search-clear]'),
+    }
   }
 
-  function renderResults(results: Fuse.FuseResult<IndexItem>[]) {
-    const list = document.querySelector<HTMLElement>('[data-search-results]')
-    const input = document.querySelector<HTMLInputElement>('[data-search-input]')
+  function setClearVisible(visible: boolean) {
+    const { clear } = getEls()
+    if (!clear) return
+    clear.dataset.visible = visible ? 'true' : 'false'
+    clear.tabIndex = visible ? 0 : -1
+  }
+
+  function setOpen(open: boolean) {
+    const { form, input } = getEls()
+    form?.setAttribute('data-open', open ? 'true' : 'false')
+    input?.setAttribute('aria-expanded', open ? 'true' : 'false')
+  }
+
+  function closePanel() {
+    const { list, footer, input } = getEls()
+    if (!list) return
+    currentResults = []
+    activeIndex = -1
+    panelMode = 'closed'
+    list.innerHTML = ''
+    footer?.setAttribute('hidden', '')
+    input?.removeAttribute('aria-activedescendant')
+    setOpen(false)
+  }
+
+  function renderEmpty(query: string) {
+    const { list, footer, count, input } = getEls()
     if (!list || !input) return
 
-    currentResults = results
+    currentResults = []
     activeIndex = -1
+    panelMode = 'empty'
     input.removeAttribute('aria-activedescendant')
+    setOpen(true)
+
+    const q = escapeHtml(query.trim())
+    list.innerHTML = `
+      <li class="search-empty" role="presentation">
+        <span class="search-empty-title">Sin resultados para “${q}”</span>
+        <span class="search-empty-hint">Prueba con un hook, concepto o palabra clave (p. ej. useState, props, SSR).</span>
+      </li>
+    `
+    if (footer && count) {
+      count.textContent = '0 resultados'
+      footer.removeAttribute('hidden')
+    }
+    announce('No se encontraron preguntas')
+  }
+
+  function renderResults(results: Fuse.FuseResult<IndexItem>[], query: string) {
+    const { list, footer, count, input } = getEls()
+    if (!list || !input) return
 
     if (results.length === 0) {
-      list.classList.add('hidden')
-      list.innerHTML = ''
-      input.classList.remove('focus:rounded-b-none', 'focus:border-b-0')
-      input.setAttribute('aria-expanded', 'false')
-      if (input.value.trim().length >= 2) {
-        announce('No se encontraron preguntas')
+      if (query.trim().length >= 2) {
+        renderEmpty(query)
+      } else {
+        closePanel()
       }
       return
     }
 
-    list.classList.remove('hidden')
-    input.classList.add('focus:rounded-b-none', 'focus:border-b-0')
-    input.setAttribute('aria-expanded', 'true')
+    currentResults = results
+    panelMode = 'results'
+    setOpen(true)
+
     list.innerHTML = results
       .map((result, i) => {
         const { item, matches } = result
-        const html = highlight(item.text, matches)
-        return `<li role="option" id="search-option-${i}" data-index="${i}" aria-selected="false"><a href="/${item.id}#content" class="rich-text block p-4 text-slate-900 hover:bg-blue-50 dark:text-slate-100 dark:hover:bg-blue-500/12 cursor-pointer" data-search-link tabindex="-1"><span class="font-bold text-slate-950 dark:text-white">${html}</span></a></li>`
+        const html = highlightTitle(item.text, matches)
+        const n = String(i + 1).padStart(2, '0')
+        return `
+          <li
+            class="search-option"
+            role="option"
+            id="search-option-${i}"
+            data-index="${i}"
+            aria-selected="false"
+          >
+            <a
+              href="/${item.id}#content"
+              class="search-option-link"
+              data-search-link
+              tabindex="-1"
+            >
+              <span class="search-option-index" aria-hidden="true">${n}</span>
+              <span class="search-option-text">${html}</span>
+              <span class="search-option-hint" aria-hidden="true">
+                <kbd class="search-kbd">↵</kbd>
+              </span>
+            </a>
+          </li>
+        `
       })
       .join('')
+
+    // Preselect first hit so Enter opens immediately (command-palette feel)
+    setActive(0)
+
+    if (footer && count) {
+      count.textContent =
+        results.length === 1 ? '1 resultado' : `${results.length} resultados`
+      footer.removeAttribute('hidden')
+    }
+
     announce(
       results.length === 1
         ? '1 resultado encontrado'
@@ -258,18 +459,11 @@ const total = counter.total
   }
 
   function setActive(index: number) {
-    const list = document.querySelector('[data-search-results]')
-    const input = document.querySelector<HTMLInputElement>('[data-search-input]')
-    if (!list) return
+    const { list, input } = getEls()
+    if (!list || panelMode !== 'results') return
     const options = list.querySelectorAll<HTMLElement>('[role="option"]')
     options.forEach((opt, i) => {
-      const active = i === index
-      const link = opt.querySelector('a')
-      opt.classList.toggle('bg-blue-50', active)
-      opt.classList.toggle('dark:bg-blue-500/12', active)
-      link?.classList.toggle('bg-blue-50', active)
-      link?.classList.toggle('dark:bg-blue-500/12', active)
-      opt.setAttribute('aria-selected', active ? 'true' : 'false')
+      opt.setAttribute('aria-selected', i === index ? 'true' : 'false')
     })
     activeIndex = index
     if (index >= 0) {
@@ -285,25 +479,27 @@ const total = counter.total
   }
 
   const runSearch = debounce(async (value: string) => {
-    if (!value || value.length < 2) {
-      renderResults([])
+    const query = value.trim()
+    setClearVisible(value.length > 0)
+    if (query.length < 2) {
+      closePanel()
       return
     }
     const f = await ensureFuse()
-    renderResults(f.search(value).slice(0, 5))
-  }, 200)
+    renderResults(f.search(query).slice(0, 6), query)
+  }, 160)
 
   function initSearch() {
-    const input = document.querySelector<HTMLInputElement>('[data-search-input]')
-    const list = document.querySelector<HTMLElement>('[data-search-results]')
-    if (!input || !list) return
-    if (input.dataset.bound === '1') return
-    input.dataset.bound = '1'
+    const { form, input, list, clear } = getEls()
+    if (!form || !input || !list) return
+    if (form.dataset.bound === '1') return
+    form.dataset.bound = '1'
 
     const params = new URLSearchParams(window.location.search)
     const q = params.get('q')
     if (q) {
       input.value = q
+      setClearVisible(q.length > 0)
       runSearch(q)
     }
 
@@ -311,24 +507,51 @@ const total = counter.total
       runSearch((e.target as HTMLInputElement).value)
     })
 
+    clear?.addEventListener('click', () => {
+      input.value = ''
+      setClearVisible(false)
+      closePanel()
+      input.focus()
+      announce('Búsqueda limpiada')
+    })
+
     input.addEventListener('keydown', e => {
-      if (!currentResults.length) return
+      if (e.key === 'Escape') {
+        if (panelMode !== 'closed') {
+          e.preventDefault()
+          closePanel()
+        } else if (input.value) {
+          e.preventDefault()
+          input.value = ''
+          setClearVisible(false)
+          closePanel()
+        } else {
+          input.blur()
+        }
+        return
+      }
+
+      if (panelMode !== 'results' || !currentResults.length) {
+        if (e.key === 'Enter' && currentResults.length === 1) {
+          e.preventDefault()
+          goTo(currentResults[0].item.id)
+        }
+        return
+      }
+
       if (e.key === 'ArrowDown') {
         e.preventDefault()
         setActive(Math.min(activeIndex + 1, currentResults.length - 1))
       } else if (e.key === 'ArrowUp') {
         e.preventDefault()
-        setActive(Math.max(activeIndex - 1, 0))
+        setActive(activeIndex <= 0 ? 0 : activeIndex - 1)
       } else if (e.key === 'Enter') {
         e.preventDefault()
         if (activeIndex >= 0) {
           goTo(currentResults[activeIndex].item.id)
-        } else if (currentResults.length === 1) {
+        } else if (currentResults.length > 0) {
           goTo(currentResults[0].item.id)
         }
-      } else if (e.key === 'Escape') {
-        renderResults([])
-        input.blur()
       } else if (e.key === 'Home' && activeIndex >= 0) {
         e.preventDefault()
         setActive(0)
@@ -339,15 +562,14 @@ const total = counter.total
     })
 
     list.addEventListener('mousemove', e => {
+      if (panelMode !== 'results') return
       const li = (e.target as HTMLElement).closest<HTMLElement>('[data-index]')
       if (li?.dataset.index != null) setActive(Number(li.dataset.index))
     })
 
     document.addEventListener('click', e => {
       const target = e.target as Node
-      if (!input.contains(target) && !list.contains(target)) {
-        renderResults([])
-      }
+      if (!form.contains(target)) closePanel()
     })
   }
 
