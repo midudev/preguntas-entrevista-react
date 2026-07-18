@@ -17,7 +17,8 @@ const {
   class:list={[
     'h-auto',
     size === 'small' ? 'w-12' : 'w-60',
-    animated && 'animate-[spin_30s_linear_infinite]',
+    animated &&
+      'animate-spin-clockwise animate-duration-[30s] animate-iteration-count-infinite animate-linear',
     className,
   ]}
   fill="none"
