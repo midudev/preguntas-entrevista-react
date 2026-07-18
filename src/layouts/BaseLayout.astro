@@ -29,21 +29,49 @@ const {
 <html lang="es-ES">
   <head>
     <meta charset="utf-8" />
+    {/* Blocking theme bootstrap: must run before first paint to avoid light flash */}
+    <script is:inline>
+      ;(function () {
+        var root = document.documentElement
+        var theme
+        try {
+          theme = localStorage.getItem('theme')
+        } catch (e) {}
+        var dark =
+          theme === 'dark' ||
+          (theme !== 'light' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        if (dark) {
+          root.classList.add('dark')
+          root.style.colorScheme = 'dark'
+          root.style.backgroundColor = '#0a0f1a'
+        } else {
+          root.classList.remove('dark')
+          root.style.colorScheme = 'light'
+          root.style.backgroundColor = '#fafbff'
+        }
+      })()
+    </script>
+    <style is:inline>
+      html {
+        background-color: #fafbff;
+      }
+      html.dark {
+        background-color: #0a0f1a;
+      }
+      html,
+      body {
+        min-height: 100%;
+      }
+      body {
+        background-color: inherit;
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#fafbff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)" />
-    <script is:inline>
-      try {
-        var t = localStorage.getItem('theme')
-        if (t === 'dark') document.documentElement.classList.add('dark')
-        else if (t === 'light') document.documentElement.classList.remove('dark')
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add('dark')
-        }
-      } catch (e) {}
-    </script>
     <Seo
       title={title}
       description={description}
@@ -54,10 +82,8 @@ const {
     />
     <slot name="head" />
   </head>
-  <body class="app-shell overscroll-none">
-    <div
-      class="relative flex min-h-screen flex-col overflow-x-clip bg-[#fafbff] text-slate-900 dark:bg-[#0a0f1a] dark:text-slate-100"
-    >
+  <body class="app-shell overscroll-none bg-[#fafbff] text-slate-900 dark:bg-[#0a0f1a] dark:text-slate-100">
+    <div class="relative flex min-h-screen flex-col overflow-x-clip">
       <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
       <Header />
       <main

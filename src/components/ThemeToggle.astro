@@ -33,7 +33,11 @@
     btn.dataset.bound = '1'
 
     const apply = (theme: string) => {
-      document.documentElement.classList.toggle('dark', theme === 'dark')
+      const root = document.documentElement
+      const dark = theme === 'dark'
+      root.classList.toggle('dark', dark)
+      root.style.colorScheme = dark ? 'dark' : 'light'
+      root.style.backgroundColor = dark ? '#0a0f1a' : '#fafbff'
       try {
         localStorage.setItem('theme', theme)
       } catch {}

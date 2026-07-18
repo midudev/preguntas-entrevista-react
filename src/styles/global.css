@@ -52,6 +52,20 @@
 }
 
 @layer base {
+  html {
+    min-height: 100%;
+    background-color: #fafbff;
+  }
+
+  html.dark {
+    background-color: #0a0f1a;
+    color-scheme: dark;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+  }
+
   html,
   body {
     min-height: 100%;
@@ -60,6 +74,7 @@
   body {
     font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
+    background-color: inherit;
   }
 
   h1,
