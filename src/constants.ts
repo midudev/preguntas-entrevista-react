@@ -17,7 +17,12 @@ export const OG_IMAGE_TYPE = 'image/jpeg'
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 
-/** Build absolute URL without trailing slash (except empty path → origin). */
+/**
+ * Absolute URL aligned with `trailingSlash: 'never'`.
+ * Root keeps a trailing slash (`https://example.com/`) because that is how
+ * browsers and URL serializers represent the homepage; other paths never end
+ * with `/`.
+ */
 export function absoluteUrl(path = '/'): string {
   const normalized =
     !path || path === '/'
@@ -26,13 +31,15 @@ export function absoluteUrl(path = '/'): string {
         ? path
         : `/${path}`
   const url = new URL(normalized, `${SITE_URL}/`)
-  // Drop trailing slash to match trailingSlash: 'never'
+
   if (url.pathname !== '/' && url.pathname.endsWith('/')) {
     url.pathname = url.pathname.slice(0, -1)
   }
-  // Root: never trailing slash
+
+  // Homepage: always https://host/ (WHATWG serialization)
   if (url.pathname === '/') {
-    return SITE_URL
+    return `${SITE_URL}/`
   }
+
   return `${SITE_URL}${url.pathname}${url.search}${url.hash}`
 }
