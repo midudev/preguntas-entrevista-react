@@ -13,23 +13,38 @@ const total = counter.total
 {
   isHome ? (
     <header class="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-16">
-      <nav
-        aria-label="Acciones del sitio"
-        class="absolute right-5 top-2 z-20 flex items-center gap-x-3 rounded-full border border-slate-200/80 bg-white/80 px-2 py-1.5 shadow-sm backdrop-blur-md md:right-8 dark:border-slate-700/80 dark:bg-slate-900/80"
-      >
+      <nav aria-label="Acciones del sitio" class="site-actions absolute right-5 top-2 z-20 md:right-8">
         <ThemeToggle />
+        <span class="site-actions-sep" aria-hidden="true"></span>
         <Stars />
-        <a
-          href="/questions"
-          class="inline-flex items-center gap-1.5 rounded-full border border-transparent px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
-          data-read-counter
-        >
-          <span>Leídas</span>
-          <span class="tabular-nums tracking-normal normal-case" aria-live="polite">
-            <span data-read-count>0</span>
-            <span class="sr-only"> de </span>
-            <span aria-hidden="true">/</span>
-            {total}
+        <span class="site-actions-sep" aria-hidden="true"></span>
+        <a href="/questions" class="site-action-btn site-action-btn--wide" data-read-counter>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="site-action-icon text-emerald-500 dark:text-emerald-400"
+            aria-hidden="true"
+          >
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+            <path d="M9 12l2 2l4 -4"></path>
+          </svg>
+          <span class="flex items-baseline gap-1">
+            <span class="text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+              Leídas
+            </span>
+            <span
+              class="tabular-nums text-[0.8rem] font-semibold tracking-tight text-slate-700 dark:text-slate-200"
+              aria-live="polite"
+            >
+              <span data-read-count>0</span><span aria-hidden="true">/</span>{total}
+            </span>
           </span>
           <span class="sr-only">preguntas leídas de {total}</span>
         </a>
@@ -72,6 +87,7 @@ const total = counter.total
             autocomplete="off"
             enterkeyhint="search"
             spellcheck="false"
+            data-autofocus
             role="combobox"
             aria-autocomplete="list"
             aria-controls="search-results"
@@ -86,10 +102,10 @@ const total = counter.total
             </svg>
           </button>
           <p id="search-hint" class="sr-only">
-            Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer resultados y Enter para abrir la pregunta.
+            Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer resultados y Enter para abrir la pregunta. El primer foco de la página es el enlace para saltar al contenido.
           </p>
         </div>
-        <div class="search-panel" data-search-panel>
+        <div class="search-panel" data-search-panel id="search-panel">
           <ul id="search-results" data-search-results role="listbox" aria-label="Resultados de búsqueda" class="search-results"></ul>
           <div class="search-footer" data-search-footer hidden>
             <span class="search-footer-count" data-search-count></span>
@@ -129,21 +145,44 @@ const total = counter.total
 
           <nav
             aria-label="Acciones del sitio"
-            class="flex shrink-0 items-center gap-x-1.5 rounded-full border border-slate-200/80 bg-white/80 px-1.5 py-1 shadow-sm dark:border-slate-700/80 dark:bg-slate-900/80 md:order-3"
+            class="site-actions shrink-0 md:order-3"
           >
             <ThemeToggle />
+            <span class="site-actions-sep" aria-hidden="true"></span>
             <Stars />
+            <span class="site-actions-sep" aria-hidden="true"></span>
             <a
               href="/questions"
-              class="inline-flex items-center gap-1.5 rounded-full border border-transparent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+              class="site-action-btn site-action-btn--wide"
               data-read-counter
             >
-              <span class="hidden sm:inline">Leídas</span>
-              <span class="tabular-nums tracking-normal normal-case" aria-live="polite">
-                <span data-read-count>0</span>
-                <span class="sr-only"> de </span>
-                <span aria-hidden="true">/</span>
-                {total}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="site-action-icon text-emerald-500 dark:text-emerald-400"
+                aria-hidden="true"
+              >
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                <path d="M9 12l2 2l4 -4"></path>
+              </svg>
+              <span class="flex items-baseline gap-1">
+                <span class="hidden text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:inline dark:text-slate-400">
+                  Leídas
+                </span>
+                <span
+                  class="tabular-nums text-[0.8rem] font-semibold tracking-tight text-slate-700 dark:text-slate-200"
+                  aria-live="polite"
+                >
+                  <span data-read-count>0</span><span aria-hidden="true">/</span
+                  >{total}
+                </span>
               </span>
               <span class="sr-only">preguntas leídas de {total}</span>
             </a>
@@ -520,6 +559,21 @@ const total = counter.total
       input.value = q
       setClearVisible(q.length > 0)
       runSearch(q)
+    }
+
+    // Home: focus the search field without blocking the skip link.
+    // Only steal focus if nothing interactive is focused yet.
+    if (input.hasAttribute('data-autofocus') && !q) {
+      requestAnimationFrame(() => {
+        const active = document.activeElement
+        const free =
+          !active ||
+          active === document.body ||
+          active === document.documentElement
+        if (free) {
+          input.focus({ preventScroll: true })
+        }
+      })
     }
 
     input.addEventListener('input', e => {

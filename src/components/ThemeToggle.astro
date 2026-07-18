@@ -3,16 +3,47 @@
   id="theme-toggle"
   aria-label="Activar tema oscuro"
   aria-pressed="false"
-  class="relative flex h-7 w-14 cursor-pointer items-center justify-between rounded-full border border-slate-200 px-1.5 shadow-sm transition hover:border-blue-300 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-400/50 dark:border-slate-600 dark:hover:border-blue-500"
+  class="site-action-btn"
   data-theme-toggle
 >
-  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="z-10 text-slate-200" aria-hidden="true"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
-  <span
-    id="theme-toggle-knob"
-    class="absolute top-0.75 h-5 w-5 rounded-full transition-transform duration-300 left-7.75 bg-slate-800 shadow-[0_0_0_2px_rgba(59,130,246,0.2)] dark:left-0.75 dark:bg-blue-400 dark:shadow-[0_0_0_2px_rgba(30,41,59,0.5)]"
+  <!-- Shown in light mode: switch to dark -->
+  <svg
+    data-theme-icon="moon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="site-action-icon text-slate-600 dark:hidden"
     aria-hidden="true"
-  ></span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="z-10 text-amber-500" aria-hidden="true"><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg>
+  >
+    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+    ></path>
+  </svg>
+  <!-- Shown in dark mode: switch to light -->
+  <svg
+    data-theme-icon="sun"
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="site-action-icon hidden text-amber-300 dark:block"
+    aria-hidden="true"
+  >
+    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+    <path
+      d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+    ></path>
+  </svg>
 </button>
 
 <script>
@@ -26,37 +57,39 @@
   }
 
   function initThemeToggle() {
-    const btn = document.querySelector<HTMLElement>('[data-theme-toggle]')
-    if (!btn) return
-    syncThemeButton(btn)
-    if (btn.dataset.bound === '1') return
-    btn.dataset.bound = '1'
-
-    const apply = (theme: string) => {
-      const root = document.documentElement
-      const dark = theme === 'dark'
-      root.classList.toggle('dark', dark)
-      root.dataset.theme = dark ? 'dark' : 'light'
-      root.style.colorScheme = dark ? 'dark' : 'light'
-      root.style.setProperty('--page-bg', dark ? '#0a0f1a' : '#fafbff')
-      root.style.setProperty('--page-fg', dark ? '#f1f5f9' : '#0f172a')
-      try {
-        localStorage.setItem('theme', theme)
-      } catch {}
+    document.querySelectorAll<HTMLElement>('[data-theme-toggle]').forEach(btn => {
       syncThemeButton(btn)
-      const status = document.getElementById('a11y-status')
-      if (status) {
-        status.textContent = ''
-        requestAnimationFrame(() => {
-          status.textContent =
-            theme === 'dark' ? 'Tema oscuro activado' : 'Tema claro activado'
-        })
-      }
-    }
+      if (btn.dataset.bound === '1') return
+      btn.dataset.bound = '1'
 
-    btn.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark')
-      apply(isDark ? 'light' : 'dark')
+      const apply = (theme: string) => {
+        const root = document.documentElement
+        const dark = theme === 'dark'
+        root.classList.toggle('dark', dark)
+        root.dataset.theme = dark ? 'dark' : 'light'
+        root.style.colorScheme = dark ? 'dark' : 'light'
+        root.style.setProperty('--page-bg', dark ? '#0a0f1a' : '#fafbff')
+        root.style.setProperty('--page-fg', dark ? '#f1f5f9' : '#0f172a')
+        try {
+          localStorage.setItem('theme', theme)
+        } catch {}
+        document
+          .querySelectorAll<HTMLElement>('[data-theme-toggle]')
+          .forEach(syncThemeButton)
+        const status = document.getElementById('a11y-status')
+        if (status) {
+          status.textContent = ''
+          requestAnimationFrame(() => {
+            status.textContent =
+              theme === 'dark' ? 'Tema oscuro activado' : 'Tema claro activado'
+          })
+        }
+      }
+
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark')
+        apply(isDark ? 'light' : 'dark')
+      })
     })
   }
 

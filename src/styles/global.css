@@ -93,15 +93,107 @@
     outline: 2px solid rgb(59 130 246);
     outline-offset: 2px;
   }
+
+  /* Visible keyboard focus even when components reset outline utilities */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid rgb(59 130 246);
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Site actions chip (theme / stars / read) ─── */
+
+.site-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.28rem;
+  border: 1px solid rgb(226 232 240 / 90%);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 88%);
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 4%),
+    0 4px 16px rgb(15 23 42 / 5%);
+  backdrop-filter: blur(12px);
+}
+
+.site-actions-sep {
+  width: 1px;
+  height: 1.1rem;
+  margin: 0 0.1rem;
+  background: rgb(203 213 225 / 80%);
+  flex: 0 0 auto;
+}
+
+.site-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  min-width: 2rem;
+  padding: 0.3rem;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.site-action-btn--wide {
+  padding: 0.3rem 0.65rem;
+}
+
+.site-action-btn:hover {
+  background: rgb(241 245 249 / 95%);
+}
+
+.site-action-btn:active {
+  transform: scale(0.97);
+}
+
+.site-action-btn:focus-visible {
+  outline: 2px solid rgb(59 130 246);
+  outline-offset: 2px;
+}
+
+.site-action-icon {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.dark .site-actions {
+  border-color: rgb(255 255 255 / 10%);
+  background: rgb(15 23 42 / 82%);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 4%),
+    0 8px 24px rgb(0 0 0 / 35%);
+}
+
+.dark .site-actions-sep {
+  background: rgb(255 255 255 / 12%);
+}
+
+.dark .site-action-btn:hover {
+  background: rgb(30 41 59 / 90%);
 }
 
 /* ─── Skip link ─── */
 
 .skip-link {
   position: absolute;
-  top: -3rem;
+  top: -3.5rem;
   left: 1rem;
-  z-index: 100;
+  z-index: 200;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background: rgb(15 23 42);
@@ -112,6 +204,11 @@
   transition: top 150ms ease;
 }
 
+.skip-link-search {
+  left: auto;
+  right: 1rem;
+}
+
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 1rem;
@@ -119,11 +216,30 @@
   outline-offset: 2px;
 }
 
-/* Prefer native scroll margin for in-page anchors */
+.dark .skip-link {
+  background: rgb(30 41 59);
+  color: rgb(248 250 252);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 12%);
+}
+
+/* Prefer native scroll margin for in-page anchors.
+   Sticky topbar is ~3.5–4.5rem tall on article pages. */
 :target,
 #content,
-#main-content {
-  scroll-margin-top: 1.25rem;
+#main-content,
+#search-input,
+#quiz-heading {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  :target,
+  #content,
+  #main-content,
+  #search-input,
+  #quiz-heading {
+    scroll-margin-top: 4.5rem;
+  }
 }
 
 /* ─── Visually hidden ─── */
