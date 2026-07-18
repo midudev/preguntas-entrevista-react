@@ -1,29 +1,14 @@
 ---
-let stars = 0
-try {
-  const res = await fetch(
-    'https://api.github.com/repos/midudev/preguntas-entrevista-react',
-    { headers: { Accept: 'application/vnd.github+json' } }
-  )
-  if (res.ok) {
-    const data = await res.json()
-    stars = data.stargazers_count ?? 0
-  }
-} catch {
-  stars = 0
-}
+import { getGithubStars, formatStarCount } from '../lib/github-stars'
 
-const formatNumber = (number: number) => {
-  if (number === 0) return '0'
-  if (number >= 1000) return `${(number / 1000).toFixed(1)}K`
-  return String(number)
-}
-
-const label = formatNumber(stars)
-const fullLabel =
-  stars === 1
+const stars = await getGithubStars()
+const hasStars = stars != null && stars > 0
+const label = hasStars ? formatStarCount(stars) : '…'
+const fullLabel = hasStars
+  ? stars === 1
     ? '1 estrella en GitHub (abre en nueva pestaña)'
     : `${stars.toLocaleString('es-ES')} estrellas en GitHub (abre en nueva pestaña)`
+  : 'Ver el repositorio en GitHub (abre en nueva pestaña)'
 ---
 
 <a
@@ -32,7 +17,91 @@ const fullLabel =
   target="_blank"
   rel="noopener noreferrer"
   aria-label={fullLabel}
+  data-stars-link
+  data-stars-count={hasStars ? String(stars) : ''}
 >
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-amber-500" aria-hidden="true"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"/></svg>
-  <span class="tabular-nums" aria-hidden="true">{label}</span>
+  <span class="tabular-nums" data-stars-label aria-hidden="true">{label}</span>
 </a>
+
+<script>
+  const REPO_API =
+    'https://api.github.com/repos/midudev/preguntas-entrevista-react'
+  const CACHE_KEY = 'gh-stars:midudev/preguntas-entrevista-react'
+  const CACHE_TTL_MS = 1000 * 60 * 60 // 1 hour
+
+  function formatStarCount(number: number): string {
+    if (number >= 1000) return `${(number / 1000).toFixed(1)}K`
+    return String(number)
+  }
+
+  function readCache(): number | null {
+    try {
+      const raw = sessionStorage.getItem(CACHE_KEY)
+      if (!raw) return null
+      const parsed = JSON.parse(raw) as { count?: number; at?: number }
+      if (
+        typeof parsed.count !== 'number' ||
+        typeof parsed.at !== 'number' ||
+        Date.now() - parsed.at > CACHE_TTL_MS
+      ) {
+        return null
+      }
+      return parsed.count
+    } catch {
+      return null
+    }
+  }
+
+  function writeCache(count: number) {
+    try {
+      sessionStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({ count, at: Date.now() })
+      )
+    } catch {
+      /* ignore quota / private mode */
+    }
+  }
+
+  function paint(count: number) {
+    document.querySelectorAll<HTMLElement>('[data-stars-link]').forEach(link => {
+      const label = link.querySelector('[data-stars-label]')
+      if (label) label.textContent = formatStarCount(count)
+      link.dataset.starsCount = String(count)
+      link.setAttribute(
+        'aria-label',
+        count === 1
+          ? '1 estrella en GitHub (abre en nueva pestaña)'
+          : `${count.toLocaleString('es-ES')} estrellas en GitHub (abre en nueva pestaña)`
+      )
+    })
+  }
+
+  async function fetchStars(): Promise<number | null> {
+    const cached = readCache()
+    if (cached != null) return cached
+
+    try {
+      const res = await fetch(REPO_API, {
+        headers: { Accept: 'application/vnd.github+json' },
+      })
+      if (!res.ok) return null
+      const data = (await res.json()) as { stargazers_count?: number }
+      if (typeof data.stargazers_count !== 'number') return null
+      writeCache(data.stargazers_count)
+      return data.stargazers_count
+    } catch {
+      return null
+    }
+  }
+
+  async function initStars() {
+    // Prefer cache / live fetch; SSR value is already painted when available
+    const count = await fetchStars()
+    if (count != null) paint(count)
+  }
+
+  initStars()
+  document.addEventListener('astro:page-load', initStars)
+</script>
