@@ -17,9 +17,11 @@ const ROOT = process.cwd()
 const README_PATH = path.join(ROOT, 'README.md')
 const QUIZ_DIR = path.join(ROOT, 'public/quiz/qa')
 const OUT_DIR = path.join(ROOT, 'manuscript')
-/** Exclusive book frontmatter (not used on the website). */
+/** Exclusive book chapters (not used on the website). */
 const BEFORE_PATH = path.join(ROOT, 'book/before.md')
 const BEFORE_OUT = '00-antes-de-empezar.md'
+const AFTER_PATH = path.join(ROOT, 'book/after.md')
+const AFTER_OUT = '05-hasta-aqui.md'
 
 const LEVELS = [
   { key: 'principiante', heading: 'Principiante', file: '01-principiante.md' },
@@ -223,13 +225,61 @@ function parseReadme(readme) {
   return chapters
 }
 
+// ─── Code fences for Leanpub (Markua + Pygments) ───
+
+/**
+ * Leanpub highlights fenced code with Pygments. Many books still run an older
+ * Pygments build that does not include the `jsx` / `tsx` lexers — fences tagged
+ * as those languages render as plain monospaced text in PDF (only occasional
+ * lucky tokens get colour). Prefer widely-supported lexer names instead.
+ *
+ * Trade-off: `javascript` colours keywords/comments/strings well, but treats
+ * `</div>` imperfectly. Still far better than no highlighting at all.
+ *
+ * @see https://leanpub.com/markua/read (Pygments-backed code highlighting)
+ */
+const LEANPUB_LANG_MAP = {
+  jsx: 'javascript',
+  tsx: 'typescript',
+  js: 'javascript',
+  ts: 'typescript',
+  mjs: 'javascript',
+  cjs: 'javascript',
+  react: 'javascript',
+  shell: 'bash',
+  sh: 'bash',
+  zsh: 'bash',
+  console: 'bash',
+  text: 'text',
+  plain: 'text',
+  txt: 'text',
+}
+
+function normalizeCodeFencesForLeanpub(markdown) {
+  return markdown.replace(
+    /^```([^\n`]*)/gm,
+    (full, info) => {
+      const raw = String(info || '').trim()
+      // Closing fences are bare ``` — leave them alone
+      if (!raw) return full
+
+      // info string may be "jsx" or "jsx title=..." — only map the language id
+      const parts = raw.split(/\s+/)
+      const lang = parts[0].toLowerCase()
+      const rest = parts.slice(1).join(' ')
+      const mapped = LEANPUB_LANG_MAP[lang] ?? lang
+      return rest ? `\`\`\`${mapped} ${rest}` : `\`\`\`${mapped}`
+    }
+  )
+}
+
 // ─── Build manuscript ───
 
 function buildQuestionMarkdown(question, preparedQuiz) {
   const lines = [`## ${question.title}`, '']
 
   if (question.body) {
-    lines.push(question.body)
+    lines.push(normalizeCodeFencesForLeanpub(question.body))
     lines.push('')
   }
 
@@ -248,10 +298,15 @@ async function main() {
   const readme = await fs.readFile(README_PATH, 'utf-8')
   const parsed = parseReadme(readme)
 
-  if (!(await fs.pathExists(BEFORE_PATH))) {
-    throw new Error(
-      `Falta el capítulo exclusivo del libro: ${path.relative(ROOT, BEFORE_PATH)}`
-    )
+  for (const [label, filePath] of [
+    ['introducción', BEFORE_PATH],
+    ['cierre', AFTER_PATH],
+  ]) {
+    if (!(await fs.pathExists(filePath))) {
+      throw new Error(
+        `Falta el capítulo de ${label} del libro: ${path.relative(ROOT, filePath)}`
+      )
+    }
   }
 
   await fs.emptyDir(OUT_DIR)
@@ -320,6 +375,11 @@ async function main() {
     bookTxt.push(level.file)
   }
 
+  // Exclusive backmatter / closing chapter (source: book/after.md)
+  const after = (await fs.readFile(AFTER_PATH, 'utf-8')).trimEnd() + '\n'
+  await fs.outputFile(path.join(OUT_DIR, AFTER_OUT), after)
+  bookTxt.push('backmatter:', AFTER_OUT)
+
   await fs.outputFile(path.join(OUT_DIR, 'Book.txt'), `${bookTxt.join('\n')}\n`)
 
   // Small helper for Leanpub uploaders
@@ -335,9 +395,17 @@ pnpm book
 
 Fuente:
 
-- \`book/before.md\` → frontmatter exclusivo del libro
+- \`book/before.md\` → frontmatter (*Antes de empezar*)
+- \`book/after.md\` → backmatter (*Hasta aquí*)
 - \`README.md\` → preguntas y respuestas
 - \`public/quiz/qa/*.json\` → bloques *Pon a prueba* + solucionarios
+
+### Syntax highlighting (PDF)
+
+Leanpub usa **Pygments**. Los fences \`jsx\`/\`tsx\` se reescriben a
+\`javascript\`/\`typescript\` porque muchas versiones de Leanpub no traen el
+lexer JSX y el PDF sale sin color. Revisa en Generation Settings que el
+syntax highlighting esté activado.
 
 Sube la carpeta \`manuscript/\` a Leanpub (o sincroniza con Dropbox/Git según tu flujo).
 `
@@ -345,10 +413,11 @@ Sube la carpeta \`manuscript/\` a Leanpub (o sincroniza con Dropbox/Git según t
 
   console.log('✓ Manuscript generado en manuscript/')
   console.log(`  Frontmatter:      ${BEFORE_OUT} (desde book/before.md)`)
+  console.log(`  Backmatter:       ${AFTER_OUT} (desde book/after.md)`)
   console.log(`  Preguntas:        ${totalQuestions}`)
   console.log(`  Con quiz:         ${withQuiz}`)
   console.log(`  Ítems de prueba:  ${totalQuizItems}`)
-  console.log(`  Book.txt + ${LEVELS.length} capítulos + intro del libro`)
+  console.log(`  Book.txt + ${LEVELS.length} capítulos + intro/cierre del libro`)
 }
 
 main().catch(err => {

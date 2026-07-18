@@ -25,7 +25,7 @@ Puedes adquirir este libro en [Leanpub](https://leanpub.com/react-preguntas-tipi
 
 Si quieres **profundizar en React**, tengo un [curso completo y gratuito en YouTube](https://midu.link/react).
 
-En [Twitch](https://www.twitch.tv/midudev) hago *streamings* de desarrollo con JavaScript y el ecosistema web. El ambiente es bueno, se pregunta sin miedo y **te invito a pasarte**.
+En [Twitch](https://www.twitch.tv/midudev) hablo de **Inteligencia Artificial, programación y tecnología** en general. El ambiente es de buen rollo, se pregunta sin miedo y **te invito a pasarte**.
 
 También me encontrarás aquí:
 
