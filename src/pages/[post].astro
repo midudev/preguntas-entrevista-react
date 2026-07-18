@@ -134,99 +134,124 @@ const jsonLd = [
   type="article"
   jsonLd={jsonLd}
 >
-  <nav aria-label="Migas de pan" class="pt-6 text-sm text-slate-500 dark:text-slate-400">
-    <ol class="flex flex-wrap items-center gap-1.5">
-      <li>
-        <a
-          href="/"
-          class="font-medium text-slate-600 underline-offset-2 transition hover:text-blue-600 hover:underline dark:text-slate-300 dark:hover:text-blue-400"
+  <div class="article-shell mx-auto w-full pt-6 md:pt-10">
+    <nav aria-label="Migas de pan" class="mb-5">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
+        <li>
+          <a
+            href="/"
+            class="font-medium text-slate-600 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
+          >
+            Inicio
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-slate-400 dark:text-slate-600">/</li>
+        <li>
+          <a
+            href="/questions"
+            class="font-medium text-slate-600 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
+          >
+            Preguntas
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-slate-400 dark:text-slate-600">/</li>
+        <li class="min-w-0">
+          <span
+            class="block max-w-[14rem] truncate text-slate-800 dark:text-slate-200 sm:max-w-xs md:max-w-md"
+            aria-current="page"
+            title={plainTitle}
+          >
+            {plainTitle}
+          </span>
+        </li>
+      </ol>
+    </nav>
+
+    <article aria-labelledby="content">
+      <header class="mb-8 border-b border-slate-200/80 pb-8 dark:border-white/8">
+        <div class="article-meta mb-4">
+          <Pill level={level} as="p" />
+          <ButtonRead title={title} />
+        </div>
+        <h1
+          class="article-title rich-text"
+          id="content"
+          set:html={titleHtml}
+        />
+      </header>
+
+      <div class="article-prose" set:html={content} />
+    </article>
+
+    <section
+      class="mt-12 rounded-2xl border border-slate-200/80 bg-linear-to-b from-white to-slate-50/80 p-6 shadow-[0_1px_3px_rgb(0_0_0/4%),0_8px_24px_rgb(15_23_42/6%)] md:p-8 dark:border-slate-700/60 dark:from-slate-900 dark:to-slate-900/80 dark:shadow-[0_0_0_1px_rgb(255_255_255/6%),0_8px_24px_rgb(0_0_0/30%)]"
+      aria-labelledby="quiz-heading"
+    >
+      <div class="mb-6 flex items-center gap-3">
+        <span
+          class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400"
+          aria-hidden="true"
         >
-          Inicio
-        </a>
-      </li>
-      <li aria-hidden="true" class="text-slate-400">/</li>
-      <li>
-        <span class="text-slate-800 dark:text-slate-200" aria-current="page">
-          {plainTitle}
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8"/><path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8"/><path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5"/><path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0"/><path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5"/><path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10"/></svg>
         </span>
-      </li>
-    </ol>
-  </nav>
-
-  <article aria-labelledby="content">
-    <header class="relative pt-6">
-      <div class="flex flex-row flex-wrap items-center gap-2 pb-4">
-        <Pill level={level} as="p" />
-        <ButtonRead title={title} />
+        <div>
+          <h2 id="quiz-heading" class="text-lg font-bold text-slate-900 dark:text-white">
+            Pon a prueba lo aprendido
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400" id="quiz-desc">
+            Responde preguntas sobre este tema
+          </p>
+        </div>
       </div>
-      <h1
-        class="rich-text w-full pb-8 text-3xl font-bold leading-snug text-blue-900 md:text-4xl dark:text-blue-100"
-        id="content"
-        set:html={titleHtml}
-      />
-    </header>
+      <Quiz client:idle slug={post}>
+        <div
+          class="flex items-center justify-center gap-2 py-10 text-sm text-slate-500 dark:text-slate-400"
+          role="status"
+        >
+          Cargando preguntas…
+        </div>
+      </Quiz>
+    </section>
 
-    <div
-      class="prose max-w-none pb-4 [&>hr]:hidden [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-blue-900 [&>h1]:pb-8 [&>p]:pb-6 [&>p]:text-lg md:[&>p]:text-xl [&>p>strong]:bg-yellow-50 dark:[&>p>strong]:bg-yellow-950 [&_a]:text-blue-700 dark:[&_a]:text-blue-300 [&_a:hover]:underline [&>ul>li]:list-disc [&>ul]:text-lg md:[&>ul]:text-xl [&>ul]:text-blue-900 dark:[&>ul]:text-blue-200 [&>ul]:pb-4 [&>ul>li]:ml-5 [&>ul]:space-y-3 [&>pre]:overflow-x-auto [&>pre]:rounded-xl [&>pre]:text-white [&>pre]:mb-8 [&>pre]:p-8 [&>pre]:bg-slate-800"
-      set:html={content}
-    />
-  </article>
-
-  <section
-    class="mt-12 rounded-2xl border border-slate-200/80 bg-linear-to-b from-white to-slate-50/80 p-6 shadow-[0_1px_3px_rgb(0_0_0/4%),0_8px_24px_rgb(15_23_42/6%)] md:p-8 dark:border-slate-700/60 dark:from-slate-900 dark:to-slate-900/80 dark:shadow-[0_0_0_1px_rgb(255_255_255/6%),0_8px_24px_rgb(0_0_0/30%)]"
-    aria-labelledby="quiz-heading"
-  >
-    <div class="mb-6 flex items-center gap-3">
-      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8"/><path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8"/><path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5"/><path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0"/><path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5"/><path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10"/></svg>
-      </span>
-      <div>
-        <h2 id="quiz-heading" class="text-lg font-bold text-slate-900 dark:text-white">
-          Pon a prueba lo aprendido
-        </h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400" id="quiz-desc">
-          Responde preguntas sobre este tema
-        </p>
-      </div>
-    </div>
-    <Quiz client:idle slug={post}>
-      <div class="flex items-center justify-center gap-2 py-10 text-sm text-slate-500 dark:text-slate-400" role="status">
-        Cargando preguntas…
-      </div>
-    </Quiz>
-  </section>
-
-  <nav
-    class="clear-both py-12 text-center"
-    aria-label="Navegación entre preguntas"
-  >
-    <div class="flex flex-col gap-4 lg:block">
-      {
-        prev && (
-          <a
-            class="rich-text inline-flex items-center justify-center gap-1 leading-snug hover:underline lg:float-left lg:my-2"
-            href={`/${prev.id}#content`}
-            rel="prev"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l14 0"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/></svg>
-            <span class="sr-only">Pregunta anterior: </span>
-            <span set:html={renderInlineMarkdown(prev.text)} />
-          </a>
-        )
-      }
-      {
-        next && (
-          <a
-            class="rich-text inline-flex items-center justify-center gap-1 leading-snug hover:underline lg:float-right lg:my-2"
-            href={`/${next.id}#content`}
-            rel="next"
-          >
-            <span class="sr-only">Pregunta siguiente: </span>
-            <span set:html={renderInlineMarkdown(next.text)} />
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>
-          </a>
-        )
-      }
-    </div>
-  </nav>
+    {
+      (prev || next) && (
+        <nav class="post-nav" aria-label="Navegación entre preguntas">
+          {prev && (
+            <a
+              class="post-nav-link"
+              href={`/${prev.id}#content`}
+              rel="prev"
+              data-dir="prev"
+            >
+              <span class="post-nav-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/></svg>
+                Anterior
+              </span>
+              <span
+                class="post-nav-title rich-text"
+                set:html={renderInlineMarkdown(prev.text)}
+              />
+            </a>
+          )}
+          {next && (
+            <a
+              class="post-nav-link"
+              href={`/${next.id}#content`}
+              rel="next"
+              data-dir="next"
+            >
+              <span class="post-nav-label">
+                Siguiente
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>
+              </span>
+              <span
+                class="post-nav-title rich-text"
+                set:html={renderInlineMarkdown(next.text)}
+              />
+            </a>
+          )}
+        </nav>
+      )
+    }
+  </div>
 </BaseLayout>

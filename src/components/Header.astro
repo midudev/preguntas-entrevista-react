@@ -7,13 +7,12 @@ import counter from '../../public/content/counter.json'
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/'
 const isHome = pathname === '/'
-const literal = isHome ? 'Inicio' : 'Volver al inicio'
 const total = counter.total
 ---
 
-<header class="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-16">
-  {
-    isHome && (
+{
+  isHome ? (
+    <header class="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-16">
       <nav
         aria-label="Acciones del sitio"
         class="absolute right-5 top-2 z-20 flex items-center gap-x-3 rounded-full border border-slate-200/80 bg-white/80 px-2 py-1.5 shadow-sm backdrop-blur-md md:right-8 dark:border-slate-700/80 dark:bg-slate-900/80"
@@ -35,149 +34,181 @@ const total = counter.total
           <span class="sr-only">preguntas leídas de {total}</span>
         </a>
       </nav>
-    )
-  }
 
-  <div
-    class:list={[
-      'relative',
-      isHome ? 'block' : 'flex flex-col md:flex-row justify-between md:items-center',
-    ]}
-  >
-    <a
-      class="inline-flex w-fit rounded-full border border-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
-      href="/"
-      aria-current={isHome ? 'page' : undefined}
-    >
-      {
-        !isHome && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            class="mr-1"
-            aria-hidden="true"
-          >
-            <path d="M5 12l14 0" />
-            <path d="M5 12l6 6" />
-            <path d="M5 12l6 -6" />
-          </svg>
-        )
-      }
-      {literal}
-    </a>
-
-    <div class="flex gap-x-2">
-      <Title isHome={isHome} />
-      {
-        isHome && (
+      <div class="relative">
+        <div class="flex gap-x-2">
+          <Title isHome />
           <div class="absolute -right-4 top-6 overflow-hidden p-2 md:right-0 dark:invert" aria-hidden="true">
             <div class="translate-x-1/3 sm:translate-x-0">
               <ReactLogo animated />
             </div>
           </div>
-        )
-      }
-    </div>
-  </div>
-
-  <form
-    class="search-shell mt-6"
-    role="search"
-    aria-label="Buscar preguntas sobre React"
-    data-search-form
-    data-open="false"
-    onsubmit="return false"
-  >
-    <div class="search-field">
-      <label for="search-input" class="sr-only">Buscar preguntas sobre React</label>
-      <span class="search-field-icon" aria-hidden="true">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="h-5 w-5 md:h-6 md:w-6"
-        >
-          <circle cx="11" cy="11" r="7"></circle>
-          <path d="M21 21l-4.3-4.3"></path>
-        </svg>
-      </span>
-      <input
-        id="search-input"
-        data-search-input
-        class="search-input"
-        type="search"
-        name="q"
-        placeholder="Busca una pregunta sobre React…"
-        autocomplete="off"
-        enterkeyhint="search"
-        spellcheck="false"
-        role="combobox"
-        aria-autocomplete="list"
-        aria-controls="search-results"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-describedby="search-hint"
-      />
-      <button
-        type="button"
-        class="search-clear"
-        data-search-clear
-        data-visible="false"
-        aria-label="Limpiar búsqueda"
-        tabindex="-1"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.4"
-          stroke-linecap="round"
-          aria-hidden="true"
-        >
-          <path d="M18 6L6 18"></path>
-          <path d="M6 6l12 12"></path>
-        </svg>
-      </button>
-      <p id="search-hint" class="sr-only">
-        Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer
-        resultados y Enter para abrir la pregunta.
-      </p>
-    </div>
-
-    <div class="search-panel" data-search-panel>
-      <ul
-        id="search-results"
-        data-search-results
-        role="listbox"
-        aria-label="Resultados de búsqueda"
-        class="search-results"
-      >
-      </ul>
-      <div class="search-footer" data-search-footer hidden>
-        <span class="search-footer-count" data-search-count></span>
-        <div class="search-footer-keys" aria-hidden="true">
-          <span><kbd class="search-kbd">↑</kbd><kbd class="search-kbd">↓</kbd> navegar</span>
-          <span><kbd class="search-kbd">↵</kbd> abrir</span>
-          <span><kbd class="search-kbd">esc</kbd> cerrar</span>
         </div>
       </div>
-    </div>
-  </form>
-</header>
+
+      <form
+        class="search-shell mt-6"
+        role="search"
+        aria-label="Buscar preguntas sobre React"
+        data-search-form
+        data-open="false"
+        onsubmit="return false"
+      >
+        <div class="search-field">
+          <label for="search-input" class="sr-only">Buscar preguntas sobre React</label>
+          <span class="search-field-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 md:h-6 md:w-6">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="M21 21l-4.3-4.3"></path>
+            </svg>
+          </span>
+          <input
+            id="search-input"
+            data-search-input
+            class="search-input"
+            type="search"
+            name="q"
+            placeholder="Busca una pregunta sobre React…"
+            autocomplete="off"
+            enterkeyhint="search"
+            spellcheck="false"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-controls="search-results"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-describedby="search-hint"
+          />
+          <button type="button" class="search-clear" data-search-clear data-visible="false" aria-label="Limpiar búsqueda" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M18 6L6 18"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
+          <p id="search-hint" class="sr-only">
+            Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer resultados y Enter para abrir la pregunta.
+          </p>
+        </div>
+        <div class="search-panel" data-search-panel>
+          <ul id="search-results" data-search-results role="listbox" aria-label="Resultados de búsqueda" class="search-results"></ul>
+          <div class="search-footer" data-search-footer hidden>
+            <span class="search-footer-count" data-search-count></span>
+            <div class="search-footer-keys" aria-hidden="true">
+              <span><kbd class="search-kbd">↑</kbd><kbd class="search-kbd">↓</kbd> navegar</span>
+              <span><kbd class="search-kbd">↵</kbd> abrir</span>
+              <span><kbd class="search-kbd">esc</kbd> cerrar</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </header>
+  ) : (
+    <header class="site-topbar sticky top-0 z-50 overflow-visible border-b border-slate-200/70 bg-[var(--page-bg,#fafbff)]/85 backdrop-blur-xl dark:border-white/8">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 overflow-visible px-5 py-3 md:flex-row md:items-center md:gap-4 md:px-8 md:py-3.5">
+        <div class="flex items-center justify-between gap-3 md:contents">
+          <a
+            href="/"
+            class="group flex min-w-0 shrink-0 items-center gap-2.5 rounded-lg outline-offset-4"
+          >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/80 bg-white text-slate-500 shadow-sm transition group-hover:border-blue-300 group-hover:text-blue-600 dark:border-white/10 dark:bg-slate-900 dark:text-slate-400 dark:group-hover:border-blue-500/40 dark:group-hover:text-blue-300" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="M5 12l6 6" />
+                <path d="M5 12l6 -6" />
+              </svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                Volver al inicio
+              </span>
+              <span class="font-display block truncate text-sm font-bold leading-tight text-slate-900 dark:text-white md:text-base">
+                Preguntas de React
+              </span>
+            </span>
+          </a>
+
+          <nav
+            aria-label="Acciones del sitio"
+            class="flex shrink-0 items-center gap-x-1.5 rounded-full border border-slate-200/80 bg-white/80 px-1.5 py-1 shadow-sm dark:border-slate-700/80 dark:bg-slate-900/80 md:order-3"
+          >
+            <ThemeToggle />
+            <Stars />
+            <a
+              href="/questions"
+              class="inline-flex items-center gap-1.5 rounded-full border border-transparent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+              data-read-counter
+            >
+              <span class="hidden sm:inline">Leídas</span>
+              <span class="tabular-nums tracking-normal normal-case" aria-live="polite">
+                <span data-read-count>0</span>
+                <span class="sr-only"> de </span>
+                <span aria-hidden="true">/</span>
+                {total}
+              </span>
+              <span class="sr-only">preguntas leídas de {total}</span>
+            </a>
+          </nav>
+        </div>
+
+        <form
+          class="search-shell search-shell--compact min-w-0 flex-1 md:order-2"
+          role="search"
+          aria-label="Buscar preguntas sobre React"
+          data-search-form
+          data-open="false"
+          onsubmit="return false"
+        >
+          <div class="search-field">
+            <label for="search-input" class="sr-only">Buscar preguntas sobre React</label>
+            <span class="search-field-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M21 21l-4.3-4.3"></path>
+              </svg>
+            </span>
+            <input
+              id="search-input"
+              data-search-input
+              class="search-input"
+              type="search"
+              name="q"
+              placeholder="Buscar pregunta…"
+              autocomplete="off"
+              enterkeyhint="search"
+              spellcheck="false"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-controls="search-results"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-describedby="search-hint"
+            />
+            <button type="button" class="search-clear" data-search-clear data-visible="false" aria-label="Limpiar búsqueda" tabindex="-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+                <path d="M18 6L6 18"></path>
+                <path d="M6 6l12 12"></path>
+              </svg>
+            </button>
+            <p id="search-hint" class="sr-only">
+              Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer resultados y Enter para abrir la pregunta.
+            </p>
+          </div>
+          <div class="search-panel" data-search-panel>
+            <ul id="search-results" data-search-results role="listbox" aria-label="Resultados de búsqueda" class="search-results"></ul>
+            <div class="search-footer" data-search-footer hidden>
+              <span class="search-footer-count" data-search-count></span>
+              <div class="search-footer-keys" aria-hidden="true">
+                <span><kbd class="search-kbd">↑</kbd><kbd class="search-kbd">↓</kbd> navegar</span>
+                <span><kbd class="search-kbd">↵</kbd> abrir</span>
+                <span><kbd class="search-kbd">esc</kbd> cerrar</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </header>
+  )
+}
 
 <script>
   import Fuse from 'fuse.js'
@@ -263,7 +294,6 @@ const total = counter.total
     return mergeRanges(ranges)
   }
 
-  /** Build a boolean mask of highlighted character offsets in the original string. */
   function buildHighlightMask(length: number, ranges: Range[]): boolean[] {
     const mask = new Array(length).fill(false)
     for (const [start, end] of ranges) {
@@ -274,10 +304,6 @@ const total = counter.total
     return mask
   }
 
-  /**
-   * Highlight a slice of the original text using absolute character offsets.
-   * Handles nested marks cleanly without breaking code spans.
-   */
   function highlightSlice(
     value: string,
     absoluteStart: number,
@@ -300,10 +326,6 @@ const total = counter.total
     return html
   }
 
-  /**
-   * Tokenize inline `code` spans first so highlights never leave raw backticks
-   * and marks nest correctly inside <code>.
-   */
   function highlightTitle(
     text: string,
     matches?: readonly Fuse.FuseResultMatch[]
@@ -318,7 +340,6 @@ const total = counter.total
       if (m.index > cursor) {
         html += highlightSlice(text.slice(cursor, m.index), cursor, mask)
       }
-      // Content lives between the backticks
       const contentStart = m.index + 1
       html += `<code>${highlightSlice(m[1], contentStart, mask)}</code>`
       cursor = m.index + m[0].length
@@ -328,7 +349,6 @@ const total = counter.total
       html += highlightSlice(text.slice(cursor), cursor, mask)
     }
 
-    // Lightweight strong/em after highlight (no nesting issues for our titles)
     return html
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[\s(])_([^_]+)_([\s).,;:?!]|$)/g, '$1<em>$2</em>$3')
@@ -426,7 +446,7 @@ const total = counter.total
             aria-selected="false"
           >
             <a
-              href="/${item.id}#content"
+              href="/${item.id}"
               class="search-option-link"
               data-search-link
               tabindex="-1"
@@ -442,7 +462,6 @@ const total = counter.total
       })
       .join('')
 
-    // Preselect first hit so Enter opens immediately (command-palette feel)
     setActive(0)
 
     if (footer && count) {
@@ -475,7 +494,7 @@ const total = counter.total
   }
 
   function goTo(id: string) {
-    window.location.assign(`/${id}#content`)
+    window.location.assign(`/${id}`)
   }
 
   const runSearch = debounce(async (value: string) => {
