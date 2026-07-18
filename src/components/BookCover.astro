@@ -1,0 +1,144 @@
+---
+interface Props {
+  rotate?: number
+  rotateHover?: number
+  perspective?: number
+  transitionDuration?: number
+  radius?: number
+  thickness?: number
+  bgColor?: string
+  shadowColor?: string
+  width?: number
+  height?: number
+  pagesOffset?: number
+}
+
+const {
+  rotate = 30,
+  rotateHover = 5,
+  perspective = 600,
+  transitionDuration = 1,
+  radius = 2,
+  thickness = 35,
+  bgColor = '#01060f',
+  shadowColor = 'rgba(0, 0, 0, .2)',
+  width = 100,
+  height = 150,
+  pagesOffset = 4,
+} = Astro.props
+
+const style = [
+  `--book-rotate:${rotate}deg`,
+  `--book-rotate-hover:${rotateHover}deg`,
+  `--book-perspective:${perspective}px`,
+  `--book-duration:${transitionDuration}s`,
+  `--book-radius:${radius}px`,
+  `--book-thickness:${thickness}px`,
+  `--book-bg:${bgColor}`,
+  `--book-shadow:${shadowColor}`,
+  `--book-width:${width}px`,
+  `--book-height:${height}px`,
+  `--book-pages-offset:${pagesOffset}px`,
+  `--book-z:${thickness / 2}px`,
+  `--book-before-w:${thickness - 2}px`,
+  `--book-before-h:${height - 2 * pagesOffset}px`,
+  `--book-before-x:${width - thickness / 2 - pagesOffset}px`,
+].join(';')
+---
+
+<div class="book-cover-container" style={style}>
+  <div class="book-cover-book">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  .book-cover-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: var(--book-perspective);
+  }
+
+  @keyframes book-cover-init {
+    0% {
+      transform: rotateY(calc(var(--book-rotate-hover) * -1));
+    }
+    100% {
+      transform: rotateY(calc(var(--book-rotate) * -1));
+    }
+  }
+
+  .book-cover-book {
+    width: var(--book-width);
+    height: var(--book-height);
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--book-rotate) * -1));
+    transition: transform var(--book-duration) ease;
+    animation: 1s ease 0s 1 book-cover-init;
+  }
+
+  .book-cover-book:hover {
+    transform: rotateY(calc(var(--book-rotate-hover) * -1)) scale(1.25);
+  }
+
+  .book-cover-book > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--book-width);
+    height: var(--book-height);
+    transform: translateZ(var(--book-z));
+    background-color: var(--book-bg);
+    border-radius: 0 var(--book-radius) var(--book-radius) 0;
+    box-shadow: 5px 5px 20px var(--book-shadow);
+  }
+
+  .book-cover-book::before {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    top: var(--book-pages-offset);
+    width: var(--book-before-w);
+    height: var(--book-before-h);
+    transform: translateX(var(--book-before-x)) rotateY(90deg);
+    background: linear-gradient(
+      90deg,
+      #fff 0%,
+      #f9f9f9 5%,
+      #fff 10%,
+      #f9f9f9 15%,
+      #fff 20%,
+      #f9f9f9 25%,
+      #fff 30%,
+      #f9f9f9 35%,
+      #fff 40%,
+      #f9f9f9 45%,
+      #fff 50%,
+      #f9f9f9 55%,
+      #fff 60%,
+      #f9f9f9 65%,
+      #fff 70%,
+      #f9f9f9 75%,
+      #fff 80%,
+      #f9f9f9 85%,
+      #fff 90%,
+      #f9f9f9 95%,
+      #fff 100%
+    );
+  }
+
+  .book-cover-book::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: ' ';
+    width: var(--book-width);
+    height: var(--book-height);
+    transform: translateZ(calc(var(--book-z) * -1));
+    background-color: var(--book-bg);
+    border-radius: 0 var(--book-radius) var(--book-radius) 0;
+    box-shadow: -10px 0 50px 10px var(--book-shadow);
+  }
+</style>

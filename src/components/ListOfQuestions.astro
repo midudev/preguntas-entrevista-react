@@ -1,0 +1,138 @@
+---
+import { readIndex } from '../lib/posts'
+import { renderInlineMarkdown, stripMarkdown } from '../lib/markdown'
+import { LEVELS } from '../constants'
+import Pill from './Pill.astro'
+
+interface Props {
+  showReadStatus?: boolean
+}
+
+const { showReadStatus = false } = Astro.props
+
+const QUESTION_CATEGORIES = [
+  { id: 'beginner', level: LEVELS.EASY, label: 'Principiante' },
+  { id: 'intermediate', level: LEVELS.MEDIUM, label: 'Intermedio' },
+  { id: 'expert', level: LEVELS.HARD, label: 'Experto' },
+  { id: 'errors', level: LEVELS.ERRORS, label: 'Errores' },
+]
+
+const OTHER_CATEGORY = { id: 'other', label: 'Otras preguntas' }
+
+const questions = readIndex()
+const categoryByLevel = new Map(
+  QUESTION_CATEGORIES.map(c => [c.level, c.id])
+)
+const categories = new Map(
+  [...QUESTION_CATEGORIES, OTHER_CATEGORY].map(c => [
+    c.id,
+    { ...c, questions: [] as typeof questions },
+  ])
+)
+
+questions.forEach(question => {
+  const categoryId =
+    categoryByLevel.get(question.level as number) ?? OTHER_CATEGORY.id
+  categories.get(categoryId)!.questions.push(question)
+})
+
+const grouped = Array.from(categories.values()).filter(c => c.questions.length > 0)
+---
+
+<div class="animate-fade-in animate-duration-700 space-y-8" data-questions-list>
+  {
+    grouped.map(category => (
+      <section>
+        <div class="mb-3 flex items-center justify-between gap-3">
+          {'level' in category && category.level !== undefined ? (
+            <Pill level={category.level} />
+          ) : (
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white md:text-2xl">
+              {category.label}
+            </h3>
+          )}
+          <span class="rounded-full border border-slate-300/80 bg-white/70 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:border-slate-500/60 dark:bg-slate-800/65 dark:text-slate-200">
+            {category.questions.length}
+          </span>
+        </div>
+
+        <ul class="questions-list">
+          {category.questions.map(({ id, text }) => {
+            const textHtml = renderInlineMarkdown(text)
+            const plainText = stripMarkdown(text)
+            return (
+            <li>
+              {showReadStatus ? (
+                <a
+                  class="question-row rich-text leading-snug text-slate-800 dark:text-slate-100"
+                  href={`/${id}#content`}
+                  data-read-item
+                  data-read-title={text}
+                  aria-label={plainText}
+                >
+                  <span class="status-dot" data-status-dot aria-hidden="true" />
+                  <span set:html={textHtml} />
+                </a>
+              ) : (
+                <a
+                  class="question-row rich-text leading-snug text-slate-800 dark:text-slate-100"
+                  href={`/${id}#content`}
+                >
+                  <span set:html={textHtml} />
+                </a>
+              )}
+            </li>
+            )
+          })}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+{showReadStatus && (
+  <script>
+    function getRead(): string[] {
+      try {
+        return JSON.parse(localStorage.getItem('read') || '[]')
+      } catch {
+        return []
+      }
+    }
+
+    function plainLabel(text: string) {
+      return text
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/(^|[\s(])_([^_]+)_([\s).,;:?!]|$)/g, '$1$2$3')
+    }
+
+    function paintReadItems() {
+      const read = getRead()
+      document.querySelectorAll<HTMLElement>('[data-read-item]').forEach(el => {
+        const title = el.dataset.readTitle || ''
+        const isRead = read.includes(title)
+        el.classList.toggle('question-row-read', isRead)
+        el.classList.toggle('text-green-700', isRead)
+        el.classList.toggle('dark:text-green-300', isRead)
+        const dot = el.querySelector('[data-status-dot]')
+        dot?.classList.toggle('status-dot-read', isRead)
+        el.setAttribute(
+          'aria-label',
+          `${plainLabel(title)}${isRead ? ' (leída)' : ' (no leída)'}`
+        )
+      })
+    }
+
+    function onStorage(e: Event) {
+      const detail = (e as CustomEvent).detail ?? e
+      const key = (detail as any).key
+      if (key === 'read' || (e as StorageEvent).key === 'read') paintReadItems()
+    }
+
+    paintReadItems()
+    window.addEventListener('storage', onStorage)
+    window.addEventListener('local-storage', onStorage)
+    document.addEventListener('astro:page-load', paintReadItems)
+  </script>
+)}

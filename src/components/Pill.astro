@@ -1,0 +1,47 @@
+---
+import { LEVELS } from '../constants'
+
+interface Props {
+  level?: number
+}
+
+const { level = LEVELS.EASY } = Astro.props
+
+const LITERALS: Record<number, string> = {
+  [LEVELS.EASY]: 'Principiante',
+  [LEVELS.MEDIUM]: 'Intermedio',
+  [LEVELS.HARD]: 'Experto',
+  [LEVELS.ERRORS]: 'Errores típicos',
+}
+
+const COLORS: Record<number, string> = {
+  [LEVELS.EASY]:
+    'border-emerald-500/40 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300',
+  [LEVELS.MEDIUM]:
+    'border-amber-500/40 bg-amber-50 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300',
+  [LEVELS.HARD]:
+    'border-violet-500/40 bg-violet-50 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300',
+  [LEVELS.ERRORS]:
+    'border-red-500/40 bg-red-50 text-red-700 dark:bg-red-500/15 dark:text-red-300',
+}
+
+const literal = LITERALS[level] ?? LITERALS[LEVELS.EASY]
+const color = COLORS[level] ?? COLORS[LEVELS.EASY]
+---
+
+<div>
+  <span class:list={[color, 'pill-tag font-bold inline-flex items-center gap-1']}>
+    {
+      level === LEVELS.ERRORS ? (
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"/><path d="M12 16h.01"/></svg>
+      ) : level === LEVELS.HARD ? (
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18l0 -3"/><path d="M10 18l0 -6"/><path d="M14 18l0 -9"/><path d="M18 18l0 -12"/></svg>
+      ) : level === LEVELS.MEDIUM ? (
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18l0 -3"/><path d="M10 18l0 -6"/><path d="M14 18l0 -3"/><path d="M18 18l0 0"/></svg>
+      ) : (
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18l0 -3"/><path d="M10 18l0 0"/><path d="M14 18l0 0"/><path d="M18 18l0 0"/></svg>
+      )
+    }
+    {literal}
+  </span>
+</div>

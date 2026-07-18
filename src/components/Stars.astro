@@ -1,0 +1,34 @@
+---
+let stars = 0
+try {
+  const res = await fetch(
+    'https://api.github.com/repos/midudev/preguntas-entrevista-react',
+    { headers: { Accept: 'application/vnd.github+json' } }
+  )
+  if (res.ok) {
+    const data = await res.json()
+    stars = data.stargazers_count ?? 0
+  }
+} catch {
+  stars = 0
+}
+
+const formatNumber = (number: number) => {
+  if (number === 0) return '0.0K'
+  if (number >= 1000) return `${(number / 1000).toFixed(1)}K`
+  return String(number)
+}
+
+const label = formatNumber(stars)
+---
+
+<a
+  class="flex items-center gap-x-1 rounded-full px-1 py-0.5 text-xs font-semibold text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+  href="https://github.com/midudev/preguntas-entrevista-react"
+  target="_blank"
+  rel="noreferrer"
+  aria-label={`${label} estrellas en GitHub`}
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-amber-500" aria-hidden="true"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"/></svg>
+  <span class="tabular-nums">{label}</span>
+</a>

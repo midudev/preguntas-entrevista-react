@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Página no encontrada"
+  description="La pregunta que buscas no existe en React.js Wiki. Vuelve al inicio para encontrar preguntas reales sobre React."
+  canonical="/404"
+  noindex={true}
+>
+  <section class="hero-panel animate-fade-in-up animate-duration-700 px-6 py-12 text-center md:px-12 md:py-16">
+    <div class="relative mx-auto max-w-2xl">
+      <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-blue-700 dark:border-blue-400/25 dark:bg-blue-400/10 dark:text-blue-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg>
+        Error 404
+      </p>
+      <h1 class="font-display text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">
+        Esta pregunta no existe
+      </h1>
+      <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg dark:text-slate-300">
+        La URL no coincide con ninguna pregunta publicada. Puedes volver al
+        inicio y usar el buscador para encontrar contenido real sobre React.
+      </p>
+      <a
+        class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 focus-visible:outline-blue-600 dark:bg-blue-500 dark:hover:bg-blue-400"
+        href="/"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l14 0"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/></svg>
+        Volver al inicio
+      </a>
+    </div>
+  </section>
+</BaseLayout>

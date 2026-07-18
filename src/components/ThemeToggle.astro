@@ -1,0 +1,37 @@
+<button
+  type="button"
+  id="theme-toggle"
+  aria-label="Cambiar tema"
+  class="relative flex h-7 w-14 cursor-pointer items-center justify-between rounded-full border border-slate-200 px-1.5 shadow-sm transition hover:border-blue-300 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-400/50 dark:border-slate-600 dark:hover:border-blue-500"
+  data-theme-toggle
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="z-10 text-slate-200" aria-hidden="true"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+  <span
+    id="theme-toggle-knob"
+    class="absolute top-0.75 h-5 w-5 rounded-full transition-transform duration-300 left-7.75 bg-slate-800 shadow-[0_0_0_2px_rgba(59,130,246,0.2)] dark:left-0.75 dark:bg-blue-400 dark:shadow-[0_0_0_2px_rgba(30,41,59,0.5)]"
+  ></span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="z-10 text-amber-500" aria-hidden="true"><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg>
+</button>
+
+<script>
+  function initThemeToggle() {
+    const btn = document.querySelector('[data-theme-toggle]')
+    if (!btn || btn.dataset.bound === '1') return
+    btn.dataset.bound = '1'
+
+    const apply = (theme: string) => {
+      document.documentElement.classList.toggle('dark', theme === 'dark')
+      try {
+        localStorage.setItem('theme', theme)
+      } catch {}
+    }
+
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark')
+      apply(isDark ? 'light' : 'dark')
+    })
+  }
+
+  initThemeToggle()
+  document.addEventListener('astro:page-load', initThemeToggle)
+</script>

@@ -1,5 +1,6 @@
-User-agent: Googlebot
-Disallow:
+User-agent: *
+Allow: /
+Disallow: /api/
 
-User-agent: Googlebot-image
-Disallow:
+Sitemap: https://reactjs.wiki/sitemap-index.xml
+Host: https://reactjs.wiki

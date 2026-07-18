@@ -1,0 +1,32 @@
+---
+import Pill from './Pill.astro'
+import { renderInlineMarkdown, stripMarkdown } from '../lib/markdown'
+
+interface Props {
+  title: string
+  excerpt: string
+  slug: string
+  level: number
+}
+
+const { title, excerpt, slug, level } = Astro.props
+const plainTitle = stripMarkdown(title)
+---
+
+<a class="question-card relative z-10 flex h-full min-w-0 animate-fade-in-up animate-duration-500" href={slug}>
+  <article class="flex h-full w-full min-w-0 flex-col gap-y-4">
+    <Pill level={level} />
+    <h2
+      class="rich-text min-w-0 font-display text-xl font-bold leading-tight text-slate-900 dark:text-white"
+      title={plainTitle}
+      set:html={renderInlineMarkdown(title)}
+    />
+    <p class="min-w-0 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+      {excerpt}
+    </p>
+    <p class="mt-auto inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-blue-600 dark:text-blue-400">
+      Abrir respuesta
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>
+    </p>
+  </article>
+</a>

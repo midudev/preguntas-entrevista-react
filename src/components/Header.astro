@@ -1,0 +1,314 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+import Stars from './Stars.astro'
+import Title from './Title.astro'
+import ReactLogo from './ReactLogo.astro'
+import counter from '../../public/content/counter.json'
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/'
+const isHome = pathname === '/'
+const literal = isHome ? 'Inicio' : 'Volver al inicio'
+const total = counter.total
+---
+
+<header class="relative pb-10 pt-14 md:pt-16">
+  {
+    isHome && (
+      <nav
+        aria-label="Acciones de la pagina"
+        class="absolute right-0 top-2 z-20 flex items-center gap-x-3 rounded-full border border-slate-200/80 bg-white/80 px-2 py-1.5 shadow-sm backdrop-blur-md dark:border-slate-700/80 dark:bg-slate-900/80"
+      >
+        <ThemeToggle />
+        <Stars />
+        <a href="/questions">
+          <span
+            class="inline-flex items-center gap-1.5 rounded-full border border-transparent px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+            data-read-counter
+          >
+            <span>Leídas</span>
+            <span class="tabular-nums tracking-normal normal-case">
+              <span data-read-count>0</span>/{total}
+            </span>
+          </span>
+        </a>
+      </nav>
+    )
+  }
+
+  <div
+    class:list={[
+      'relative',
+      isHome ? 'block' : 'flex flex-col md:flex-row justify-between md:items-center',
+    ]}
+  >
+    <a
+      class="inline-flex w-fit rounded-full border border-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-300 dark:hover:border-blue-500/35 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+      href="/"
+    >
+      {
+        !isHome && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="mr-1"
+            aria-hidden="true"
+          >
+            <path d="M5 12l14 0" />
+            <path d="M5 12l6 6" />
+            <path d="M5 12l6 -6" />
+          </svg>
+        )
+      }
+      {literal}
+    </a>
+
+    <div class="flex gap-x-2">
+      <Title isHome={isHome} />
+      {
+        isHome && (
+          <div class="absolute p-2 overflow-hidden -right-4 md:right-0 top-6 dark:invert">
+            <div class="translate-x-1/3 sm:translate-x-0">
+              <ReactLogo />
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <form
+    class="relative mt-6"
+    role="search"
+    aria-label="Buscar preguntas sobre React"
+    data-search-form
+    onsubmit="return false"
+  >
+    <label class="relative w-full">
+      <span class="sr-only">Buscar preguntas</span>
+      <div
+        class="absolute px-4 py-3 text-slate-400 dark:text-slate-500"
+        aria-hidden="true"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          class="w-8 h-8 md:w-12 md:h-12"
+        >
+          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+          <path d="M21 21l-6 -6"></path>
+        </svg>
+      </div>
+      <input
+        id="search-input"
+        data-search-input
+        class="search-input z-10 block w-full appearance-none rounded-2xl border border-slate-200 bg-white p-4 pl-14 text-base font-bold text-slate-900 outline-hidden transition-all duration-300 hover:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/25 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-100 dark:hover:border-blue-500/50 dark:focus:border-blue-400 dark:focus:ring-blue-400/25 md:p-6 md:pl-20 md:text-xl"
+        type="search"
+        placeholder="Introduce aquí tu pregunta sobre React"
+        autocomplete="off"
+        aria-autocomplete="list"
+        aria-controls="search-results"
+        aria-expanded="false"
+      />
+    </label>
+    <ul
+      id="search-results"
+      data-search-results
+      role="listbox"
+      class="absolute z-50 hidden w-full overflow-hidden rounded-2xl rounded-t-none border border-slate-200 bg-white text-slate-900 shadow-2xl shadow-black/10 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 dark:shadow-black/50"
+    >
+    </ul>
+  </form>
+</header>
+
+<script>
+  import Fuse from 'fuse.js'
+  import debounce from 'just-debounce-it'
+
+  type IndexItem = { id: string; text: string; level?: number }
+
+  let fuse: Fuse<IndexItem> | null = null
+  let activeIndex = -1
+  let currentResults: Fuse.FuseResult<IndexItem>[] = []
+
+  async function ensureFuse() {
+    if (fuse) return fuse
+    const res = await fetch('/content/index.json')
+    const index: IndexItem[] = await res.json()
+    fuse = new Fuse(index, {
+      keys: ['text'],
+      includeScore: true,
+      includeMatches: true,
+      minMatchCharLength: 2,
+    })
+    return fuse
+  }
+
+  function getReadCount() {
+    try {
+      return JSON.parse(localStorage.getItem('read') || '[]').length
+    } catch {
+      return 0
+    }
+  }
+
+  function paintCounter() {
+    document.querySelectorAll('[data-read-count]').forEach(el => {
+      el.textContent = String(getReadCount())
+    })
+  }
+
+  /** Inline Markdown → HTML (code, emphasis). Escape first so raw text is safe. */
+  function renderInlineMarkdown(text: string): string {
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+    return escaped
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[\s(])_([^_]+)_([\s).,;:?!]|$)/g, '$1<em>$2</em>$3')
+  }
+
+  function highlight(text: string, matches?: readonly Fuse.FuseResultMatch[]) {
+    if (!matches?.length) return renderInlineMarkdown(text)
+    const [{ indices }] = matches
+    const [bestMatch] = [...indices].sort((a, b) => b[1] - b[0] - (a[1] - a[0]))
+    if (!bestMatch) return renderInlineMarkdown(text)
+
+    // Highlight on raw source, then format Markdown outside the mark tags.
+    const before = text.slice(0, bestMatch[0])
+    const matched = text.slice(bestMatch[0], bestMatch[1] + 1)
+    const after = text.slice(bestMatch[1] + 1)
+    return (
+      renderInlineMarkdown(before) +
+      '<mark class="bg-yellow-300 dark:text-black">' +
+      renderInlineMarkdown(matched) +
+      '</mark>' +
+      renderInlineMarkdown(after)
+    )
+  }
+
+  function renderResults(results: Fuse.FuseResult<IndexItem>[]) {
+    const list = document.querySelector<HTMLElement>('[data-search-results]')
+    const input = document.querySelector<HTMLInputElement>('[data-search-input]')
+    if (!list || !input) return
+
+    currentResults = results
+    activeIndex = -1
+
+    if (results.length === 0) {
+      list.classList.add('hidden')
+      list.innerHTML = ''
+      input.classList.remove('focus:rounded-b-none', 'focus:border-b-0')
+      input.setAttribute('aria-expanded', 'false')
+      return
+    }
+
+    list.classList.remove('hidden')
+    input.classList.add('focus:rounded-b-none', 'focus:border-b-0')
+    input.setAttribute('aria-expanded', 'true')
+    list.innerHTML = results
+      .map((result, i) => {
+        const { item, matches } = result
+        const html = highlight(item.text, matches)
+        return `<li role="option" id="search-option-${i}" data-index="${i}" aria-selected="false"><a href="/${item.id}#content" class="rich-text block p-4 text-slate-900 hover:bg-blue-50 dark:text-slate-100 dark:hover:bg-blue-500/12 cursor-pointer" data-search-link><strong class="text-slate-950 dark:text-white">${html}</strong></a></li>`
+      })
+      .join('')
+  }
+
+  function setActive(index: number) {
+    const list = document.querySelector('[data-search-results]')
+    if (!list) return
+    const options = list.querySelectorAll<HTMLElement>('[role="option"]')
+    options.forEach((opt, i) => {
+      const active = i === index
+      const link = opt.querySelector('a')
+      opt.classList.toggle('bg-blue-50', active)
+      opt.classList.toggle('dark:bg-blue-500/12', active)
+      link?.classList.toggle('bg-blue-50', active)
+      link?.classList.toggle('dark:bg-blue-500/12', active)
+      opt.setAttribute('aria-selected', active ? 'true' : 'false')
+    })
+    activeIndex = index
+  }
+
+  function goTo(id: string) {
+    window.location.assign(`/${id}#content`)
+  }
+
+  const runSearch = debounce(async (value: string) => {
+    if (!value || value.length < 2) {
+      renderResults([])
+      return
+    }
+    const f = await ensureFuse()
+    renderResults(f.search(value).slice(0, 5))
+  }, 200)
+
+  function initSearch() {
+    const input = document.querySelector<HTMLInputElement>('[data-search-input]')
+    const list = document.querySelector<HTMLElement>('[data-search-results]')
+    if (!input || !list) return
+    if (input.dataset.bound === '1') return
+    input.dataset.bound = '1'
+
+    if (window.location.pathname === '/' || window.location.pathname === '') {
+      input.focus()
+    }
+
+    input.addEventListener('input', e => {
+      runSearch((e.target as HTMLInputElement).value)
+    })
+
+    input.addEventListener('keydown', e => {
+      if (!currentResults.length) return
+      if (e.key === 'ArrowDown') {
+        e.preventDefault()
+        setActive(Math.min(activeIndex + 1, currentResults.length - 1))
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        setActive(Math.max(activeIndex - 1, 0))
+      } else if (e.key === 'Enter') {
+        e.preventDefault()
+        if (activeIndex >= 0) {
+          goTo(currentResults[activeIndex].item.id)
+        } else if (currentResults.length === 1) {
+          goTo(currentResults[0].item.id)
+        }
+      } else if (e.key === 'Escape') {
+        renderResults([])
+        input.blur()
+      }
+    })
+
+    list.addEventListener('mousemove', e => {
+      const li = (e.target as HTMLElement).closest<HTMLElement>('[data-index]')
+      if (li?.dataset.index != null) setActive(Number(li.dataset.index))
+    })
+  }
+
+  function onStorage(e: Event) {
+    const detail = (e as CustomEvent).detail ?? e
+    const key = (detail as any).key
+    if (key === 'read' || (e as StorageEvent).key === 'read') paintCounter()
+  }
+
+  paintCounter()
+  initSearch()
+  window.addEventListener('storage', onStorage)
+  window.addEventListener('local-storage', onStorage)
+  document.addEventListener('astro:page-load', () => {
+    paintCounter()
+    initSearch()
+  })
+</script>

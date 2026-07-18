@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string
+}
+const { title } = Astro.props
+---
+
+<button
+  type="button"
+  data-read-button
+  data-title={title}
+  class="pill-tag font-bold inline-flex items-center gap-1 transition-colors border-slate-300/60 bg-slate-50 text-slate-600 hover:border-blue-400/50 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-600/60 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+>
+  <svg data-icon-unread xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M14 12c0 .5 0 .5 -.5 .5h-3c-.5 0 -.5 0 -.5 -.5s0 -.5 .5 -.5h3c.5 0 .5 0 .5 .5"/><path d="M12 9v6"/></svg>
+  <svg data-icon-read class="hidden" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg>
+  <span data-read-label>Marcar leído</span>
+</button>
+
+<script>
+  function getRead(): string[] {
+    try {
+      return JSON.parse(localStorage.getItem('read') || '[]')
+    } catch {
+      return []
+    }
+  }
+
+  function setRead(list: string[]) {
+    const newValue = JSON.stringify(list)
+    localStorage.setItem('read', newValue)
+    window.dispatchEvent(
+      new CustomEvent('local-storage', { detail: { key: 'read', newValue } })
+    )
+  }
+
+  function paintButton(btn: HTMLElement) {
+    const title = btn.dataset.title || ''
+    const isRead = getRead().includes(title)
+    const label = btn.querySelector('[data-read-label]')
+    const iconRead = btn.querySelector('[data-icon-read]')
+    const iconUnread = btn.querySelector('[data-icon-unread]')
+
+    if (label) label.textContent = isRead ? 'Leído' : 'Marcar leído'
+    iconRead?.classList.toggle('hidden', !isRead)
+    iconUnread?.classList.toggle('hidden', isRead)
+
+    btn.classList.toggle('border-blue-500/40', isRead)
+    btn.classList.toggle('bg-blue-50', isRead)
+    btn.classList.toggle('text-blue-700', isRead)
+    btn.classList.toggle('dark:bg-blue-500/15', isRead)
+    btn.classList.toggle('dark:text-blue-300', isRead)
+  }
+
+  function initReadButtons() {
+    document.querySelectorAll<HTMLElement>('[data-read-button]').forEach(btn => {
+      paintButton(btn)
+      if (btn.dataset.bound === '1') return
+      btn.dataset.bound = '1'
+      btn.addEventListener('click', () => {
+        const title = btn.dataset.title || ''
+        if (!title) return
+        const list = getRead()
+        const idx = list.indexOf(title)
+        if (idx >= 0) list.splice(idx, 1)
+        else list.push(title)
+        setRead(list)
+        paintButton(btn)
+      })
+    })
+  }
+
+  function onStorage(e: Event) {
+    const detail = (e as CustomEvent).detail ?? e
+    const key = (detail as any).key
+    if (key === 'read' || (e as StorageEvent).key === 'read') {
+      document.querySelectorAll<HTMLElement>('[data-read-button]').forEach(paintButton)
+    }
+  }
+
+  initReadButtons()
+  window.addEventListener('storage', onStorage)
+  window.addEventListener('local-storage', onStorage)
+  document.addEventListener('astro:page-load', initReadButtons)
+</script>

@@ -1,0 +1,67 @@
+---
+import '../styles/global.css'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import BuyBook from '../components/BuyBook.astro'
+import Seo from '../components/Seo.astro'
+import { DEFAULT_DESCRIPTION } from '../constants'
+
+interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+  type?: 'website' | 'article'
+  noindex?: boolean
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
+}
+
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  canonical = '/',
+  type = 'website',
+  noindex = false,
+  jsonLd,
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      try {
+        var t = localStorage.getItem('theme')
+        if (t === 'dark') document.documentElement.classList.add('dark')
+      } catch (e) {}
+    </script>
+    <Seo
+      title={title}
+      description={description}
+      canonical={canonical}
+      type={type}
+      noindex={noindex}
+      jsonLd={jsonLd}
+    />
+    <slot name="head" />
+  </head>
+  <body class="app-shell overscroll-none">
+    <div
+      class="relative flex min-h-screen flex-col overflow-x-clip bg-[#fafbff] text-slate-900 dark:bg-[#0a0f1a] dark:text-slate-100"
+    >
+      <a href="#main-content" class="skip-link">Saltar al contenido</a>
+      <main
+        id="main-content"
+        tabindex="-1"
+        class="relative z-10 mx-auto block w-full max-w-6xl flex-1 px-5 pb-32 pt-3 md:px-8"
+      >
+        <Header />
+        <slot />
+      </main>
+      <Footer />
+      <BuyBook />
+    </div>
+  </body>
+</html>
