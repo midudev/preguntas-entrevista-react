@@ -17,6 +17,9 @@ const ROOT = process.cwd()
 const README_PATH = path.join(ROOT, 'README.md')
 const QUIZ_DIR = path.join(ROOT, 'public/quiz/qa')
 const OUT_DIR = path.join(ROOT, 'manuscript')
+/** Exclusive book frontmatter (not used on the website). */
+const BEFORE_PATH = path.join(ROOT, 'book/before.md')
+const BEFORE_OUT = '00-antes-de-empezar.md'
 
 const LEVELS = [
   { key: 'principiante', heading: 'Principiante', file: '01-principiante.md' },
@@ -222,22 +225,6 @@ function parseReadme(readme) {
 
 // ─── Build manuscript ───
 
-function buildIntro() {
-  return `# Preguntas típicas de React
-
-De cero a experto. Con respuestas detalladas en español.
-
-Este libro reúne las preguntas que más se repiten en entrevistas técnicas de React, con respuestas claras, ejemplos de código y **bloques para poner a prueba** lo aprendido.
-
-## Cómo usar este libro
-
-1. Lee la pregunta y la explicación con calma.
-2. Cuando llegues a **Pon a prueba**, responde sin mirar el solucionario.
-3. Al final de cada capítulo encontrarás el **solucionario** con las respuestas correctas.
-4. Si quieres practicar en formato interactivo, visita [reactjs.wiki](https://www.reactjs.wiki).
-`
-}
-
 function buildQuestionMarkdown(question, preparedQuiz) {
   const lines = [`## ${question.title}`, '']
 
@@ -261,15 +248,19 @@ async function main() {
   const readme = await fs.readFile(README_PATH, 'utf-8')
   const parsed = parseReadme(readme)
 
+  if (!(await fs.pathExists(BEFORE_PATH))) {
+    throw new Error(
+      `Falta el capítulo exclusivo del libro: ${path.relative(ROOT, BEFORE_PATH)}`
+    )
+  }
+
   await fs.emptyDir(OUT_DIR)
 
-  const bookTxt = [
-    'frontmatter:',
-    '00-introduccion.md',
-    'mainmatter:',
-  ]
+  // Exclusive frontmatter chapter (source: book/before.md)
+  const before = (await fs.readFile(BEFORE_PATH, 'utf-8')).trimEnd() + '\n'
+  await fs.outputFile(path.join(OUT_DIR, BEFORE_OUT), before)
 
-  await fs.outputFile(path.join(OUT_DIR, '00-introduccion.md'), buildIntro())
+  const bookTxt = ['frontmatter:', BEFORE_OUT, 'mainmatter:']
 
   let totalQuestions = 0
   let withQuiz = 0
@@ -342,17 +333,22 @@ No edites estos ficheros a mano. Se regeneran con:
 pnpm book
 \`\`\`
 
-Fuente: \`README.md\` + \`public/quiz/qa/*.json\`.
+Fuente:
+
+- \`book/before.md\` → frontmatter exclusivo del libro
+- \`README.md\` → preguntas y respuestas
+- \`public/quiz/qa/*.json\` → bloques *Pon a prueba* + solucionarios
 
 Sube la carpeta \`manuscript/\` a Leanpub (o sincroniza con Dropbox/Git según tu flujo).
 `
   )
 
   console.log('✓ Manuscript generado en manuscript/')
+  console.log(`  Frontmatter:      ${BEFORE_OUT} (desde book/before.md)`)
   console.log(`  Preguntas:        ${totalQuestions}`)
   console.log(`  Con quiz:         ${withQuiz}`)
   console.log(`  Ítems de prueba:  ${totalQuizItems}`)
-  console.log(`  Book.txt + ${LEVELS.length} capítulos + intro`)
+  console.log(`  Book.txt + ${LEVELS.length} capítulos + intro del libro`)
 }
 
 main().catch(err => {
