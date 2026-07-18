@@ -1,4 +1,5 @@
 import index from '../../public/content/index.json'
+import { enhanceCodeBlocks } from './code-blocks'
 
 export type PostIndexItem = {
   id: string
@@ -47,7 +48,13 @@ export async function fetchPost(slug: string): Promise<PostData | null> {
   const prev = currentIndex > 0 ? posts[currentIndex - 1] : null
   const next = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null
 
-  return { content, level, title, prev, next }
+  return {
+    content: enhanceCodeBlocks(content),
+    level,
+    title,
+    prev,
+    next,
+  }
 }
 
 export function listPosts() {
