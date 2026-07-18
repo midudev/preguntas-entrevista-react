@@ -18,10 +18,8 @@ export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 
 /**
- * Absolute URL aligned with `trailingSlash: 'never'`.
- * Root keeps a trailing slash (`https://example.com/`) because that is how
- * browsers and URL serializers represent the homepage; other paths never end
- * with `/`.
+ * Absolute URL with no trailing slash (incl. homepage), matching
+ * `trailingSlash: 'never'` and the preferred URL in Search Console.
  */
 export function absoluteUrl(path = '/'): string {
   const normalized =
@@ -36,9 +34,8 @@ export function absoluteUrl(path = '/'): string {
     url.pathname = url.pathname.slice(0, -1)
   }
 
-  // Homepage: always https://host/ (WHATWG serialization)
   if (url.pathname === '/') {
-    return `${SITE_URL}/`
+    return SITE_URL // https://www.reactjs.wiki (no trailing slash)
   }
 
   return `${SITE_URL}${url.pathname}${url.search}${url.hash}`
