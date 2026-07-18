@@ -994,7 +994,9 @@
 }
 
 .article-prose code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family:
+    Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', Consolas,
+    'Liberation Mono', 'Courier New', monospace;
   font-size: 0.88em;
   font-weight: 600;
   padding: 0.12em 0.38em;
@@ -1003,28 +1005,38 @@
   color: inherit;
 }
 
-.article-prose pre {
+/* Fenced code blocks are enhanced to .code-block (see highlight.css).
+   Keep a sensible fallback for plain <pre> without Prism classes. */
+.article-prose > pre:not(.code-block-pre) {
   margin: 0 0 1.5em;
   padding: 1.15rem 1.25rem;
   overflow-x: auto;
   border-radius: 0.9rem;
   border: 1px solid rgb(30 41 59);
-  background: #0f172a;
+  background: #0b1220;
   color: #e2e8f0;
-  font-size: 0.9em;
-  line-height: 1.55;
+  font-family:
+    Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.65;
   box-shadow:
     0 1px 2px rgb(0 0 0 / 20%),
     0 12px 32px rgb(15 23 42 / 12%);
 }
 
-.article-prose pre code {
+.article-prose > pre:not(.code-block-pre) code {
   padding: 0;
   border-radius: 0;
   background: transparent;
   font-weight: 400;
   font-size: inherit;
   color: inherit;
+}
+
+.article-prose .code-block {
+  margin-top: 0.25em;
+  margin-bottom: 1.6em;
 }
 
 .article-prose h1,
@@ -1190,6 +1202,10 @@
 
 .dark .article-prose code {
   background: rgb(51 65 85 / 70%);
+}
+
+.dark .article-prose .code-block code {
+  background: transparent;
 }
 
 .dark .article-prose h1,
