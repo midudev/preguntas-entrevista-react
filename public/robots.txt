@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://reactjs.wiki/sitemap-index.xml
-Host: https://reactjs.wiki
+Sitemap: https://www.reactjs.wiki/sitemap-index.xml

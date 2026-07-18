@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  site: 'https://reactjs.wiki',
+  site: 'https://www.reactjs.wiki',
   output: 'static',
   trailingSlash: 'never',
   integrations: [
@@ -15,7 +15,7 @@ export default defineConfig({
       priority: 0.8,
       lastmod: new Date(),
       serialize(item) {
-        if (item.url === 'https://reactjs.wiki/') {
+        if (item.url === 'https://www.reactjs.wiki/') {
           return { ...item, changefreq: 'daily', priority: 1 }
         }
         if (item.url.endsWith('/questions')) {
@@ -23,7 +23,7 @@ export default defineConfig({
         }
         // Article/question pages
         if (
-          item.url !== 'https://reactjs.wiki/' &&
+          item.url !== 'https://www.reactjs.wiki/' &&
           !item.url.endsWith('/questions')
         ) {
           return { ...item, changefreq: 'monthly', priority: 0.7 }
