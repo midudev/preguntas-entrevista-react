@@ -47,6 +47,6 @@ Ahora toca lo importante: **practicar, construir cosas y equivocarse** (sí, tam
 
 Mucho ánimo con las entrevistas, con los proyectos y con lo que venga después.
 
-¡Nos vemos en el código!
+¡A mover las manitas!
 
 — **midudev**
