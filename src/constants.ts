@@ -11,9 +11,9 @@ export const SITE_NAME = 'React.js Wiki'
 export const DEFAULT_TITLE = 'React.js Wiki - Preguntas y respuestas de React'
 export const DEFAULT_DESCRIPTION =
   'Aprende React con preguntas de entrevista y conceptos clave explicados en español con ejemplos prácticos.'
-/** Prefer WebP: Cloudflare hotlink protection blocks .jpg/.png with external Referer. */
-export const OG_IMAGE_PATH = '/og.webp'
-export const OG_IMAGE_TYPE = 'image/webp'
+/** JPEG is the most compatible format for social crawlers (LinkedIn, iMessage, etc.). */
+export const OG_IMAGE_PATH = '/og.jpg'
+export const OG_IMAGE_TYPE = 'image/jpeg'
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 
