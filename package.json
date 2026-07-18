@@ -11,6 +11,7 @@
   "scripts": {
     "markdown:lint": "node scripts/lint.mjs",
     "content": "node scripts/markdownToJson.mjs",
+    "book": "node scripts/exportBook.mjs",
     "dev": "node scripts/markdownToJson.mjs && astro dev",
     "build": "node scripts/markdownToJson.mjs && astro build",
     "preview": "astro preview",
