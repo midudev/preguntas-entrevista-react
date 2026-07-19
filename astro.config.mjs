@@ -7,6 +7,14 @@ export default defineConfig({
   site: 'https://www.reactjs.wiki',
   output: 'static',
   trailingSlash: 'never',
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
+  experimental: {
+    // Prerender prefetched pages via the Speculation Rules API (Chromium)
+    clientPrerender: true,
+  },
   integrations: [
     react(),
     sitemap({

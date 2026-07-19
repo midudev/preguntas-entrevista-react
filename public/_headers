@@ -1,0 +1,23 @@
+# Hashed build assets: safe to cache forever
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Content JSON (search index, quiz data): revalidate hourly, serve stale while updating
+/content/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/quiz/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Static images / icons (unhashed): one day + grace period
+/*.webp
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.ico
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
