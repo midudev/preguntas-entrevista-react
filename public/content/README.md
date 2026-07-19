@@ -4262,7 +4262,7 @@ Para arreglar este error, como hemos comentado antes, debes asegurarte de que lo
 
 Recomendamos revisar las siguientes secciones:
 
-- [¿Cuáles son las reglas de los hooks en React?](/cuáles-son-las-reglas-de-los-hooks-en-react)
+- [¿Cuáles son las reglas de los hooks en React?](/cuales-son-las-reglas-de-los-hooks-en-react)
 
 
 
