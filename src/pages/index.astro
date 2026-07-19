@@ -21,42 +21,42 @@ const featured = [
     title: '¿Para qué sirve useEffect?',
     excerpt:
       'El hook useEffect se usa para ejecutar código cuando se renderiza el componente o cuando cambian las dependencias del efecto.',
-    slug: '/que-hace-el-hook-use-effect#content',
+    slug: '/que-hace-el-hook-use-effect',
     level: LEVELS.EASY,
   },
   {
     title: 'Cómo cancelar una petición fetch',
     excerpt:
       'Cuando hacemos una petición a una API, podemos cancelarla para evitar que se ejecute cuando el componente se desmonte usando AbortController como hacemos en este ejemplo',
-    slug: '/como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente#content',
+    slug: '/como-puedes-cancelar-una-peticion-a-una-api-en-use-effect-correctamente',
     level: LEVELS.MEDIUM,
   },
   {
     title: '¿Qué es la hidratación?',
     excerpt:
       'La hidratación convierte el HTML estático que devuelve el servidor en HTML interactivo que puede responder a eventos del usuario en el cliente.',
-    slug: '/que-es-la-hidratacion-hydration-en-react#content',
+    slug: '/que-es-la-hidratacion-hydration-en-react',
     level: LEVELS.MEDIUM,
   },
   {
     title: '¿Qué hace el hook useId?',
     excerpt:
       'El hook useId nos permite crear identificadores únicos, muy útiles para formularios y otros casos.',
-    slug: '/que-hace-el-hook-use-id#content',
+    slug: '/que-hace-el-hook-use-id',
     level: LEVELS.EASY,
   },
   {
     title: 'Es React una biblioteca o framework',
     excerpt:
       'Existe una fina línea hoy en día entre qué es una biblioteca o un framework. Oficialmente, React se autodenomina como biblioteca.',
-    slug: '/es-react-una-biblioteca-o-un-framework-por-que#content',
+    slug: '/es-react-una-biblioteca-o-un-framework-por-que',
     level: LEVELS.HARD,
   },
   {
     title: '¿Qué son las Render Props?',
     excerpt:
       'Las render props son un patrón de diseño de React que nos permite inyectar información en los elementos que renderizamos.',
-    slug: '/que-son-las-render-props#content',
+    slug: '/que-son-las-render-props',
     level: LEVELS.HARD,
   },
 ]
@@ -149,22 +149,22 @@ const jsonLd = [
 >
   <section class="home-intro" aria-labelledby="home-intro-heading">
     <div class="home-intro-copy">
-      <p class="home-intro-kicker animate-fade-in-up animate-duration-500 animate-delay-500">
+      <p class="home-intro-kicker animate-fade-in-up animate-duration-400 animate-delay-125">
         Guía para entrevistas técnicas
       </p>
       <h2
         id="home-intro-heading"
-        class="home-intro-title animate-blurred-fade-in animate-duration-700 animate-delay-700"
+        class="home-intro-title animate-blurred-fade-in animate-duration-400 animate-delay-150"
       >
         Preguntas reales.
         <span class="home-intro-title-accent">Respuestas con contexto.</span>
       </h2>
-      <p class="home-intro-lead animate-fade-in-up animate-duration-500 animate-delay-800">
+      <p class="home-intro-lead animate-fade-in-up animate-duration-400 animate-delay-175">
         Los temas que más se repiten en procesos de selección, explicados en
         español y con ejemplos. Practica con criterio, no con definiciones
         memorizadas. Más de {totalQuestions} preguntas.
       </p>
-      <div class="home-intro-actions animate-fade-in-up animate-duration-500 animate-delay-900">
+      <div class="home-intro-actions animate-fade-in-up animate-duration-400 animate-delay-200">
         <a href="#featured-heading" class="home-intro-btn home-intro-btn-primary">
           Ver las más buscadas
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7l-7 -7"/></svg>
@@ -176,25 +176,25 @@ const jsonLd = [
     </div>
 
     <ul class="home-intro-levels" aria-label="Preguntas por nivel">
-      <li class="animate-fade-in-up animate-duration-500 animate-delay-900">
+      <li class="animate-fade-in-up animate-duration-400 animate-delay-200">
         <a href="/questions#category-beginner" class="home-level-chip home-level-chip-easy">
           <span class="home-level-chip-count tabular-nums">{byLevel.beginner}</span>
           <span class="home-level-chip-name">Principiante</span>
         </a>
       </li>
-      <li class="animate-fade-in-up animate-duration-500 animate-delay-1000">
+      <li class="animate-fade-in-up animate-duration-400 animate-delay-225">
         <a href="/questions#category-intermediate" class="home-level-chip home-level-chip-medium">
           <span class="home-level-chip-count tabular-nums">{byLevel.intermediate}</span>
           <span class="home-level-chip-name">Intermedio</span>
         </a>
       </li>
-      <li class="animate-fade-in-up animate-duration-500 animate-delay-1100">
+      <li class="animate-fade-in-up animate-duration-400 animate-delay-250">
         <a href="/questions#category-expert" class="home-level-chip home-level-chip-hard">
           <span class="home-level-chip-count tabular-nums">{byLevel.expert}</span>
           <span class="home-level-chip-name">Experto</span>
         </a>
       </li>
-      <li class="animate-fade-in-up animate-duration-500 animate-delay-1200">
+      <li class="animate-fade-in-up animate-duration-400 animate-delay-275">
         <a href="/questions#category-errors" class="home-level-chip home-level-chip-errors">
           <span class="home-level-chip-count tabular-nums">{byLevel.errors}</span>
           <span class="home-level-chip-name">Errores</span>
@@ -203,33 +203,30 @@ const jsonLd = [
     </ul>
   </section>
 
-  <section class="mt-14 md:mt-16" aria-labelledby="featured-heading">
-    <div class="mb-5 flex flex-wrap items-end justify-between gap-3 animate-fade-in-up animate-duration-500 animate-delay-1000">
-      <h2
-        id="featured-heading"
-        class="font-display text-2xl font-bold text-slate-900 md:text-3xl dark:text-white"
-      >
+  <section class="mt-16 md:mt-20" aria-labelledby="featured-heading">
+    <div class="mb-4 flex flex-wrap items-baseline justify-between gap-3 animate-fade-in-up animate-duration-400 animate-delay-225">
+      <h2 id="featured-heading" class="mono-label">
         Las preguntas más buscadas
       </h2>
       <a
         href="/questions"
-        class="text-sm font-semibold text-blue-600 transition hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+        class="mono-label transition-colors hover:text-[var(--fg)] hover:underline underline-offset-4"
       >
         Ver todas →
       </a>
     </div>
-    <ul class="grid list-none grid-cols-1 gap-5 p-0 sm:gap-6 sm:grid-cols-2 lg:gap-7 lg:grid-cols-3 [&>*]:min-w-0">
+    <ul class="m-0 list-none border-b border-[var(--hairline-soft)] p-0">
       {
         featured.map((item, i) => (
           <li
             class:list={[
-              'min-w-0 animate-fade-in-up animate-duration-500',
-              i === 0 && 'animate-delay-1100',
-              i === 1 && 'animate-delay-1200',
-              i === 2 && 'animate-delay-1300',
-              i === 3 && 'animate-delay-1400',
-              i === 4 && 'animate-delay-1500',
-              i === 5 && 'animate-delay-1600',
+              'min-w-0 animate-fade-in-up animate-duration-400',
+              i === 0 && 'animate-delay-250',
+              i === 1 && 'animate-delay-275',
+              i === 2 && 'animate-delay-300',
+              i === 3 && 'animate-delay-325',
+              i === 4 && 'animate-delay-350',
+              i === 5 && 'animate-delay-375',
             ]}
           >
             <Card
@@ -237,6 +234,7 @@ const jsonLd = [
               excerpt={item.excerpt}
               slug={item.slug}
               level={item.level}
+              rank={i + 1}
             />
           </li>
         ))
@@ -245,16 +243,17 @@ const jsonLd = [
   </section>
 
   <section
-    class="hero-panel mt-16 animate-fade-in animate-duration-700 px-6 py-10 md:px-12 md:py-12"
+    class="hero-panel mt-16 animate-fade-in animate-duration-400 pt-10 md:mt-20 md:pt-12"
     aria-labelledby="archive-heading"
   >
+    <p class="mono-label pb-3">Archivo completo</p>
     <h2
       id="archive-heading"
-      class="font-display pb-3 text-2xl font-bold text-slate-900 md:text-3xl dark:text-white"
+      class="font-display pb-3 text-2xl font-semibold text-[var(--fg)] md:text-3xl"
     >
       Todo el archivo de preguntas sobre React
     </h2>
-    <p class="pb-6 text-slate-600 dark:text-slate-300">
+    <p class="max-w-xl pb-8 text-[0.95rem] leading-relaxed text-[var(--muted)]">
       Explora todas las preguntas disponibles y marca lo que ya has repasado
       para llevar un progreso real.
     </p>

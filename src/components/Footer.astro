@@ -1,40 +1,27 @@
-<footer class="mt-14 w-full animate-fade-in animate-duration-700">
-  <div class="mx-auto max-w-6xl px-4">
+<footer class="mt-16 w-full animate-fade-in animate-duration-400">
+  <div class="mx-auto max-w-6xl border-t border-[var(--hairline)] px-5 pt-8 md:px-8">
+    <p class="mono-label pb-2">¿Echas en falta una pregunta?</p>
     <a
-      class="group relative flex items-center justify-between gap-4 overflow-hidden rounded-2xl border border-blue-200/60 bg-linear-to-r from-blue-50 via-white to-indigo-50 px-6 py-5 shadow-sm transition-all hover:border-blue-300/80 hover:shadow-md md:px-8 dark:border-blue-500/15 dark:from-blue-950/40 dark:via-slate-900 dark:to-indigo-950/30 dark:hover:border-blue-500/30"
+      class="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] underline decoration-[color-mix(in_srgb,var(--accent)_45%,transparent)] underline-offset-4 transition-colors hover:decoration-[var(--accent)]"
       href="https://github.com/midudev/preguntas-entrevista-react/issues/new"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div class="flex items-center gap-3">
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600 transition-colors group-hover:bg-blue-200 dark:bg-blue-500/15 dark:text-blue-400 dark:group-hover:bg-blue-500/25" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8"/><path d="M8 13h6"/><path d="M12.99 18.556l-4.99 1.444v-3h-.5c-1.5 0 -2.5 -.98 -2.5 -2.5v-5c0 -1.52 1 -2.5 2.5 -2.5h10c1.5 0 2.5 .98 2.5 2.5v3"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
-        </span>
-        <div>
-          <p class="font-display text-base font-bold text-slate-900 dark:text-white">
-            ¿Echas en falta una pregunta?
-          </p>
-          <p class="text-xs text-slate-500 dark:text-slate-400">
-            Abre un issue en GitHub y la añadimos
-            <span class="sr-only"> (se abre en una pestaña nueva)</span>
-          </p>
-        </div>
-      </div>
-      <span class="hidden shrink-0 rounded-full border border-blue-200 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white sm:inline-flex dark:border-blue-500/25 dark:bg-slate-800 dark:text-blue-400 dark:group-hover:bg-blue-500 dark:group-hover:text-white" aria-hidden="true">
-        ¡Avísanos!
-      </span>
+      Abre un issue en GitHub y la añadimos
+      <span class="sr-only"> (se abre en una pestaña nueva)</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg>
     </a>
   </div>
 
-  <div class="mt-6 border-t border-slate-200/80 py-5 dark:border-slate-800">
-    <div class="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-4 md:flex-row">
-      <p class="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
+  <div class="mt-8 border-t border-[var(--hairline)] py-6">
+    <div class="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-3 px-5 md:flex-row md:items-center md:px-8">
+      <p class="flex items-center gap-1.5 text-sm text-[var(--muted)]">
         Desarrollado con
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-rose-500" aria-hidden="true"><path d="M19.5 12.572l-7.5 7.428l-7.5-7.428a5 5 0 1 1 7.5-6.566 5 5 0 1 1 7.5 6.572z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--level-errors)]" aria-hidden="true"><path d="M19.5 12.572l-7.5 7.428l-7.5-7.428a5 5 0 1 1 7.5-6.566 5 5 0 1 1 7.5 6.572z"/></svg>
         <span class="sr-only">amor</span>
         por
         <a
-          class="font-bold text-slate-700 underline decoration-blue-400/40 underline-offset-3 transition-colors hover:text-blue-600 hover:decoration-blue-400 dark:text-slate-300 dark:hover:text-blue-400"
+          class="font-medium text-[var(--fg)] underline decoration-[var(--hairline-strong)] underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
           href="https://midu.dev/"
           target="_blank"
           rel="noopener noreferrer author"
@@ -45,7 +32,7 @@
       </p>
       <nav aria-label="Enlaces del pie de página">
         <a
-          class="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-600 transition-colors hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-400"
+          class="mono-label inline-flex min-h-9 items-center gap-1.5 transition-colors hover:text-[var(--fg)]"
           href="https://github.com/midudev/preguntas-entrevista-react/blob/main/CONTRIBUTING.md"
           target="_blank"
           rel="noopener noreferrer"

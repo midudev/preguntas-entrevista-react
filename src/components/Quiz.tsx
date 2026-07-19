@@ -178,7 +178,7 @@ export function Quiz({ slug }: { slug: string }) {
   if (status === 'loading') {
     return (
       <div
-        className='flex items-center justify-center gap-2 py-10 text-sm text-slate-500 dark:text-slate-400'
+        className='flex items-center justify-center gap-2 py-10 text-sm text-[var(--muted)]'
         role='status'
         aria-live='polite'
       >
@@ -191,12 +191,12 @@ export function Quiz({ slug }: { slug: string }) {
   if (status === 'error') {
     return (
       <div
-        className='flex flex-col items-center gap-2 py-10 text-sm text-slate-500 dark:text-slate-400'
+        className='flex flex-col items-center gap-2 py-10 text-sm text-[var(--muted)]'
         role='status'
       >
         <IconCircleDashed
           size={28}
-          className='text-slate-300 dark:text-slate-600'
+          className='text-[var(--faint)]'
           aria-hidden='true'
         />
         No se encontró un quiz para este contenido todavía.
@@ -213,7 +213,7 @@ export function Quiz({ slug }: { slug: string }) {
         ? 'text-amber-500'
         : percent >= 70
           ? 'text-orange-500'
-          : 'text-slate-400 dark:text-slate-500'
+          : 'text-[var(--muted)]'
     const resultTitle =
       percent === 100
         ? '¡Perfecto!'
@@ -230,7 +230,7 @@ export function Quiz({ slug }: { slug: string }) {
                 cx='60'
                 cy='60'
                 r='52'
-                className='fill-none stroke-slate-100 dark:stroke-slate-800'
+                className='fill-none stroke-[var(--surface)]'
                 strokeWidth='8'
               />
               <circle
@@ -250,16 +250,16 @@ export function Quiz({ slug }: { slug: string }) {
             </svg>
             <div className='absolute inset-0 flex flex-col items-center justify-center'>
               <ResultIcon size={28} className={resultColor} aria-hidden='true' />
-              <span className='mt-1 text-2xl font-bold text-slate-900 dark:text-white'>
+              <span className='mt-1 text-2xl font-semibold text-[var(--fg)]'>
                 {percent}%
               </span>
             </div>
           </div>
           <div className='text-center'>
-            <p className='text-lg font-bold text-slate-900 dark:text-white' role='status' aria-live='polite'>
+            <p className='text-lg font-semibold text-[var(--fg)]' role='status' aria-live='polite'>
               {resultTitle}
             </p>
-            <p className='mt-1 text-sm text-slate-500 dark:text-slate-400'>
+            <p className='mt-1 text-sm text-[var(--muted)]'>
               {score} de {total} respuestas correctas
             </p>
           </div>
@@ -269,15 +269,15 @@ export function Quiz({ slug }: { slug: string }) {
           <button
             type='button'
             onClick={handleRestart}
-            className='inline-flex min-h-11 items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 active:scale-[0.97] dark:bg-blue-500 dark:shadow-blue-500/20 dark:hover:bg-blue-400'
+            className='home-intro-btn home-intro-btn-primary'
           >
             <IconRefresh size={16} aria-hidden='true' />
             Reintentar
           </button>
         </div>
 
-        <details className='group rounded-xl border border-slate-200 dark:border-slate-700/80 overflow-hidden'>
-          <summary className='flex cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:bg-slate-800/60'>
+        <details className='group rounded-md border border-[var(--hairline)] overflow-hidden'>
+          <summary className='flex cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)]'>
             <IconChevronDown
               size={16}
               className='transition-transform group-open:rotate-180'
@@ -285,15 +285,15 @@ export function Quiz({ slug }: { slug: string }) {
             />
             Ver resumen de respuestas
           </summary>
-          <ul className='divide-y divide-slate-100 border-t border-slate-200 dark:divide-slate-700/60 dark:border-slate-700/80'>
+          <ul className='divide-y divide-[var(--hairline-soft)] border-t border-[var(--hairline)]'>
             {questions.map((q, i) => {
               const userAlt = q.alternatives.find(a => a.id === answers[q.id])
               const correctAlt = q.alternatives.find(a => a.is_correct)
               const isCorrect = userAlt?.is_correct
               return (
                 <li key={q.id} className='px-4 py-3 text-sm'>
-                  <p className='font-medium text-slate-800 dark:text-slate-200'>
-                    <span className='mr-1.5 text-xs text-slate-400'>
+                  <p className='font-medium text-[var(--fg)]'>
+                    <span className='mr-1.5 font-mono text-xs text-[var(--faint)]'>
                       {i + 1}.
                     </span>
                     {q.question}
@@ -385,12 +385,12 @@ export function Quiz({ slug }: { slug: string }) {
                   ? 'w-6 bg-blue-500 dark:bg-blue-400'
                   : i === current
                     ? 'w-6 bg-blue-300 dark:bg-blue-600'
-                    : 'w-1.5 bg-slate-200 dark:bg-slate-700'
+                    : 'w-1.5 bg-[var(--hairline-strong)]'
               }`}
             />
           ))}
         </div>
-        <span className='ml-auto text-xs tabular-nums font-medium text-slate-400 dark:text-slate-500'>
+        <span className='ml-auto font-mono text-xs tabular-nums text-[var(--muted)]'>
           <span className='sr-only'>Pregunta </span>
           {current + 1}
           <span aria-hidden='true'> / </span>
@@ -403,7 +403,7 @@ export function Quiz({ slug }: { slug: string }) {
         id={questionHeadingId}
         ref={questionHeadingRef}
         tabIndex={-1}
-        className='text-xl font-bold leading-snug text-slate-900 outline-none dark:text-white md:text-2xl'
+        className='text-xl font-semibold leading-snug text-[var(--fg)] outline-none md:text-2xl'
       >
         {question.question}
       </h3>
@@ -421,9 +421,9 @@ export function Quiz({ slug }: { slug: string }) {
           const isFocused = focusOption === idx
 
           let optionStyle =
-            'border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 dark:border-slate-700 dark:bg-slate-800/60 dark:hover:border-blue-500/50 dark:hover:bg-blue-500/5'
+            'border-[var(--hairline)] bg-transparent hover:border-[var(--hairline-strong)] hover:bg-[var(--surface)]'
           let letterStyle =
-            'bg-slate-100 text-slate-600 border-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:border-slate-600'
+            'bg-[var(--surface)] text-[var(--muted)] border-[var(--hairline)]'
           let icon = null
 
           if (correctness) {
@@ -461,15 +461,15 @@ export function Quiz({ slug }: { slug: string }) {
                 onKeyDown={e => handleRadioKeyDown(e, idx)}
                 onFocus={() => setFocusOption(idx)}
                 disabled={!!answered}
-                className={`group flex min-h-12 w-full items-center gap-3.5 rounded-xl border px-4 py-3.5 text-left text-sm transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 disabled:cursor-default md:text-base ${optionStyle}`}
+                className={`group flex min-h-12 w-full items-center gap-3.5 rounded-md border px-4 py-3.5 text-left text-sm transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 disabled:cursor-default md:text-base ${optionStyle}`}
               >
                 <span
-                  className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border text-xs font-bold transition-all ${letterStyle}`}
+                  className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border text-xs font-bold transition-all ${letterStyle}`}
                   aria-hidden='true'
                 >
                   {icon || letter}
                 </span>
-                <span className='flex-1 text-slate-700 dark:text-slate-200'>
+                <span className='flex-1 text-[var(--fg)]'>
                   <span className='sr-only'>Opción {letter}: </span>
                   {alt.text}
                 </span>
@@ -482,7 +482,7 @@ export function Quiz({ slug }: { slug: string }) {
       {answered && (
         <p
           id={feedbackId}
-          className='rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-200'
+          className='rounded-md border border-[var(--hairline)] bg-[var(--surface)] px-3 py-2 text-sm font-medium text-[var(--fg)]'
           role='status'
           aria-live='polite'
         >
@@ -496,7 +496,7 @@ export function Quiz({ slug }: { slug: string }) {
             ref={nextBtnRef}
             type='button'
             onClick={handleNext}
-            className='inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:scale-[0.97] dark:bg-blue-500 dark:hover:bg-blue-400'
+            className='home-intro-btn home-intro-btn-primary'
           >
             Siguiente
             <IconArrowRight size={16} aria-hidden='true' />
@@ -509,7 +509,7 @@ export function Quiz({ slug }: { slug: string }) {
             ref={resultBtnRef}
             type='button'
             onClick={() => setStatus('finished')}
-            className='inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:scale-[0.97] dark:bg-blue-500 dark:hover:bg-blue-400'
+            className='home-intro-btn home-intro-btn-primary'
           >
             <IconTrophy size={16} aria-hidden='true' />
             Ver resultado
@@ -517,12 +517,12 @@ export function Quiz({ slug }: { slug: string }) {
         </div>
       )}
 
-      <div className='flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800'>
+      <div className='flex items-center justify-between border-t border-[var(--hairline)] pt-4'>
         <button
           type='button'
           onClick={handlePrev}
           disabled={current === 0}
-          className='inline-flex min-h-9 items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 disabled:opacity-30 disabled:hover:bg-transparent dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
+          className='inline-flex min-h-9 items-center gap-1 rounded-md px-3 py-1.5 text-xs font-medium text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)] disabled:opacity-30 disabled:hover:bg-transparent'
         >
           <IconArrowLeft size={14} aria-hidden='true' />
           Anterior
@@ -530,7 +530,7 @@ export function Quiz({ slug }: { slug: string }) {
         <button
           type='button'
           onClick={handleRestart}
-          className='inline-flex min-h-9 items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
+          className='inline-flex min-h-9 items-center gap-1 rounded-md px-3 py-1.5 text-xs font-medium text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)]'
         >
           <IconRefresh size={14} aria-hidden='true' />
           Reiniciar

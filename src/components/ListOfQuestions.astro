@@ -39,7 +39,7 @@ questions.forEach(question => {
 const grouped = Array.from(categories.values()).filter(c => c.questions.length > 0)
 ---
 
-<div class="animate-fade-in animate-duration-700 space-y-8" data-questions-list>
+<div class="animate-fade-in animate-duration-400 space-y-8" data-questions-list>
   {
     grouped.map(category => {
       const headingId = `category-${category.id}`
@@ -54,14 +54,14 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
           ) : (
             <h3
               id={headingId}
-              class="font-display text-xl font-bold text-slate-900 dark:text-white md:text-2xl"
+              class="font-display text-xl font-semibold text-[var(--fg)] md:text-2xl"
             >
               {category.label}
             </h3>
           )}
           <span
             id={countId}
-            class="rounded-full border border-slate-300/80 bg-white/70 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:border-slate-500/60 dark:bg-slate-800/65 dark:text-slate-200"
+            class="font-mono text-xs tabular-nums text-[var(--muted)]"
             aria-label={`${category.questions.length} preguntas en ${category.label}`}
           >
             <span aria-hidden="true">{category.questions.length}</span>
@@ -76,8 +76,8 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
             <li>
               {showReadStatus ? (
                 <a
-                  class="question-row rich-text leading-snug text-slate-800 dark:text-slate-100"
-                  href={`/${id}#content`}
+                  class="question-row rich-text leading-snug"
+                  href={`/${id}`}
                   data-read-item
                   data-read-title={text}
                 >
@@ -87,8 +87,8 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
                 </a>
               ) : (
                 <a
-                  class="question-row rich-text leading-snug text-slate-800 dark:text-slate-100"
-                  href={`/${id}#content`}
+                  class="question-row rich-text leading-snug"
+                  href={`/${id}`}
                 >
                   <span set:html={textHtml} />
                 </a>

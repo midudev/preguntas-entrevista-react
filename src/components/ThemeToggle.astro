@@ -68,8 +68,8 @@
         root.classList.toggle('dark', dark)
         root.dataset.theme = dark ? 'dark' : 'light'
         root.style.colorScheme = dark ? 'dark' : 'light'
-        root.style.setProperty('--page-bg', dark ? '#0a0f1a' : '#fafbff')
-        root.style.setProperty('--page-fg', dark ? '#f1f5f9' : '#0f172a')
+        root.style.setProperty('--page-bg', dark ? '#0a0a0a' : '#ffffff')
+        root.style.setProperty('--page-fg', dark ? '#ededed' : '#171717')
         try {
           localStorage.setItem('theme', theme)
         } catch {}

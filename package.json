@@ -29,14 +29,16 @@
   "devDependencies": {
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
+    "markdownlint": "0.41.1",
     "oxlint": "1.74.0",
     "prettier": "3.9.5",
-    "typescript": "6.0.3",
-    "markdownlint": "0.41.1"
+    "typescript": "6.0.3"
   },
   "dependencies": {
     "@astrojs/react": "6.0.1",
     "@astrojs/sitemap": "3.7.3",
+    "@fontsource-variable/geist": "^5.2.9",
+    "@fontsource-variable/geist-mono": "^5.2.8",
     "@sindresorhus/slugify": "3.0.0",
     "@tabler/icons-react": "3.44.0",
     "@tailwindcss/vite": "4.3.3",

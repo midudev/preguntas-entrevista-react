@@ -2,29 +2,7 @@
 import BookCover from './BookCover.astro'
 ---
 
-<aside class="buy-book" aria-label="Promoción del libro" data-buy-book>
-  <button
-    type="button"
-    class="buy-book-close"
-    data-buy-book-dismiss
-    aria-label="Cerrar promoción del libro"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="12"
-      height="12"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.6"
-      stroke-linecap="round"
-      aria-hidden="true"
-    >
-      <path d="M18 6L6 18"></path>
-      <path d="M6 6l12 12"></path>
-    </svg>
-  </button>
-
+<aside class="buy-book" aria-label="Promoción del libro">
   <a
     href="https://leanpub.com/react-preguntas-tipicas"
     target="_blank"
@@ -54,38 +32,6 @@ import BookCover from './BookCover.astro'
     z-index: 30;
   }
 
-  .buy-book-close {
-    position: absolute;
-    top: -0.4rem;
-    right: -0.4rem;
-    z-index: 4;
-    display: grid;
-    place-items: center;
-    width: 1.6rem;
-    height: 1.6rem;
-    border: 1px solid rgb(255 255 255 / 12%);
-    border-radius: 9999px;
-    background: rgb(15 23 42 / 90%);
-    color: rgb(203 213 225);
-    box-shadow: 0 4px 14px rgb(0 0 0 / 35%);
-    cursor: pointer;
-    transition:
-      background-color 140ms ease,
-      color 140ms ease,
-      transform 140ms ease;
-  }
-
-  .buy-book-close:hover {
-    background: rgb(30 41 59);
-    color: white;
-    transform: scale(1.06);
-  }
-
-  .buy-book-close:focus-visible {
-    outline: 2px solid rgb(96 165 250);
-    outline-offset: 2px;
-  }
-
   .buy-book-link {
     display: flex;
     flex-direction: column;
@@ -101,48 +47,27 @@ import BookCover from './BookCover.astro'
   }
 
   .buy-book-link:focus-visible {
-    outline: 2px solid rgb(96 165 250);
+    outline: 2px solid var(--accent);
     outline-offset: 4px;
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
   }
 
   .buy-book-cta {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    color: rgb(226 232 240);
-    text-shadow: 0 1px 8px rgb(0 0 0 / 45%);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
     transition: color 140ms ease;
   }
 
   .buy-book-link:hover .buy-book-cta {
-    color: white;
-  }
-
-  :global(html:not(.dark)) .buy-book-close {
-    border-color: rgb(226 232 240);
-    background: white;
-    color: rgb(100 116 139);
-    box-shadow: 0 4px 12px rgb(15 23 42 / 12%);
-  }
-
-  :global(html:not(.dark)) .buy-book-close:hover {
-    background: rgb(248 250 252);
-    color: rgb(15 23 42);
-  }
-
-  :global(html:not(.dark)) .buy-book-cta {
-    color: rgb(51 65 85);
-    text-shadow: none;
-  }
-
-  :global(html:not(.dark)) .buy-book-link:hover .buy-book-cta {
-    color: rgb(29 78 216);
+    color: var(--fg);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .buy-book-link,
-    .buy-book-close {
+    .buy-book-link {
       transition: none;
     }
 
@@ -151,46 +76,3 @@ import BookCover from './BookCover.astro'
     }
   }
 </style>
-
-<script>
-  const STORAGE_KEY = 'buy-book-dismissed'
-
-  function initBuyBook() {
-    const root = document.querySelector<HTMLElement>('[data-buy-book]')
-    const dismiss = document.querySelector<HTMLButtonElement>(
-      '[data-buy-book-dismiss]'
-    )
-    if (!root || !dismiss) return
-
-    try {
-      if (localStorage.getItem(STORAGE_KEY) === '1') {
-        root.hidden = true
-        return
-      }
-    } catch {
-      /* private mode */
-    }
-
-    if (dismiss.dataset.bound === '1') return
-    dismiss.dataset.bound = '1'
-
-    dismiss.addEventListener('click', () => {
-      root.hidden = true
-      try {
-        localStorage.setItem(STORAGE_KEY, '1')
-      } catch {
-        /* ignore */
-      }
-      const status = document.getElementById('a11y-status')
-      if (status) {
-        status.textContent = ''
-        requestAnimationFrame(() => {
-          status.textContent = 'Promoción del libro cerrada'
-        })
-      }
-    })
-  }
-
-  initBuyBook()
-  document.addEventListener('astro:page-load', initBuyBook)
-</script>

@@ -64,19 +64,19 @@ const jsonLd = [
   canonical="/questions"
   jsonLd={jsonLd}
 >
-  <nav aria-label="Migas de pan" class="pt-6 text-sm text-slate-500 dark:text-slate-400">
+  <nav aria-label="Migas de pan" class="mono-label pt-6">
     <ol class="flex flex-wrap items-center gap-1.5">
       <li>
         <a
           href="/"
-          class="font-medium text-slate-600 underline-offset-2 transition hover:text-blue-600 hover:underline dark:text-slate-300 dark:hover:text-blue-400"
+          class="underline-offset-4 transition-colors hover:text-[var(--fg)] hover:underline"
         >
           Inicio
         </a>
       </li>
-      <li aria-hidden="true" class="text-slate-400">/</li>
+      <li aria-hidden="true" class="text-[var(--faint)]">/</li>
       <li>
-        <span class="text-slate-800 dark:text-slate-200" aria-current="page">
+        <span class="text-[var(--fg)]" aria-current="page">
           Lista de preguntas
         </span>
       </li>
@@ -84,28 +84,28 @@ const jsonLd = [
   </nav>
 
   <section
-    class="hero-panel mt-6 animate-fade-in-up animate-duration-700 px-5 py-8 md:px-10 md:py-10"
+    class="mt-8 animate-fade-in-up animate-duration-700"
     aria-labelledby="questions-heading"
   >
     <h1
       id="questions-heading"
-      class="font-display pb-4 text-4xl font-bold text-slate-900 dark:text-white md:text-5xl"
+      class="font-display pb-4 text-4xl font-semibold text-[var(--fg)] md:text-5xl"
     >
       Lista de preguntas
     </h1>
-    <p class="pb-6 text-base text-slate-700 md:text-lg dark:text-slate-200">
+    <p class="max-w-xl pb-6 text-base leading-relaxed text-[var(--muted)]">
       A continuación encontrarás las {questions.length} preguntas disponibles
       sobre React, agrupadas por nivel de dificultad.
     </p>
 
-    <ul class="mb-8 flex list-none flex-wrap gap-4 p-0 text-sm" aria-label="Leyenda de progreso">
-      <li class="flex items-center rounded-full border border-emerald-500/35 bg-emerald-500/10 px-3 py-1.5">
-        <span class="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-green-500" aria-hidden="true"></span>
-        <span>Preguntas leídas</span>
+    <ul class="mono-label mb-8 flex list-none flex-wrap gap-5 p-0" aria-label="Leyenda de progreso">
+      <li class="flex items-center gap-2">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--level-easy)]" aria-hidden="true"></span>
+        <span>Leídas</span>
       </li>
-      <li class="flex items-center rounded-full border border-slate-300/80 bg-white/70 px-3 py-1.5 dark:border-slate-500/55 dark:bg-slate-800/65">
-        <span class="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600" aria-hidden="true"></span>
-        <span>Preguntas por leer</span>
+      <li class="flex items-center gap-2">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--hairline-strong)]" aria-hidden="true"></span>
+        <span>Por leer</span>
       </li>
     </ul>
 

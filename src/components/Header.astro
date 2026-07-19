@@ -15,7 +15,7 @@ const total = counter.total
     <header class="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-16">
       <nav
         aria-label="Acciones del sitio"
-        class="site-actions animate-fade-in animate-duration-500 animate-delay-100 absolute right-5 top-2 z-20 md:right-8"
+        class="site-actions animate-fade-in animate-duration-400 animate-delay-50 absolute right-5 top-2 z-20 md:right-8"
       >
         <ThemeToggle />
         <span class="site-actions-sep" aria-hidden="true"></span>
@@ -39,11 +39,11 @@ const total = counter.total
             <path d="M9 12l2 2l4 -4"></path>
           </svg>
           <span class="flex items-baseline gap-1">
-            <span class="text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+            <span class="mono-label text-[0.62rem]">
               Leídas
             </span>
             <span
-              class="tabular-nums text-[0.8rem] font-semibold tracking-tight text-slate-700 dark:text-slate-200"
+              class="font-mono tabular-nums text-[0.78rem] text-[var(--fg)]"
               aria-live="polite"
             >
               <span data-read-count>0</span><span aria-hidden="true">/</span>{total}
@@ -57,7 +57,7 @@ const total = counter.total
         <div class="flex gap-x-2">
           <Title isHome />
           <div
-            class="animate-zoom-in animate-duration-700 animate-delay-300 absolute -right-4 top-6 overflow-hidden p-2 md:right-0 dark:invert"
+            class="animate-zoom-in animate-duration-400 animate-delay-75 absolute -right-4 top-6 overflow-hidden p-2 md:right-0 dark:invert"
             aria-hidden="true"
           >
             <div class="translate-x-1/3 sm:translate-x-0">
@@ -68,7 +68,7 @@ const total = counter.total
       </div>
 
       <form
-        class="search-shell animate-fade-in-up animate-duration-700 animate-delay-400 mt-6"
+        class="search-shell animate-fade-in-up animate-duration-400 animate-delay-100 mt-6"
         role="search"
         aria-label="Buscar preguntas sobre React"
         data-search-form
@@ -129,14 +129,14 @@ const total = counter.total
       </form>
     </header>
   ) : (
-    <header class="site-topbar sticky top-0 z-50 overflow-visible border-b border-slate-200/70 bg-[var(--page-bg,#fafbff)]/85 backdrop-blur-xl dark:border-white/8">
+    <header class="site-topbar sticky top-0 z-50 overflow-visible backdrop-blur-xl">
       <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 overflow-visible px-5 py-3 md:flex-row md:items-center md:gap-4 md:px-8 md:py-3.5">
         <div class="flex items-center justify-between gap-3 md:contents">
           <a
             href="/"
-            class="group flex min-w-0 shrink-0 items-center gap-2.5 rounded-lg outline-offset-4"
+            class="group flex min-w-0 shrink-0 items-center gap-2.5 rounded-md outline-offset-4"
           >
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/80 bg-white text-slate-500 shadow-sm transition group-hover:border-blue-300 group-hover:text-blue-600 dark:border-white/10 dark:bg-slate-900 dark:text-slate-400 dark:group-hover:border-blue-500/40 dark:group-hover:text-blue-300" aria-hidden="true">
+            <span class="inline-flex h-7 w-7 items-center justify-center text-[var(--muted)] transition-colors group-hover:text-[var(--fg)]" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14" />
                 <path d="M5 12l6 6" />
@@ -144,10 +144,10 @@ const total = counter.total
               </svg>
             </span>
             <span class="min-w-0">
-              <span class="block text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+              <span class="mono-label block text-[10px]">
                 Volver al inicio
               </span>
-              <span class="font-display block truncate text-sm font-bold leading-tight text-slate-900 dark:text-white md:text-base">
+              <span class="font-display block truncate text-sm font-semibold leading-tight text-[var(--fg)] md:text-base">
                 Preguntas de React
               </span>
             </span>
@@ -183,11 +183,11 @@ const total = counter.total
                 <path d="M9 12l2 2l4 -4"></path>
               </svg>
               <span class="flex items-baseline gap-1">
-                <span class="hidden text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:inline dark:text-slate-400">
+                <span class="mono-label hidden text-[0.62rem] sm:inline">
                   Leídas
                 </span>
                 <span
-                  class="tabular-nums text-[0.8rem] font-semibold tracking-tight text-slate-700 dark:text-slate-200"
+                  class="font-mono tabular-nums text-[0.78rem] text-[var(--fg)]"
                   aria-live="polite"
                 >
                   <span data-read-count>0</span><span aria-hidden="true">/</span
@@ -200,7 +200,7 @@ const total = counter.total
         </div>
 
         <form
-          class="search-shell search-shell--compact min-w-0 flex-1 md:order-2"
+          class="search-shell search-shell--compact w-full min-w-0 md:order-2 md:mx-auto md:w-72"
           role="search"
           aria-label="Buscar preguntas sobre React"
           data-search-form
@@ -263,7 +263,7 @@ const total = counter.total
 }
 
 <script>
-  import Fuse from 'fuse.js'
+  import type Fuse from 'fuse.js'
   import debounce from 'just-debounce-it'
 
   type IndexItem = { id: string; text: string; level?: number }
@@ -285,9 +285,13 @@ const total = counter.total
 
   async function ensureFuse() {
     if (fuse) return fuse
-    const res = await fetch('/content/index.json')
+    // Load Fuse and the search index in parallel, only when the user searches
+    const [{ default: FuseCtor }, res] = await Promise.all([
+      import('fuse.js'),
+      fetch('/content/index.json'),
+    ])
     const index: IndexItem[] = await res.json()
-    fuse = new Fuse(index, {
+    fuse = new FuseCtor(index, {
       keys: ['text'],
       includeScore: true,
       includeMatches: true,

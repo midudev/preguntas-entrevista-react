@@ -7,34 +7,42 @@ interface Props {
   excerpt: string
   slug: string
   level: number
+  rank?: number
 }
 
-const { title, excerpt, slug, level } = Astro.props
+const { title, excerpt, slug, level, rank } = Astro.props
 const plainTitle = stripMarkdown(title)
 const titleId = `card-title-${slug.replace(/[^a-z0-9-]/gi, '')}`
 const excerptId = `card-excerpt-${slug.replace(/[^a-z0-9-]/gi, '')}`
 ---
 
 <a
-  class="question-card relative z-10 flex h-full min-w-0"
+  class="question-card"
   href={slug}
   aria-labelledby={titleId}
   aria-describedby={excerptId}
 >
-  <article class="flex h-full w-full min-w-0 flex-col gap-y-4">
-    <Pill level={level} as="p" />
-    <h3
-      id={titleId}
-      class="rich-text min-w-0 font-display text-xl font-bold leading-tight text-slate-900 dark:text-white"
-      title={plainTitle}
-      set:html={renderInlineMarkdown(title)}
-    />
-    <p id={excerptId} class="min-w-0 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+  {
+    rank != null && (
+      <span class="question-card-rank" aria-hidden="true">
+        {String(rank).padStart(2, '0')}
+      </span>
+    )
+  }
+  <span class="flex min-w-0 flex-1 flex-col">
+    <span class="flex min-w-0 items-baseline justify-between gap-3">
+      <span
+        id={titleId}
+        class="question-card-title rich-text"
+        title={plainTitle}
+        set:html={renderInlineMarkdown(title)}
+      />
+      <span class="shrink-0">
+        <Pill level={level} as="span" />
+      </span>
+    </span>
+    <span id={excerptId} class="question-card-excerpt">
       {excerpt}
-    </p>
-    <p class="mt-auto inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-blue-600 dark:text-blue-400">
-      <span>Abrir respuesta</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>
-    </p>
-  </article>
+    </span>
+  </span>
 </a>

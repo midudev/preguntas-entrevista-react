@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css'
+import geistLatinWoff2 from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url'
+import geistMonoLatinWoff2 from '@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import BuyBook from '../components/BuyBook.astro'
@@ -49,26 +51,26 @@ const {
         root.classList.toggle('dark', dark)
         root.dataset.theme = dark ? 'dark' : 'light'
         root.style.colorScheme = dark ? 'dark' : 'light'
-        root.style.setProperty('--page-bg', dark ? '#0a0f1a' : '#fafbff')
-        root.style.setProperty('--page-fg', dark ? '#f1f5f9' : '#0f172a')
+        root.style.setProperty('--page-bg', dark ? '#0a0a0a' : '#ffffff')
+        root.style.setProperty('--page-fg', dark ? '#ededed' : '#171717')
       })()
     </script>
     <style is:inline>
       /* Critical theme colors — apply before the main CSS bundle loads */
       html {
-        background-color: var(--page-bg, #fafbff);
+        background-color: var(--page-bg, #ffffff);
         color-scheme: light;
       }
       html[data-theme='dark'],
       html.dark {
-        background-color: var(--page-bg, #0a0f1a);
+        background-color: var(--page-bg, #0a0a0a);
         color-scheme: dark;
       }
       html,
       body {
         min-height: 100%;
-        background-color: var(--page-bg, #fafbff);
-        color: var(--page-fg, #0f172a);
+        background-color: var(--page-bg, #ffffff);
+        color: var(--page-fg, #171717);
       }
       /* Hide unthemed paint if script is delayed (e.g. by a CDN); removed once data-theme is set */
       html:not([data-theme]) {
@@ -86,10 +88,24 @@ const {
       </style>
     </noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href={geistLatinWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={geistMonoLatinWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#fafbff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     <Seo
       title={title}
       description={description}

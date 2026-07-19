@@ -5,10 +5,10 @@ interface Props {
 const { isHome = false } = Astro.props
 
 const classes = [
-  'font-display max-w-2xl py-4 font-bold leading-[1.08] tracking-tight text-balance',
+  'font-display max-w-2xl py-4 font-semibold leading-[1.08] tracking-tight text-balance text-[var(--fg)]',
   isHome
-    ? 'animate-fade-in-up animate-duration-700 animate-delay-200 text-5xl md:text-7xl text-slate-950 dark:text-white'
-    : 'text-2xl md:text-4xl text-slate-900 dark:text-slate-100',
+    ? 'animate-fade-in-up animate-duration-400 animate-delay-50 text-5xl md:text-7xl'
+    : 'text-2xl md:text-4xl',
 ]
 ---
 
