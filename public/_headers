@@ -1,3 +1,11 @@
+# Default (HTML pages): browser revalidates every time, but the Cloudflare
+# edge may cache for 4h (purged on each deploy). Edge cacheability is what
+# makes hover prefetch/prerender eligible — otherwise Cloudflare refuses
+# speculative requests with 503 (cf-speculation-refused).
+# More specific rules below override this one (last match wins).
+/*
+  Cache-Control: public, max-age=0, s-maxage=14400, stale-while-revalidate=86400
+
 # Hashed build assets: safe to cache forever
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
