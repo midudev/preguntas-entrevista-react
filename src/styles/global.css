@@ -247,55 +247,6 @@
   border: 0;
 }
 
-/* ─── View transitions ─── */
-
-/*
-  Cross-document view transitions: pure CSS, zero JS. The browser cross-fades
-  the old page snapshot into the new one on same-origin navigations. Pairs with
-  the existing prefetch/prerender so the new document is usually already warm.
-  Unsupported browsers (Firefox today) simply navigate as before.
-*/
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root) {
-  animation: vt-fade-out 140ms cubic-bezier(0.4, 0, 1, 1) both;
-}
-
-::view-transition-new(root) {
-  animation: vt-fade-in 180ms cubic-bezier(0, 0, 0.2, 1) both;
-}
-
-@keyframes vt-fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes vt-fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-/*
-  Persistent chrome. Naming an element lifts it out of the `root` snapshot, so
-  it is no longer part of the page-wide fade. Because the element is identical
-  on both documents, killing its animation makes it appear to never re-render.
-*/
-::view-transition-group(buy-book),
-::view-transition-old(buy-book),
-::view-transition-new(buy-book) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-/* Only the incoming copy is painted — no cross-fade of two identical layers. */
-::view-transition-old(buy-book) {
-  display: none;
-}
-
 /* ─── Reduced motion ─── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -306,12 +257,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  /* The blanket rule above already collapses these, but be explicit: no fade. */
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none !important;
   }
 }
 
