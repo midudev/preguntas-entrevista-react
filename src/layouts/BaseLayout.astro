@@ -33,10 +33,9 @@ const {
     <meta charset="utf-8" />
     {/*
       Theme bootstrap MUST be the first executable content in <head>.
-      data-cfasync="false" prevents Cloudflare Rocket Loader from deferring it
-      (that deferral is a common cause of light-mode FOUC).
+      Si se difiere, se ve un flash en modo claro antes de aplicar el tema.
     */}
-    <script is:inline data-cfasync="false">
+    <script is:inline>
       ;(function () {
         var root = document.documentElement
         var stored = null
@@ -63,7 +62,7 @@ const {
       sessionStorage (no localStorage) para que la entrada vuelva a verse en una
       visita nueva, no solo la primera vez en la vida del navegador.
     */}
-    <script is:inline data-cfasync="false">
+    <script is:inline>
       ;(function () {
         try {
           if (sessionStorage.getItem('entrance-seen')) {
@@ -91,7 +90,7 @@ const {
         background-color: var(--page-bg, #ffffff);
         color: var(--page-fg, #171717);
       }
-      /* Hide unthemed paint if script is delayed (e.g. by a CDN); removed once data-theme is set */
+      /* Hide unthemed paint if the script is delayed; removed once data-theme is set */
       html:not([data-theme]) {
         visibility: hidden;
       }
