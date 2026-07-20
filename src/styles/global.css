@@ -59,7 +59,7 @@
 
   html.dark,
   html[data-theme='dark'] {
-    background-color: var(--page-bg, #0a0a0a);
+    background-color: var(--page-bg, #0f0f12);
     color-scheme: dark;
   }
 
