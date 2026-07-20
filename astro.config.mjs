@@ -11,6 +11,16 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'hover',
   },
+  build: {
+    // Incrusta el CSS en el HTML en lugar de enlazarlo. El <link> obligaba a un
+    // round-trip extra en serie (el navegador no descubre la hoja hasta que
+    // parsea el head) que bloqueaba el primer pintado. Con el CSS dentro del
+    // documento, el HTML llega listo para pintar.
+    // Se pierde el cacheo de la hoja entre paginas, pero el CSS global ya se
+    // dividio por ruta (global vs article) y el prefetch deja las paginas
+    // calientes de todas formas.
+    inlineStylesheets: 'always',
+  },
   experimental: {
     // Prerender prefetched pages via the Speculation Rules API (Chromium)
     clientPrerender: true,
