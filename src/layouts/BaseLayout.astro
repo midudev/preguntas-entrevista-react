@@ -54,25 +54,6 @@ const {
         root.style.setProperty('--page-fg', dark ? '#ededed' : '#171717')
       })()
     </script>
-    {/*
-      Marca la sesión como "ya ha visto la entrada" para que al volver al home
-      desde una pregunta no se repita la escalera de animaciones.
-      Debe ir inline y antes del primer pintado, igual que el bootstrap de tema:
-      si corriera después, se vería un frame de los elementos ya animándose.
-      sessionStorage (no localStorage) para que la entrada vuelva a verse en una
-      visita nueva, no solo la primera vez en la vida del navegador.
-    */}
-    <script is:inline>
-      ;(function () {
-        try {
-          if (sessionStorage.getItem('entrance-seen')) {
-            document.documentElement.dataset.entranceSeen = ''
-          } else {
-            sessionStorage.setItem('entrance-seen', '1')
-          }
-        } catch (e) {}
-      })()
-    </script>
     <style is:inline>
       /* Critical theme colors — apply before the main CSS bundle loads */
       html {
