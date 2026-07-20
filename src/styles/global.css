@@ -1245,3 +1245,24 @@
 }
 
 }
+
+/* ─── Animaciones de entrada: solo una vez por sesión ─── */
+
+/*
+  `data-entrance-seen` lo pone un script inline en BaseLayout. Al volver al home
+  desde una pregunta la escalera del hero ya se ha visto, y repetirla en cada
+  navegación cansa.
+
+  Va en `@layer utilities` a propósito: la utilidad `.animate-fade-in-up` vive
+  ahí, y utilities gana a components en el orden de Tailwind. Dentro del mismo
+  layer manda la especificidad, y este selector (0,3,1) supera al (0,1,0) de la
+  utilidad. Fuera del layer NO funciona.
+
+  Se excluye `.search-panel`: usa el mismo `fade-in-up` pero es el desplegable
+  de resultados, una animación de interacción que sí debe seguir corriendo.
+*/
+@layer utilities {
+  html[data-entrance-seen] .animate-fade-in-up:not(.search-panel) {
+    animation: none;
+  }
+}
