@@ -667,6 +667,17 @@
   max-height: min(18rem, 48vh);
 }
 
+/* The compact field stays narrow, but the panel spills wider on both sides */
+@media (min-width: 768px) {
+  .search-shell--compact .search-panel {
+    left: 50%;
+    right: auto;
+    width: 34rem;
+    /* margin, not translateX — the panel's entry animation owns `transform` */
+    margin-left: -17rem;
+  }
+}
+
 .search-shell--compact .search-option-link {
   padding: 0.55rem 0.65rem;
   gap: 0.55rem;
@@ -787,6 +798,41 @@
   outline-offset: 2px;
 }
 
+.search-shortcut {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 0.25rem;
+  background: var(--surface);
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1;
+  /* Hidden — not removed — until the client knows which modifier to show */
+  visibility: hidden;
+  transition: opacity 140ms ease;
+}
+
+.search-shortcut[data-ready='true'] {
+  visibility: visible;
+}
+
+/* The hint has done its job once the user is in the field */
+.search-shell:focus-within .search-shortcut,
+.search-shell[data-open='true'] .search-shortcut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: none) {
+  .search-shortcut {
+    display: none;
+  }
+}
+
 .search-panel {
   /* Float over page content — never expand the header / layout */
   display: none;
@@ -815,6 +861,8 @@
   padding: 0.3rem;
   max-height: min(22rem, 52vh);
   overflow-y: auto;
+  /* Reserve the scrollbar track so the list doesn't jump when it overflows */
+  scrollbar-gutter: stable;
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--hairline-strong) transparent;
@@ -974,6 +1022,17 @@
 }
 
 /* ─── Sticky topbar (non-home pages) ─── */
+
+/* Level heading sticks under the topbar while scrolling its group.
+   --topbar-h is measured on pages that render the sticky topbar; on the
+   home page there is none, so the fallback of 0px applies. */
+.questions-group-header {
+  position: sticky;
+  top: var(--topbar-h, 0px);
+  z-index: 20;
+  padding-block: 0.5rem;
+  background: var(--page-bg, #ffffff);
+}
 
 .site-topbar {
   overflow: visible;

@@ -12,13 +12,41 @@ const { title, autoMark = true } = Astro.props
   data-read-button
   data-title={title}
   data-auto-mark={autoMark ? 'true' : 'false'}
+  data-read-ready="false"
   aria-pressed="false"
   class="pill-tag inline-flex cursor-pointer items-center gap-1 bg-[var(--surface)] text-[var(--muted)] transition-colors hover:text-[var(--fg)]"
 >
-  <svg data-icon-unread xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M14 12c0 .5 0 .5 -.5 .5h-3c-.5 0 -.5 0 -.5 -.5s0 -.5 .5 -.5h3c.5 0 .5 0 .5 .5"/><path d="M12 9v6"/></svg>
-  <svg data-icon-read class="hidden" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg>
-  <span data-read-label>Marcar leído</span>
+  <span class="read-icon" aria-hidden="true">
+    <svg data-icon-unread xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M14 12c0 .5 0 .5 -.5 .5h-3c-.5 0 -.5 0 -.5 -.5s0 -.5 .5 -.5h3c.5 0 .5 0 .5 .5"/><path d="M12 9v6"/></svg>
+    <svg data-icon-read xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg>
+  </span>
+  <span class="read-label-text" data-read-label></span>
 </button>
+
+<style>
+  /* Stack both icons in one grid cell so swapping them doesn't collapse the box */
+  .read-icon {
+    display: inline-grid;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .read-icon > * {
+    grid-area: 1 / 1;
+  }
+
+  /* Nothing is shown until the client resolves the stored state */
+  [data-read-ready='false'] [data-icon-read],
+  [data-read-ready='false'] [data-icon-unread],
+  [data-read-ready='false'] .read-label-text {
+    visibility: hidden;
+  }
+
+  [data-read-ready='true'][aria-pressed='true'] [data-icon-unread],
+  [data-read-ready='true'][aria-pressed='false'] [data-icon-read] {
+    visibility: hidden;
+  }
+</style>
 
 <script>
   function getRead(): string[] {
@@ -62,13 +90,11 @@ const { title, autoMark = true } = Astro.props
     const title = btn.dataset.title || ''
     const isRead = getRead().includes(title)
     const label = btn.querySelector('[data-read-label]')
-    const iconRead = btn.querySelector('[data-icon-read]')
-    const iconUnread = btn.querySelector('[data-icon-unread]')
 
     if (label) label.textContent = isRead ? 'Leído' : 'Marcar leído'
-    iconRead?.classList.toggle('hidden', !isRead)
-    iconUnread?.classList.toggle('hidden', isRead)
+    // Icon visibility is driven by aria-pressed + data-read-ready in CSS
     btn.setAttribute('aria-pressed', isRead ? 'true' : 'false')
+    btn.dataset.readReady = 'true'
     btn.setAttribute(
       'aria-label',
       isRead ? 'Marcar como no leído' : 'Marcar como leído'

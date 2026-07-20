@@ -46,7 +46,7 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
       const countId = `count-${category.id}`
       return (
       <section aria-labelledby={headingId}>
-        <div class="mb-3 flex items-center justify-between gap-3">
+        <div class="questions-group-header mb-3 flex items-center justify-between gap-3">
           {'level' in category && category.level !== undefined ? (
             <div id={headingId}>
               <Pill level={category.level} as="h3" />

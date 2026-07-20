@@ -46,7 +46,7 @@ const total = counter.total
               class="font-mono tabular-nums text-[0.78rem] text-[var(--fg)]"
               aria-live="polite"
             >
-              <span data-read-count>0</span><span aria-hidden="true">/</span>{total}
+              <span class="inline-block min-w-[3ch] text-right" data-read-count></span><span aria-hidden="true">/</span>{total}
             </span>
           </span>
           <span class="sr-only">preguntas leídas de {total}</span>
@@ -190,7 +190,7 @@ const total = counter.total
                   class="font-mono tabular-nums text-[0.78rem] text-[var(--fg)]"
                   aria-live="polite"
                 >
-                  <span data-read-count>0</span><span aria-hidden="true">/</span
+                  <span class="inline-block min-w-[3ch] text-right" data-read-count></span><span aria-hidden="true">/</span
                   >{total}
                 </span>
               </span>
@@ -238,8 +238,11 @@ const total = counter.total
                 <path d="M6 6l12 12"></path>
               </svg>
             </button>
+            <kbd class="search-shortcut" data-search-shortcut aria-hidden="true">
+              <span data-search-shortcut-mod>Ctrl</span>K
+            </kbd>
             <p id="search-hint" class="sr-only">
-              Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer resultados y Enter para abrir la pregunta.
+              Escribe al menos 2 caracteres. Usa flechas arriba y abajo para recorrer resultados y Enter para abrir la pregunta. Pulsa Control o Comando más K desde cualquier punto de la página para volver al buscador.
             </p>
           </div>
           <div
@@ -663,18 +666,85 @@ const total = counter.total
     })
   }
 
+  function isTypingTarget(el: EventTarget | null) {
+    const node = el as HTMLElement | null
+    if (!node) return false
+    const tag = node.tagName
+    return (
+      tag === 'INPUT' ||
+      tag === 'TEXTAREA' ||
+      tag === 'SELECT' ||
+      node.isContentEditable
+    )
+  }
+
+  function onShortcut(e: KeyboardEvent) {
+    const isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'
+    const isSlash = e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey
+
+    if (!isCmdK && !isSlash) return
+    // `/` is a legit character while typing; ⌘K should always reach the search
+    if (isSlash && isTypingTarget(document.activeElement)) return
+
+    const { input } = getEls()
+    if (!input) return
+
+    e.preventDefault()
+    input.focus({ preventScroll: true })
+    input.select()
+  }
+
   function onStorage(e: Event) {
     const detail = (e as CustomEvent).detail ?? e
     const key = (detail as any).key
     if (key === 'read' || (e as StorageEvent).key === 'read') paintCounter()
   }
 
+  function paintShortcutBadge() {
+    const isApple = /mac|iphone|ipad|ipod/i.test(navigator.platform || navigator.userAgent)
+    document.querySelectorAll<HTMLElement>('[data-search-shortcut]').forEach(badge => {
+      const mod = badge.querySelector('[data-search-shortcut-mod]')
+      if (mod) mod.textContent = isApple ? '⌘' : 'Ctrl'
+      badge.dataset.ready = 'true'
+    })
+  }
+
+  let topbarObserver: ResizeObserver | null = null
+
+  // Publish the sticky topbar's height so other sticky elements can offset
+  // themselves under it. The home page has no topbar, so it stays at 0px.
+  function trackTopbarHeight() {
+    topbarObserver?.disconnect()
+    const topbar = document.querySelector<HTMLElement>('.site-topbar')
+
+    if (!topbar) {
+      document.documentElement.style.setProperty('--topbar-h', '0px')
+      return
+    }
+
+    const update = () => {
+      document.documentElement.style.setProperty(
+        '--topbar-h',
+        `${Math.round(topbar.getBoundingClientRect().height)}px`
+      )
+    }
+
+    update()
+    topbarObserver = new ResizeObserver(update)
+    topbarObserver.observe(topbar)
+  }
+
   paintCounter()
+  paintShortcutBadge()
+  trackTopbarHeight()
   initSearch()
   window.addEventListener('storage', onStorage)
   window.addEventListener('local-storage', onStorage)
+  document.addEventListener('keydown', onShortcut)
   document.addEventListener('astro:page-load', () => {
     paintCounter()
+    paintShortcutBadge()
+    trackTopbarHeight()
     initSearch()
   })
 </script>
