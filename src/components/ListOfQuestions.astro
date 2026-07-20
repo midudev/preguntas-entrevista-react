@@ -39,7 +39,7 @@ questions.forEach(question => {
 const grouped = Array.from(categories.values()).filter(c => c.questions.length > 0)
 ---
 
-<div class="animate-fade-in animate-duration-400 space-y-8" data-questions-list>
+<div class="space-y-8" data-questions-list>
   {
     grouped.map(category => {
       const headingId = `category-${category.id}`
