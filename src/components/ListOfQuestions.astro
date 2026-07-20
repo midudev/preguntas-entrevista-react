@@ -59,12 +59,18 @@ const grouped = Array.from(categories.values()).filter(c => c.questions.length >
               {category.label}
             </h3>
           )}
-          <span
-            id={countId}
-            class="font-mono text-xs tabular-nums text-[var(--muted)]"
-            aria-label={`${category.questions.length} preguntas en ${category.label}`}
-          >
+          {/*
+            El texto accesible va como contenido real oculto, no como aria-label:
+            un <span> tiene rol implícito `generic`, donde aria-label está
+            prohibido y los lectores de pantalla pueden ignorarlo. Como este
+            elemento es el destino de un aria-describedby, necesita que la
+            descripción salga de su contenido para resolverse de forma fiable.
+          */}
+          <span id={countId} class="font-mono text-xs tabular-nums text-[var(--muted)]">
             <span aria-hidden="true">{category.questions.length}</span>
+            <span class="sr-only">
+              {category.questions.length} preguntas en {category.label}
+            </span>
           </span>
         </div>
 
