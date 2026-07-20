@@ -11,14 +11,27 @@ import BookCover from './BookCover.astro'
     aria-label="Comprar el libro de preguntas típicas de React en Leanpub (se abre en una pestaña nueva)"
   >
     <BookCover width={120} height={156} rotate={22} rotateHover={6}>
-      <img
-        alt=""
-        src="/book.webp"
-        width="120"
-        height="156"
-        loading="lazy"
-        decoding="async"
-      />
+      {/*
+        El libro está en `position: fixed`, así que siempre entra en el viewport
+        inicial: `loading="lazy"` retrasaba la petición hasta calcular el layout
+        sin ahorrar nada. `eager` + prioridad baja lo pide pronto pero sin
+        competir con el LCP.
+
+        El preload de AVIF vive en BaseLayout; lleva el mismo `type`, así que
+        los navegadores sin AVIF lo ignoran y caen al webp sin doble descarga.
+      */}
+      <picture>
+        <source srcset="/book.avif" type="image/avif" />
+        <img
+          alt="Portada del libro «Preguntas típicas de React» de Miguel Ángel Durán"
+          src="/book.webp"
+          width="120"
+          height="156"
+          loading="eager"
+          fetchpriority="low"
+          decoding="async"
+        />
+      </picture>
     </BookCover>
     <span class="buy-book-cta" aria-hidden="true">Comprar libro</span>
   </a>
@@ -30,6 +43,9 @@ import BookCover from './BookCover.astro'
     right: 1.15rem;
     bottom: 1.15rem;
     z-index: 30;
+    /* Opts out of the page-wide fade so the book stays put across navigations.
+       Animation is disabled in global.css under "View transitions". */
+    view-transition-name: buy-book;
   }
 
   .buy-book-link {

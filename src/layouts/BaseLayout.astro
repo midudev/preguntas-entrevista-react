@@ -102,6 +102,20 @@ const {
       type="font/woff2"
       crossorigin
     />
+    {/*
+      El libro flotante (BuyBook) está en `position: fixed` y se renderiza en
+      todas las páginas, así que siempre se descarga. Adelantamos la petición al
+      parseo del <head> en vez de esperar al <body>.
+      `type` hace que los navegadores sin AVIF salten este preload y usen el
+      webp del <picture>; `fetchpriority=low` evita competir con el LCP.
+    */}
+    <link
+      rel="preload"
+      as="image"
+      href="/book.avif"
+      type="image/avif"
+      fetchpriority="low"
+    />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />

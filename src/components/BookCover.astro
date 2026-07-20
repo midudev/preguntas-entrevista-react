@@ -7,7 +7,6 @@ interface Props {
   radius?: number
   thickness?: number
   bgColor?: string
-  shadowColor?: string
   width?: number
   height?: number
   pagesOffset?: number
@@ -21,7 +20,6 @@ const {
   radius = 2,
   thickness = 35,
   bgColor = '#01060f',
-  shadowColor = 'rgba(0, 0, 0, .2)',
   width = 100,
   height = 150,
   pagesOffset = 4,
@@ -35,7 +33,6 @@ const style = [
   `--book-radius:${radius}px`,
   `--book-thickness:${thickness}px`,
   `--book-bg:${bgColor}`,
-  `--book-shadow:${shadowColor}`,
   `--book-width:${width}px`,
   `--book-height:${height}px`,
   `--book-pages-offset:${pagesOffset}px`,
@@ -60,15 +57,6 @@ const style = [
     perspective: var(--book-perspective);
   }
 
-  @keyframes book-cover-init {
-    0% {
-      transform: rotateY(calc(var(--book-rotate-hover) * -1));
-    }
-    100% {
-      transform: rotateY(calc(var(--book-rotate) * -1));
-    }
-  }
-
   .book-cover-book {
     width: var(--book-width);
     height: var(--book-height);
@@ -76,7 +64,6 @@ const style = [
     transform-style: preserve-3d;
     transform: rotateY(calc(var(--book-rotate) * -1));
     transition: transform var(--book-duration) ease;
-    animation: 1s ease 0s 1 book-cover-init;
   }
 
   .book-cover-book:hover {
@@ -92,7 +79,6 @@ const style = [
     transform: translateZ(var(--book-z));
     background-color: var(--book-bg);
     border-radius: 0 var(--book-radius) var(--book-radius) 0;
-    box-shadow: 5px 5px 20px var(--book-shadow);
   }
 
   .book-cover-book::before {
@@ -139,6 +125,5 @@ const style = [
     transform: translateZ(calc(var(--book-z) * -1));
     background-color: var(--book-bg);
     border-radius: 0 var(--book-radius) var(--book-radius) 0;
-    box-shadow: -10px 0 50px 10px var(--book-shadow);
   }
 </style>
