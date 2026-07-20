@@ -100,7 +100,10 @@
   display: flex;
   align-items: stretch;
   overflow: auto;
-  overscroll-behavior: contain;
+  /* contain solo en horizontal (evita el swipe-back); en vertical dejamos que
+     el scroll encadene con la página al llegar al límite */
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
   max-height: min(32rem, 70vh);
   scrollbar-width: thin;
   scrollbar-color: var(--code-muted) transparent;
